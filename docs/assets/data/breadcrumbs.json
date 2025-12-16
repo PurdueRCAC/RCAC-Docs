@@ -13,15 +13,50 @@
     "Anvil User Guide",
     "Accessing the System"
   ],
-  "/userguides/anvil/system/": [
+  "/userguides/anvil/architecture/": [
     "Home",
     "Anvil User Guide",
     "System Architecture"
   ],
-  "/userguides/anvil/jobs/": [
+  "/userguides/anvil/run_jobs/": [
     "Home",
     "Anvil User Guide",
     "Running Jobs on Anvil"
+  ],
+  "/userguides/anvil/storage/": [
+    "Home",
+    "Anvil User Guide",
+    "Managing and Transferring Files"
+  ],
+  "/userguides/anvil/software/": [
+    "Home",
+    "Anvil User Guide",
+    "Software"
+  ],
+  "/userguides/anvil/policies/": [
+    "Home",
+    "Anvil User Guide",
+    "Policies, Helpful Tips and FAQs"
+  ],
+  "/userguides/anvil/composable/": [
+    "Home",
+    "Anvil User Guide",
+    "Anvil Composable Subsystem"
+  ],
+  "/userguides/anvil/help/": [
+    "Home",
+    "Anvil User Guide",
+    "Get Help"
+  ],
+  "/userguides/anvil/datasets/": [
+    "Home",
+    "Anvil User Guide",
+    "Datasets"
+  ],
+  "/userguides/anvil/anvilgpt/": [
+    "Home",
+    "Anvil User Guide",
+    "AnvilGPT"
   ],
   "/userguides/gautschi/": [
     "Home",
