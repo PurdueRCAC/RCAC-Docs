@@ -94,9 +94,16 @@ nav:
       - AnvilGPT: userguides/anvil/anvilgpt.md
     - Gautschi User Guide:
       - userguides/gautschi/index.md
-      - Biography of Gautschi: userguides/gautschi/biography.md
       - Gautschi Overview: userguides/gautschi/overview.md
-      - Running Jobs on Gautschi: userguides/gautschi/jobs/index.md
+      - Biography of Gautschi: userguides/gautschi/biography.md
+      - Accounts: userguides/gautschi/accounts.md
+      - Software: userguides/gautschi/software.md
+      - Running Jobs: userguides/gautschi/run_jobs/index.md
+      - File Storage and Transfer: userguides/gautschi/storage.md
+      - Gateway (Open OnDemand): userguides/gautschi/gateway.md
+      - Compiling Source Code: userguides/gautschi/compile.md
+      - Frequently Asked Questions: userguides/gautschi/faq.md
+      - Datasets: userguides/gautschi/datasets.md
   - RCAC Blogs:
     - blog/index.md
   - Software:
