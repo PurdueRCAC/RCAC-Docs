@@ -62,20 +62,55 @@
     "Home",
     "Gautschi User Guide"
   ],
-  "/userguides/gautschi/biography/": [
-    "Home",
-    "Gautschi User Guide",
-    "Biography of Gautschi"
-  ],
   "/userguides/gautschi/overview/": [
     "Home",
     "Gautschi User Guide",
     "Gautschi Overview"
   ],
-  "/userguides/gautschi/jobs/": [
+  "/userguides/gautschi/biography/": [
     "Home",
     "Gautschi User Guide",
-    "Running Jobs on Gautschi"
+    "Biography of Gautschi"
+  ],
+  "/userguides/gautschi/accounts/": [
+    "Home",
+    "Gautschi User Guide",
+    "Accounts"
+  ],
+  "/userguides/gautschi/software/": [
+    "Home",
+    "Gautschi User Guide",
+    "Software"
+  ],
+  "/userguides/gautschi/run_jobs/": [
+    "Home",
+    "Gautschi User Guide",
+    "Running Jobs"
+  ],
+  "/userguides/gautschi/storage/": [
+    "Home",
+    "Gautschi User Guide",
+    "File Storage and Transfer"
+  ],
+  "/userguides/gautschi/gateway/": [
+    "Home",
+    "Gautschi User Guide",
+    "Gateway (Open OnDemand)"
+  ],
+  "/userguides/gautschi/compile/": [
+    "Home",
+    "Gautschi User Guide",
+    "Compiling Source Code"
+  ],
+  "/userguides/gautschi/faq/": [
+    "Home",
+    "Gautschi User Guide",
+    "Frequently Asked Questions"
+  ],
+  "/userguides/gautschi/datasets/": [
+    "Home",
+    "Gautschi User Guide",
+    "Datasets"
   ],
   "/blog/": [
     "Home",
