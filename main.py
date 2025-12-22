@@ -42,6 +42,7 @@ Detailed steps for different operating systems and specific SSH client softwares
     If you do not protect your private key with a passphrase, anyone with access to your computer could SSH to your account on {resource}.
 
 2. By default, the key files will be stored in `~/.ssh/id_rsa` and `~/.ssh/id_rsa.pub` on your local machine.
+
 3. Copy the contents of the public key into `$HOME/.ssh/authorized_keys` on the cluster with the following command. When asked for a password, type your password followed by "`,push`". Your Purdue Duo client will receive a notification to approve the login.
 
    `ssh-copy-id -i ~/.ssh/id_rsa.pub username@{resource}.rcac.purdue.edu`
@@ -51,7 +52,9 @@ Detailed steps for different operating systems and specific SSH client softwares
    If your system does not have the `ssh-copy-id` command, use this instead:
 
    `cat ~/.ssh/id_rsa.pub | ssh username@{resource}.rcac.purdue.edu "mkdir -p ~/.ssh && chmod 700 ~/.ssh && cat >> ~/.ssh/authorized_keys"`
+
 4. Test the new key by SSH-ing to the server. The login should now complete without asking for a password.
+
 5. If the private key has a non-default name or location, you need to specify the key by
 
    `ssh -i my_private_key_name username@{resource}.rcac.purdue.edu`
@@ -196,23 +199,23 @@ The ThinLinc service can be accessed from your web browser as a convenience to i
 
   To set up SSH key authentication on the ThinLinc client:
 
-  + Open the Options panel, and select Public key as your authentication method on the Security tab.
+  * Open the Options panel, and select Public key as your authentication method on the Security tab.
 
     ![ThinLinc Options window](/userguides/accounts/thinlinc1.png)
 
 
     The "Options..." button in the ThinLinc Client can be found towards the bottom left, above the "Connect" button.
-  + In the options dialog, switch to the "Security" tab and select the "Public key" radio button:
+  
+  * In the options dialog, switch to the "Security" tab and select the "Public key" radio button:
 
     ![ThinLinc's Security tab](/userguides/accounts/thinlinc2.png)
 
-
     The "Security" tab found in the options dialog, will be the last of available tabs. The "Public key" option can be found in the "Authentication method" options group.
-  + Click OK to return to the ThinLinc Client login window. You should now see a Key field in place of the Password field.
-  + In the Key field, type the path to your locally stored private key or click the `...` button to locate and select the key on your local system. **Note:** If *PuTTY* is used to generate the SSH Key pairs, please choose the private key in the openssh format.
+
+  * Click OK to return to the ThinLinc Client login window. You should now see a Key field in place of the Password field.
+  * In the Key field, type the path to your locally stored private key or click the `...` button to locate and select the key on your local system. **Note:** If *PuTTY* is used to generate the SSH Key pairs, please choose the private key in the openssh format.
 
     ![Thinlinc login with key](/userguides/accounts/thinlinc3.png)
-
 
     The ThinLinc Client login window will now display key field instead of a password field.
 
