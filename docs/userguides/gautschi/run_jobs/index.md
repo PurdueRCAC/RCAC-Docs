@@ -3,14 +3,20 @@ tags:
   - Gautschi
 authors:
   - jin456
+  - remender
 resource: Gautschi
 search:
   boost: 2
 ---
 
-There is one method for submitting jobs to {{ resource }}. You may use Slurm to submit jobs to a partition on {{ resource }}. Slurm performs job scheduling. Jobs may be any type of program. You may use either the batch or interactive mode to run your jobs. Use the batch mode for finished programs; use the interactive mode only for debugging.
+Jobs are submitted on {{ resource }} via the SLURM (Simple Linux Utility for Resource Management) scheduler, which is responsible for allocating resources and scheduling the start time of a job. You may use either the batch or interactive mode to run your jobs. The batch mode is ideal for finished programs, and the interactive mode is useful for debugging your job.
 
-In this section, you'll find a few pages describing the basics of creating and submitting Slurm jobs. As well, a number of example Slurm jobs that you may be able to adapt to your own needs.
+!!! important
+    Do NOT run large, long, multi-threaded, parallel, or CPU-intensive jobs on a front-end login host. All users share the front-end hosts, and running anything but the smallest test job will negatively impact everyone's ability to use Gautschi. Always use SLURM to submit your work as a job.
 
-- [**Python on {{ resource }} resource**](running_jobs_python.md)
-- [**R on {{ resource }} resource**](running_jobs_r.md)
+Batch jobs submitted via SLURM have four main steps:
+
+- [**Creating the submission script**](creating_the_submission_script.md)
+- [**Submitting the script as a job**](submit_script.md)
+- [**Monitoring the job**](monitoring_job.md)
+- [**Checking the job output**](checking_output.md)
