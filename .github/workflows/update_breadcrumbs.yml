@@ -1,12 +1,13 @@
-name: Update breadcrumbs on mkdocs.yml change (GitHub App)
+name: Update breadcrumbs on zensical.toml change (GitHub App)
 
 on:
   push:
     branches:
       - main
       - dev
+      - zensical
     paths:
-      - 'mkdocs.yml'
+      - 'zensical.toml'
 
 permissions:
   contents: write
@@ -37,7 +38,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pyyaml
+          pip install tomli
 
 
       - name: Configure git identity
@@ -65,5 +66,5 @@ jobs:
           # Skip commit if no changes
           git diff --cached --quiet && echo "No changes to commit" && exit 0
           
-          git commit -m "Auto-update breadcrumbs.json after mkdocs.yml change"
+          git commit -m "Auto-update breadcrumbs.json after zensical.toml change"
           git push https://x-access-token:${GITHUB_APP_TOKEN}@github.com/${{ github.repository }} HEAD:${{ github.ref_name }}

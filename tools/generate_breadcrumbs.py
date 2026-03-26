@@ -1,35 +1,24 @@
 #!/usr/bin/env python3
 """
-Generate breadcrumbs.json from mkdocs.yml nav.
+Generate breadcrumbs.json from zensical.toml nav.
 
 Rules:
  - Only include parent titles if that parent section contains an actual index.md
  - Do NOT emit an entry for the root "/" (no breadcrumb for Home page)
- - Writes output to docs/assets/data/breadcrumbs.json so MkDocs will serve it
- - Ignores unknown Python YAML tags used by Material
+ - Writes output to docs/assets/data/breadcrumbs.json so Zensical will serve it
 """
 import os
 import json
-import yaml
-
-# ----------------------------
-# YAML loader that ignores Material python tags (e.g. emoji)
-# ----------------------------
-class IgnoreUnknownTagsLoader(yaml.SafeLoader):
-    pass
-
-def ignore_unknown(loader, tag_suffix, node):
-    # ignore unknown python tags
-    return None
-
-# Register wildcard multi-constructor for python/name: tags
-IgnoreUnknownTagsLoader.add_multi_constructor('tag:yaml.org,2002:python/name:', ignore_unknown)
+try:
+    import tomllib
+except ImportError:
+    import tomli as tomllib
 
 # ----------------------------
 # Helpers
 # ----------------------------
 ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-MKDOCS_YML = os.path.join(ROOT_DIR, "mkdocs.yml")
+ZENSICAL_TOML = os.path.join(ROOT_DIR, "zensical.toml")
 OUTPUT_JSON = os.path.join(ROOT_DIR, "docs", "assets", "data", "breadcrumbs.json")
 
 
@@ -128,13 +117,13 @@ def parse_nav(nav_items, parent_chain=None):
 # Main
 # ----------------------------
 def main():
-    if not os.path.exists(MKDOCS_YML):
-        raise FileNotFoundError(f"mkdocs.yml not found at expected path: {MKDOCS_YML}")
+    if not os.path.exists(ZENSICAL_TOML):
+        raise FileNotFoundError(f"zensical.toml not found at expected path: {ZENSICAL_TOML}")
 
-    with open(MKDOCS_YML, "r", encoding="utf-8") as f:
-        mk = yaml.load(f, Loader=IgnoreUnknownTagsLoader)
+    with open(ZENSICAL_TOML, "rb") as f:
+        config = tomllib.load(f)
 
-    nav = mk.get("nav", [])
+    nav = config.get("project", {}).get("nav", [])
     mapping = parse_nav(nav)
 
     # ensure target dir exists (docs/assets/data)
@@ -142,7 +131,7 @@ def main():
     with open(OUTPUT_JSON, "w", encoding="utf-8") as out:
         json.dump(mapping, out, indent=2, ensure_ascii=False)
 
-    print(f"✅ breadcrumbs.json generated ({len(mapping)} entries) -> {OUTPUT_JSON}")
+    print(f"breadcrumbs.json generated ({len(mapping)} entries) -> {OUTPUT_JSON}")
 
 
 if __name__ == "__main__":
