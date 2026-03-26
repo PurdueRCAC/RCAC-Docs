@@ -1,0 +1,267 @@
+# ============================================================================
+#
+# The configuration produced by default is meant to highlight the features
+# that Zensical provides and to serve as a starting point for your own
+# projects.
+#
+# ============================================================================
+
+[project]
+
+# The site_name is shown in the page header and the browser window title
+#
+# Read more: https://zensical.org/docs/setup/basics/#site_name
+site_name = "RCAC Documentation"
+site_description = "Documentation for Purdue University's Rosen Center for Advanced Computing."
+site_author = "Rosen Center for Advanced Computing"
+site_url = "https://rcac-docs-demo.readthedocs.io"
+copyright = "Copyright &copy; 2026 Rosen Center for Advanced Computing"
+
+nav = [
+  {"HPC User Guides" = [
+    {"Anvil" = [
+      "userguides/anvil/index.md",
+      {"About" = [
+        {"Overview" = "userguides/anvil/overview.md"},
+        {"System Architecture" = "userguides/anvil/architecture.md"},
+      ]},
+      {"Access to Anvil" = "userguides/anvil/access.md"},
+      {"Getting Started" = "userguides/anvil/getting-started.md"},
+      {"Job Submission" = "userguides/anvil/jobs.md"},
+      {"File Management" = "userguides/anvil/file_management.md"},
+      {"Anvil Software" = "userguides/anvil/anvil-software.md"},
+      {"Help Desk" = "userguides/anvil/help.md"},
+      {"Anvil Composable Subsystem" = [
+        {"Getting Started" = "userguides/anvil/composable/getting-started.md"},
+        {"Concepts" = "userguides/anvil/composable/concepts.md"},
+        {"Examples" = "userguides/anvil/composable/examples.md"},
+      ]},
+      {"AnvilGPT (LLM)" = "userguides/anvil/anvilgpt.md"},
+      {"Anvil Notebook" = "userguides/anvil/notebook.md"},
+      {"Maintenance Log" = "userguides/anvil/maintenance.md"},
+      {"Policies" = "userguides/anvil/policies.md"},
+    ]},
+    {"Gautschi" = [
+      "userguides/gautschi/index.md",
+      {"Gautschi Overview" = "userguides/gautschi/overview.md"},
+      {"Biography of Gautschi" = "userguides/gautschi/biography.md"},
+      {"Accounts" = "userguides/gautschi/accounts.md"},
+      {"Software" = "userguides/gautschi/software.md"},
+      {"Running Jobs" = "userguides/gautschi/run_jobs/index.md"},
+      {"File Storage and Transfer" = "userguides/gautschi/storage.md"},
+      {"Gateway (Open OnDemand)" = "userguides/gautschi/gateway.md"},
+      {"Compiling Source Code" = "userguides/gautschi/compile.md"},
+      {"Frequently Asked Questions" = "userguides/gautschi/faq.md"},
+      {"Datasets" = "userguides/gautschi/datasets.md"},
+    ]},
+    {"Bell" = "https://www.rcac.purdue.edu/knowledge/bell"},
+    {"Negishi" = "https://www.rcac.purdue.edu/knowledge/negishi"},
+    {"Gilbreth" = "https://www.rcac.purdue.edu/knowledge/gilbreth"},
+    {"Scholar" = "https://www.rcac.purdue.edu/knowledge/scholar"},
+  ]},
+  {"Storage User Guides" = [
+    {"Data Depot" = "https://www.rcac.purdue.edu/knowledge/depot"},
+    {"Fortress" = "https://www.rcac.purdue.edu/knowledge/fortress"},
+    {"Scratch" = "https://www.rcac.purdue.edu/knowledge/scratch"},
+    {"Home Directory" = "https://www.rcac.purdue.edu/knowledge/home"},
+    {"Box Research Lab Folder" = "https://www.rcac.purdue.edu/knowledge/boxfolder"},
+  ]},
+  {"RCAC Resources" = [
+    {"RCAC Blogs" = [
+      "blog/index.md",
+    ]},
+    {"Software" = [
+      "software/index.md",
+      {"All Software" = "software/app_catalog.md"},
+      {"Compilers" = "software/compilers_catalog.md"},
+      {"MPIs" = "software/mpi_catalog.md"},
+      {"Computational Chemistry" = "software/chemistry_catalog.md"},
+      {"Fluid Dynamics" = "software/fluid_dynamics_catalog.md"},
+      {"Audio/Visualization" = "software/audio_visual_catalog.md"},
+      {"Library" = "software/library_catalog.md"},
+      {"Mathematics/Statistics" = "software/math_stat_catalog.md"},
+      {"Engineering" = "software/engineering_catalog.md"},
+      {"Geoscience" = "software/geoscience_catalog.md"},
+      {"Utilities" = "software/utilities_catalog.md"},
+      {"Workflow" = "software/workflow_catalog.md"},
+    ]},
+    {"Datasets" = [
+      "datasets/index.md",
+      {"AI" = "datasets/ai.md"},
+      {"Hydrological" = "datasets/hydrological.md"},
+      {"Meteorological" = "datasets/meteorological.md"},
+      {"Geospatial" = "datasets/geospatial.md"},
+      {"Covariates" = "datasets/Covariates.md"},
+      {"GeoAI" = "datasets/geoai.md"},
+      {"Igenomes" = "datasets/igenomes.md"},
+    ]},
+    {"RCAC Workshops" = [
+      "workshops/index.md",
+      {"HPC Exchange" = [
+        "workshops/hpc_exchange/index.md",
+        {"Week 1" = [
+          {"Week 1 Index" = "workshops/hpc_exchange/week1/week1.md"},
+          {"Setting up for the workshop" = "workshops/hpc_exchange/week1/terminal.md"},
+          {"How to Access the Clusters" = "workshops/hpc_exchange/week1/access.md"},
+          {"What is Unix" = "workshops/hpc_exchange/week1/unix.md"},
+          {"What is the Shell" = "workshops/hpc_exchange/week1/shell.md"},
+          {"Anatomy of a Command" = "workshops/hpc_exchange/week1/anatomy.md"},
+          {"Navigate the Filesystem" = "workshops/hpc_exchange/week1/navigate.md"},
+          {"Editing files from the command line" = "workshops/hpc_exchange/week1/edit.md"},
+          {"Command Reference" = "workshops/hpc_exchange/week1/reference.md"},
+        ]},
+        {"Week 2" = [
+          {"Week 2 Index" = "workshops/hpc_exchange/week2/week2.md"},
+          {"Purdue Clusters" = "workshops/hpc_exchange/week2/clusters.md"},
+          {"Access" = "workshops/hpc_exchange/week2/access.md"},
+          {"Files" = "workshops/hpc_exchange/week2/files1.md"},
+          {"Applications" = "workshops/hpc_exchange/week2/applications.md"},
+          {"What is a Cluster" = "workshops/hpc_exchange/week2/what_cluster.md"},
+          {"Jobs" = "workshops/hpc_exchange/week2/jobs.md"},
+        ]},
+        {"Week 3" = [
+          {"Week 3 Index" = "workshops/hpc_exchange/week3/week3.md"},
+          {"Scripting" = "workshops/hpc_exchange/week3/scripts.md"},
+          {"Managing Processes" = "workshops/hpc_exchange/week3/processes.md"},
+          {"Managing Output with Pipes" = "workshops/hpc_exchange/week3/pipes.md"},
+          {"Managing Files and Directories" = "workshops/hpc_exchange/week3/managing_files.md"},
+        ]},
+        {"Week 4" = [
+          {"Week 4 Index" = "workshops/hpc_exchange/week4/week4.md"},
+          {"File storage and transfers" = "workshops/hpc_exchange/week4/files2.md"},
+          {"Multinode jobs and topology" = "workshops/hpc_exchange/week4/multinode.md"},
+          {"Job History" = "workshops/hpc_exchange/week4/history.md"},
+          {"Resource Utilization and Monitoring" = "workshops/hpc_exchange/week4/monitor.md"},
+          {"Managing Workloads and Jobs" = "workshops/hpc_exchange/week4/workloads.md"},
+        ]},
+      ]},
+      {"Anvil Kubernetes" = "workshops/kubernetes-tutorial.md"},
+    ]},
+  ]},
+  {"Contact us" = "contact.md"},
+  {"FAQs" = "faq.md"},
+]
+
+# With the "extra_css" option you can add your own CSS styling to customize
+# your Zensical project according to your needs. You can add any number of
+# CSS files.
+#
+# The path provided should be relative to the "docs_dir".
+#
+# Read more: https://zensical.org/docs/customization/#additional-css
+#
+extra_css = ["stylesheets/extra.css"]
+extra_javascript = [
+    "assets/js/homepage.js",
+    "assets/js/tablefilter.js",
+    "assets/js/init-tablefilter.js",
+    "assets/js/breadcrumbs.js",
+    "assets/js/external-links.js",
+]
+
+# ----------------------------------------------------------------------------
+# Section for configuring theme options
+# ----------------------------------------------------------------------------
+[project.theme]
+variant = "classic"
+custom_dir = "overrides"
+logo = "assets/purdue.png"
+favicon = "assets/purdue_favicon.png"
+
+# Zensical supports more than 60 different languages. This means that the
+# labels and tooltips that Zensical's templates produce are translated.
+# The "language" option allows you to set the language used. This language
+# is also indicated in the HTML head element to help with accessibility
+# and guide search engines and translation tools.
+#
+# The default language is "en" (English). It is possible to create
+# sites with multiple languages and configure a language selector. See
+# the documentation for details.
+#
+# Read more:
+# - https://zensical.org/docs/setup/language/
+#
+language = "en"
+
+# Zensical provides a number of feature toggles that change the behavior
+# of the documentation site.
+features = [
+    "content.code.copy",
+    "navigation.footer",
+    "navigation.indexes",
+    "navigation.sections",
+    "navigation.top",
+    "search.highlight",
+    "search.suggest",
+    "toc.follow",
+]
+
+# ----------------------------------------------------------------------------
+# You can configure your own logo to be shown in the header using the "logo"
+# option in the "theme" subsection. The logo must be a relative path to a file
+# in your "docs_dir", e.g., to use `docs/assets/logo.png` you would set:
+# ----------------------------------------------------------------------------
+#logo = "assets/logo.png"
+
+# ----------------------------------------------------------------------------
+# If you don't have a dedicated project logo, you can use a built-in icon from
+# the icon sets shipped in Zensical. Please note that the setting lives in a
+# different subsection, and that the above take precedence over the icon.
+#
+# Read more:
+# - https://zensical.org/docs/setup/logo-and-icons
+# - https://github.com/zensical/ui/tree/master/dist/.icons
+# ----------------------------------------------------------------------------
+#[project.theme.icon]
+#logo = "lucide/smile"
+
+# ----------------------------------------------------------------------------
+# In the "font" subsection you can configure the fonts used. By default, fonts
+# are loaded from Google Fonts, giving you a wide range of choices from a set
+# of suitably licensed fonts. There are options for a normal text font and for
+# a monospaced font used in code blocks.
+# ----------------------------------------------------------------------------
+[project.theme.font]
+text = "Roboto"
+code = "Consolas"
+
+# ----------------------------------------------------------------------------
+# In the "palette" subsection you can configure options for the color scheme.
+# You can configure different color schemes, e.g., to turn on dark mode,
+# that the user can switch between. Each color scheme can be further
+# customized.
+#
+# Read more:
+# - https://zensical.org/docs/setup/colors/
+# ----------------------------------------------------------------------------
+[[project.theme.palette]]
+media = "(prefers-color-scheme: light)"
+scheme = "default"
+toggle.icon = "material/brightness-7"
+toggle.name = "Switch to dark mode"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: dark)"
+scheme = "slate"
+toggle.icon = "material/brightness-4"
+toggle.name = "Switch to automatic mode"
+
+[[project.extra.social]]
+icon = "fontawesome/regular/envelope"
+name = "Get additional help from rcac-help"
+link = "mailto:rcac-help@purdue.edu"
+
+[[project.extra.social]]
+icon = "fontawesome/brands/github"
+name = "Check RCAC public GitHub page"
+link = "https://github.com/PurdueRCAC"
+
+[[project.extra.social]]
+icon = "fontawesome/brands/x-twitter"
+name = "Follow RCAC on X"
+link = "https://x.com/PurdueRCAC"
+
+[[project.extra.social]]
+icon = "fontawesome/brands/discord"
+name = "Join our Purdue RCD Community Discord channel"
+link = "https://discord.gg/RmtKZmaQW9"

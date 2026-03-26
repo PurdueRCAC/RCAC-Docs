@@ -1,5 +1,0 @@
----
-hide:
-  - footer
----
-# RCAC Blogs

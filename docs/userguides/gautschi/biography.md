@@ -1,11 +1,5 @@
----
-tags:
-  - Gautschi
-authors:
-  - jin456
-search:
-  boost: 2
----
+<!-- ---
+--- -->
 
 # Walter Gautschi
 ![Image title](../../assets/bio_gautschi.jpg){ align=right }

@@ -1,11 +1,6 @@
----
-tags:
-  - Anvil
-authors:
-  - dane
-  - elian
-draft: true
----
+<!-- ---
+#
+--- -->
 
 ## Overview / Slurm Basics
 

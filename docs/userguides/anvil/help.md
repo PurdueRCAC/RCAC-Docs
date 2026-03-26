@@ -1,11 +1,6 @@
----
-tags:
-  - Anvil
-  - Help
-authors:
-  - dane
-draft: true
----
+<!-- ---
+#
+--- -->
 
  <p style="font-size: 1.75em; font-weight: bold;">Anvil Resources</p>
 

@@ -1,12 +1,5 @@
----
-tags:
-  - Anvil
-  - AnvilGPT
-authors:
-  - jin456
-search:
-  boost: 1
----
+<!-- ---
+--- -->
 
 AnvilGPT is an LLM service that makes open source LLM models like LLaMA accessible to ACCESS researchers.  It is **hosted entirely with on-prem resources at Purdue**, not only providing democratized access but adding another layer of control compared to commercial services.  Chats, documents, and models are not shared between users nor used for training.
 

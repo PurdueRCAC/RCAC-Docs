@@ -1,11 +1,7 @@
----
+<!-- ---
 # tags:
 #   - Gautschi
-authors:
-  - jin456
-search:
-  boost: 2
----
+--- -->
 
 # Gautschi User Guide
 Gautschi is a Community Cluster optimized for communities running traditional, tightly-coupled science and engineering applications.

@@ -1,12 +1,6 @@
----
-tags:
-  - Gautschi
-authors:
-  - jin456
+<!-- ---
 resource: gautschi
-search:
-  boost: 2
----
+--- -->
 
 ## Accounts on Gautschi
 ### Obtaining an Account

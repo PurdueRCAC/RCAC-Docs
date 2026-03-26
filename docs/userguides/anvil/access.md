@@ -1,13 +1,6 @@
----
-tags:
-  - Anvil
-  - ACCESS
-authors:
-  - jin456
-search:
-  boost: 2
-draft: false
----
+<!-- ---
+#
+--- -->
 
 ## Obtaining an Account
 

@@ -1,11 +1,5 @@
----
-tags:
-  - Anvil
-authors:
-  - dane
-search:
-  boost: 2
----
+<!-- ---
+--- -->
 
 ## Logging in
 

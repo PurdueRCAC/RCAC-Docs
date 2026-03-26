@@ -1,13 +1,6 @@
----
-tags:
-  - Gautschi
-  - R
-authors:
-  - jin456
-cluster: Gautschi
-search:
-  boost: 2
----
+<!-- ---
+# cluster: Gautschi
+--- -->
 
 # Using R on {{ cluster }} cluster
 

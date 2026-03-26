@@ -1,12 +1,6 @@
----
-tags:
-  - Anvil
-authors:
-  - jin456
-search:
-  boost: 2
-draft: false
----
+<!-- ---
+#
+--- -->
 
 # System Architecture
 

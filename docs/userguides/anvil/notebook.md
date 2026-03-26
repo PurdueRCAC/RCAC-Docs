@@ -1,10 +1,6 @@
----
-tags:
-  - Anvil
-authors:
-  - dane
-draft: true
----
+<!-- ---
+#
+--- -->
 
 ## Anvil Notebook
 

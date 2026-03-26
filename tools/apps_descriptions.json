@@ -2275,5 +2275,29 @@
     "topic": [
       "Miscellaneous"
     ]
+  },
+  "hcoll": {
+    "description": "Modern interface for Mellanox Fabric Collective Accelerator (FCA). FCA is a MPI-integrated software package that utilizes CORE-Direct technology for implementing the MPI collective communications.",
+    "homepage": "https://developer.nvidia.com/networking/hpc-x",
+    "source": "spack",
+    "topic": [
+      "Miscellaneous"
+    ]
+  },
+  "hpcx": {
+    "description": "TODO: add description",
+    "homepage": null,
+    "source": "none",
+    "topic": [
+      "Miscellaneous"
+    ]
+  },
+  "rclone": {
+    "description": "Rclone is a command line program to sync files and directories to and from various cloud storage providers",
+    "homepage": "https://rclone.org",
+    "source": "spack",
+    "topic": [
+      "Miscellaneous"
+    ]
   }
 }

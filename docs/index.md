@@ -1,9 +1,22 @@
----
-hide:
-  - footer
-  - toc
-#   - navigation
----
+<section class="hero-banner">
+  <div class="hero-image" style="background-image: url('assets/images/hero.jpg');">
+    <div class="hero-gradient"></div>
+    <div class="hero-content">
+      <div class="hero-text">
+        <div class="hero-accent-bar"></div>
+        <h1>Rosen Center For Advanced Computing</h1>
+        <p>RCAC provides access to leading-edge computational and data storage systems as well as expertise in a broad range of high-performance computing activities.</p>
+      </div>
+      <div class="hero-audience-links">
+        <a href="#hpc-user-guides" class="hero-link">User Guides</a>
+        <a href="software/" class="hero-link">Software</a>
+        <a href="workshops/" class="hero-link">Workshops</a>
+        <a href="blog/" class="hero-link">RCAC Blogs</a>
+        <a href="contact/" class="hero-link">Get Help</a>
+      </div>
+    </div>
+  </div>
+</section>
 
 # Welcome to RCAC Documentation
 
@@ -111,60 +124,6 @@ Follow these steps to get up and running on RCAC clusters.
     [:octicons-arrow-right-24: Scholar User Guide :octicons-link-external-16:](https://www.rcac.purdue.edu/knowledge/scholar)
 
 </div>
-
-<!-- ## :material-lightning-bolt: Common Tasks
-
-<div class="grid cards" markdown>
-
--   :material-key:{ .lg .middle } __Manage SSH Keys__
-
-    ---
-
-    [:octicons-arrow-right-24: SSH key setup](blog/posts/ssh_key_creation.md)
-
--   :material-monitor-dashboard:{ .lg .middle } __Open OnDemand__
-
-    ---
-
-    [:octicons-arrow-right-24: Web portal access](userguides/gautschi/gateway.md)
-
--   :material-package-variant:{ .lg .middle } __Load Software Modules__
-
-    ---
-
-    [:octicons-arrow-right-24: Module system](userguides/gautschi/software.md)
-
--   :material-script-text:{ .lg .middle } __Slurm Job Scripts__
-
-    ---
-
-    [:octicons-arrow-right-24: Job scripting](userguides/gautschi/run_jobs/index.md)
-
--   :material-remote-desktop:{ .lg .middle } __ThinLinc Remote Desktop__
-
-    ---
-
-    [:octicons-arrow-right-24: ThinLinc guide](blog/posts/thinlinc-login.md)
-
--   :material-harddisk:{ .lg .middle } __Storage & Scratch__
-
-    ---
-
-    [:octicons-arrow-right-24: Storage overview](userguides/gautschi/storage.md)
-
--   :material-code-braces:{ .lg .middle } __Compile Source Code__
-
-    ---
-
-    [:octicons-arrow-right-24: Compilation guide](userguides/gautschi/compile.md)
-
--   :material-frequently-asked-questions:{ .lg .middle } __FAQ__
-
-    ---
-
-    [:octicons-arrow-right-24: Frequently asked questions](userguides/gautschi/faq.md)
-
-</div> -->
 
 ## :material-bookshelf: RCAC Resources
 
