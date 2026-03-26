@@ -13,8 +13,9 @@ document.addEventListener("DOMContentLoaded", function () {
       e.preventDefault();
       var value = btn.getAttribute("data-md-value");
 
-      // Hide buttons, show matching note
-      form.querySelector(".md-feedback__list").style.display = "none";
+      // Disable the fieldset — triggers :disabled .md-feedback__note { opacity:1 } in CSS
+      form.querySelector("fieldset").disabled = true;
+      // Unhide the matching note
       notes.forEach(function (note) {
         if (note.getAttribute("data-md-value") === value) {
           note.removeAttribute("hidden");
