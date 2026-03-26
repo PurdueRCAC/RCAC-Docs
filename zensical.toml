@@ -157,6 +157,7 @@ extra_javascript = [
     "assets/js/init-tablefilter.js",
     "assets/js/breadcrumbs.js",
     "assets/js/external-links.js",
+    "assets/js/feedback.js",
 ]
 
 # ----------------------------------------------------------------------------
@@ -245,6 +246,21 @@ media = "(prefers-color-scheme: dark)"
 scheme = "slate"
 toggle.icon = "material/brightness-4"
 toggle.name = "Switch to automatic mode"
+
+[project.extra.analytics.feedback]
+title = "Page helpful? Submit your feedback if not."
+
+[[project.extra.analytics.feedback.ratings]]
+icon = "material/thumb-up-outline"
+name = "This page was helpful"
+data = 1
+note = "Thanks for your feedback!"
+
+[[project.extra.analytics.feedback.ratings]]
+icon = "material/thumb-down-outline"
+name = "This page could be improved"
+data = 0
+note = "Thanks for your feedback! Help us improve this page by using our <a href=\"https://github.com/PurdueRCAC/RCAC-Docs/issues/new?labels=feedback&title=[Feedback]:%20&body=>%20**Page%20Affected:**%20https://rcac-docs.s3-hosted.rcac.purdue.edu{url}%0A>%20Please%20describe%20the%20issue%20you%20found%20on%20this%20page.%0A%0A\" target=\"_blank\" rel=\"noopener\">feedback form</a>."
 
 [[project.extra.social]]
 icon = "fontawesome/regular/envelope"
