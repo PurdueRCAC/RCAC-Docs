@@ -152,7 +152,6 @@ nav = [
 #
 extra_css = ["stylesheets/extra.css"]
 extra_javascript = [
-    "assets/js/homepage.js",
     "assets/js/tablefilter.js",
     "assets/js/init-tablefilter.js",
     "assets/js/breadcrumbs.js",

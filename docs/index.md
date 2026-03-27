@@ -1,3 +1,7 @@
+---
+hide:
+  - toc
+---
 <section class="hero-banner">
   <div class="hero-image" style="background-image: url('assets/images/hero.jpg');">
     <div class="hero-gradient"></div>
