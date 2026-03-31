@@ -1,0 +1,375 @@
+/* Light mode */
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color: black;
+  --md-primary-bg-color: #CBBA94;
+  --md-accent-bg-color: #CBBA94;
+  --md-accent-fg-color: #CBBA94;
+  --md-typeset-a-color: #8e6f3e;
+}
+
+/* Dark mode */
+[data-md-color-scheme="slate"][data-md-color-primary] {
+  /* --md-default-fg-color: #CBBA94;  */ 
+  /* --md-default-bg-color: #CBBA94; */
+  --md-typeset-a-color: #ebd99f;
+  --md-primary-fg-color: #CBBA94;
+  --md-accent-fg-color: #8e6f3e;
+}
+
+.md-nav__link--active {
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "UnitedSans";
+  src: url("/assets/fonts/UnitedSans_purdue_2023/UnitedSansSmExMd.otf") format('truetype');
+}
+
+.md-header__title { /* Example selector for the header navigation title */
+  font-family: 'UnitedSans'; 
+}
+
+.md-nav__title { /* Example selector for the header navigation title */
+  font-family: 'UnitedSans'; 
+}
+
+/* Adjust nav font size */
+/* .md-tabs__link {
+  font-size: 0.9rem;
+} */
+/* .md-nav__title {
+  font-size: 0.8rem; 
+} */
+.md-nav__link {
+  font-size: 0.8rem; /* Adjust as needed */
+}
+
+/* :root {
+  --md-text-font: "UnitedSans"; 
+} */
+
+/* Customize table style to Github table. 
+Ref: https://blog.ktz.me/making-mkdocs-tables-look-like-github-markdown-tables/ */
+th, td {
+    border: 1px solid var(--md-typeset-table-color);
+    border-spacing: 0;
+    border-bottom: none;
+    border-left: none;
+    border-top: none;
+}
+
+.md-typeset__table {
+    line-height: 1.2;
+}
+
+.md-typeset__table table:not([class]) {
+    font-size: .74rem;
+    border-right: none;
+}
+
+.md-typeset__table table:not([class]) td,
+.md-typeset__table table:not([class]) th {
+    padding: 9px;
+}
+
+/* light mode alternating table bg colors */
+.md-typeset__table tr:nth-child(2n) {
+    background-color: #f8f8f8;
+}
+
+/* dark mode alternating table bg colors */
+[data-md-color-scheme="slate"] .md-typeset__table tr:nth-child(2n) {
+    background-color: hsla(var(--md-hue),25%,25%,1)
+}
+
+/* ===== App Catalog Table (#appTable) ===== */
+
+/* Base table */
+#appTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.78rem;
+}
+
+/* All cells - use theme variables so light/dark mode both work */
+#appTable th,
+#appTable td {
+  background-color: var(--md-default-bg-color) !important;
+  color: var(--md-default-fg-color) !important;
+  border: 1px solid var(--md-typeset-table-color, rgba(0, 0, 0, 0.12));
+  padding: 8px 12px;
+  vertical-align: top;
+}
+
+/* Column header row (Application / Topic / Available at) */
+#appTable thead tr:not(.fltrow) th {
+  background-color: var(--md-default-fg-color--lightest) !important;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Column header with an active filter */
+#appTable thead tr:not(.fltrow) th.activeHeader {
+  background-color: var(--md-typeset-table-color) !important;
+  color: var(--md-default-fg-color) !important;
+}
+
+/* Filter row */
+#appTable .fltrow th,
+#appTable .fltrow td {
+  background-color: var(--md-default-bg-color) !important;
+  color: var(--md-default-fg-color) !important;
+  border: 1px solid var(--md-typeset-table-color, rgba(0, 0, 0, 0.12));
+  padding: 4px 6px;
+}
+
+/* Filter inputs and token selects */
+#appTable .flt,
+#appTable .flt_s,
+#appTable .fltrow input,
+#appTable .fltrow select,
+.tf-token-select {
+  background-color: var(--md-default-bg-color) !important;
+  color: var(--md-default-fg-color) !important;
+  border: 1px solid var(--md-typeset-table-color, rgba(0, 0, 0, 0.12)) !important;
+  border-radius: 3px;
+  padding: 3px 6px;
+  font-size: 0.78rem;
+  font-family: inherit;
+  width: 100%;
+  box-sizing: border-box;
+}
+#appTable .flt:focus,
+#appTable .flt_s:focus,
+#appTable .fltrow input:focus,
+#appTable .fltrow select:focus,
+.tf-token-select:focus {
+  outline: 2px solid var(--md-accent-fg-color);
+  outline-offset: -1px;
+}
+
+/* Alternating body rows */
+#appTable tbody tr:nth-child(even) td {
+  background-color: var(--md-code-bg-color) !important;
+}
+
+/* Row hover */
+#appTable tbody tr:hover td {
+  background-color: var(--md-default-fg-color--lightest) !important;
+}
+
+/* Rows counter injected below the first filter input */
+#tf-row-counter {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.75rem;
+  opacity: 0.75;
+}
+
+/* Hide the built-in .inf bar (counter moved into filter row) */
+.inf {
+  display: none !important;
+}
+
+
+/* No results message */
+.no-results {
+  background-color: var(--md-default-bg-color) !important;
+  color: var(--md-default-fg-color) !important;
+  display: block !important;
+  padding: 1rem;
+  text-align: center;
+}
+
+/* Table cell wrapping fix — scoped to .md-typeset__table (markdown tables only)
+   to avoid breaking code block tables (Material uses <table> internally when linenums: true) */
+.md-typeset__table td,
+.md-typeset__table th,
+#appTable td,
+#appTable th {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  text-overflow: clip;
+}
+.md-typeset__table pre,
+#appTable pre {
+  white-space: pre-wrap !important;
+  word-break: break-word;
+  overflow-x: auto;
+}
+
+/* style for breadcrumbs */
+.md-breadcrumb {
+  font-size: 0.9em;
+  margin-bottom: 0.8em;
+}
+.breadcrumb-link {
+  text-decoration: underline;
+  color: var(--md-typeset-a-color);
+}
+.breadcrumb-link:hover {
+  text-decoration: none;
+}
+.breadcrumb-current {
+  font-weight: 600;
+}
+
+/* Separators between sidebar nav sections */
+.md-nav--primary > .md-nav__list > .md-nav__item:nth-child(1),
+.md-nav--primary > .md-nav__list > .md-nav__item:nth-child(2),
+.md-nav--primary > .md-nav__list > .md-nav__item:nth-child(3) {
+  border-bottom: 3px solid var(--md-default-fg-color--lightest);
+  padding-bottom: 0.6rem;
+  margin-bottom: 0.6rem;
+}
+
+/* External link icon in sidebar nav */
+.md-nav__link[href^="http"] .md-ellipsis::after {
+  content: "";
+  display: inline-block;
+  width: 0.75em;
+  height: 0.75em;
+  margin-left: 0.25em;
+  vertical-align: middle;
+  background-color: currentColor;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z'/%3E%3C/svg%3E");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  opacity: 0.5;
+}
+
+/* ========================
+   Hero Banner
+   ======================== */
+.hero-banner {
+  width: 100%;
+  margin-top: -0.5rem;
+  margin-bottom: 2rem;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.hero-image {
+  position: relative;
+  width: 100%;
+  min-height: 340px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: flex-end;
+}
+
+/* Black-to-transparent gradient overlay on bottom */
+.hero-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.15) 0%,
+    rgba(0, 0, 0, 0.5) 50%,
+    rgba(0, 0, 0, 0.85) 100%
+  );
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 2rem 3rem 1.5rem;
+}
+
+/* White text overlay */
+.hero-text {
+  max-width: 600px;
+  margin-bottom: 1.5rem;
+}
+
+.hero-text h1 {
+  color: #fff !important;
+  font-family: 'UnitedSans', sans-serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.15;
+}
+
+.hero-text p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.05rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Vertical accent bar (proof point emphasis box) */
+.hero-accent-bar {
+  width: 4px;
+  height: 50px;
+  background-color: #CBBA94;
+  margin-bottom: 0.75rem;
+  border-radius: 2px;
+}
+
+/* Audience links row along the bottom */
+.hero-audience-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.hero-link {
+  display: inline-block;
+  color: #fff !important;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 4px;
+  padding: 0.5rem 1.1rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none !important;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.hero-link:hover {
+  background: rgba(203, 186, 148, 0.35);
+  border-color: #CBBA94;
+  color: #fff !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-image {
+    min-height: 350px;
+  }
+  .hero-content {
+    padding: 1.5rem 1.25rem 1rem;
+  }
+  .hero-text h1 {
+    font-size: 1.8rem;
+  }
+  .hero-text p {
+    font-size: 0.95rem;
+  }
+  .hero-link {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-image {
+    min-height: 300px;
+  }
+  .hero-text h1 {
+    font-size: 1.5rem;
+  }
+  .hero-audience-links {
+    gap: 0.4rem;
+  }
+}
+

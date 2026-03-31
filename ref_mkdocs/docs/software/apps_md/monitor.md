@@ -1,0 +1,34 @@
+# monitor
+
+[Back to application catalog](/software/app_catalog/)
+
+## Description
+
+A daemon to monitor system behavior
+
+## Homepage
+
+N/A
+
+## Available Versions on RCAC Clusters
+
+|Cluster|Versions|
+|---|---|
+**ANVIL**|2.3.1 (D)
+**BELL**|2.3.1 (D)
+**GAUTSCHI**|2.3.1 (D)
+**GILBRETH**|2.3.1
+**NEGISHI**|2.3.1 (D)
+
+(D): Default Module
+
+## Module
+
+You can load the module by:
+
+```bash
+module load monitor
+```
+
+!!! note "Note for using `monitor`"
+    Run `module spider monitor` beforehand to check if this version requires any prerequisite modules.

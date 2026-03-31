@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if page and page.is_homepage %}
+<!-- Hero Banner -->
+<section class="hero-banner">
+  <div class="hero-image" style="background-image: url('{{ config.site_url }}assets/images/hero.jpg');">
+    <div class="hero-gradient"></div>
+    <div class="hero-content">
+      <div class="hero-text">
+        <div class="hero-accent-bar"></div>
+        <h1>Rosen Center For Advanced Computing</h1>
+        <p>RCAC provides access to leading-edge computational and data storage systems as well as expertise in a broad range of high-performance computing activities.</p>
+      </div>
+      <div class="hero-audience-links">
+        <a href="#hpc-user-guides" class="hero-link">User Guides</a>
+        <a href="{{ 'software/' | url }}" class="hero-link">Software</a>
+        <a href="{{ 'workshops/' | url }}" class="hero-link">Workshops</a>
+        <a href="{{ 'blog/' | url }}" class="hero-link">RCAC Blogs</a>
+        <a href="{{ 'contact/' | url }}" class="hero-link">Get Help</a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<div class="md-breadcrumb"></div>
+{{ super() }}
+{% endblock %}

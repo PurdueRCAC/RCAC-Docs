@@ -1,0 +1,32 @@
+# gfms
+
+[Back to application catalog](/software/app_catalog/)
+
+## Description
+
+Generalized Finite Element Method Software for structural mechanics simulations.
+
+## Homepage
+
+N/A
+
+## Available Versions on RCAC Clusters
+
+|Cluster|Versions|
+|---|---|
+**ANVIL**|default (D)
+**GAUTSCHI**|default (D)
+**GILBRETH**|default (D)
+
+(D): Default Module
+
+## Module
+
+You can load the module by:
+
+```bash
+module load gfms
+```
+
+!!! note "Note for using `gfms`"
+    Run `module spider gfms` beforehand to check if this version requires any prerequisite modules.

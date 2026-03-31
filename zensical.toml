@@ -17,6 +17,10 @@ site_author = "Rosen Center for Advanced Computing"
 site_url = "https://rcac-docs-demo.readthedocs.io"
 copyright = "Copyright &copy; 2026 Rosen Center for Advanced Computing"
 
+repo_url = "https://github.com/PurdueRCAC/RCAC-Docs"
+repo_name = "PurdueRCAC/RCAC-Docs"
+
+
 nav = [
   {"HPC User Guides" = [
     {"Anvil" = [
@@ -212,7 +216,8 @@ features = [
 # - https://zensical.org/docs/setup/logo-and-icons
 # - https://github.com/zensical/ui/tree/master/dist/.icons
 # ----------------------------------------------------------------------------
-#[project.theme.icon]
+[project.theme.icon]
+repo = "fontawesome/brands/github-alt"
 #logo = "lucide/smile"
 
 # ----------------------------------------------------------------------------

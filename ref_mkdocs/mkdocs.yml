@@ -1,0 +1,248 @@
+site_name: RCAC Documentation
+site_description: A demo site for RCAC documentation.
+site_url: https://rcac-docs-demo.readthedocs.io
+
+theme:
+  name: material
+  logo: assets/purdue.png
+  favicon: assets/purdue_favicon.png
+  custom_dir: overrides
+  font:
+    text: Roboto
+    code: Consolas
+  features:
+    - navigation.indexes
+    # Back-to-top button
+    - navigation.top
+    - navigation.footer
+    - navigation.sections
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to automatic mode
+
+extra_css:
+  - stylesheets/extra.css
+extra_javascript:
+  - assets/js/tablefilter.js
+  - assets/js/init-tablefilter.js
+  - assets/js/breadcrumbs.js
+  - assets/js/external-links.js
+
+plugins:
+  - search
+  - blog:
+      archive_date_format: MMMM yyyy
+      post_date_format: long
+      categories_allowed:
+        - Anvil
+        - Gautschi
+        - Software
+        - Slurm
+        - Workflows
+      pagination_per_page: 5
+      pagination_if_single_page: true
+  - tags:
+      enabled: true
+  - git-revision-date-localized:
+      enable_creation_date: true
+      exclude:
+      # Do not include timestamp in the following pages
+        - index.md
+        - contact.md
+        - blog/*
+        - software/*
+        - datasets/*
+  - macros
+
+nav:
+  - HPC User Guides:
+    - Anvil:
+      - userguides/anvil/index.md
+      - About:
+        - Overview: userguides/anvil/overview.md
+        - System Architecture: userguides/anvil/architecture.md
+      - Access to Anvil: userguides/anvil/access.md
+      - Getting Started: userguides/anvil/getting-started.md
+      - Job Submission: userguides/anvil/jobs.md
+      - File Management: userguides/anvil/file_management.md
+      - Anvil Software: userguides/anvil/anvil-software.md
+      - Help Desk: userguides/anvil/help.md
+      - Anvil Composable Subsystem:
+        - Getting Started: userguides/anvil/composable/getting-started.md
+        - Concepts: userguides/anvil/composable/concepts.md
+        - Examples: userguides/anvil/composable/examples.md
+      - AnvilGPT (LLM): userguides/anvil/anvilgpt.md
+      - Anvil Notebook: userguides/anvil/notebook.md
+      - Maintenance Log: userguides/anvil/maintenance.md
+      - Policies: userguides/anvil/policies.md
+    - Gautschi:
+      - userguides/gautschi/index.md
+      - Gautschi Overview: userguides/gautschi/overview.md
+      - Biography of Gautschi: userguides/gautschi/biography.md
+      - Accounts: userguides/gautschi/accounts.md
+      - Software: userguides/gautschi/software.md
+      - Running Jobs: userguides/gautschi/run_jobs/index.md
+      - File Storage and Transfer: userguides/gautschi/storage.md
+      - Gateway (Open OnDemand): userguides/gautschi/gateway.md
+      - Compiling Source Code: userguides/gautschi/compile.md
+      - Frequently Asked Questions: userguides/gautschi/faq.md
+      - Datasets: userguides/gautschi/datasets.md
+    - Bell: https://www.rcac.purdue.edu/knowledge/bell
+    - Negishi: https://www.rcac.purdue.edu/knowledge/negishi
+    - Gilbreth: https://www.rcac.purdue.edu/knowledge/gilbreth
+    - Scholar: https://www.rcac.purdue.edu/knowledge/scholar
+  - Storage User Guides:
+    - Data Depot: https://www.rcac.purdue.edu/knowledge/depot
+    - Fortress: https://www.rcac.purdue.edu/knowledge/fortress
+    - Scratch: https://www.rcac.purdue.edu/knowledge/scratch
+    - Home Directory: https://www.rcac.purdue.edu/knowledge/home
+    - Box Research Lab Folder: https://www.rcac.purdue.edu/knowledge/boxfolder
+  - RCAC Resources:
+    - RCAC Blogs:
+      - blog/index.md
+    - Software:
+      - software/index.md
+      - All Software: software/app_catalog.md
+      - Compilers: software/compilers_catalog.md
+      - MPIs: software/mpi_catalog.md
+      - Computational Chemistry: software/chemistry_catalog.md
+      - Fluid Dynamics: software/fluid_dynamics_catalog.md
+      - Audio/Visualization: software/audio_visual_catalog.md
+      - Library: software/library_catalog.md
+      - Mathematics/Statistics: software/math_stat_catalog.md
+      - Engineering: software/engineering_catalog.md
+      - Geoscience: software/geoscience_catalog.md
+      - Utilities: software/utilities_catalog.md
+      - Workflow: software/workflow_catalog.md
+    - Datasets:
+      - datasets/index.md
+      - AI: datasets/ai.md
+      - Hydrological: datasets/hydrological.md
+      - Meteorological: datasets/meteorological.md
+      - Geospatial: datasets/geospatial.md
+      - Covariates: datasets/Covariates.md
+      - GeoAI: datasets/geoai.md
+      - Igenomes: datasets/igenomes.md
+    - RCAC Workshops:
+      - workshops/index.md
+      - HPC Exchange:
+        - workshops/hpc_exchange/index.md
+        - Week 1:
+          - Week 1 Index: workshops/hpc_exchange/week1/week1.md
+          - Setting up for the workshop: workshops/hpc_exchange/week1/terminal.md
+          - How to Access the Clusters: workshops/hpc_exchange/week1/access.md
+          - What is Unix: workshops/hpc_exchange/week1/unix.md
+          - What is the Shell: workshops/hpc_exchange/week1/shell.md
+          - Anatomy of a Command: workshops/hpc_exchange/week1/anatomy.md
+          - Navigate the Filesystem: workshops/hpc_exchange/week1/navigate.md
+          - Editing files from the command line: workshops/hpc_exchange/week1/edit.md
+          - Command Reference: workshops/hpc_exchange/week1/reference.md
+        - Week 2:
+          - Week 2 Index: workshops/hpc_exchange/week2/week2.md
+          - Purdue Clusters: workshops/hpc_exchange/week2/clusters.md
+          - Access: workshops/hpc_exchange/week2/access.md
+          - Files: workshops/hpc_exchange/week2/files1.md
+          - Applications: workshops/hpc_exchange/week2/applications.md
+          - What is a Cluster: workshops/hpc_exchange/week2/what_cluster.md
+          - Jobs: workshops/hpc_exchange/week2/jobs.md
+        - Week 3:
+          - Week 3 Index: workshops/hpc_exchange/week3/week3.md
+          - Scripting: workshops/hpc_exchange/week3/scripts.md
+          - Managing Processes: workshops/hpc_exchange/week3/processes.md
+          - Managing Output with Pipes: workshops/hpc_exchange/week3/pipes.md
+          - Managing Files and Directories: workshops/hpc_exchange/week3/managing_files.md
+        - Week 4:
+          - Week 4 Index: workshops/hpc_exchange/week4/week4.md
+          - File storage and transfers: workshops/hpc_exchange/week4/files2.md
+          - Multinode jobs and topology: workshops/hpc_exchange/week4/multinode.md
+          - Job History: workshops/hpc_exchange/week4/history.md
+          - Resource Utilization and Monitoring: workshops/hpc_exchange/week4/monitor.md
+          - Managing Workloads and Jobs: workshops/hpc_exchange/week4/workloads.md
+      - Anvil Kubernetes: workshops/kubernetes-tutorial.md
+  # - Tags: tags.md
+  - Contact us: contact.md
+  - FAQs: faq.md
+
+extra:
+  social:
+  - icon: /fontawesome/regular/envelope
+    name: Get additional help from rcac-help
+    link: mailto:<rcac-help@purdue.edu>
+  - icon: fontawesome/brands/github
+    name: Check RCAC public GitHub page
+    link: https://github.com/PurdueRCAC
+  - icon: fontawesome/brands/x-twitter
+    name: Follow RCAC on X
+    link: https://x.com/PurdueRCAC
+  - icon: fontawesome/brands/discord
+    name: Join our Purdue RCD Community Discord channel
+    link: https://discord.gg/RmtKZmaQW9
+  - icon: /material/mailbox
+    name: Contact Us
+    link: /contact
+  org: Rosen Center for Advanced Computing
+  analytics:
+    provider: google
+    property: G-3D80JBWGP0  # Guangzhen's Google Analytics
+    feedback:
+      title: Page helpful? Submit your feedback if not.
+      ratings:
+        - icon: material/thumb-up-outline
+          name: This page was helpful
+          data: 1
+          note: >-
+            Thanks for your feedback!
+        - icon: material/thumb-down-outline
+          name: This page could be improved
+          data: 0
+          note: >-
+            Thanks for your feedback! Help us improve this page by using our <a href="https://github.com/PurdueRCAC/RCAC-Docs/issues/new?labels=feedback&title=[Feedback]:%20&body=>%20**Page%20Affected:**%20https://rcac-docs.s3-hosted.rcac.purdue.edu{url}%0A>%20Please%20describe%20the%20issue%20you%20found%20on%20this%20page.%0A%0A" target="_blank" rel="noopener">feedback form</a>.
+
+markdown_extensions:
+  - toc:
+      permalink: true
+  - tables
+  - attr_list
+  - md_in_html
+  - admonition
+  - pymdownx.details
+  - pymdownx.blocks.caption
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.snippets
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+      linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+# # Adding share buttons
+# hooks:
+#   - hooks/socialmedia.py
+
+# Copyright
+copyright: Copyright &copy; 2026 Rosen Center for Advanced Computing

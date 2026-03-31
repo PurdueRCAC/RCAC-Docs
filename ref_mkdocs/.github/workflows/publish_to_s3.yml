@@ -1,0 +1,82 @@
+name: Build and Publish to S3
+
+on:
+  # Trigger after catalog rebuild workflow completes
+  workflow_run:
+    workflows: ["Run Make on modulefiles and tools change (GitHub App)"]
+    types:
+      - completed
+    branches:
+      - main
+      - auto_publish
+
+  # Trigger on push to main, but exclude paths that trigger catalog rebuild
+  # This prevents double-builds when catalog is updated
+  push:
+    branches:
+      - main
+      - auto_publish
+    paths-ignore:
+      - 'modulefiles/**'
+      - 'tools/**'
+
+  # Manual trigger for testing
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-publish:
+    # Only run if workflow_run was successful or if triggered manually/by push
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Build MkDocs site
+        run: mkdocs build --verbose
+
+      - name: Install AWS CLI
+        run: |
+          pip install awscli
+
+      - name: Configure AWS credentials for Ceph S3
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.S3_ACCESS_KEY }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET_KEY }}
+        run: |
+          aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+          aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+          aws configure set default.region us-east-1
+          aws configure set default.s3.signature_version s3v4
+
+      - name: Sync to S3 bucket
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.S3_ACCESS_KEY }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET_KEY }}
+        run: |
+          aws s3 sync site/ s3://rcac-docs/ \
+            --endpoint-url https://s3.rcac.purdue.edu \
+            --acl public-read \
+            --delete \
+            --exclude ".git/*" \
+            --exclude ".github/*"
+
+      - name: Deployment completed
+        run: |
+          echo "-- Done --"
