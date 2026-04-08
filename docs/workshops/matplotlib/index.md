@@ -1,0 +1,11 @@
+#MatPlotLib Workshops Index Page
+
+Welcome to the web page for the RCAC MatPlotLib series of workshops. We start here and will go through the other pages to learn about how to use python and MatPlotLib to create visualizations of your data.
+
+##Contents
+
+* [Getting Started](introduction.md)
+* [Our First Script](first_script.md)
+* [The Second Script](sine_plot.md)
+* [Advanced Plotting](adv_plots.md)
+* [Types of Plots](plot_types.md)

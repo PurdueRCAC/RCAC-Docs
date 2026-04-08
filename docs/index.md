@@ -5,6 +5,8 @@ hide:
 #   - navigation
 ---
 
+<div class="home-page" markdown>
+
 # Welcome to RCAC Documentation
 
 !!! Warning "Announcement"
@@ -247,5 +249,7 @@ Follow these steps to get up and running on RCAC clusters.
     Find office hours, phone numbers, and other ways to connect with the RCAC support team.
 
     [:octicons-arrow-right-24: Full contact info :octicons-link-external-16:](https://www.rcac.purdue.edu/about/contact)
+
+</div>
 
 </div>
