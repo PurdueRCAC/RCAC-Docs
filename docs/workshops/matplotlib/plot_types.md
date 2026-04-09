@@ -9,7 +9,7 @@ In this section, we will talk about different plot types, as well as how and whe
 
 This is the plot type we have been doing so far. It plots lines between every point that you supply it, in the order that you supply them to the function. The invocation would look something like this:
 
-```
+```python
 ax.plot(x,y,label='Label',marker='MarkerType',color='Color',linestyle='Style')
 ```
 
@@ -21,7 +21,7 @@ What if you have data that you want to plot, but it does not need to be connecte
 
 However, MatPlotLib provides a different function that adds some additional functionality:
 
-```
+```python
 ax.scatter(x, y, s=sizes, c=colors)
 ```
 
@@ -29,7 +29,7 @@ This takes the standard x- and y-coordinates, but you also have some extra contr
 
 Here is an example script that uses the `ax.scatter()` function:
 
-```
+```python
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -60,7 +60,7 @@ MatPlotLib also has the ability to do bar charts. The following three scripts sh
 
 This first one is a typical bar chart: it has a list of names and a list of values. The `ax.bar()` function takes those two lists and creates a bar chart out of them. The names could be any strings, and the values could be any number.
 
-```
+```python
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -78,7 +78,7 @@ plt.show()
 
 This next script is the exact same as the previous one, with the exception of the actual bar chart function. This time we use `ax.barh()` (notice the 'h' in there), which rotates the bar chart by 90 degrees and makes it a horizontal bar chart.
 
-```
+```python
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -96,7 +96,7 @@ plt.show()
 
 Lastly, we can also do grouped bar charts, by explicitly specifying the x-locations for each of the bars. So here, we have two `ax.bar()` invocations, on for the left bars of each group (the group labeled 'Men') and one for the right bars of each group (the group labeled 'Women'). We could do the same thing horizontally by just changing the bar chart invocations to `ax.barh()` and not changing anything else.
 
-```
+```python
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -127,7 +127,7 @@ This script also introduces two new options that we can specify to plots:
 
 Alpha controls how transparent the object is and ranges from 0 (completely transparent) to 1 (completely opaque). Linewidth controls the width of the plotted line. In the `fill_between()` invocation, we set the line width to be 0 to get rid of any lines it may plot and just have the filled area shown. In the `plot()` invocation afterwards, we set the linewidth to 2 so that it is a thicker line.
 
-```
+```python
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -155,7 +155,7 @@ plt.show()
 
 MatPlotLib can also do histograms with its `ax.hist()` function. It takes a list of numbers and plots the frequency of each number in a specified number of bins. In the following script, we use NumPy's random normal distribution to create a plot that is more interesting to see than a rectangle. In the `ax.hist()` command, we pass the list of numbers we want the distribution of. Then, we specify the number of bins we want to display. Next is the line width that we discussed earlier, which affects the outline of each of the bins. Lastly, we specify the edge color, which is the color of the line that surrounds each bin.
 
-```
+```python
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -175,7 +175,7 @@ plt.show()
 
 At times, you may want to have error bars around your data points. To do this in a plot, we can use the `ax.errorbar()` function. It takes three inputs to make `ax.errorbar()` work: the first two are the x-y coordinates of your data points, then the last input is the ± error on each of those points in the y-direction. We additionally specify some options to make the plot look nicer. By default, the points of an `ax.errorbar()` figure are connected by a line. If we set the format option (`fmt`) to be `'o'` this will stop it from plotting lines, and instead plot each point by itself, like a scatter plot instead. Next is the line width, which affects the width of the error bars. Lastly we set the cap size, which is the size of the caps on the top and bottom of the error bars.
 
-```
+```python
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -231,7 +231,7 @@ Imshow is much faster than Pcolormesh, but it also has more limitations. Imshow 
 
 We can then do mathematical operations on those matrices and get a N-D matrix back.
 
-```
+```python
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -248,7 +248,7 @@ plt.show()
 ```
 ![An image showing a heat map of data that goes from dark blue to yellow. The x- and y-axes range from 0 to 17.5.](./_static/Imshow_plot.png "Imshow Plot")
 
-In the previous script, we didn't pass the `X` and `Y` matrices to the `ax.imshow()` function, because it does not use them. We did pass an option `origin` that specifies where the matrix should start. By default, the data point at index `[0,0]` is plotted at the top left, and the last data point is the bottom right. If we pass `'lower'` to the `origin` option, this says that the index `[0,0]` is plotted at the bottom left, and the last data point is the top right.
+In the previous script, we did not pass the `X` and `Y` matrices to the `ax.imshow()` function, because it does not use them. We did pass an option `origin` that specifies where the matrix should start. By default, the data point at index `[0,0]` is plotted at the top left, and the last data point is the bottom right. If we pass `'lower'` to the `origin` option, this says that the index `[0,0]` is plotted at the bottom left, and the last data point is the top right.
 
 Also notice that the bounds of our data are from -5 to 5, but that the figure does not reflect that. It takes the number of data points as pixels as the x- and y-coordinates. We can however pass the `extent` option to `ax.imshow()` to specify the bounds of the data. That takes the form of `extent=[left, right, bottom, top]`, so in our case it would be `extent=[-5, 5, -5, 5]`.
 
@@ -256,7 +256,7 @@ Imshow can also use different interpolation methods to smooth the data to make i
 
 The next script uses Pcolormesh, which is slower, but can handle non-uniform grids. Pcolormesh takes the same Z data matrix made from NumPy's `meshgrid()` function, but it also requires the X and Y matrices to specify where the points are. Notice that the x-vector is made from ascending random numbers, so that it is not uniformly distributed.
 
-```
+```python
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -287,7 +287,7 @@ These both create contour plots, but `ax.contourf()` fills the contour levels, w
 
 They both take three necessary inputs: 2D X- and Y- coordinate matrices, as well as a 2D data matrix that contains the 'height' of each x-y coordinate pair. There is one important option that you may consider adding to the contour invocation: `levels`, which controls where (and how many) contour levels there are. In the following scripts, we set a variable `levels` to be an evenly-spaced array of 10 values that span from the data minimum to the data maximum. Thus, our contour plots will have 10 contour levels that are evenly spaced throughout the data. You could also do a logarithmic set of levels, or something completely different.
 
-```
+```python
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -308,7 +308,7 @@ plt.show()
 
 In the next script, which uses the filled contour plot invocation, we add a couple of extra lines to create a color bar, showing the value of each contour level. To do this, we need to save the `ax.contourf()` invocation into a variable, so the color bar knows which plot to use for its values. Then, we add a color bar to the figure with the `fig.colorbar()` function. It takes the `contourf` variable that we just set, and we assign the color bar we just created to be its own variable. We can then manipulate the variable and do things like set the color bar label to whatever we want.
 
-```
+```python
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -334,7 +334,7 @@ plt.show()
 
 What if we want to show a 2D vector field? We can create a quiver plot to show the direction and magnitude of a field at predefined points. To do this, we use the `ax.quiver()` function that takes four 2D matrices as input. The first two are the 2D X- and Y-coordinate matrices, then the next two are the 2D X- and Y-velocity matrices, that show where the arrows should point and with what length. There are many options to modify the behavior of the quiver plot, such as changing the scaling of the arrows, which you can look at here: [MatPlotLib quiver plot reference](https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.quiver.html#matplotlib.axes.Axes.quiver)
 
-```
+```python
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -356,7 +356,7 @@ plt.show()
 
 Another way of showing a 2D vector field is with a stream plot. This is achieved with the `ax.streamplot()` function, the invocation of which is similar to that of `ax.quiver()`. It takes the same four inputs, but it creates arrow streams that show the path a particle would take if it started on a stream line.
 
-```
+```python
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -378,7 +378,7 @@ plt.show()
 
 The last type of plot we show in this section is a different kind of contour plot. It is meant for when you have data that you want contours of, but the data is laid out in an irregular manner. It uses triangulation to determine where the contours should go based on the irregularly-spaced data. In the following script, we create two 1-dimensional vectors that contain x- and y-coordinates for our data. We then evaluate our function at each of those points. The contour levels are evenly spaced between the extent of the data (using `np.linspace`). Lastly, we use two plot types: `scatter` and `tricontour` to first, show where our data points are, and second, to generate the actual contours.
 
-```
+```python
 import matplotlib.pyplot as plt
 import numpy as np
 

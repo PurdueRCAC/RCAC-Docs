@@ -29,7 +29,7 @@ Using colormaps is quite simple: add the `cmap='CMAP_NAME'` option to the plotti
 
 In the following script, we use four different colormaps with the same `contourf` function on the same data. The invocation stays mostly the same, it just changes the `cmap` option on each one. We also use a new function, `fig.suptitle()`, which puts a title at the top of the figure, instead of on top of a specific set of axes. The `y` option (`y=0.94`) helps position the overall title so that there is not as much space around it as if we left that option off.
 
-```
+```python
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -76,7 +76,7 @@ What if you had some non-linear scale you wanted to show of data, or data that h
 
 To implement these scales, we need to import one more package: `matplotlib.colors` at the top of our script, and we will nickname it: `colors`. Then in the plotting invocation, we can use the `norm=NORMALIZATION` option to specify the normalization of the data. Here we use the `ax.imshow()` function to plot the data, with a specified `extent=[left,right,bottom,top]` to constrain the span of the data. We use two different functions: one that is strictly positive (for the top two plots) and one that spans positive and negative (for the bottom two plots). The strictly positive one is necessary because the logarithmic norm fails if there are negative values in the data. There is an option for a two-sided logarithmic norm that uses a logarithmic scale for both sides of zero. Details of that normalization can be found [**here**](https://matplotlib.org/stable/users/explain/colors/colormapnorms.html#symmetric-logarithmic).
 
-```
+```python
 import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib.colors as colors

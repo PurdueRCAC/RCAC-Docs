@@ -1,6 +1,6 @@
 #MatPlotLib Workshops Index Page
 
-Welcome to the web page for the RCAC MatPlotLib series of workshops. We start here and will go through the other pages to learn about how to use python and MatPlotLib to create visualizations of your data.
+Welcome to the web page for the RCAC MatPlotLib workshop. We start here and will go through the other pages to learn about how to use python and MatPlotLib to create visualizations of your data.
 
 ##Contents
 
