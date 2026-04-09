@@ -115,7 +115,7 @@ for step in steps:
     artists.append(lines)
 
 ani = animation.ArtistAnimation(fig=fig, artists=artists, interval=50)
-ani.save('test.gif')
+ani.save('artists.gif')
 ```
 ![A gif of a random walk on loop, generated using ArtistAnimation. This one, the previous steps of the random walk gradually get more transparent until you cannot see them anymore.](./_static/artists.gif "ArtistAnimation Gif")
 
