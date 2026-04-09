@@ -171,6 +171,6 @@ os.system('rm ffmpeg*.png')
 ![A gif of a random walk on loop. This one, the previous steps of the random walk gradually get more transparent until you cannot see them anymore.](./_static/ffmpeg.gif "FFmpeg Gif")
 -->
 
-!!! note 'Optimization'
+!!! note "Optimization"
 
     There are ways that you could optimize these plots further, such as not appending to an array, and instead allocating the whole array in memory, then change each individual step. Another thing you could do is generate the plot inside the data generation loop. However, because it is a random walk, we do not know before hand what x- and y-limits should be put, so we generate the data and then the plots.
