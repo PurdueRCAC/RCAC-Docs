@@ -327,53 +327,53 @@
     "RCAC Workshops",
     "HPC Exchange"
   ],
-  "/workshops/hpc_exchange/week1/week1/": [
+  "/workshops/hpc_exchange/week1/": [
     "Home",
     "RCAC Workshops",
     "HPC Exchange",
-    "Week 1 Index"
+    "Overview"
   ],
-  "/workshops/hpc_exchange/week1/terminal/": [
+  "/workshops/hpc_exchange/week1/setup/": [
     "Home",
     "RCAC Workshops",
     "HPC Exchange",
-    "Setting up for the workshop"
+    "Setting up"
   ],
   "/workshops/hpc_exchange/week1/access/": [
     "Home",
     "RCAC Workshops",
     "HPC Exchange",
-    "How to Access the Clusters"
+    "Access"
   ],
   "/workshops/hpc_exchange/week1/unix/": [
     "Home",
     "RCAC Workshops",
     "HPC Exchange",
-    "What is Unix"
+    "Unix"
   ],
   "/workshops/hpc_exchange/week1/shell/": [
     "Home",
     "RCAC Workshops",
     "HPC Exchange",
-    "What is the Shell"
+    "The Shell"
   ],
-  "/workshops/hpc_exchange/week1/anatomy/": [
+  "/workshops/hpc_exchange/week1/commands/": [
     "Home",
     "RCAC Workshops",
     "HPC Exchange",
-    "Anatomy of a Command"
+    "Commands"
   ],
-  "/workshops/hpc_exchange/week1/navigate/": [
+  "/workshops/hpc_exchange/week1/filesystem/": [
     "Home",
     "RCAC Workshops",
     "HPC Exchange",
-    "Navigate the Filesystem"
+    "Navigating Filesystems"
   ],
-  "/workshops/hpc_exchange/week1/edit/": [
+  "/workshops/hpc_exchange/week1/editing/": [
     "Home",
     "RCAC Workshops",
     "HPC Exchange",
-    "Editing files from the command line"
+    "Editing Files"
   ],
   "/workshops/hpc_exchange/week1/reference/": [
     "Home",
@@ -381,11 +381,17 @@
     "HPC Exchange",
     "Command Reference"
   ],
-  "/workshops/hpc_exchange/week2/week2/": [
+  "/workshops/hpc_exchange/week2/": [
     "Home",
     "RCAC Workshops",
     "HPC Exchange",
-    "Week 2 Index"
+    "Overview"
+  ],
+  "/workshops/hpc_exchange/week2/what-is-a-cluster/": [
+    "Home",
+    "RCAC Workshops",
+    "HPC Exchange",
+    "What is a Cluster?"
   ],
   "/workshops/hpc_exchange/week2/clusters/": [
     "Home",
@@ -393,101 +399,95 @@
     "HPC Exchange",
     "Purdue Clusters"
   ],
-  "/workshops/hpc_exchange/week2/access/": [
+  "/workshops/hpc_exchange/eek2/access/": [
     "Home",
     "RCAC Workshops",
     "HPC Exchange",
-    "Access"
-  ],
-  "/workshops/hpc_exchange/week2/files1/": [
-    "Home",
-    "RCAC Workshops",
-    "HPC Exchange",
-    "Files"
+    "Cluster Access"
   ],
   "/workshops/hpc_exchange/week2/applications/": [
     "Home",
     "RCAC Workshops",
     "HPC Exchange",
-    "Applications"
+    "Cluster Applications"
   ],
-  "/workshops/hpc_exchange/week2/what_cluster/": [
+  "/workshops/hpc_exchange/week2/slurm-basics/": [
     "Home",
     "RCAC Workshops",
     "HPC Exchange",
-    "What is a Cluster"
+    "Cluster Job Submission"
   ],
-  "/workshops/hpc_exchange/week2/jobs/": [
+  "/workshops/hpc_exchange/week2/storage-transfer/": [
     "Home",
     "RCAC Workshops",
     "HPC Exchange",
-    "Jobs"
+    "File Storage and Transfer"
   ],
-  "/workshops/hpc_exchange/week3/week3/": [
+  "/workshops/hpc_exchange/week3/": [
     "Home",
     "RCAC Workshops",
     "HPC Exchange",
-    "Week 3 Index"
+    "Overview"
   ],
-  "/workshops/hpc_exchange/week3/scripts/": [
+  "/workshops/hpc_exchange/week3/scripting/": [
     "Home",
     "RCAC Workshops",
     "HPC Exchange",
     "Scripting"
   ],
-  "/workshops/hpc_exchange/week3/processes/": [
-    "Home",
-    "RCAC Workshops",
-    "HPC Exchange",
-    "Managing Processes"
-  ],
   "/workshops/hpc_exchange/week3/pipes/": [
     "Home",
     "RCAC Workshops",
     "HPC Exchange",
-    "Managing Output with Pipes"
+    "Pipes"
   ],
-  "/workshops/hpc_exchange/week3/managing_files/": [
+  "/workshops/hpc_exchange/week3/processes/": [
     "Home",
     "RCAC Workshops",
     "HPC Exchange",
-    "Managing Files and Directories"
+    "Managing processes"
   ],
-  "/workshops/hpc_exchange/week4/week4/": [
+  "/workshops/hpc_exchange/week3/files-directories/": [
     "Home",
     "RCAC Workshops",
     "HPC Exchange",
-    "Week 4 Index"
+    "Files & directories"
   ],
-  "/workshops/hpc_exchange/week4/files2/": [
+  "/workshops/hpc_exchange/week4/": [
     "Home",
     "RCAC Workshops",
     "HPC Exchange",
-    "File storage and transfers"
+    "Overview"
   ],
-  "/workshops/hpc_exchange/week4/multinode/": [
+  "/workshops/hpc_exchange/week4/storage-transfer/": [
     "Home",
     "RCAC Workshops",
     "HPC Exchange",
-    "Multinode jobs and topology"
+    "Storage & transfers"
   ],
-  "/workshops/hpc_exchange/week4/history/": [
+  "/workshops/hpc_exchange/week4/job-history/": [
     "Home",
     "RCAC Workshops",
     "HPC Exchange",
-    "Job History"
+    "Job history"
   ],
-  "/workshops/hpc_exchange/week4/monitor/": [
+  "/workshops/hpc_exchange/week4/utilization-monitoring/": [
     "Home",
     "RCAC Workshops",
     "HPC Exchange",
-    "Resource Utilization and Monitoring"
+    "Utilization & monitoring"
   ],
-  "/workshops/hpc_exchange/week4/workloads/": [
+  "/workshops/hpc_exchange/week4/workload-management/": [
     "Home",
     "RCAC Workshops",
     "HPC Exchange",
-    "Managing Workloads and Jobs"
+    "Workload management"
+  ],
+  "/workshops/hpc_exchange/week4/multinode-topology/": [
+    "Home",
+    "RCAC Workshops",
+    "HPC Exchange",
+    "Multinode & topology"
   ],
   "/workshops/kubernetes-tutorial/": [
     "Home",
