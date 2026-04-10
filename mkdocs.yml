@@ -157,36 +157,37 @@ nav:
       - HPC Exchange:
         - workshops/hpc_exchange/index.md
         - Week 1:
-          - Week 1 Index: workshops/hpc_exchange/week1/week1.md
-          - Setting up for the workshop: workshops/hpc_exchange/week1/terminal.md
-          - How to Access the Clusters: workshops/hpc_exchange/week1/access.md
-          - What is Unix: workshops/hpc_exchange/week1/unix.md
-          - What is the Shell: workshops/hpc_exchange/week1/shell.md
-          - Anatomy of a Command: workshops/hpc_exchange/week1/anatomy.md
-          - Navigate the Filesystem: workshops/hpc_exchange/week1/navigate.md
-          - Editing files from the command line: workshops/hpc_exchange/week1/edit.md
-          - Command Reference: workshops/hpc_exchange/week1/reference.md
+            - Overview: workshops/hpc_exchange/week1/index.md
+            - Setting up: workshops/hpc_exchange/week1/setup.md
+            - Access: workshops/hpc_exchange/week1/access.md
+            - Unix: workshops/hpc_exchange/week1/unix.md
+            - The Shell: workshops/hpc_exchange/week1/shell.md
+            - Commands: workshops/hpc_exchange/week1/commands.md
+            - Navigating Filesystems: workshops/hpc_exchange/week1/filesystem.md
+            - Editing Files: workshops/hpc_exchange/week1/editing.md
+            - Command Reference: workshops/hpc_exchange/week1/reference.md
         - Week 2:
-          - Week 2 Index: workshops/hpc_exchange/week2/week2.md
-          - Purdue Clusters: workshops/hpc_exchange/week2/clusters.md
-          - Access: workshops/hpc_exchange/week2/access.md
-          - Files: workshops/hpc_exchange/week2/files1.md
-          - Applications: workshops/hpc_exchange/week2/applications.md
-          - What is a Cluster: workshops/hpc_exchange/week2/what_cluster.md
-          - Jobs: workshops/hpc_exchange/week2/jobs.md
+            - Overview: workshops/hpc_exchange/week2/index.md
+            - What is a Cluster?: workshops/hpc_exchange/week2/what-is-a-cluster.md
+            - Purdue Clusters: workshops/hpc_exchange/week2/clusters.md
+            - Cluster Access: workshops/hpc_exchange/eek2/access.md
+            - Cluster Applications: workshops/hpc_exchange/week2/applications.md
+            - Cluster Job Submission: workshops/hpc_exchange/week2/slurm-basics.md
+            - File Storage and Transfer: workshops/hpc_exchange/week2/storage-transfer.md
         - Week 3:
-          - Week 3 Index: workshops/hpc_exchange/week3/week3.md
-          - Scripting: workshops/hpc_exchange/week3/scripts.md
-          - Managing Processes: workshops/hpc_exchange/week3/processes.md
-          - Managing Output with Pipes: workshops/hpc_exchange/week3/pipes.md
-          - Managing Files and Directories: workshops/hpc_exchange/week3/managing_files.md
+            - Overview: workshops/hpc_exchange/week3/index.md
+            - Scripting: workshops/hpc_exchange/week3/scripting.md
+
+            - Pipes: workshops/hpc_exchange/week3/pipes.md
+            - Managing processes: workshops/hpc_exchange/week3/processes.md
+            - Files & directories: workshops/hpc_exchange/week3/files-directories.md
         - Week 4:
-          - Week 4 Index: workshops/hpc_exchange/week4/week4.md
-          - File storage and transfers: workshops/hpc_exchange/week4/files2.md
-          - Multinode jobs and topology: workshops/hpc_exchange/week4/multinode.md
-          - Job History: workshops/hpc_exchange/week4/history.md
-          - Resource Utilization and Monitoring: workshops/hpc_exchange/week4/monitor.md
-          - Managing Workloads and Jobs: workshops/hpc_exchange/week4/workloads.md
+            - Overview: workshops/hpc_exchange/week4/index.md
+            - Storage & transfers: workshops/hpc_exchange/week4/storage-transfer.md
+            - Job history: workshops/hpc_exchange/week4/job-history.md
+            - Utilization & monitoring: workshops/hpc_exchange/week4/utilization-monitoring.md
+            - Workload management: workshops/hpc_exchange/week4/workload-management.md
+            - Multinode & topology: workshops/hpc_exchange/week4/multinode-topology.md
       - Anvil Kubernetes: workshops/kubernetes-tutorial.md
       - Scientific Visualization with MatPlotLib:
         - workshops/matplotlib/index.md

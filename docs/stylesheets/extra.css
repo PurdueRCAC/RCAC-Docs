@@ -492,3 +492,26 @@ th, td {
   .md-search__form > .md-search__icon svg:last-child { display: none; }
 }
 
+.perm-type {
+  background: rgba(255, 87, 34, 0.35); /* file type */
+  border-radius: 3px;
+  padding: 0 2px;
+}
+
+.perm-user {
+  background: rgba(33, 150, 243, 0.35); /* user */
+  border-radius: 3px;
+  padding: 0 2px;
+}
+
+.perm-group {
+  background: rgba(76, 175, 80, 0.35); /* group */
+  border-radius: 3px;
+  padding: 0 2px;
+}
+
+.perm-other {
+  background: rgba(255, 193, 7, 0.35); /* others */
+  border-radius: 3px;
+  padding: 0 2px;
+}

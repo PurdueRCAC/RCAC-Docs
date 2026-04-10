@@ -1,59 +1,84 @@
-# Managing Output with Pipes
+# Managing output with pipes
 
-[Week 3 Index](week3.md)
-
-**Previous Section:** [Managing Processes](processes.md)
+[Back to Week 3](./index.md)
 
 When dealing with processes, the output of those processes is important. In this section, we will discuss how to manage the output of processes in different ways.
 
-The main concepts that we will go over are:
-* File descriptors and standard input/output
-* Input/output redirection
-* Special files
-* Command pipelining
-* Useful commands for processing output
+### Standard file descriptors
 
-Programs often write output to the console, this is called *standard output*. The shell defines `stdin`, `stdout`, and `stderr` for every program.
+When a program  often write output to the console,
+this is called *standard output*, or `stdout`. The shell defines `stdin`, `stdout`, and `stderr` for every program.
 
-File descriptors are integers that are used by processes to attach to open files.
+| # | Common name | Description |
+|---|---|---|
+| `0` | `stdin` | Attached to programs for input data |
+| `1` | `stdout` | Attached to programs for output data |
+| `2` | `stderr` | Attached as a secondary output for errors |
 
-### Standard File Descriptors
-| # | Common Name | Description |
-| --- | --- | --- |
-| 0 | stdin | Attached to programs for input data |
-| 1 | stdout | Attached to programs for output data |
-| 2 | stderr | Attached as a secondary output for errors |
+
+![Image showing stdin going into a program, and the stdout and stderr coming out of the program](../_static/file_descriptors.png)
 
 You can also redirect these file descriptors to attach to files other than the console.
 
-### Redirection Notation
-| Notation | Meaning |
-| --- | --- |
-| `< FILE` | Read `stdin` from `FILE` |
-| `> FILE` | Write `stdout` to `FILE` |
-| `>> FILE` | Append `stdout` to `FILE` |
-| `2> FILE` | Write `stderr` to `FILE` |
-| `2>> FILE` | Append `stderr` to `FILE` |
-| `| PROGRAM` | Join `stdout` to `stdin` of `PROGRAM` |
+### Redirection notation
 
-The following example redirects "Ooh, so scary!" from the console into the file `message.txt`.
+| Notation | Meaning |
+|---|---|
+| `<   FILE` | Read `stdin` from `FILE` |
+| `>   FILE` | Write `stdout` to `FILE` |
+| `>>  FILE` | Append `stdout` to `FILE` |
+| `2>  FILE` | Write `stderr` to `FILE` |
+| `2>> FILE` | Append `stderr` to `FILE` |
+| `|   PROGRAM` | Join `stdout` to `stdin` of `PROGRAM` |
+
+
+The following example redirects the `stdout` from our program (the "Hello, world!" text it prints) from the console into the file `message.txt`.
+
 ```bash
-$ boo > message.txt
-```
-You can concatenate (print) the contents of files with the `cat` program.
+$ hello > message.txt
+```   
+You can concatenate (print) the contents of
+files with the `cat` program:
+
 ```bash
 $ cat message.txt
-Ooh, so scary!
-```
-To reduce output, you can count the number of words, lines, chars, etc. with the `wc` program.
-```bash
-$ cat message.txt | wc --chars
-15
+Hello, world!
 ```
 
-### Useful Programs
+![Image showing a program sending stdout to a file titled message.txt, with the command program > message.txt](../_static/pipe_to_file.png)
+
+
+
+We can also use the output (`stdout`) of the `cat` program (again, the "Hello, World!" text) to the input (`stdin`) of another program with a pipe(`|`). We'll pass the output to the `wc` "word count" program which can count the words, lines, chars, etc of the provided input.
+
+```
+$ cat message.txt | wc --chars
+14
+```
+
+![An image of a program sending its stdout to a second program prog2 with the command program | prog2](../_static/pipe.png)
+
+
+!!! tip "`wc` program"
+     `wc` or the "word count program is a handy tool that allows us to count the number of words (`--words`), lines (`--lines`), or characters (`--chars`) from a file or `stdin`.
+
+
+??? question "How might we see how many files we have in our current directory?"
+    We could get a list of our files with `ls`, and  pass the output to `wc` to count the number of lines.
+
+    ```bash
+    ls | wc --lines
+    55
+    ```
+
+
+
+
+
+<!-- ### Useful programs
+
 | Program | Meaning |
-| --- | --- |
+|---|---|
 | `cat` | Concatenate (or slice) one or more files |
 | `head/tail` | Limit output to first/last `N` lines (default 10) |
 | `less/more` | Page output interactively (for ease of viewing) |
@@ -62,6 +87,8 @@ $ cat message.txt | wc --chars
 | `grep/sed` | Filter/modify input based on regular expression |
 | `awk` | Streaming programming language (superpowers) |
 | `wc` | Reduce output by counting (words, lines, etc) |
-| `xargs` | Transpose output as positional arguments to next program |
+| `xargs` | Transpose output as positional arguments to next program | -->
 
-**Next Section:** [Managing Files and Directories](managing_files.md)
+
+
+Next section: [Processes](./processes.md)
