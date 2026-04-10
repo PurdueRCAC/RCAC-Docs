@@ -117,4 +117,4 @@ apptainer build ubuntu-18.04.sif ubuntu-18.04
 
 Finally, copy the new image to Gautschi and run it.
 
-[Return to the Guide](../run_jobs/index.md)
+[**Back to the Running Jobs section**](../run_jobs/index.md)

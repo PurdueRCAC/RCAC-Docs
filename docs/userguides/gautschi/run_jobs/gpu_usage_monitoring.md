@@ -100,5 +100,5 @@ Further, the ```--job {jobid}``` flag will also allow you to query the utilizati
 - ### "Is this a good way to see the GPU Hours balance?"
  No, the primary purpose of this tool is to check that GPUs are actually being used, not to track billed GPU hours. To see the total GPU hours balance, please use the ```slist``` command.
 
- [Return to the Guide](../run_jobs/index.md)
+ [**Back to the Running Jobs section**](../run_jobs/index.md)
  

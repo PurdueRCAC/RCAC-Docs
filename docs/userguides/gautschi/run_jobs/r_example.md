@@ -17,4 +17,4 @@ For more general information on R visit [The R Project for Statistical Computing
 - [RStudio](examples/example_rstudio.md)
 - [Running R Jobs](examples/example_running_r_jobs.md)
 
-[Return to the Guide](../run_jobs/index.md)
+[**Back to the Running Jobs section**](../run_jobs/index.md)

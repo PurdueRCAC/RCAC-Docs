@@ -24,4 +24,4 @@ To release a hold on a job, use the ```scontrol release job``` command:
 $ scontrol release job  myjobid
 ```
 
-[**Return to the guide**](index.md)
+[**Back to the Running Jobs section**](index.md)

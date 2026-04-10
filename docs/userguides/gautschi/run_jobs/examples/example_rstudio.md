@@ -37,4 +37,4 @@ R and RStudio are free to download and run on your local machine. For more infor
 - [RStudio Essentials: Tutorial :octicons-link-external-16:](https://www.rstudio.com/resources/webinars/#rstudioessentials)
 - [DataCamp: Working with the RStudio IDE :octicons-link-external-16:](https://www.datacamp.com/courses/working-with-the-rstudio-ide-part-1)
 
-[Return to the Guide](../r_example.md)
+[**Back to the R Examples section**](../r_example.md)

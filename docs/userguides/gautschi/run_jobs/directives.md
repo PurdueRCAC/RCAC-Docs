@@ -39,4 +39,4 @@ This job can be then submitted with:
 sbatch hello.sub
 ```
 
-[**Return to the guide**](generic_slurm_jobs.md)
+[**Back to the Example Jobs section**](generic_slurm_jobs.md)

@@ -40,4 +40,4 @@ Your home directory is medium-performance, non-purged space suitable for tasks l
 !!!note
     Your home directory is not designed or intended for use as high-performance working space for running data-intensive jobs with heavy I/O demands.
 
-[Return to the Guide](../storage.md)
+[**Back to the Storage section**](../storage.md)

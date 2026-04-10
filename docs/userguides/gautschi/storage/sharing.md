@@ -32,4 +32,4 @@ Your research group can easily share static files (images, data, HTML) from your
 
 Note that it is not possible to run web sites, dynamic content, interpreters (PHP, Perl, Python), or CGI scripts from this web site.
 
-[Return to the Guide](../storage.md)
+[**Back to the Storage section**](../storage.md)

@@ -12,4 +12,4 @@ search:
 
 Backups are not performed for the ```/tmp``` directory and removes files from ```/tmp``` whenever space is low or whenever the system needs a reboot. In the event of a disk crash or file purge, files in ```/tmp``` are **not recoverable**. You should copy any important files to more permanent storage.
 
-[Return to the Guide](../storage.md)
+[**Back to the Storage section**](../storage.md)

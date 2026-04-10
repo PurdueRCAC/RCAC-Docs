@@ -44,4 +44,4 @@ To set more complex dependencies on multiple jobs and conditions:
 sbatch --dependency=after:myjobid1:myjobid2:myjobid3,afterok:myjobid4 myjobsubmissionfile
 ```
 
-[**Return to the guide**](index.md)
+[**Back to the Running Jobs section**](index.md)

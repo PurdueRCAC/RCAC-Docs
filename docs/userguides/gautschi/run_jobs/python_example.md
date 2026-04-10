@@ -23,4 +23,4 @@ $ module spider conda
 - [**Example Python Jobs**](examples/example_python_job.md)
 
 
-[**Return to the guide**](index.md)
+[**Back to the Running Jobs section**](index.md)

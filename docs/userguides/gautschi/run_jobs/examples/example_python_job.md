@@ -93,4 +93,4 @@ For more information about Python:
 - [**Anaconda Python Distribution - Official Website** :octicons-link-external-16:](https://store.continuum.io/cshop/anaconda/)
 - [**Conda User Guide** :octicons-link-external-16:](https://conda.io/projects/conda/en/latest/user-guide/)
 
-[Return to the Guide](../python_example.md)
+[**Back to the Python Examples section**](../python_example.md)

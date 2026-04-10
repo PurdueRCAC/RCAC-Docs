@@ -80,4 +80,4 @@ There are several other, less commonly used, options available as well:
 - 7zip
 - xz
 
-[Return to the Guide](../storage.md)
+[**Back to the Storage section**](../storage.md)

@@ -51,4 +51,4 @@ Globus allows convenient sharing of data with outside collaborators. Data can be
 
 For links to more information, please see [Globus Support :octicons-link-external-16:](https://support.globus.org/home) page and [RCAC Globus presentation :octicons-link-external-16:](https://www.rcac.purdue.edu/training/globus).
 
-[Return to the Guide](../storage.md)
+[**Back to the Storage section**](../storage.md)

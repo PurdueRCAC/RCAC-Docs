@@ -14,4 +14,4 @@ To stop a job before it finishes or remove it from a queue, use the ```scancel``
 scancel myjobid
 ```
 
-[**Return to the guide**](index.md)
+[**Back to the Running Jobs section**](index.md)

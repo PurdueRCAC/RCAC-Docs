@@ -31,4 +31,4 @@ cd $SLURM_SUBMIT_DIR
 matlab -nodisplay -singleCompThread -r myscript
 ```
 
-[**Return to the guide**](index.md)
+[**Back to the Running Jobs section**](index.md)

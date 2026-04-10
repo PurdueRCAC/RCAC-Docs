@@ -44,4 +44,4 @@ For other examples or R jobs:
 - [Software Carpentry - Programming with R :octicons-link-external-16:](https://swcarpentry.github.io/r-novice-inflammation/)
 - [Data Carpentry Lessons :octicons-link-external-16:](http://www.datacarpentry.org/lessons/)
 
-[Return to the Guide](../r_example.md)
+[**Back to the R Examples section**](../r_example.md)

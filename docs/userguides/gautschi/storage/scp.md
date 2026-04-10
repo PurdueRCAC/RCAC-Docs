@@ -76,4 +76,4 @@ The ```scp``` command-line program should already be installed. You may start a 
 
 [Cyberduck :octicons-link-external-16:](https://cyberduck.io/) is a full-featured and free graphical SFTP and SCP client.
 
-[Return to the Guide](../storage.md)
+[**Back to the Storage section**](../storage.md)

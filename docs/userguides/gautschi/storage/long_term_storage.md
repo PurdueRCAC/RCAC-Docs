@@ -15,4 +15,4 @@ For more information about Fortress, how it works, and user guides, and how to o
 - [Fortress Information PLACEHOLDER]()
 - [Fortress User Guide PLACEHOLDER]()
 
-[Return to the Guide](../storage.md)
+[**Back to the Storage section**](../storage.md)

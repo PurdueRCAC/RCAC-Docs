@@ -109,4 +109,4 @@ For more information about installing R packages:
 - [Installing additional R packages on Linux :octicons-link-external-16:](http://cran.r-project.org/doc/manuals/r-release/R-admin.html#Installing-packages)
 - [List of Packages :octicons-link-external-16:](https://cran.r-project.org/web/packages/)
 
-[Return to the Guide](../r_example.md)
+[**Back to the R Examples section**](../r_example.md)

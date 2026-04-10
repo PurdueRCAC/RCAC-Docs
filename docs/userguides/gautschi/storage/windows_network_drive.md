@@ -64,4 +64,4 @@ If you would like access via samba on the command line you may install ```smbcli
 !!!note
     Use your career account login name and password when prompted. (You will not need to add ```",push"``` nor use your Purdue Duo client.)
 
-[Return to the Guide](../storage.md)
+[**Back to the Storage section**](../storage.md)

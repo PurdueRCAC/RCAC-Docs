@@ -85,4 +85,4 @@ mpiexec -machinefile <(srun hostname | sort -u) \
     monitor cpu memory --csv --no-header >>cpu-memory.csv
 ```
 
-[**Return to the guide**](generic_slurm_jobs.md)
+[**Back to the Example Jobs section**](generic_slurm_jobs.md)

@@ -19,4 +19,4 @@ There are several types of generic SLURM jobs. Choose one below to learn more:
 - [**Monitoring Resources**](monitoring_resources.md)
 
 
-[**Return to the guide**](index.md)
+[**Back to the Running Jobs section**](index.md)

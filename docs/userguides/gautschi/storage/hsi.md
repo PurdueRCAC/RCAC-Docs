@@ -88,4 +88,4 @@ For more information about HSI:
 - [HSI Reference Manual :octicons-link-external-16:](https://rcac.purdue.edu/files/hpss/hsi_9.3_reference_manual.pdf)
 - [Lawrence Livermore National Lab HSI User Guide :octicons-link-external-16:](https://hpc.llnl.gov/documentation/user-guides/using-hsi-hierarchical-storage-interface)
 
-[Return to the Guide](../storage.md)
+[**Back to the Storage section**](../storage.md)

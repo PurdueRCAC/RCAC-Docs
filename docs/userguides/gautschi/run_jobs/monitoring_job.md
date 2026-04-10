@@ -68,4 +68,4 @@ Nodes, CPUs, Tasks, and - CPUs per Task are shown.
 
 - ```WorkDir``` is the job's working directory.
 
-[**Return to the guide**](index.md)
+[**Back to the Running Jobs section**](index.md)

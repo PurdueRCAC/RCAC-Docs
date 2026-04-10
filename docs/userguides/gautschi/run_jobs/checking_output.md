@@ -27,4 +27,4 @@ It is possible to redirect job output to somewhere other than the default locati
 echo "Hello World"
 ```
 
-[**Return to the guide**](index.md)
+[**Back to the Running Jobs section**](index.md)

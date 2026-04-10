@@ -29,4 +29,4 @@ sbatch -A myLabAccount -p cpu -q normal -N1 -n1 -t 1-00:00:00 myjobsubmissionfil
 !!! note
     Any sbatch options that you specify in the command-line submission will override what is specified in your job submission script.
 
-[**Return to the guide**](index.md)
+[**Back to the Running Jobs section**](index.md)

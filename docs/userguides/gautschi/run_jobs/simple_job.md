@@ -46,4 +46,4 @@ Hello World
 
 You should see the hostname of the compute node your job was executed on. Following should be the "Hello World" statement.
 
-[**Return to the guide**](generic_slurm_jobs.md)
+[**Back to the Example Jobs section**](generic_slurm_jobs.md)

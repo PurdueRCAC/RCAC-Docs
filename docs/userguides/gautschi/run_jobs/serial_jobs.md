@@ -36,4 +36,4 @@ hello, world
 
 If the job failed to run, then view error messages in the file ```slurm-myjobid.out```.
 
-[**Return to the guide**](generic_slurm_jobs.md)
+[**Back to the Example Jobs section**](generic_slurm_jobs.md)
