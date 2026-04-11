@@ -47,7 +47,6 @@ extra_javascript:
   - assets/js/init-tablefilter.js
   - assets/js/breadcrumbs.js
   - assets/js/external-links.js
-  - assets/js/a11y.js
 
 plugins:
   - search
