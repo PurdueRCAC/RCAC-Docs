@@ -1,0 +1,17 @@
+name: Block dev to main merge
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fail if source branch is dev
+        if: github.head_ref == 'dev'
+        run: |
+          echo "ERROR: Direct merges from 'dev' into 'main' are not allowed."
+          echo "The dev branch is for Geddes staging and WCAG testing only."
+          exit 1
