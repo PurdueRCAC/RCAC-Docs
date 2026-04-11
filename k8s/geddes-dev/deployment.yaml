@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rcac-docs-dev
+  namespace: rcac-docs
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rcac-docs-dev
+  template:
+    metadata:
+      labels:
+        app: rcac-docs-dev
+    spec:
+      imagePullSecrets:
+        - name: ghcr-secret
+      containers:
+        - name: rcac-docs-dev
+          image: ghcr.io/purduercac/rcac-docs-dev:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "50m"
+            limits:
+              memory: "128Mi"
+              cpu: "200m"

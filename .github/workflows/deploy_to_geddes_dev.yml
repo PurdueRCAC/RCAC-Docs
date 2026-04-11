@@ -1,0 +1,45 @@
+name: Deploy dev to Geddes
+
+on:
+  push:
+    branches:
+      - dev
+    paths-ignore:
+      - 'modulefiles/**'
+      - 'tools/**'
+      - 'wcag_audit/**'
+
+  # Manual trigger for testing
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write  # required to push to ghcr.io
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # required by git-revision-date-localized plugin
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: Dockerfile.geddes
+          push: true
+          tags: ghcr.io/purduercac/rcac-docs-dev:latest
+
+      - name: Notify success
+        run: echo "Image pushed to ghcr.io. Geddes CronJob will redeploy within 5 minutes."

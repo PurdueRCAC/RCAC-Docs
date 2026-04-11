@@ -21,10 +21,10 @@
 
   <!-- Table of contents title and list -->
   {% if toc %}
-    <label class="md-nav__title" for="__toc">
+    <div class="md-nav__title" role="button" tabindex="0" onclick="var t=document.getElementById('__toc');if(t)t.checked=false;" onkeydown="if(event.key==='Enter'||event.key===' '){var t=document.getElementById('__toc');if(t)t.checked=false;}">
       <span class="md-nav__icon md-icon"></span>
       {{ title }}
-    </label>
+    </div>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       {% for toc_item in toc %}
         {% include "partials/toc-item.html" %}
