@@ -9,8 +9,8 @@ hide:
 
 # Welcome to RCAC Documentation
 
-!!! Warning "Announcement"
-    **This is a demo site.** You are visiting a demo site designed for testing purposes only. Contents on this website may not reflect production RCAC resources. Check [rcac.purdue.edu :octicons-link-external-16:](https://www.rcac.purdue.edu) for official information.
+!!! Danger "DEV WEBSITE"
+    **This is a dev site.** You are visiting a demo site designed for testing purposes only. Contents on this website may not reflect production RCAC resources. Check [rcac.purdue.edu :octicons-link-external-16:](https://www.rcac.purdue.edu) for official information.
 
 ## :material-rocket-launch: New to RCAC?
 
