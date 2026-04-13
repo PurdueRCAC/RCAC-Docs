@@ -8,7 +8,7 @@ Rclone is a command line program to sync files and directories to and from vario
 
 ## Homepage
 
-[https://rclone.org](https://rclone.org){:target="_blank"}
+[https://rclone.org :octicons-link-external-16:](https://rclone.org){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

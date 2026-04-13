@@ -15,7 +15,9 @@ QuantumATK is a software platform for atomic-scale modeling of materials and dev
 |Cluster|Versions|
 |---|---|
 **BELL**|2020.09
-**NEGISHI**|2020.09
+**GAUTSCHI**|2026.03
+**GILBRETH**|2026.03
+**NEGISHI**|2020.09, 2026.03
 
 ## Module
 

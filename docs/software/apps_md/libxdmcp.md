@@ -15,6 +15,7 @@ libXdmcp - X Display Manager Control Protocol library.
 |Cluster|Versions|
 |---|---|
 **ANVIL**|1.1.2
+**GILBRETH**|1.1.5
 **NEGISHI**|1.1.2
 
 ## Module

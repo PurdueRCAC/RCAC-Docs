@@ -15,7 +15,7 @@ Thermo-Calc software for thermodynamic calculations of multicomponent systems.
 |Cluster|Versions|
 |---|---|
 **BELL**|2022b
-**NEGISHI**|2022b
+**NEGISHI**|2022b, 2025b
 
 ## Module
 
