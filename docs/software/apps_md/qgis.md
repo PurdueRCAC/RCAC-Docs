@@ -8,7 +8,7 @@ QGIS is a free and open-source cross-platform desktop geographic information sys
 
 ## Homepage
 
-[https://qgis.org](https://qgis.org){:target="_blank"}
+[https://qgis.org :octicons-link-external-16:](https://qgis.org){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

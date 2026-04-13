@@ -8,7 +8,7 @@ Meep (or MEEP) is a free finite-difference time-domain (FDTD) simulation softwar
 
 ## Homepage
 
-[http://ab-initio.mit.edu/wiki/index.php/Meep](http://ab-initio.mit.edu/wiki/index.php/Meep){:target="_blank"}
+[http://ab-initio.mit.edu/wiki/index.php/Meep :octicons-link-external-16:](http://ab-initio.mit.edu/wiki/index.php/Meep){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

@@ -8,7 +8,7 @@ Genome Analysis Toolkit Variant Discovery in High-Throughput Sequencing Data
 
 ## Homepage
 
-[https://gatk.broadinstitute.org/hc/en-us](https://gatk.broadinstitute.org/hc/en-us){:target="_blank"}
+[https://gatk.broadinstitute.org/hc/en-us :octicons-link-external-16:](https://gatk.broadinstitute.org/hc/en-us){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

@@ -8,7 +8,7 @@ Reshape2 provides tools for reshaping R data structures.
 
 ## Homepage
 
-[https://cran.r-project.org/web/packages/reshape2/index.html](https://cran.r-project.org/web/packages/reshape2/index.html){:target="_blank"}
+[https://cran.r-project.org/web/packages/reshape2/index.html :octicons-link-external-16:](https://cran.r-project.org/web/packages/reshape2/index.html){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

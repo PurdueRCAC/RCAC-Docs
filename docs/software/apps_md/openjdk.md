@@ -8,7 +8,7 @@ The free and opensource java implementation
 
 ## Homepage
 
-[https://openjdk.org/](https://openjdk.org/){:target="_blank"}
+[https://openjdk.org/ :octicons-link-external-16:](https://openjdk.org/){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

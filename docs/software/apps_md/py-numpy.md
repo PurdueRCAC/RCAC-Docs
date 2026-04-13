@@ -8,7 +8,7 @@ NumPy is a fundamental package for scientific computing with Python, providing a
 
 ## Homepage
 
-[https://numpy.org/](https://numpy.org/){:target="_blank"}
+[https://numpy.org/ :octicons-link-external-16:](https://numpy.org/){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

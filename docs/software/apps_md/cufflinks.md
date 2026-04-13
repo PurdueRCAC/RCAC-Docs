@@ -8,7 +8,7 @@ Cufflinks assembles transcripts, estimates their abundances, and tests for diffe
 
 ## Homepage
 
-[https://cole-trapnell-lab.github.io/cufflinks](https://cole-trapnell-lab.github.io/cufflinks){:target="_blank"}
+[https://cole-trapnell-lab.github.io/cufflinks :octicons-link-external-16:](https://cole-trapnell-lab.github.io/cufflinks){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

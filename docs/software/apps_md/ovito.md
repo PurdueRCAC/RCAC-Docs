@@ -8,7 +8,7 @@ OVITO is a scientific visualization and analysis software for atomistic and part
 
 ## Homepage
 
-[https://www.ovito.org](https://www.ovito.org){:target="_blank"}
+[https://www.ovito.org :octicons-link-external-16:](https://www.ovito.org){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

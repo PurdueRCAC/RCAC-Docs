@@ -8,7 +8,7 @@ xcb-util is a set of libraries complementing the XCB (X protocol C-language Bind
 
 ## Homepage
 
-[https://xcb.freedesktop.org](https://xcb.freedesktop.org){:target="_blank"}
+[https://xcb.freedesktop.org :octicons-link-external-16:](https://xcb.freedesktop.org){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

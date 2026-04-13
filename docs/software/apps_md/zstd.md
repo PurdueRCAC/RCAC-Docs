@@ -8,7 +8,7 @@ Zstandard, or zstd as short version, is a fast lossless compression algorithm, t
 
 ## Homepage
 
-[https://facebook.github.io/zstd/](https://facebook.github.io/zstd/){:target="_blank"}
+[https://facebook.github.io/zstd/ :octicons-link-external-16:](https://facebook.github.io/zstd/){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

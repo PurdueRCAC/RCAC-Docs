@@ -8,18 +8,18 @@ Conda is an open-source package, dependency, and environment management system. 
 
 ## Homepage
 
-[https://docs.conda.io/](https://docs.conda.io/){:target="_blank"}
+[https://docs.conda.io/ :octicons-link-external-16:](https://docs.conda.io/){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 
 |Cluster|Versions|
 |---|---|
-**ANVIL**|2024.09, 2025.02, 2025.09 (D), 2026.03
-**BELL**|2025.02, 2025.09 (D), 2026.03
-**GAUTSCHI**|2024.09, 2025.02, 2025.09 (D), 2026.03
-**GILBRETH**|2024.09, 2025.02, 2025.09 (D), 2026.03
-**NEGISHI**|2024.09, 2025.09 (D), 2026.03
-**SCHOLAR**|2024.09-py312, 2024.09, 2025.09 (D), 2026.03
+**ANVIL**|2024.09, 2025.02 (D), 2025.09
+**BELL**|2025.02, 2025.09 (D)
+**GAUTSCHI**|2024.09, 2025.02, 2025.09 (D)
+**GILBRETH**|2024.09, 2025.02, 2025.09 (D)
+**NEGISHI**|2024.09, 2025.09 (D)
+**SCHOLAR**|2024.09-py312, 2024.09, 2025.09 (D)
 
 (D): Default Module
 

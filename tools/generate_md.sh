@@ -35,7 +35,7 @@ jq -r 'keys[]' "$INV_FILE" | while IFS= read -r app; do
     echo "## Homepage"
     echo ""
     if [ -n "$homepage" ] && [ "$homepage" != "null" ]; then
-      echo "[$homepage]($homepage){:target=\"_blank\"}"
+      echo "[$homepage :octicons-link-external-16:]($homepage){:target=\"_blank\"}"
     else
       echo "N/A"
     fi

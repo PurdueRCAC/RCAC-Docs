@@ -8,7 +8,7 @@ Wannier90 calculates maximally-localised Wannier functions (MLWFs).  Wannier90 i
 
 ## Homepage
 
-[https://wannier.org](https://wannier.org){:target="_blank"}
+[https://wannier.org :octicons-link-external-16:](https://wannier.org){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

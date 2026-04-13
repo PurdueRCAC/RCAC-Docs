@@ -8,7 +8,7 @@
 
 ## Homepage
 
-[https://motif.ics.com/](https://motif.ics.com/){:target="_blank"}
+[https://motif.ics.com/ :octicons-link-external-16:](https://motif.ics.com/){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

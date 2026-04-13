@@ -8,7 +8,7 @@ VisIt is an Open Source, interactive, scalable, visualization, animation and ana
 
 ## Homepage
 
-[https://wci.llnl.gov/simulation/computer-codes/visit/](https://wci.llnl.gov/simulation/computer-codes/visit/){:target="_blank"}
+[https://wci.llnl.gov/simulation/computer-codes/visit/ :octicons-link-external-16:](https://wci.llnl.gov/simulation/computer-codes/visit/){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

@@ -8,7 +8,7 @@ MrBayes is a program for Bayesian inference and model choice across a wide range
 
 ## Homepage
 
-[https://mrbayes.sourceforge.net](https://mrbayes.sourceforge.net){:target="_blank"}
+[https://mrbayes.sourceforge.net :octicons-link-external-16:](https://mrbayes.sourceforge.net){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

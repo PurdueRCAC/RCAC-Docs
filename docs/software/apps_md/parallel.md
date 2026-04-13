@@ -8,7 +8,7 @@ GNU parallel is a shell tool for executing jobs in parallel using one or more co
 
 ## Homepage
 
-[https://www.gnu.org/software/parallel/](https://www.gnu.org/software/parallel/){:target="_blank"}
+[https://www.gnu.org/software/parallel/ :octicons-link-external-16:](https://www.gnu.org/software/parallel/){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

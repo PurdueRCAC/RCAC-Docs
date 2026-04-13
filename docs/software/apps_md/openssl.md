@@ -8,7 +8,7 @@ OpenSSL is a robust, full-featured open-source toolkit implementing the Secure S
 
 ## Homepage
 
-[https://www.openssl.org](https://www.openssl.org){:target="_blank"}
+[https://www.openssl.org :octicons-link-external-16:](https://www.openssl.org){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

@@ -8,7 +8,7 @@ DuckDB is an in-process SQL OLAP Database Management System.
 
 ## Homepage
 
-[https://duckdb.org](https://duckdb.org){:target="_blank"}
+[https://duckdb.org :octicons-link-external-16:](https://duckdb.org){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

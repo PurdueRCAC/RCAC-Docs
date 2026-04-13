@@ -8,7 +8,7 @@ NAMD is a parallel molecular dynamics code designed for high-performance simulat
 
 ## Homepage
 
-[https://www.ks.uiuc.edu/Research/namd/](https://www.ks.uiuc.edu/Research/namd/){:target="_blank"}
+[https://www.ks.uiuc.edu/Research/namd/ :octicons-link-external-16:](https://www.ks.uiuc.edu/Research/namd/){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

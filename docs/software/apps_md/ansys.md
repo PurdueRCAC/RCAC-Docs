@@ -8,16 +8,16 @@ ANSYS is a comprehensive software suite for engineering simulation covering fini
 
 ## Homepage
 
-[https://www.ansys.com](https://www.ansys.com){:target="_blank"}
+[https://www.ansys.com :octicons-link-external-16:](https://www.ansys.com){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 
 |Cluster|Versions|
 |---|---|
-**BELL**|2023R1, 2024R2 (D), 2025R2, 2026R1
+**BELL**|2023R1, 2024R2 (D), 2025R2
 **GAUTSCHI**|2024R2 (D), 2025R2
 **GILBRETH**|2024R2, 2025R2
-**NEGISHI**|2022R2 (D), 2023R1, 2023R2, 2024R2, 2025R2, 2026R1
+**NEGISHI**|2022R2 (D), 2023R1, 2023R2, 2024R2, 2025R2
 **SCHOLAR**|2022R1 (D)
 
 (D): Default Module

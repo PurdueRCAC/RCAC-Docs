@@ -8,7 +8,7 @@ Abaqus is a commercial finite element analysis (FEA) software suite developed by
 
 ## Homepage
 
-[https://www.3ds.com/products-services/simulia/products/abaqus/](https://www.3ds.com/products-services/simulia/products/abaqus/){:target="_blank"}
+[https://www.3ds.com/products-services/simulia/products/abaqus/ :octicons-link-external-16:](https://www.3ds.com/products-services/simulia/products/abaqus/){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

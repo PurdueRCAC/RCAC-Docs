@@ -8,7 +8,7 @@ Fontconfig is a library for configuring/customizing font access
 
 ## Homepage
 
-[https://www.freedesktop.org/wiki/Software/fontconfig/](https://www.freedesktop.org/wiki/Software/fontconfig/){:target="_blank"}
+[https://www.freedesktop.org/wiki/Software/fontconfig/ :octicons-link-external-16:](https://www.freedesktop.org/wiki/Software/fontconfig/){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

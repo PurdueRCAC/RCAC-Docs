@@ -8,7 +8,7 @@ Mvapich2 is a High-Performance MPI Library for clusters with diverse networks (I
 
 ## Homepage
 
-[https://mvapich.cse.ohio-state.edu/userguide/userguide_spack/](https://mvapich.cse.ohio-state.edu/userguide/userguide_spack/){:target="_blank"}
+[https://mvapich.cse.ohio-state.edu/userguide/userguide_spack/ :octicons-link-external-16:](https://mvapich.cse.ohio-state.edu/userguide/userguide_spack/){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

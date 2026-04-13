@@ -8,7 +8,7 @@ The MPFR library is a C library for multiple-precision floating-point computatio
 
 ## Homepage
 
-[https://www.mpfr.org/](https://www.mpfr.org/){:target="_blank"}
+[https://www.mpfr.org/ :octicons-link-external-16:](https://www.mpfr.org/){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

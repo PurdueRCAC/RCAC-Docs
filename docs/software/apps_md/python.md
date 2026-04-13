@@ -8,7 +8,7 @@ The Python programming language.
 
 ## Homepage
 
-[https://www.python.org/](https://www.python.org/){:target="_blank"}
+[https://www.python.org/ :octicons-link-external-16:](https://www.python.org/){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

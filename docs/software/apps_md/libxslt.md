@@ -8,7 +8,7 @@ Libxslt is the XSLT C library developed for the GNOME project. XSLT itself is a 
 
 ## Homepage
 
-[https://gitlab.gnome.org/GNOME/libxslt/-/wikis/home](https://gitlab.gnome.org/GNOME/libxslt/-/wikis/home){:target="_blank"}
+[https://gitlab.gnome.org/GNOME/libxslt/-/wikis/home :octicons-link-external-16:](https://gitlab.gnome.org/GNOME/libxslt/-/wikis/home){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

@@ -8,7 +8,7 @@ cURL is an open source command line tool and library for transferring data with 
 
 ## Homepage
 
-[https://curl.se/](https://curl.se/){:target="_blank"}
+[https://curl.se/ :octicons-link-external-16:](https://curl.se/){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

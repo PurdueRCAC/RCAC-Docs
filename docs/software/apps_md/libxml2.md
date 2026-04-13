@@ -8,7 +8,7 @@ Libxml2 is the XML C parser and toolkit developed for the Gnome project (but usa
 
 ## Homepage
 
-[https://gitlab.gnome.org/GNOME/libxml2/-/wikis](https://gitlab.gnome.org/GNOME/libxml2/-/wikis){:target="_blank"}
+[https://gitlab.gnome.org/GNOME/libxml2/-/wikis :octicons-link-external-16:](https://gitlab.gnome.org/GNOME/libxml2/-/wikis){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

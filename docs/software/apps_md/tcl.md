@@ -8,7 +8,7 @@ Tcl (Tool Command Language) is a very powerful but easy to learn dynamic program
 
 ## Homepage
 
-[https://www.tcl.tk/](https://www.tcl.tk/){:target="_blank"}
+[https://www.tcl.tk/ :octicons-link-external-16:](https://www.tcl.tk/){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

@@ -8,7 +8,7 @@ NVIDIA cuDNN is a GPU-accelerated library of primitives for deep neural networks
 
 ## Homepage
 
-[https://developer.nvidia.com/cudnn](https://developer.nvidia.com/cudnn){:target="_blank"}
+[https://developer.nvidia.com/cudnn :octicons-link-external-16:](https://developer.nvidia.com/cudnn){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

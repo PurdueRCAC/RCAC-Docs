@@ -8,7 +8,7 @@ NUMA support for Linux
 
 ## Homepage
 
-[https://github.com/numactl/numactl](https://github.com/numactl/numactl){:target="_blank"}
+[https://github.com/numactl/numactl :octicons-link-external-16:](https://github.com/numactl/numactl){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

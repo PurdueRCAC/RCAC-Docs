@@ -8,7 +8,7 @@ The FASTX-Toolkit is a collection of command-line tools for preprocessing and ma
 
 ## Homepage
 
-[http://hannonlab.cshl.edu/fastx_toolkit/](http://hannonlab.cshl.edu/fastx_toolkit/){:target="_blank"}
+[http://hannonlab.cshl.edu/fastx_toolkit/ :octicons-link-external-16:](http://hannonlab.cshl.edu/fastx_toolkit/){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

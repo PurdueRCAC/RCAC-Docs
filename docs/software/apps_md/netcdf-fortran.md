@@ -8,7 +8,7 @@ NetCDF Fortran library providing Fortran APIs to access scientific datasets.
 
 ## Homepage
 
-[https://www.unidata.ucar.edu/software/netcdf/](https://www.unidata.ucar.edu/software/netcdf/){:target="_blank"}
+[https://www.unidata.ucar.edu/software/netcdf/ :octicons-link-external-16:](https://www.unidata.ucar.edu/software/netcdf/){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

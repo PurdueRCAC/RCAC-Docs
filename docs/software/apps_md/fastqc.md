@@ -8,7 +8,7 @@ A quality control tool for high throughput sequence data.
 
 ## Homepage
 
-[https://www.bioinformatics.babraham.ac.uk/projects/fastqc/](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/){:target="_blank"}
+[https://www.bioinformatics.babraham.ac.uk/projects/fastqc/ :octicons-link-external-16:](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

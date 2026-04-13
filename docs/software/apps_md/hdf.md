@@ -8,7 +8,7 @@ HDF4 (also known as HDF) is a library and multi-object file format for storing a
 
 ## Homepage
 
-[https://portal.hdfgroup.org](https://portal.hdfgroup.org){:target="_blank"}
+[https://portal.hdfgroup.org :octicons-link-external-16:](https://portal.hdfgroup.org){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

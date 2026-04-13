@@ -8,7 +8,7 @@ Intel oneAPI compilers for building high-performance C, C++, and Fortran applica
 
 ## Homepage
 
-[https://www.intel.com/content/www/us/en/developer/tools/oneapi/dpc-compiler.html](https://www.intel.com/content/www/us/en/developer/tools/oneapi/dpc-compiler.html){:target="_blank"}
+[https://www.intel.com/content/www/us/en/developer/tools/oneapi/dpc-compiler.html :octicons-link-external-16:](https://www.intel.com/content/www/us/en/developer/tools/oneapi/dpc-compiler.html){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

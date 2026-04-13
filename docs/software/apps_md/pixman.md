@@ -8,7 +8,7 @@ The Pixman package contains a library that provides low-level pixel manipulation
 
 ## Homepage
 
-[https://www.pixman.org](https://www.pixman.org){:target="_blank"}
+[https://www.pixman.org :octicons-link-external-16:](https://www.pixman.org){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

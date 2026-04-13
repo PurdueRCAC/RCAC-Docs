@@ -8,7 +8,7 @@ A tool to map bisulfite converted sequence reads and determine cytosine methylat
 
 ## Homepage
 
-[https://www.bioinformatics.babraham.ac.uk/projects/bismark](https://www.bioinformatics.babraham.ac.uk/projects/bismark){:target="_blank"}
+[https://www.bioinformatics.babraham.ac.uk/projects/bismark :octicons-link-external-16:](https://www.bioinformatics.babraham.ac.uk/projects/bismark){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

@@ -8,7 +8,7 @@ GMP is a free library for arbitrary precision arithmetic, operating on signed in
 
 ## Homepage
 
-[https://gmplib.org](https://gmplib.org){:target="_blank"}
+[https://gmplib.org :octicons-link-external-16:](https://gmplib.org){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

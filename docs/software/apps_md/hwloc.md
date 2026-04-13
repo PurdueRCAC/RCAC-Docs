@@ -8,7 +8,7 @@ The Hardware Locality (hwloc) software project.  The Portable Hardware Locality 
 
 ## Homepage
 
-[https://www.open-mpi.org/projects/hwloc/](https://www.open-mpi.org/projects/hwloc/){:target="_blank"}
+[https://www.open-mpi.org/projects/hwloc/ :octicons-link-external-16:](https://www.open-mpi.org/projects/hwloc/){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

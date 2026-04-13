@@ -8,7 +8,7 @@ Network authentication protocol
 
 ## Homepage
 
-[https://kerberos.org](https://kerberos.org){:target="_blank"}
+[https://kerberos.org :octicons-link-external-16:](https://kerberos.org){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

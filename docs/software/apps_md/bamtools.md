@@ -8,7 +8,7 @@ C++ API & command-line toolkit for working with BAM data.
 
 ## Homepage
 
-[https://github.com/pezmaster31/bamtools](https://github.com/pezmaster31/bamtools){:target="_blank"}
+[https://github.com/pezmaster31/bamtools :octicons-link-external-16:](https://github.com/pezmaster31/bamtools){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

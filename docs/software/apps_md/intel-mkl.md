@@ -8,7 +8,7 @@ Intel Math Kernel Library (MKL) provides highly optimized math routines for scie
 
 ## Homepage
 
-[https://www.intel.com/content/www/us/en/developer/tools/oneapi/onemkl.html](https://www.intel.com/content/www/us/en/developer/tools/oneapi/onemkl.html){:target="_blank"}
+[https://www.intel.com/content/www/us/en/developer/tools/oneapi/onemkl.html :octicons-link-external-16:](https://www.intel.com/content/www/us/en/developer/tools/oneapi/onemkl.html){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

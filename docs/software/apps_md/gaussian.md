@@ -8,7 +8,7 @@ Gaussian is a computer program for computational chemistry
 
 ## Homepage
 
-[http://www.gaussian.com/](http://www.gaussian.com/){:target="_blank"}
+[http://www.gaussian.com/ :octicons-link-external-16:](http://www.gaussian.com/){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

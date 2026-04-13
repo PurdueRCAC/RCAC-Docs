@@ -8,7 +8,7 @@ BLAST+ (Basic Local Alignment Search Tool) is a suite of bioinformatics programs
 
 ## Homepage
 
-[https://blast.ncbi.nlm.nih.gov/Blast.cgi](https://blast.ncbi.nlm.nih.gov/Blast.cgi){:target="_blank"}
+[https://blast.ncbi.nlm.nih.gov/Blast.cgi :octicons-link-external-16:](https://blast.ncbi.nlm.nih.gov/Blast.cgi){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

@@ -8,7 +8,7 @@ Cairo is a 2D graphics library with support for multiple output devices.
 
 ## Homepage
 
-[https://www.cairographics.org/](https://www.cairographics.org/){:target="_blank"}
+[https://www.cairographics.org/ :octicons-link-external-16:](https://www.cairographics.org/){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

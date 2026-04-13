@@ -8,7 +8,7 @@ GNU internationalization (i18n) and localization (l10n) library.
 
 ## Homepage
 
-[https://www.gnu.org/software/gettext/](https://www.gnu.org/software/gettext/){:target="_blank"}
+[https://www.gnu.org/software/gettext/ :octicons-link-external-16:](https://www.gnu.org/software/gettext/){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

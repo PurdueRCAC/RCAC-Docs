@@ -8,7 +8,7 @@ PETSc is a suite of data structures and routines for the scalable (parallel) sol
 
 ## Homepage
 
-[https://petsc.org](https://petsc.org){:target="_blank"}
+[https://petsc.org :octicons-link-external-16:](https://petsc.org){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

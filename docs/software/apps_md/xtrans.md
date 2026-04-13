@@ -8,7 +8,7 @@ xtrans is a library of code that is shared among various X packages to handle ne
 
 ## Homepage
 
-[https://gitlab.freedesktop.org/xorg/lib/libxtrans](https://gitlab.freedesktop.org/xorg/lib/libxtrans){:target="_blank"}
+[https://gitlab.freedesktop.org/xorg/lib/libxtrans :octicons-link-external-16:](https://gitlab.freedesktop.org/xorg/lib/libxtrans){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

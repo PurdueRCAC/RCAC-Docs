@@ -8,7 +8,7 @@ Base class for building BLIS, shared with the AMD optimized version of the libra
 
 ## Homepage
 
-[https://github.com/flame/blis](https://github.com/flame/blis){:target="_blank"}
+[https://github.com/flame/blis :octicons-link-external-16:](https://github.com/flame/blis){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

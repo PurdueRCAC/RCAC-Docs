@@ -8,7 +8,7 @@ This library provides message digest functions found on BSD systems either on th
 
 ## Homepage
 
-[https://www.hadrons.org/software/libmd/](https://www.hadrons.org/software/libmd/){:target="_blank"}
+[https://www.hadrons.org/software/libmd/ :octicons-link-external-16:](https://www.hadrons.org/software/libmd/){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

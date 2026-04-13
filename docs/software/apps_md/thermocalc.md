@@ -8,14 +8,14 @@ Thermo-Calc software for thermodynamic calculations of multicomponent systems.
 
 ## Homepage
 
-[https://www.thermocalc.com/](https://www.thermocalc.com/){:target="_blank"}
+[https://www.thermocalc.com/ :octicons-link-external-16:](https://www.thermocalc.com/){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 
 |Cluster|Versions|
 |---|---|
 **BELL**|2022b
-**NEGISHI**|2022b, 2025b
+**NEGISHI**|2022b
 
 ## Module
 

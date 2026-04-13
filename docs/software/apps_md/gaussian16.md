@@ -8,7 +8,7 @@ Gaussian 16 is the latest release of the Gaussian series for electronic structur
 
 ## Homepage
 
-[https://gaussian.com/g16citation/](https://gaussian.com/g16citation/){:target="_blank"}
+[https://gaussian.com/g16citation/ :octicons-link-external-16:](https://gaussian.com/g16citation/){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

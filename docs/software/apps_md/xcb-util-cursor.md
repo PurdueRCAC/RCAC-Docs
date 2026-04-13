@@ -8,7 +8,7 @@ xcb-util-cursor is a utility library for the XCB library, offering convenience f
 
 ## Homepage
 
-[https://xcb.freedesktop.org](https://xcb.freedesktop.org){:target="_blank"}
+[https://xcb.freedesktop.org :octicons-link-external-16:](https://xcb.freedesktop.org){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

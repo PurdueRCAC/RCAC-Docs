@@ -8,7 +8,7 @@ Plyr is an R package for splitting, applying, and combining data.
 
 ## Homepage
 
-[https://cran.r-project.org/web/packages/plyr/index.html](https://cran.r-project.org/web/packages/plyr/index.html){:target="_blank"}
+[https://cran.r-project.org/web/packages/plyr/index.html :octicons-link-external-16:](https://cran.r-project.org/web/packages/plyr/index.html){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

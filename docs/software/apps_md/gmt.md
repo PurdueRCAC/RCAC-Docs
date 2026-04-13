@@ -8,7 +8,7 @@ GMT (Generic Mapping Tools) is an open source collection of about 80 command-lin
 
 ## Homepage
 
-[https://www.generic-mapping-tools.org/](https://www.generic-mapping-tools.org/){:target="_blank"}
+[https://www.generic-mapping-tools.org/ :octicons-link-external-16:](https://www.generic-mapping-tools.org/){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

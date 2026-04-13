@@ -8,7 +8,7 @@ PLUMED is an open source library for free energy calculations in molecular syste
 
 ## Homepage
 
-[https://www.plumed.org/](https://www.plumed.org/){:target="_blank"}
+[https://www.plumed.org/ :octicons-link-external-16:](https://www.plumed.org/){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 
