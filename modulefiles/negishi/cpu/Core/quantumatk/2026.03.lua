@@ -1,7 +1,7 @@
 local app = "quantumatk"
 local version = "2026.03"
 local versiondir = "Y-2026.03"
-local modroot = pathJoin("/apps/external/", app, versiondir)
+local modroot = pathJoin("/apps/external/apps/", app, versiondir)
 
 whatis("Invoke QuantumATK " .. version)
 
