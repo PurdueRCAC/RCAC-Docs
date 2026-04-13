@@ -157,7 +157,7 @@ nav:
       - HPC Exchange:
         - workshops/hpc_exchange/index.md
         - Week 1:
-            - Overview: workshops/hpc_exchange/week1/index.md
+            - workshops/hpc_exchange/week1/index.md
             - Setting up: workshops/hpc_exchange/week1/setup.md
             - Access: workshops/hpc_exchange/week1/access.md
             - Unix: workshops/hpc_exchange/week1/unix.md
@@ -167,7 +167,7 @@ nav:
             - Editing Files: workshops/hpc_exchange/week1/editing.md
             - Command Reference: workshops/hpc_exchange/week1/reference.md
         - Week 2:
-            - Overview: workshops/hpc_exchange/week2/index.md
+            - workshops/hpc_exchange/week2/index.md
             - What is a Cluster?: workshops/hpc_exchange/week2/what-is-a-cluster.md
             - Purdue Clusters: workshops/hpc_exchange/week2/clusters.md
             - Cluster Access: workshops/hpc_exchange/eek2/access.md
@@ -175,14 +175,14 @@ nav:
             - Cluster Job Submission: workshops/hpc_exchange/week2/slurm-basics.md
             - File Storage and Transfer: workshops/hpc_exchange/week2/storage-transfer.md
         - Week 3:
-            - Overview: workshops/hpc_exchange/week3/index.md
+            - workshops/hpc_exchange/week3/index.md
             - Scripting: workshops/hpc_exchange/week3/scripting.md
 
             - Pipes: workshops/hpc_exchange/week3/pipes.md
             - Managing processes: workshops/hpc_exchange/week3/processes.md
             - Files & directories: workshops/hpc_exchange/week3/files-directories.md
         - Week 4:
-            - Overview: workshops/hpc_exchange/week4/index.md
+            - workshops/hpc_exchange/week4/index.md
             - Storage & transfers: workshops/hpc_exchange/week4/storage-transfer.md
             - Job history: workshops/hpc_exchange/week4/job-history.md
             - Utilization & monitoring: workshops/hpc_exchange/week4/utilization-monitoring.md
