@@ -26,6 +26,15 @@ def ignore_unknown(loader, tag_suffix, node):
 IgnoreUnknownTagsLoader.add_multi_constructor('tag:yaml.org,2002:python/name:', ignore_unknown)
 
 # ----------------------------
+# Breadcrumb title overrides
+# Nav labels that should appear differently in breadcrumbs (navbar is unchanged).
+# ----------------------------
+BREADCRUMB_TITLE_OVERRIDES = {
+    "Anvil": "Anvil User Guide",
+    "Gautschi": "Gautschi User Guide",
+}
+
+# ----------------------------
 # Helpers
 # ----------------------------
 ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
@@ -72,13 +81,16 @@ def parse_nav(nav_items, parent_chain=None):
         # dict entries: { "Title": <list-or-string> }
         if isinstance(item, dict):
             for title, value in item.items():
+                # Apply breadcrumb title override if defined (navbar label is unchanged)
+                bc_title = BREADCRUMB_TITLE_OVERRIDES.get(title, title)
+
                 # branch with nested list (section)
                 if isinstance(value, list):
                     # look for direct index.md among the children of this section
                     index_child = next((v for v in value if isinstance(v, str) and v.endswith("index.md")), None)
                     # include this title in parent_chain only if index.md present in this level
                     include_this_level = bool(index_child)
-                    next_parents = parent_chain + [title] if include_this_level else parent_chain
+                    next_parents = parent_chain + [bc_title] if include_this_level else parent_chain
 
                     # iterate children in this section (we need to special-case index.md strings)
                     for sub in value:
@@ -87,7 +99,7 @@ def parse_nav(nav_items, parent_chain=None):
                             if sub.endswith("index.md"):
                                 url = normalize_path(sub)
                                 if url != "/":  # skip root
-                                    mapping[url] = ["Home"] + parent_chain + [title] if include_this_level else ["Home"] + parent_chain + [title]
+                                    mapping[url] = ["Home"] + parent_chain + [bc_title]
                             else:
                                 # plain page string (no explicit title) -> derive title
                                 url = normalize_path(sub)
@@ -105,7 +117,7 @@ def parse_nav(nav_items, parent_chain=None):
                 elif isinstance(value, str):
                     url = normalize_path(value)
                     if url != "/":
-                        mapping[url] = ["Home"] + parent_chain + [title]
+                        mapping[url] = ["Home"] + parent_chain + [bc_title]
 
                 else:
                     # unexpected type; skip
