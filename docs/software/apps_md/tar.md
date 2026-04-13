@@ -8,7 +8,7 @@ GNU Tar provides the ability to create tar archives, as well as various other ki
 
 ## Homepage
 
-[https://www.gnu.org/software/tar/ :octicons-link-external-16:](https://www.gnu.org/software/tar/){:target="_blank"}
+[https://www.gnu.org/software/tar/](https://www.gnu.org/software/tar/){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

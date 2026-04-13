@@ -8,7 +8,7 @@ Qt is a comprehensive cross-platform C++ application framework.
 
 ## Homepage
 
-[https://qt.io :octicons-link-external-16:](https://qt.io){:target="_blank"}
+[https://qt.io](https://qt.io){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

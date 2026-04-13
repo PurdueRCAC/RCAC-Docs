@@ -8,7 +8,7 @@ Base class for building Fftw, shared with the AMD optimized version of the libra
 
 ## Homepage
 
-[https://www.fftw.org :octicons-link-external-16:](https://www.fftw.org){:target="_blank"}
+[https://www.fftw.org](https://www.fftw.org){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

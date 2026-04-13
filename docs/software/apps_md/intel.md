@@ -8,7 +8,7 @@ Intel provides a wide range of software development tools and performance librar
 
 ## Homepage
 
-[https://www.intel.com/content/www/us/en/developer/tools/overview.html :octicons-link-external-16:](https://www.intel.com/content/www/us/en/developer/tools/overview.html){:target="_blank"}
+[https://www.intel.com/content/www/us/en/developer/tools/overview.html](https://www.intel.com/content/www/us/en/developer/tools/overview.html){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

@@ -8,7 +8,7 @@ LAMMPS stands for Large-scale Atomic/Molecular Massively Parallel Simulator.
 
 ## Homepage
 
-[https://www.lammps.org/ :octicons-link-external-16:](https://www.lammps.org/){:target="_blank"}
+[https://www.lammps.org/](https://www.lammps.org/){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

@@ -8,7 +8,7 @@ Synopsys Sentaurus software suite for TCAD simulation of semiconductor devices.
 
 ## Homepage
 
-[https://www.synopsys.com/silicon/tcad.html :octicons-link-external-16:](https://www.synopsys.com/silicon/tcad.html){:target="_blank"}
+[https://www.synopsys.com/silicon/tcad.html](https://www.synopsys.com/silicon/tcad.html){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

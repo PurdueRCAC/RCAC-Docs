@@ -8,7 +8,7 @@ FormatR is an R package to format R code consistently.
 
 ## Homepage
 
-[https://cran.r-project.org/web/packages/formatR/index.html :octicons-link-external-16:](https://cran.r-project.org/web/packages/formatR/index.html){:target="_blank"}
+[https://cran.r-project.org/web/packages/formatR/index.html](https://cran.r-project.org/web/packages/formatR/index.html){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

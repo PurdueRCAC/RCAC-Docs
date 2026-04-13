@@ -8,7 +8,7 @@ Expat is an XML parser library written in C.
 
 ## Homepage
 
-[https://libexpat.github.io/ :octicons-link-external-16:](https://libexpat.github.io/){:target="_blank"}
+[https://libexpat.github.io/](https://libexpat.github.io/){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

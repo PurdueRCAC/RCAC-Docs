@@ -8,7 +8,7 @@ Kokkos implements a programming model in C++ for writing performance portable ap
 
 ## Homepage
 
-[https://github.com/kokkos/kokkos :octicons-link-external-16:](https://github.com/kokkos/kokkos){:target="_blank"}
+[https://github.com/kokkos/kokkos](https://github.com/kokkos/kokkos){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

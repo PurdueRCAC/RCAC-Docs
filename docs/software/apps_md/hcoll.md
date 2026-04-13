@@ -8,7 +8,7 @@ Modern interface for Mellanox Fabric Collective Accelerator (FCA). FCA is a MPI-
 
 ## Homepage
 
-[https://developer.nvidia.com/networking/hpc-x :octicons-link-external-16:](https://developer.nvidia.com/networking/hpc-x){:target="_blank"}
+[https://developer.nvidia.com/networking/hpc-x](https://developer.nvidia.com/networking/hpc-x){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

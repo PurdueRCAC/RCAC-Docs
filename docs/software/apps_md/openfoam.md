@@ -8,7 +8,7 @@ OpenFOAM is a GPL-opensource C++ CFD-toolbox. This offering is supported by Open
 
 ## Homepage
 
-[https://www.openfoam.com/ :octicons-link-external-16:](https://www.openfoam.com/){:target="_blank"}
+[https://www.openfoam.com/](https://www.openfoam.com/){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

@@ -8,7 +8,7 @@ X Protocol Extensions.
 
 ## Homepage
 
-[https://gitlab.freedesktop.org/xorg/proto/xextproto :octicons-link-external-16:](https://gitlab.freedesktop.org/xorg/proto/xextproto){:target="_blank"}
+[https://gitlab.freedesktop.org/xorg/proto/xextproto](https://gitlab.freedesktop.org/xorg/proto/xextproto){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

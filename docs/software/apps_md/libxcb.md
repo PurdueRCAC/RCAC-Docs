@@ -8,7 +8,7 @@ The X protocol C-language Binding (XCB) is a replacement for Xlib featuring a sm
 
 ## Homepage
 
-[https://xcb.freedesktop.org/ :octicons-link-external-16:](https://xcb.freedesktop.org/){:target="_blank"}
+[https://xcb.freedesktop.org/](https://xcb.freedesktop.org/){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

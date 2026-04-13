@@ -8,7 +8,7 @@ Matplotlib is a comprehensive library for creating static, animated, and interac
 
 ## Homepage
 
-[https://matplotlib.org/ :octicons-link-external-16:](https://matplotlib.org/){:target="_blank"}
+[https://matplotlib.org/](https://matplotlib.org/){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

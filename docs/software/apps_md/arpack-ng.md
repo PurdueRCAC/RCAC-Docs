@@ -8,7 +8,7 @@ ARPACK-NG is an open-source project for solving large-scale eigenvalue problems.
 
 ## Homepage
 
-[https://github.com/opencollab/arpack-ng :octicons-link-external-16:](https://github.com/opencollab/arpack-ng){:target="_blank"}
+[https://github.com/opencollab/arpack-ng](https://github.com/opencollab/arpack-ng){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

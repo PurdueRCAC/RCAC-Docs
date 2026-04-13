@@ -8,7 +8,7 @@ This library provides useful functions commonly found on BSD systems, and lackin
 
 ## Homepage
 
-[https://libbsd.freedesktop.org/wiki/ :octicons-link-external-16:](https://libbsd.freedesktop.org/wiki/){:target="_blank"}
+[https://libbsd.freedesktop.org/wiki/](https://libbsd.freedesktop.org/wiki/){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

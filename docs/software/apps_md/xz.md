@@ -8,7 +8,7 @@ XZ Utils is free general-purpose data compression software with high compression
 
 ## Homepage
 
-[https://tukaani.org/xz/ :octicons-link-external-16:](https://tukaani.org/xz/){:target="_blank"}
+[https://tukaani.org/xz/](https://tukaani.org/xz/){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

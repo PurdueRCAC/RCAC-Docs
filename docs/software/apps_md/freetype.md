@@ -8,7 +8,7 @@ FreeType is a freely available software library to render fonts. It is written i
 
 ## Homepage
 
-[https://www.freetype.org/index.html :octicons-link-external-16:](https://www.freetype.org/index.html){:target="_blank"}
+[https://www.freetype.org/index.html](https://www.freetype.org/index.html){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

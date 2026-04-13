@@ -8,7 +8,7 @@ AmberTools is a free, useful standalone package and a prerequisite for installin
 
 ## Homepage
 
-[https://ambermd.org/AmberTools.php :octicons-link-external-16:](https://ambermd.org/AmberTools.php){:target="_blank"}
+[https://ambermd.org/AmberTools.php](https://ambermd.org/AmberTools.php){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

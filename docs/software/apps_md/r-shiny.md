@@ -8,7 +8,7 @@ Shiny is an R package for building interactive web applications directly from R.
 
 ## Homepage
 
-[https://cran.r-project.org/web/packages/shiny/index.html :octicons-link-external-16:](https://cran.r-project.org/web/packages/shiny/index.html){:target="_blank"}
+[https://cran.r-project.org/web/packages/shiny/index.html](https://cran.r-project.org/web/packages/shiny/index.html){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

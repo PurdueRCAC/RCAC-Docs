@@ -8,7 +8,7 @@ libFLAME (AMD Optimized version) is a portable library for dense matrix computat
 
 ## Homepage
 
-[https://www.amd.com/en/developer/aocl/blis.html#libflame :octicons-link-external-16:](https://www.amd.com/en/developer/aocl/blis.html#libflame){:target="_blank"}
+[https://www.amd.com/en/developer/aocl/blis.html#libflame](https://www.amd.com/en/developer/aocl/blis.html#libflame){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

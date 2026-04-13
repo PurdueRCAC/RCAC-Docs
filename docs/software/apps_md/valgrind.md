@@ -8,7 +8,7 @@ An instrumentation framework for building dynamic analysis.  There are Valgrind 
 
 ## Homepage
 
-[https://valgrind.org/ :octicons-link-external-16:](https://valgrind.org/){:target="_blank"}
+[https://valgrind.org/](https://valgrind.org/){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

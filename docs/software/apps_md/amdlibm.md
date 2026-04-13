@@ -8,7 +8,7 @@ AMD LibM is a software library containing a collection of basic math functions o
 
 ## Homepage
 
-[https://www.amd.com/en/developer/aocl/libm.html :octicons-link-external-16:](https://www.amd.com/en/developer/aocl/libm.html){:target="_blank"}
+[https://www.amd.com/en/developer/aocl/libm.html](https://www.amd.com/en/developer/aocl/libm.html){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

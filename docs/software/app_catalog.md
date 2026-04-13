@@ -9,7 +9,7 @@ hide:
 # All software and versions on RCAC clusters
 
 ## Overview
-As of **April 08, 2026**, there have been a total of **274** applications with **2510** available versions deployed across **6** RCAC HPC clusters: **ANVIL, BELL, GAUTSCHI, GILBRETH, NEGISHI, SCHOLAR**.
+As of **April 13, 2026**, there have been a total of **274** applications with **2513** available versions deployed across **6** RCAC HPC clusters: **ANVIL, BELL, GAUTSCHI, GILBRETH, NEGISHI, SCHOLAR**.
 
 ## Applications Catalog
 
@@ -676,7 +676,7 @@ As of **April 08, 2026**, there have been a total of **274** applications with *
     <tr>
       <td><a href="../apps_md/libxdmcp"><strong>libxdmcp</strong></a></td>
       <td>Library</td>
-      <td>ANVIL, NEGISHI</td>
+      <td>ANVIL, GILBRETH, NEGISHI</td>
     </tr>
     <tr>
       <td><a href="../apps_md/libxext"><strong>libxext</strong></a></td>
@@ -1041,7 +1041,7 @@ As of **April 08, 2026**, there have been a total of **274** applications with *
     <tr>
       <td><a href="../apps_md/quantumatk"><strong>quantumatk</strong></a></td>
       <td>Chemistry, Material Science</td>
-      <td>BELL, GILBRETH, NEGISHI</td>
+      <td>BELL, GAUTSCHI, GILBRETH, NEGISHI</td>
     </tr>
     <tr>
       <td><a href="../apps_md/r-devtools"><strong>r-devtools</strong></a></td>

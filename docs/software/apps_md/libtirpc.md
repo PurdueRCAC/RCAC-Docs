@@ -8,7 +8,7 @@ Libtirpc is a port of Suns Transport-Independent RPC library to Linux.
 
 ## Homepage
 
-[https://sourceforge.net/projects/libtirpc/ :octicons-link-external-16:](https://sourceforge.net/projects/libtirpc/){:target="_blank"}
+[https://sourceforge.net/projects/libtirpc/](https://sourceforge.net/projects/libtirpc/){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

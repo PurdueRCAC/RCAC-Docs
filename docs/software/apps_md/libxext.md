@@ -8,7 +8,7 @@ libXext - library for common extensions to the X11 protocol.
 
 ## Homepage
 
-[https://gitlab.freedesktop.org/xorg/lib/libXext :octicons-link-external-16:](https://gitlab.freedesktop.org/xorg/lib/libXext){:target="_blank"}
+[https://gitlab.freedesktop.org/xorg/lib/libXext](https://gitlab.freedesktop.org/xorg/lib/libXext){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

@@ -8,7 +8,7 @@ Amber is a suite of biomolecular simulation programs together with Amber tools. 
 
 ## Homepage
 
-[https://ambermd.org/ :octicons-link-external-16:](https://ambermd.org/){:target="_blank"}
+[https://ambermd.org/](https://ambermd.org/){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

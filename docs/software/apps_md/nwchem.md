@@ -8,7 +8,7 @@ High-performance computational chemistry software
 
 ## Homepage
 
-[https://nwchemgit.github.io :octicons-link-external-16:](https://nwchemgit.github.io){:target="_blank"}
+[https://nwchemgit.github.io](https://nwchemgit.github.io){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

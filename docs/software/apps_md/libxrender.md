@@ -8,7 +8,7 @@ libXrender - library for the Render Extension to the X11 protocol.
 
 ## Homepage
 
-[https://gitlab.freedesktop.org/xorg/lib/libXrender :octicons-link-external-16:](https://gitlab.freedesktop.org/xorg/lib/libXrender){:target="_blank"}
+[https://gitlab.freedesktop.org/xorg/lib/libXrender](https://gitlab.freedesktop.org/xorg/lib/libXrender){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

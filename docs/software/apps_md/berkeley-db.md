@@ -8,7 +8,7 @@ Berkeley DB is an embedded database software library providing scalable high-per
 
 ## Homepage
 
-[https://www.oracle.com/database/technologies/related/berkeleydb.html :octicons-link-external-16:](https://www.oracle.com/database/technologies/related/berkeleydb.html){:target="_blank"}
+[https://www.oracle.com/database/technologies/related/berkeleydb.html](https://www.oracle.com/database/technologies/related/berkeleydb.html){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

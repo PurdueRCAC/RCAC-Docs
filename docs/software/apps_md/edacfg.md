@@ -8,7 +8,7 @@ edacfg (Error Detection and Correction configuration) is a Linux utility for con
 
 ## Homepage
 
-[https://github.com/mchehab/edac-utils :octicons-link-external-16:](https://github.com/mchehab/edac-utils){:target="_blank"}
+[https://github.com/mchehab/edac-utils](https://github.com/mchehab/edac-utils){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

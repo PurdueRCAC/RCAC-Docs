@@ -8,7 +8,7 @@ Parallel NetCDF (PnetCDF) is a high-performance library for parallel I/O of scie
 
 ## Homepage
 
-[https://parallel-netcdf.github.io/ :octicons-link-external-16:](https://parallel-netcdf.github.io/){:target="_blank"}
+[https://parallel-netcdf.github.io/](https://parallel-netcdf.github.io/){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

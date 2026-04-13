@@ -8,7 +8,7 @@ COMSOL Multiphysics is a simulation platform for modeling designs, devices, and 
 
 ## Homepage
 
-[https://www.comsol.com :octicons-link-external-16:](https://www.comsol.com){:target="_blank"}
+[https://www.comsol.com](https://www.comsol.com){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

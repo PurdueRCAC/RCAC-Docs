@@ -8,7 +8,7 @@ An open source Message Passing Interface implementation.  The Open MPI Project i
 
 ## Homepage
 
-[https://www.open-mpi.org :octicons-link-external-16:](https://www.open-mpi.org){:target="_blank"}
+[https://www.open-mpi.org](https://www.open-mpi.org){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 
