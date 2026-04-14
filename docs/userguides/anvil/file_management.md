@@ -116,8 +116,9 @@ Then copy files or directories from there back to where they belong:
     $ cp -r mylostdirectory /home
 ```
 
-Here is an example of `/home` directory. If you know more specifically where the lost file was you may provide the full path to that directory.
+Above is an example of `/home` directory. If you know more specifically where the lost file was, you may provide the full path to that directory.
 
-This tool will prompt you for the date on which you lost the file or would like to recover the file from. If the tool finds an appropriate snapshot it will provide instructions on how to search for and recover the file.
+!!! info "flost requires a date"
+    This tool will prompt you for the date on which you lost the file or would like to recover the file from. If the tool finds an appropriate snapshot it will provide instructions on how to search for and recover the file.
 
 If you are not sure what date you lost the file you may try entering different dates into the `flost` to try to find the file or you may also **manually browse** the snapshots in `/home/.zfs/snapshot` folder for **Home** directory and `/anvil/projects/.snapshots` folder for **Projects** directory.

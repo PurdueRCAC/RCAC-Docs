@@ -60,5 +60,5 @@ Please file an [ACCESS help ticket :octicons-link-external-16:](https://support.
 
 ## Pegasus on Anvil
 
-Documentation here
-[Pegasus link :octicons-link-external-16:](http://access-ci.atlassian.net/wiki/spaces/ACCESSdocumentation/pages/564887553/Pegasus+Workflows) 
+Documentation provided by
+[Pegasus](http://access-ci.atlassian.net/wiki/spaces/ACCESSdocumentation/pages/564887553/Pegasus+Workflows) 

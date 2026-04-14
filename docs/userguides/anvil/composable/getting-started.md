@@ -59,3 +59,7 @@ To login to the harbor registry using your ACCESS credentials:
 3. If this is the first time that you are logging in to Harbor with OIDC, specify a user name for Harbor to associate with your OIDC username.
    1. This is the user name by which you are identified in Harbor, which is used when adding you to projects, assigning roles, and so on. If the username is already taken, you are prompted to choose another one.
 4. After the OIDC provider has authenticated you, you are redirected back to the Anvil Harbor Registry.
+
+## Tutorial
+
+For a comprehensive tutorial you can follow along with, please  see our [Kubernetes Tutorial](/workshops/kubernetes-tutorial/)
