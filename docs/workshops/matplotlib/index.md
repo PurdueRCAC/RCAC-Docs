@@ -11,3 +11,4 @@ Welcome to the web page for the RCAC MatPlotLib workshop. We start here and will
 * [Types of Plots](plot_types.md)
 * [Colormaps](colormaps.md)
 * [Animations](animations.md)
+* [Envision Center](env_cent.md)
