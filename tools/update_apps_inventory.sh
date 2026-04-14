@@ -92,10 +92,14 @@ while IFS= read -r -d '' linkpath; do
   len=${#path_parts[@]}
   app_dir="${path_parts[$((len-2))]}"
 
+  # Track whether this default came from a cpu or gpu subtree so jq can prefer cpu
+  [[ "$relpath" == */cpu/* ]] && stack="cpu" || stack="gpu"
+
   jq -n --arg app "$app_dir" \
         --arg cluster "$cluster" \
         --arg version "$default_version" \
-        '{app:$app, cluster:$cluster, default:$version}' >> "$NEW_TMP"
+        --arg stack "$stack" \
+        '{app:$app, cluster:$cluster, default:$version, stack:$stack}' >> "$NEW_TMP"
 done
 
 # Aggregate all entries into a single JSON structure:
@@ -104,7 +108,10 @@ jq --slurp '
   reduce .[] as $it ({}; 
     .[$it.app] |= ( . // {availability:{}} ) |
     if ($it | has("default")) then
-      .[$it.app].default[$it.cluster] = $it.default
+      # Prefer cpu defaults over gpu: only overwrite if no default set yet, or this entry is from cpu
+      if (.[$it.app].default[$it.cluster] == null or $it.stack == "cpu") then
+        .[$it.app].default[$it.cluster] = $it.default
+      else . end
     else
       .[$it.app].availability[$it.cluster] |= ((. // []) + [$it.version])
     end
