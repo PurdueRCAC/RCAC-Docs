@@ -93,13 +93,13 @@ nav:
         - Getting Started: userguides/anvil/composable/getting-started.md
         - Concepts: userguides/anvil/composable/concepts.md
         - Examples: userguides/anvil/composable/examples.md
-      - Anvil Object Storage: 
+      - Anvil Object Storage:
         - userguides/anvil/objectstorage/index.md
         - Getting Started: userguides/anvil/objectstorage/getting-started.md
         - Object Storage Concepts: userguides/anvil/objectstorage/concepts.md
         - Access: userguides/anvil/objectstorage/access.md
         - User Tools: userguides/anvil/objectstorage/usertools.md
-        - Security and Access Control: userguides/anvil/objectstorage/acl.md        
+        - Security and Access Control: userguides/anvil/objectstorage/acl.md
       - AnvilGPT (LLM): userguides/anvil/anvilgpt.md
       - Anvil Notebook: userguides/anvil/notebook.md
       - Maintenance Log: userguides/anvil/maintenance.md
@@ -198,6 +198,7 @@ nav:
         - Types of Plots: workshops/matplotlib/plot_types.md
         - Colormaps: workshops/matplotlib/colormaps.md
         - Animations: workshops/matplotlib/animations.md
+        - Envision Center: workshops/matplotlib/env_cent.md
   # - Tags: tags.md
   - Contact us: contact.md
   - FAQs: faq.md
