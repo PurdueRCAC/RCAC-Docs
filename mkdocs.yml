@@ -1,5 +1,5 @@
 site_name: RCAC Documentation
-site_description: A demo site for RCAC documentation.
+site_description: Official RCAC documentation website.
 site_url: https://docs.rcac.purdue.edu
 
 theme:
