@@ -16,9 +16,11 @@ draft: false
 
 [Placeholder for mykeys tool]
 
+---
+
 ### Manage Bucket CLI Tool
 
-The manage-bucket tool is a command-line interface for managing access policies on Anvil Object Storage (Ceph S3). It lets you easily grant or revoke user permissions at the bucket level using common access patterns like read-only or read-write.
+The `manage-bucket` tool is a command-line interface for managing access policies on Anvil Object Storage (Ceph S3). It lets you easily grant or revoke user permissions at the bucket level using common access patterns like read-only or read-write.
 
 #### Usage
 ```
