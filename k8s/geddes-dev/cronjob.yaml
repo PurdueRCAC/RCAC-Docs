@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: rcac-docs-restart
+  name: rcac-docs-dev-restart
   namespace: rcac-docs
 spec:
   schedule: "*/5 * * * *"  # every 5 minutes

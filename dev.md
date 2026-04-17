@@ -244,3 +244,13 @@ mkdocs.yml                         # Registered a11y.js in extra_javascript
 | Contrast errors — light mode (Phase 4) | 7 | 0 |
 | Contrast errors — dark mode (Phase 5) | 2 | 0 |
 | **Total** | **50** | **0** |
+
+---
+
+## Geddes Dev CronJob Rename (2026-04-17)
+
+Renamed the Geddes dev CronJob from `rcac-docs-restart` to `rcac-docs-dev-restart` for clarity.
+
+| File | Change |
+|------|--------|
+| `k8s/geddes-dev/cronjob.yaml` | `metadata.name`: `rcac-docs-restart` → `rcac-docs-dev-restart` |
