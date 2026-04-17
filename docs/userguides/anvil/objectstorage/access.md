@@ -8,7 +8,7 @@ search:
   boost: 2
 draft: false
 ---
-[Back to Anvil Object Storage](../index.md)
+[Back to Anvil Object Storage](index.md)
 
 # Getting Access and Connecting to Object Storage
 ## Eligibility
@@ -39,9 +39,10 @@ Make sure your request contains:
 
 - **Project name or allocation ID**  
 - **Brief description of your use case**  
-- **Dataset(s) you intend to store or access**  
-
-You will be provided with credentials after you submit the request.
+- **Dataset(s) you intend to store or access**
+- **Size of your data and number of files**
+  
+You will be provided access to object storage and your credentials after you submit the request.
 
 ---
 

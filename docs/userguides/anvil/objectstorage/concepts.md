@@ -8,7 +8,7 @@ search:
   boost: 2
 draft: false
 ---
-[Back to Anvil Object Storage](../index.md)
+[Back to Anvil Object Storage](index.md)
 
 
 # Object Storage Concepts

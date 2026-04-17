@@ -9,7 +9,7 @@ search:
 draft: false
 ---
 
-[Back to Anvil Object Storage](../index.md)
+[Back to Anvil Object Storage](index.md)
 
 # User Tools
 
@@ -134,7 +134,8 @@ rclone copy anvil-s3:bucketname/mydir ./mydir
 rclone sync mydir anvil-s3:bucketname/mydir
 ```
 
-> ⚠️ `sync` will delete files at the destination that do not exist in the source.
+!!! warning "Warning"
+    `sync` will delete files at the destination that do not exist in the source.
 
 ---
 
@@ -166,7 +167,8 @@ acl = private
 
 [`s3cmd` :octicons-link-external-16:](https://s3tools.org/s3cmd) is a command-line tool for interacting with S3-compatible object storage. On Anvil, it can be used to manage buckets and transfer data to and from object storage.
 
-!!! **Note:** Unlike `rclone`, which supports multiple named remotes, `s3cmd` relies on a single configuration file (`~/.s3cfg`) and is generally limited to one endpoint at a time. To work with multiple endpoints, separate configuration files must be used (via the `--config` option).
+!!! note "Note"
+    Unlike `rclone`, which supports multiple named remotes, `s3cmd` relies on a single configuration file (`~/.s3cfg`) and is generally limited to one endpoint at a time. To work with multiple endpoints, use separate configuration files with the `--config` option.
 
 ---
 
@@ -229,7 +231,8 @@ host_bucket = %(bucket)s.s3.anvil.rcac.purdue.edu
 use_https = True
 ```
 
-!!! Leave `host_bucket` empty if you want to enforce path-style addressing.
+!!! warning 
+    Leave `host_bucket` empty if you want to enforce path-style addressing.
 
 ---
 
