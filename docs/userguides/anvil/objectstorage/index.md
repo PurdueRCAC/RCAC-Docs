@@ -7,6 +7,8 @@ authors:
 search:
   boost: 2
 draft: false
+hide:
+  - toc
 ---
 
 # Anvil Object Storage
