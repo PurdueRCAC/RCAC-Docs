@@ -15,9 +15,9 @@ Data-driven computational pipelines.
 |Cluster|Versions|
 |---|---|
 **ANVIL**|22.10.1
-**BELL**|24.10.0, 25.04.6
-**GAUTSCHI**|24.04.3
-**NEGISHI**|22.10.1, 23.04.1
+**BELL**|24.10.0, 25.04.6, 25.10.04
+**GAUTSCHI**|24.04.3, 25.10.04
+**NEGISHI**|22.10.1, 23.04.1, 25.10.04
 
 ## Module
 
