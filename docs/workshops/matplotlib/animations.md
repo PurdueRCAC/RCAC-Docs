@@ -21,7 +21,7 @@ The first way to create an animation is using MatPlotLib's `FuncAnimation` funct
 
 It works by having an initial figure created and then a python function defined to update the figure each frame. Since our data is fairly simple, the update function is likewise simple, we change the plotted data to incorporate an additional step every frame. The `interval` option defines the time between frames of the animation in ms. Lastly, we use the `ani.save()` function to save the animation to a file. Here, we specify that we want it as a `.gif` file, but you could also specify different movie types, such as `.mp4`.
 
-!!! note 'Additional Import'
+!!! note "Additional Import"
 
     Note that there is an additional import statement at the top of the script, that contains the package necessary to create animations in MatPlotLib: `import matplotlib.animation as animation`
 
