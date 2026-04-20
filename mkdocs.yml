@@ -56,6 +56,7 @@ plugins:
       archive_date_format: MMMM yyyy
       post_date_format: long
       categories_allowed:
+        - Announcements
         - Anvil
         - Gautschi
         - Software
