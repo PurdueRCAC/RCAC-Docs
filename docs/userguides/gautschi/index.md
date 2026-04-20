@@ -19,4 +19,3 @@ Gautschi is a Community Cluster optimized for communities running traditional, t
 - [**Gateway (Open OnDemand)**](gateway.md)
 - [**Compiling Source Code**](compile.md)
 - [**Frequently Asked Questions**](faq.md)
-- [**Datasets**](datasets.md)
