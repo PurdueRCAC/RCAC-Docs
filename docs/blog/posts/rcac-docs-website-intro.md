@@ -2,6 +2,8 @@
 date:
   created: 2026-04-20
 
+pin: true
+
 categories:
   - Announcements
 
