@@ -179,17 +179,33 @@
     "Home",
     "Bell"
   ],
-  "/https://www.rcac.purdue.edu/knowledge/negishi": [
-    "Home",
-    "Negishi"
-  ],
   "/https://www.rcac.purdue.edu/knowledge/gilbreth": [
     "Home",
     "Gilbreth"
   ],
+  "/https://www.rcac.purdue.edu/knowledge/negishi": [
+    "Home",
+    "Negishi"
+  ],
   "/https://www.rcac.purdue.edu/knowledge/scholar": [
     "Home",
     "Scholar"
+  ],
+  "/https://www.rcac.purdue.edu/knowledge/geddes": [
+    "Home",
+    "Geddes"
+  ],
+  "/https://www.rcac.purdue.edu/knowledge/hammer": [
+    "Home",
+    "Hammer"
+  ],
+  "/https://www.rcac.purdue.edu/knowledge/rossmann": [
+    "Home",
+    "Rossmann"
+  ],
+  "/https://www.rcac.purdue.edu/knowledge/weber": [
+    "Home",
+    "Weber"
   ],
   "/https://www.rcac.purdue.edu/knowledge/depot": [
     "Home",
@@ -206,6 +222,10 @@
   "/https://www.rcac.purdue.edu/knowledge/home": [
     "Home",
     "Home Directory"
+  ],
+  "/https://www.rcac.purdue.edu/knowledge/reedfolder": [
+    "Home",
+    "REED Folder"
   ],
   "/https://www.rcac.purdue.edu/knowledge/boxfolder": [
     "Home",
