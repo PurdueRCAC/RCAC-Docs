@@ -1,4 +1,53 @@
-__pycache__
-.claude
-site/
+# MkDocs build output
+/site/
+
+# Python bytecode & caches
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments
+.venv/
+venv/
+env/
+.python-version
+
+# Packaging / build artifacts
+build/
+dist/
+*.egg-info/
+*.egg
+pip-wheel-metadata/
+
+# Testing & coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+.mypy_cache/
+.ruff_cache/
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# macOS
+.DS_Store
+._*
+
+# Environment / secrets
+.env
+.env.local
+
+# Assistant / tooling scratch
+.claude/
+.warp/
+
+# Project-local drafts not for publication
 geddes-deployment.md
