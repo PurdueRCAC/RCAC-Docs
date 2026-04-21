@@ -46,10 +46,10 @@ Every RCAC cluster has its own dedicated guide organized into consistent chapter
 
 | Cluster User Guide | Notable Hardware |
 |---|---|
-| [Anvil](/userguides/anvil/) | 128 cores/node, A100(40GB) and H100(80GB) GPUs |
-| [Gautschi](/userguides/gautschi) | 192 cores/node, L40S(48GB) and H100(80GB) GPUs |
-| [Bell (Under Migration) :octicons-link-external-16:](https://www.rcac.purdue.edu/knowledge/bell)  | 128 cores/node, AMD(32GB) MI50 GPUs |
-| [Negishi (Under Migration) :octicons-link-external-16:](https://www.rcac.purdue.edu/knowledge/negishi) | 128 cores/node, AMD(64GB) MI210 GPUs |
+| [Anvil](/userguides/anvil/) | 128 cores/node, A100 (40GB) and H100 (80GB) GPUs |
+| [Gautschi](/userguides/gautschi) | 192 cores/node, L40S (48GB) and H100 (80GB) GPUs |
+| [Bell (Under Migration) :octicons-link-external-16:](https://www.rcac.purdue.edu/knowledge/bell)  | 128 cores/node, AMD MI50 (32GB) GPUs |
+| [Negishi (Under Migration) :octicons-link-external-16:](https://www.rcac.purdue.edu/knowledge/negishi) | 128 cores/node, AMD MI210 (64GB) GPUs |
 | [Gilbreth (Under Migration) :octicons-link-external-16:](https://www.rcac.purdue.edu/knowledge/gilbreth) | Various Nvida GPUs |
 | [Scholar (Under Migration) :octicons-link-external-16:](https://www.rcac.purdue.edu/knowledge/scholar) | 168 cores/node, Various Nvida GPUs |
 
@@ -97,7 +97,7 @@ The site is built on the [Material for MkDocs :octicons-link-external-16:](https
 
 ## 6. Workshops & Tutorials
 
-The [Workshops](/workshops/index.md) section hosts self-paced learning materials from various RCAC workshops for users at all levels, e.g.:
+The [Workshops](/workshops) section hosts self-paced learning materials from various RCAC workshops for users at all levels, e.g.:
 
 - [**HPC Exchange**](/workshops/hpc_exchange/) — a four-week series covering Unix fundamentals, cluster architecture, shell scripting, and Slurm job submission
 - [**Anvil Kubernetes**](/workshops/kubernetes-tutorial/) — containerized computing on the Anvil composable subsystem

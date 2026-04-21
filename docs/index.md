@@ -70,7 +70,7 @@ Follow these steps to get up and running on RCAC clusters.
 
     NSF-funded capacity cluster for the national research community. Features AMD EPYC Milan CPUs, NVIDIA A100 GPUs, and large-memory nodes. Available through ACCESS allocations.
 
-    **128 cores/node | 256 GB RAM | A100 40GB GPUs**
+    **128 cores/node | 256GB-1TB RAM | A100/H100 GPUs**
 
     [:octicons-arrow-right-24: Anvil User Guide](userguides/anvil/index.md)
 
@@ -80,7 +80,7 @@ Follow these steps to get up and running on RCAC clusters.
 
     Purdue's community cluster for faculty and research groups. Powered by AMD EPYC Genoa CPUs and NVIDIA H100 GPUs. Access through the community cluster purchase program.
 
-    **192 cores/node | 384 GB RAM | H100 80GB GPUs**
+    **192 cores/node | 384GB-1.5TB RAM | H100 GPUs**
 
     [:octicons-arrow-right-24: Gautschi User Guide](userguides/gautschi/index.md)
 
