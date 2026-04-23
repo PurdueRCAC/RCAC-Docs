@@ -10,3 +10,4 @@ We will also regularly upload RCAC workshop and tutorial materials to this websi
 - [**HPC Exchange**](hpc_exchange/index.md)
 - [**Anvil Kubernetes**](kubernetes-tutorial.md)
 - [**Scientific Visualization with MatPlotLib**](matplotlib/index.md)
+- [**Genomics Exchange**](genomics_exchange/index.md)

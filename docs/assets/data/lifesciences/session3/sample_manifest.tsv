@@ -1,0 +1,7 @@
+sample_id	sample_name	condition	replicate	tissue	library_size
+SRR001	drought_rep1	drought	1	leaf	28456789
+SRR002	drought_rep2	drought	2	leaf	31234567
+SRR003	drought_rep3	drought	3	leaf	26789012
+SRR004	control_rep1	control	1	leaf	30123456
+SRR005	control_rep2	control	2	leaf	29876543
+SRR006	control_rep3	control	3	leaf	27654321

@@ -1,0 +1,11 @@
+term_id	term_name	gene_count	fold_enrichment	pvalue	padj	category
+GO:0009414	response to water deprivation	6	8.2	1.4e-07	2.8e-06	BP
+GO:0009737	response to abscisic acid	5	6.9	3.1e-06	3.1e-05	BP
+GO:0006970	response to osmotic stress	5	5.8	8.7e-06	5.8e-05	BP
+GO:0009269	response to desiccation	3	7.1	4.5e-05	2.3e-04	BP
+GO:0015250	water channel activity	2	9.4	1.2e-04	7.1e-04	MF
+GO:0006979	response to oxidative stress	4	4.5	2.3e-04	1.2e-03	BP
+GO:0009507	chloroplast	7	2.8	1.1e-03	4.9e-03	CC
+GO:0004672	protein kinase activity	3	3.2	5.6e-03	2.2e-02	MF
+GO:0005618	cell wall	3	3.5	7.8e-03	2.8e-02	CC
+GO:0009631	cold acclimation	2	3.8	8.9e-03	3.0e-02	BP
