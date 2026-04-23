@@ -118,7 +118,6 @@ nav:
       - Gateway (Open OnDemand): userguides/gautschi/gateway.md
       - Compiling Source Code: userguides/gautschi/compile.md
       - Frequently Asked Questions: userguides/gautschi/faq.md
-      - Datasets: userguides/gautschi/datasets.md
     - Bell: https://www.rcac.purdue.edu/knowledge/bell
     - Gilbreth: https://www.rcac.purdue.edu/knowledge/gilbreth
     - Negishi: https://www.rcac.purdue.edu/knowledge/negishi
@@ -198,13 +197,13 @@ nav:
             - Multinode & topology: workshops/hpc_exchange/week4/multinode-topology.md
       - Genomics Exchange:
         - workshops/genomics_exchange/index.md
-        - Session 1: Introduction & HPC Orientation: workshops/genomics_exchange/session1/index.md
-        - Session 2: Project Organization: workshops/genomics_exchange/session2/index.md
-        - Session 3: R Data Wrangling: workshops/genomics_exchange/session3/index.md
-        - Session 4: Publication-Quality Plots: workshops/genomics_exchange/session4/index.md
-        - Session 5: Running Bioinformatics on RCAC: workshops/genomics_exchange/session5/index.md
-        - Session 6: QC for Genomics: workshops/genomics_exchange/session6/index.md
-        - Session 7: Reproducible Bioinformatics with Nextflow: workshops/genomics_exchange/session7/index.md
+        - Session 1:Introduction & HPC Orientation: workshops/genomics_exchange/session1/index.md
+        - Session 2:Project Organization: workshops/genomics_exchange/session2/index.md
+        - Session 3:R Data Wrangling: workshops/genomics_exchange/session3/index.md
+        - Session 4:Publication-Quality Plots: workshops/genomics_exchange/session4/index.md
+        - Session 5:Running Bioinformatics on RCAC: workshops/genomics_exchange/session5/index.md
+        - Session 6:QC for Genomics: workshops/genomics_exchange/session6/index.md
+        - Session 7:Reproducible Bioinformatics with Nextflow: workshops/genomics_exchange/session7/index.md
       - Anvil Kubernetes: workshops/kubernetes-tutorial.md
       - Scientific Visualization with MatPlotLib:
         - workshops/matplotlib/index.md
