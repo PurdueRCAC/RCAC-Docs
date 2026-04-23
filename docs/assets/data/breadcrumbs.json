@@ -170,11 +170,6 @@
     "Gautschi User Guide",
     "Frequently Asked Questions"
   ],
-  "/userguides/gautschi/datasets/": [
-    "Home",
-    "Gautschi User Guide",
-    "Datasets"
-  ],
   "/https://www.rcac.purdue.edu/knowledge/bell": [
     "Home",
     "Bell"
@@ -429,7 +424,7 @@
     "Week 2",
     "Purdue Clusters"
   ],
-  "/workshops/hpc_exchange/eek2/access/": [
+  "/workshops/hpc_exchange/week2/access/": [
     "Home",
     "RCAC Workshops",
     "HPC Exchange",
@@ -532,6 +527,53 @@
     "Week 4",
     "Multinode & topology"
   ],
+  "/workshops/genomics_exchange/": [
+    "Home",
+    "RCAC Workshops",
+    "Genomics Exchange"
+  ],
+  "/workshops/genomics_exchange/session1/": [
+    "Home",
+    "RCAC Workshops",
+    "Genomics Exchange",
+    "Session 1:Introduction & HPC Orientation"
+  ],
+  "/workshops/genomics_exchange/session2/": [
+    "Home",
+    "RCAC Workshops",
+    "Genomics Exchange",
+    "Session 2:Project Organization"
+  ],
+  "/workshops/genomics_exchange/session3/": [
+    "Home",
+    "RCAC Workshops",
+    "Genomics Exchange",
+    "Session 3:R Data Wrangling"
+  ],
+  "/workshops/genomics_exchange/session4/": [
+    "Home",
+    "RCAC Workshops",
+    "Genomics Exchange",
+    "Session 4:Publication-Quality Plots"
+  ],
+  "/workshops/genomics_exchange/session5/": [
+    "Home",
+    "RCAC Workshops",
+    "Genomics Exchange",
+    "Session 5:Running Bioinformatics on RCAC"
+  ],
+  "/workshops/genomics_exchange/session6/": [
+    "Home",
+    "RCAC Workshops",
+    "Genomics Exchange",
+    "Session 6:QC for Genomics"
+  ],
+  "/workshops/genomics_exchange/session7/": [
+    "Home",
+    "RCAC Workshops",
+    "Genomics Exchange",
+    "Session 7:Reproducible Bioinformatics with Nextflow"
+  ],
   "/workshops/kubernetes-tutorial/": [
     "Home",
     "RCAC Workshops",
@@ -589,6 +631,120 @@
     "RCAC Workshops",
     "Scientific Visualization with MatPlotLib",
     "Envision Center"
+  ],
+  "/lifesciences/": [
+    "Home",
+    "Life Sciences"
+  ],
+  "/lifesciences/guides/hpc-orientation/": [
+    "Home",
+    "Life Sciences",
+    "HPC Orientation for Biologists"
+  ],
+  "/lifesciences/guides/running-bioinformatics/": [
+    "Home",
+    "Life Sciences",
+    "Running Bioinformatics on RCAC"
+  ],
+  "/lifesciences/guides/project-organization/": [
+    "Home",
+    "Life Sciences",
+    "Project Organization"
+  ],
+  "/lifesciences/guides/nextflow/": [
+    "Home",
+    "Life Sciences",
+    "Nextflow and nf-core"
+  ],
+  "/lifesciences/guides/nextflow-gautschi/": [
+    "Home",
+    "Life Sciences",
+    "Nextflow on Gautschi"
+  ],
+  "/lifesciences/guides/sra-download/": [
+    "Home",
+    "Life Sciences",
+    "Downloading SRA Data"
+  ],
+  "/lifesciences/guides/r-packages/": [
+    "Home",
+    "Life Sciences",
+    "Installing R Packages"
+  ],
+  "/lifesciences/guides/r-data-wrangling/": [
+    "Home",
+    "Life Sciences",
+    "R Skills for Biological Data"
+  ],
+  "/lifesciences/guides/publication-quality-plots/": [
+    "Home",
+    "Life Sciences",
+    "Publication-Quality Plots"
+  ],
+  "/lifesciences/guides/qc-for-genomics/": [
+    "Home",
+    "Life Sciences",
+    "QC for Genomics"
+  ],
+  "/lifesciences/guides/perllib/": [
+    "Home",
+    "Life Sciences",
+    "Installing Perl Libraries"
+  ],
+  "/lifesciences/guides/trinity/": [
+    "Home",
+    "Life Sciences",
+    "Optimizing Trinity"
+  ],
+  "/lifesciences/guides/icommands/": [
+    "Home",
+    "Life Sciences",
+    "Transfer Data with iRODS"
+  ],
+  "/lifesciences/guides/vscode/": [
+    "Home",
+    "Life Sciences",
+    "VS Code on RCAC"
+  ],
+  "/lifesciences/guides/vispr/": [
+    "Home",
+    "Life Sciences",
+    "VISPR Visualization"
+  ],
+  "/lifesciences/guides/productivity-tips/": [
+    "Home",
+    "Life Sciences",
+    "Productivity Tips"
+  ],
+  "/lifesciences/tutorials/braker/": [
+    "Home",
+    "Life Sciences",
+    "BRAKER3"
+  ],
+  "/lifesciences/tutorials/gemoma/": [
+    "Home",
+    "Life Sciences",
+    "GeMoMa"
+  ],
+  "/lifesciences/tutorials/helixer/": [
+    "Home",
+    "Life Sciences",
+    "Helixer"
+  ],
+  "/lifesciences/tutorials/hifi-assembly/": [
+    "Home",
+    "Life Sciences",
+    "HiFiasm (HiFi reads)"
+  ],
+  "/lifesciences/tutorials/mitohifi/": [
+    "Home",
+    "Life Sciences",
+    "Mitochondrial Genomes (MitoHiFi)"
+  ],
+  "/lifesciences/tutorials/juicer/": [
+    "Home",
+    "Life Sciences",
+    "Juicer"
   ],
   "/contact/": [
     "Home",
