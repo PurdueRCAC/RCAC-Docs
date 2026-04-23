@@ -382,5 +382,15 @@
   "clusterbot": {
     "description": "ClusterBot is a chatbot designed to assist users in managing and interacting with high-performance computing (HPC) clusters. It provides functionalities such as job submission, monitoring, resource management, and troubleshooting through a conversational interface, enhancing user experience and productivity in HPC environments.",
     "source": "curated"
+  },
+  "java": {
+    "description": "Java is a high-level, class-based, object-oriented programming language that is designed to have as few implementation dependencies as possible. It is a general-purpose programming language intended to let application developers write once, run anywhere (WORA), meaning that code that runs on one platform does not need to be recompiled to run on another.",
+    "homepage": "https://www.oracle.com/java/",
+    "source": "curated"
+  },
+  "hpcx": {
+    "description": "HPC-X is a comprehensive software stack for high-performance computing (HPC) environments, providing optimized libraries, tools, and runtimes for parallel applications. It includes components such as MPI implementations, math libraries, and performance analysis tools, designed to enhance the performance and scalability of HPC workloads on various hardware architectures.",
+    "homepage": "https://www.mellanox.com/products/hpc-x",
+    "source": "curated"
   }
 }

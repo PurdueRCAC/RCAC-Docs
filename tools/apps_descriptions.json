@@ -2275,5 +2275,37 @@
     "topic": [
       "Miscellaneous"
     ]
+  },
+  "hcoll": {
+    "description": "Modern interface for Mellanox Fabric Collective Accelerator (FCA). FCA is a MPI-integrated software package that utilizes CORE-Direct technology for implementing the MPI collective communications.",
+    "homepage": "https://developer.nvidia.com/networking/hpc-x",
+    "source": "spack",
+    "topic": [
+      "Miscellaneous"
+    ]
+  },
+  "hpcx": {
+    "description": "HPC-X is a comprehensive software stack for high-performance computing (HPC) environments, providing optimized libraries, tools, and runtimes for parallel applications. It includes components such as MPI implementations, math libraries, and performance analysis tools, designed to enhance the performance and scalability of HPC workloads on various hardware architectures.",
+    "homepage": "https://www.mellanox.com/products/hpc-x",
+    "source": "curated",
+    "topic": [
+      "Miscellaneous"
+    ]
+  },
+  "java": {
+    "description": "Java is a high-level, class-based, object-oriented programming language that is designed to have as few implementation dependencies as possible. It is a general-purpose programming language intended to let application developers write once, run anywhere (WORA), meaning that code that runs on one platform does not need to be recompiled to run on another.",
+    "homepage": "https://www.oracle.com/java/",
+    "source": "curated",
+    "topic": [
+      "Miscellaneous"
+    ]
+  },
+  "rclone": {
+    "description": "Rclone is a command line program to sync files and directories to and from various cloud storage providers",
+    "homepage": "https://rclone.org",
+    "source": "spack",
+    "topic": [
+      "Miscellaneous"
+    ]
   }
 }
