@@ -4,11 +4,11 @@
 
 ## Description
 
-TODO: add description
+HPC-X is a comprehensive software stack for high-performance computing (HPC) environments, providing optimized libraries, tools, and runtimes for parallel applications. It includes components such as MPI implementations, math libraries, and performance analysis tools, designed to enhance the performance and scalability of HPC workloads on various hardware architectures.
 
 ## Homepage
 
-N/A
+[https://www.mellanox.com/products/hpc-x :octicons-link-external-16:](https://www.mellanox.com/products/hpc-x){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

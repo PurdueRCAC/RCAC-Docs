@@ -4,11 +4,11 @@
 
 ## Description
 
-TODO: add description
+Java is a high-level, class-based, object-oriented programming language that is designed to have as few implementation dependencies as possible. It is a general-purpose programming language intended to let application developers write once, run anywhere (WORA), meaning that code that runs on one platform does not need to be recompiled to run on another.
 
 ## Homepage
 
-N/A
+[https://www.oracle.com/java/ :octicons-link-external-16:](https://www.oracle.com/java/){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 
