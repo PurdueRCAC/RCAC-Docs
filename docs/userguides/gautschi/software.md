@@ -12,7 +12,7 @@ search:
 
 A comprehensive list of centrally installed software applications can be found here:
 
-[PLACEHOLDER URL](http://localhost:8080/software/app_catalog/)
+[Software Catalog](../../software/app_catalog.md)
 
 ## Running the Apps
 ### Find available apps in the terminal
@@ -54,5 +54,4 @@ module load hypershell/2.7.0
 ```
 
 ### Running GUI versions of apps
-If the app you want to use has a GUI, you can also login to {{ resource }} via Thinlinc. More information on this process can be found here:
-[PLACEHOLDER URL](http://localhost:8080/blog/2026/01/14/logging-in-to-the-community-clusters-via-thinlinc)
+If the app you want to use has a GUI, you can also login to {{ resource }} via Thinlinc. More information on this process can be found [here](../../blog/posts/thinlinc-login.md).

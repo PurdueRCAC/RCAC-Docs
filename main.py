@@ -462,7 +462,60 @@ Warning: Permanently added the xxxxxxx host key for IP address 'xxx.xxx.xxx.xxx'
 test.txt                                                                    100%    0     0.0KB/s   00:00
 ```
 """
+    
+    @env.macro
+    def accounts_md_snippet(host,cluster):
+        return f"""
+# Accounts on {cluster}
+### Obtaining an Account
 
+To obtain an account, you must be part of a research group which has purchased access to {cluster}. Refer to the [Accounts / Access :octicons-link-external-16:](https://www.rcac.purdue.edu/account/request) page for more details on how to request access.
+
+!!! note
+    External (non-Purdue) collaborators can be granted access to {cluster}, provided the collaborator has a valid Purdue career account. If the collaborator does not have a Purdue career account, a current Purdue faculty or staff member must file a [Request for Privileges (R4P) :octicons-link-external-16:](https://www.purdue.edu/apps/account/r4p) to have the career account created.
+
+## Logging In To {cluster}
+There are several ways to login to {cluster}:
+
+### Thinlinc web client
+One can login to the {cluster} front-end with a full desktop environment via the [Thinlinc web client :octicons-link-external-16:](https://desktop.{host}).
+
+!!! important
+    Your full password,push Duo passphrase is needed to trigger the Duo notification that is sent to your phone for approval.
+
+### Gateway / OnDemand
+One can login to {cluster}'s [Gateway :octicons-link-external-16:](https://gateway.{host}) to manage files in your home/scratch/depot directories and start Slurm jobs for supported OnDemand applications.
+
+### SSH
+*Secure Shell* or *SSH* is a way of establishing a secure connection between two computers. It uses public-key cryptography to authenticate the user with the remote computer and to establish a secure connection. Its usual function involves logging in to a remote machine and executing commands. There are many SSH clients available for all operating systems.
+
+!!! note
+    {cluster} supports either Purdue's Duo two-factor authentication or SSH keys.
+
+#### SSH Client Software
+Linux / Solaris / AIX / HP-UX / Unix:
+
+- The `ssh` command is pre-installed. Log in using `ssh username@gautschi.rcac.purdue.edu` from a terminal.
+
+Microsoft Windows:
+
+- [MobaXterm :octicons-link-external-16:](https://mobaxterm.mobatek.net/download.html) is a small, easy to use, full-featured SSH client. It includes X11 support for remote displays, SFTP capabilities, and limited SSH authentication forwarding for keys.
+
+Mac OS X:
+
+- The `ssh` command is pre-installed. You may start a local terminal window from "Applications->Utilities". Log in by typing the command `ssh username@{host}`.
+
+!!! important
+    When prompted to enter a password, enter your Purdue career account password **followed by "**`,push` **"**. Your Duo app will then receive a notification to approve the login.
+
+### SSH Keys
+SSH keys can be used in lieu of the Duo passphrase "password,push" for password-less logins. Refer to the blog post [here](../../blog/posts/ssh_key_creation.md) for more information.
+
+
+### ThinLinc
+It's possible to login to {cluster} using the ThinLinc desktop app. Refer to the blog post [here](../../blog/posts/thinlinc-login.md) for more information on the installation and login steps.
+"""
+    
     @env.macro
     def todo_file_recovery_snippet(host, hostname):
         return f"""
