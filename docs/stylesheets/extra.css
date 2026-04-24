@@ -36,9 +36,9 @@
   border: 0;
 }
 
-/* Home page: all content links bold + underlined */
-.home-page a {
-  font-weight: bold;
+/* All content links bold + underlined */
+.md-typeset a {
+  /* font-weight: bold; */
   text-decoration: underline;
 }
 
