@@ -3,7 +3,7 @@ tags:
   - Gautschi
 authors:
   - jin456
-cluster: Gautschi
+resource: Gautschi
 search:
   boost: 2
 ---
