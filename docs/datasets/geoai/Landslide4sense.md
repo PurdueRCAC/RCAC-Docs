@@ -7,7 +7,7 @@
 | **Description** | Dataset Description<br>This dataset, originally introduced in the Landslide4Sense-2022 GitHub repository, contains multispectral and elevation data for landslide detection. It consists of three splits: training (3799 patches), validation (245 patches), and test (800 patches). Each patch is a 128x128 image composed of 14 bands combining Sentinel-2 multispectral channels (B1–B12), ALOS PALSAR slope (B13), and ALOS PALSAR digital elevation model (B14), all resampled to ~10m spatial resolution.<br><br>Dataset Structure<br>Annotations and images are provided in HDF5 format across train, validation, and test folders, each with corresponding image_X.h5 and mask_X.h5 files. Masks provide pixel-wise binary labels (0: Non-landslide, 1: Landslide).<br><br>Annotation Description<br>Mapping classes: 0 = Non-landslide, 1 = Landslide.<br><br>Purpose<br>The dataset supports benchmarking of geospatial machine learning models for pixel-wise landslide segmentation and environmental hazard analysis. |
 | **Folder** | `/datasets/geoai/ibm-nasa-geospatial/Landslide4sense` |
 | **Discipline** | GeoAI / Remote Sensing / Environmental Science |
-| **DOI** | [ :octicons-link-external-16:](https://doi.org/) |
+| **DOI** |  |
 | **Link** | [Access Data :octicons-link-external-16:](https://huggingface.co/datasets/ibm-nasa-geospatial/Landslide4sense) |
 | **Public** | `True` |
 | **Publication Date** | 2025-02-11 |

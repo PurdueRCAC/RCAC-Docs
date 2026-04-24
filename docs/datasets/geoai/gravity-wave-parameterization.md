@@ -7,7 +7,7 @@
 | **Description** | Data format description for the nonlocal gravity wave parameterization dataset<br><br>Data Source<br>The dataset contains input and output training pairs computed using ECMWF's ERA5. The dataset was computed for the years 2010, 2012, 2014, and 2015. One month (from the validation set) is provided here for testing.<br><br>Variables Shape<br>1. Input shape: TIME x IDIM x LAT x LON<br>2. Output shape: TIME x ODIM x LAT x LON<br>Here, IDIM = 491, ODIM = 366, LAT=64, LON=128, TIME index ranges from 0 to 24*31 for months with 31 days |
 | **Folder** | `/datasets/geoai/ibm-nasa-geospatial/gravity-wave-parameterization` |
 | **Discipline** | GeoAI / Armospheric Science / Climate Science |
-| **DOI** | [ :octicons-link-external-16:](https://doi.org/) |
+| **DOI** |  |
 | **Link** | [Access Data :octicons-link-external-16:](https://huggingface.co/datasets/ibm-nasa-geospatial/gravity-wave-parameterization) |
 | **Public** | `True` |
 | **Publication Date** | 2024-10-30 |
