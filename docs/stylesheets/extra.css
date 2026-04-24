@@ -492,6 +492,95 @@ th, td {
   .md-search__form > .md-search__icon svg:last-child { display: none; }
 }
 
+/* === WCAG 1.4.3 Contrast Fixes ===
+   Material defaults that fail 4.5:1 against their backgrounds. */
+
+/* h1: Material default color is --md-default-fg-color--light (rgba(0,0,0,0.54) ≈ 4.09:1).
+   Even though h1 qualifies as large text (3:1 threshold), WAVE may flag it.
+   Override to --md-default-fg-color (rgba(0,0,0,0.87) ≈ 15:1) for robustness. */
+.md-typeset h1 {
+  color: var(--md-default-fg-color);
+}
+
+/* Headerlink anchors (¶): Material uses opacity:0 to hide them by default.
+   WAVE evaluates opacity:0 elements for contrast (flags rgba(0,0,0,0.32)≈2.24:1).
+   Adding visibility:hidden alongside opacity:0 fixes this: WAVE skips
+   visibility:hidden elements. The transition preserves the fade-in on hover/focus. */
+.md-typeset .headerlink {
+  color: #595959;
+  opacity: 0;
+  visibility: hidden;
+  transition: color .25s, opacity 125ms, visibility 0s 125ms;
+}
+.md-typeset :hover > .headerlink,
+.md-typeset :target > .headerlink,
+.md-typeset .headerlink:focus {
+  opacity: 1;
+  visibility: visible;
+  transition: color .25s, opacity 125ms, visibility 0s;
+}
+
+/* Warning admonition: #ff9100 is 2.26:1 against near-white — fix to #b45000 (~5.0:1).
+   Dark mode uses #ff9100 restored: passes ~5.9:1 against the slate background. */
+.md-typeset .admonition.warning,
+.md-typeset details.warning {
+  border-color: #b45000;
+}
+.md-typeset .warning > .admonition-title,
+.md-typeset .warning > summary {
+  background-color: rgba(180, 80, 0, 0.1);
+}
+.md-typeset .warning > .admonition-title::before,
+.md-typeset .warning > summary::before {
+  background-color: #b45000;
+}
+.md-typeset .warning > .admonition-title::after,
+.md-typeset .warning > summary::after {
+  color: #b45000;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .admonition.warning,
+[data-md-color-scheme="slate"] .md-typeset details.warning {
+  border-color: #ff9100;
+}
+[data-md-color-scheme="slate"] .md-typeset .warning > .admonition-title,
+[data-md-color-scheme="slate"] .md-typeset .warning > summary {
+  background-color: rgba(255, 145, 0, 0.1);
+}
+[data-md-color-scheme="slate"] .md-typeset .warning > .admonition-title::before,
+[data-md-color-scheme="slate"] .md-typeset .warning > summary::before {
+  background-color: #ff9100;
+}
+[data-md-color-scheme="slate"] .md-typeset .warning > .admonition-title::after,
+[data-md-color-scheme="slate"] .md-typeset .warning > summary::after {
+  color: #ff9100;
+}
+
+/* Restore search icon positioning lost when for="__search" was removed
+   to fix WCAG "multiple form labels" error. The Material CSS positions
+   .md-search__icon via [for=__search] attribute selectors; we replicate
+   those rules here using a structural selector instead. */
+.md-search__form > .md-search__icon {
+  position: absolute;
+  top: .3rem;
+  z-index: 2;
+}
+[dir=ltr] .md-search__form > .md-search__icon { left: .5rem; }
+[dir=rtl] .md-search__form > .md-search__icon { right: .5rem; }
+[dir=rtl] .md-search__form > .md-search__icon svg { transform: scaleX(-1); }
+
+@media screen and (max-width: 59.984375em) {
+  [dir=ltr] .md-search__form > .md-search__icon { left: .8rem; }
+  [dir=rtl] .md-search__form > .md-search__icon { right: .8rem; }
+  .md-search__form > .md-search__icon { top: .6rem; }
+  .md-search__form > .md-search__icon svg:first-child { display: none; }
+}
+
+@media screen and (min-width: 60em) {
+  .md-search__form > .md-search__icon { pointer-events: none; }
+  .md-search__form > .md-search__icon svg:last-child { display: none; }
+}
+
 .perm-type {
   background: rgba(255, 87, 34, 0.35); /* file type */
   border-radius: 3px;
