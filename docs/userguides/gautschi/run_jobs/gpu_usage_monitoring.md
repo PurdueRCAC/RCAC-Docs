@@ -38,10 +38,10 @@ It should be noted that we collect GPU usage information every 3 - 3.5 hours. If
 
 ## Inspecting a specific job
 
-If you want to view the GPU utilization of a specific job, you can use the ```-j``` or ```--job_id``` flag. For example, to see the utilization of job 32083, you may run the following:
+If you want to view the GPU utilization of a specific job, you can use the ```-j``` or ```--job_id``` flag. For example, to see the utilization of job 1234, you may run the following:
 
 ```bash
-/apps/external/gpu_util/get_gpu_util --job_id 32083
+/apps/external/gpu_util/get_gpu_util --job_id 1234
 ```
 
 This will print a table of the GPU memory and utilization for each GPU that was allocated for the specified job:
@@ -53,7 +53,7 @@ This will print a table of the GPU memory and utilization for each GPU that was 
 It is also possible to plot the GPU utilization and memory usage over time with the ```-p``` or the ```--plot``` flag:
 
 ```bash
-/apps/external/gpu_util/get_gpu_util --job_id 32083 --plot
+/apps/external/gpu_util/get_gpu_util --job_id 1234 --plot
 ```
 
 This will print two graphs. The first will be a 2-minute rolling average of the GPU utilization over time, and the second will be the percentage of memory used over time. Each GPU will be colored differently:
@@ -65,7 +65,7 @@ This will print two graphs. The first will be a 2-minute rolling average of the 
 If you would like to save the raw GPU utilization and memory usage data for your job, you can use the ```-s``` or ```--save``` flag:
 
 ```bash
-/apps/external/gpu_util/get_gpu_util --job_id 32083 --save
+/apps/external/gpu_util/get_gpu_util --job_id 1234 --save
 ```
 
 This will download the GPU data for a specific job as:
