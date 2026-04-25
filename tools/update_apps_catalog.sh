@@ -54,7 +54,7 @@ cluster_names=$(jq -r '[to_entries[] | .value.availability | keys[] | ascii_upca
   echo
   echo '<table id="appTable" class="tablefilter">'
   echo "  <thead>"
-  echo "    <tr><th scope="col"><strong>Application</strong></th><th scope="col"><strong>Topic</strong></th><th scope="col"><strong>Available at</strong></th></tr>"
+  echo "    <tr><th scope=\"col\"><strong>Application</strong></th><th scope=\"col\"><strong>Topic</strong></th><th scope=\"col\"><strong>Available at</strong></th></tr>"
   echo "  </thead>"
   echo "  <tbody>"
 

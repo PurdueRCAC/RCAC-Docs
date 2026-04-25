@@ -17,7 +17,7 @@ As of **April 25, 2026**, there have been a total of **274** applications with *
 
 <table id="appTable" class="tablefilter">
   <thead>
-    <tr><th scope=col><strong>Application</strong></th><th scope=col><strong>Topic</strong></th><th scope=col><strong>Available at</strong></th></tr>
+    <tr><th scope="col"><strong>Application</strong></th><th scope="col"><strong>Topic</strong></th><th scope="col"><strong>Available at</strong></th></tr>
   </thead>
   <tbody>
     <tr>
