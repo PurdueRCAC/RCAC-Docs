@@ -7,8 +7,8 @@
 | **Description** | Year of planting for global plantation areas. |
 | **Folder** | `/datasets/Covariates/PlantedYear` |
 | **Discipline** | Covariates/ Environmental Science / Forestry |
-| **DOI** | [10.1038/s41597-022-01260-2 :octicons-link-external-16:](https://doi.org/10.1038/s41597-022-01260-2) |
-| **Link** | [Access Data :octicons-link-external-16:](https://doi.org/10.6084/m9.figshare.19070084.v2) |
+| **DOI** | [10.1038/s41597-022-01260-2](https://doi.org/10.1038/s41597-022-01260-2) |
+| **Link** | [Access Data](https://doi.org/10.6084/m9.figshare.19070084.v2) |
 | **Public** | `true` |
 | **Publication Date** | 2022-05-06 |
 | **Downloaded** | 2022-10-01 |

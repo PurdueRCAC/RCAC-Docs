@@ -7,8 +7,8 @@
 | **Description** | EMDNA provides high-resolution meteorological data for North America, offering hourly and daily variables from January 1979 to December 2018 at an 11 km resolution. It serves as a valuable resource for climate studies and environmental monitoring. |
 | **Folder** | `/datasets/meteorological/EMDNA` |
 | **Discipline** | Meteorology / Climate Sciences / Environmental Science |
-| **DOI** | [10.5194/essd-13-3337-2021 :octicons-link-external-16:](https://doi.org/10.5194/essd-13-3337-2021) |
-| **Link** | [Access Data :octicons-link-external-16:](https://www.frdr-dfdr.ca/repo/dataset/4bb24ee2-73e1-43a8-a929-126d2eb2bfa3) |
+| **DOI** | [10.5194/essd-13-3337-2021](https://doi.org/10.5194/essd-13-3337-2021) |
+| **Link** | [Access Data](https://www.frdr-dfdr.ca/repo/dataset/4bb24ee2-73e1-43a8-a929-126d2eb2bfa3) |
 | **Public** | `true` |
 | **Publication Date** | 2021-07-13 |
 | **Downloaded** | 2024-10-24 |

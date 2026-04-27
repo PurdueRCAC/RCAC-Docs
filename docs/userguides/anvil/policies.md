@@ -14,5 +14,5 @@ The Anvil team will go to every reasonable effort to provide a broadly useful se
     If your lab is the only user of a software package, Anvil staff may recommend that you install your software privately, either in your home directory or in your allocation project space. If you need help installing software, the Anvil support team may be able to provide limited help.
 
 As more users request a particular piece of software, Anvil may decide to provide the software centrally. Matlab, Python (Anaconda), NAMD, GROMACS, and R are all examples of frequently requested and used centrally-installed software. Python modules that are available through the Anaconda distribution will be installed through it. Anvil staff may recommend you install other Python modules privately.
-If you're not sure how your software request should be handled or need help installing software you can submit a [help ticket :octicons-link-external-16:](https://support.access-ci.org/help-ticket).
+If you're not sure how your software request should be handled or need help installing software you can submit a [help ticket](https://support.access-ci.org/help-ticket).
 

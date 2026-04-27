@@ -8,7 +8,7 @@ Intel VTune Profiler is a performance analysis and profiling tool for optimizing
 
 ## Homepage
 
-[https://www.intel.com/content/www/us/en/developer/tools/oneapi/vtune-profiler.html :octicons-link-external-16:](https://www.intel.com/content/www/us/en/developer/tools/oneapi/vtune-profiler.html){:target="_blank"}
+[https://www.intel.com/content/www/us/en/developer/tools/oneapi/vtune-profiler.html](https://www.intel.com/content/www/us/en/developer/tools/oneapi/vtune-profiler.html){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

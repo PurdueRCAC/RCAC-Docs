@@ -8,7 +8,7 @@ The AWS Command Line Interface (CLI) is a unified tool to manage Amazon Web Serv
 
 ## Homepage
 
-[https://aws.amazon.com/cli/ :octicons-link-external-16:](https://aws.amazon.com/cli/){:target="_blank"}
+[https://aws.amazon.com/cli/](https://aws.amazon.com/cli/){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

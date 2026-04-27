@@ -89,8 +89,8 @@ Change your job submission file to submit this script and the job will output a 
 
 For more information about Python:
 
-- [**The Python Programming Language - Official Website** :octicons-link-external-16:](https://www.python.org/)
-- [**Anaconda Python Distribution - Official Website** :octicons-link-external-16:](https://store.continuum.io/cshop/anaconda/)
-- [**Conda User Guide** :octicons-link-external-16:](https://conda.io/projects/conda/en/latest/user-guide/)
+- [**The Python Programming Language - Official Website**](https://www.python.org/)
+- [**Anaconda Python Distribution - Official Website**](https://store.continuum.io/cshop/anaconda/)
+- [**Conda User Guide**](https://conda.io/projects/conda/en/latest/user-guide/)
 
 [**Back to the Python Examples section**](../python_example.md)

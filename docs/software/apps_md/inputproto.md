@@ -8,7 +8,7 @@ X Input Extension.  This extension defines a protocol to provide additional inpu
 
 ## Homepage
 
-[https://cgit.freedesktop.org/xorg/proto/inputproto :octicons-link-external-16:](https://cgit.freedesktop.org/xorg/proto/inputproto){:target="_blank"}
+[https://cgit.freedesktop.org/xorg/proto/inputproto](https://cgit.freedesktop.org/xorg/proto/inputproto){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

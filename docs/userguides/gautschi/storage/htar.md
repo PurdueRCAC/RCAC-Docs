@@ -12,7 +12,7 @@ search:
 
 HTAR (short for "HPSS TAR") is a utility program that writes TAR-compatible archive files directly onto Gautschi, without having to first create a local file. Its command line was originally based on ```tar```, with a number of extensions added to provide extra features.
 
-HTAR is provided on all research systems as the command ```htar```. HTAR is also available for [download :octicons-link-external-16:](https://rcac.purdue.edu/downloads/archive#hsi) for many operating systems.
+HTAR is provided on all research systems as the command ```htar```. HTAR is also available for [download](https://rcac.purdue.edu/downloads/archive#hsi) for many operating systems.
 
 Usage:
 
@@ -107,11 +107,11 @@ htar -Hverify=1 -Kvf abc.tar
 
 Please note that the time for verifying an archive increases as you increase the verification level. Carefully choose the option that suits your dataset best.
 
-For details please see the [HTAR Man Page :octicons-link-external-16:](https://rcac.purdue.edu/files/hpss/htar_man.html).
+For details please see the [HTAR Man Page](https://rcac.purdue.edu/files/hpss/htar_man.html).
 
 For more information about HTAR:
 
-- [Lawrence Livermore National Labs HTAR User Guide :octicons-link-external-16:](https://hpc.llnl.gov/documentation/user-guides/using-htar-hpss-tape-archiver)
+- [Lawrence Livermore National Labs HTAR User Guide](https://hpc.llnl.gov/documentation/user-guides/using-htar-hpss-tape-archiver)
 
 !!!important
     HTAR has an individual file size limit of 64GB. If any files you are trying to archive with HTAR are greater than 64GB, then HTAR will immediately fail. This does not limit the number of files in the archive or the total overall size of the archive. To get around this limitation, try using the ```htar_large``` command. It is slower than using ```htar``` but it will work around the 64GB file size limit. The usage of ```htar_large``` is almost the same as ```htar``` except that ```htar_large``` will not generate the tar index file. Thus, the ```-Hverify=1``` option cannot be used since it's based on the index file. This does not limit the number of files in the archive or the total overall size of the archive.

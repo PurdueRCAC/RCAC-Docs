@@ -7,8 +7,8 @@
 | **Description** | Above Ground Biomass is an important variable as forests play a crucial role in mitigating climate change as they act as an efficient, natural and cost-effective carbon sink. Traditional field and airborne LiDAR measurements have been proven to provide reliable estimations of forest biomass. Nevertheless, the use of these techniques at a large scale can be challenging and expensive. Satellite data have been widely used as a valuable tool in estimating biomass on a global scale. However, the full potential of dense multi-modal satellite time series, in combination with modern deep learning approaches, has yet to be fully explored. The aim of the BioMassters data challenge and benchmark dataset is to investigate the potential of multi-modal Sentinel-1 SAR and Sentinel-2 MSI satellite data to estimate forest biomass at a large scale using the Finnish Forest Centre's open forest and nature airborne LiDAR data as a reference. DrivenData hosted a machine-learning competition to estimate Above-Ground Biomass (AGB) in the forests of Finland. The performance of the top-three baseline models shows the potential of these techniques to produce accurate and higher-resolution biomass maps. |
 | **Folder** | `/datasets/geoai/ibm-nasa-geospatial/BioMassters` |
 | **Discipline** | GeoAI / Remote Sensing / Climate Science |
-| **DOI** | [10.57967/hf/1009 :octicons-link-external-16:](https://doi.org/10.57967/hf/1009) |
-| **Link** | [Access Data :octicons-link-external-16:](https://huggingface.co/datasets/nascetti-a/BioMassters) |
+| **DOI** | [10.57967/hf/1009](https://doi.org/10.57967/hf/1009) |
+| **Link** | [Access Data](https://huggingface.co/datasets/nascetti-a/BioMassters) |
 | **Public** | `True` |
 | **Publication Date** | 2024-01-15 |
 | **Downloaded** | 2025-09-10 |

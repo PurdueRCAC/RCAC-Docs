@@ -7,8 +7,8 @@
 | **Description** | SC-Earth provides global point-based daily surface climate data from January 1950 to December 2019. It encompasses various climate variables, facilitating comprehensive climate research and modeling efforts. |
 | **Folder** | `/datasets/meteorological/SC-Earth` |
 | **Discipline** | Meteorology / Climate Sciences / Hydrology |
-| **DOI** | [10.1175/JCLI-D-21-0067.1 :octicons-link-external-16:](https://doi.org/10.1175/JCLI-D-21-0067.1) |
-| **Link** | [Access Data :octicons-link-external-16:](https://zenodo.org/records/4762586) |
+| **DOI** | [10.1175/JCLI-D-21-0067.1](https://doi.org/10.1175/JCLI-D-21-0067.1) |
+| **Link** | [Access Data](https://zenodo.org/records/4762586) |
 | **Public** | `true` |
 | **Publication Date** | 2021-07-01 |
 | **Downloaded** | 2024-10-31 |

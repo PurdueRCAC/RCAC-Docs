@@ -7,8 +7,8 @@
 | **Description** | A set of datasets used for post-training of GR00T N1. Each dataset is a collection of trajectories from different robot embodiments and tasks. |
 | **Folder** | `/datasets/ai/huggingface/nvidia/PhysicalAI-Robotics-GR00T-X-Embodiment-Sim` |
 | **Discipline** | AI / PhysicalAI / Robotics |
-| **DOI** | [10.48550/arXiv.2503.14734 :octicons-link-external-16:](https://doi.org/10.48550/arXiv.2503.14734) |
-| **Link** | [Access Data :octicons-link-external-16:](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-GR00T-X-Embodiment-Sim) |
+| **DOI** | [10.48550/arXiv.2503.14734](https://doi.org/10.48550/arXiv.2503.14734) |
+| **Link** | [Access Data](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-GR00T-X-Embodiment-Sim) |
 | **Public** | `True` |
 | **Publication Date** | 2025-03-18 |
 | **Downloaded** | 2025-11-09 |

@@ -7,8 +7,8 @@
 | **Description** | Dataset on global tree species diversity and richness. |
 | **Folder** | `/datasets/Covariates/Tree_Species_Richness` |
 | **Discipline** | Covariates / Forestry / Ecology |
-| **DOI** | [10.6084/m9.figshare.20055488.v1 :octicons-link-external-16:](https://doi.org/10.6084/m9.figshare.20055488.v1) |
-| **Link** | [Access Data :octicons-link-external-16:](https://figshare.com/articles/dataset/Data_for_the_RF_model_of_local_tree_species_richness_and_colimitation/20055488?file=35866490) |
+| **DOI** | [10.6084/m9.figshare.20055488.v1](https://doi.org/10.6084/m9.figshare.20055488.v1) |
+| **Link** | [Access Data](https://figshare.com/articles/dataset/Data_for_the_RF_model_of_local_tree_species_richness_and_colimitation/20055488?file=35866490) |
 | **Public** | `true` |
 | **Publication Date** | 2022-06-11 |
 | **Downloaded** | 2024-11-25 |

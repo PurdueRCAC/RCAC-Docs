@@ -7,8 +7,8 @@
 | **Description** | An updated version of the MODIS land cover dataset, MCD12Q1.061 offers improved classification algorithms and data quality, providing annual global land cover information for various applications. |
 | **Folder** | `/datasets/geospatial/MODIS_MCD12Q1.061` |
 | **Discipline** | Geospatial / Environmental Science / Remote Sensing |
-| **DOI** | [10.5067/MODIS/MCD12Q1.061 :octicons-link-external-16:](https://doi.org/10.5067/MODIS/MCD12Q1.061) |
-| **Link** | [Access Data :octicons-link-external-16:](https://app.globus.org/file-manager?origin_id=bfc25d77-927c-4c88-b63a-13b698759056&origin_path=%2F) |
+| **DOI** | [10.5067/MODIS/MCD12Q1.061](https://doi.org/10.5067/MODIS/MCD12Q1.061) |
+| **Link** | [Access Data](https://app.globus.org/file-manager?origin_id=bfc25d77-927c-4c88-b63a-13b698759056&origin_path=%2F) |
 | **Public** | `true` |
 | **Publication Date** | 2022-04-20 |
 | **Downloaded** | 2024-10-24 |

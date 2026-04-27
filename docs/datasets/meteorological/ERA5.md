@@ -7,8 +7,8 @@
 | **Description** | ERA5 is a comprehensive reanalysis dataset produced by the European Centre for Medium-Range Weather Forecasts (ECMWF). It offers hourly estimates of atmospheric, land, and oceanic variables from January 1940 to the present, with a global spatial resolution of approximately 30 km. ERA5 is widely used for climate research, weather forecasting, and environmental monitoring. |
 | **Folder** | `/datasets/meteorological/ERA5` |
 | **Discipline** | Meteorology / Climate Sciences / Earth Science |
-| **DOI** | [10.24381/cds.adbb2d47 :octicons-link-external-16:](https://doi.org/10.24381/cds.adbb2d47) |
-| **Link** | [Access Data :octicons-link-external-16:](https://console.cloud.google.com/storage/browser/gcp-public-data-arco-era5/raw?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22))) |
+| **DOI** | [10.24381/cds.adbb2d47](https://doi.org/10.24381/cds.adbb2d47) |
+| **Link** | [Access Data](https://console.cloud.google.com/storage/browser/gcp-public-data-arco-era5/raw?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22))) |
 | **Public** | `true` |
 | **Publication Date** | 2018-06-14 |
 | **Downloaded** | 2024-10-30 |

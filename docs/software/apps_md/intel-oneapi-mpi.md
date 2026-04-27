@@ -8,7 +8,7 @@ Intel MPI Library provides high-performance and scalable message passing for HPC
 
 ## Homepage
 
-[https://www.intel.com/content/www/us/en/developer/tools/oneapi/mpi-library.html :octicons-link-external-16:](https://www.intel.com/content/www/us/en/developer/tools/oneapi/mpi-library.html){:target="_blank"}
+[https://www.intel.com/content/www/us/en/developer/tools/oneapi/mpi-library.html](https://www.intel.com/content/www/us/en/developer/tools/oneapi/mpi-library.html){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

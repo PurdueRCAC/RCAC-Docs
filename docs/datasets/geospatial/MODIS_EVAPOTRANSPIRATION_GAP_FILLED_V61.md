@@ -7,8 +7,8 @@
 | **Description** | A gap-filled version of the MOD16A2 dataset, it offers continuous 8-day global evapotranspiration data, addressing missing values and enhancing data usability. |
 | **Folder** | `/datasets/geospatial/MODIS_MOD16A2GF.061` |
 | **Discipline** | Geospatial / Hydrology / Environmental Science |
-| **DOI** | [10.5067/MODIS/MOD16A2GF.061 :octicons-link-external-16:](https://doi.org/10.5067/MODIS/MOD16A2GF.061) |
-| **Link** | [Access Data :octicons-link-external-16:](https://app.globus.org/file-manager?origin_id=0ade39e5-a643-4406-8ba3-ad5796c2c2df&origin_path=%2F) |
+| **DOI** | [10.5067/MODIS/MOD16A2GF.061](https://doi.org/10.5067/MODIS/MOD16A2GF.061) |
+| **Link** | [Access Data](https://app.globus.org/file-manager?origin_id=0ade39e5-a643-4406-8ba3-ad5796c2c2df&origin_path=%2F) |
 | **Public** | `true` |
 | **Publication Date** | 2021-03-11 |
 | **Downloaded** | 2024-10-24 |

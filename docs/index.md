@@ -24,7 +24,7 @@ Follow these steps to get up and running on RCAC clusters.
 
     Request access to RCAC computing resources through your Purdue career account or an ACCESS account.
 
-    [:octicons-arrow-right-24: Purdue account :octicons-link-external-16:](https://www.rcac.purdue.edu/account/request) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [:octicons-arrow-right-24: ACCESS account](userguides/anvil/access/)
+    [:octicons-arrow-right-24: Purdue account](https://www.rcac.purdue.edu/account/request) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [:octicons-arrow-right-24: ACCESS account](userguides/anvil/access/)
 
 -   :material-connection:{ .lg .middle } __Connect to a RCAC Cluster__
 
@@ -92,7 +92,7 @@ Follow these steps to get up and running on RCAC clusters.
 
     **128 cores/node | 256 GB RAM | 100 Gbps HDR Infiniband**
 
-    [:octicons-arrow-right-24: Bell User Guide :octicons-link-external-16:](https://www.rcac.purdue.edu/knowledge/bell)
+    [:octicons-arrow-right-24: Bell User Guide](https://www.rcac.purdue.edu/knowledge/bell)
 
 -   :material-server:{ .lg .middle } __Negishi__
 
@@ -102,7 +102,7 @@ Follow these steps to get up and running on RCAC clusters.
 
     **128 cores/node | 256 GB RAM | 100 Gbps HDR Infiniband**
 
-    [:octicons-arrow-right-24: Negishi User Guide :octicons-link-external-16:](https://www.rcac.purdue.edu/knowledge/negishi)
+    [:octicons-arrow-right-24: Negishi User Guide](https://www.rcac.purdue.edu/knowledge/negishi)
 
 -   :material-server:{ .lg .middle } __Gilbreth__
 
@@ -110,7 +110,7 @@ Follow these steps to get up and running on RCAC clusters.
 
     Community Cluster optimized for communities running GPU intensive applications such as machine learning. Consists of Dell compute nodes with Intel Xeon processors and Nvidia Tesla GPUs.
 
-    [:octicons-arrow-right-24: Gilbreth User Guide :octicons-link-external-16:](https://www.rcac.purdue.edu/knowledge/gilbreth)
+    [:octicons-arrow-right-24: Gilbreth User Guide](https://www.rcac.purdue.edu/knowledge/gilbreth)
 
 -   :material-server:{ .lg .middle } __Scholar__
 
@@ -118,7 +118,7 @@ Follow these steps to get up and running on RCAC clusters.
 
     A small cluster suitable for classroom learning about high performance computing. Consists of 6 interactive login servers and 16 batch worker nodes, accessible as a typical cluster with a job scheduler or as an interactive resource with a desktop-like environment.
 
-    [:octicons-arrow-right-24: Scholar User Guide :octicons-link-external-16:](https://www.rcac.purdue.edu/knowledge/scholar)
+    [:octicons-arrow-right-24: Scholar User Guide](https://www.rcac.purdue.edu/knowledge/scholar)
 
 </div>
 
@@ -240,7 +240,7 @@ Follow these steps to get up and running on RCAC clusters.
 
     Report documentation issues, suggest improvements, or contribute to RCAC open-source projects.
 
-    [:octicons-arrow-right-24: RCAC on GitHub :octicons-link-external-16:](https://github.com/PurdueRCAC)
+    [:octicons-arrow-right-24: RCAC on GitHub](https://github.com/PurdueRCAC)
 
 -   :material-card-account-details:{ .lg .middle } __Contact Details__
 
@@ -248,7 +248,7 @@ Follow these steps to get up and running on RCAC clusters.
 
     Find office hours, phone numbers, and other ways to connect with the RCAC support team.
 
-    [:octicons-arrow-right-24: Full contact info :octicons-link-external-16:](https://www.rcac.purdue.edu/about/contact)
+    [:octicons-arrow-right-24: Full contact info](https://www.rcac.purdue.edu/about/contact)
 
 </div>
 

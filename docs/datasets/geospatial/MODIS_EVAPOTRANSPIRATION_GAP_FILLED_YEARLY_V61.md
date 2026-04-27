@@ -7,8 +7,8 @@
 | **Description** | This dataset provides annual gap-filled global terrestrial evapotranspiration data, supporting long-term studies in water resources and ecosystem monitoring. |
 | **Folder** | `/datasets/geospatial/MODIS_MOD16A3GF.061` |
 | **Discipline** | Geospatial / Hydrology / Climate Science |
-| **DOI** | [10.5067/MODIS/MOD16A3GF.061 :octicons-link-external-16:](https://doi.org/10.5067/MODIS/MOD16A3GF.061) |
-| **Link** | [Access Data :octicons-link-external-16:](https://app.globus.org/file-manager?origin_id=765a60bd-a1d1-4aae-a119-56a20bb68e4c&origin_path=%2F) |
+| **DOI** | [10.5067/MODIS/MOD16A3GF.061](https://doi.org/10.5067/MODIS/MOD16A3GF.061) |
+| **Link** | [Access Data](https://app.globus.org/file-manager?origin_id=765a60bd-a1d1-4aae-a119-56a20bb68e4c&origin_path=%2F) |
 | **Public** | `true` |
 | **Publication Date** | 2021-03-11 |
 | **Downloaded** | 2024-10-24 |

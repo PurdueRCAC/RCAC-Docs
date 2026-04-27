@@ -7,8 +7,8 @@
 | **Description** | Corrected global high-resolution precipitation climatologies. |
 | **Folder** | `/datasets/Covariates/PBCOR_V1.0` |
 | **Discipline** | Covariates/ Environmental Science / Hydrology |
-| **DOI** | [10.1175/JCLI-D-19-0332.1 :octicons-link-external-16:](https://doi.org/10.1175/JCLI-D-19-0332.1) |
-| **Link** | [Access Data :octicons-link-external-16:](http://www.gloh2o.org/pbcor/) |
+| **DOI** | [10.1175/JCLI-D-19-0332.1](https://doi.org/10.1175/JCLI-D-19-0332.1) |
+| **Link** | [Access Data](http://www.gloh2o.org/pbcor/) |
 | **Public** | `true` |
 | **Publication Date** | 2020-01-01 |
 | **Downloaded** | 2024-10-01 |

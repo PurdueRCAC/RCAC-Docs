@@ -7,8 +7,8 @@
 | **Description** | Harmonized global soil property database for modeling applications. |
 | **Folder** | `/datasets/Covariates/Soil_WISE30sec` |
 | **Discipline** | Covariates/ Environmental Science / Agriculture |
-| **DOI** | [10.1016/j.geoderma.2021.115738 :octicons-link-external-16:](https://doi.org/10.1016/j.geoderma.2021.115738) |
-| **Link** | [Access Data :octicons-link-external-16:](https://data.isric.org/geonetwork/srv/eng/catalog.search) |
+| **DOI** | [10.1016/j.geoderma.2021.115738](https://doi.org/10.1016/j.geoderma.2021.115738) |
+| **Link** | [Access Data](https://data.isric.org/geonetwork/srv/eng/catalog.search) |
 | **Public** | `true` |
 | **Publication Date** | 2021-01-01 |
 | **Downloaded** | 2024-11-25 |

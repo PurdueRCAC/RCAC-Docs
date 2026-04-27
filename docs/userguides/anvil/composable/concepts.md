@@ -80,7 +80,7 @@ Kubernetes **ServiceTypes** allow you to specify what kind of Service you want. 
 - **NodePort**: Exposes the Service on each Node’s IP at a static port (the NodePort). A ClusterIP Service, to which the NodePort Service routes, is automatically created. You’ll be able to contact the NodePort Service, from outside the cluster, by requesting <NodeIP>:<NodePort>.
 - **LoadBalancer**: Exposes the Service externally using Anvil's load balancer. NodePort and ClusterIP Services, to which the external load balancer routes, are automatically created. Users can create LoadBalancer resources using a private IP pool on Purdue's network with the annotation `metallb.universe.tf/address-pool: anvil-private-pool`. Public LoadBalancer IPs are avaiable via request only.
 
-You can see an example of [exposing a workload using the LoadBalancer type :octicons-link-external-16:](https://www.rcac.purdue.edu/knowledge/anvil/composable/examples/database#_expose_the_database_to_external_clients) on Anvil in the examples section.
+You can see an example of [exposing a workload using the LoadBalancer type](https://www.rcac.purdue.edu/knowledge/anvil/composable/examples/database#_expose_the_database_to_external_clients) on Anvil in the examples section.
 
 - **ExternalName**: Maps the Service to the contents of the externalName field (e.g. foo.bar.example.com), by returning a CNAME record with its value. No proxying of any kind is set up.
 
@@ -88,12 +88,12 @@ You can see an example of [exposing a workload using the LoadBalancer type :octi
 
 An **Ingress** is an API object that manages external access to the services in a cluster, typically HTTP/HTTPS. An Ingress is not a ServiceType, but rather brings external traffic into the cluster and then passes it to an Ingress Controller to be routed to the correct location. Ingress may provide load balancing, SSL termination and name-based virtual hosting. Traffic routing is controlled by rules defined on the Ingress resource.
 
-You can see an example of [a service being exposed with an Ingress :octicons-link-external-16:](https://www.rcac.purdue.edu/knowledge/anvil/composable/examples/webserver#_expose_the_web_server_to_external_clients_via_an_ingress) on Anvil in the examples section.
+You can see an example of [a service being exposed with an Ingress](https://www.rcac.purdue.edu/knowledge/anvil/composable/examples/webserver#_expose_the_web_server_to_external_clients_via_an_ingress) on Anvil in the examples section.
 
 ### Ingress Controller
-Anvil provides the [nginx :octicons-link-external-16:](https://github.com/kubernetes/ingress-nginx/blob/main/README.md#readme) ingress controller configured to facilitate SSL termination and automatic DNS name generation under the `anvilcloud.rcac.purdue.edu` subdomain.
+Anvil provides the [nginx](https://github.com/kubernetes/ingress-nginx/blob/main/README.md#readme) ingress controller configured to facilitate SSL termination and automatic DNS name generation under the `anvilcloud.rcac.purdue.edu` subdomain.
 
-Kubernetes provides additional information about [Ingress Controllers :octicons-link-external-16:](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) in the official documentation.
+Kubernetes provides additional information about [Ingress Controllers](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) in the official documentation.
 
 ## Storage
 
@@ -165,7 +165,7 @@ Kubernetes CronJob resources enable scheduled backup automation.
 
 Access S3-compatible storage via **Cyberduck**:
 
-1. Download and install [Cyberduck :octicons-link-external-16:](https://cyberduck.io/)
+1. Download and install [Cyberduck](https://cyberduck.io/)
 2. Click **+ Open Connection**
 3. Select **S3** from dropdown
 4. Enter server details, access key, and secret key
@@ -173,7 +173,7 @@ Access S3-compatible storage via **Cyberduck**:
 
 ## Registry
 
-The Anvil registry utilizes Harbor, an open-source container and artifact management system, accessible at [https://registry.anvil.rcac.purdue.edu :octicons-link-external-16:](https://registry.anvil.rcac.purdue.edu).
+The Anvil registry utilizes Harbor, an open-source container and artifact management system, accessible at [https://registry.anvil.rcac.purdue.edu](https://registry.anvil.rcac.purdue.edu).
 
 ### Docker Hub Cache
 
@@ -207,7 +207,7 @@ docker login -u <username> -p <cli secret> registry.anvil.rcac.purdue.edu
 
 ### Creating a Project Registry
 
-1. Navigate to [https://registry.anvil.rcac.purdue.edu :octicons-link-external-16:](https://registry.anvil.rcac.purdue.edu)
+1. Navigate to [https://registry.anvil.rcac.purdue.edu](https://registry.anvil.rcac.purdue.edu)
 2. Select "Create Project"
 3. Configure name and visibility (public/private)
 4. Confirm creation
@@ -238,6 +238,6 @@ Robot accounts provide credential-free authentication for multi-tenant environme
 
 ### External Resources
 
-- [Harbor Documentation :octicons-link-external-16:](https://goharbor.io/)
-- [Working with images :octicons-link-external-16:](https://goharbor.io/docs/2.1.0/working-with-projects/working-with-images/)
+- [Harbor Documentation](https://goharbor.io/)
+- [Working with images](https://goharbor.io/docs/2.1.0/working-with-projects/working-with-images/)
 - You can learn more about the Harbor project on the official website: https://goharbor.io/

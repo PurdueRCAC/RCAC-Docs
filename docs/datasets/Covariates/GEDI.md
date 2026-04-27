@@ -7,8 +7,8 @@
 | **Description** | Gridded land surface metrics from GEDI data. |
 | **Folder** | `/datasets/Covariates/GEDI` |
 | **Discipline** | Covariates / Forestry / Remote Sensing |
-| **DOI** | [10.3334/ORNLDAAC/1952 :octicons-link-external-16:](https://doi.org/10.3334/ORNLDAAC/1952) |
-| **Link** | [Access Data :octicons-link-external-16:](https://daac.ornl.gov/cgi-bin/dsviewer.pl?ds_id=2017) |
+| **DOI** | [10.3334/ORNLDAAC/1952](https://doi.org/10.3334/ORNLDAAC/1952) |
+| **Link** | [Access Data](https://daac.ornl.gov/cgi-bin/dsviewer.pl?ds_id=2017) |
 | **Public** | `true` |
 | **Publication Date** | 2022-03-29 |
 | **Downloaded** | 2024-11-25 |

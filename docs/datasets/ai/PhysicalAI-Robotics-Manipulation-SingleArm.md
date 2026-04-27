@@ -8,7 +8,7 @@
 | **Folder** | `/datasets/ai/huggingface/nvidia/PhysicalAI-Robotics-Manipulation-SingleArm` |
 | **Discipline** | AI / PhysicalAI / Robotics |
 | **DOI** |  |
-| **Link** | [Access Data :octicons-link-external-16:](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-Manipulation-SingleArm) |
+| **Link** | [Access Data](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-Manipulation-SingleArm) |
 | **Public** | `True` |
 | **Publication Date** | 2025-03-18 |
 | **Downloaded** | 2025-11-09 |

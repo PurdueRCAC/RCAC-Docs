@@ -8,7 +8,7 @@ The NCBI SRA Toolkit enables reading ("dumping") of sequencing files from the SR
 
 ## Homepage
 
-[https://trace.ncbi.nlm.nih.gov/Traces/sra :octicons-link-external-16:](https://trace.ncbi.nlm.nih.gov/Traces/sra){:target="_blank"}
+[https://trace.ncbi.nlm.nih.gov/Traces/sra](https://trace.ncbi.nlm.nih.gov/Traces/sra){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

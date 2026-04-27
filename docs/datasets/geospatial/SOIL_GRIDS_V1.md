@@ -7,8 +7,8 @@
 | **Description** | Soil Grids v1 is a global dataset that maps soil properties at six standard depths (0–5 cm, 5–15 cm, 15–30 cm, 30–60 cm, 60–100 cm, and 100–200 cm). It includes variables such as soil organic carbon, pH, texture, and bulk density. The dataset is derived from soil profile observations and machine learning methods, and it has a spatial resolution of 250 meters. Soil Grids v1 is used for research in agriculture, forestry, and soil science. |
 | **Folder** | `/datasets/geospatial/Soil_Grids_v1` |
 | **Discipline** | Geospatial / Agriculture / Environmental Science |
-| **DOI** | [10.1371/journal.pone.0169748 :octicons-link-external-16:](https://doi.org/10.1371/journal.pone.0169748) |
-| **Link** | [Access Data :octicons-link-external-16:](https://app.globus.org/file-manager?origin_id=b06f4aa7-87c2-4657-a06c-3008557ec725&origin_path=%2F) |
+| **DOI** | [10.1371/journal.pone.0169748](https://doi.org/10.1371/journal.pone.0169748) |
+| **Link** | [Access Data](https://app.globus.org/file-manager?origin_id=b06f4aa7-87c2-4657-a06c-3008557ec725&origin_path=%2F) |
 | **Public** | `true` |
 | **Publication Date** | 2017-02-16 |
 | **Downloaded** | 2024-10-24 |

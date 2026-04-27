@@ -8,7 +8,7 @@ The Gurobi Optimizer was designed from the ground up to be the fastest, most pow
 
 ## Homepage
 
-[https://www.gurobi.com :octicons-link-external-16:](https://www.gurobi.com){:target="_blank"}
+[https://www.gurobi.com](https://www.gurobi.com){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

@@ -7,8 +7,8 @@
 | **Description** | Progress on object detection is enabled by datasets that focus the research community's attention on open challenges. This process led us from simple images to complex scenes and from bounding boxes to segmentation masks. LVIS is ~2 million high-quality instance segmentation masks for over 1000 entry-level object categories in 164k images. Due to the Zipfian distribution of categories in natural images, LVIS naturally has a long tail of categories with few training samples. Given that state-of-the-art deep learning methods for object detection perform poorly in the low-sample regime, we believe that our dataset poses an important and exciting new scientific challenge. |
 | **Folder** | `/datasets/ai/LVIS` |
 | **Discipline** | AI / computer vision / Segmentation |
-| **DOI** | [10.48550/arXiv.1908.03195 :octicons-link-external-16:](https://doi.org/10.48550/arXiv.1908.03195) |
-| **Link** | [Access Data :octicons-link-external-16:](https://www.lvisdataset.org/dataset) |
+| **DOI** | [10.48550/arXiv.1908.03195](https://doi.org/10.48550/arXiv.1908.03195) |
+| **Link** | [Access Data](https://www.lvisdataset.org/dataset) |
 | **Public** | `True` |
 | **Publication Date** | 2019-08-08 |
 | **Downloaded** | 2026-01-07 |

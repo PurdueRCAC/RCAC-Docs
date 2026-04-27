@@ -8,7 +8,7 @@ XALT is a tool for tracking HPC software usage and build environment provenance.
 
 ## Homepage
 
-[https://xalt.readthedocs.io/ :octicons-link-external-16:](https://xalt.readthedocs.io/){:target="_blank"}
+[https://xalt.readthedocs.io/](https://xalt.readthedocs.io/){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

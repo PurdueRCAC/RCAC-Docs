@@ -2,7 +2,7 @@
 
 R, a GNU project, is a language and environment for data manipulation, statistics, and graphics. It is an open source version of the S programming language. R is quickly becoming the language of choice for data science due to the ease with which it can produce high quality plots and data visualizations. It is a versatile platform with a large, growing community and collection of packages.
 
-For more general information on R visit [The R Project for Statistical Computing :octicons-link-external-16:](https://www.r-project.org).
+For more general information on R visit [The R Project for Statistical Computing](https://www.r-project.org).
 
 ## Loading Data into R
 
@@ -28,10 +28,10 @@ To display the properties (structure) of loaded data, enter the following:
 
 For more functions and tutorials:
 
-- [:octicons-link-external-16: The R Manuals](http://cran.r-project.org/manuals.html)
-- [:octicons-link-external-16: Other R Examples](http://www.mayin.org/ajayshah/KB/R/index.html)
-- [:octicons-link-external-16: Software Carpentry - Programming with R](https://swcarpentry.github.io/r-novice-inflammation/)
-- [:octicons-link-external-16: Data Carpentry Lessons](http://www.datacarpentry.org/lessons/)
+- [ The R Manuals](http://cran.r-project.org/manuals.html)
+- [ Other R Examples](http://www.mayin.org/ajayshah/KB/R/index.html)
+- [ Software Carpentry - Programming with R](https://swcarpentry.github.io/r-novice-inflammation/)
+- [ Data Carpentry Lessons](http://www.datacarpentry.org/lessons/)
 
 ## Installing R packages
 
@@ -40,12 +40,12 @@ For more functions and tutorials:
 - Different clusters have different hardware and softwares. So, if you have access to multiple clusters, you must install your R packages _separately for each cluster_.
 - Each cluster has multiple versions of R and packages installed with one version of R may not work with another version of R. So, libraries for **each R version** must be installed in a **separate directory**.
 - You can define the directory where your R packages will be installed using the environment variable `R_LIBS_USER`.
-- For your convenience, a sample [~/.Rprofile example file :octicons-link-external-16:](https://www.rcac.purdue.edu/files/knowledge/run/examples/apps/r/Rprofile_example) is provided that can be downloaded to your cluster account and renamed into `~/.Rprofile` (or appended to one) to customize your installation preferences. [Detailed instructions :octicons-link-external-16:](https://www.rcac.purdue.edu/knowledge/gautschi/run/examples/apps/r/rprofile).
+- For your convenience, a sample [~/.Rprofile example file](https://www.rcac.purdue.edu/files/knowledge/run/examples/apps/r/Rprofile_example) is provided that can be downloaded to your cluster account and renamed into `~/.Rprofile` (or appended to one) to customize your installation preferences. [Detailed instructions](https://www.rcac.purdue.edu/knowledge/gautschi/run/examples/apps/r/rprofile).
 
 ### Installing Packages
 
 - **Step 0: Set up installation preferences.**  
-    Follow the [steps for setting up :octicons-link-external-16:](https://www.rcac.purdue.edu/knowledge/gautschi/run/examples/apps/r/rprofile) your `~/.Rprofile` preferences. This step needs to be done only once. If you have created a `~/.Rprofile` file previously on Gautschi, ignore this step.
+    Follow the [steps for setting up](https://www.rcac.purdue.edu/knowledge/gautschi/run/examples/apps/r/rprofile) your `~/.Rprofile` preferences. This step needs to be done only once. If you have created a `~/.Rprofile` file previously on Gautschi, ignore this step.
     
 - **Step 1: Check if the package is already installed.**  
     As part of the R installations on community clusters, a lot of R libraries are pre-installed. You can check if your package is already installed by opening an R terminal and entering the command `installed.packages()`. For example,
@@ -75,7 +75,7 @@ For more functions and tutorials:
 
     
 - **Step 3: Install the package.**  
-    Now install the desired package using the command `install.packages('package_name')`. R will automatically download the package and all its dependencies from [CRAN :octicons-link-external-16:](https://cran.r-project.org/mirrors.html) and install each one. Your terminal will show the build progress and eventually show whether the package was installed successfully or not.
+    Now install the desired package using the command `install.packages('package_name')`. R will automatically download the package and all its dependencies from [CRAN](https://cran.r-project.org/mirrors.html) and install each one. Your terminal will show the build progress and eventually show whether the package was installed successfully or not.
     
     ```r
     > install.packages('sf', repos="https://cran.case.edu/")
@@ -141,5 +141,5 @@ $ R
 
 For more information about installing R packages:
 
-- [:octicons-link-external-16: Installing additional R packages on Linux](http://cran.r-project.org/doc/manuals/r-release/R-admin.html#Installing-packages)
-- [:octicons-link-external-16: List of Packages](https://cran.r-project.org/web/packages/)
+- [ Installing additional R packages on Linux](http://cran.r-project.org/doc/manuals/r-release/R-admin.html#Installing-packages)
+- [ List of Packages](https://cran.r-project.org/web/packages/)

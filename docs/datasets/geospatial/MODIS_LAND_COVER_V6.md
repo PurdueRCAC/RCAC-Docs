@@ -7,8 +7,8 @@
 | **Description** | This dataset provides annual land cover type data derived from the MODIS sensor. It includes classifications such as forests, grasslands, and urban areas, aiding in land cover change analysis and environmental assessments. |
 | **Folder** | `/datasets/geospatial/MODIS-MCD12Q1.006` |
 | **Discipline** | Geospatial / Environmental Science / Remote Sensing |
-| **DOI** | [10.5067/MODIS/MCD12Q1.006 :octicons-link-external-16:](https://doi.org/10.5067/MODIS/MCD12Q1.006) |
-| **Link** | [Access Data :octicons-link-external-16:](https://app.globus.org/file-manager?origin_id=ef71859e-e7d2-4132-952a-38e5f259ab0b&origin_path=%2F) |
+| **DOI** | [10.5067/MODIS/MCD12Q1.006](https://doi.org/10.5067/MODIS/MCD12Q1.006) |
+| **Link** | [Access Data](https://app.globus.org/file-manager?origin_id=ef71859e-e7d2-4132-952a-38e5f259ab0b&origin_path=%2F) |
 | **Public** | `true` |
 | **Publication Date** | 2018-05-14 |
 | **Downloaded** | 2024-10-24 |

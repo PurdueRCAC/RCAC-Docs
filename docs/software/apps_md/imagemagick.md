@@ -8,7 +8,7 @@ ImageMagick is a software suite to create, edit, compose, or convert bitmap imag
 
 ## Homepage
 
-[https://www.imagemagick.org :octicons-link-external-16:](https://www.imagemagick.org){:target="_blank"}
+[https://www.imagemagick.org](https://www.imagemagick.org){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

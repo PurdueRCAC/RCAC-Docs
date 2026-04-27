@@ -8,7 +8,7 @@
 | **Folder** | `/datasets/geospatial/NALCMS` |
 | **Discipline** | Geospatial / Environmental Science / Geography |
 | **DOI** |  |
-| **Link** | [Access Data :octicons-link-external-16:](http://www.cec.org/north-american-land-change-monitoring-system/) |
+| **Link** | [Access Data](http://www.cec.org/north-american-land-change-monitoring-system/) |
 | **Public** | `true` |
 | **Publication Date** | 2020-01-01 |
 | **Downloaded** | 2024-10-24 |

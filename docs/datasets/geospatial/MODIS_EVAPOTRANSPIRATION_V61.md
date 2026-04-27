@@ -7,8 +7,8 @@
 | **Description** | This dataset provides 8-day estimates of global terrestrial evapotranspiration and potential evapotranspiration. It supports studies in hydrology, agriculture, and climate science. |
 | **Folder** | `/datasets/geospatial/MODIS_MOD16A2.061` |
 | **Discipline** | Geospatial / Hydrology / Environmental Science |
-| **DOI** | [10.5067/MODIS/MOD16A2.061 :octicons-link-external-16:](https://doi.org/10.5067/MODIS/MOD16A2.061) |
-| **Link** | [Access Data :octicons-link-external-16:](https://app.globus.org/file-manager?origin_id=fc37cdc2-f1ee-49e5-8c93-d5049ef813c4&origin_path=%2F) |
+| **DOI** | [10.5067/MODIS/MOD16A2.061](https://doi.org/10.5067/MODIS/MOD16A2.061) |
+| **Link** | [Access Data](https://app.globus.org/file-manager?origin_id=fc37cdc2-f1ee-49e5-8c93-d5049ef813c4&origin_path=%2F) |
 | **Public** | `true` |
 | **Publication Date** | 2021-03-11 |
 | **Downloaded** | 2024-10-24 |

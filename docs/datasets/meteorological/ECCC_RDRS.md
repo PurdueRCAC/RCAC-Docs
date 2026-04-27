@@ -7,8 +7,8 @@
 | **Description** | The RDRSv2.1 dataset is a high-resolution atmospheric reanalysis produced by Environment and Climate Change Canada (ECCC). It offers hourly data from January 1980 to December 2018, covering North America at a 10 km spatial resolution. The dataset includes variables such as temperature, precipitation, and wind, and is utilized in hydrological modeling and climate studies. |
 | **Folder** | `/datasets/meteorological/ECCC_RDRSv2.1` |
 | **Discipline** | Meteorology / Hydrology / Climate Sciences |
-| **DOI** | [10.5194/hess-25-4917-2021 :octicons-link-external-16:](https://doi.org/10.5194/hess-25-4917-2021) |
-| **Link** | [Access Data :octicons-link-external-16:](https://app.globus.org/file-manager?origin_id=3e4b05eb-7d5f-4c11-8280-f2b009e69a92&origin_path=%2F) |
+| **DOI** | [10.5194/hess-25-4917-2021](https://doi.org/10.5194/hess-25-4917-2021) |
+| **Link** | [Access Data](https://app.globus.org/file-manager?origin_id=3e4b05eb-7d5f-4c11-8280-f2b009e69a92&origin_path=%2F) |
 | **Public** | `true` |
 | **Publication Date** | 2021-09-07 |
 | **Downloaded** | 2024-10-15 |

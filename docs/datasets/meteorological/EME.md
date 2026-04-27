@@ -7,8 +7,8 @@
 | **Description** | EM-Earth is a global dataset offering hourly and daily meteorological variables from January 1950 to December 2019. With an 11 km spatial resolution, it supports climate modeling, environmental assessments, and related research endeavors. |
 | **Folder** | `/datasets/meteorological/EM-Earth` |
 | **Discipline** | Meteorology / Climate Sciences / Earth Science |
-| **DOI** | [10.1175/BAMS-D-21-0106.1 :octicons-link-external-16:](https://doi.org/10.1175/BAMS-D-21-0106.1) |
-| **Link** | [Access Data :octicons-link-external-16:](https://www.frdr-dfdr.ca/repo/dataset/8d30ab02-f2bd-4d05-ae43-11f4a387e5ad) |
+| **DOI** | [10.1175/BAMS-D-21-0106.1](https://doi.org/10.1175/BAMS-D-21-0106.1) |
+| **Link** | [Access Data](https://www.frdr-dfdr.ca/repo/dataset/8d30ab02-f2bd-4d05-ae43-11f4a387e5ad) |
 | **Public** | `true` |
 | **Publication Date** | 2021-04-01 |
 | **Downloaded** | 2024-10-25 |

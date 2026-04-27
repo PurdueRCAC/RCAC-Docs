@@ -8,7 +8,7 @@ The NCO toolkit manipulates and analyzes data stored in netCDF-accessible format
 
 ## Homepage
 
-[https://nco.sourceforge.net/ :octicons-link-external-16:](https://nco.sourceforge.net/){:target="_blank"}
+[https://nco.sourceforge.net/](https://nco.sourceforge.net/){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

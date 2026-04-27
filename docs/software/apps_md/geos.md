@@ -8,7 +8,7 @@ GEOS (Geometry Engine, Open Source).  GEOS is a C/C++ library for computational 
 
 ## Homepage
 
-[https://libgeos.org/ :octicons-link-external-16:](https://libgeos.org/){:target="_blank"}
+[https://libgeos.org/](https://libgeos.org/){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

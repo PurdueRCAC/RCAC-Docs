@@ -7,8 +7,8 @@
 | **Description** | MERIT Basins is a dataset derived from the MERIT Hydro digital elevation model, delineating global river basins and sub-basins. It provides information on basin boundaries and hydrological flow directions, making it suitable for hydrological modeling and water resource management. The dataset supports large-scale studies of river networks and basin-level hydrology. |
 | **Folder** | `/datasets/hydrological/MERIT_Basins` |
 | **Discipline** | Hydrology / Earth Sciences / Environmental Science |
-| **DOI** | [10.1029/2019WR025287 :octicons-link-external-16:](https://doi.org/10.1029/2019WR025287) |
-| **Link** | [Access Data :octicons-link-external-16:](https://app.globus.org/file-manager?origin_id=42666942-fcce-4b56-9087-fd9c1c75d0ef&origin_path=%2F) |
+| **DOI** | [10.1029/2019WR025287](https://doi.org/10.1029/2019WR025287) |
+| **Link** | [Access Data](https://app.globus.org/file-manager?origin_id=42666942-fcce-4b56-9087-fd9c1c75d0ef&origin_path=%2F) |
 | **Public** | `true` |
 | **Publication Date** | 2019-07-24 |
 | **Downloaded** | 2024-10-25 |

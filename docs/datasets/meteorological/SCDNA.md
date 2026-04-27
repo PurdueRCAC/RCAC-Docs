@@ -7,8 +7,8 @@
 | **Description** | SCDNA is a point-based dataset offering daily surface climate variables across North America from January 1979 to December 2018. It includes temperature, precipitation, and other essential climate metrics, supporting localized climate analyses. |
 | **Folder** | `/datasets/meteorological/SCDNA` |
 | **Discipline** | Meteorology / Climate Sciences / Hydrology |
-| **DOI** | [10.5194/essd-12-2381-2020 :octicons-link-external-16:](https://doi.org/10.5194/essd-12-2381-2020) |
-| **Link** | [Access Data :octicons-link-external-16:](https://zenodo.org/records/3953310) |
+| **DOI** | [10.5194/essd-12-2381-2020](https://doi.org/10.5194/essd-12-2381-2020) |
+| **Link** | [Access Data](https://zenodo.org/records/3953310) |
 | **Public** | `true` |
 | **Publication Date** | 2020-10-02 |
 | **Downloaded** | 2024-10-24 |

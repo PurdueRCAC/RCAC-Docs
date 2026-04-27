@@ -23,10 +23,10 @@ RCAC clusters support the SSH (Secure Shell), Thinlinc and Open OnDemand mechani
 ### Open OnDemand (Gateway)
 
 === "Anvil"
-    One can visit Open OnDemand on Anvil via [https://ondemand.anvil.rcac.purdue.edu/ :octicons-link-external-16:](https://ondemand.anvil.rcac.purdue.edu/).
+    One can visit Open OnDemand on Anvil via [https://ondemand.anvil.rcac.purdue.edu/](https://ondemand.anvil.rcac.purdue.edu/).
 
 === "Gautschi"
-    One can visit Open OnDemand (Gateway) on Gautschi via [https://gateway.gautschi.rcac.purdue.edu/ :octicons-link-external-16:](https://gateway.gautschi.rcac.purdue.edu/).
+    One can visit Open OnDemand (Gateway) on Gautschi via [https://gateway.gautschi.rcac.purdue.edu/](https://gateway.gautschi.rcac.purdue.edu/).
 
 ## How can I transfer my data from local devices to RCAC resources?
 
@@ -40,7 +40,7 @@ We support several methods for file transfer to and from RCAC systems. Users can
 
 ## How do I submit jobs on a RCAC cluster?
 
-All RCAC clusters use the [Slurm Workload Manager :octicons-link-external-16:](https://slurm.schedmd.com/) for job scheduling and management. With Slurm, a user requests resources and submits a job to a queue. The system takes jobs from queues, allocates the necessary compute nodes, and executes them. We support various job submission methods including `sbatch`, interactive jobs and interactive apps on Open OnDemand (Gateway). You may learn how to submit jobs to RCAC clusters in general through [this section of our HPC Exchange workshop](/workshops/hpc_exchange/week2/slurm-basics/) or learn how to submit jobs to specific RCAC clusters from user guide sections listed below.
+All RCAC clusters use the [Slurm Workload Manager](https://slurm.schedmd.com/) for job scheduling and management. With Slurm, a user requests resources and submits a job to a queue. The system takes jobs from queues, allocates the necessary compute nodes, and executes them. We support various job submission methods including `sbatch`, interactive jobs and interactive apps on Open OnDemand (Gateway). You may learn how to submit jobs to RCAC clusters in general through [this section of our HPC Exchange workshop](/workshops/hpc_exchange/week2/slurm-basics/) or learn how to submit jobs to specific RCAC clusters from user guide sections listed below.
 
 !!! warning "Running jobs on login node is against RCAC policy"
     All users share the login nodes, and running anything but the smallest test job will negatively impact everyone's ability to use the cluster.
@@ -56,7 +56,7 @@ All RCAC clusters use the [Slurm Workload Manager :octicons-link-external-16:](h
 
 ## How do I install software on a RCAC cluster?
 
-RCAC clusters provide a number of software packages to users with [LMOD :octicons-link-external-16:](https://lmod.readthedocs.io/en/latest/) software management system via the `module` command. Please check our [software page](/software/) first to see if your software has been installed on the system. If your software/version is not on the list, please reach the [RCAC help desk](mailto:rcac-help@purdue.edu) to discuss with our staff.
+RCAC clusters provide a number of software packages to users with [LMOD](https://lmod.readthedocs.io/en/latest/) software management system via the `module` command. Please check our [software page](/software/) first to see if your software has been installed on the system. If your software/version is not on the list, please reach the [RCAC help desk](mailto:rcac-help@purdue.edu) to discuss with our staff.
 
 !!! note "Using Biocontainers on RCAC clusters"
-    We also provide more than 600 biocontainers across multiple RCAC clusters. Check our [Biocontainers documentation :octicons-link-external-16:](https://biocontainer-doc.readthedocs.io) to learn more.
+    We also provide more than 600 biocontainers across multiple RCAC clusters. Check our [Biocontainers documentation](https://biocontainer-doc.readthedocs.io) to learn more.

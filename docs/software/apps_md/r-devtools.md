@@ -8,7 +8,7 @@ R devtools package provides tools to simplify R package development.
 
 ## Homepage
 
-[https://cran.r-project.org/web/packages/devtools/index.html :octicons-link-external-16:](https://cran.r-project.org/web/packages/devtools/index.html){:target="_blank"}
+[https://cran.r-project.org/web/packages/devtools/index.html](https://cran.r-project.org/web/packages/devtools/index.html){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

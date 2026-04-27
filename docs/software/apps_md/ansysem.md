@@ -8,7 +8,7 @@ ANSYS Electromagnetics (ANSYS EM or Ansys Electronics Desktop) is a suite of sim
 
 ## Homepage
 
-[https://www.ansys.com/products/electronics :octicons-link-external-16:](https://www.ansys.com/products/electronics){:target="_blank"}
+[https://www.ansys.com/products/electronics](https://www.ansys.com/products/electronics){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

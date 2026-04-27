@@ -8,7 +8,7 @@ Visual Studio Code (VS Code) is a lightweight but powerful open-source code edit
 
 ## Homepage
 
-[https://code.visualstudio.com :octicons-link-external-16:](https://code.visualstudio.com){:target="_blank"}
+[https://code.visualstudio.com](https://code.visualstudio.com){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

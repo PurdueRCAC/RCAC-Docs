@@ -12,7 +12,7 @@ draft: false
 
 Purdue University is the home of Anvil, a powerful new supercomputer that provides advanced computing capabilities to support a wide range of computational and data-intensive research spanning from traditional high-performance computing to modern artificial intelligence applications.
 
-Anvil, which is funded by a $10 million award from the National Science Foundation, significantly increases the capacity available to the NSF&#39;s <a href="https://access-ci.org/">Advanced Cyberinfrastructure Coordination Ecosystem: Services &amp; Support (ACCESS) :octicons-link-external-16:</a> program, which serves tens of thousands of researchers across the U.S.. Anvil entered production in 2021 and has been serving researchers for five years. Additional funding from the NSF supports Anvil&#39;s operations and user support.
+Anvil, which is funded by a $10 million award from the National Science Foundation, significantly increases the capacity available to the NSF&#39;s <a href="https://access-ci.org/">Advanced Cyberinfrastructure Coordination Ecosystem: Services &amp; Support (ACCESS)</a> program, which serves tens of thousands of researchers across the U.S.. Anvil entered production in 2021 and has been serving researchers for five years. Additional funding from the NSF supports Anvil&#39;s operations and user support.
 
 The name &quot;Anvil&quot; reflects the Purdue Boilermakers&#39; strength and workmanlike focus on producing results, and the Anvil supercomputer enables important discoveries across many different areas of science and engineering. Anvil also serves as an experiential learning laboratory for students to gain real-world experience using computing for their science, and for student interns to work with the Anvil team for construction and operation. We are training the research computing practitioners of the future.
 
@@ -23,7 +23,7 @@ Anvil is built in partnership with Dell and AMD and consists of 1,000 nodes with
   <figcaption>Cumulative statistics January 2022 - December 2024</figcaption>
 </figure>
 
-Anvil is funded under NSF award number **2005632**. <a href="https://www.rcac.purdue.edu/about/staff/cxsong">Carol Song :octicons-link-external-16:</a> is the principal investigator and project director. <a href="https://www.rcac.purdue.edu/about/staff/psmith">Preston Smith :octicons-link-external-16:</a>, executive director of the Rosen Center for Advanced Computing, <a href="https://www.linkedin.com/in/xiao-zhu-04963211/">Xiao Zhu :octicons-link-external-16:</a>, former RCAC computational scientist and senior research scientist, and <a href="https://www.ornl.gov/staff-profile/rajesh-kalyanam">Rajesh Kalyanam :octicons-link-external-16:</a>, former RCAC data scientist, software engineer, and research scientist, are all co-PIs on the project.
+Anvil is funded under NSF award number **2005632**. <a href="https://www.rcac.purdue.edu/about/staff/cxsong">Carol Song</a> is the principal investigator and project director. <a href="https://www.rcac.purdue.edu/about/staff/psmith">Preston Smith</a>, executive director of the Rosen Center for Advanced Computing, <a href="https://www.linkedin.com/in/xiao-zhu-04963211/">Xiao Zhu</a>, former RCAC computational scientist and senior research scientist, and <a href="https://www.ornl.gov/staff-profile/rajesh-kalyanam">Rajesh Kalyanam</a>, former RCAC data scientist, software engineer, and research scientist, are all co-PIs on the project.
 
 ## Anvil Specifications
 

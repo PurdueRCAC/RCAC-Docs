@@ -7,8 +7,8 @@
 | **Description** | Visual Genome is a dataset, a knowledge base, an ongoing effort to connect structured image concepts to language. |
 | **Folder** | `/datasets/ai/visualgenome` |
 | **Discipline** | AI / computer vision / multimodel AI |
-| **DOI** | [10.1007/s11263-016-0981-7 :octicons-link-external-16:](https://doi.org/10.1007/s11263-016-0981-7) |
-| **Link** | [Access Data :octicons-link-external-16:](https://homes.cs.washington.edu/~ranjay/visualgenome/api.html) |
+| **DOI** | [10.1007/s11263-016-0981-7](https://doi.org/10.1007/s11263-016-0981-7) |
+| **Link** | [Access Data](https://homes.cs.washington.edu/~ranjay/visualgenome/api.html) |
 | **Public** | `True` |
 | **Publication Date** | 2017-02-06 |
 | **Downloaded** | 2026-01-07 |

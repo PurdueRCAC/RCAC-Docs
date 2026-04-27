@@ -26,6 +26,6 @@ Compute nodes allocated:
 gautschi-a[014-015]
 ```
 
-The above example will allocate the total of 384 CPU cores across 2 nodes. Note that if your multi-node job requests fewer than each node's full 192 cores per node, by default Slurm provides no guarantee with respect to how this total is distributed between assigned nodes (i.e. the cores may not necessarily be split evenly). If you need specific arrangements of your tasks and cores, you can use ```--cpus-per-task=``` and/or ```--ntasks-per-node=``` flags. See [Slurm documentation :octicons-link-external-16:](https://slurm.schedmd.com/sbatch.html) or ```man sbatch``` for more options.
+The above example will allocate the total of 384 CPU cores across 2 nodes. Note that if your multi-node job requests fewer than each node's full 192 cores per node, by default Slurm provides no guarantee with respect to how this total is distributed between assigned nodes (i.e. the cores may not necessarily be split evenly). If you need specific arrangements of your tasks and cores, you can use ```--cpus-per-task=``` and/or ```--ntasks-per-node=``` flags. See [Slurm documentation](https://slurm.schedmd.com/sbatch.html) or ```man sbatch``` for more options.
 
 [**Back to the Example Jobs section**](generic_slurm_jobs.md)

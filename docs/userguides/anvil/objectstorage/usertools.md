@@ -15,7 +15,7 @@ draft: false
 
 ## Rclone
 
-[`rclone` :octicons-link-external-16:](https://rclone.org/) is a command-line tool for interacting with cloud and object storage systems. On Anvil, it can be used to connect to the S3-compatible object storage service and manage buckets and files.
+[`rclone`](https://rclone.org/) is a command-line tool for interacting with cloud and object storage systems. On Anvil, it can be used to connect to the S3-compatible object storage service and manage buckets and files.
 
 ---
 
@@ -165,7 +165,7 @@ acl = private
 
 ## s3cmd
 
-[`s3cmd` :octicons-link-external-16:](https://s3tools.org/s3cmd) is a command-line tool for interacting with S3-compatible object storage. On Anvil, it can be used to manage buckets and transfer data to and from object storage.
+[`s3cmd`](https://s3tools.org/s3cmd) is a command-line tool for interacting with S3-compatible object storage. On Anvil, it can be used to manage buckets and transfer data to and from object storage.
 
 !!! note "Note"
     Unlike `rclone`, which supports multiple named remotes, `s3cmd` relies on a single configuration file (`~/.s3cfg`) and is generally limited to one endpoint at a time. To work with multiple endpoints, use separate configuration files with the `--config` option.
@@ -310,7 +310,7 @@ use_https = True
 
 ## Python boto3
 
-[`boto3` :octicons-link-external-16:](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html) is the official AWS SDK for Python. It can also be used with S3-compatible object storage such as Anvil’s Ceph-based storage by specifying a custom endpoint.
+[`boto3`](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html) is the official AWS SDK for Python. It can also be used with S3-compatible object storage such as Anvil’s Ceph-based storage by specifying a custom endpoint.
 
 ---
 

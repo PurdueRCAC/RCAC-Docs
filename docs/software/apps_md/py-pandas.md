@@ -8,7 +8,7 @@ Pandas is a Python library for data manipulation, analysis, and table-like data 
 
 ## Homepage
 
-[https://pandas.pydata.org/ :octicons-link-external-16:](https://pandas.pydata.org/){:target="_blank"}
+[https://pandas.pydata.org/](https://pandas.pydata.org/){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

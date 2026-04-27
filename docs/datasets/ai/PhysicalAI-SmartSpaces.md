@@ -7,8 +7,8 @@
 | **Description** | Comprehensive, annotated dataset for multi-camera tracking and 2D/3D object detection. This dataset is synthetically generated with Omniverse.<br><br>This dataset consists of over 250 hours of video from across nearly 1,500 cameras from indoor scenes in warehouses, hospitals, retail, and more. The dataset is time synchronized for tracking humans across multiple cameras using feature representation and no personal data.<br><br>Dataset Description<br>Dataset Owner(s)<br>NVIDIA<br><br>Dataset Creation Date<br>We started to create this dataset in December, 2023. First version was completed and released as part of 8th AI City Challenge in conjunction with CVPR 2024.<br><br>Dataset Characterization<br>Data Collection Method: Synthetic<br>Labeling Method: Automatic with IsaacSim<br>Video Format<br>Video Standard: MP4 (H.264)<br>Video Resolution: 1080p<br>Video Frame rate: 30 FPS |
 | **Folder** | `/datasets/ai/huggingface/nvidia/PhysicalAI-SmartSpaces` |
 | **Discipline** | AI / Computer Vision / PhysicalAI |
-| **DOI** | [10.48550/arXiv.2412.00692 :octicons-link-external-16:](https://doi.org/10.48550/arXiv.2412.00692) |
-| **Link** | [Access Data :octicons-link-external-16:](https://huggingface.co/datasets/nvidia/PhysicalAI-SmartSpaces) |
+| **DOI** | [10.48550/arXiv.2412.00692](https://doi.org/10.48550/arXiv.2412.00692) |
+| **Link** | [Access Data](https://huggingface.co/datasets/nvidia/PhysicalAI-SmartSpaces) |
 | **Public** | `True` |
 | **Publication Date** | 2024 |
 | **Downloaded** | 2025-11-09 |

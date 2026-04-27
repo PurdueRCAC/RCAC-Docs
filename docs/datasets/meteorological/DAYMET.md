@@ -7,8 +7,8 @@
 | **Description** | Daymet offers daily surface meteorological data for North America, including variables such as temperature, precipitation, and radiation. Spanning from January 1980 to December 2022, it provides data at a 1 km spatial resolution. The dataset supports ecological, hydrological, and agricultural research. |
 | **Folder** | `/datasets/meteorological/ORNL_Daymet` |
 | **Discipline** | Meteorology / Climate Sciences / Earth Science |
-| **DOI** | [10.3334/ORNLDAAC/2129 :octicons-link-external-16:](https://doi.org/10.3334/ORNLDAAC/2129) |
-| **Link** | [Access Data :octicons-link-external-16:](https://app.globus.org/file-manager?origin_id=2070a9db-caac-48d0-8aa7-05c176a49f88&origin_path=%2F) |
+| **DOI** | [10.3334/ORNLDAAC/2129](https://doi.org/10.3334/ORNLDAAC/2129) |
+| **Link** | [Access Data](https://app.globus.org/file-manager?origin_id=2070a9db-caac-48d0-8aa7-05c176a49f88&origin_path=%2F) |
 | **Public** | `true` |
 | **Publication Date** | 2022-11-01 |
 | **Downloaded** | 2024-10-17 |

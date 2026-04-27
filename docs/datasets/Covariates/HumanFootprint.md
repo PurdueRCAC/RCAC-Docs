@@ -7,8 +7,8 @@
 | **Description** | Global human footprint analysis at 1km resolution. |
 | **Folder** | `/datasets/Covariates/HumanFootprint` |
 | **Discipline** | Covariates/ Environmental Science / Geography |
-| **DOI** | [10.5061/dryad.052q5 :octicons-link-external-16:](https://doi.org/10.5061/dryad.052q5) |
-| **Link** | [Access Data :octicons-link-external-16:](https://datadryad.org/stash/dataset/doi:10.5061/dryad.052q5) |
+| **DOI** | [10.5061/dryad.052q5](https://doi.org/10.5061/dryad.052q5) |
+| **Link** | [Access Data](https://datadryad.org/stash/dataset/doi:10.5061/dryad.052q5) |
 | **Public** | `true` |
 | **Publication Date** | 2016-11-17 |
 | **Downloaded** | 2024-11-25 |

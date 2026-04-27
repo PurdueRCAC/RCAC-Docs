@@ -8,7 +8,7 @@ Bowtie 2 is an ultrafast and memory-efficient tool for aligning sequencing reads
 
 ## Homepage
 
-[https://bowtie-bio.sourceforge.net/bowtie2/index.shtml :octicons-link-external-16:](https://bowtie-bio.sourceforge.net/bowtie2/index.shtml){:target="_blank"}
+[https://bowtie-bio.sourceforge.net/bowtie2/index.shtml](https://bowtie-bio.sourceforge.net/bowtie2/index.shtml){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

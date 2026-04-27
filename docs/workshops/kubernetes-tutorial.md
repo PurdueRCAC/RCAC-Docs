@@ -15,7 +15,7 @@ draft: true
 
 A complete, user-friendly guide to making your application live and accessible to anyone with internet access. We will walk through an example application with 3 separate components (Svelte frontend, FastAPI backend, and MongoDB database) on Anvil Composable using Kubernetes.
 
-To follow along with code, please clone the corresponding [GitHub repository :octicons-link-external-16:](https://github.com/wintermutant/anvil-composable-tutorial.git).
+To follow along with code, please clone the corresponding [GitHub repository](https://github.com/wintermutant/anvil-composable-tutorial.git).
 
 !!! note "Who this tutorial is for"
     This tutorial is meant for new users to veteran users. This tutorial will not explain every concept comprehensively, but it will hit on main concepts. For veteran users, you can jump to [Deploying to Anvil Composable](#deploying-to-anvil-composable)
@@ -34,7 +34,7 @@ When people access our web-app (app being viewed in your browser), Anvil Composa
 
 Further, your computer would have to be powered on and connected to the internet at all times, otherwise people couldn't access our app. Anvil Composable, among many other things, provides a stable server to ensure users of our app can always access our app.
 
-[Kubernetes :octicons-link-external-16:](https://kubernetes.io/docs/home/) is the software layer Anvil Composable (AC) uses that automates deployment, scaling, and other aspects
+[Kubernetes](https://kubernetes.io/docs/home/) is the software layer Anvil Composable (AC) uses that automates deployment, scaling, and other aspects
 of our app. For example, if millions of people start using our app, we most likely want to replicate more instances of our app so we can serve more people concurrently (at the same time). This would require adding compute resources (CPUs, perhaps) so we can replicate many copies of our app for people to use.
 
 Further, Anvil Composable is a great place to host your app because it can easily connect to the compute power of the Anvil supercompute cluster.
@@ -177,9 +177,9 @@ We'll deploy:
 !!! warning "Required installations"
     Before you begin, ensure you have:
 
-    - **Docker** installed: [Get Docker :octicons-link-external-16:](https://docs.docker.com/get-docker/)
-    - **kubectl** installed: [Install kubectl :octicons-link-external-16:](https://kubernetes.io/docs/tasks/tools/)
-    - **minikube** installed: [Install minikube :octicons-link-external-16:](https://minikube.sigs.k8s.io/docs/start/)
+    - **Docker** installed: [Get Docker](https://docs.docker.com/get-docker/)
+    - **kubectl** installed: [Install kubectl](https://kubernetes.io/docs/tasks/tools/)
+    - **minikube** installed: [Install minikube](https://minikube.sigs.k8s.io/docs/start/)
     - Basic understanding of Docker and command line
 
 ### Setting Up Local Kubernetes with Minikube
@@ -591,7 +591,7 @@ Before deploying to Kubernetes, we need to containerize our backend and frontend
 
 !!! warning "Prerequisites"
 
-    1. **Create a Docker Hub account** at [hub.docker.com :octicons-link-external-16:](https://hub.docker.com) if you don't have one
+    1. **Create a Docker Hub account** at [hub.docker.com](https://hub.docker.com) if you don't have one
     2. **Log in to Docker Hub** from your terminal:
 
     ```bash
@@ -676,7 +676,7 @@ For MongoDB, we use the official public image from Docker Hub: `mongo:7.0`. No b
 
 **1. Log in to Anvil Composable:**
 
-Visit [composable.anvil.rcac.purdue.edu :octicons-link-external-16:](https://composable.anvil.rcac.purdue.edu) and log in with your Purdue credentials.
+Visit [composable.anvil.rcac.purdue.edu](https://composable.anvil.rcac.purdue.edu) and log in with your Purdue credentials.
 
 **2. Download your kubeconfig:**
 
@@ -711,7 +711,7 @@ For this part, due to permissions, we will need to create our namespace using th
 
 **1. Create the namespace in Rancher:**
 
-Visit [Anvil Rancher :octicons-link-external-16:](https://composable.anvil.rcac.purdue.edu) and click Cluster > Projects/Namespaces. Create a namespace with:
+Visit [Anvil Rancher](https://composable.anvil.rcac.purdue.edu) and click Cluster > Projects/Namespaces. Create a namespace with:
 
 - **Project** = Select your project from the dropdown (**IMPORTANT:** Do not leave this blank! You need to assign the namespace to a project to have deployment permissions)
     - Your project should be the same as the one you use for research computing jobs with SLURM
@@ -747,7 +747,7 @@ kubectl get pods
 ```
 
 !!! warning "Default Namespace"
-    The manifest files do not specify a namespace, so they will deploy to whatever namespace you have set as your current context. If you get an error while running this command, it means your kube config is not pointing to your namespace + project correctly and you have permission issues. Please try to go back and figure out the issue or contact [Anvil Support :octicons-link-external-16:](https://support.access-ci.org/help-ticket).
+    The manifest files do not specify a namespace, so they will deploy to whatever namespace you have set as your current context. If you get an error while running this command, it means your kube config is not pointing to your namespace + project correctly and you have permission issues. Please try to go back and figure out the issue or contact [Anvil Support](https://support.access-ci.org/help-ticket).
 
 ### Step 3: Deploy the Database
 
@@ -983,10 +983,10 @@ kubectl rollout undo deployment/fastapi
 
 ## Additional Resources
 
-- [Kubernetes Documentation :octicons-link-external-16:](https://kubernetes.io/docs/)
-- [FastAPI Documentation :octicons-link-external-16:](https://fastapi.tiangolo.com/)
-- [MongoDB on Kubernetes :octicons-link-external-16:](https://www.mongodb.com/kubernetes)
-- [Kubectl Cheat Sheet :octicons-link-external-16:](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
+- [Kubernetes Documentation](https://kubernetes.io/docs/)
+- [FastAPI Documentation](https://fastapi.tiangolo.com/)
+- [MongoDB on Kubernetes](https://www.mongodb.com/kubernetes)
+- [Kubectl Cheat Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
 
 ---
 

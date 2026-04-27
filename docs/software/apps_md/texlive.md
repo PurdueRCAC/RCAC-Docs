@@ -8,7 +8,7 @@ TeX Live is an easy (we hope) way to get up and running with the TeX document pr
 
 ## Homepage
 
-[https://www.tug.org/texlive :octicons-link-external-16:](https://www.tug.org/texlive){:target="_blank"}
+[https://www.tug.org/texlive](https://www.tug.org/texlive){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

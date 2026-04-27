@@ -7,8 +7,8 @@
 | **Description** | Distribution of cattle in 2010 expressed in total number of cattle per pixel (5 min of arc) |
 | **Folder** | `/datasets/Covariates/Cattle` |
 | **Discipline** | Covariates / Agriculture / Geography |
-| **DOI** | [10.7910/DVN/GIVQ75 :octicons-link-external-16:](https://doi.org/10.7910/DVN/GIVQ75) |
-| **Link** | [Access Data :octicons-link-external-16:](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/GIVQ75) |
+| **DOI** | [10.7910/DVN/GIVQ75](https://doi.org/10.7910/DVN/GIVQ75) |
+| **Link** | [Access Data](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/GIVQ75) |
 | **Public** | `true` |
 | **Publication Date** | 2018-08-23 |
 | **Downloaded** | 2024-11-25 |

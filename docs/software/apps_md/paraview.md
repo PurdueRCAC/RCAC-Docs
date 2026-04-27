@@ -8,7 +8,7 @@ ParaView is an open-source, multi-platform data analysis and visualization appli
 
 ## Homepage
 
-[https://www.paraview.org :octicons-link-external-16:](https://www.paraview.org){:target="_blank"}
+[https://www.paraview.org](https://www.paraview.org){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

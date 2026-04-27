@@ -63,7 +63,7 @@ Check the software among popular domains below:
 
     Check the catalog of all deployed biocontainers on RCAC clusters.
 
-    [:octicons-arrow-right-24: Biocontainers :octicons-link-external-16:](https://biocontainer-doc.readthedocs.io/)
+    [:octicons-arrow-right-24: Biocontainers](https://biocontainer-doc.readthedocs.io/)
 
 -   :material-application:{ .lg .middle } __Library__
 

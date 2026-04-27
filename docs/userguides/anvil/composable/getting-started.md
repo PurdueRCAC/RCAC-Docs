@@ -1,6 +1,6 @@
 ## Introduction
 
-The [Anvil Composable Subsystem :octicons-link-external-16:](https://composable.anvil.rcac.purdue.edu) is a Kubernetes based private cloud managed with Rancher that provides a platform for creating composable infrastructure on demand. This cloud-style flexibility provides researchers the ability to self-deploy and manage persistent services to complement HPC workflows and run container-based data analysis tools and applications.
+The [Anvil Composable Subsystem](https://composable.anvil.rcac.purdue.edu) is a Kubernetes based private cloud managed with Rancher that provides a platform for creating composable infrastructure on demand. This cloud-style flexibility provides researchers the ability to self-deploy and manage persistent services to complement HPC workflows and run container-based data analysis tools and applications.
 
 New usage patterns have emerged in research computing that depend on the availability of custom services such as notebooks, databases, elastic software stacks, and science gateways alongside traditional batch HPC. Anvil Composable is the platform to host these services and provide access to HPC resources.
 
@@ -8,13 +8,13 @@ New usage patterns have emerged in research computing that depend on the availab
 
 There are 3 options to accessing and working with Anvil Composable:
 
-* [Rancher (GUI) :octicons-link-external-16:](https://composable.anvil.rcac.purdue.edu)
-* [kubectl (command line) :octicons-link-external-16:](https://kubernetes.io/docs/reference/kubectl/)
-* [Harbor :octicons-link-external-16:](https://registry.anvil.rcac.purdue.edu)
+* [Rancher (GUI)](https://composable.anvil.rcac.purdue.edu)
+* [kubectl (command line)](https://kubernetes.io/docs/reference/kubectl/)
+* [Harbor](https://registry.anvil.rcac.purdue.edu)
 
 ## Rancher
 
-The Anvil Composable Subsystem Rancher interface can be accessed via a web browser: [https://composable.anvil.rcac.purdue.edu :octicons-link-external-16:](https://composable.anvil.rcac.purdue.edu). Log in by choosing "log in with shibboleth" and using your ACCESS credentials at the ACCESS login screen.
+The Anvil Composable Subsystem Rancher interface can be accessed via a web browser: [https://composable.anvil.rcac.purdue.edu](https://composable.anvil.rcac.purdue.edu). Log in by choosing "log in with shibboleth" and using your ACCESS credentials at the ACCESS login screen.
 
 ## kubectl
 
@@ -39,7 +39,7 @@ To authenticate to the Anvil cluster you can download a kubeconfig file that is 
    2. now let’s list the available resource types present in the API with kubectl api-resources
 
 
-To see more options of kubectl review the cheatsheet found on [Kubernetes' kubectl cheatsheet :octicons-link-external-16:](https://kubernetes.io/docs/reference/kubectl/cheatsheet/).
+To see more options of kubectl review the cheatsheet found on [Kubernetes' kubectl cheatsheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/).
 
 ### Accessing kubectl in the rancher web UI
 

@@ -8,7 +8,7 @@ A free, general-purpose, legally unencumbered lossless data-compression library.
 
 ## Homepage
 
-[https://zlib.net :octicons-link-external-16:](https://zlib.net){:target="_blank"}
+[https://zlib.net](https://zlib.net){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

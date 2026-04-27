@@ -7,8 +7,8 @@
 | **Description** | NEX-GDDP-CMIP6 provides global downscaled climate scenarios derived from CMIP6 models. It includes daily projections of maximum and minimum temperatures and precipitation at a spatial resolution of 0.25 degrees (~25 km x 25 km) for the periods from 1950 through 2100. The dataset is designed to assist in evaluating climate change impacts at local to regional scales. |
 | **Folder** | `/datasets/meteorological/NASA_NEX-GDDP-CMIP6` |
 | **Discipline** | Meteorology / Climate Sciences / Earth Science |
-| **DOI** | [10.1038/s41597-022-01393-4 :octicons-link-external-16:](https://doi.org/10.1038/s41597-022-01393-4) |
-| **Link** | [Access Data :octicons-link-external-16:](https://app.globus.org/file-manager?origin_id=05dbc4e8-9731-4202-aac3-ef31dc743cd1&origin_path=%2F) |
+| **DOI** | [10.1038/s41597-022-01393-4](https://doi.org/10.1038/s41597-022-01393-4) |
+| **Link** | [Access Data](https://app.globus.org/file-manager?origin_id=05dbc4e8-9731-4202-aac3-ef31dc743cd1&origin_path=%2F) |
 | **Public** | `true` |
 | **Publication Date** | 2022-02-22 |
 | **Downloaded** | 2024-10-15 |

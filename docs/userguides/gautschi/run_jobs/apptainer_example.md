@@ -9,12 +9,12 @@ search:
 ---
 
 !!! note
-    Note: Apptainer was formerly known as Singularity and is now a part of the [Linux Foundation :octicons-link-external-16:](https://apptainer.org/news/community-announcement-20211130). When migrating from Singularity see the [user compatibility documentation :octicons-link-external-16:](https://apptainer.org/docs/user/main/singularity_compatibility.html).
+    Note: Apptainer was formerly known as Singularity and is now a part of the [Linux Foundation](https://apptainer.org/news/community-announcement-20211130). When migrating from Singularity see the [user compatibility documentation](https://apptainer.org/docs/user/main/singularity_compatibility.html).
 
 ## What is Apptainer?
 Apptainer is an open-source container platform designed to be simple, fast, and secure. It allows the portability and reproducibility of operating systems and application environments through the use of Linux containers. It gives users complete control over their environment.
 
-Apptainer is like Docker but tuned explicitly for HPC clusters. More information is available on the [project’s website :octicons-link-external-16:](https://apptainer.org/).
+Apptainer is like Docker but tuned explicitly for HPC clusters. More information is available on the [project’s website](https://apptainer.org/).
 
 ## Features
 
@@ -23,7 +23,7 @@ Apptainer is like Docker but tuned explicitly for HPC clusters. More information
 - Launch MPI programs easily
 - Much more
 
-Apptainer’s user guide is available at: [https://apptainer.org/docs/user/main/introduction.html :octicons-link-external-16:](https://apptainer.org/docs/user/main/introduction.html)
+Apptainer’s user guide is available at: [https://apptainer.org/docs/user/main/introduction.html](https://apptainer.org/docs/user/main/introduction.html)
 
 ## Example
 Here is an example using an Ubuntu 16.04 image on Gautschi:
@@ -65,8 +65,8 @@ You can build on your system or straight on the cluster (you do not need root pr
 
 You can find information and documentation for how to install and use Apptainer on your system:
 
-- [Install Apptainer on Windows or MacOS :octicons-link-external-16:](https://apptainer.org/docs/admin/main/installation.html#installation-on-windows-or-mac)
-- [Install Apptainer on Linux :octicons-link-external-16:](https://apptainer.org/docs/admin/main/installation.html#installation-on-linux)
+- [Install Apptainer on Windows or MacOS](https://apptainer.org/docs/admin/main/installation.html#installation-on-windows-or-mac)
+- [Install Apptainer on Linux](https://apptainer.org/docs/admin/main/installation.html#installation-on-linux)
 
 We have version ```1.1.6``` (or newer) on the cluster. Please note that installed versions may change throughout cluster life time, so when in doubt, please check exact version with a ```--version``` command line flag:
 
@@ -75,9 +75,9 @@ apptainer --version
 apptainer version 1.3.3-1.el9
 ```
 
-Everything you need on how to [build a container :octicons-link-external-16:](https://apptainer.org/docs/user/main/build_a_container.html) is available from their user guide. Below are merely some quick tips for getting your own containers built for Gautschi.
+Everything you need on how to [build a container](https://apptainer.org/docs/user/main/build_a_container.html) is available from their user guide. Below are merely some quick tips for getting your own containers built for Gautschi.
 
-You can use a [Definition File :octicons-link-external-16:](https://apptainer.org/docs/user/main/definition_files.html) to both build your container and share its specification with collaborators (for the sake of reproducibility). Here is a simplistic example of such a file:
+You can use a [Definition File](https://apptainer.org/docs/user/main/definition_files.html) to both build your container and share its specification with collaborators (for the sake of reproducibility). Here is a simplistic example of such a file:
 
 ```bash
 # FILENAME: Buildfile

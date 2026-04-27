@@ -7,8 +7,8 @@
 | **Description** | COCO is a large-scale object detection, segmentation, and captioning dataset. COCO has several features:<br>Object segmentation<br>Recognition in context<br>Superpixel stuff segmentation<br>330K images (>200K labeled)<br>1.5 million object instances<br>80 object categories<br>91 stuff categories<br>5 captions per image<br>250,000 people with keypoints<br><br> This dataset includes train/ |
 | **Folder** | `/datasets/ai/coco` |
 | **Discipline** | AI / Object Segmentation / Object Detection |
-| **DOI** | [10.48550/arXiv.1405.0312 :octicons-link-external-16:](https://doi.org/10.48550/arXiv.1405.0312) |
-| **Link** | [Access Data :octicons-link-external-16:](https://cocodataset.org/#download) |
+| **DOI** | [10.48550/arXiv.1405.0312](https://doi.org/10.48550/arXiv.1405.0312) |
+| **Link** | [Access Data](https://cocodataset.org/#download) |
 | **Public** | `True` |
 | **Publication Date** | 2017 |
 | **Downloaded** | 2025-11-09 |

@@ -7,8 +7,8 @@
 | **Description** | Integration of GEDI and Landsat data for global forest canopy height. |
 | **Folder** | `/datasets/Covariates/ForestHeight2020` |
 | **Discipline** | Covariates / Forestry / Remote Sensing |
-| **DOI** | [10.3389/frsen.2022.856903 :octicons-link-external-16:](https://doi.org/10.3389/frsen.2022.856903) |
-| **Link** | [Access Data :octicons-link-external-16:](https://glad.umd.edu/dataset/GLCLUC2020) |
+| **DOI** | [10.3389/frsen.2022.856903](https://doi.org/10.3389/frsen.2022.856903) |
+| **Link** | [Access Data](https://glad.umd.edu/dataset/GLCLUC2020) |
 | **Public** | `true` |
 | **Publication Date** | 2022-04-15 |
 | **Downloaded** | 2024-11-25 |

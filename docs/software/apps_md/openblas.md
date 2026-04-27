@@ -8,7 +8,7 @@ OpenBLAS: An optimized BLAS library
 
 ## Homepage
 
-[https://www.openblas.net :octicons-link-external-16:](https://www.openblas.net){:target="_blank"}
+[https://www.openblas.net](https://www.openblas.net){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

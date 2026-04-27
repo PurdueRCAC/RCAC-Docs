@@ -11,7 +11,7 @@ search:
 SMB (Server Message Block), also known as CIFS, is an easy-to-use file transfer protocol that is useful for transferring files between RCAC systems and a desktop or laptop. You may use SMB to connect to your home, scratch, and Fortress storage directories. The SMB protocol is available on Windows, Linux, and Mac OS X. It is primarily used as a graphical means of transfer, but it can also be used over the command line.
 
 !!!note
-    To access Gautschi through SMB file sharing, you must be on a Purdue campus network or connected through [VPN :octicons-link-external-16:](https://it.purdue.edu/services/vpn.php).
+    To access Gautschi through SMB file sharing, you must be on a Purdue campus network or connected through [VPN](https://it.purdue.edu/services/vpn.php).
 
 ## Windows
 

@@ -8,7 +8,7 @@ Perl as a Python package
 
 ## Homepage
 
-[https://www.perl.org :octicons-link-external-16:](https://www.perl.org){:target="_blank"}
+[https://www.perl.org](https://www.perl.org){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

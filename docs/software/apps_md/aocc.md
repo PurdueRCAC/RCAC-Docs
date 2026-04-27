@@ -8,7 +8,7 @@ The AOCC compiler system is a high performance, production quality code generati
 
 ## Homepage
 
-[https://www.amd.com/en/developer/aocc.html :octicons-link-external-16:](https://www.amd.com/en/developer/aocc.html){:target="_blank"}
+[https://www.amd.com/en/developer/aocc.html](https://www.amd.com/en/developer/aocc.html){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

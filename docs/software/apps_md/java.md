@@ -8,7 +8,7 @@ Java is a high-level, class-based, object-oriented programming language that is 
 
 ## Homepage
 
-[https://www.oracle.com/java/ :octicons-link-external-16:](https://www.oracle.com/java/){:target="_blank"}
+[https://www.oracle.com/java/](https://www.oracle.com/java/){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

@@ -8,7 +8,7 @@ PROJ is a generic coordinate transformation software, that transforms geospatial
 
 ## Homepage
 
-[https://proj.org/ :octicons-link-external-16:](https://proj.org/){:target="_blank"}
+[https://proj.org/](https://proj.org/){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

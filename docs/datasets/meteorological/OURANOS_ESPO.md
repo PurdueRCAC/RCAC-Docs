@@ -7,8 +7,8 @@
 | **Description** | Developed by Ouranos, a Canadian consortium on regional climatology and adaptation to climate change, the ESPO-G6-R2 dataset comprises daily climate projections from January 1950 to December 2100. Covering North America at a 10 km resolution, it includes multiple General Circulation Model (GCM) outputs, scenarios, ensemble members, and variables. The dataset is used in climate research and adaptation planning. |
 | **Folder** | `/datasets/meteorological/Ouranos_ESPO-G6-R2` |
 | **Discipline** | Meteorology / Climate Sciences / Earth Science |
-| **DOI** | [10.1038/s41597-023-02855-z :octicons-link-external-16:](https://doi.org/10.1038/s41597-023-02855-z) |
-| **Link** | [Access Data :octicons-link-external-16:](https://app.globus.org/file-manager?origin_id=0b8a029d-a21e-4fb1-bf6e-0e9e3cd2d1c3&origin_path=%2F) |
+| **DOI** | [10.1038/s41597-023-02855-z](https://doi.org/10.1038/s41597-023-02855-z) |
+| **Link** | [Access Data](https://app.globus.org/file-manager?origin_id=0b8a029d-a21e-4fb1-bf6e-0e9e3cd2d1c3&origin_path=%2F) |
 | **Public** | `true` |
 | **Publication Date** | 2024-01-11 |
 | **Downloaded** | 2024-10-24 |

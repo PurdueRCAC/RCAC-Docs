@@ -7,8 +7,8 @@
 | **Description** | High-resolution climatic data for present-day bioclimatic analysis. |
 | **Folder** | `/datasets/Covariates/CHELSA_Present_bio` |
 | **Discipline** | Covariates / Climate Sciences / Geography |
-| **DOI** | [10.1038/sdata.2017.122 :octicons-link-external-16:](https://doi.org/10.1038/sdata.2017.122) |
-| **Link** | [Access Data :octicons-link-external-16:](https://chelsa-climate.org/bioclim/) |
+| **DOI** | [10.1038/sdata.2017.122](https://doi.org/10.1038/sdata.2017.122) |
+| **Link** | [Access Data](https://chelsa-climate.org/bioclim/) |
 | **Public** | `true` |
 | **Publication Date** | 2020-09-05 |
 | **Downloaded** | 2024-11-25 |

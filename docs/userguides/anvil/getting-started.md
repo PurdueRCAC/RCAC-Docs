@@ -11,10 +11,10 @@ search:
 
 Before you can log in to Anvil, ensure you have:
 
-1. Created your [ACCESS account :octicons-link-external-16:](https://access-ci.org)
+1. Created your [ACCESS account](https://access-ci.org)
 2. Applied for a project
 3. Received credits in ACCESS
-4. [Transferred your credits to Anvil :octicons-link-external-16:](https://allocations.access-ci.org/how-to#manage-an-explore-discover-or-accelerate-project)
+4. [Transferred your credits to Anvil](https://allocations.access-ci.org/how-to#manage-an-explore-discover-or-accelerate-project)
 
 !!! warning "Anvil account creation"
     Unless you have **transferred** credits onto Anvil, you will not have a valid Anvil username. This will result in errors that may look like: `failed to map user <username@access-cli.com>`. If you are not the PI of the project, ensure the PI has added you to the project and exchanged credits to Anvil.
@@ -38,7 +38,7 @@ To Access Anvil, you can login through a variety of ways:
 
 ## OnDemand
 
-Navigate to [Anvil OnDemand :octicons-link-external-16:](https://ondemand.anvil.rcac.purdue.edu/) and use your ACCESS credentials to login.
+Navigate to [Anvil OnDemand](https://ondemand.anvil.rcac.purdue.edu/) and use your ACCESS credentials to login.
 
 ## ThinLinc
 
@@ -99,7 +99,7 @@ echo 'hi mom! i am using Anvil!!!'
 We will strive to ensure that Anvil serves as a valuable resource to the national research community. We hope that you the user will assist us by making note of the following:
 
 - You share Anvil with thousands of other users, and what you do on the system affects others. Exercise good citizenship to ensure that your activity does not adversely impact the system and the research community with whom you share it. For instance: do not run jobs on the login nodes and do not stress the filesystem.
-- Help us serve you better by filing informative [help desk tickets :octicons-link-external-16:](https://support.access-ci.org/help-ticket). Before submitting a help desk ticket do check what the user guide and other documentation say. Search the internet for key phrases in your error logs; that's probably what the consultants answering your ticket are going to do. What have you changed since the last time your job succeeded?
+- Help us serve you better by filing informative [help desk tickets](https://support.access-ci.org/help-ticket). Before submitting a help desk ticket do check what the user guide and other documentation say. Search the internet for key phrases in your error logs; that's probably what the consultants answering your ticket are going to do. What have you changed since the last time your job succeeded?
 - **Describe your issue as precisely and completely as you can:** what you did, what happened, verbatim error messages, other meaningful output. When appropriate, include the information a consultant would need to find your artifacts and understand your workflow: e.g. the directory containing your build and/or job script; the modules you were using; relevant job numbers; and recent changes in your workflow that could affect or explain the behavior you're observing.
 - **Have realistic expectations.** Consultants can address system issues and answer questions about Anvil. But they can't teach parallel programming in a ticket and may know nothing about the package you downloaded. They may offer general advice that will help you build, debug, optimize, or modify your code, but you shouldn't expect them to do these things for you.
 - **Be patient.** It may take a couple of business days for a consultant to get back to you, especially if your issue is complex. It might take an exchange or two before you and the consultant are on the same page. If the admins disable your account, it's not punitive. When the file system is in danger of crashing, or a login node hangs, they don't have time to notify you before taking action.

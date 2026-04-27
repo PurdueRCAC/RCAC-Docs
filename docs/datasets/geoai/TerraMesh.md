@@ -7,8 +7,8 @@
 | **Description** | TerraMesh<br><br>Dataset Summary<br>TerraMesh is a planetary-scale, multimodal analysis-ready dataset for Earth Observation foundation models. It merges Sentinel-1 SAR, Sentinel-2 optical, Copernicus DEM, NDVI, and land-cover sources into more than nine million co-registered patches for large-scale representation learning.<br><br>Dataset Structure<br>The dataset includes two top-level splits (train/ and val/), each containing sub-folders for modalities: DEM, LULC, NDVI, S1GRD, S1RTC, S2L1C, S2L2A, and S2RGB. Each folder contains up to 889 shard files, each storing up to 10,240 samples as compressed Zarr archives.<br><br>Data Characteristics<br>Each sample contains seven spatially aligned modalities (optical, radar, topographic, vegetation, and land-cover). Metadata fields include center latitude/longitude, timestamps, CRS, and cloud masks.<br><br>Intended Use<br>TerraMesh enables multimodal pretraining, global geospatial feature extraction, and benchmarking of foundation models for planetary surface understanding.<br><br>Performance & Evaluation<br>Pretraining on TerraMesh led to TerraMind-B achieving 66.6% mIoU across PANGAEA benchmark tasks, outperforming CROMA and SSL4EO-S12 models.<br><br>Acknowledgments<br>Developed under ESA Φ-Lab’s FAST-EO project. Source data include SSL4EO-S12 (CC-BY-4.0), MajorTOM-Core (CC-BY-SA-4.0), and Copernicus DEM (© DLR / Airbus / ESA).  |
 | **Folder** | `/datasets/geoai/ibm-esa-geospatial/TerraMesh` |
 | **Discipline** | GeoAI / Remote Sensing / Earth Science |
-| **DOI** | [10.48550/arXiv.2504.11172 :octicons-link-external-16:](https://doi.org/10.48550/arXiv.2504.11172) |
-| **Link** | [Access Data :octicons-link-external-16:](https://huggingface.co/datasets/ibm-esa-geospatial/TerraMesh) |
+| **DOI** | [10.48550/arXiv.2504.11172](https://doi.org/10.48550/arXiv.2504.11172) |
+| **Link** | [Access Data](https://huggingface.co/datasets/ibm-esa-geospatial/TerraMesh) |
 | **Public** | `True` |
 | **Publication Date** | 2025-09-05 |
 | **Downloaded** | 2025-09-05 |

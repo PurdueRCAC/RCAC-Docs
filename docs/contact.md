@@ -7,4 +7,4 @@
 - Postal Mail: Rosen Center for Advanced Computing, 3314 Convergence, 101 Foundry Dr., West Lafayette, IN 47906
 
 ## Connect with us
-Found a bug, want more features on this website or want to connect with us? Connect with us via our <a href="https://github.com/Guangzhen-Jin/rcac-docs/issues/new/choose" target="_blank" rel="noopener">Github Issue form :octicons-link-external-16:</a>.
+Found a bug, want more features on this website or want to connect with us? Connect with us via our <a href="https://github.com/Guangzhen-Jin/rcac-docs/issues/new/choose" target="_blank" rel="noopener">Github Issue form</a>.

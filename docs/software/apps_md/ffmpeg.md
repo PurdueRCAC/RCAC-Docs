@@ -8,7 +8,7 @@ FFmpeg is a complete, cross-platform solution to record, convert and stream audi
 
 ## Homepage
 
-[https://ffmpeg.org :octicons-link-external-16:](https://ffmpeg.org){:target="_blank"}
+[https://ffmpeg.org](https://ffmpeg.org){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

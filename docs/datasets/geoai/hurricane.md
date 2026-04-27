@@ -8,7 +8,7 @@
 | **Folder** | `/datasets/geoai/ibm-nasa-geospatial/hurricane` |
 | **Discipline** | GeoAI / Atmospheric Science / Climate Science |
 | **DOI** |  |
-| **Link** | [Access Data :octicons-link-external-16:](https://huggingface.co/datasets/ibm-nasa-geospatial/hurricane) |
+| **Link** | [Access Data](https://huggingface.co/datasets/ibm-nasa-geospatial/hurricane) |
 | **Public** | `True` |
 | **Publication Date** | 2024-09-24 |
 | **Downloaded** | 2025-09-10 |

@@ -34,7 +34,7 @@ Visual Studio Code (VS Code or Code) is a popular IDE growing in usage in HPC. I
 
 ## 1. VS Code Installation
 
-- Download the installer for your operating system from the [VS Code website :octicons-link-external-16:](https://code.visualstudio.com).
+- Download the installer for your operating system from the [VS Code website](https://code.visualstudio.com).
 - Run the installer and follow the prompts to complete the installation.
 - Launch VS Code after the installation is complete.
 

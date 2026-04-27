@@ -11,7 +11,7 @@ search:
 
 Knowing the precise resource utilization an application had during a job, such as CPU load or memory, can be incredibly useful. This is especially the case when the application isn't performing as expected.
 
-One approach is to run a program like ```htop``` during an interactive job and keep an eye on system resources. You can get precise time-series data from nodes associated with your job using [XDmod :octicons-link-external-16:](https://xdmod.rcac.purdue.edu/) as well, online. But these methods don't gather telemetry in an automated fashion, nor do they give you control over the resolution or format of the data.
+One approach is to run a program like ```htop``` during an interactive job and keep an eye on system resources. You can get precise time-series data from nodes associated with your job using [XDmod](https://xdmod.rcac.purdue.edu/) as well, online. But these methods don't gather telemetry in an automated fashion, nor do they give you control over the resolution or format of the data.
 
 As a matter of course, a robust implementation of some HPC workload would include resource utilization data as a diagnostic tool in the event of some failure.
 
@@ -21,7 +21,7 @@ The ```monitor``` utility is a simple command line system resource monitoring to
 module load monitor 
 ```
 
-Complete documentation is available online at [resource-monitor.readthedocs.io :octicons-link-external-16:](https://resource-monitor.readthedocs.io/en/latest/). A full manual page is also available for reference, ``man monitor```.
+Complete documentation is available online at [resource-monitor.readthedocs.io](https://resource-monitor.readthedocs.io/en/latest/). A full manual page is also available for reference, ``man monitor```.
 
 In the context of a SLURM job you will need to put this monitoring task in the background to allow the rest of your job script to proceed. Be sure to interrupt these tasks at the end of your job.
 

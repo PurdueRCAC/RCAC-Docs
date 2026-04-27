@@ -8,7 +8,7 @@ The ncurses (new curses) library is a free software emulation of curses in Syste
 
 ## Homepage
 
-[https://invisible-island.net/ncurses/ncurses.html :octicons-link-external-16:](https://invisible-island.net/ncurses/ncurses.html){:target="_blank"}
+[https://invisible-island.net/ncurses/ncurses.html](https://invisible-island.net/ncurses/ncurses.html){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

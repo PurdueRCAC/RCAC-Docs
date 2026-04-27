@@ -8,7 +8,7 @@ GLib provides the core application building blocks for libraries and application
 
 ## Homepage
 
-[https://developer.gnome.org/glib/ :octicons-link-external-16:](https://developer.gnome.org/glib/){:target="_blank"}
+[https://developer.gnome.org/glib/](https://developer.gnome.org/glib/){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

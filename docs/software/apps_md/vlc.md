@@ -8,7 +8,7 @@ VLC media player for multimedia playback.
 
 ## Homepage
 
-[https://www.videolan.org/vlc/ :octicons-link-external-16:](https://www.videolan.org/vlc/){:target="_blank"}
+[https://www.videolan.org/vlc/](https://www.videolan.org/vlc/){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

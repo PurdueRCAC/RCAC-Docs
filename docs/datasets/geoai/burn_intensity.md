@@ -8,7 +8,7 @@
 | **Folder** | `/datasets/geoai/ibm-nasa-geospatial/burn_intensity` |
 | **Discipline** | GeoAI / Remote Sensing / Environmental Science |
 | **DOI** |  |
-| **Link** | [Access Data :octicons-link-external-16:](https://huggingface.co/datasets/ibm-nasa-geospatial/burn_intensity) |
+| **Link** | [Access Data](https://huggingface.co/datasets/ibm-nasa-geospatial/burn_intensity) |
 | **Public** | `True` |
 | **Publication Date** | 2024-11-04 |
 | **Downloaded** | 2025-09-10 |

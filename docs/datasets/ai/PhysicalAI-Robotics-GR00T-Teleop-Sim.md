@@ -7,8 +7,8 @@
 | **Description** | The PhysicalAI-Robotics-GR00T-Teleop-GR1 dataset consists of 1000 teleoperation trajectories in simulation using the GR1 robot with upper body control. The simulation setup mimics tabletop manipulation tasks and uses RGB observations with a virtual camera. The robot is equipped with simulated Fourier hands.<br>This dataset is ready for non-commercial use. |
 | **Folder** | `/datasets/ai/huggingface/nvidia/PhysicalAI-Robotics-GR00T-Teleop-Sim` |
 | **Discipline** | AI / PhysicalAI / Robotics |
-| **DOI** | [10.48550/arXiv.2503.14734 :octicons-link-external-16:](https://doi.org/10.48550/arXiv.2503.14734) |
-| **Link** | [Access Data :octicons-link-external-16:](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-GR00T-Teleop-Sim) |
+| **DOI** | [10.48550/arXiv.2503.14734](https://doi.org/10.48550/arXiv.2503.14734) |
+| **Link** | [Access Data](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-GR00T-Teleop-Sim) |
 | **Public** | `True` |
 | **Publication Date** | 2025-06-01 |
 | **Downloaded** | 2025-11-09 |

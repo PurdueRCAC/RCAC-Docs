@@ -8,7 +8,7 @@ The libXau package contains a library implementing the X11 Authorization Protoco
 
 ## Homepage
 
-[https://gitlab.freedesktop.org/xorg/lib/libXau/ :octicons-link-external-16:](https://gitlab.freedesktop.org/xorg/lib/libXau/){:target="_blank"}
+[https://gitlab.freedesktop.org/xorg/lib/libXau/](https://gitlab.freedesktop.org/xorg/lib/libXau/){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

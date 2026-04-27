@@ -7,8 +7,8 @@
 | **Description** | The Inria Aerial Image Labeling Dataset addresses the automatic pixelwise labeling of aerial imagery, a core topic in remote sensing. It covers 810 km² (405 km² training, 405 km² testing) of orthorectified color imagery at 0.3 m resolution. Ground truth includes two semantic classes: building and not building. The dataset spans diverse urban environments—from dense downtowns like San Francisco to alpine towns like Lienz, Austria—and is designed to evaluate model generalization across regions.<br> Instead of splitting adjacent tiles, training and test subsets cover different cities entirely (e.g., Chicago for training, San Francisco for testing). This encourages algorithms to generalize across illumination, seasonal, and architectural differences. Imagery and building footprints originate from public-domain sources. |
 | **Folder** | `/datasets/geoai/AerialImageDataset` |
 | **Discipline** | Remote Sensing / Computer Vision / GeoAI |
-| **DOI** | [10.1109/IGARSS.2017.8127684 :octicons-link-external-16:](https://doi.org/10.1109/IGARSS.2017.8127684) |
-| **Link** | [Access Data :octicons-link-external-16:](https://project.inria.fr/aerialimagelabeling/) |
+| **DOI** | [10.1109/IGARSS.2017.8127684](https://doi.org/10.1109/IGARSS.2017.8127684) |
+| **Link** | [Access Data](https://project.inria.fr/aerialimagelabeling/) |
 | **Public** | `True` |
 | **Publication Date** | 2017 |
 | **Downloaded** | 2025-09-25 |

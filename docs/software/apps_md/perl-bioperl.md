@@ -8,7 +8,7 @@ BioPerl is a collection of Perl modules that facilitate the development of Perl 
 
 ## Homepage
 
-[https://bioperl.org/ :octicons-link-external-16:](https://bioperl.org/){:target="_blank"}
+[https://bioperl.org/](https://bioperl.org/){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

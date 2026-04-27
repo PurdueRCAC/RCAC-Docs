@@ -7,8 +7,8 @@
 | **Description** | Detailed forest management data at a 100m resolution. |
 | **Folder** | `/datasets/Covariates/ForestManagement` |
 | **Discipline** | Covariates / Forestry / Environmental Science |
-| **DOI** | [10.1038/s41597-022-01332-3 :octicons-link-external-16:](https://doi.org/10.1038/s41597-022-01332-3) |
-| **Link** | [Access Data :octicons-link-external-16:](https://zenodo.org/record/5879022#.ZDmgPbrMKUk) |
+| **DOI** | [10.1038/s41597-022-01332-3](https://doi.org/10.1038/s41597-022-01332-3) |
+| **Link** | [Access Data](https://zenodo.org/record/5879022#.ZDmgPbrMKUk) |
 | **Public** | `true` |
 | **Publication Date** | 2021-02-15 |
 | **Downloaded** | 2024-11-25 |

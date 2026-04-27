@@ -8,7 +8,7 @@ libXp - X Print Client Library.
 
 ## Homepage
 
-[https://gitlab.freedesktop.org/xorg/lib/libXp :octicons-link-external-16:](https://gitlab.freedesktop.org/xorg/lib/libXp){:target="_blank"}
+[https://gitlab.freedesktop.org/xorg/lib/libXp](https://gitlab.freedesktop.org/xorg/lib/libXp){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

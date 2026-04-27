@@ -7,8 +7,8 @@
 | **Description** | A global map of roadless areas for conservation purposes. |
 | **Folder** | `/datasets/Covariates/Roadless` |
 | **Discipline** | Covariates/ Environmental Science / Conservation |
-| **DOI** | [N/A :octicons-link-external-16:](https://doi.org/N/A) |
-| **Link** | [Access Data :octicons-link-external-16:](http://www.roadless.online/data/) |
+| **DOI** | [N/A](https://doi.org/N/A) |
+| **Link** | [Access Data](http://www.roadless.online/data/) |
 | **Public** | `true` |
 | **Publication Date** | 2016-01-01 |
 | **Downloaded** | 2024-11-25 |

@@ -21,11 +21,11 @@ module load rstudio
 rstudio
 ```
 
-Note that RStudio is a graphical program and in order to run it you must have a local X11 server running or use [Thinlinc PLACEHOLDER :octicons-link-external-16:](https://rcac.purdue.edu/knowledge/gautschi/accounts/login/thinlinc) Remote Desktop environment. See the [ssh X11 forwarding section PLACEHOLDER :octicons-link-external-16:](https://rcac.purdue.edu/knowledge/gautschi/accounts/login/x11) for more details.
+Note that RStudio is a graphical program and in order to run it you must have a local X11 server running or use [Thinlinc PLACEHOLDER](https://rcac.purdue.edu/knowledge/gautschi/accounts/login/thinlinc) Remote Desktop environment. See the [ssh X11 forwarding section PLACEHOLDER](https://rcac.purdue.edu/knowledge/gautschi/accounts/login/x11) for more details.
 
 ## Launch Rstudio via the application menu icon:
 
-- Log into desktop.gautschi.rcac.purdue.edu with web browser or [ThinLinc PLACEHOLDER :octicons-link-external-16:](https://rcac.purdue.edu/knowledge/gautschi/accounts/login/thinlinc) client
+- Log into desktop.gautschi.rcac.purdue.edu with web browser or [ThinLinc PLACEHOLDER](https://rcac.purdue.edu/knowledge/gautschi/accounts/login/thinlinc) client
 - Click on the ```Applications``` drop down menu on the top left corner
 - Choose ```Cluster Software``` and then ```RStudio```
 
@@ -33,8 +33,8 @@ Note that RStudio is a graphical program and in order to run it you must have a 
 
 R and RStudio are free to download and run on your local machine. For more information about RStudio:
 
-- [RStudio Official Website :octicons-link-external-16:](https://www.rstudio.com/)
-- [RStudio Essentials: Tutorial :octicons-link-external-16:](https://www.rstudio.com/resources/webinars/#rstudioessentials)
-- [DataCamp: Working with the RStudio IDE :octicons-link-external-16:](https://www.datacamp.com/courses/working-with-the-rstudio-ide-part-1)
+- [RStudio Official Website](https://www.rstudio.com/)
+- [RStudio Essentials: Tutorial](https://www.rstudio.com/resources/webinars/#rstudioessentials)
+- [DataCamp: Working with the RStudio IDE](https://www.datacamp.com/courses/working-with-the-rstudio-ide-part-1)
 
 [**Back to the R Examples section**](../r_example.md)

@@ -8,7 +8,7 @@
 | **Folder** | `/datasets/geoai/ibm-nasa-geospatial/hls_merra2_gppFlux` |
 | **Discipline** | GeoAI / Remote Sensing / Climate Science |
 | **DOI** |  |
-| **Link** | [Access Data :octicons-link-external-16:](https://huggingface.co/datasets/ibm-nasa-geospatial/hls_merra2_gppFlux) |
+| **Link** | [Access Data](https://huggingface.co/datasets/ibm-nasa-geospatial/hls_merra2_gppFlux) |
 | **Public** | `True` |
 | **Publication Date** | 2024-10-25 |
 | **Downloaded** | 2025-09-10 |

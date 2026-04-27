@@ -7,8 +7,8 @@
 | **Description** | Historical climate data for global land areas. |
 | **Folder** | `/datasets/Covariates/WorldClim_Historical_bio` |
 | **Discipline** | Covariates / Climate Science / Geography |
-| **DOI** | [10.1002/joc.5086 :octicons-link-external-16:](https://doi.org/10.1002/joc.5086) |
-| **Link** | [Access Data :octicons-link-external-16:](https://www.worldclim.org/data/worldclim21.html) |
+| **DOI** | [10.1002/joc.5086](https://doi.org/10.1002/joc.5086) |
+| **Link** | [Access Data](https://www.worldclim.org/data/worldclim21.html) |
 | **Public** | `true` |
 | **Publication Date** | 2017-05-17 |
 | **Downloaded** | 2024-11-25 |

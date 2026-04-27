@@ -8,7 +8,7 @@ FastTree infers approximately-maximum-likelihood phylogenetic trees from alignme
 
 ## Homepage
 
-[http://www.microbesonline.org/fasttree :octicons-link-external-16:](http://www.microbesonline.org/fasttree){:target="_blank"}
+[http://www.microbesonline.org/fasttree](http://www.microbesonline.org/fasttree){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

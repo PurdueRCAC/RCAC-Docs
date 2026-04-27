@@ -11,22 +11,22 @@ draft: true
 
 !!! info "Anvil Resources"
 
-    **[ACCESS How To :octicons-link-external-16:](https://allocations.access-ci.org/how-to)**
+    **[ACCESS How To](https://allocations.access-ci.org/how-to)**
     List of how-to questions regarding your ACCESS account.
 
-    **[ACCESS Support Hub :octicons-link-external-16:](https://support.access-ci.org/)**
+    **[ACCESS Support Hub](https://support.access-ci.org/)**
     ACCESS-specific support if you do not see your question/issue here.
 
-    **[ACCESS Ticket Portal :octicons-link-external-16:](https://support.access-ci.org/help-ticket)**
+    **[ACCESS Ticket Portal](https://support.access-ci.org/help-ticket)**
     Submit a help ticket if you cannot find an answer to your question.
 
-    **[Anvil Support Hour :octicons-link-external-16:](https://purdue.ca1.qualtrics.com/jfe/form/SV_0c7EMtiyOWjuG0K)**
+    **[Anvil Support Hour](https://purdue.ca1.qualtrics.com/jfe/form/SV_0c7EMtiyOWjuG0K)**
     Meet with our support staff for a 20-minute help session.
 
-    **[NAIRR Ticket Portal :octicons-link-external-16:](https://nairrpilot.org/open-support-request)**
+    **[NAIRR Ticket Portal](https://nairrpilot.org/open-support-request)**
     For NAIRR users to submit support tickets.
 
-    **[Anvil Publication :octicons-link-external-16:](https://dl.acm.org/doi/10.1145/3491418.3530766)** Original Anvil publication from 2022 by Song et. al.
+    **[Anvil Publication](https://dl.acm.org/doi/10.1145/3491418.3530766)** Original Anvil publication from 2022 by Song et. al.
 
 <hr style="border: 3px solid">
 
@@ -35,13 +35,13 @@ draft: true
 ## **Common Issues**
 
 !!! tip "Tip"
-    If you are having trouble accessing the system, make sure to check if maintenance is happening ([Anvil News :octicons-link-external-16:](https://www.rcac.purdue.edu/news))
+    If you are having trouble accessing the system, make sure to check if maintenance is happening ([Anvil News](https://www.rcac.purdue.edu/news))
 
 ### File or data quota limit reached
 
 Try compressing your files (zipping, tarring, etc). You should also go through your data to determine what can be deleted or transferred to your own external device.
 
-If necessary, we can provide file count or total storage quota increases with justification. If you need this, please create a ticket with [Anvil Support :octicons-link-external-16:](https://support.access-ci.org/help-ticket)
+If necessary, we can provide file count or total storage quota increases with justification. If you need this, please create a ticket with [Anvil Support](https://support.access-ci.org/help-ticket)
 
 ### I cannot see my PROJECT directory
 
@@ -78,7 +78,7 @@ You can search all modules using `$ module spider`. Some modules require you to 
 
 To acknowledge the use of Anvil for papers, presentations, or other publications, please use the following citation:
 
-* X. Carol Song, Preston Smith, Rajesh Kalyanam, Xiao Zhu, Eric Adams, Kevin Colby, Patrick Finnegan, Erik Gough, Elizabett Hillery, Rick Irvine, Amiya Maji, and Jason St. John. 2022. Anvil - System Architecture and Experiences from Deployment and Early User Operations. In Practice and Experience in Advanced Research Computing (PEARC '22). Association for Computing Machinery, New York, NY, USA, Article 23, 1–9. [https://doi.org/10.1145/3491418.3530766](https://doi.org/10.1145/3491418.3530766 :octicons-link-external-16:)
+* X. Carol Song, Preston Smith, Rajesh Kalyanam, Xiao Zhu, Eric Adams, Kevin Colby, Patrick Finnegan, Erik Gough, Elizabett Hillery, Rick Irvine, Amiya Maji, and Jason St. John. 2022. Anvil - System Architecture and Experiences from Deployment and Early User Operations. In Practice and Experience in Advanced Research Computing (PEARC '22). Association for Computing Machinery, New York, NY, USA, Article 23, 1–9. [https://doi.org/10.1145/3491418.3530766](https://doi.org/10.1145/3491418.3530766)
 
 <hr style="border: 3px solid">
 

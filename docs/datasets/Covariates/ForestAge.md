@@ -7,8 +7,8 @@
 | **Description** | Mapped global forest age from inventories, biomass, and climate data. |
 | **Folder** | `/datasets/Covariates/ForestAge` |
 | **Discipline** | Covariates / Forestry / Environmental Science |
-| **DOI** | [10.5194/essd-13-4881-2021 :octicons-link-external-16:](https://doi.org/10.5194/essd-13-4881-2021) |
-| **Link** | [Access Data :octicons-link-external-16:](https://doi.org/10.17871/ForestAgeBGI.2021) |
+| **DOI** | [10.5194/essd-13-4881-2021](https://doi.org/10.5194/essd-13-4881-2021) |
+| **Link** | [Access Data](https://doi.org/10.17871/ForestAgeBGI.2021) |
 | **Public** | `true` |
 | **Publication Date** | 2021-03-02 |
 | **Downloaded** | 2024-11-25 |

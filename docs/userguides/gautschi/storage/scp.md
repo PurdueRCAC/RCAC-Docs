@@ -65,7 +65,7 @@ The ```-p``` flag is optional. When used, it will cause the transfer to preserve
 
 ### Microsoft Windows:
 
-[MobaXterm :octicons-link-external-16:](https://mobaxterm.mobatek.net/download.html)
+[MobaXterm](https://mobaxterm.mobatek.net/download.html)
 Free, full-featured, graphical Windows SSH, SCP, and SFTP client.
 
 Command-line ```scp``` program can be installed as part of Windows Subsystem for Linux (WSL), or Git-Bash.
@@ -74,6 +74,6 @@ Command-line ```scp``` program can be installed as part of Windows Subsystem for
 
 The ```scp``` command-line program should already be installed. You may start a local terminal window from "Applications->Utilities".
 
-[Cyberduck :octicons-link-external-16:](https://cyberduck.io/) is a full-featured and free graphical SFTP and SCP client.
+[Cyberduck](https://cyberduck.io/) is a full-featured and free graphical SFTP and SCP client.
 
 [**Back to the Storage section**](../storage.md)

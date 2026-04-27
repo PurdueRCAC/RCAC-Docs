@@ -12,7 +12,7 @@ There are several options for archiving and compressing groups of files or direc
 
 ## tar
 
-See the [official documentation :octicons-link-external-16:](http://www.gnu.org/software/tar/tar.html) for tar for more information.
+See the [official documentation](http://www.gnu.org/software/tar/tar.html) for tar for more information.
 
 Saves many files together into a single archive file, and restores individual files from the archive. Includes automatic archive compression/decompression options and special features for incremental and full backups.
 
@@ -45,7 +45,7 @@ Other arguments for ```tar``` can be explored by using the ```man tar``` command
 
 ## gzip
 
-See [documention :octicons-link-external-16:](http://www.gnu.org/software/gzip/gzip.html) for more info.
+See [documention](http://www.gnu.org/software/gzip/gzip.html) for more info.
 
 The standard compression system for all GNU software.
 
@@ -61,7 +61,7 @@ $ gunzip somefile.gz
 
 ## bzip2
 
-See the [official documentation :octicons-link-external-16:](http://www.bzip.org/) for bzip for more information.
+See the [official documentation](http://www.bzip.org/) for bzip for more information.
 
 Strong, lossless data compressor based on the Burrows-Wheeler transform. Stronger compression than gzip.
 

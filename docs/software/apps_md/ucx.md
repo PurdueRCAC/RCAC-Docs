@@ -8,7 +8,7 @@ a communication library implementing high-performance messaging for MPI/PGAS fra
 
 ## Homepage
 
-[https://www.openucx.org :octicons-link-external-16:](https://www.openucx.org){:target="_blank"}
+[https://www.openucx.org](https://www.openucx.org){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

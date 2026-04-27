@@ -8,7 +8,7 @@ Tecplot 360 is a Computational Fluid Dynamics (CFD) and numerical simulation sof
 
 ## Homepage
 
-[https://www.tecplot.com/ :octicons-link-external-16:](https://www.tecplot.com/){:target="_blank"}
+[https://www.tecplot.com/](https://www.tecplot.com/){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

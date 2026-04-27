@@ -39,9 +39,9 @@ R --vanilla --no-save < myjob.R
 
 For other examples or R jobs:
 
-- [The R Manuals :octicons-link-external-16:](http://cran.r-project.org/manuals.html)
-- [Other R Examples :octicons-link-external-16:](http://www.mayin.org/ajayshah/KB/R/index.html)
-- [Software Carpentry - Programming with R :octicons-link-external-16:](https://swcarpentry.github.io/r-novice-inflammation/)
-- [Data Carpentry Lessons :octicons-link-external-16:](http://www.datacarpentry.org/lessons/)
+- [The R Manuals](http://cran.r-project.org/manuals.html)
+- [Other R Examples](http://www.mayin.org/ajayshah/KB/R/index.html)
+- [Software Carpentry - Programming with R](https://swcarpentry.github.io/r-novice-inflammation/)
+- [Data Carpentry Lessons](http://www.datacarpentry.org/lessons/)
 
 [**Back to the R Examples section**](../r_example.md)

@@ -10,7 +10,7 @@ draft: true
 ## Anvil Notebook Classroom Resource
 
 ### What is the Anvil Notebook Service?
-The **Anvil Notebook Service** is a JupyterHub instance tightly integrated with the Anvil ACCESS resource, providing a web-based environment for interactive computing, data analytics, and machine learning using Python, R, Julia, and widely used frameworks such as TensorFlow and PyTorch. Beyond its research value, the service has proven to be especially impactful in education: it supports classroom-scale interactive computing and has been used by more than **1,000 students** in Purdue’s **Data Mine** program. This broad adoption highlights the platform’s scalability, reliability, and maturity as one of the most tested and classroom-ready HPC-based web applications available to educators. For an example of how the service is used in practice, see [Data Mine Class and Projects :octicons-link-external-16:](https://the-examples-book.com/projects/).
+The **Anvil Notebook Service** is a JupyterHub instance tightly integrated with the Anvil ACCESS resource, providing a web-based environment for interactive computing, data analytics, and machine learning using Python, R, Julia, and widely used frameworks such as TensorFlow and PyTorch. Beyond its research value, the service has proven to be especially impactful in education: it supports classroom-scale interactive computing and has been used by more than **1,000 students** in Purdue’s **Data Mine** program. This broad adoption highlights the platform’s scalability, reliability, and maturity as one of the most tested and classroom-ready HPC-based web applications available to educators. For an example of how the service is used in practice, see [Data Mine Class and Projects](https://the-examples-book.com/projects/).
 
 ### Key Features
 
@@ -25,7 +25,7 @@ Any ACCESS researcher with an allocation on the Anvil resource can use the Anvil
 
 ### How do I access the service?
 
-* Go to the [Anvil Notebook login page :octicons-link-external-16:](https://notebook.anvilcloud.rcac.purdue.edu/hub/login?next=%2Fhub%2F).
+* Go to the [Anvil Notebook login page](https://notebook.anvilcloud.rcac.purdue.edu/hub/login?next=%2Fhub%2F).
 * Log in with your ACCESS credentials.
 * Choose the Anvil Notebook Server, select your allocation, and click **Start**.
 * Wait for the server to start and for the notebook session to become active.
@@ -40,7 +40,7 @@ Any ACCESS researcher with an allocation on the Anvil resource can use the Anvil
 
 ### Questions?
 
-Please file an [ACCESS help ticket :octicons-link-external-16:](https://support.access-ci.org/help-ticket)
+Please file an [ACCESS help ticket](https://support.access-ci.org/help-ticket)
 
 
 ## AnvilGPT integration

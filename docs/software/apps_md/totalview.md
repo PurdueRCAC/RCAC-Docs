@@ -8,7 +8,7 @@ Totalview parallel debugger.  Select the version associated with your machine ar
 
 ## Homepage
 
-[https://totalview.io :octicons-link-external-16:](https://totalview.io){:target="_blank"}
+[https://totalview.io](https://totalview.io){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

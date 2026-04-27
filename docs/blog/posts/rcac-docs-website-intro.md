@@ -48,10 +48,10 @@ Every RCAC cluster has its own dedicated guide organized into consistent chapter
 |---|---|
 | [Anvil](../../userguides/anvil/) | 128 cores/node, A100 (40GB) and H100 (80GB) GPUs |
 | [Gautschi](../../userguides/gautschi) | 192 cores/node, L40S (48GB) and H100 (80GB) GPUs |
-| [Bell (Under Migration) :octicons-link-external-16:](https://www.rcac.purdue.edu/knowledge/bell)  | 128 cores/node, AMD MI50 (32GB) GPUs |
-| [Negishi (Under Migration) :octicons-link-external-16:](https://www.rcac.purdue.edu/knowledge/negishi) | 128 cores/node, AMD MI210 (64GB) GPUs |
-| [Gilbreth (Under Migration) :octicons-link-external-16:](https://www.rcac.purdue.edu/knowledge/gilbreth) | Various Nvida GPUs |
-| [Scholar (Under Migration) :octicons-link-external-16:](https://www.rcac.purdue.edu/knowledge/scholar) | 168 cores/node, Various Nvida GPUs |
+| [Bell (Under Migration)](https://www.rcac.purdue.edu/knowledge/bell)  | 128 cores/node, AMD MI50 (32GB) GPUs |
+| [Negishi (Under Migration)](https://www.rcac.purdue.edu/knowledge/negishi) | 128 cores/node, AMD MI210 (64GB) GPUs |
+| [Gilbreth (Under Migration)](https://www.rcac.purdue.edu/knowledge/gilbreth) | Various Nvida GPUs |
+| [Scholar (Under Migration)](https://www.rcac.purdue.edu/knowledge/scholar) | 168 cores/node, Various Nvida GPUs |
 
 ![Gautschi user guide](../blog_assets/docs-userguide.png)
 
@@ -83,7 +83,7 @@ Every table has a **live filter bar** — start typing a package name, cluster, 
 
 ## 5. A Modern Reading Experience
 
-The site is built on the [Material for MkDocs :octicons-link-external-16:](https://squidfunk.github.io/mkdocs-material/) theme with several quality-of-life improvements. For example:
+The site is built on the [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) theme with several quality-of-life improvements. For example:
 
 - **Dark mode / Light mode toggle** — one click in the top navigation bar switches themes. On your first visit, the site automatically matches your operating system's preference.
 
@@ -124,7 +124,7 @@ To join the conversation:
 ![Blog comment](../blog_assets/docs-comment.png)
 
 !!! note
-    A GitHub account is required to post. [Signing up :octicons-link-external-16:](https://github.com/signup) is free and takes under a minute.
+    A GitHub account is required to post. [Signing up](https://github.com/signup) is free and takes under a minute.
 
 ---
 
@@ -132,9 +132,9 @@ To join the conversation:
 
 **Support channels** are accessible from every page via the navigation footer:
 
-- **Email:** [rcac-help@purdue.edu :octicons-link-external-16:](mailto:rcac-help@purdue.edu)
+- **Email:** [rcac-help@purdue.edu](mailto:rcac-help@purdue.edu)
 - **Discord:** community server for peer and staff support
-- **GitHub Repo:** [PurdueRCAC/RCAC-Docs :octicons-link-external-16:](https://github.com/PurdueRCAC/RCAC-Docs) — open an issue or browse existing ones
+- **GitHub Repo:** [PurdueRCAC/RCAC-Docs](https://github.com/PurdueRCAC/RCAC-Docs) — open an issue or browse existing ones
 
 **Per-page feedback widget** — at the bottom of every documentation page you will find a **👍 / 👎 rating**.
 

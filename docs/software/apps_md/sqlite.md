@@ -8,7 +8,7 @@ SQLite is a C-language library that implements a small, fast, self-contained, hi
 
 ## Homepage
 
-[https://www.sqlite.org :octicons-link-external-16:](https://www.sqlite.org){:target="_blank"}
+[https://www.sqlite.org](https://www.sqlite.org){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

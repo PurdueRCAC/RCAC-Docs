@@ -7,8 +7,8 @@
 | **Description** | MERIT Hydro is a high-resolution global hydrography dataset developed to enhance the accuracy of river networks and watershed boundaries. By correcting errors in existing digital elevation models, it provides detailed information on river flow directions, streamlines, and catchment areas. The dataset is utilized in hydrological modeling and water resource management. |
 | **Folder** | `/datasets/geospatial/MERIT_Hydro` |
 | **Discipline** | Geospatial / Hydrology / Earth Sciences |
-| **DOI** | [10.1029/2019WR024873 :octicons-link-external-16:](https://doi.org/10.1029/2019WR024873) |
-| **Link** | [Access Data :octicons-link-external-16:](https://app.globus.org/file-manager?origin_id=ed0c7900-6369-4340-9354-12be791ee8e4&origin_path=%2F) |
+| **DOI** | [10.1029/2019WR024873](https://doi.org/10.1029/2019WR024873) |
+| **Link** | [Access Data](https://app.globus.org/file-manager?origin_id=ed0c7900-6369-4340-9354-12be791ee8e4&origin_path=%2F) |
 | **Public** | `true` |
 | **Publication Date** | 2019-05-28 |
 | **Downloaded** | 2024-12-05 |

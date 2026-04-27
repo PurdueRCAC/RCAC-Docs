@@ -8,7 +8,7 @@ A parallel implementation of gzip for modern multi-processor, multi-core machine
 
 ## Homepage
 
-[https://zlib.net/pigz/ :octicons-link-external-16:](https://zlib.net/pigz/){:target="_blank"}
+[https://zlib.net/pigz/](https://zlib.net/pigz/){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

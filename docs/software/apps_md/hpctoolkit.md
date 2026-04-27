@@ -8,7 +8,7 @@ HPCToolkit is an integrated suite of tools for measurement and analysis of progr
 
 ## Homepage
 
-[https://hpctoolkit.org :octicons-link-external-16:](https://hpctoolkit.org){:target="_blank"}
+[https://hpctoolkit.org](https://hpctoolkit.org){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

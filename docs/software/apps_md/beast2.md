@@ -8,7 +8,7 @@ BEAST is a cross-platform program for Bayesian inference using MCMC of molecular
 
 ## Homepage
 
-[http://beast2.org/ :octicons-link-external-16:](http://beast2.org/){:target="_blank"}
+[http://beast2.org/](http://beast2.org/){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

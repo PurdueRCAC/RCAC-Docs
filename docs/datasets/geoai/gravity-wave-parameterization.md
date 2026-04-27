@@ -8,7 +8,7 @@
 | **Folder** | `/datasets/geoai/ibm-nasa-geospatial/gravity-wave-parameterization` |
 | **Discipline** | GeoAI / Armospheric Science / Climate Science |
 | **DOI** |  |
-| **Link** | [Access Data :octicons-link-external-16:](https://huggingface.co/datasets/ibm-nasa-geospatial/gravity-wave-parameterization) |
+| **Link** | [Access Data](https://huggingface.co/datasets/ibm-nasa-geospatial/gravity-wave-parameterization) |
 | **Public** | `True` |
 | **Publication Date** | 2024-10-30 |
 | **Downloaded** | 2025-09-10 |

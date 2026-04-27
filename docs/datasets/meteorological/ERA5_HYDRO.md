@@ -7,8 +7,8 @@
 | **Description** | This subset of ERA5 focuses on variables pertinent to hydrological modeling. Providing hourly data from January 1950 to December 2020 at a 30 km global resolution, it is tailored for studies involving water resources and hydrological processes. |
 | **Folder** | `/datasets/meteorological/ERA5_small` |
 | **Discipline** | Meteorology / Climate Sciences / Hydrology |
-| **DOI** | [10.24381/cds.adbb2d47 :octicons-link-external-16:](https://doi.org/10.24381/cds.adbb2d47) |
-| **Link** | [Access Data :octicons-link-external-16:](https://app.globus.org/file-manager?origin_id=6d8a51dd-711a-4862-ab6e-340b1589c4c6&origin_path=%2F) |
+| **DOI** | [10.24381/cds.adbb2d47](https://doi.org/10.24381/cds.adbb2d47) |
+| **Link** | [Access Data](https://app.globus.org/file-manager?origin_id=6d8a51dd-711a-4862-ab6e-340b1589c4c6&origin_path=%2F) |
 | **Public** | `true` |
 | **Publication Date** | 2018-06-14 |
 | **Downloaded** | 2024-10-20 |

@@ -8,7 +8,7 @@ libXdmcp - X Display Manager Control Protocol library.
 
 ## Homepage
 
-[https://gitlab.freedesktop.org/xorg/lib/libXdmcp :octicons-link-external-16:](https://gitlab.freedesktop.org/xorg/lib/libXdmcp){:target="_blank"}
+[https://gitlab.freedesktop.org/xorg/lib/libXdmcp](https://gitlab.freedesktop.org/xorg/lib/libXdmcp){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

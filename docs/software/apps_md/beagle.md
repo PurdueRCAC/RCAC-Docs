@@ -8,7 +8,7 @@ Beagle is a software package for phasing genotypes and for imputing ungenotyped 
 
 ## Homepage
 
-[https://faculty.washington.edu/browning/beagle/beagle.html :octicons-link-external-16:](https://faculty.washington.edu/browning/beagle/beagle.html){:target="_blank"}
+[https://faculty.washington.edu/browning/beagle/beagle.html](https://faculty.washington.edu/browning/beagle/beagle.html){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

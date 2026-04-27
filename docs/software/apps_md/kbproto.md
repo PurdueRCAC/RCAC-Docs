@@ -8,7 +8,7 @@ X Keyboard Extension.  This extension defines a protcol to provide a number of n
 
 ## Homepage
 
-[https://cgit.freedesktop.org/xorg/proto/kbproto :octicons-link-external-16:](https://cgit.freedesktop.org/xorg/proto/kbproto){:target="_blank"}
+[https://cgit.freedesktop.org/xorg/proto/kbproto](https://cgit.freedesktop.org/xorg/proto/kbproto){:target="_blank"}
 
 ## Available Versions on RCAC Clusters
 

@@ -71,7 +71,7 @@ systems. You may use Globus to connect to your home, scratch, and project storag
 web-based, it works on any operating system that is connected to the internet. The Globus Personal client is available on
 Windows, Linux, and Mac OS X. It is primarily used as a graphical means of transfer but it can also be used over the command
 line. More details can be found at 
-[ACCESS Using Globus :octicons-link-external-16:](https://access-ci.atlassian.net/wiki/spaces/ACCESSdocumentation/pages/552861697/Using+Globus).
+[ACCESS Using Globus](https://access-ci.atlassian.net/wiki/spaces/ACCESSdocumentation/pages/552861697/Using+Globus).
 
 ## Lost File Recovery
 

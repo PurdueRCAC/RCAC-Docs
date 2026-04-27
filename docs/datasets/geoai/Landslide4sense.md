@@ -8,7 +8,7 @@
 | **Folder** | `/datasets/geoai/ibm-nasa-geospatial/Landslide4sense` |
 | **Discipline** | GeoAI / Remote Sensing / Environmental Science |
 | **DOI** |  |
-| **Link** | [Access Data :octicons-link-external-16:](https://huggingface.co/datasets/ibm-nasa-geospatial/Landslide4sense) |
+| **Link** | [Access Data](https://huggingface.co/datasets/ibm-nasa-geospatial/Landslide4sense) |
 | **Public** | `True` |
 | **Publication Date** | 2025-02-11 |
 | **Downloaded** | 2025-09-10 |
