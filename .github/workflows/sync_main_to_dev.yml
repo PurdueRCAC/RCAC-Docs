@@ -42,8 +42,8 @@ jobs:
           git checkout origin/main -- mkdocs.yml
           grep -q 'a11y.js' mkdocs.yml || sed -i '/external-links.js/a\  - assets\/js\/a11y.js' mkdocs.yml
           git add mkdocs.yml
-          # Restore dev's framework files — never overwrite with main's
-          git checkout ORIG_HEAD -- docs/stylesheets/ overrides/partials/toc.html
+          # Restore dev-only framework files — keep toc.html but let extra.css sync from main
+          git checkout ORIG_HEAD -- overrides/partials/toc.html
           git diff --cached --quiet || git commit -m "Restore dev framework files after main sync"
 
       - name: Push dev
