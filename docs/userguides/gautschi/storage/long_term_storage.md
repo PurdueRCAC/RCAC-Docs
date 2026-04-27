@@ -12,7 +12,7 @@ Long-term Storage or Permanent Storage is available to users on the High Perform
 
 For more information about Fortress, how it works, and user guides, and how to obtain an account:
 
-- [Fortress Information PLACEHOLDER]()
-- [Fortress User Guide PLACEHOLDER]()
+- [Fortress Information](https://www.rcac.purdue.edu/knowledge/fortress/overview)
+- [Fortress User Guide](https://www.rcac.purdue.edu/knowledge/fortress)
 
 [**Back to the Storage section**](../storage.md)

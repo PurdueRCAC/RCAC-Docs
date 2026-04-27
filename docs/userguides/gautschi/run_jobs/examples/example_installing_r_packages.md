@@ -8,19 +8,18 @@ search:
   boost: 2
 ---
 
-!!!warning
-    There are links on this page that 404 and will need fixed before this page goes live
+# Installing R Packages
 
 ## Challenges of Managing R Packages in the Cluster Environment
 
 - Different clusters have different hardware and softwares. So, if you have access to multiple clusters, you must install your R packages separately for each cluster.
 - Each cluster has multiple versions of R and packages installed with one version of R may not work with another version of R. So, libraries for each R version must be installed in a separate directory.
 - You can define the directory where your R packages will be installed using the environment variable ```R_LIBS_USER```.
-- For your convenience, a sample [~/.Rprofile example file](https://rcac.purdue.edu/files/knowledge/run/examples/apps/r/Rprofile_example) is provided that can be downloaded to your cluster account and renamed into ```~/.Rprofile``` (or appended to one) to customize your installation preferences. [Detailed instructions here PLACEHOLDER]().
+- For your convenience, a sample [~/.Rprofile example file](https://rcac.purdue.edu/files/knowledge/run/examples/apps/r/Rprofile_example) is provided that can be downloaded to your cluster account and renamed into ```~/.Rprofile``` (or appended to one) to customize your installation preferences. [Detailed instructions here](example_r_profile_setup.md).
 
 ## Installing Packages
 - ### Step 0: Setup Installation Preferences
-Follow the [steps for setting up your](https://rcac.purdue.edu/knowledge/gautschi/run/examples/apps/r/rprofile) ```~/.Rprofile``` preferences. This step needs to be done only once. If you have created a ```~/.Rprofile``` file previously on Gautschi, ignore this step.
+Follow the [steps for setting up your](example_r_profile_setup.md) ```~/.Rprofile``` preferences. This step needs to be done only once. If you have created a ```~/.Rprofile``` file previously on Gautschi, ignore this step.
 
 - ### Step 1: Check if the package is already installed
 As part of the R installations on community clusters, a lot of R libraries are pre-installed. You can check if your package is already installed by opening an R terminal and entering the command ```installed.packages()```. For example,
