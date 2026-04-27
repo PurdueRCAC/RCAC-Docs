@@ -22,7 +22,7 @@ jq -r 'keys[]' "$INV_FILE" | while IFS= read -r app; do
   {
     echo "# $app"
     echo ""
-    echo "[Back to application catalog](/software/app_catalog/)"
+    echo "[Back to application catalog](../app_catalog.md)"
     echo ""
     echo "## Description"
     echo ""

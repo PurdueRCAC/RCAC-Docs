@@ -33,7 +33,7 @@ We are excited to announce the launch of the redesigned **RCAC Documentation Web
 
 The search bar in the header searches **every page at once** — user guides, software catalog, datasets, workshops, and blog posts — as you type. Suggestions appear in real time and matching terms are highlighted directly in the results.
 
-![Search with live suggestions and highlighting](/blog/blog_assets/docs-search.png)
+![Search with live suggestions and highlighting](../blog_assets/docs-search.png)
 
 !!! note
     Search indexes the full text of every page, including code blocks. Searching for a command like `sbatch`, a package name like `cuda`, or a concept like "interactive job" will surface the exact section that covers it — no browsing required.
@@ -46,14 +46,14 @@ Every RCAC cluster has its own dedicated guide organized into consistent chapter
 
 | Cluster User Guide | Notable Hardware |
 |---|---|
-| [Anvil](/userguides/anvil/) | 128 cores/node, A100 (40GB) and H100 (80GB) GPUs |
-| [Gautschi](/userguides/gautschi) | 192 cores/node, L40S (48GB) and H100 (80GB) GPUs |
+| [Anvil](../../userguides/anvil/) | 128 cores/node, A100 (40GB) and H100 (80GB) GPUs |
+| [Gautschi](../../userguides/gautschi) | 192 cores/node, L40S (48GB) and H100 (80GB) GPUs |
 | [Bell (Under Migration) :octicons-link-external-16:](https://www.rcac.purdue.edu/knowledge/bell)  | 128 cores/node, AMD MI50 (32GB) GPUs |
 | [Negishi (Under Migration) :octicons-link-external-16:](https://www.rcac.purdue.edu/knowledge/negishi) | 128 cores/node, AMD MI210 (64GB) GPUs |
 | [Gilbreth (Under Migration) :octicons-link-external-16:](https://www.rcac.purdue.edu/knowledge/gilbreth) | Various Nvida GPUs |
 | [Scholar (Under Migration) :octicons-link-external-16:](https://www.rcac.purdue.edu/knowledge/scholar) | 168 cores/node, Various Nvida GPUs |
 
-![Gautschi user guide](/blog/blog_assets/docs-userguide.png)
+![Gautschi user guide](../blog_assets/docs-userguide.png)
 
 !!! tip "Breadcrumb navigation"
     Every page shows a breadcrumb trail near the top — you always know where you are in the guide and can jump back up in one click.
@@ -88,10 +88,10 @@ The site is built on the [Material for MkDocs :octicons-link-external-16:](https
 - **Dark mode / Light mode toggle** — one click in the top navigation bar switches themes. On your first visit, the site automatically matches your operating system's preference.
 
 - **Quick access hero banner** - provide easy access to most frequently used function on the website.
-![RCAC Documentation hero banner](/blog/blog_assets/docs-hero.png)
+![RCAC Documentation hero banner](../blog_assets/docs-hero.png)
 
 - **Copy button on every code block** — hover over any code snippet and a copy icon appears in the top-right corner.
-![Code copy](/blog/blog_assets/docs-code.png)
+![Code copy](../blog_assets/docs-code.png)
 
 ---
 
@@ -109,7 +109,7 @@ We are also continously adding more RCAC workshop materials to the website.
 
 ## 7. RCAC Blog & Community Comments
 
-The [RCAC Blog](/blog/index.md) is where staff share how-tos, tips, announcements, and deep dives. Posts are organized by **category** and **tag** and are fully searchable.
+The [RCAC Blog](../index.md) is where staff share how-tos, tips, announcements, and deep dives. Posts are organized by **category** and **tag** and are fully searchable.
 
 ### Comments powered by Giscus
 
@@ -121,7 +121,7 @@ To join the conversation:
 2. Sign in with a **free GitHub account**
 3. Post your comment or react with 👍 ❤️ 🎉
 
-![Blog comment](/blog/blog_assets/docs-comment.png)
+![Blog comment](../blog_assets/docs-comment.png)
 
 !!! note
     A GitHub account is required to post. [Signing up :octicons-link-external-16:](https://github.com/signup) is free and takes under a minute.
@@ -141,8 +141,8 @@ To join the conversation:
 - **👍** — tells us the page was helpful
 - **👎** — tells us the page needs improvement and directs to a pre-filled GitHub issue with the page URL already embedded. Describe what was unclear or incorrect and submit.
 
-![Feedback](/blog/blog_assets/docs-feedback.png)
+![Feedback](../blog_assets/docs-feedback.png)
 
 ---
 
-Ready to explore? Start at the [homepage](/), search for your cluster or a tool you use, and let us know what you think.
+Ready to explore? Start at the [homepage](../../index.md), search for your cluster or a tool you use, and let us know what you think.

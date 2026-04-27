@@ -14,7 +14,7 @@ Computational chemistry software supports modeling of molecular interactions, qu
 * [**nwchem**](apps_md/nwchem.md)
 * [**plumed**](apps_md/plumed.md)
 * [**qemu**](apps_md/qemu.md)
-* [**quantumatk**](apps_md/quantumatk.md)
 * [**quantum-espresso**](apps_md/quantum-espresso.md)
+* [**quantumatk**](apps_md/quantumatk.md)
 * [**vasp**](apps_md/vasp.md)
 * [**wannier90**](apps_md/wannier90.md)
