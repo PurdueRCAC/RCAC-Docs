@@ -230,9 +230,9 @@ Follow these steps to get up and running on RCAC clusters.
 
     ---
 
-    A community Discord for Purdue researchers, RCAC staff, and other organizations to discuss research computing in real time.
+    Join the Purdue research computing community to chat with peers and staff in real time.
 
-    [:octicons-arrow-right-24: Join Discord :octicons-link-external-16:](https://discord.gg/RmtKZmaQW9)
+    [:octicons-arrow-right-24: Join Discord :octicons-link-external-16:](https://discord.gg/PurdueRCAC)
 
 -   :fontawesome-brands-github:{ .lg .middle } __GitHub__
 
