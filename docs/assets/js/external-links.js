@@ -4,8 +4,8 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll("a[href^='http']").forEach(function (link) {
     // Skip internal links
     if (link.href.indexOf("docs.rcac.purdue.edu") !== -1) return;
-    // Skip image-only links
-    if (link.querySelector("img") && !link.textContent.trim()) return;
+    // Skip icon-only links (no visible text — e.g. footer social icons, image links)
+    if (!link.textContent.trim()) return;
     // Skip links that already have the external link icon
     if (link.querySelector(".external-link-icon")) return;
 
