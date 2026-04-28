@@ -8,7 +8,7 @@ Data-driven computational pipelines.
 
 ## Homepage
 
-[https://www.nextflow.io](https://www.nextflow.io){:target="_blank"}
+[https://www.nextflow.io](https://www.nextflow.io)
 
 ## Available Versions on RCAC Clusters
 

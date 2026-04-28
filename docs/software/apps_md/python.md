@@ -8,7 +8,7 @@ The Python programming language.
 
 ## Homepage
 
-[https://www.python.org/](https://www.python.org/){:target="_blank"}
+[https://www.python.org/](https://www.python.org/)
 
 ## Available Versions on RCAC Clusters
 

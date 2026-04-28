@@ -8,7 +8,7 @@ Intel oneAPI Math Kernel Library (oneMKL) is a high-performance library of mathe
 
 ## Homepage
 
-[https://www.intel.com/content/www/us/en/developer/tools/oneapi/onemkl.html](https://www.intel.com/content/www/us/en/developer/tools/oneapi/onemkl.html){:target="_blank"}
+[https://www.intel.com/content/www/us/en/developer/tools/oneapi/onemkl.html](https://www.intel.com/content/www/us/en/developer/tools/oneapi/onemkl.html)
 
 ## Available Versions on RCAC Clusters
 

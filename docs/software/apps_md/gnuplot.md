@@ -8,7 +8,7 @@ Gnuplot is a portable command-line driven graphing utility for Linux, OS/2, MS W
 
 ## Homepage
 
-[http://www.gnuplot.info](http://www.gnuplot.info){:target="_blank"}
+[http://www.gnuplot.info](http://www.gnuplot.info)
 
 ## Available Versions on RCAC Clusters
 

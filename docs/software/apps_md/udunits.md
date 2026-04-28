@@ -8,7 +8,7 @@ Automated units conversion
 
 ## Homepage
 
-[https://www.unidata.ucar.edu/software/udunits](https://www.unidata.ucar.edu/software/udunits){:target="_blank"}
+[https://www.unidata.ucar.edu/software/udunits](https://www.unidata.ucar.edu/software/udunits)
 
 ## Available Versions on RCAC Clusters
 

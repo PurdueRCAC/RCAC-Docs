@@ -8,7 +8,7 @@ STATA is a general-purpose statistical software package developed by StataCorp.
 
 ## Homepage
 
-[https://www.stata.com/](https://www.stata.com/){:target="_blank"}
+[https://www.stata.com/](https://www.stata.com/)
 
 ## Available Versions on RCAC Clusters
 

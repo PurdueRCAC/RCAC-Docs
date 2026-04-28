@@ -8,7 +8,7 @@ The GNU Scientific Library (GSL) is a numerical library for C and C++ programmer
 
 ## Homepage
 
-[https://www.gnu.org/software/gsl](https://www.gnu.org/software/gsl){:target="_blank"}
+[https://www.gnu.org/software/gsl](https://www.gnu.org/software/gsl)
 
 ## Available Versions on RCAC Clusters
 

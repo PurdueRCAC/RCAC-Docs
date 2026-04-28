@@ -8,7 +8,7 @@ The PCRE2 package contains Perl Compatible Regular Expression libraries. These a
 
 ## Homepage
 
-[https://www.pcre.org](https://www.pcre.org){:target="_blank"}
+[https://www.pcre.org](https://www.pcre.org)
 
 ## Available Versions on RCAC Clusters
 

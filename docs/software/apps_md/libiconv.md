@@ -8,7 +8,7 @@ GNU libiconv provides an implementation of the iconv() function and the iconv pr
 
 ## Homepage
 
-[https://www.gnu.org/software/libiconv/](https://www.gnu.org/software/libiconv/){:target="_blank"}
+[https://www.gnu.org/software/libiconv/](https://www.gnu.org/software/libiconv/)
 
 ## Available Versions on RCAC Clusters
 

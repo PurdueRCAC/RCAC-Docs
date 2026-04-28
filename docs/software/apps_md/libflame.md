@@ -8,7 +8,7 @@ Base class for building Libflame, shared with the AMD optimized version of the l
 
 ## Homepage
 
-[https://www.cs.utexas.edu/~flame/web/libFLAME.html](https://www.cs.utexas.edu/~flame/web/libFLAME.html){:target="_blank"}
+[https://www.cs.utexas.edu/~flame/web/libFLAME.html](https://www.cs.utexas.edu/~flame/web/libFLAME.html)
 
 ## Available Versions on RCAC Clusters
 

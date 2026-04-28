@@ -8,7 +8,7 @@ mpi4py is a Python package providing bindings for the Message Passing Interface 
 
 ## Homepage
 
-[https://mpi4py.readthedocs.io/](https://mpi4py.readthedocs.io/){:target="_blank"}
+[https://mpi4py.readthedocs.io/](https://mpi4py.readthedocs.io/)
 
 ## Available Versions on RCAC Clusters
 

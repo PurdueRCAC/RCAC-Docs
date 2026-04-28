@@ -8,7 +8,7 @@ Linear Algebra PACKage (LAPACK) for high-performance linear algebra computations
 
 ## Homepage
 
-[http://www.netlib.org/lapack/](http://www.netlib.org/lapack/){:target="_blank"}
+[http://www.netlib.org/lapack/](http://www.netlib.org/lapack/)
 
 ## Available Versions on RCAC Clusters
 

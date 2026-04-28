@@ -8,7 +8,7 @@ LibTIFF - Tag Image File Format (TIFF) Library and Utilities.
 
 ## Homepage
 
-[http://www.simplesystems.org/libtiff/](http://www.simplesystems.org/libtiff/){:target="_blank"}
+[http://www.simplesystems.org/libtiff/](http://www.simplesystems.org/libtiff/)
 
 ## Available Versions on RCAC Clusters
 

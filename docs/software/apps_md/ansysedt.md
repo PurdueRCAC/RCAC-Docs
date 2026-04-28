@@ -8,7 +8,7 @@ ANSYS Electronics Desktop (EDT) provides an integrated environment for electroma
 
 ## Homepage
 
-[https://www.ansys.com/products/electronics/ansys-electronics-desktop](https://www.ansys.com/products/electronics/ansys-electronics-desktop){:target="_blank"}
+[https://www.ansys.com/products/electronics/ansys-electronics-desktop](https://www.ansys.com/products/electronics/ansys-electronics-desktop)
 
 ## Available Versions on RCAC Clusters
 

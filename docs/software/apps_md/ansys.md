@@ -8,7 +8,7 @@ ANSYS is a comprehensive software suite for engineering simulation covering fini
 
 ## Homepage
 
-[https://www.ansys.com](https://www.ansys.com){:target="_blank"}
+[https://www.ansys.com](https://www.ansys.com)
 
 ## Available Versions on RCAC Clusters
 

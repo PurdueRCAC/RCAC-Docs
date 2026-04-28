@@ -8,7 +8,7 @@ A cross-platform, open-source build system. CMake is a family of tools designed 
 
 ## Homepage
 
-[https://www.cmake.org](https://www.cmake.org){:target="_blank"}
+[https://www.cmake.org](https://www.cmake.org)
 
 ## Available Versions on RCAC Clusters
 

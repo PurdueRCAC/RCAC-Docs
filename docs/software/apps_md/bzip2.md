@@ -8,7 +8,7 @@ bzip2 is a freely available, patent free high-quality data compressor. It typica
 
 ## Homepage
 
-[https://sourceware.org/bzip2/](https://sourceware.org/bzip2/){:target="_blank"}
+[https://sourceware.org/bzip2/](https://sourceware.org/bzip2/)
 
 ## Available Versions on RCAC Clusters
 

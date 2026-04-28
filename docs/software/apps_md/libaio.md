@@ -8,7 +8,7 @@ Linux native Asynchronous I/O interface library.  AIO enables even a single appl
 
 ## Homepage
 
-[https://lse.sourceforge.net/io/aio.html](https://lse.sourceforge.net/io/aio.html){:target="_blank"}
+[https://lse.sourceforge.net/io/aio.html](https://lse.sourceforge.net/io/aio.html)
 
 ## Available Versions on RCAC Clusters
 

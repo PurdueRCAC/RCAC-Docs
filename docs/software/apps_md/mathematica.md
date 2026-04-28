@@ -8,7 +8,7 @@ Mathematica: high-powered computation with thousands of Wolfram Language functio
 
 ## Homepage
 
-[https://www.wolfram.com/mathematica/](https://www.wolfram.com/mathematica/){:target="_blank"}
+[https://www.wolfram.com/mathematica/](https://www.wolfram.com/mathematica/)
 
 ## Available Versions on RCAC Clusters
 

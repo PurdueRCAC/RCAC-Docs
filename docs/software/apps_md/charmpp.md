@@ -8,7 +8,7 @@ Charm++ is a parallel programming framework in C++ supported by an adaptive runt
 
 ## Homepage
 
-[https://charmplusplus.org](https://charmplusplus.org){:target="_blank"}
+[https://charmplusplus.org](https://charmplusplus.org)
 
 ## Available Versions on RCAC Clusters
 

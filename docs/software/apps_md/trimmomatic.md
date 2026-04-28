@@ -8,7 +8,7 @@ A flexible read trimming tool for Illumina NGS data.
 
 ## Homepage
 
-[http://www.usadellab.org/cms/?page=trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic){:target="_blank"}
+[http://www.usadellab.org/cms/?page=trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic)
 
 ## Available Versions on RCAC Clusters
 

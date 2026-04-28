@@ -8,7 +8,7 @@ HPC-X is a comprehensive software stack for high-performance computing (HPC) env
 
 ## Homepage
 
-[https://www.mellanox.com/products/hpc-x](https://www.mellanox.com/products/hpc-x){:target="_blank"}
+[https://www.mellanox.com/products/hpc-x](https://www.mellanox.com/products/hpc-x)
 
 ## Available Versions on RCAC Clusters
 

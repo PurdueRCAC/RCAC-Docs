@@ -8,7 +8,7 @@ ScaLAPACK is a library of high-performance linear algebra routines for parallel 
 
 ## Homepage
 
-[https://www.amd.com/en/developer/aocl/scalapack.html](https://www.amd.com/en/developer/aocl/scalapack.html){:target="_blank"}
+[https://www.amd.com/en/developer/aocl/scalapack.html](https://www.amd.com/en/developer/aocl/scalapack.html)
 
 ## Available Versions on RCAC Clusters
 

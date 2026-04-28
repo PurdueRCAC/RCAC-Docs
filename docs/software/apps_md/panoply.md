@@ -8,7 +8,7 @@ Panoply is a cross-platform application developed by NASA for plotting geo-gridd
 
 ## Homepage
 
-[https://www.giss.nasa.gov/tools/panoply/](https://www.giss.nasa.gov/tools/panoply/){:target="_blank"}
+[https://www.giss.nasa.gov/tools/panoply/](https://www.giss.nasa.gov/tools/panoply/)
 
 ## Available Versions on RCAC Clusters
 

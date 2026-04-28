@@ -8,7 +8,7 @@ The GNU Readline library provides a set of functions for use by applications tha
 
 ## Homepage
 
-[https://tiswww.case.edu/php/chet/readline/rltop.html](https://tiswww.case.edu/php/chet/readline/rltop.html){:target="_blank"}
+[https://tiswww.case.edu/php/chet/readline/rltop.html](https://tiswww.case.edu/php/chet/readline/rltop.html)
 
 ## Available Versions on RCAC Clusters
 

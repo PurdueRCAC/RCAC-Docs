@@ -8,7 +8,7 @@ Optimized primitives for collective multi-GPU communication.
 
 ## Homepage
 
-[https://github.com/NVIDIA/nccl](https://github.com/NVIDIA/nccl){:target="_blank"}
+[https://github.com/NVIDIA/nccl](https://github.com/NVIDIA/nccl)
 
 ## Available Versions on RCAC Clusters
 

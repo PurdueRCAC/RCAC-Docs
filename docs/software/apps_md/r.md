@@ -8,7 +8,7 @@ R is 'GNU S', a freely available language and environment for statistical comput
 
 ## Homepage
 
-[https://www.r-project.org](https://www.r-project.org){:target="_blank"}
+[https://www.r-project.org](https://www.r-project.org)
 
 ## Available Versions on RCAC Clusters
 

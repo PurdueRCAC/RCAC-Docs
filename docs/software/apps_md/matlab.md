@@ -8,7 +8,7 @@ MATLAB (MATrix LABoratory) is a multi-paradigm numerical computing environment a
 
 ## Homepage
 
-[https://www.mathworks.com/products/matlab.html](https://www.mathworks.com/products/matlab.html){:target="_blank"}
+[https://www.mathworks.com/products/matlab.html](https://www.mathworks.com/products/matlab.html)
 
 ## Available Versions on RCAC Clusters
 

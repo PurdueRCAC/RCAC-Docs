@@ -8,7 +8,7 @@ The Open Fabrics Interfaces (OFI) is a framework focused on exporting fabric com
 
 ## Homepage
 
-[https://libfabric.org/](https://libfabric.org/){:target="_blank"}
+[https://libfabric.org/](https://libfabric.org/)
 
 ## Available Versions on RCAC Clusters
 

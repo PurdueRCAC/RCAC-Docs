@@ -8,7 +8,7 @@ GNU Octave is a high-level language, primarily intended for numerical computatio
 
 ## Homepage
 
-[https://www.gnu.org/software/octave/](https://www.gnu.org/software/octave/){:target="_blank"}
+[https://www.gnu.org/software/octave/](https://www.gnu.org/software/octave/)
 
 ## Available Versions on RCAC Clusters
 

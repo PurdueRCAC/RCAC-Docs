@@ -8,7 +8,7 @@ QuantumATK is a software platform for atomic-scale modeling of materials and dev
 
 ## Homepage
 
-[https://www.synopsys.com/silicon/quantumatk.html](https://www.synopsys.com/silicon/quantumatk.html){:target="_blank"}
+[https://www.synopsys.com/silicon/quantumatk.html](https://www.synopsys.com/silicon/quantumatk.html)
 
 ## Available Versions on RCAC Clusters
 

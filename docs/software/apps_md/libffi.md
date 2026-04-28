@@ -8,7 +8,7 @@ The libffi library provides a portable, high level programming interface to vari
 
 ## Homepage
 
-[https://sourceware.org/libffi/](https://sourceware.org/libffi/){:target="_blank"}
+[https://sourceware.org/libffi/](https://sourceware.org/libffi/)
 
 ## Available Versions on RCAC Clusters
 

@@ -8,7 +8,7 @@ Thermo-Calc software for thermodynamic calculations of multicomponent systems.
 
 ## Homepage
 
-[https://www.thermocalc.com/](https://www.thermocalc.com/){:target="_blank"}
+[https://www.thermocalc.com/](https://www.thermocalc.com/)
 
 ## Available Versions on RCAC Clusters
 

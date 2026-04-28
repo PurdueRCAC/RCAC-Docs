@@ -8,7 +8,7 @@ Conda is an open-source package, dependency, and environment management system. 
 
 ## Homepage
 
-[https://docs.conda.io/](https://docs.conda.io/){:target="_blank"}
+[https://docs.conda.io/](https://docs.conda.io/)
 
 ## Available Versions on RCAC Clusters
 

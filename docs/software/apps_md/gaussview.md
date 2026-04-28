@@ -8,7 +8,7 @@ GaussView is a graphical user interface designed to build Gaussian input and ana
 
 ## Homepage
 
-[https://gaussian.com/gaussview6/](https://gaussian.com/gaussview6/){:target="_blank"}
+[https://gaussian.com/gaussview6/](https://gaussian.com/gaussview6/)
 
 ## Available Versions on RCAC Clusters
 

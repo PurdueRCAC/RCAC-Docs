@@ -8,7 +8,7 @@ GCC runtime libraries required for compiled applications.
 
 ## Homepage
 
-[https://gcc.gnu.org/](https://gcc.gnu.org/){:target="_blank"}
+[https://gcc.gnu.org/](https://gcc.gnu.org/)
 
 ## Available Versions on RCAC Clusters
 

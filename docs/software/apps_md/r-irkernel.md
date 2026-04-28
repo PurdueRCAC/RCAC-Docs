@@ -8,7 +8,7 @@ IRKernel provides the R kernel for Jupyter notebooks.
 
 ## Homepage
 
-[https://irkernel.github.io/](https://irkernel.github.io/){:target="_blank"}
+[https://irkernel.github.io/](https://irkernel.github.io/)
 
 ## Available Versions on RCAC Clusters
 

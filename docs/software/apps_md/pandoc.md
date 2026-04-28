@@ -8,7 +8,7 @@ If you need to convert files from one markup format into another, pandoc is your
 
 ## Homepage
 
-[https://pandoc.org](https://pandoc.org){:target="_blank"}
+[https://pandoc.org](https://pandoc.org)
 
 ## Available Versions on RCAC Clusters
 

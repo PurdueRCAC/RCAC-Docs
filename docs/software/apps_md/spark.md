@@ -8,7 +8,7 @@ Apache Spark is a fast and general engine for large-scale data processing.
 
 ## Homepage
 
-[https://spark.apache.org](https://spark.apache.org){:target="_blank"}
+[https://spark.apache.org](https://spark.apache.org)
 
 ## Available Versions on RCAC Clusters
 

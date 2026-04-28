@@ -8,7 +8,7 @@ ncdf4 package provides R bindings for NetCDF scientific data.
 
 ## Homepage
 
-[https://cran.r-project.org/web/packages/ncdf4/index.html](https://cran.r-project.org/web/packages/ncdf4/index.html){:target="_blank"}
+[https://cran.r-project.org/web/packages/ncdf4/index.html](https://cran.r-project.org/web/packages/ncdf4/index.html)
 
 ## Available Versions on RCAC Clusters
 

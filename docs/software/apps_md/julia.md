@@ -8,7 +8,7 @@ The Julia Language: A fresh approach to technical computing
 
 ## Homepage
 
-[https://julialang.org](https://julialang.org){:target="_blank"}
+[https://julialang.org](https://julialang.org)
 
 ## Available Versions on RCAC Clusters
 

@@ -8,7 +8,7 @@ V8 JavaScript engine library for embedding JS in C++ applications.
 
 ## Homepage
 
-[https://v8.dev/](https://v8.dev/){:target="_blank"}
+[https://v8.dev/](https://v8.dev/)
 
 ## Available Versions on RCAC Clusters
 

@@ -8,7 +8,7 @@ XScreenSaver - X11 Screen Saver extension client library
 
 ## Homepage
 
-[https://gitlab.freedesktop.org/xorg/lib/libXScrnSaver](https://gitlab.freedesktop.org/xorg/lib/libXScrnSaver){:target="_blank"}
+[https://gitlab.freedesktop.org/xorg/lib/libXScrnSaver](https://gitlab.freedesktop.org/xorg/lib/libXScrnSaver)
 
 ## Available Versions on RCAC Clusters
 

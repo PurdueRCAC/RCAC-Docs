@@ -8,7 +8,7 @@ Quantum ESPRESSO (Quantum opEn-Source Package for Research in Electronic Structu
 
 ## Homepage
 
-[https://www.quantum-espresso.org/](https://www.quantum-espresso.org/){:target="_blank"}
+[https://www.quantum-espresso.org/](https://www.quantum-espresso.org/)
 
 ## Available Versions on RCAC Clusters
 

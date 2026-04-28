@@ -8,7 +8,7 @@ The Visualization Toolkit (VTK) is an open-source, freely available software sys
 
 ## Homepage
 
-[https://www.vtk.org](https://www.vtk.org){:target="_blank"}
+[https://www.vtk.org](https://www.vtk.org)
 
 ## Available Versions on RCAC Clusters
 

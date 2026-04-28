@@ -8,7 +8,7 @@ Eigen is a C++ template library for linear algebra matrices, vectors, numerical 
 
 ## Homepage
 
-[https://eigen.tuxfamily.org/](https://eigen.tuxfamily.org/){:target="_blank"}
+[https://eigen.tuxfamily.org/](https://eigen.tuxfamily.org/)
 
 ## Available Versions on RCAC Clusters
 

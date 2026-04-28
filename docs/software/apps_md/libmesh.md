@@ -8,7 +8,7 @@ The libMesh library provides a framework for the numerical simulation of partial
 
 ## Homepage
 
-[https://libmesh.github.io/](https://libmesh.github.io/){:target="_blank"}
+[https://libmesh.github.io/](https://libmesh.github.io/)
 
 ## Available Versions on RCAC Clusters
 

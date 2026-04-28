@@ -8,7 +8,7 @@ Vim is a highly configurable text editor built to enable efficient text editing.
 
 ## Homepage
 
-[https://www.vim.org](https://www.vim.org){:target="_blank"}
+[https://www.vim.org](https://www.vim.org)
 
 ## Available Versions on RCAC Clusters
 

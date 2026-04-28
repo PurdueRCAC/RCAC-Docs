@@ -8,7 +8,7 @@ Tk is a graphical user interface toolkit that takes developing desktop applicati
 
 ## Homepage
 
-[https://www.tcl.tk](https://www.tcl.tk){:target="_blank"}
+[https://www.tcl.tk](https://www.tcl.tk)
 
 ## Available Versions on RCAC Clusters
 

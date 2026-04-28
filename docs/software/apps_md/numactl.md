@@ -8,7 +8,7 @@ NUMA support for Linux
 
 ## Homepage
 
-[https://github.com/numactl/numactl](https://github.com/numactl/numactl){:target="_blank"}
+[https://github.com/numactl/numactl](https://github.com/numactl/numactl)
 
 ## Available Versions on RCAC Clusters
 

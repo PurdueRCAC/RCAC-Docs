@@ -8,7 +8,7 @@ GStreamer is an open-source multimedia framework for building streaming media ap
 
 ## Homepage
 
-[https://gstreamer.freedesktop.org](https://gstreamer.freedesktop.org){:target="_blank"}
+[https://gstreamer.freedesktop.org](https://gstreamer.freedesktop.org)
 
 ## Available Versions on RCAC Clusters
 

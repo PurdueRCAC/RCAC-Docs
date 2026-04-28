@@ -8,7 +8,7 @@ X Window System Core Protocol.  This package provides the headers and specificat
 
 ## Homepage
 
-[https://gitlab.freedesktop.org/xorg/proto/x11proto](https://gitlab.freedesktop.org/xorg/proto/x11proto){:target="_blank"}
+[https://gitlab.freedesktop.org/xorg/proto/x11proto](https://gitlab.freedesktop.org/xorg/proto/x11proto)
 
 ## Available Versions on RCAC Clusters
 

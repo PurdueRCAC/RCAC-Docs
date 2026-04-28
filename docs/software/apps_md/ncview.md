@@ -8,7 +8,7 @@ Simple viewer for NetCDF files.
 
 ## Homepage
 
-[https://cirrus.ucsd.edu/ncview/](https://cirrus.ucsd.edu/ncview/){:target="_blank"}
+[https://cirrus.ucsd.edu/ncview/](https://cirrus.ucsd.edu/ncview/)
 
 ## Available Versions on RCAC Clusters
 

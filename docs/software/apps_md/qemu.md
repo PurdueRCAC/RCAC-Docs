@@ -8,7 +8,7 @@ QEMU is a generic and open source machine emulator and virtualizer.
 
 ## Homepage
 
-[https://www.qemu.org](https://www.qemu.org){:target="_blank"}
+[https://www.qemu.org](https://www.qemu.org)
 
 ## Available Versions on RCAC Clusters
 

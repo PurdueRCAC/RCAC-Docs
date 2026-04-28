@@ -8,7 +8,7 @@ Gaussian 09 is a software package for computational chemistry for electronic str
 
 ## Homepage
 
-[https://gaussian.com/g09citation/](https://gaussian.com/g09citation/){:target="_blank"}
+[https://gaussian.com/g09citation/](https://gaussian.com/g09citation/)
 
 ## Available Versions on RCAC Clusters
 

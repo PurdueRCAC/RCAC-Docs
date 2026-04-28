@@ -8,7 +8,7 @@ The GNU Compiler Collection includes front ends for C, C++, Objective-C, Fortran
 
 ## Homepage
 
-[https://gcc.gnu.org](https://gcc.gnu.org){:target="_blank"}
+[https://gcc.gnu.org](https://gcc.gnu.org)
 
 ## Available Versions on RCAC Clusters
 

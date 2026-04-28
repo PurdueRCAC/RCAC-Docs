@@ -8,7 +8,7 @@ The NVIDIA HPC SDK is a comprehensive suite of compilers, libraries and tools es
 
 ## Homepage
 
-[https://developer.nvidia.com/hpc-sdk](https://developer.nvidia.com/hpc-sdk){:target="_blank"}
+[https://developer.nvidia.com/hpc-sdk](https://developer.nvidia.com/hpc-sdk)
 
 ## Available Versions on RCAC Clusters
 

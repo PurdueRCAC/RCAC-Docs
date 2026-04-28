@@ -8,7 +8,7 @@ NCL is an interpreted language designed specifically for scientific data analysi
 
 ## Homepage
 
-[https://www.ncl.ucar.edu](https://www.ncl.ucar.edu){:target="_blank"}
+[https://www.ncl.ucar.edu](https://www.ncl.ucar.edu)
 
 ## Available Versions on RCAC Clusters
 

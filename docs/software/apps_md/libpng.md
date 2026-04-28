@@ -8,7 +8,7 @@ libpng is the official PNG reference library.
 
 ## Homepage
 
-[http://www.libpng.org/pub/png/libpng.html](http://www.libpng.org/pub/png/libpng.html){:target="_blank"}
+[http://www.libpng.org/pub/png/libpng.html](http://www.libpng.org/pub/png/libpng.html)
 
 ## Available Versions on RCAC Clusters
 

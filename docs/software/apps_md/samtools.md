@@ -8,7 +8,7 @@ SAM Tools provide various utilities for manipulating alignments in the SAM forma
 
 ## Homepage
 
-[https://www.htslib.org](https://www.htslib.org){:target="_blank"}
+[https://www.htslib.org](https://www.htslib.org)
 
 ## Available Versions on RCAC Clusters
 

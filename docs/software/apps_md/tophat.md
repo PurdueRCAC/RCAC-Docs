@@ -8,7 +8,7 @@ Spliced read mapper for RNA-Seq.
 
 ## Homepage
 
-[https://ccb.jhu.edu/software/tophat/index.shtml](https://ccb.jhu.edu/software/tophat/index.shtml){:target="_blank"}
+[https://ccb.jhu.edu/software/tophat/index.shtml](https://ccb.jhu.edu/software/tophat/index.shtml)
 
 ## Available Versions on RCAC Clusters
 

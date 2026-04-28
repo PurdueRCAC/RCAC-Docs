@@ -8,7 +8,7 @@ PAPI provides the tool designer and application engineer with a consistent inter
 
 ## Homepage
 
-[https://icl.utk.edu/papi/](https://icl.utk.edu/papi/){:target="_blank"}
+[https://icl.utk.edu/papi/](https://icl.utk.edu/papi/)
 
 ## Available Versions on RCAC Clusters
 

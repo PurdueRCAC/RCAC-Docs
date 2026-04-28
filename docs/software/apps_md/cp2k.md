@@ -8,7 +8,7 @@ CP2K is a quantum chemistry and solid state physics software package that can pe
 
 ## Homepage
 
-[https://www.cp2k.org](https://www.cp2k.org){:target="_blank"}
+[https://www.cp2k.org](https://www.cp2k.org)
 
 ## Available Versions on RCAC Clusters
 

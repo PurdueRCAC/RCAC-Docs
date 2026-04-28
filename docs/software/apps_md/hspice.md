@@ -8,7 +8,7 @@ HSPICE is a leading circuit simulator used for integrated circuit design and ver
 
 ## Homepage
 
-[https://www.synopsys.com/verification/analog-mixed-signal/hspice.html](https://www.synopsys.com/verification/analog-mixed-signal/hspice.html){:target="_blank"}
+[https://www.synopsys.com/verification/analog-mixed-signal/hspice.html](https://www.synopsys.com/verification/analog-mixed-signal/hspice.html)
 
 ## Available Versions on RCAC Clusters
 

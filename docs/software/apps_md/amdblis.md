@@ -8,7 +8,7 @@ AMD Optimized BLIS.  BLIS is a portable software framework for instantiating hig
 
 ## Homepage
 
-[https://www.amd.com/en/developer/aocl/blis.html](https://www.amd.com/en/developer/aocl/blis.html){:target="_blank"}
+[https://www.amd.com/en/developer/aocl/blis.html](https://www.amd.com/en/developer/aocl/blis.html)
 
 ## Available Versions on RCAC Clusters
 

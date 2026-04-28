@@ -8,7 +8,7 @@ Google's data interchange format.
 
 ## Homepage
 
-[https://developers.google.com/protocol-buffers](https://developers.google.com/protocol-buffers){:target="_blank"}
+[https://developers.google.com/protocol-buffers](https://developers.google.com/protocol-buffers)
 
 ## Available Versions on RCAC Clusters
 

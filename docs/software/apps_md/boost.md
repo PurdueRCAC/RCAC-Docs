@@ -8,7 +8,7 @@ Boost provides free peer-reviewed portable C++ source libraries, emphasizing lib
 
 ## Homepage
 
-[https://www.boost.org](https://www.boost.org){:target="_blank"}
+[https://www.boost.org](https://www.boost.org)
 
 ## Available Versions on RCAC Clusters
 
