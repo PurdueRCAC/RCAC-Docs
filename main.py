@@ -127,11 +127,11 @@ To use X11, you will need to have a local X11 server running on your personal ma
 **Microsoft Windows:**
 
 - [ThinLinc](/userguides/{resource}/accounts/#thinlinc) is an alternative to running an X11 server directly on your Windows computer. ThinLinc is a service that allows you to connect to a persistent remote graphical desktop session.
-- [MobaXterm :octicons-link-external-16:](https://mobaxterm.mobatek.net/download.html) is a small, easy to use, full-featured SSH client. It includes X11 support for remote displays, SFTP capabilities, and limited SSH authentication forwarding for keys.
+- [MobaXterm](https://mobaxterm.mobatek.net/download.html) is a small, easy to use, full-featured SSH client. It includes X11 support for remote displays, SFTP capabilities, and limited SSH authentication forwarding for keys.
 
 **Mac OS X:**
 
-- X11 is available as an optional install on the Mac OS X install disks prior to 10.7/Lion. Run the installer, select the X11 option, and follow the instructions. For 10.7+ please download [XQuartz :octicons-link-external-16:](http://xquartz.macosforge.org/landing/).
+- X11 is available as an optional install on the Mac OS X install disks prior to 10.7/Lion. Run the installer, select the X11 option, and follow the instructions. For 10.7+ please download [XQuartz](http://xquartz.macosforge.org/landing/).
 - [ThinLinc](/userguides/{resource}/accounts/#thinlinc) is an alternative to running an X11 server directly on your Mac computer. ThinLinc is a service that allows you to connect to a persistent remote graphical desktop session.
 
 ### Enabling X11 Forwarding in your SSH Client
@@ -148,7 +148,7 @@ SSH will set the remote environment variable `$DISPLAY` to `"localhost:XX.YY"` w
     @env.macro
     def thinlinc_snippet(resource):
         return f"""
-RCAC provides [Cendio's *ThinLinc* :octicons-link-external-16:](https://www.cendio.com/thinlinc/what-is-thinlinc) as an alternative to running an X11 server directly on your computer. It allows you to run graphical applications or graphical interactive jobs directly on {resource} through a persistent remote graphical desktop session.
+RCAC provides [Cendio's *ThinLinc*](https://www.cendio.com/thinlinc/what-is-thinlinc) as an alternative to running an X11 server directly on your computer. It allows you to run graphical applications or graphical interactive jobs directly on {resource} through a persistent remote graphical desktop session.
 
 ThinLinc is a service that allows you to connect to a persistent remote graphical desktop session. This service works very well over a high latency, low bandwidth, or off-campus connection compared to running an X11 server locally. It is also very helpful for Windows users who do not have an easy to use local X11 server, as little to no set up is required on your computer.
 
@@ -158,7 +158,7 @@ There are two ways in which to use ThinLinc: preferably through the native clien
 
 The native ThinLinc client will offer the best experience especially over off-campus connections and is the recommended method for using ThinLinc. It is compatible with Windows, Mac OS X, and Linux.
 
-* Download the ThinLinc client from the [ThinLinc website :octicons-link-external-16:](https://www.cendio.com/thinlinc/download).
+* Download the ThinLinc client from the [ThinLinc website](https://www.cendio.com/thinlinc/download).
 * Start the ThinLinc client on your computer.
 * In the client's login window, use `desktop.{resource}.rcac.purdue.edu` as the Server. Use your Purdue Career Account username and password, but append "`,push`" to your password.
 * Click the Connect button.
@@ -169,7 +169,7 @@ The native ThinLinc client will offer the best experience especially over off-ca
 
 The ThinLinc service can be accessed from your web browser as a convenience to installing the native client. This option works with no set up and is a good option for those on computers where you do not have privileges to install software. All that is required is an up-to-date web browser. Older versions of Internet Explorer may not work.
 
-* Open a web browser and navigate to [`desktop.{resource}.rcac.purdue.edu`. :octicons-link-external-16:](https://desktop.{resource}.rcac.purdue.edu).
+* Open a web browser and navigate to [`desktop.{resource}.rcac.purdue.edu`.](https://desktop.{resource}.rcac.purdue.edu).
 * Log in with your Purdue Career Account username and password, but append "`,push`" to your password.
 * You may safely proceed past any warning messages from your browser.
 * Your Purdue Login Duo will receive a notification to approve your login.
@@ -226,7 +226,7 @@ The ThinLinc service can be accessed from your web browser as a convenience to i
         return f"""
 ## Overview / Slurm Basics
 
-{hostname.title()} uses the [Slurm Workload Manager :octicons-link-external-16:](https://slurm.schedmd.com/) for job scheduling and management. With Slurm, a user requests resources and submits a job to a queue. The system takes jobs from queues, allocates the necessary compute nodes, and executes them.
+{hostname.title()} uses the [Slurm Workload Manager](https://slurm.schedmd.com/) for job scheduling and management. With Slurm, a user requests resources and submits a job to a queue. The system takes jobs from queues, allocates the necessary compute nodes, and executes them.
 
 !!! note "SSHing into {hostname.title()} lands on login node"
     Users will typically SSH to {hostname.title()} (`<username>@{host}`) but note this lands you on a **login node**. Slurm should always be used to submit work as a job rather than running jobs directly on a login node.
@@ -438,13 +438,13 @@ Linux / Solaris / AIX / HP-UX / Unix:
 
 Microsoft Windows:
 
-* [MobaXterm :octicons-link-external-16:](https://mobaxterm.mobatek.net/download.html)  
+* [MobaXterm](https://mobaxterm.mobatek.net/download.html)  
   Free, full-featured, graphical Windows SSH, SCP, and SFTP client.
 
 Mac OS X:
 
 * The "sftp" command-line program should already be installed. You may start a local terminal window from "Applications->Utilities".
-* [Cyberduck :octicons-link-external-16:](https://cyberduck.io/) is a full-featured and free graphical SFTP and SCP client.
+* [Cyberduck](https://cyberduck.io/) is a full-featured and free graphical SFTP and SCP client.
 """
     
     @env.macro
@@ -469,22 +469,22 @@ test.txt                                                                    100%
 # Accounts on {cluster}
 ### Obtaining an Account
 
-To obtain an account, you must be part of a research group which has purchased access to {cluster}. Refer to the [Accounts / Access :octicons-link-external-16:](https://www.rcac.purdue.edu/account/request) page for more details on how to request access.
+To obtain an account, you must be part of a research group which has purchased access to {cluster}. Refer to the [Accounts / Access](https://www.rcac.purdue.edu/account/request) page for more details on how to request access.
 
 !!! note
-    External (non-Purdue) collaborators can be granted access to {cluster}, provided the collaborator has a valid Purdue career account. If the collaborator does not have a Purdue career account, a current Purdue faculty or staff member must file a [Request for Privileges (R4P) :octicons-link-external-16:](https://www.purdue.edu/apps/account/r4p) to have the career account created.
+    External (non-Purdue) collaborators can be granted access to {cluster}, provided the collaborator has a valid Purdue career account. If the collaborator does not have a Purdue career account, a current Purdue faculty or staff member must file a [Request for Privileges (R4P)](https://www.purdue.edu/apps/account/r4p) to have the career account created.
 
 ## Logging In To {cluster}
 There are several ways to login to {cluster}:
 
 ### Thinlinc web client
-One can login to the {cluster} front-end with a full desktop environment via the [Thinlinc web client :octicons-link-external-16:](https://desktop.{host}).
+One can login to the {cluster} front-end with a full desktop environment via the [Thinlinc web client](https://desktop.{host}).
 
 !!! important
     Your full password,push Duo passphrase is needed to trigger the Duo notification that is sent to your phone for approval.
 
 ### Gateway / OnDemand
-One can login to {cluster}'s [Gateway :octicons-link-external-16:](https://gateway.{host}) to manage files in your home/scratch/depot directories and start Slurm jobs for supported OnDemand applications.
+One can login to {cluster}'s [Gateway](https://gateway.{host}) to manage files in your home/scratch/depot directories and start Slurm jobs for supported OnDemand applications.
 
 ### SSH
 *Secure Shell* or *SSH* is a way of establishing a secure connection between two computers. It uses public-key cryptography to authenticate the user with the remote computer and to establish a secure connection. Its usual function involves logging in to a remote machine and executing commands. There are many SSH clients available for all operating systems.
@@ -499,7 +499,7 @@ Linux / Solaris / AIX / HP-UX / Unix:
 
 Microsoft Windows:
 
-- [MobaXterm :octicons-link-external-16:](https://mobaxterm.mobatek.net/download.html) is a small, easy to use, full-featured SSH client. It includes X11 support for remote displays, SFTP capabilities, and limited SSH authentication forwarding for keys.
+- [MobaXterm](https://mobaxterm.mobatek.net/download.html) is a small, easy to use, full-featured SSH client. It includes X11 support for remote displays, SFTP capabilities, and limited SSH authentication forwarding for keys.
 
 Mac OS X:
 
