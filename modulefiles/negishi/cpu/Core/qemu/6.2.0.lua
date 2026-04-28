@@ -9,7 +9,7 @@ whatis([[Configure options : --enable-gtk --enable-vnc --enable-curl --enable-kv
 
 
 
-depends_on("curl/7.85.0--openssl")
+depends_on("curl/7.85.0")
 
 local modroot="/apps/spack/negishi/apps/qemu/6.2.0-gcc-8.5.0-wm5fdml"
 prepend_path("PATH", modroot.."/bin", ":")
