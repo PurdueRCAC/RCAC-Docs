@@ -20,6 +20,7 @@ Materials science packages support simulation and characterization of materials 
 * [**qemu**](apps_md/qemu.md)
 * [**quantum-espresso**](apps_md/quantum-espresso.md)
 * [**quantumatk**](apps_md/quantumatk.md)
+* [**thermocalc**](apps_md/thermocalc.md)
 * [**vasp**](apps_md/vasp.md)
 * [**visit**](apps_md/visit.md)
 * [**vtk**](apps_md/vtk.md)

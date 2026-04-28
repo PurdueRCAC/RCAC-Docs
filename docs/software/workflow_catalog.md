@@ -6,6 +6,7 @@ Workflow management tools orchestrate computational pipelines, automate job subm
 * [**bwa**](apps_md/bwa.md)
 * [**gatk**](apps_md/gatk.md)
 * [**htseq**](apps_md/htseq.md)
+* [**hypershell**](apps_md/hypershell.md)
 * [**nextflow**](apps_md/nextflow.md)
 * [**nf-core**](apps_md/nf-core.md)
 * [**samtools**](apps_md/samtools.md)

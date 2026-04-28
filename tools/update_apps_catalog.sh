@@ -120,6 +120,14 @@ cluster_names=$(jq -r '[to_entries[] | .value.availability | keys[] | ascii_upca
   echo 
   echo '    [:octicons-arrow-right-24: MPIs Catalog](mpi_catalog.md)'
   echo
+  echo "-   :material-application:{ .lg .middle } __Bioinformatics__"
+  echo
+  echo "    ---"
+  echo
+  echo "    Bioinformatics software catalog for genomics, transcriptomics, phylogenetics, and epigenomics workflows."
+  echo
+  echo '    [:octicons-arrow-right-24: Bioinformatics Catalog](bioinformatics_catalog.md)'
+  echo
   echo "-   :material-application:{ .lg .middle } __Computational Chemistry__"
   echo
   echo "    ---"
@@ -224,10 +232,11 @@ declare -A TOPIC_DESCRIPTIONS=(
   ["Programming"]="Programming-related tools include languages, runtimes, build systems, and developer tooling that support software development on HPC systems."
   ["Utilities"]="Utility software provides tools that enhance HPC workflows — file and data management, monitoring, profiling, conversion utilities, and system-level helpers to improve productivity and debugging."
   ["Workflow"]="Workflow management tools orchestrate computational pipelines, automate job submission, and ensure reproducibility of complex HPC analyses."
+  ["Bioinformatics"]="Bioinformatics software supports the processing, alignment, assembly, and analysis of biological sequence data including genomics, transcriptomics, phylogenetics, and epigenomics workflows on HPC clusters."
 )
 
 # Topics to generate (excluding Biocontainers)
-TOPIC_LIST=("MPI" "Compilers" "Audio/Visual" "Chemistry" "Fluid Dynamics" "Geoscience" \
+TOPIC_LIST=("MPI" "Compilers" "Audio/Visual" "Bioinformatics" "Chemistry" "Fluid Dynamics" "Geoscience" \
             "Library" "Material Science" "Math/Stat" "Engineering" "Programming" "Utilities" "Workflow")
 
 echo "Generating topic catalogs..."

@@ -37,12 +37,12 @@ As of **April 27, 2026**, there have been a total of **274** applications with *
     </tr>
     <tr>
       <td><a href="../apps_md/ambertools"><strong>ambertools</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Chemistry</td>
       <td>ANVIL, BELL, GAUTSCHI, GILBRETH, SCHOLAR</td>
     </tr>
     <tr>
       <td><a href="../apps_md/amdblis"><strong>amdblis</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Library</td>
       <td>ANVIL</td>
     </tr>
     <tr>
@@ -52,12 +52,12 @@ As of **April 27, 2026**, there have been a total of **274** applications with *
     </tr>
     <tr>
       <td><a href="../apps_md/amdlibflame"><strong>amdlibflame</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Library</td>
       <td>ANVIL</td>
     </tr>
     <tr>
       <td><a href="../apps_md/amdlibm"><strong>amdlibm</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Library</td>
       <td>ANVIL</td>
     </tr>
     <tr>
@@ -97,37 +97,37 @@ As of **April 27, 2026**, there have been a total of **274** applications with *
     </tr>
     <tr>
       <td><a href="../apps_md/arpack-ng"><strong>arpack-ng</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Library</td>
       <td>ANVIL, NEGISHI</td>
     </tr>
     <tr>
       <td><a href="../apps_md/aws-cli"><strong>aws-cli</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Utilities</td>
       <td>ANVIL, BELL, GAUTSCHI, GILBRETH, NEGISHI, SCHOLAR</td>
     </tr>
     <tr>
       <td><a href="../apps_md/bamtools"><strong>bamtools</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Bioinformatics</td>
       <td>ANVIL</td>
     </tr>
     <tr>
       <td><a href="../apps_md/beagle"><strong>beagle</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Bioinformatics</td>
       <td>ANVIL</td>
     </tr>
     <tr>
       <td><a href="../apps_md/beast2"><strong>beast2</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Bioinformatics</td>
       <td>ANVIL</td>
     </tr>
     <tr>
       <td><a href="../apps_md/berkeley-db"><strong>berkeley-db</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Library</td>
       <td>ANVIL, NEGISHI</td>
     </tr>
     <tr>
       <td><a href="../apps_md/bismark"><strong>bismark</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Bioinformatics</td>
       <td>ANVIL</td>
     </tr>
     <tr>
@@ -137,7 +137,7 @@ As of **April 27, 2026**, there have been a total of **274** applications with *
     </tr>
     <tr>
       <td><a href="../apps_md/blis"><strong>blis</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Library</td>
       <td>ANVIL, NEGISHI</td>
     </tr>
     <tr>
@@ -162,7 +162,7 @@ As of **April 27, 2026**, there have been a total of **274** applications with *
     </tr>
     <tr>
       <td><a href="../apps_md/cairo"><strong>cairo</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Library</td>
       <td>ANVIL, NEGISHI</td>
     </tr>
     <tr>
@@ -172,12 +172,12 @@ As of **April 27, 2026**, there have been a total of **274** applications with *
     </tr>
     <tr>
       <td><a href="../apps_md/cgal"><strong>cgal</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Library</td>
       <td>NEGISHI, SCHOLAR</td>
     </tr>
     <tr>
       <td><a href="../apps_md/charmpp"><strong>charmpp</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Library</td>
       <td>ANVIL</td>
     </tr>
     <tr>
@@ -187,12 +187,12 @@ As of **April 27, 2026**, there have been a total of **274** applications with *
     </tr>
     <tr>
       <td><a href="../apps_md/cmake"><strong>cmake</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Utilities</td>
       <td>ANVIL, BELL, GILBRETH, NEGISHI</td>
     </tr>
     <tr>
       <td><a href="../apps_md/comsol"><strong>comsol</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Engineering</td>
       <td>BELL, GAUTSCHI, GILBRETH, NEGISHI, SCHOLAR</td>
     </tr>
     <tr>
@@ -227,7 +227,7 @@ As of **April 27, 2026**, there have been a total of **274** applications with *
     </tr>
     <tr>
       <td><a href="../apps_md/cufflinks"><strong>cufflinks</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Bioinformatics</td>
       <td>ANVIL</td>
     </tr>
     <tr>
@@ -237,22 +237,22 @@ As of **April 27, 2026**, there have been a total of **274** applications with *
     </tr>
     <tr>
       <td><a href="../apps_md/cutadapt"><strong>cutadapt</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Bioinformatics</td>
       <td>ANVIL</td>
     </tr>
     <tr>
       <td><a href="../apps_md/cython"><strong>cython</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Programming</td>
       <td>GAUTSCHI</td>
     </tr>
     <tr>
       <td><a href="../apps_md/duckdb"><strong>duckdb</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Programming</td>
       <td>ANVIL, BELL, GAUTSCHI, GILBRETH, NEGISHI, SCHOLAR</td>
     </tr>
     <tr>
       <td><a href="../apps_md/edacfg"><strong>edacfg</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Utilities</td>
       <td>GAUTSCHI, NEGISHI</td>
     </tr>
     <tr>
@@ -262,27 +262,27 @@ As of **April 27, 2026**, there have been a total of **274** applications with *
     </tr>
     <tr>
       <td><a href="../apps_md/emacs"><strong>emacs</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Utilities</td>
       <td>ANVIL, NEGISHI</td>
     </tr>
     <tr>
       <td><a href="../apps_md/expat"><strong>expat</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Library</td>
       <td>ANVIL</td>
     </tr>
     <tr>
       <td><a href="../apps_md/fastqc"><strong>fastqc</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Bioinformatics</td>
       <td>ANVIL</td>
     </tr>
     <tr>
       <td><a href="../apps_md/fasttree"><strong>fasttree</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Bioinformatics</td>
       <td>ANVIL</td>
     </tr>
     <tr>
       <td><a href="../apps_md/fastx-toolkit"><strong>fastx-toolkit</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Bioinformatics</td>
       <td>ANVIL</td>
     </tr>
     <tr>
@@ -297,17 +297,17 @@ As of **April 27, 2026**, there have been a total of **274** applications with *
     </tr>
     <tr>
       <td><a href="../apps_md/font-util"><strong>font-util</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Library</td>
       <td>ANVIL, NEGISHI</td>
     </tr>
     <tr>
       <td><a href="../apps_md/fontconfig"><strong>fontconfig</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Library</td>
       <td>ANVIL, NEGISHI</td>
     </tr>
     <tr>
       <td><a href="../apps_md/freetype"><strong>freetype</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Library</td>
       <td>ANVIL, NEGISHI</td>
     </tr>
     <tr>
@@ -352,12 +352,12 @@ As of **April 27, 2026**, there have been a total of **274** applications with *
     </tr>
     <tr>
       <td><a href="../apps_md/gdb"><strong>gdb</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Utilities</td>
       <td>ANVIL, BELL, NEGISHI</td>
     </tr>
     <tr>
       <td><a href="../apps_md/gdbm"><strong>gdbm</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Library</td>
       <td>ANVIL, NEGISHI</td>
     </tr>
     <tr>
@@ -367,7 +367,7 @@ As of **April 27, 2026**, there have been a total of **274** applications with *
     </tr>
     <tr>
       <td><a href="../apps_md/gettext"><strong>gettext</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Utilities</td>
       <td>ANVIL, NEGISHI</td>
     </tr>
     <tr>
@@ -377,37 +377,37 @@ As of **April 27, 2026**, there have been a total of **274** applications with *
     </tr>
     <tr>
       <td><a href="../apps_md/ghostscript"><strong>ghostscript</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Audio/Visual</td>
       <td>ANVIL, GAUTSCHI, GILBRETH, NEGISHI, SCHOLAR</td>
     </tr>
     <tr>
       <td><a href="../apps_md/glib"><strong>glib</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Library</td>
       <td>ANVIL, NEGISHI</td>
     </tr>
     <tr>
       <td><a href="../apps_md/gmp"><strong>gmp</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Library</td>
       <td>ANVIL, BELL, NEGISHI</td>
     </tr>
     <tr>
       <td><a href="../apps_md/gmt"><strong>gmt</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Geoscience</td>
       <td>ANVIL, BELL, GILBRETH, NEGISHI, SCHOLAR</td>
     </tr>
     <tr>
       <td><a href="../apps_md/gnuplot"><strong>gnuplot</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Audio/Visual</td>
       <td>ANVIL, BELL, GAUTSCHI, GILBRETH, NEGISHI</td>
     </tr>
     <tr>
       <td><a href="../apps_md/gpaw"><strong>gpaw</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Chemistry</td>
       <td>ANVIL</td>
     </tr>
     <tr>
       <td><a href="../apps_md/grace"><strong>grace</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Audio/Visual</td>
       <td>NEGISHI</td>
     </tr>
     <tr>
@@ -437,12 +437,12 @@ As of **April 27, 2026**, there have been a total of **274** applications with *
     </tr>
     <tr>
       <td><a href="../apps_md/hadoop"><strong>hadoop</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Programming</td>
       <td>ANVIL, BELL, NEGISHI</td>
     </tr>
     <tr>
       <td><a href="../apps_md/hcoll"><strong>hcoll</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Library</td>
       <td>GILBRETH</td>
     </tr>
     <tr>
@@ -457,17 +457,17 @@ As of **April 27, 2026**, there have been a total of **274** applications with *
     </tr>
     <tr>
       <td><a href="../apps_md/hpctoolkit"><strong>hpctoolkit</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Utilities</td>
       <td>ANVIL, NEGISHI</td>
     </tr>
     <tr>
       <td><a href="../apps_md/hpcx"><strong>hpcx</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>MPI</td>
       <td>GILBRETH</td>
     </tr>
     <tr>
       <td><a href="../apps_md/hspice"><strong>hspice</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Engineering</td>
       <td>BELL, NEGISHI</td>
     </tr>
     <tr>
@@ -477,7 +477,7 @@ As of **April 27, 2026**, there have been a total of **274** applications with *
     </tr>
     <tr>
       <td><a href="../apps_md/hwloc"><strong>hwloc</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Library</td>
       <td>ANVIL</td>
     </tr>
     <tr>
@@ -487,7 +487,7 @@ As of **April 27, 2026**, there have been a total of **274** applications with *
     </tr>
     <tr>
       <td><a href="../apps_md/hypershell"><strong>hypershell</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Workflow</td>
       <td>ANVIL, BELL, GAUTSCHI, GILBRETH, NEGISHI, SCHOLAR</td>
     </tr>
     <tr>
@@ -502,7 +502,7 @@ As of **April 27, 2026**, there have been a total of **274** applications with *
     </tr>
     <tr>
       <td><a href="../apps_md/inputproto"><strong>inputproto</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Library</td>
       <td>NEGISHI</td>
     </tr>
     <tr>
@@ -547,7 +547,7 @@ As of **April 27, 2026**, there have been a total of **274** applications with *
     </tr>
     <tr>
       <td><a href="../apps_md/java"><strong>java</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Programming</td>
       <td>GILBRETH</td>
     </tr>
     <tr>
@@ -562,17 +562,17 @@ As of **April 27, 2026**, there have been a total of **274** applications with *
     </tr>
     <tr>
       <td><a href="../apps_md/kbproto"><strong>kbproto</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Library</td>
       <td>NEGISHI</td>
     </tr>
     <tr>
       <td><a href="../apps_md/kokkos"><strong>kokkos</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Library</td>
       <td>ANVIL</td>
     </tr>
     <tr>
       <td><a href="../apps_md/krb5"><strong>krb5</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Utilities</td>
       <td>ANVIL</td>
     </tr>
     <tr>
@@ -732,7 +732,7 @@ As of **April 27, 2026**, there have been a total of **274** applications with *
     </tr>
     <tr>
       <td><a href="../apps_md/mesa-glu"><strong>mesa-glu</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Library</td>
       <td>ANVIL, BELL, GAUTSCHI, GILBRETH, NEGISHI, SCHOLAR</td>
     </tr>
     <tr>
@@ -742,12 +742,12 @@ As of **April 27, 2026**, there have been a total of **274** applications with *
     </tr>
     <tr>
       <td><a href="../apps_md/motif"><strong>motif</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Library</td>
       <td>BELL, GAUTSCHI, NEGISHI, SCHOLAR</td>
     </tr>
     <tr>
       <td><a href="../apps_md/mpc"><strong>mpc</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Library</td>
       <td>ANVIL, BELL, NEGISHI</td>
     </tr>
     <tr>
@@ -762,7 +762,7 @@ As of **April 27, 2026**, there have been a total of **274** applications with *
     </tr>
     <tr>
       <td><a href="../apps_md/mrbayes"><strong>mrbayes</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Bioinformatics</td>
       <td>ANVIL</td>
     </tr>
     <tr>
@@ -792,7 +792,7 @@ As of **April 27, 2026**, there have been a total of **274** applications with *
     </tr>
     <tr>
       <td><a href="../apps_md/ncurses"><strong>ncurses</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Library</td>
       <td>ANVIL, NEGISHI</td>
     </tr>
     <tr>
@@ -832,7 +832,7 @@ As of **April 27, 2026**, there have been a total of **274** applications with *
     </tr>
     <tr>
       <td><a href="../apps_md/numactl"><strong>numactl</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Utilities</td>
       <td>ANVIL, NEGISHI</td>
     </tr>
     <tr>
@@ -857,7 +857,7 @@ As of **April 27, 2026**, there have been a total of **274** applications with *
     </tr>
     <tr>
       <td><a href="../apps_md/oclfpga"><strong>oclfpga</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Engineering</td>
       <td>ANVIL, GAUTSCHI, SCHOLAR</td>
     </tr>
     <tr>
@@ -902,7 +902,7 @@ As of **April 27, 2026**, there have been a total of **274** applications with *
     </tr>
     <tr>
       <td><a href="../apps_md/pandoc"><strong>pandoc</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Utilities</td>
       <td>BELL, GAUTSCHI, GILBRETH, SCHOLAR</td>
     </tr>
     <tr>
@@ -912,7 +912,7 @@ As of **April 27, 2026**, there have been a total of **274** applications with *
     </tr>
     <tr>
       <td><a href="../apps_md/papi"><strong>papi</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Library</td>
       <td>ANVIL, NEGISHI</td>
     </tr>
     <tr>
@@ -937,22 +937,22 @@ As of **April 27, 2026**, there have been a total of **274** applications with *
     </tr>
     <tr>
       <td><a href="../apps_md/pcre"><strong>pcre</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Library</td>
       <td>ANVIL</td>
     </tr>
     <tr>
       <td><a href="../apps_md/pcre2"><strong>pcre2</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Library</td>
       <td>NEGISHI</td>
     </tr>
     <tr>
       <td><a href="../apps_md/perl-bioperl"><strong>perl-bioperl</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Programming</td>
       <td>ANVIL</td>
     </tr>
     <tr>
       <td><a href="../apps_md/perl"><strong>perl</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Programming</td>
       <td>ANVIL, NEGISHI</td>
     </tr>
     <tr>
@@ -962,7 +962,7 @@ As of **April 27, 2026**, there have been a total of **274** applications with *
     </tr>
     <tr>
       <td><a href="../apps_md/picard"><strong>picard</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Bioinformatics</td>
       <td>ANVIL</td>
     </tr>
     <tr>
@@ -977,7 +977,7 @@ As of **April 27, 2026**, there have been a total of **274** applications with *
     </tr>
     <tr>
       <td><a href="../apps_md/pixman"><strong>pixman</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Library</td>
       <td>ANVIL, NEGISHI</td>
     </tr>
     <tr>
@@ -992,7 +992,7 @@ As of **April 27, 2026**, there have been a total of **274** applications with *
     </tr>
     <tr>
       <td><a href="../apps_md/protobuf"><strong>protobuf</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Library</td>
       <td>ANVIL, BELL, GILBRETH, NEGISHI</td>
     </tr>
     <tr>
@@ -1027,12 +1027,12 @@ As of **April 27, 2026**, there have been a total of **274** applications with *
     </tr>
     <tr>
       <td><a href="../apps_md/qgis"><strong>qgis</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Geoscience</td>
       <td>ANVIL, BELL, GAUTSCHI, GILBRETH, NEGISHI, SCHOLAR</td>
     </tr>
     <tr>
       <td><a href="../apps_md/qt"><strong>qt</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Library</td>
       <td>ANVIL, BELL, GILBRETH, NEGISHI</td>
     </tr>
     <tr>
@@ -1092,7 +1092,7 @@ As of **April 27, 2026**, there have been a total of **274** applications with *
     </tr>
     <tr>
       <td><a href="../apps_md/rclone"><strong>rclone</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Utilities</td>
       <td>ANVIL, BELL, GAUTSCHI, GILBRETH, NEGISHI</td>
     </tr>
     <tr>
@@ -1102,7 +1102,7 @@ As of **April 27, 2026**, there have been a total of **274** applications with *
     </tr>
     <tr>
       <td><a href="../apps_md/renderproto"><strong>renderproto</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Library</td>
       <td>ANVIL, NEGISHI</td>
     </tr>
     <tr>
@@ -1122,7 +1122,7 @@ As of **April 27, 2026**, there have been a total of **274** applications with *
     </tr>
     <tr>
       <td><a href="../apps_md/sas"><strong>sas</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Math/Stat</td>
       <td>BELL, SCHOLAR</td>
     </tr>
     <tr>
@@ -1137,17 +1137,17 @@ As of **April 27, 2026**, there have been a total of **274** applications with *
     </tr>
     <tr>
       <td><a href="../apps_md/seaborn"><strong>seaborn</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Programming</td>
       <td>GAUTSCHI</td>
     </tr>
     <tr>
       <td><a href="../apps_md/sentaurus"><strong>sentaurus</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Engineering</td>
       <td>BELL, NEGISHI</td>
     </tr>
     <tr>
       <td><a href="../apps_md/setuptools"><strong>setuptools</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Programming</td>
       <td>GAUTSCHI</td>
     </tr>
     <tr>
@@ -1172,17 +1172,17 @@ As of **April 27, 2026**, there have been a total of **274** applications with *
     </tr>
     <tr>
       <td><a href="../apps_md/stata-mp"><strong>stata-mp</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Math/Stat</td>
       <td>BELL, SCHOLAR</td>
     </tr>
     <tr>
       <td><a href="../apps_md/stata"><strong>stata</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Math/Stat</td>
       <td>BELL, GAUTSCHI, NEGISHI, SCHOLAR</td>
     </tr>
     <tr>
       <td><a href="../apps_md/swig"><strong>swig</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Utilities</td>
       <td>ANVIL, NEGISHI</td>
     </tr>
     <tr>
@@ -1192,52 +1192,52 @@ As of **April 27, 2026**, there have been a total of **274** applications with *
     </tr>
     <tr>
       <td><a href="../apps_md/tbb"><strong>tbb</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Library</td>
       <td>ANVIL, GAUTSCHI, SCHOLAR</td>
     </tr>
     <tr>
       <td><a href="../apps_md/tcl"><strong>tcl</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Programming, Library</td>
       <td>ANVIL, BELL, NEGISHI</td>
     </tr>
     <tr>
       <td><a href="../apps_md/tecplot"><strong>tecplot</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Audio/Visual</td>
       <td>BELL, GAUTSCHI, GILBRETH, NEGISHI, SCHOLAR</td>
     </tr>
     <tr>
       <td><a href="../apps_md/texinfo"><strong>texinfo</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Utilities</td>
       <td>BELL</td>
     </tr>
     <tr>
       <td><a href="../apps_md/texlive"><strong>texlive</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Utilities</td>
       <td>ANVIL, BELL, GAUTSCHI, GILBRETH, NEGISHI, SCHOLAR</td>
     </tr>
     <tr>
       <td><a href="../apps_md/thermocalc"><strong>thermocalc</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Chemistry, Material Science</td>
       <td>BELL, NEGISHI</td>
     </tr>
     <tr>
       <td><a href="../apps_md/tk"><strong>tk</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Library</td>
       <td>ANVIL, BELL, NEGISHI</td>
     </tr>
     <tr>
       <td><a href="../apps_md/tophat"><strong>tophat</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Bioinformatics</td>
       <td>ANVIL</td>
     </tr>
     <tr>
       <td><a href="../apps_md/totalview"><strong>totalview</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Utilities</td>
       <td>ANVIL, BELL, GAUTSCHI, GILBRETH, NEGISHI, SCHOLAR</td>
     </tr>
     <tr>
       <td><a href="../apps_md/trimmomatic"><strong>trimmomatic</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Bioinformatics</td>
       <td>ANVIL</td>
     </tr>
     <tr>
@@ -1247,7 +1247,7 @@ As of **April 27, 2026**, there have been a total of **274** applications with *
     </tr>
     <tr>
       <td><a href="../apps_md/udunits"><strong>udunits</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Library, Geoscience</td>
       <td>ANVIL, NEGISHI</td>
     </tr>
     <tr>
@@ -1257,7 +1257,7 @@ As of **April 27, 2026**, there have been a total of **274** applications with *
     </tr>
     <tr>
       <td><a href="../apps_md/valgrind"><strong>valgrind</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Utilities</td>
       <td>ANVIL, BELL, NEGISHI</td>
     </tr>
     <tr>
@@ -1272,7 +1272,7 @@ As of **April 27, 2026**, there have been a total of **274** applications with *
     </tr>
     <tr>
       <td><a href="../apps_md/vim"><strong>vim</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Utilities</td>
       <td>BELL</td>
     </tr>
     <tr>
@@ -1307,7 +1307,7 @@ As of **April 27, 2026**, there have been a total of **274** applications with *
     </tr>
     <tr>
       <td><a href="../apps_md/vtune"><strong>vtune</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Utilities</td>
       <td>GAUTSCHI, SCHOLAR</td>
     </tr>
     <tr>
@@ -1317,7 +1317,7 @@ As of **April 27, 2026**, there have been a total of **274** applications with *
     </tr>
     <tr>
       <td><a href="../apps_md/wheel"><strong>wheel</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Programming</td>
       <td>GAUTSCHI</td>
     </tr>
     <tr>
@@ -1327,7 +1327,7 @@ As of **April 27, 2026**, there have been a total of **274** applications with *
     </tr>
     <tr>
       <td><a href="../apps_md/xcb-proto"><strong>xcb-proto</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Library</td>
       <td>ANVIL, NEGISHI</td>
     </tr>
     <tr>
@@ -1337,47 +1337,47 @@ As of **April 27, 2026**, there have been a total of **274** applications with *
     </tr>
     <tr>
       <td><a href="../apps_md/xcb-util-image"><strong>xcb-util-image</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Library</td>
       <td>ANVIL, BELL, GAUTSCHI, GILBRETH, NEGISHI, SCHOLAR</td>
     </tr>
     <tr>
       <td><a href="../apps_md/xcb-util-keysyms"><strong>xcb-util-keysyms</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Library</td>
       <td>ANVIL, BELL, GAUTSCHI, GILBRETH, NEGISHI, SCHOLAR</td>
     </tr>
     <tr>
       <td><a href="../apps_md/xcb-util-renderutil"><strong>xcb-util-renderutil</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Library</td>
       <td>ANVIL, BELL, GAUTSCHI, GILBRETH, NEGISHI, SCHOLAR</td>
     </tr>
     <tr>
       <td><a href="../apps_md/xcb-util-wm"><strong>xcb-util-wm</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Library</td>
       <td>ANVIL, BELL, GAUTSCHI, GILBRETH, NEGISHI, SCHOLAR</td>
     </tr>
     <tr>
       <td><a href="../apps_md/xcb-util"><strong>xcb-util</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Library</td>
       <td>NEGISHI</td>
     </tr>
     <tr>
       <td><a href="../apps_md/xextproto"><strong>xextproto</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Library</td>
       <td>ANVIL, NEGISHI</td>
     </tr>
     <tr>
       <td><a href="../apps_md/xproto"><strong>xproto</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Library</td>
       <td>ANVIL, NEGISHI</td>
     </tr>
     <tr>
       <td><a href="../apps_md/xtrans"><strong>xtrans</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Library</td>
       <td>NEGISHI</td>
     </tr>
     <tr>
       <td><a href="../apps_md/xz"><strong>xz</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Utilities</td>
       <td>ANVIL, NEGISHI</td>
     </tr>
     <tr>

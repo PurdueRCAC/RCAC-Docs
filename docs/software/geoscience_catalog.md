@@ -5,6 +5,7 @@ Geoscience software supports simulation and analysis of Earth system processes s
 * [**cdo**](apps_md/cdo.md)
 * [**gdal**](apps_md/gdal.md)
 * [**geos**](apps_md/geos.md)
+* [**gmt**](apps_md/gmt.md)
 * [**grads**](apps_md/grads.md)
 * [**hdf**](apps_md/hdf.md)
 * [**hdf5**](apps_md/hdf5.md)
@@ -18,3 +19,5 @@ Geoscience software supports simulation and analysis of Earth system processes s
 * [**panoply**](apps_md/panoply.md)
 * [**parallel-netcdf**](apps_md/parallel-netcdf.md)
 * [**proj**](apps_md/proj.md)
+* [**qgis**](apps_md/qgis.md)
+* [**udunits**](apps_md/udunits.md)

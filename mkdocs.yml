@@ -141,6 +141,7 @@ nav:
       - All Software: software/app_catalog.md
       - Compilers: software/compilers_catalog.md
       - MPIs: software/mpi_catalog.md
+      - Bioinformatics: software/bioinformatics_catalog.md
       - Computational Chemistry: software/chemistry_catalog.md
       - Fluid Dynamics: software/fluid_dynamics_catalog.md
       - Audio/Visualization: software/audio_visual_catalog.md
