@@ -86,4 +86,14 @@ jq -r 'keys[]' "$INV_FILE" | while IFS= read -r app; do
   } > "$md_file"
 done
 
+# Remove stale .md files no longer present in the inventory
+mapfile -t inv_apps < <(jq -r 'keys[]' "$INV_FILE")
+find "$MD_DIR" -type f -name "*.md" | while read -r md_file; do
+  app=$(basename "$md_file" .md)
+  if ! printf '%s\n' "${inv_apps[@]}" | grep -qx "$app"; then
+    echo "Removing stale: $md_file"
+    rm "$md_file"
+  fi
+done
+
 echo "✅ Generated markdown files in $MD_DIR"

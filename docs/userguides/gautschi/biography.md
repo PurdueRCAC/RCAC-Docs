@@ -8,7 +8,7 @@ search:
 ---
 
 # Walter Gautschi
-![Image title](../../assets/bio_gautschi.jpg){ align=right }
+![Image title](../../assets/images/userguides/gautschi/bio_gautschi.jpg){ align=right }
 
 Professor Gautschi is the Professor Emeritus of Computer Science and Mathematics in the Department of Computer Science at Purdue. Before coming to Purdue, Professor Gautschi did postdoctoral work as a Janggen-Pöhn Research Fellow at the National Institute of Applied Mathematics in Rome and at the Harvard Computation Laboratory. He also held positions at the National Bureau of Standards, the American University, the Oak Ridge National Laboratory, and the University of Tennessee. Since coming to Purdue, he has been a Fulbright Scholar at the Technical University of Munich and has held visiting appointments at the University of Wisconsin, Argonne National Laboratory, the Wright-Patterson Air Force Base, ETH Zurich, the University of Padova, and the University of Basel. 
 
