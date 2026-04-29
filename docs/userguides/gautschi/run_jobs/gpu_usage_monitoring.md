@@ -32,7 +32,8 @@ You can check all the jobs that you've run with the ```-u``` or ```--user_jobs``
 
 This will print a table of all the GPU jobs you have submitted to the cluster, with the job ID, start and end times, and the number of GPUs that that job had allocated to it:
 
-![The image depicts an example output from the GPU monitoring utility](gpu_usage_monitoring.png)
+![GPU jobs table](../../../assets/images/userguides/gpu_usage_monitoring.png)
+<figcaption>A table of GPU jobs submitted to the cluster.</figcaption>
 
 It should be noted that we collect GPU usage information every 3 - 3.5 hours. If you have recently submitted a job, your job may not be available yet.
 
@@ -46,7 +47,8 @@ If you want to view the GPU utilization of a specific job, you can use the ```-j
 
 This will print a table of the GPU memory and utilization for each GPU that was allocated for the specified job:
 
-![The image depicts an example output from the GPU monitoring utility of a specific job](gpu_usage_monitoring2.png)
+![GPU and Mem usage table](../../../assets/images/userguides/gpu_usage_monitoring2.png)
+<figcaption>A table of GPU and memory utilization.</figcaption>
 
 ## Plotting Data
 
@@ -58,7 +60,8 @@ It is also possible to plot the GPU utilization and memory usage over time with 
 
 This will print two graphs. The first will be a 2-minute rolling average of the GPU utilization over time, and the second will be the percentage of memory used over time. Each GPU will be colored differently:
 
-![The image depicts two example graphs from the GPU monitoring utility showing GPU and memory usage over time](gpu_usage_monitoring3.png)
+![GPU plot](../../../assets/images/userguides/gpu_usage_monitoring3.png)
+<figcaption>A graph showing GPU utilization over time.</figcaption>
 
 ## Saving GPU Data
 

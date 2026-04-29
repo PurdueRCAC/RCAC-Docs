@@ -17,3 +17,9 @@ search:
 
 ## SSH Keys
 {{ ssh_keys_snippet(resource) }}
+
+## SSH X11 Forwarding
+{{ ssh_x11_snippet(resource) }}
+
+## Thinlinc
+{{ thinlinc_snippet(resource) }}

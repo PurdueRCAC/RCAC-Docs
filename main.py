@@ -216,24 +216,25 @@ The ThinLinc service can be accessed from your web browser as a convenience to i
 
   * Open the Options panel, and select Public key as your authentication method on the Security tab.
 
-    ![ThinLinc Options window](/userguides/accounts/thinlinc1.png)
-
-
-    The "Options..." button in the ThinLinc Client can be found towards the bottom left, above the "Connect" button.
+    <figure style="text-align: center;">
+        ![ThinLinc Options window](/assets/images/userguides/thinlinc1.png)
+        <figcaption>The "Options..." button in the ThinLinc Client can be found towards the bottom left, above the "Connect" button.</figcaption>
+    </figure>
   
   * In the options dialog, switch to the "Security" tab and select the "Public key" radio button:
 
-    ![ThinLinc's Security tab](/userguides/accounts/thinlinc2.png)
-
-    The "Security" tab found in the options dialog, will be the last of available tabs. The "Public key" option can be found in the "Authentication method" options group.
+    <figure style="text-align: center;">
+        ![ThinLinc Options window](/assets/images/userguides/thinlinc2.png)
+        <figcaption>The "Security" tab found in the options dialog, will be the last of available tabs. The "Public key" option can be found in the "Authentication method" options group.</figcaption>
+    </figure>
 
   * Click OK to return to the ThinLinc Client login window. You should now see a Key field in place of the Password field.
   * In the Key field, type the path to your locally stored private key or click the `...` button to locate and select the key on your local system. **Note:** If *PuTTY* is used to generate the SSH Key pairs, please choose the private key in the openssh format.
 
-    ![Thinlinc login with key](/userguides/accounts/thinlinc3.png)
-
-    The ThinLinc Client login window will now display key field instead of a password field.
-
+    <figure style="text-align: center;">
+        ![ThinLinc Options window](/assets/images/userguides/thinlinc3.png)
+        <figcaption>The ThinLinc Client login window will now display key field instead of a password field.</figcaption>
+    </figure>
 """
     
     @env.macro
@@ -522,13 +523,6 @@ Mac OS X:
 
 !!! important
     When prompted to enter a password, enter your Purdue career account password **followed by "**`,push` **"**. Your Duo app will then receive a notification to approve the login.
-
-### SSH Keys
-SSH keys can be used in lieu of the Duo passphrase "password,push" for password-less logins. Refer to the blog post [here](../../blog/posts/ssh_key_creation.md) for more information.
-
-
-### ThinLinc
-It's possible to login to {cluster} using the ThinLinc desktop app. Refer to the blog post [here](../../blog/posts/thinlinc-login.md) for more information on the installation and login steps.
 """
     
     @env.macro
