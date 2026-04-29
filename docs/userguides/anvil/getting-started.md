@@ -238,7 +238,7 @@ Navigate to [Anvil OnDemand](https://ondemand.anvil.rcac.purdue.edu/) and use yo
 ## ThinLinc
 
 !!! note
-    For your first time accessing Anvil using ThinLinc client, your desktop might be locked after it has been idle for more than 5 minutes. It is because in the default settings, the "screensaver" and "lock screen" are turned on. To solve this issue, please refer to the [FAQs Page PLACEHOLDER](/knowledge/anvil/policies/faq/login/questions/what_if_my_thinlinc_screen_is_locked).
+    For your first time accessing Anvil using ThinLinc client, your desktop might be locked after it has been idle for more than 5 minutes. It is because in the default settings, the "screensaver" and "lock screen" are turned on. To solve this issue, please refer to the [FAQs Page](./faqs.md/#what-if-my-thinlinc-screen-is-locked).
 
 Anvil provides [Cendio's *ThinLinc*](https://www.cendio.com/thinlinc/what-is-thinlinc) as an alternative to running an X11 server directly on your computer. It allows you to run graphical applications or graphical interactive jobs directly on Anvil through a persistent remote graphical desktop session.
 

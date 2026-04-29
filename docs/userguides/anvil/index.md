@@ -13,6 +13,7 @@
 - [**File Management**](file_management.md)
 - [**Anvil Software**](anvil-software.md)
 - [**Help Desk**](help.md)
+- [**Frequently Asked Questions**](faqs.md)
 
 ## Other Services
 
