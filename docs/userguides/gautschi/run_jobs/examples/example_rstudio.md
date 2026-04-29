@@ -21,11 +21,11 @@ module load rstudio
 rstudio
 ```
 
-Note that RStudio is a graphical program and in order to run it you must have a local X11 server running or use [Thinlinc PLACEHOLDER](https://rcac.purdue.edu/knowledge/gautschi/accounts/login/thinlinc) Remote Desktop environment. See the [ssh X11 forwarding section PLACEHOLDER](https://rcac.purdue.edu/knowledge/gautschi/accounts/login/x11) for more details.
+Note that RStudio is a graphical program and in order to run it you must have a local X11 server running or use [Thinlinc](../../accounts.md#thinlinc) Remote Desktop environment. See the [ssh X11 forwarding section](../../accounts.md#ssh-x11-forwarding) for more details.
 
 ## Launch Rstudio via the application menu icon:
 
-- Log into desktop.gautschi.rcac.purdue.edu with web browser or [ThinLinc PLACEHOLDER](https://rcac.purdue.edu/knowledge/gautschi/accounts/login/thinlinc) client
+- Log into desktop.gautschi.rcac.purdue.edu with web browser or [ThinLinc](../../accounts.md#thinlinc) client
 - Click on the ```Applications``` drop down menu on the top left corner
 - Choose ```Cluster Software``` and then ```RStudio```
 
