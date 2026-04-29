@@ -91,7 +91,7 @@ nav:
       - File Management: userguides/anvil/file_management.md
       - Anvil Software: userguides/anvil/anvil-software.md
       - Help Desk: userguides/anvil/help.md
-      - Frequently Asked Questions: userguides/anvil/faq.md
+      - Frequently Asked Questions: userguides/anvil/faqs.md
       - Anvil Composable Subsystem:
         - userguides/anvil/composable/index.md
         - Getting Started: userguides/anvil/composable/getting-started.md
