@@ -16,7 +16,7 @@ this is called *standard output*, or `stdout`. The shell defines `stdin`, `stdou
 | `2` | `stderr` | Attached as a secondary output for errors |
 
 
-![Image showing stdin going into a program, and the stdout and stderr coming out of the program](../_static/file_descriptors.png)
+![Image showing stdin going into a program, and the stdout and stderr coming out of the program](/assets/images/workshops/hpc_exchange/file_descriptors.png)
 
 You can also redirect these file descriptors to attach to files other than the console.
 
@@ -45,7 +45,7 @@ $ cat message.txt
 Hello, world!
 ```
 
-![Image showing a program sending stdout to a file titled message.txt, with the command program > message.txt](../_static/pipe_to_file.png)
+![Image showing a program sending stdout to a file titled message.txt, with the command program > message.txt](/assets/images/workshops/hpc_exchange/pipe_to_file.png)
 
 
 
@@ -56,7 +56,7 @@ $ cat message.txt | wc --chars
 14
 ```
 
-![An image of a program sending its stdout to a second program prog2 with the command program | prog2](../_static/pipe.png)
+![An image of a program sending its stdout to a second program prog2 with the command program | prog2](/assets/images/workshops/hpc_exchange/pipe.png)
 
 
 !!! tip "`wc` program"

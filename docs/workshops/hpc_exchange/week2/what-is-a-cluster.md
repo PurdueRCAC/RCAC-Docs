@@ -19,7 +19,7 @@ Different nodes can also have different purposes, such as **login** vs. **comput
 Here is what a node looks like and what it is
 made up of:
 
-![An image showing on the left the makeup of a node, that has cores as a part of a socket and memory alongside that socket. On the right, it shows an image of an actual node, an HPE Cray XD2000.](../_static/node.png)
+![An image showing on the left the makeup of a node, that has cores as a part of a socket and memory alongside that socket. On the right, it shows an image of an actual node, an HPE Cray XD2000.](/assets/images/workshops/hpc_exchange/node.png)
 
 Each node has one or more sockets that are each made up of a number of cores. Each socket has its own memory associated with it. There are many other components that can make up a node, such as disk space, or GPUs.
 
@@ -33,7 +33,7 @@ Very broadly, a cluster is just a collection on nodes, which are able to communi
 
 When you log into the cluster, you are put onto a login node, which is limited in resources and not suitable for doing actual research. You need to interact with the scheduler (which we will talk about today in the [Cluster Job Submission](./slurm-basics.md) section) to move from the login nodes to the compute nodes.
 
-![Overview of cluster](../_static/cluster_overview.png)
+![Overview of cluster](/assets/images/workshops/hpc_exchange/cluster_overview.png)
 
 You can typically tell what node (and node type) you are on by looking at your command prompt:
 ```
@@ -51,7 +51,7 @@ login00.cluster.rcac.purdue.edu
 
 It is important to understand that many filesystems on the cluster are **shared across nodes**. 
 
-![An image showing all nodes on a cluster mounting the same filesystems](../_static/cluster_filemount.png)
+![An image showing all nodes on a cluster mounting the same filesystems](/assets/images/workshops/hpc_exchange/cluster_filemount.png)
 
 If you create a file in your home directory on a login node, that same file will be available on any of the compute nodes, because all of the nodes are mounting the same home directory filesystem.
 

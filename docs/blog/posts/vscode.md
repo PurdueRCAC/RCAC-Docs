@@ -45,7 +45,7 @@ Visual Studio Code (VS Code or Code) is a popular IDE growing in usage in HPC. I
 - Search for "Remote - SSH" in the Extensions Marketplace.
 - Click "Install" to add the extension to your VS Code setup.
 
-![VS code Remote SSH Extension](../blog_assets/vscode-extension.png)
+![VS code Remote SSH Extension](/assets/images/blog/vscode-extension.png)
 
 ## 3. Set Up SSH Keys
 
@@ -97,7 +97,7 @@ You can connect to the RCAC clusters using VS Code's Remote - SSH extension:
 
 Click on the left bottom corner of VS Code where it says "Open a Remote Window" and select "Remote-SSH: Connect to Host...". Then choose the cluster you want to connect to (e.g., `gautschi`, `negishi`, or `bell`).
 
-![VS Code Remote SSH](../blog_assets/vscode-connect.png)
+![VS Code Remote SSH](/assets/images/blog/vscode-connect.png)
 
 **Option 2:**
 

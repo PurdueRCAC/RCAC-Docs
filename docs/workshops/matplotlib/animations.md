@@ -63,7 +63,7 @@ def update(frame):
 ani = animation.FuncAnimation(fig=fig, func=update, frames=num_steps, interval=50)
 ani.save('animated.gif')
 ```
-![A gif of a random walk on loop, generated using FuncAnimation.](./_static/animated.gif "FuncAnimation Gif")
+![A gif of a random walk on loop, generated using FuncAnimation.](/assets/images/workshops/matplotlib/animated.gif "FuncAnimation Gif")
 
 ## ArtistAnimation
 
@@ -117,7 +117,7 @@ for step in steps:
 ani = animation.ArtistAnimation(fig=fig, artists=artists, interval=50)
 ani.save('artists.gif')
 ```
-![A gif of a random walk on loop, generated using ArtistAnimation. This one, the previous steps of the random walk gradually get more transparent until you cannot see them anymore.](./_static/artists.gif "ArtistAnimation Gif")
+![A gif of a random walk on loop, generated using ArtistAnimation. This one, the previous steps of the random walk gradually get more transparent until you cannot see them anymore.](/assets/images/workshops/matplotlib/artists.gif "ArtistAnimation Gif")
 
 
 <!---
@@ -168,7 +168,7 @@ for step in steps[1:]:
 os.system('ffmpeg -hide_banner -loglevel panic -y -r 15 -f image2 -i ffmpeg%04d.png -vf "scale=500:-1:flags=lanczos,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse" ffmpeg.gif')
 os.system('rm ffmpeg*.png')
 ```
-![A gif of a random walk on loop. This one, the previous steps of the random walk gradually get more transparent until you cannot see them anymore.](./_static/ffmpeg.gif "FFmpeg Gif")
+![A gif of a random walk on loop. This one, the previous steps of the random walk gradually get more transparent until you cannot see them anymore.](/assets/images/workshops/matplotlib/ffmpeg.gif "FFmpeg Gif")
 -->
 
 !!! note "Optimization"

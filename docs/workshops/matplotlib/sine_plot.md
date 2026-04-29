@@ -55,7 +55,7 @@ python Sine_plot.py
 ```
 
 We should get a plot that looks like this:
-![An image showing a plotting frame, which contains a rather jagged version of a sine function](./_static/Sin_plot.png "Sine Plot")
+![An image showing a plotting frame, which contains a rather jagged version of a sine function](/assets/images/workshops/matplotlib/Sin_plot.png "Sine Plot")
 
 However, that looks rather jagged. To get an idea of what is happening, we can add markers to the points that are plotted by adding an option to the `ax.plot()` command:
 
@@ -63,7 +63,7 @@ However, that looks rather jagged. To get an idea of what is happening, we can a
 ax.plot(x_values,y_values,marker='*')
 ```
 
-![An image showing a plotting frame, which contains a rather jagged version of a sine function, but now with stars at the points that are used to plot the lines.](./_static/Sin_star_plot.png "Sine Plot with Stars")
+![An image showing a plotting frame, which contains a rather jagged version of a sine function, but now with stars at the points that are used to plot the lines.](/assets/images/workshops/matplotlib/Sin_star_plot.png "Sine Plot with Stars")
 
 What can we do to improve the smoothness of the plot? The way to do this is to increase the number of points plotted. Right now, we are just plotting the integers from 0 to 9, but we want to plot some points in between. We could manually add points to a list for the x-values, but there is a better way: using NumPy's `linspace` function. It generates a NumPy array (which is easier to manipulate with math functions than a list), with three imputs to the function. They are, in order, the starting number, the ending number, and the number of points to make up the range. Modify the `x_values` assignment to use the NumPy `linspace` function like so:
 ```python
@@ -79,7 +79,7 @@ python Sine_plot.py
 ```
 
 And get a plot that looks like this:
-![An image showing a plotting frame, which contains a much smoother version of a sine function](./_static/Sin_plot_smooth.png "Smooth Sine Plot")
+![An image showing a plotting frame, which contains a much smoother version of a sine function](/assets/images/workshops/matplotlib/Sin_plot_smooth.png "Smooth Sine Plot")
 
 That is much smoother now!
 
@@ -94,7 +94,7 @@ plt.style.use('ggplot')
 After the import statements and before the figure creation.
 
 Doing this in our `Sine_plot.py` script yields a plot that looks like this:
-![An image showing a plotting frame, which contains a sine function but the style is akin to that used by R's ggPlot package.](./_static/ggPlot.png "Sine ggPlot")
+![An image showing a plotting frame, which contains a sine function but the style is akin to that used by R's ggPlot package.](/assets/images/workshops/matplotlib/ggPlot.png "Sine ggPlot")
 
 You can see all available style sheets by running this command:
 ```python
@@ -166,7 +166,7 @@ After we run this script from the terminal:
 python Sin_plot.py
 ```
 We should get a plot that looks like this:
-![An image showing a plotting frame, which contains a sine function but contains a title (Sine Example), x- and y-axis labels ('Input x-Values' and 'Sine of x', respectively)](./_static/Formatted_plot.png "Sine Plot Formatted")
+![An image showing a plotting frame, which contains a sine function but contains a title (Sine Example), x- and y-axis labels ('Input x-Values' and 'Sine of x', respectively)](/assets/images/workshops/matplotlib/Formatted_plot.png "Sine Plot Formatted")
 
 Notice that now the plot is no longer square, as the aspect ratio and the plot limits have dictated that the plot is longer in the x-direction than it is in the y-direction.
 

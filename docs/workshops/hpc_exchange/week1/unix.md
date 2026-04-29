@@ -79,7 +79,7 @@ Some names exist only at the root of the file system and others are repeated in 
 * **/lib** - includes system libraries necessary for the binaries
 * **/etc** - often contains system configuration files
 
-![Image showing top level directories of the linux filesystem](../_static/filesystem_root.png)
+![Image showing top level directories of the linux filesystem](/assets/images/workshops/hpc_exchange/filesystem_root.png)
 
 There's lots of other top-level directories that you might come across like `/boot`, `/sys`, `/mnt`, `/tmp`, and others. Luckily, as a user you rarely will have to deal with these. Almost all of your day to day work is done in `/home`.
 

@@ -43,7 +43,7 @@ Once we run this from the terminal:
 python multi_line.py
 ```
 We will get a plot that looks like this:
-![An image showing a plotting frame, which contains a sine function and a cosine function. The sine function is colored blue, and the cosine function is colored orange.](./_static/Double_line.png "Sine and Cosine Plot")
+![An image showing a plotting frame, which contains a sine function and a cosine function. The sine function is colored blue, and the cosine function is colored orange.](/assets/images/workshops/matplotlib/Double_line.png "Sine and Cosine Plot")
 
 ## Styling Lines
 
@@ -73,7 +73,7 @@ ax.plot(x_values,-y2_values,label=r'$-\cos$ label',marker='^',color='green',line
 ```
 
 If you add these to your `multi_line.py` file, you will get a plot that looks like this:
-![An image showing a plotting frame, which contains sine and cosine functions. The first line is blue, with dots as markers, and a solid line. The second line is orange with stars for markers and a dotted line. The third line has plusses for markers, is black, and is dashed. The last line is green, has triangles for markers, and the line is a dash-dot style.](./_static/Quad_line.png "Stylings Plot")
+![An image showing a plotting frame, which contains sine and cosine functions. The first line is blue, with dots as markers, and a solid line. The second line is orange with stars for markers and a dotted line. The third line has plusses for markers, is black, and is dashed. The last line is green, has triangles for markers, and the line is a dash-dot style.](/assets/images/workshops/matplotlib/Quad_line.png "Stylings Plot")
 
 !!! note "Notice"
 
@@ -107,7 +107,7 @@ plt.show()
 ```
 
 If we run it from the terminal (`python Multi_plot.py`), it will result in a figure that looks like this:
-![An image showing two plotting frames, which are stacked vertically, but do not have any lines within them.](./_static/Vertical_empty.png "Vertical Multi Plot")
+![An image showing two plotting frames, which are stacked vertically, but do not have any lines within them.](/assets/images/workshops/matplotlib/Vertical_empty.png "Vertical Multi Plot")
 
 If we want to add data to each of the axes, we can simply do `top_axes.plot()` and `bottom_axes.plot()` commands. If we generate the data as we did before, our script would look like this:
 
@@ -127,7 +127,7 @@ bottom_axes.plot(x_values,y2_values)
 plt.show()
 ```
 If we run this with `python Multi_plot.py` in the terminal, it gives us a figure that looks like this:
-![An image showing two plotting frames, which are stacked vertically. The top plot shows a sine wave and the bottom plot shows a cosine wave.](./_static/Vertical_lines.png "Vertical Multi Lines")
+![An image showing two plotting frames, which are stacked vertically. The top plot shows a sine wave and the bottom plot shows a cosine wave.](/assets/images/workshops/matplotlib/Vertical_lines.png "Vertical Multi Lines")
 
 Now, what if we switch the two and the one in the `plt.subplots()` function? And get rid of the data and the plotting parts of the script:
 
@@ -141,7 +141,7 @@ plt.show()
 ```
 
 It stacks the plots horizontally, instead of vertically, like so:
-![An image showing two plotting frames, which are stacked side-by-side, horizontally, but do not have any lines within them.](./_static/Horizontal_empty.png "Horizontal Multi Plot")
+![An image showing two plotting frames, which are stacked side-by-side, horizontally, but do not have any lines within them.](/assets/images/workshops/matplotlib/Horizontal_empty.png "Horizontal Multi Plot")
 
 Now, what if we want to have four plots, how would we format the command?
 
@@ -150,7 +150,7 @@ fig, ((top_left, top_right),(bottom_left, bottom_right)) = plt.subplots(2,2)
 ```
 
 It gives us a figure that looks like this:
-![An image showing four plotting frames, which are stacked two-by-two, but do not have any lines within them.](./_static/Quad_empty.png "Quad Multi Plot")
+![An image showing four plotting frames, which are stacked two-by-two, but do not have any lines within them.](/assets/images/workshops/matplotlib/Quad_empty.png "Quad Multi Plot")
 
 ## Sharing Axes
 
@@ -174,7 +174,7 @@ plt.show()
 
 Note that the only change is in the fourth line, where we add the `sharex=True` option to the invocation. If you run this script, try manipulating one of the plots and see what happens. The resultant figure is shown here:
 
-![An image showing two plotting frames, which are stacked vertically. The top plot shows a sine wave and the bottom plot shows a cosine wave. The top plot does not have any x-axis numbers, as it shares the x-axis span with the bottom plot.](./_static/Sharex_plot.png "Shared x-axis plot")
+![An image showing two plotting frames, which are stacked vertically. The top plot shows a sine wave and the bottom plot shows a cosine wave. The top plot does not have any x-axis numbers, as it shares the x-axis span with the bottom plot.](/assets/images/workshops/matplotlib/Sharex_plot.png "Shared x-axis plot")
 
 ## Non-uniform Layouts
 
@@ -189,7 +189,7 @@ axes   = {"top_left":    fig.add_axes([0.10, 0.55,  0.40, 0.40]),
 
 The first two numbers in the list passed to `fig.add_axes()` are the lower left x-y coordinate in terms of the fraction of the whole figure (i.e. the number should span between 0 and 1). The next two numbers are the width and the height (respectively) of the added axes (also in terms of fraction of the figure). The reason that these are not 0, 0.5, and 1 is that the axes need space for the tick labels (the numbers by the axes). If we run this new configuration of `Multi_plot.py`, we get a plot that looks like this:
 
-![An image showing three plotting frames, two on top and one beneath, and they do not have any lines within them.](./_static/Non-uniform_empty.png "Non-Uniform Multi Plot")
+![An image showing three plotting frames, two on top and one beneath, and they do not have any lines within them.](/assets/images/workshops/matplotlib/Non-uniform_empty.png "Non-Uniform Multi Plot")
 
 Here, to add data to the plots, we would utilize what is called a Python "dictionary". A dictionary in Python is a set of key-value pairs. To access the values, you index the dictionary by the key. The axes variable in the latest configuration is already a dictionary, which you can tell by the curly braces and the colons. The curly braces bookend the set of values, and the colon delimits what the key-value pair is. So, to access the bottom axes, we would use the command: `axes["bottom"]`. From there we could plot, or add limits, labels, or whatever else we desire. Here is an example script that uses the `fig.add_axes()` function:
 
@@ -221,7 +221,7 @@ plt.show()
 
 When we run this from the terminal, it results in a figure that looks like this:
 
-![An image showing three plotting frames, two on top and one beneath. The top left plot shows a sine wave, the top right has a negative sine wave, and the bottom plot contains a cosine wave.](./_static/Non-uniform_lines.png "Non-Uniform Multi Lines")
+![An image showing three plotting frames, two on top and one beneath. The top left plot shows a sine wave, the top right has a negative sine wave, and the bottom plot contains a cosine wave.](/assets/images/workshops/matplotlib/Non-uniform_lines.png "Non-Uniform Multi Lines")
 
 Notice that in this one, the titles are for each axes, not for the entire figure. Also, notice that some of the tick labels of the upper right plot overlap the plot in the top left. Try playing with the `fig.add_axes()` numbers until it looks better.
 

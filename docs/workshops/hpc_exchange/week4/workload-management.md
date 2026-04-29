@@ -41,7 +41,7 @@ To do this, we need two files:
 * A worker script (`myjob.sh`) that runs the tasks.
 
 
-![Diagram showing how a submitter script can submit multiple jobs to slurm](../_static/individual_jobs.png)
+![Diagram showing how a submitter script can submit multiple jobs to slurm](/assets/images/workshops/hpc_exchange/individual_jobs.png)
 
 
 ### Submitter Script
@@ -157,7 +157,7 @@ However, there are limitations on what you can do by submitting many jobs at the
 
 The pilot job paradigm involves submitting a single job that runs multiple tasks. This approach is useful when we need to run many tasks with different inputs.
 
-![Diagram showing a pilot job of 5 python processes getting submitted to slurm](../_static/pilot_job.png)
+![Diagram showing a pilot job of 5 python processes getting submitted to slurm](/assets/images/workshops/hpc_exchange/pilot_job.png)
 
 
 One naive example script that uses the pilot job paradigm:

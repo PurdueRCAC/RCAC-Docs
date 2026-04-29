@@ -86,7 +86,7 @@ navigate to `desktop.CLUSTER.rcac.purdue.edu`, where
 you want to access.
 
 The desktop version of ThinLinc looks like this:
-![Image showing the ThinLinc login portal, with text boxes to enter in the Server, the Username, and the path to the ssh key.](../_static/TL_login.png)
+![Image showing the ThinLinc login portal, with text boxes to enter in the Server, the Username, and the path to the ssh key.](/assets/images/workshops/hpc_exchange/TL_login.png)
 
 
 You may need to click the `Advanced` button to see
@@ -101,7 +101,7 @@ you will see one or two windows pop up that you just need to
 click through and then it will prompt two Duo pushes, that
 you need to approve. After you're logged in, you'll see
 something that looks like this:
-![Image showing what the desktop looks like when logged into a cluster via ThinLinc.](../_static/TL_page.png)
+![Image showing what the desktop looks like when logged into a cluster via ThinLinc.](/assets/images/workshops/hpc_exchange/TL_page.png)
 
 Use ThinLinc, either the browser or desktop version, if
 you want to run any kind of graphical application, like
@@ -128,7 +128,7 @@ trying to access. After you log in through Purdue's normal
 Single Sign On page (no need to add ',push' to your password),
 you should see something like this:
 
-![Image showing what the Open on Demand (Gateway) entrance page, or dashboard, looks like.](../_static/OoD_page.png "Open Ondemand Page")
+![Image showing what the Open on Demand (Gateway) entrance page, or dashboard, looks like.](/assets/images/workshops/hpc_exchange/OoD_page.png "Open Ondemand Page")
 
 To open a shell to enter the Unix commands we will discuss
 this week, click the 'Clusters' menu in the top bar and hit the
@@ -139,13 +139,13 @@ shell available for you to use.
 !!! tip "Accessing on the web"
      Thinlinc and open OnDemand are both available on the "cluster overview" page for any cluster, like [https://www.rcac.purdue.edu/compute/negishi](https://www.rcac.purdue.edu/compute/negishi) for example:
 
-     ![web login page](../_static/web_login.png)
+     ![web login page](/assets/images/workshops/hpc_exchange/web_login.png)
 
 
 <!-- 
 !!! info "You login to the frontend!"
      Reminder that when you log into the front-end (a login node). Don't run large computations here!
 
-     ![cluster_login](../_static/cluster_login.png) -->
+     ![cluster_login](/assets/images/workshops/hpc_exchange/cluster_login.png) -->
 
 Next section: [Unix](./unix.md)

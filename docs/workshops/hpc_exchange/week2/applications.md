@@ -52,7 +52,7 @@ Wait, what? Why didn't that work? The system doesn't know about python yet, we h
 
 There are too many versions and conflicting software to have every version of every application pre-installed for all users all the time. To get around this problem, we use a module system called `Lmod`. This module system can load and unload programs and commands within your shell environment.
 
-![Image showing three module load commands making additional commands available](../_static/module_system.png)
+![Image showing three module load commands making additional commands available](/assets/images/workshops/hpc_exchange/module_system.png)
 
 As an example, run the command `module list` to list all currently loaded modules:
 

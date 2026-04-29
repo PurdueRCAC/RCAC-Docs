@@ -33,7 +33,7 @@ We are excited to announce the launch of the redesigned **RCAC Documentation Web
 
 The search bar in the header searches **every page at once** — user guides, software catalog, datasets, workshops, and blog posts — as you type. Suggestions appear in real time and matching terms are highlighted directly in the results.
 
-![Search with live suggestions and highlighting](../blog_assets/docs-search.png)
+![Search with live suggestions and highlighting](/assets/images/blog/docs-search.png)
 
 !!! note
     Search indexes the full text of every page, including code blocks. Searching for a command like `sbatch`, a package name like `cuda`, or a concept like "interactive job" will surface the exact section that covers it — no browsing required.
@@ -53,7 +53,7 @@ Every RCAC cluster has its own dedicated guide organized into consistent chapter
 | [Gilbreth (Under Migration)](https://www.rcac.purdue.edu/knowledge/gilbreth) | Various Nvida GPUs |
 | [Scholar (Under Migration)](https://www.rcac.purdue.edu/knowledge/scholar) | 168 cores/node, Various Nvida GPUs |
 
-![Gautschi user guide](../blog_assets/docs-userguide.png)
+![Gautschi user guide](/assets/images/blog/docs-userguide.png)
 
 !!! tip "Breadcrumb navigation"
     Every page shows a breadcrumb trail near the top — you always know where you are in the guide and can jump back up in one click.
@@ -77,7 +77,7 @@ The [Software Catalog](../../software/index.md) lists **200+ packages** across 1
 
 Every table has a **live filter bar** — start typing a package name, cluster, or version and the rows narrow in real time with no page reload.
 
-![Software catalog with live filter active](../blog_assets/docs-software.png)
+![Software catalog with live filter active](/assets/images/blog/docs-software.png)
 
 ---
 
@@ -88,10 +88,10 @@ The site is built on the [Material for MkDocs](https://squidfunk.github.io/mkdoc
 - **Dark mode / Light mode toggle** — one click in the top navigation bar switches themes. On your first visit, the site automatically matches your operating system's preference.
 
 - **Quick access hero banner** - provide easy access to most frequently used function on the website.
-![RCAC Documentation hero banner](../blog_assets/docs-hero.png)
+![RCAC Documentation hero banner](/assets/images/blog/docs-hero.png)
 
 - **Copy button on every code block** — hover over any code snippet and a copy icon appears in the top-right corner.
-![Code copy](../blog_assets/docs-code.png)
+![Code copy](/assets/images/blog/docs-code.png)
 
 ---
 
@@ -121,7 +121,7 @@ To join the conversation:
 2. Sign in with a **free GitHub account**
 3. Post your comment or react with 👍 ❤️ 🎉
 
-![Blog comment](../blog_assets/docs-comment.png)
+![Blog comment](/assets/images/blog/docs-comment.png)
 
 !!! note
     A GitHub account is required to post. [Signing up](https://github.com/signup) is free and takes under a minute.
@@ -141,7 +141,7 @@ To join the conversation:
 - **👍** — tells us the page was helpful
 - **👎** — tells us the page needs improvement and directs to a pre-filled GitHub issue with the page URL already embedded. Describe what was unclear or incorrect and submit.
 
-![Feedback](../blog_assets/docs-feedback.png)
+![Feedback](/assets/images/blog/docs-feedback.png)
 
 ---
 

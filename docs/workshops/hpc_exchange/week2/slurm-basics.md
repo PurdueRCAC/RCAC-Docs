@@ -11,7 +11,7 @@ A scheduler is software that manages how computing resources are shared among us
 Because there are a limited number of compute nodes and many users submitting jobs, the scheduler is responsible for deciding when and where each job runs. It tracks resource requests (such as CPUs, GPUs, memory, and time limits), queues, jobs, and launches them when the requested resources become available.
 
 
-![slurm_submission](../_static/slurm_submission.png)
+![slurm_submission](/assets/images/workshops/hpc_exchange/slurm_submission.png)
 
 
 ## Run Types
@@ -154,7 +154,7 @@ Let's take a closer look at the individual pieces of information we need to prov
     * The `standby` QoS doesn't subtract from your accounts resources, but are given very low priority to run.
         * `standby` jobs are only allowed to run up to 4 hours
 
-    ![An Image showing a long queue under a standby sign, and an empty line under a sign labeled normal](../_static/standby_vs_normal.png)
+    ![An Image showing a long queue under a standby sign, and an empty line under a sign labeled normal](/assets/images/workshops/hpc_exchange/standby_vs_normal.png)
 
 === "Resources"
     ```bash linenums="1" hl_lines="5-7"
@@ -225,7 +225,7 @@ If you'd rather avoid running jobs on the command line entirely, RCAC offers Ope
 Most notably, we have an "Open OnDemand Desktop" application, which will give you a virtual desktop (running on a cluster backend node) available in your browser. This can be incredibly useful if you need to run graphical applications on RCAC, which don't run well over SSH on the command line.
 
 
-![Open OnDemand Desktop](../_static/ood_desktop.png)
+![Open OnDemand Desktop](/assets/images/workshops/hpc_exchange/ood_desktop.png)
 
 
 

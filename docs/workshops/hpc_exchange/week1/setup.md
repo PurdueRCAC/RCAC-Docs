@@ -41,7 +41,7 @@ a terminal and type `bash`, then
 hit enter to make sure you're using
 the correct shell.
 
-![Image of unix terminal](../_static/linux_shell.png)
+![Image of unix terminal](/assets/images/workshops/hpc_exchange/linux_shell.png)
 
 ## Mac
 
@@ -55,7 +55,7 @@ are using the correct shell.
 ## Windows
 
 Windows computers are not UNIX-based, and the default command prompt or Powershell will **NOT** work!
-![Screenshot of Windows Powershell, with a red X indicating that you should not use it](../_static/win_powershell.png)
+![Screenshot of Windows Powershell, with a red X indicating that you should not use it](/assets/images/workshops/hpc_exchange/win_powershell.png)
 
 We will need to install extra software on Windows to
 ensure that we can run the UNIX
@@ -76,7 +76,7 @@ say **Windows** and **Git for Windows**.
 you can open a terminal by running
 the program Git Bash from the Windows
 start menu.
-    ![Git Bash Window](../_static/git_bash.png)
+    ![Git Bash Window](/assets/images/workshops/hpc_exchange/git_bash.png)
 * Microsoft has also Developed the "Windows Subsystem for Linux" (WSL) which allows you to run Ubuntu Linux within Windows. 
     * Installation Instructions can be found [here](https://learn.microsoft.com/en-us/windows/wsl/install).
         ```powershell

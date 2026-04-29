@@ -11,7 +11,7 @@ sbatch --nodes=2 --ntasks-per-node=2 --cpus-per-task=64...
 ```
 Here, the job encompasses two nodes, with two tasks on each node, and 64 cores assigned to each task. The layout looks like this:
 
-![An image showing how each node is broken up by each task and by cores](../_static/Node_topology.png)
+![An image showing how each node is broken up by each task and by cores](/assets/images/workshops/hpc_exchange/Node_topology.png)
 
 As mentioned earlier, the `hostname` program prints out the hostname of the server we are currently on.
 
@@ -55,7 +55,7 @@ a209.negishi.rcac.purdue.edu
 ```
 ??? question "What did you notice in the output file of this job? Do the hostnames align with what you expected based on the request?"
      Yes! We requested 2 nodes, each with 2 tasks (for 4 tasks total). `srun` runs the `hostname` program in each of our tasks. We can see that two of the tasks were launched on `a200`, and the other two were launched on `a209`.
-     !["An image of the hostname command running in 4 different tasks, with two tasks on each node"](../_static/Node_topology_srun.png)
+     !["An image of the hostname command running in 4 different tasks, with two tasks on each node"](/assets/images/workshops/hpc_exchange/Node_topology_srun.png)
 
 
 !!! tip  "Separating Outputs"

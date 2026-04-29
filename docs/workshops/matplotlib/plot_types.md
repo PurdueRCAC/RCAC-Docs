@@ -52,7 +52,7 @@ plt.show()
 You could save this script as `Scatter_plot.py` and run it from the terminal. Here, we use a couple new functions. The first comes from NumPy's 'random' module. This lets us generate repeatable, random numbers for our data. The way to do that is to first initialize the randomness: `rng = np.random.default_rng(seed=25)`, then we can use it to generate random numbers between 0 and 1 by calling `rng.random(size)` where `size` is the size of the resultant array. The second is the built-in Python function: `len()`. This simply returns the length of an array or list. An astute observer will notice on line 9, where we generate the sizes, that it has been multiplied by 50 and then 10 is added. This is applied to each element in the generated random array. We do this because the array of sizes is directly converted into pixels, so a small number (0-1) will result in very small point sizes. Whereas, the color array is dynamically set to span the range of the data. If you want to explicitly set the range of colors, you can put the  `vmin=Min, vmax=Max` options into the `ax.scatter()` function (where `Min` and `Max` are replaced with the required minimum and maximum).
 
 When we run the script, it should generate something that looks like this:
-![An image showing a plotting frame, which contains a scatter plot of points ranging in size as well as color (from blue to yellow).](./_static/Scatter_plot.png "Scatter Plot")
+![An image showing a plotting frame, which contains a scatter plot of points ranging in size as well as color (from blue to yellow).](/assets/images/workshops/matplotlib/Scatter_plot.png "Scatter Plot")
 
 ## Bar Charts
 
@@ -74,7 +74,7 @@ ax.bar(names, values)
 
 plt.show()
 ```
-![An image showing a bar chart, with x-axis labels of Apple, Orange, Lemon, and Lime.](./_static/Simple_bar.png "Simple Bar Chart")
+![An image showing a bar chart, with x-axis labels of Apple, Orange, Lemon, and Lime.](/assets/images/workshops/matplotlib/Simple_bar.png "Simple Bar Chart")
 
 This next script is the exact same as the previous one, with the exception of the actual bar chart function. This time we use `ax.barh()` (notice the 'h' in there), which rotates the bar chart by 90 degrees and makes it a horizontal bar chart.
 
@@ -92,7 +92,7 @@ ax.barh(names, values)
 
 plt.show()
 ```
-![An image showing a horizontal bar chart, with y-axis labels of Apple, Orange, Lemon, and Lime.](./_static/Horiz_bar.png "Horizontal Bar Chart")
+![An image showing a horizontal bar chart, with y-axis labels of Apple, Orange, Lemon, and Lime.](/assets/images/workshops/matplotlib/Horiz_bar.png "Horizontal Bar Chart")
 
 Lastly, we can also do grouped bar charts, by explicitly specifying the x-locations for each of the bars. So here, we have two `ax.bar()` invocations, on for the left bars of each group (the group labeled 'Men') and one for the right bars of each group (the group labeled 'Women'). We could do the same thing horizontally by just changing the bar chart invocations to `ax.barh()` and not changing anything else.
 
@@ -114,7 +114,7 @@ ax.legend()
 
 plt.show()
 ```
-![An image showing a grouped bar chart with five groups of bars, each with one blue and one orange bar, with blue being labeled "Men" and orange labeled "Women".](./_static/Group_bar.png "Grouped Bar Chart")
+![An image showing a grouped bar chart with five groups of bars, each with one blue and one orange bar, with blue being labeled "Men" and orange labeled "Women".](/assets/images/workshops/matplotlib/Group_bar.png "Grouped Bar Chart")
 
 ## Fill Between
 
@@ -145,7 +145,7 @@ ax.plot(x, (y1 + y2)/2, linewidth=2)
 
 plt.show()
 ```
-![An image showing a plot with an area that is filled, with a line in the middle of the area.](./_static/Fill_between.png "Fill Between Plot")
+![An image showing a plot with an area that is filled, with a line in the middle of the area.](/assets/images/workshops/matplotlib/Fill_between.png "Fill Between Plot")
 
 !!! note "Notice"
 
@@ -169,7 +169,7 @@ ax.hist(x, bins=20, linewidth=0.25, edgecolor="white")
 
 plt.show()
 ```
-![An image showing a histogram that contains a roughly normal distribution of numbers centered around 4.](./_static/Histogram.png "Histogram")
+![An image showing a histogram that contains a roughly normal distribution of numbers centered around 4.](/assets/images/workshops/matplotlib/Histogram.png "Histogram")
 
 ## Error Bars
 
@@ -191,7 +191,7 @@ ax.errorbar(x,y,yerr, fmt='o', linewidth=2, capsize=6)
 
 plt.show()
 ```
-![An image showing a plot that has points forming a sinusoidal line, with error bars in the y-direction on each point of varying sizes.](./_static/Error_bars.png "Plot with Error Bars")
+![An image showing a plot that has points forming a sinusoidal line, with error bars in the y-direction on each point of varying sizes.](/assets/images/workshops/matplotlib/Error_bars.png "Plot with Error Bars")
 
 !!! note "Information"
 
@@ -238,7 +238,7 @@ ax.imshow(Z, origin='lower')
 
 plt.show()
 ```
-![An image showing a heat map of data that goes from dark blue to yellow. The x- and y-axes range from 0 to 17.5.](./_static/Imshow_plot.png "Imshow Plot")
+![An image showing a heat map of data that goes from dark blue to yellow. The x- and y-axes range from 0 to 17.5.](/assets/images/workshops/matplotlib/Imshow_plot.png "Imshow Plot")
 
 In the previous script, we did not pass the `X` and `Y` matrices to the `ax.imshow()` function, because it does not use them. We did pass an option `origin` that specifies where the matrix should start. By default, the data point at index `[0,0]` is plotted at the top left, and the last data point is the bottom right. If we pass `'lower'` to the `origin` option, this says that the index `[0,0]` is plotted at the bottom left, and the last data point is the top right.
 
@@ -266,7 +266,7 @@ ax.pcolormesh(X,Y,Z)
 
 plt.show()
 ```
-![An image showing a heat map of data that goes from dark blue to yellow. The x- and y-axes range from negative four to four.](./_static/Pcolormesh_plot.png "Pcolormesh Plot")
+![An image showing a heat map of data that goes from dark blue to yellow. The x- and y-axes range from negative four to four.](/assets/images/workshops/matplotlib/Pcolormesh_plot.png "Pcolormesh Plot")
 
 ## Contour Plots
 
@@ -296,7 +296,7 @@ ax.contour(X,Y,Z, levels=levels)
 
 plt.show()
 ```
-![An image showing a contour plot that goes from dark blue at lowest to yellow at highest.](./_static/Contour_plot.png "Contour Plot")
+![An image showing a contour plot that goes from dark blue at lowest to yellow at highest.](/assets/images/workshops/matplotlib/Contour_plot.png "Contour Plot")
 
 In the next script, which uses the filled contour plot invocation, we add a couple of extra lines to create a color bar, showing the value of each contour level. To do this, we need to save the `ax.contourf()` invocation into a variable, so the color bar knows which plot to use for its values. Then, we add a color bar to the figure with the `fig.colorbar()` function. It takes the `contourf` variable that we just set, and we assign the color bar we just created to be its own variable. We can then manipulate the variable and do things like set the color bar label to whatever we want.
 
@@ -320,7 +320,7 @@ cbar.set_label('Colorbar Label')
 
 plt.show()
 ```
-![An image showing a filled contour plot that goes from dark blue at lowest to yellow at highest. On the right side there is also a color bar that shows the values at each contour level, which is labeled "Colorbar Label".](./_static/Contourf_plot.png "Filled Contour Plot")
+![An image showing a filled contour plot that goes from dark blue at lowest to yellow at highest. On the right side there is also a color bar that shows the values at each contour level, which is labeled "Colorbar Label".](/assets/images/workshops/matplotlib/Contourf_plot.png "Filled Contour Plot")
 
 ## Quiver Plots
 
@@ -342,7 +342,7 @@ ax.quiver(X,Y,U,V)
 
 plt.show()
 ```
-![An image showing a quiver plot with arrows that point away from the x- and y-axes.](./_static/Quiver_plot.png "Quiver Plot")
+![An image showing a quiver plot with arrows that point away from the x- and y-axes.](/assets/images/workshops/matplotlib/Quiver_plot.png "Quiver Plot")
 
 ## Stream Plots
 
@@ -364,7 +364,7 @@ ax.streamplot(X,Y,U,V)
 
 plt.show()
 ```
-![An image showing a stream plot with long arrows that point initially away from the center in the x-direction and then bend away from the x-axis in the y-direction.](./_static/Stream_plot.png "Stream Plot")
+![An image showing a stream plot with long arrows that point initially away from the center in the x-direction and then bend away from the x-axis in the y-direction.](/assets/images/workshops/matplotlib/Stream_plot.png "Stream Plot")
 
 ## Irregular Contour Plots
 
@@ -390,7 +390,7 @@ ax.tricontour(x,y,z, levels=levels)
 
 plt.show()
 ```
-![An image showing a contour plot that goes from dark blue at lowest to yellow at highest. The contour plot is overlaid on a scatter plot of data points showing that the data is coming from an irregular grid.](./_static/Tricontour_plot.png "Irregular Contour Plot")
+![An image showing a contour plot that goes from dark blue at lowest to yellow at highest. The contour plot is overlaid on a scatter plot of data points showing that the data is coming from an irregular grid.](/assets/images/workshops/matplotlib/Tricontour_plot.png "Irregular Contour Plot")
 
 Notice that the contour plot here is not as nice as the ones we [showed above](#contour-plots). This is because it does not have the same extent of data to work with, and the singularity at `x=0` throws things off here if data points get to close to 0.
 

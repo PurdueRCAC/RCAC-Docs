@@ -62,7 +62,7 @@ ax_br.set_title('Seismic')
 
 plt.show()
 ```
-![An image showing four filled contour plots, each with different colors for their levels. The top left is the default colormap: viridis. The top right uses the magma colormap, which ranges from black to white through oranges and reds. The bottom left uses the greens colormap, which goes from white to dark green. The bottom right uses the seismic colormap, which starts at blue, then goes to white, and ends up red.](./_static/Colormaps.png "Filled Contour Plots Showing Colormaps")
+![An image showing four filled contour plots, each with different colors for their levels. The top left is the default colormap: viridis. The top right uses the magma colormap, which ranges from black to white through oranges and reds. The bottom left uses the greens colormap, which goes from white to dark green. The bottom right uses the seismic colormap, which starts at blue, then goes to white, and ends up red.](/assets/images/workshops/matplotlib/Colormaps.png "Filled Contour Plots Showing Colormaps")
 
 ## Colormap Scales
 
@@ -113,7 +113,7 @@ ax_br.set_title('Centered')
 plt.show()
 ```
 
-![An image showing four filled contour plots, each with different normalizations for their colors. The top two plots have the default colormap: viridis (blue, green, and yellow). The top left uses a linear scale for coloring, where the top right uses a logarithmic scale. The bottom two plots use the seismic colormap, which is blue, then white, then red. The bottom left plot is mostly blue and uses a standard linear map. The bottom right plot is mostly white as it uses a centered scaling, which goes around 0.](./_static/Color_scales.png "Heat Maps Showing Color Scales")
+![An image showing four filled contour plots, each with different normalizations for their colors. The top two plots have the default colormap: viridis (blue, green, and yellow). The top left uses a linear scale for coloring, where the top right uses a logarithmic scale. The bottom two plots use the seismic colormap, which is blue, then white, then red. The bottom left plot is mostly blue and uses a standard linear map. The bottom right plot is mostly white as it uses a centered scaling, which goes around 0.](/assets/images/workshops/matplotlib/Color_scales.png "Heat Maps Showing Color Scales")
 
 In the next section, we will discuss how to make a time-series of plots into an animation, such as a gif.
 

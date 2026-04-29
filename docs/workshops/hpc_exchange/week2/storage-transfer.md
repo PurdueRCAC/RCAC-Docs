@@ -47,7 +47,7 @@ the clusters:
     100 GB to upload and if your connection is flaky at
     all, you're going to have a bad time.
 
-    ![ood_transfer](../_static/ood_transfer.png)
+    ![ood_transfer](/assets/images/workshops/hpc_exchange/ood_transfer.png)
 
 === "Globus"
 
@@ -61,7 +61,7 @@ the clusters:
     of the file(s) for you, resuming if there's network
     connectivity problems.
 
-    ![globus_transfer](../_static/globus_transfer.png)
+    ![globus_transfer](/assets/images/workshops/hpc_exchange/globus_transfer.png)
 
 ---
 

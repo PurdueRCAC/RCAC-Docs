@@ -5,7 +5,7 @@
 
 The shell is effectively a program running in your terminal that lets you run other programs via a command line interface. You can think of desktop file explorers as a type of graphical shell.
 
-![An image of a shell next to a file browser, showing their equivalency](../_static/shell_vs_filebrowser.png)
+![An image of a shell next to a file browser, showing their equivalency](/assets/images/workshops/hpc_exchange/shell_vs_filebrowser.png)
 
 
 ## Shell variants

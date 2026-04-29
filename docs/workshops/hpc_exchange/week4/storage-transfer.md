@@ -25,7 +25,7 @@ Of these, only the **Local** and **Indirect access** options are directly availa
 
 ## Local Storage
 
-![An image showing a filesystem tree highlighting the scratch, depot, home, and tmp locations](../_static/cluster_storage.png)
+![An image showing a filesystem tree highlighting the scratch, depot, home, and tmp locations](/assets/images/workshops/hpc_exchange/cluster_storage.png)
 
 ### Home directory: `$HOME`
 #### Path: `/home/username`
@@ -62,7 +62,7 @@ Scratch directories are good for intermediate to massive data I/O, so are perfec
 !!! warning Scratch Purge Cycles
      Scratch directories are **regularly purged of old data**. If a file is not accessed within 60 days (30 days on Bell), it will be staged for purging. RCAC sends courtesy Email warnings to users when files are staged for purging, but you should not rely on these Emails. Please be proactive in backing up any valuable data or results you have stored in scratch. 
 
-     <!-- ![An image showing files in a users scratch space being slowly transferred on a conveyor belt to a fire representing a file purge](../_static/scratch_purge.png) -->
+     <!-- ![An image showing files in a users scratch space being slowly transferred on a conveyor belt to a fire representing a file purge](/assets/images/workshops/hpc_exchange/scratch_purge.png) -->
 
      You can use the `purgelist` command to tell you which files in your `/scratch` directory are staged to be purged.
      
@@ -263,7 +263,7 @@ example-data/   example-data.tar   example.tar
 
 For a more interactive way to transfer data to Fortress, you can use our Globus transfer service at [https://transfer.rcac.purdue.edu](https://transfer.rcac.purdue.edu). Just be sure to archive large amounts of files (with `zip` or `tar`) before transferring!
 
-![Image of the graphical interface on fortress showing the transfer of files from the Negishi cluster to the Fortress HPSS archive](../_static/globus_fortress.png)
+![Image of the graphical interface on fortress showing the transfer of files from the Negishi cluster to the Fortress HPSS archive](/assets/images/workshops/hpc_exchange/globus_fortress.png)
 
 
 **Next section:** [Job History](job-history.md)

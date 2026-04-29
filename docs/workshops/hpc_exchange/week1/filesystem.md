@@ -6,7 +6,7 @@ Now that we have learned about the shell and the anatomy of a command, let's div
 
 As a user, you can picture a filesystem as a series of nested files and folders(a.k.a. directories). 
 
-![Tree structure of a filesystem](../_static/filesystem.png)
+![Tree structure of a filesystem](/assets/images/workshops/hpc_exchange/filesystem.png)
 
 ### pwd:
 
@@ -94,7 +94,7 @@ $ cd Desktop/data
 $ pwd
 /home/username/Desktop/data
 ```
-![Image of a filesystem showing a users working directory change after running the cd command](../_static/cd_simple.png)
+![Image of a filesystem showing a users working directory change after running the cd command](/assets/images/workshops/hpc_exchange/cd_simple.png)
 
 
 !!! tip "Autocomplete"
@@ -187,7 +187,7 @@ $ pwd
 /home/username
 ```
 
-![cd dash ](../_static/cd_dash.png)
+![cd dash ](/assets/images/workshops/hpc_exchange/cd_dash.png)
 
 #### Home Directory: `~`
 
@@ -210,7 +210,7 @@ $ pwd
 /home/username/Desktop
 ```
 
-![cd dot dot ](../_static/cd_dotdot.png)
+![cd dot dot ](/assets/images/workshops/hpc_exchange/cd_dotdot.png)
 
 ??? question "How would we move from the `data` directory to the Downloads directory with one command?"
      ```bash 

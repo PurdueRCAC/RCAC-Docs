@@ -48,7 +48,7 @@ Now how about we make some plots! First, get rid of the `print` statement, we do
 
 In the image below (taken from [MatPlotLib's official website](https://matplotlib.org/stable/users/explain/quick_start.html#parts-of-a-figure)), we can see the many different parts that make up a typical plot made with MatPlotLib.
 
-![A figure showing the anatomy of a MatPlotLib figure. It includes things such as a title, lines, markers, and axes.](./_static/anatomy_of_a_figure.png "Anatomy of a Figure")
+![A figure showing the anatomy of a MatPlotLib figure. It includes things such as a title, lines, markers, and axes.](/assets/images/workshops/matplotlib/anatomy_of_a_figure.png "Anatomy of a Figure")
 
 We will go through many of these as we progress through this workshop.
 
@@ -81,7 +81,7 @@ python First_script.py
 It will generate the plot and then show us the plot until we exit out of it. This is not very interesting, because it is just a blank figure. But, we were able to make something appear, we are well on our way to making beautiful plots.
 
 You should see something like this:
-![An image showing an empty plotting frame, without any data in it.](./_static/Empty_figure.png "Empty figure")
+![An image showing an empty plotting frame, without any data in it.](/assets/images/workshops/matplotlib/Empty_figure.png "Empty figure")
 
 ## My First Plots
 
@@ -107,7 +107,7 @@ python First_script.py
 ```
 
 You have now generated a graph with some data, which should look like this:
-![An image showing a plotting frame that has a single line in it, going from the point (1,3) to the point (2,4).](./_static/Plot_with_data.png "My First Plot")
+![An image showing a plotting frame that has a single line in it, going from the point (1,3) to the point (2,4).](/assets/images/workshops/matplotlib/Plot_with_data.png "My First Plot")
 
 MatPlotLib does not order things by the x- or y-axes, it will plot lines in the order that you pass them to the function. If we change the data we pass to the `ax.plot()` command, it will change what is plotted. Change that line to be:
 ```python
@@ -118,7 +118,7 @@ Before we run the new script, what do you think it will do? What shape should th
 ??? note "Answer"
 
     If you guessed a square, you were correct:
-    ![An image showing a plotting frame with four lines in it forming a square shape.](./_static/Square_plot.png "Square Plot")
+    ![An image showing a plotting frame with four lines in it forming a square shape.](/assets/images/workshops/matplotlib/Square_plot.png "Square Plot")
 
 What if we swap the second and third x-value?
 ```python
@@ -127,7 +127,7 @@ ax.plot([1,-1,1,-1,1],[1,-1,-1,1,1])
 ??? note "Answer"
 
     If you guessed an hourglass shape, you were correct:
-    ![An image showing a plotting frame with four lines in it forming a kind of hourglass.](./_static/Hourglass_plot.png "Hourglass Plot")
+    ![An image showing a plotting frame with four lines in it forming a kind of hourglass.](/assets/images/workshops/matplotlib/Hourglass_plot.png "Hourglass Plot")
 
 MatPlotLib really does just plot lines that connect the points you pass to it.
 
