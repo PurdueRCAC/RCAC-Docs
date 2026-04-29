@@ -32,9 +32,204 @@ To Access Anvil, you can login through a variety of ways:
 
 ## SSH
 
-{% set resource = "anvil" %}
+Anvil accepts standard SSH connections with public keys-based authentication to `anvil.rcac.purdue.edu` using your Anvil username:
 
-{{ ssh_keys_snippet(resource) }}
+```bash
+  localhost$ ssh -l my-x-anvil-username anvil.rcac.purdue.edu
+```
+
+!!! note "Note about using SSH on Anvil"
+    * Your Anvil username is not the same as your ACCESS username (although it is derived from it). Anvil usernames look like `x-ACCESSusername` or similar, starting with an `x-`.
+    * Password-based authentication is not supported on Anvil (in favor of [SSH keys](#ssh-keys)). There is no "Anvil password", and your ACCESS password will not be accepted by Anvil's SSH either. SSH keys can be set up from the Open OnDemand interface on Anvil [ondemand.anvil.rcac.purdue.edu](https://$ondemand.anvil.rcac.purdue.edu). Please follow the steps in Setting up SSH keys to add your SSH key on Anvil.
+    * When reporting SSH problems to the help desk, please execute the ssh command with the -vvv option and include the verbose output in your problem description.
+
+
+### SSH keys
+
+To connect to Anvil using SSH keys, you must follow three high-level steps:
+
+1. Generate a key pair consisting of a private and a public key on your local machine.
+2. Copy the public key to the cluster and append it to `$HOME/.ssh/authorized_keys` file in your account.
+3. Test if you can ssh from your local computer to the Anvil cluster directly.
+
+Detailed steps for different operating systems and specific SSH client softwares are give below.
+
+#### Mac and Linux:
+1. Run `ssh-keygen` in a terminal on your local machine.
+
+    ```bash
+    localhost >$ ssh-keygen
+    Generating public/private rsa key pair.
+    Enter file in which to save the key (localhost/.ssh/id_rsa):
+    ```
+
+    You may supply a filename and a passphrase for protecting your private key, but it is not mandatory. To accept the default settings, press Enter without specifying a filename.
+
+    !!! note
+        If you do not protect your private key with a passphrase, anyone with access to your computer could SSH to your account on Anvil.
+
+    ```bash
+    Created directory 'localhost/.ssh'.
+    Enter passphrase (empty for no passphrase):
+    Enter same passphrase again:
+    Your identification has been saved in localhost/.ssh/id_rsa.
+    Your public key has been saved in localhost/.ssh/id_rsa.pub.
+    The key fingerprint is:
+    ... 
+    The key's randomart image is:
+    ...
+    ```
+
+    By default, the key files will be stored in `~/.ssh/id_rsa` and `~/.ssh/id_rsa.pub` on your local machine.
+
+2. Go to the `~/.ssh` folder in your local machine and `cat` the key information in the `id_rsa.pub file`.
+
+    ```bash   
+    localhost/.ssh>$ cat id_rsa.pub
+    ssh-rsa XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX= localhost-username@localhost
+    ```
+
+3. For your first time login to Anvil, please log in to Open OnDemand [ondemand.anvil.rcac.purdue.edu](https://$ondemand.anvil.rcac.purdue.edu) using your ACCESS username and password.
+
+4. Once logged on to OnDemand, go to the `Clusters` on the top toolbar. Click `Anvil Shell Access` and you will be able to see the terminal.
+
+    ![Anvil Shell Access](/assets/images/userguides/anvil/ood-login.png)
+
+    ```bash   
+    =============================================================================
+    ==                    Welcome to the Anvil Cluster                         ==                                            
+    ……               
+    =============================================================================
+    
+    **                        DID YOU KNOW?                                    **
+    ……
+    *****************************************************************************
+    
+    x-anvilusername@login04.anvil:[~] $ pwd
+    /home/x-anvilusername
+    ```
+
+5. Under the home directory on Anvil, make a `.ssh` directory using `mkdir -p ~/.ssh` if it does not exist.  
+    Create a file `~/.ssh/authorized_keys` on the Anvil cluster and copy the contents of the public key `id_rsa.pub` in your local machine into `~/.ssh/authorized_keys`.
+
+    ```bash
+    x-anvilusername@login04.anvil:[~] $ pwd
+    /home/x-anvilusername
+    
+    x-anvilusername@login04.anvil:[~] $ cd ~/.ssh
+    
+    x-anvilusername@login04.anvil:[.ssh] $ vi authorized_keys
+    
+    # copy-paste the contents of the public key id_rsa.pub in your local machine (as shown in step 2) to authorized_keys here and save the change of authorized_keys file. Then it is all set!
+    ```
+
+6. Test the new key by SSH-ing to the server. The login should now complete without asking for a password.
+
+    ```bash   
+    localhost>$ ssh x-anvilusername@anvil.rcac.purdue.edu
+    =============================================================================
+    ==                    Welcome to the Anvil Cluster                         ==
+    ...
+    =============================================================================
+    x-anvilusername@login06.anvil:[~] $
+    ```
+
+7. If the private key has a non-default name or location, you need to specify the key by `ssh -i my_private_key_name x-anvilusername@anvil.rcac.purdue.edu`.
+
+#### Windows:
+
+Windows SSH Instructions
+
+| Programs | Instructions |
+| --- | --- |
+| **MobaXterm** | Open a local terminal and follow Linux steps |
+| **Git Bash** | Follow Linux steps |
+| **Windows 10 PowerShell** | Follow Linux steps |
+| **Windows 10 Subsystem for Linux** | Follow Linux steps |
+| **PuTTY** | Follow steps below |
+
+**PuTTY:**
+
+1. Launch *PuTTYgen*, keep the default key type (RSA) and length (2048-bits) and click **Generate** button.
+
+    <figure>
+      ![PuTTYgen interface](/assets/images/userguides/keygen1.png)
+      <figcaption>The "Generate" button can be found under the "Actions" section of the PuTTY Key Generator interface.</figcaption>
+    </figure>
+
+2. Once the key pair is generated:
+
+    Use the **Save public key** button to save the public key, e.g. `Documents\SSH_Keys\mylaptop_public_key.pub`
+
+    Use the **Save private key** button to save the private key, e.g. `Documents\SSH_Keys\mylaptop_private_key.ppk`. When saving the private key, you can also choose a reminder comment, as well as an optional passphrase to protect your key, as shown in the image below. 
+
+    !!! note
+        If you do not protect your private key with a passphrase, anyone with access to your computer could SSH to your account on Anvil.
+
+    <figure>
+      ![PuTTY Key Generator form with the passphrase and comment fields highlighted](/assets/images/userguides/keygen2.png)
+      <figcaption>The PuTTY Key Generator form has inputs for the Key passphrase and optional reminder comment.</figcaption>
+    </figure>
+
+    From the menu of *PuTTYgen*, use the *"Conversion -> Export OpenSSH key"* tool to convert the private key into openssh format, e.g. `Documents\SSH_Keys\mylaptop_private_key.openssh` to be used later for Thinlinc.
+
+3. Configure *PuTTY* to use key-based authentication:
+
+    Launch *PuTTY* and navigate to *"Connection -> SSH ->Auth"* on the left panel, click **Browse** button under the *"Authentication parameters"* section and choose your private key, e.g. **mylaptop\_private\_key.ppk**
+
+    <figure>
+      ![PuTTY Auth panel](/assets/images/userguides/keygen3.png)
+      <figcaption>After clicking Connection -> SSH ->Auth panel, the "Browse" option can be found at the bottom of the resulting panel.</figcaption>
+    </figure>
+
+    Navigate back to *"Session"* on the left panel. Highlight *"Default Settings"* and click the "Save" button to ensure the change in place.
+   
+4. For your first time login to Anvil, please log in to Open OnDemand [ondemand.anvil.rcac.purdue.edu](https://$ondemand.anvil.rcac.purdue.edu) using your ACCESS username and password.
+
+5. Once logged on to OnDemand, go to the `Clusters` on the top toolbar. Click `Anvil Shell Access` and you will be able to see the terminal.
+
+    <figure style="text-align: center;">
+      ![Anvil Shell Access](/assets/images/userguides/anvil/ood-login.png)
+      <figcaption>Anvil Shell Access</figcaption>
+    </figure>
+
+    ```bash    
+    =============================================================================
+    ==                    Welcome to the Anvil Cluster                         ==                                            
+    ……               
+    =============================================================================
+    
+    **                        DID YOU KNOW?                                    **
+    ……
+    *****************************************************************************
+    
+    x-anvilusername@login04.anvil:[~] $ pwd
+    /home/x-anvilusername
+    ```
+
+6. Under the home directory on Anvil, make a `.ssh` directory using `mkdir -p ~/.ssh` if it does not exist.  
+   Create a file `~/.ssh/authorized_keys` on the Anvil cluster and copy the contents of the public key `id_rsa.pub` in your local machine into `~/.ssh/authorized_keys`.
+
+    ```bash
+    x-anvilusername@login04.anvil:[~] $ pwd
+    /home/x-anvilusername
+    
+    x-anvilusername@login04.anvil:[~] $ cd ~/.ssh
+    
+    x-anvilusername@login04.anvil:[.ssh] $ vi authorized_keys
+    
+    # copy-paste the contents of the public key id_rsa.pub in your local machine (as shown in step 2) to authorized_keys here and save the change of authorized_keys file. Then it is all set!
+    ```
+
+    and copy the contents of public key from *PuTTYgen* as shown below and paste it into `~/.ssh/authorized_keys`. Please double-check that your text editor did not wrap or fold the pasted value (it should be one very long line).
+    
+    <figure>
+      ![PuTTY Key Generator panel for a generated key](/assets/images/userguides/keygen4.png)
+      <figcaption>The "Public key" will look like a long string of random letters and numbers in a text box at the top of the window.</figcaption>
+    </figure>
+
+7. Test by connecting to the cluster and the login should now complete without asking for a password. If you chose to protect your private key with a passphrase in step 2, you will be prompted to enter the passphrase when connecting.
 
 ## OnDemand
 
@@ -42,9 +237,74 @@ Navigate to [Anvil OnDemand](https://ondemand.anvil.rcac.purdue.edu/) and use yo
 
 ## ThinLinc
 
-{% set resource = "anvil" %}
+!!! note
+    For your first time accessing Anvil using ThinLinc client, your desktop might be locked after it has been idle for more than 5 minutes. It is because in the default settings, the "screensaver" and "lock screen" are turned on. To solve this issue, please refer to the [FAQs Page PLACEHOLDER](/knowledge/anvil/policies/faq/login/questions/what_if_my_thinlinc_screen_is_locked).
 
-{{ thinlinc_snippet(resource) }}
+Anvil provides [Cendio's *ThinLinc*](https://www.cendio.com/thinlinc/what-is-thinlinc) as an alternative to running an X11 server directly on your computer. It allows you to run graphical applications or graphical interactive jobs directly on Anvil through a persistent remote graphical desktop session.
+
+ThinLinc is a service that allows you to connect to a persistent remote graphical desktop session. This service works very well over a high latency, low bandwidth, or off-campus connection compared to running an X11 server locally. It is also very helpful for Windows users who do not have an easy to use local X11 server, as little to no setup is required on your computer.
+
+There are two ways in which to use ThinLinc: preferably through the native client or through a web browser.
+
+!!! note
+    Browser-based Thinlinc access is not supported on Anvil at this moment. Please use native Thinlinc client with SSH keys.
+
+### Installing the ThinLinc native client
+
+The native ThinLinc client will offer the best experience especially over off-campus connections and is the recommended method for using ThinLinc. It is compatible with Windows, Mac OS X, and Linux.
+
+* Download the ThinLinc client from the [ThinLinc website](https://www.cendio.com/thinlinc/download).
+* Start the ThinLinc client on your computer.
+* In the client's login window, use `desktop.anvil.rcac.purdue.edu` as the Server and use your Anvil username `x-anvilusername`.
+* At this moment, an SSH key is required to login to ThinLinc client. For help generating and uploading keys to the cluster, see [SSH Keys](#ssh-keys) section in our user guide for details.
+
+### Configure ThinLinc to use SSH Keys
+
+1. To set up SSH key authentication on the ThinLinc client:
+    - Open the Options panel, and select Public key as your authentication method on the Security tab.
+
+        <figure style="text-align: center;">
+            ![ThinLinc Options window](/assets/images/userguides/anvil/Anvil-ThinLinc-login-1.png)
+            <figcaption>The "Options..." button in the ThinLinc Client can be found towards the bottom left, above the "Connect" button.</figcaption>
+        </figure>
+
+    - In the options dialog, switch to the "Security" tab and select the "Public key" radio button:
+
+        <figure style="text-align: center;">
+            ![ThinLinc's Security tab](/assets/images/userguides/anvil/Anvil-ThinLinc-login-2.png)
+            <figcaption>The "Security" tab found in the options dialog, will be the last of available tabs. The "Public key" option can be found in the "Authentication method" options group.</figcaption>
+        </figure>
+
+    - Click OK to return to the ThinLinc Client login window. You should now see a Key field in place of the Password field.
+    - In the Key field, type the path to your locally stored private key or click the `...` button to locate and select the key on your local system.
+
+        !!! note
+            If *PuTTY* is used to generate the SSH Key pairs, please choose the private key in the openssh format.
+
+        <figure style="text-align: center;">
+            ![Thinlinc login with key](/assets/images/userguides/anvil/Anvil-ThinLinc-login-3.png)
+            <figcaption>The ThinLinc Client login window will now display key field instead of a password field.</figcaption>
+        </figure>
+
+2. Click the Connect button.
+3. Continue to following section on connecting to Anvil from ThinLinc.
+
+### Connecting to Anvil from ThinLinc
+
+* Once logged in, you will be presented with a remote Linux desktop running directly on a cluster login node.
+* Open the terminal application on the remote desktop.
+* Once logged in to the Anvil login node, you may use graphical editors, debuggers, software like Matlab, or run graphical interactive jobs. For example, to test the X forwarding connection issue the following command to launch the graphical editor `geany`:
+
+    ```bash
+    $ geany
+    ```
+
+* This session will remain persistent even if you disconnect from the session. Any interactive jobs or applications you left running will continue running even if you are not connected to the session.
+
+### Tips for using ThinLinc native client
+
+* To exit a full-screen ThinLinc session press the `F8` key on your keyboard (`fn + F8 key` for Mac users) and click to disconnect or exit full screen.
+* Full-screen mode can be disabled when connecting to a session by clicking the Options button and disabling full-screen mode from the Screen tab.
 
 ## Checking Your Balance
 
