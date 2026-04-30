@@ -154,13 +154,14 @@ nav:
       - Workflow: software/workflow_catalog.md
     - Datasets:
       - datasets/index.md
+      - All Datasets: datasets/dataset_catalog.md
       - AI: datasets/ai.md
-      - Hydrological: datasets/hydrological.md
-      - Meteorological: datasets/meteorological.md
-      - Geospatial: datasets/geospatial.md
+      - Climate Model: datasets/climateModel.md
       - Covariates: datasets/Covariates.md
       - GeoAI: datasets/geoai.md
-      - Igenomes: datasets/igenomes.md
+      - Geospatial: datasets/geospatial.md
+      - Hydrological: datasets/hydrological.md
+      - Meteorological: datasets/meteorological.md
     - RCAC Workshops:
       - workshops/index.md
       - HPC Exchange:

@@ -104,10 +104,11 @@ th, td {
     background-color: hsla(var(--md-hue),25%,25%,1)
 }
 
-/* ===== App Catalog Table (#appTable) ===== */
+/* ===== App Catalog Table (#appTable) and Dataset Catalog Table (#datasetTable) ===== */
 
 /* Base table */
-#appTable {
+#appTable,
+#datasetTable {
   width: 100%;
   border-collapse: collapse;
   font-size: 0.78rem;
@@ -115,7 +116,9 @@ th, td {
 
 /* All cells - use theme variables so light/dark mode both work */
 #appTable th,
-#appTable td {
+#appTable td,
+#datasetTable th,
+#datasetTable td {
   background-color: var(--md-default-bg-color) !important;
   color: var(--md-default-fg-color) !important;
   border: 1px solid var(--md-typeset-table-color, rgba(0, 0, 0, 0.12));
@@ -124,21 +127,25 @@ th, td {
 }
 
 /* Column header row (Application / Topic / Available at) */
-#appTable thead tr:not(.fltrow) th {
+#appTable thead tr:not(.fltrow) th,
+#datasetTable thead tr:not(.fltrow) th {
   background-color: var(--md-default-fg-color--lightest) !important;
   font-weight: 600;
   white-space: nowrap;
 }
 
 /* Column header with an active filter */
-#appTable thead tr:not(.fltrow) th.activeHeader {
+#appTable thead tr:not(.fltrow) th.activeHeader,
+#datasetTable thead tr:not(.fltrow) th.activeHeader {
   background-color: var(--md-typeset-table-color) !important;
   color: var(--md-default-fg-color) !important;
 }
 
 /* Filter row */
 #appTable .fltrow th,
-#appTable .fltrow td {
+#appTable .fltrow td,
+#datasetTable .fltrow th,
+#datasetTable .fltrow td {
   background-color: var(--md-default-bg-color) !important;
   color: var(--md-default-fg-color) !important;
   border: 1px solid var(--md-typeset-table-color, rgba(0, 0, 0, 0.12));
@@ -150,6 +157,10 @@ th, td {
 #appTable .flt_s,
 #appTable .fltrow input,
 #appTable .fltrow select,
+#datasetTable .flt,
+#datasetTable .flt_s,
+#datasetTable .fltrow input,
+#datasetTable .fltrow select,
 .tf-token-select {
   background-color: var(--md-default-bg-color) !important;
   color: var(--md-default-fg-color) !important;
@@ -165,18 +176,24 @@ th, td {
 #appTable .flt_s:focus,
 #appTable .fltrow input:focus,
 #appTable .fltrow select:focus,
+#datasetTable .flt:focus,
+#datasetTable .flt_s:focus,
+#datasetTable .fltrow input:focus,
+#datasetTable .fltrow select:focus,
 .tf-token-select:focus {
   outline: 2px solid var(--md-accent-fg-color);
   outline-offset: -1px;
 }
 
 /* Alternating body rows */
-#appTable tbody tr:nth-child(even) td {
+#appTable tbody tr:nth-child(even) td,
+#datasetTable tbody tr:nth-child(even) td {
   background-color: var(--md-code-bg-color) !important;
 }
 
 /* Row hover */
-#appTable tbody tr:hover td {
+#appTable tbody tr:hover td,
+#datasetTable tbody tr:hover td {
   background-color: var(--md-default-fg-color--lightest) !important;
 }
 
@@ -208,13 +225,16 @@ th, td {
 .md-typeset__table td,
 .md-typeset__table th,
 #appTable td,
-#appTable th {
+#appTable th,
+#datasetTable td,
+#datasetTable th {
   white-space: normal;
   overflow-wrap: anywhere;
   text-overflow: clip;
 }
 .md-typeset__table pre,
-#appTable pre {
+#appTable pre,
+#datasetTable pre {
   white-space: pre-wrap !important;
   word-break: break-word;
   overflow-x: auto;

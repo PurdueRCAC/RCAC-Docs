@@ -1,0 +1,22 @@
+# CESM2
+
+[Back to climateModel datasets](../climateModel.md)
+
+| Field | Value |
+|--------|-------|
+| **Description** | The Community Earth System Model Version 2 (CESM2) is a fully-coupled global climate model developed by NCAR for simulating Earth's climate system. This dataset contains the input data necessary to run all supported CESM2 component sets. The dataset includes atmospheric forcing data, ocean initial conditions, land surface data, sea ice parameters, land ice configuration files, and coupling infrastructure data spanning multiple components: atmosphere (CAM6), land (CLM5), ocean (POP2/MOM6), sea ice (CICE5.1), land ice (CISM2.1), river runoff (MOSART), and ocean waves (WW3). Components include over 20TB of data including atmospheric initial conditions (ccs4_init), CESM2-specific initial conditions (cesm2_init), coupled data, land data (lnd), ocean data (ocn), sea ice data (ice), paleoclimate data, and validation datasets. Input data is organized by component and includes surface forcing fields, initial condition files, grid definitions, mapping weights, and namelist configuration files required for running historical, pre-industrial, scenario, and paleoclimate simulations. |
+| **Folder** | `/datasets/climateModel/CESM2` |
+| **Discipline** | climateModel / Earth System / Global Climate |
+| **DOI** | [10.1029/2019MS001916](https://doi.org/10.1029/2019MS001916) |
+| **Link** | [Access Data](https://www.cesm.ucar.edu/models/cesm2/) |
+| **Public** | `true` |
+| **Publication Date** | 2020-02-06 |
+| **Downloaded** | 2025-11-09 |
+| **Data Type** | netCDF |
+| **Dataset Size** | 20T |
+| **Number of Files** | 46214 |
+| **Usage** | <pre>&#36; module avail<br>&#36; module load datasets<br>&#36; module load climateModel/CESM2/2020-02-06</pre> |
+| **Usage Policy Link** | https://www.cesm.ucar.edu/models/cesm2/copyright.html |
+| **Usage Policy** | CESM2 is made available under the following terms and conditions. The CESM2 software and associated input datasets are freely available for use in research and education. Users are required to register at the CESM website and agree to the terms of use. Publications using CESM2 should acknowledge NCAR and the CESM project, and cite the primary reference paper. For full terms of use, see https://www.cesm.ucar.edu/models/cesm2/copyright.html |
+| **Citation** | Danabasoglu, G., Lamarque, J.-F., Bacmeister, J., Bailey, D. A., DuVivier, A. K., Edwards, J., Emmons, L. K., Fasullo, J., Garcia, R., Gettelman, A., Hannay, C., Holland, M. M., Large, W. G., Lauritzen, P. H., Lawrence, D. M., Lenaerts, J. T. M., Lindsay, K., Lipscomb, W. H., Mills, M. J., Neale, R., Oleson, K. W., Otto-Bliesner, B., Phillips, A., Sacks, W., Tilmes, S., van Kampenhout, L., Vertenstein, M., Bertini, A., Dennis, J., Deser, C., Fischer, C., Fox-Kemper, B., Kay, J. E., Kinnison, D. E., Kushner, P. J., Larson, V. E., Long, M. C., Mickelson, S., Moore, J. K., Nienhouse, E., Polvani, L., Rasch, P. J., & Strand, W. G. (2020). The Community Earth System Model Version 2 (CESM2). Journal of Advances in Modeling Earth Systems, 12(2), e2019MS001916. https://doi.org/10.1029/2019MS001916 |
+| **BibTeX** | <details><summary>📜 View BibTeX citation</summary><pre>@article{Danabasoglu2020,<br>  author  = {Danabasoglu, Gokhan and Lamarque, Jean-François and Bacmeister, Julio and Bailey, David A. and DuVivier, Alice K. and Edwards, James and Emmons, Louisa K. and Fasullo, John and Garcia, Rolando and Gettelman, Andrew and Hannay, Cecile and Holland, Marika M. and Large, William G. and Lauritzen, Peter H. and Lawrence, David M. and Lenaerts, Jan T. M. and Lindsay, Keith and Lipscomb, William H. and Mills, Michael J. and Neale, Rich and Oleson, Keith W. and Otto-Bliesner, Bette and Phillips, Adam and Sacks, William and Tilmes, Simone and Kampenhout, Leo van and Vertenstein, Mariana and Bertini, Alice and Dennis, John and Deser, Clara and Fischer, Chris and Fox-Kemper, Baylor and Kay, Jennifer E. and Kinnison, Douglas E. and Kushner, Paul J. and Larson, Vincent E. and Long, Matthew C. and Mickelson, Sheri and Moore, J. Keith and Nienhouse, Eric and Polvani, Lorenzo and Rasch, Philip J. and Strand, Warren G.},<br>  title   = {The Community Earth System Model Version 2 (CESM2)},<br>  journal = {Journal of Advances in Modeling Earth Systems},<br>  volume  = {12},<br>  number  = {2},<br>  pages   = {e2019MS001916},<br>  year    = {2020},<br>  month   = {feb},<br>  doi     = {10.1029/2019MS001916},<br>  url     = {https://doi.org/10.1029/2019MS001916}<br>}</pre></details> |

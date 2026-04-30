@@ -5,8 +5,9 @@
 AI datasets in this collection cover computer vision, physicalAI, and robotics. They support tasks such as detection, segmentation, tracking, control, reinforcement learning, and large-scale model pretraining and evaluation across domains including everyday objects, smart spaces, and embodied PhysicalAI.
 
 This page provides access to curated AI datasets available on RCAC clusters through two storage options: 
-  - compressed formats on the POSIX file system, and 
-  - raw/extracted data on S3-compatible object storage.
+
+- compressed formats on the POSIX file system, and 
+- raw/extracted data on S3-compatible object storage.
 
 ## Accessing AI Datasets
 
@@ -14,7 +15,7 @@ Choose your preferred access method based on your workflow needs.
 
 !!! tip "Which option should I choose?"
     - **Use POSIX** if you are running training jobs on RCAC clusters and need maximum I/O performance with compressed formats.
-    - **Use S3** if you need to browse or download individual files, access data from outside RCAC, or stream data without downloading entire archives.
+    - **Use S3** if you need to browse or download individual files, or stream data without downloading entire archives.
 
 
 === "POSIX File System (Compressed Formats)"
@@ -23,9 +24,10 @@ Choose your preferred access method based on your workflow needs.
     **Quick Start:**
     
     ```bash
+    $ module avail
     $ module load datasets
-    $ module avail datasets/ai
-    $ module load datasets/ai/<dataset-name>
+    $ module avail ai
+    $ module load ai/<dataset-name>
     ```
     
     ## Working with Datasets

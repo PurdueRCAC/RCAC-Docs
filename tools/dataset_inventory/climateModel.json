@@ -1,0 +1,46 @@
+{
+  "climateModel": {
+    "CESM2": {
+      "folder": "CESM2",
+      "time_resolution": "",
+      "spatial_resolution": "",
+      "doi": "10.1029/2019MS001916",
+      "link": "https://www.cesm.ucar.edu/models/cesm2/",
+      "publication_date": "2020-02-06",
+      "title": "CESM2 Model Input Data",
+      "description": "The Community Earth System Model Version 2 (CESM2) is a fully-coupled global climate model developed by NCAR for simulating Earth's climate system. This dataset contains the input data necessary to run all supported CESM2 component sets. The dataset includes atmospheric forcing data, ocean initial conditions, land surface data, sea ice parameters, land ice configuration files, and coupling infrastructure data spanning multiple components: atmosphere (CAM6), land (CLM5), ocean (POP2/MOM6), sea ice (CICE5.1), land ice (CISM2.1), river runoff (MOSART), and ocean waves (WW3). Components include over 20TB of data including atmospheric initial conditions (ccs4_init), CESM2-specific initial conditions (cesm2_init), coupled data, land data (lnd), ocean data (ocn), sea ice data (ice), paleoclimate data, and validation datasets. Input data is organized by component and includes surface forcing fields, initial condition files, grid definitions, mapping weights, and namelist configuration files required for running historical, pre-industrial, scenario, and paleoclimate simulations.",
+      "data_type": "netCDF",
+      "usage_policy": "CESM2 is made available under the following terms and conditions. The CESM2 software and associated input datasets are freely available for use in research and education. Users are required to register at the CESM website and agree to the terms of use. Publications using CESM2 should acknowledge NCAR and the CESM project, and cite the primary reference paper. For full terms of use, see https://www.cesm.ucar.edu/models/cesm2/copyright.html",
+      "bibtex": "@article{Danabasoglu2020,\n  author  = {Danabasoglu, Gokhan and Lamarque, Jean-François and Bacmeister, Julio and Bailey, David A. and DuVivier, Alice K. and Edwards, James and Emmons, Louisa K. and Fasullo, John and Garcia, Rolando and Gettelman, Andrew and Hannay, Cecile and Holland, Marika M. and Large, William G. and Lauritzen, Peter H. and Lawrence, David M. and Lenaerts, Jan T. M. and Lindsay, Keith and Lipscomb, William H. and Mills, Michael J. and Neale, Rich and Oleson, Keith W. and Otto-Bliesner, Bette and Phillips, Adam and Sacks, William and Tilmes, Simone and Kampenhout, Leo van and Vertenstein, Mariana and Bertini, Alice and Dennis, John and Deser, Clara and Fischer, Chris and Fox-Kemper, Baylor and Kay, Jennifer E. and Kinnison, Douglas E. and Kushner, Paul J. and Larson, Vincent E. and Long, Matthew C. and Mickelson, Sheri and Moore, J. Keith and Nienhouse, Eric and Polvani, Lorenzo and Rasch, Philip J. and Strand, Warren G.},\n  title   = {The Community Earth System Model Version 2 (CESM2)},\n  journal = {Journal of Advances in Modeling Earth Systems},\n  volume  = {12},\n  number  = {2},\n  pages   = {e2019MS001916},\n  year    = {2020},\n  month   = {feb},\n  doi     = {10.1029/2019MS001916},\n  url     = {https://doi.org/10.1029/2019MS001916}\n}",
+      "cite": "Danabasoglu, G., Lamarque, J.-F., Bacmeister, J., Bailey, D. A., DuVivier, A. K., Edwards, J., Emmons, L. K., Fasullo, J., Garcia, R., Gettelman, A., Hannay, C., Holland, M. M., Large, W. G., Lauritzen, P. H., Lawrence, D. M., Lenaerts, J. T. M., Lindsay, K., Lipscomb, W. H., Mills, M. J., Neale, R., Oleson, K. W., Otto-Bliesner, B., Phillips, A., Sacks, W., Tilmes, S., van Kampenhout, L., Vertenstein, M., Bertini, A., Dennis, J., Deser, C., Fischer, C., Fox-Kemper, B., Kay, J. E., Kinnison, D. E., Kushner, P. J., Larson, V. E., Long, M. C., Mickelson, S., Moore, J. K., Nienhouse, E., Polvani, L., Rasch, P. J., & Strand, W. G. (2020). The Community Earth System Model Version 2 (CESM2). Journal of Advances in Modeling Earth Systems, 12(2), e2019MS001916. https://doi.org/10.1029/2019MS001916",
+      "downloaded": "2025-11-09",
+      "usage_policy_link": "https://www.cesm.ucar.edu/models/cesm2/copyright.html",
+      "file_number": "46214",
+      "discipline": "climateModel / Earth System / Global Climate",
+      "dataset_size": "20T",
+      "public": "true",
+      "extended_description": "The Community Earth System Model Version 2 (CESM2) is a fully-coupled global climate model developed by NCAR. This dataset contains the input data necessary to run all supported CESM2 component sets including atmosphere (CAM6), land (CLM5), ocean (POP2/MOM6), sea ice (CICE5.1), land ice (CISM2.1), river runoff (MOSART), and ocean waves (WW3). Total size over 20TB with atmospheric initial conditions, CESM2 initial conditions, coupled data, and validation datasets."
+    },
+    "GEOS-Chem": {
+      "folder": "GEOS-Chem",
+      "extended_description": "GEOS-Chem is a global 3-D model of atmospheric chemistry driven by meteorological input from the Goddard Earth Observing System (GEOS) of the NASA Global Modeling and Assimilation Office. This dataset includes GEOS meteorological data at multiple resolutions, HEMCO emissions inventories, and CHEM_INPUTS chemistry data. Supported years: GEOS_4x5/GEOS_FP (2011, 2021-2026), GEOS_4x5/MERRA2 (2021-2025), GEOS_0.25x0.3125/GEOS_FP (2021-2026), GEOS_0.5x0.625/MERRA2 (2015, 2021-2025). HEMCO includes emission inventories for aerosols, dust, sea salt, biogenic VOCs, lightning NOx, and more. CHEM_INPUTS contains chemistry mechanism data, photolysis tables (FAST_JX, Cloud-J), aerosol optics, and land surface parameters. Total dataset includes 797,179 files across all components.",
+      "data_type": "netCDF",
+      "downloaded": "2026-04-10",
+      "public": true,
+      "usage_policy_link": "https://geos-chem.readthedocs.io",
+      "discipline": "climateModel / Atmospheric Chemistry / Chemical Transport Model",
+      "dataset_size": "85T",
+      "usage_policy": "GEOS-Chem is available under the MIT License. Users are required to cite the model in publications and acknowledge GEOS-Chem developers. Visit https://geos-chem.readthedocs.io for documentation. For support, contact the GEOS-Chem Support Team at Harvard University and Washington University.",
+      "bibtex": "@article{Bey2001,\\n  author  = {Bey, I. and Jacob, D. J. and Yantosca, R. M. and Logan, J. A. and Field, B. D. and Fiore, A. M. and Li, Q. and Liu, H. Y. and Mickley, L. J. and Schultz, M. G.},\\n  title   = {Global modeling of tropospheric chemistry with assimilated meteorology: Model description and evaluation},\\n  journal = {Journal of Geophysical Research: Atmospheres},\\n  volume  = {106},\\n  number  = {D19},\\n  pages   = {23073--23095},\\n  year    = {2001},\\n  doi     = {10.1029/2001JD000807},\\n  url     = {https://doi.org/10.1029/2001JD000807}\\n}",
+      "cite": "Bey, I., Jacob, D. J., Yantosca, R. M., Logan, J. A., Field, B. D., Fiore, A. M., Li, Q., Liu, H. Y., Mickley, L. J., & Schultz, M. G. (2001). Global modeling of tropospheric chemistry with assimilated meteorology: Model description and evaluation. Journal of Geophysical Research: Atmospheres, 106(D19), 23073-23095. https://doi.org/10.1029/2001JD000807",
+      "file_number": "797179",
+      "title": "GEOS-Chem",
+      "link": "https://geos-chem.readthedocs.io",
+      "doi": "10.1029/2001JD000807",
+      "publication_date": "2001",
+      "time_resolution": "Varies by product (3-hourly, 1-hourly, monthly)",
+      "spatial_resolution": "4x5 degrees, 0.5x0.625 degrees, 0.25x0.3125 degrees",
+      "description": "Global 3-D atmospheric chemistry model input data including GEOS meteorological fields, HEMCO emissions inventories, and chemistry inputs for tropospheric and stratospheric simulations."
+    }
+  }
+}
