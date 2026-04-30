@@ -308,25 +308,20 @@
     "Home",
     "Datasets"
   ],
+  "/datasets/dataset_catalog/": [
+    "Home",
+    "Datasets",
+    "All Datasets"
+  ],
   "/datasets/ai/": [
     "Home",
     "Datasets",
     "AI"
   ],
-  "/datasets/hydrological/": [
+  "/datasets/climateModel/": [
     "Home",
     "Datasets",
-    "Hydrological"
-  ],
-  "/datasets/meteorological/": [
-    "Home",
-    "Datasets",
-    "Meteorological"
-  ],
-  "/datasets/geospatial/": [
-    "Home",
-    "Datasets",
-    "Geospatial"
+    "Climate Model"
   ],
   "/datasets/Covariates/": [
     "Home",
@@ -338,10 +333,20 @@
     "Datasets",
     "GeoAI"
   ],
-  "/datasets/igenomes/": [
+  "/datasets/geospatial/": [
     "Home",
     "Datasets",
-    "Igenomes"
+    "Geospatial"
+  ],
+  "/datasets/hydrological/": [
+    "Home",
+    "Datasets",
+    "Hydrological"
+  ],
+  "/datasets/meteorological/": [
+    "Home",
+    "Datasets",
+    "Meteorological"
   ],
   "/workshops/": [
     "Home",
