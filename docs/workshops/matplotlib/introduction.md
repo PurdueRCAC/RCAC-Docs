@@ -1,3 +1,14 @@
+---
+tags:
+  - Visualization
+  - Python
+  - MatPlotLib
+authors:
+  - carls113
+search:
+  boost: 1
+---
+
 # Getting Started with Python and MatPlotLib
 [Back to main index](index.md){ .md-button }
 
