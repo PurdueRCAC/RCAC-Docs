@@ -249,7 +249,7 @@ nav:
         - Juicer: lifesciences/tutorials/juicer.md
   # - Tags: tags.md
   - Contact us: contact.md
-  - FAQs: faq.md
+  - FAQs: faqs.md
 
 extra:
   social:
