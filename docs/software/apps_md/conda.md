@@ -16,7 +16,7 @@ Conda is an open-source package, dependency, and environment management system. 
 |---|---|
 **ANVIL**|2024.09, 2025.02 (D), 2025.09, 2026.03
 **BELL**|2025.02, 2025.09 (D), 2026.03
-**GAUTSCHI**|2024.09, 2025.02, 2025.09 (D), 2026.03
+**GAUTSCHI**|2024.09, 2025.02, 2025.09, 2026.03 (D)
 **GILBRETH**|2024.09, 2025.02, 2025.09 (D), 2026.03
 **NEGISHI**|2024.09, 2025.09 (D), 2026.03
 **SCHOLAR**|2024.09-py312, 2024.09, 2025.09 (D), 2026.03
