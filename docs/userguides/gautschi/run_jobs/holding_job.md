@@ -8,6 +8,8 @@ search:
   boost: 2
 ---
 
+# Holding a Job
+
 Sometimes you may want to submit a job but not have it run just yet. You may be wanting to allow lab mates to cut in front of you in the queue - so hold the job until their jobs have started, and then release yours.
 
 To place a hold on a job before it starts running, use the ```scontrol hold job``` command:

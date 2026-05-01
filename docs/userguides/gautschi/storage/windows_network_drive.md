@@ -8,6 +8,8 @@ search:
   boost: 2
 ---
 
+# Windows Network Drive / SMB
+
 SMB (Server Message Block), also known as CIFS, is an easy-to-use file transfer protocol that is useful for transferring files between RCAC systems and a desktop or laptop. You may use SMB to connect to your home, scratch, and Fortress storage directories. The SMB protocol is available on Windows, Linux, and Mac OS X. It is primarily used as a graphical means of transfer, but it can also be used over the command line.
 
 !!!note

@@ -8,6 +8,8 @@ search:
   boost: 2
 ---
 
+# FTP / SFTP
+
 !!!warning
     FTP is not supported on any research systems because it does not allow for secure transmission of data. Use SFTP instead, as described below.
 

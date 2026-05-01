@@ -8,6 +8,8 @@ search:
   boost: 2
 ---
 
+# Submitting a Job
+
 Once you have a job submission script, you may submit the script to SLURM using the sbatch command. SLURM will find, or wait for, available resources matching your request and run your job there. If you have included your sbatch options as special comments in your submission script, submitting the job is as simple as:
 
 ``` bash
