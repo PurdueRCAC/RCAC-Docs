@@ -96,7 +96,6 @@ nav:
         - Examples: userguides/anvil/composable/examples.md
       - AnvilGPT (LLM): userguides/anvil/anvilgpt.md
       - Anvil Notebook: userguides/anvil/notebook.md
-      - Maintenance Log: userguides/anvil/maintenance.md
       - Key Policies: userguides/anvil/policies.md
     - Gautschi User Guide:
       - userguides/gautschi/index.md

@@ -20,6 +20,4 @@
 - [**AnvilGPT (LLM)**](anvilgpt.md)
 - [**Anvil Notebook**](notebook.md)
 
-## <a href="maintenance">Maintenance Log</a>
-
 ## <a href="policies">Policies</a>
