@@ -105,9 +105,8 @@ nav:
         - Security and Access Control: userguides/anvil/objectstorage/acl.md
       - AnvilGPT (LLM): userguides/anvil/anvilgpt.md
       - Anvil Notebook: userguides/anvil/notebook.md
-      - Maintenance Log: userguides/anvil/maintenance.md
-      - Policies: userguides/anvil/policies.md
-    - Gautschi:
+      - Key Policies: userguides/anvil/policies.md
+    - Gautschi User Guide:
       - userguides/gautschi/index.md
       - Gautschi Overview: userguides/gautschi/overview.md
       - Biography of Gautschi: userguides/gautschi/biography.md

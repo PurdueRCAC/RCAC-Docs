@@ -1,12 +1,15 @@
 ---
 tags:
   - Anvil
+  - Python
 authors:
   - dane
   - elian
-draft: true
 host: anvil.rcac.purdue.edu
 hostname: anvil
+cluster: Anvil
+search:
+  boost: 2
 ---
 
 <!-- ------------------- General slurm overview SNIPPET -------------------- -->
@@ -414,10 +417,9 @@ Filesystem storage is not charged.
 
 ## Extended Examples
 
-### Python Jobs
+# Python on {{ cluster }} cluster
+--8<-- "docs/snippets/apps/python.md"
 
-TODO: Snippet
+# R on {{ cluster }} cluster
 
-### R Jobs
-
-TODO: Snippet
+--8<-- "docs/snippets/apps/r.md"
