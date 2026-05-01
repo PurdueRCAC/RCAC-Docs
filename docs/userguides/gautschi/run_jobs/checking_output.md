@@ -8,6 +8,8 @@ search:
   boost: 2
 ---
 
+# Checking the Job Output
+
 Once a job is submitted, and has started, it will write its standard output and standard error to files that you can read.
 
 SLURM catches output written to standard output and standard error - what would be printed to your screen if you ran your program interactively. Unless you specfied otherwise, SLURM will put the output in the directory where you submitted the job in a file named ```slurm-``` followed by the ```job id```, with the extension ```out```. For example ```slurm-3509.out```. Note that both stdout and stderr will be written into the same file, unless you specify otherwise.

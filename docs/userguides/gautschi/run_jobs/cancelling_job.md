@@ -8,6 +8,8 @@ search:
   boost: 2
 ---
 
+# Cancelling a Job
+
 To stop a job before it finishes or remove it from a queue, use the ```scancel``` command:
 
 ```bash

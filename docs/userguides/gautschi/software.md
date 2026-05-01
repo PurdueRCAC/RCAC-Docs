@@ -54,4 +54,4 @@ module load hypershell/2.7.0
 ```
 
 ### Running GUI versions of apps
-If the app you want to use has a GUI, you can also login to {{ resource }} via Thinlinc. More information on this process can be found [here](../../blog/posts/thinlinc-login.md).
+If the app you want to use has a GUI, you can also login to {{ resource }} via Thinlinc. More information on this process can be found [here](accounts.md#thinlinc).

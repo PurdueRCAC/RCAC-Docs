@@ -9,6 +9,8 @@ search:
   boost: 2
 ---
 
+# Generic SLURM Jobs
+
 There are several types of generic SLURM jobs. Choose one below to learn more:
 
 - [**Simple Job**](simple_job.md)

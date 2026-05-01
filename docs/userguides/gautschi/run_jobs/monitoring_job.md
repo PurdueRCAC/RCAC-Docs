@@ -8,6 +8,8 @@ search:
   boost: 2
 ---
 
+# Monitoring the Job
+
 Once a job is submitted there are several commands you can use to monitor the progress of the job.
 
 To see your jobs, use the ```squeue -u``` command and specify your username:
