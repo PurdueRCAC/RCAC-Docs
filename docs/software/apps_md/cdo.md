@@ -1,6 +1,6 @@
 # cdo
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ CDO is a collection of command line Operators to manipulate and analyse Climate 
 
 ## Homepage
 
-[https://code.mpimet.mpg.de/projects/cdo](https://code.mpimet.mpg.de/projects/cdo){:target="_blank"}
+[https://code.mpimet.mpg.de/projects/cdo](https://code.mpimet.mpg.de/projects/cdo)
 
 ## Available Versions on RCAC Clusters
 

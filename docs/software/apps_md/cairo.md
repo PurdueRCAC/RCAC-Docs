@@ -1,6 +1,6 @@
 # cairo
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ Cairo is a 2D graphics library with support for multiple output devices.
 
 ## Homepage
 
-[https://www.cairographics.org/](https://www.cairographics.org/){:target="_blank"}
+[https://www.cairographics.org/](https://www.cairographics.org/)
 
 ## Available Versions on RCAC Clusters
 

@@ -1,6 +1,6 @@
 # libxp
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ libXp - X Print Client Library.
 
 ## Homepage
 
-[https://gitlab.freedesktop.org/xorg/lib/libXp](https://gitlab.freedesktop.org/xorg/lib/libXp){:target="_blank"}
+[https://gitlab.freedesktop.org/xorg/lib/libXp](https://gitlab.freedesktop.org/xorg/lib/libXp)
 
 ## Available Versions on RCAC Clusters
 

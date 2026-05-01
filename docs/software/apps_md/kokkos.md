@@ -1,6 +1,6 @@
 # kokkos
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ Kokkos implements a programming model in C++ for writing performance portable ap
 
 ## Homepage
 
-[https://github.com/kokkos/kokkos](https://github.com/kokkos/kokkos){:target="_blank"}
+[https://github.com/kokkos/kokkos](https://github.com/kokkos/kokkos)
 
 ## Available Versions on RCAC Clusters
 

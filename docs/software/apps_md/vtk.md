@@ -1,6 +1,6 @@
 # vtk
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ The Visualization Toolkit (VTK) is an open-source, freely available software sys
 
 ## Homepage
 
-[https://www.vtk.org](https://www.vtk.org){:target="_blank"}
+[https://www.vtk.org](https://www.vtk.org)
 
 ## Available Versions on RCAC Clusters
 

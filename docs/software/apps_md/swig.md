@@ -1,6 +1,6 @@
 # swig
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ SWIG is an interface compiler that connects programs written in C and C++ with s
 
 ## Homepage
 
-[https://www.swig.org](https://www.swig.org){:target="_blank"}
+[https://www.swig.org](https://www.swig.org)
 
 ## Available Versions on RCAC Clusters
 

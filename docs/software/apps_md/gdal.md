@@ -1,6 +1,6 @@
 # gdal
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ GDAL: Geospatial Data Abstraction Library.  GDAL is a translator library for ras
 
 ## Homepage
 
-[https://www.gdal.org/](https://www.gdal.org/){:target="_blank"}
+[https://www.gdal.org/](https://www.gdal.org/)
 
 ## Available Versions on RCAC Clusters
 

@@ -1,6 +1,6 @@
 # gcc-runtime
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ GCC runtime libraries required for compiled applications.
 
 ## Homepage
 
-[https://gcc.gnu.org/](https://gcc.gnu.org/){:target="_blank"}
+[https://gcc.gnu.org/](https://gcc.gnu.org/)
 
 ## Available Versions on RCAC Clusters
 

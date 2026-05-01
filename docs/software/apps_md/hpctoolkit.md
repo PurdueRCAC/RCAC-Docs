@@ -1,6 +1,6 @@
 # hpctoolkit
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ HPCToolkit is an integrated suite of tools for measurement and analysis of progr
 
 ## Homepage
 
-[https://hpctoolkit.org](https://hpctoolkit.org){:target="_blank"}
+[https://hpctoolkit.org](https://hpctoolkit.org)
 
 ## Available Versions on RCAC Clusters
 

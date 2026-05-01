@@ -1,6 +1,6 @@
 # duckdb
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ DuckDB is an in-process SQL OLAP Database Management System.
 
 ## Homepage
 
-[https://duckdb.org](https://duckdb.org){:target="_blank"}
+[https://duckdb.org](https://duckdb.org)
 
 ## Available Versions on RCAC Clusters
 

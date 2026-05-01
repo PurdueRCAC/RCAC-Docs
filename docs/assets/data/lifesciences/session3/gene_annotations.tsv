@@ -1,0 +1,31 @@
+gene_id	gene_name	chromosome	start	end	strand	description
+Zm00001eb000010	dhn1	chr1	1245678	1248934	+	dehydrin 1
+Zm00001eb000020	wrky22	chr1	2345678	2348901	-	WRKY transcription factor 22
+Zm00001eb000030	gapdh	chr1	3456789	3459012	+	glyceraldehyde-3-phosphate dehydrogenase
+Zm00001eb000040	lea3	chr1	4567890	4570123	+	late embryogenesis abundant protein 3
+Zm00001eb000050	cyp71a1	chr2	1234567	1237890	-	cytochrome P450 71A1
+Zm00001eb000060	pp2c	chr2	2345678	2348901	+	protein phosphatase 2C
+Zm00001eb000070	nac42	chr2	3456789	3459012	-	NAC transcription factor 42
+Zm00001eb000080	ubi1	chr2	4567890	4570123	+	ubiquitin 1
+Zm00001eb000090	aquaporin2	chr3	1234567	1237890	+	aquaporin PIP2;1
+Zm00001eb000100	hsp70	chr3	2345678	2348901	-	heat shock protein 70
+Zm00001eb000110	myb34	chr3	3456789	3459012	+	MYB transcription factor 34
+Zm00001eb000120	rbcs	chr3	4567890	4570123	-	ribulose bisphosphate carboxylase small subunit
+Zm00001eb000130	p5cs	chr4	1234567	1237890	+	delta-1-pyrroline-5-carboxylate synthase
+Zm00001eb000140	actin1	chr4	2345678	2348901	-	actin 1
+Zm00001eb000150	dreb2a	chr4	3456789	3459012	+	DREB2A transcription factor
+Zm00001eb000160	osm34	chr4	4567890	4570123	-	osmotin-like protein 34
+Zm00001eb000170	lhcb1	chr5	1234567	1237890	+	light-harvesting chlorophyll a/b binding protein
+Zm00001eb000180	erd15	chr5	2345678	2348901	-	early responsive to dehydration 15
+Zm00001eb000190	cat2	chr5	3456789	3459012	+	catalase 2
+Zm00001eb000200	pal1	chr5	4567890	4570123	-	phenylalanine ammonia-lyase 1
+Zm00001eb000210	rd29a	chr6	1234567	1237890	+	responsive to desiccation 29A
+Zm00001eb000220	sod2	chr6	2345678	2348901	-	superoxide dismutase 2
+Zm00001eb000230	bzip23	chr6	3456789	3459012	+	bZIP transcription factor 23
+Zm00001eb000240	expansin5	chr6	4567890	4570123	-	expansin A5
+Zm00001eb000250	gst3	chr7	1234567	1237890	+	glutathione S-transferase 3
+Zm00001eb000260	psba	chr7	2345678	2348901	-	photosystem II protein D1
+Zm00001eb000270	abi5	chr7	3456789	3459012	+	ABA insensitive 5
+Zm00001eb000280	ef1a	chr7	4567890	4570123	-	elongation factor 1-alpha
+Zm00001eb000290	cor15a	chr8	1234567	1237890	+	cold-regulated 15A
+Zm00001eb000300	snrk2	chr8	2345678	2348901	-	SNF1-related protein kinase 2

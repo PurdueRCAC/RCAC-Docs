@@ -1,6 +1,6 @@
 # python
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ The Python programming language.
 
 ## Homepage
 
-[https://www.python.org/](https://www.python.org/){:target="_blank"}
+[https://www.python.org/](https://www.python.org/)
 
 ## Available Versions on RCAC Clusters
 

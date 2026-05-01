@@ -1,6 +1,6 @@
 # rstudio
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ RStudio is an integrated development environment (IDE) for R.
 
 ## Homepage
 
-[https://www.rstudio.com/products/rstudio/](https://www.rstudio.com/products/rstudio/){:target="_blank"}
+[https://www.rstudio.com/products/rstudio/](https://www.rstudio.com/products/rstudio/)
 
 ## Available Versions on RCAC Clusters
 

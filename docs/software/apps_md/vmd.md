@@ -1,6 +1,6 @@
 # vmd
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ VMD provides user-editable materials which can be applied to molecular geometry.
 
 ## Homepage
 
-[https://www.ks.uiuc.edu/Research/vmd/](https://www.ks.uiuc.edu/Research/vmd/){:target="_blank"}
+[https://www.ks.uiuc.edu/Research/vmd/](https://www.ks.uiuc.edu/Research/vmd/)
 
 ## Available Versions on RCAC Clusters
 

@@ -1,6 +1,6 @@
 # libxml2
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ Libxml2 is the XML C parser and toolkit developed for the Gnome project (but usa
 
 ## Homepage
 
-[https://gitlab.gnome.org/GNOME/libxml2/-/wikis](https://gitlab.gnome.org/GNOME/libxml2/-/wikis){:target="_blank"}
+[https://gitlab.gnome.org/GNOME/libxml2/-/wikis](https://gitlab.gnome.org/GNOME/libxml2/-/wikis)
 
 ## Available Versions on RCAC Clusters
 

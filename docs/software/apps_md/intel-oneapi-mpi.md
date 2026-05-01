@@ -1,6 +1,6 @@
 # intel-oneapi-mpi
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ Intel MPI Library provides high-performance and scalable message passing for HPC
 
 ## Homepage
 
-[https://www.intel.com/content/www/us/en/developer/tools/oneapi/mpi-library.html](https://www.intel.com/content/www/us/en/developer/tools/oneapi/mpi-library.html){:target="_blank"}
+[https://www.intel.com/content/www/us/en/developer/tools/oneapi/mpi-library.html](https://www.intel.com/content/www/us/en/developer/tools/oneapi/mpi-library.html)
 
 ## Available Versions on RCAC Clusters
 

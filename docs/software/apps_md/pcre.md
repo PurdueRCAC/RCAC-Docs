@@ -1,6 +1,6 @@
 # pcre
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ The PCRE package contains Perl Compatible Regular Expression libraries. These ar
 
 ## Homepage
 
-[https://www.pcre.org](https://www.pcre.org){:target="_blank"}
+[https://www.pcre.org](https://www.pcre.org)
 
 ## Available Versions on RCAC Clusters
 

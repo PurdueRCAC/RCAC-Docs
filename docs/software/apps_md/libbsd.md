@@ -1,6 +1,6 @@
 # libbsd
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ This library provides useful functions commonly found on BSD systems, and lackin
 
 ## Homepage
 
-[https://libbsd.freedesktop.org/wiki/](https://libbsd.freedesktop.org/wiki/){:target="_blank"}
+[https://libbsd.freedesktop.org/wiki/](https://libbsd.freedesktop.org/wiki/)
 
 ## Available Versions on RCAC Clusters
 

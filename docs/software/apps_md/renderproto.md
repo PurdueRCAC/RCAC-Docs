@@ -1,6 +1,6 @@
 # renderproto
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ X Rendering Extension.  This extension defines the protcol for a digital image c
 
 ## Homepage
 
-[https://cgit.freedesktop.org/xorg/proto/renderproto](https://cgit.freedesktop.org/xorg/proto/renderproto){:target="_blank"}
+[https://cgit.freedesktop.org/xorg/proto/renderproto](https://cgit.freedesktop.org/xorg/proto/renderproto)
 
 ## Available Versions on RCAC Clusters
 

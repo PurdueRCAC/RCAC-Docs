@@ -1,6 +1,6 @@
 # visit
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ VisIt is an Open Source, interactive, scalable, visualization, animation and ana
 
 ## Homepage
 
-[https://wci.llnl.gov/simulation/computer-codes/visit/](https://wci.llnl.gov/simulation/computer-codes/visit/){:target="_blank"}
+[https://wci.llnl.gov/simulation/computer-codes/visit/](https://wci.llnl.gov/simulation/computer-codes/visit/)
 
 ## Available Versions on RCAC Clusters
 

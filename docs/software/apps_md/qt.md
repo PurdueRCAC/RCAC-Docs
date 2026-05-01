@@ -1,6 +1,6 @@
 # qt
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ Qt is a comprehensive cross-platform C++ application framework.
 
 ## Homepage
 
-[https://qt.io](https://qt.io){:target="_blank"}
+[https://qt.io](https://qt.io)
 
 ## Available Versions on RCAC Clusters
 

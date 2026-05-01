@@ -1,6 +1,6 @@
 # intel-oneapi-vtune
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ Intel VTune Profiler is a performance analysis tool for optimizing CPU, GPU, and
 
 ## Homepage
 
-[https://www.intel.com/content/www/us/en/developer/tools/oneapi/vtune-profiler.html](https://www.intel.com/content/www/us/en/developer/tools/oneapi/vtune-profiler.html){:target="_blank"}
+[https://www.intel.com/content/www/us/en/developer/tools/oneapi/vtune-profiler.html](https://www.intel.com/content/www/us/en/developer/tools/oneapi/vtune-profiler.html)
 
 ## Available Versions on RCAC Clusters
 

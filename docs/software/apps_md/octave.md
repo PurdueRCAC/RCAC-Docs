@@ -1,6 +1,6 @@
 # octave
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ GNU Octave is a high-level language, primarily intended for numerical computatio
 
 ## Homepage
 
-[https://www.gnu.org/software/octave/](https://www.gnu.org/software/octave/){:target="_blank"}
+[https://www.gnu.org/software/octave/](https://www.gnu.org/software/octave/)
 
 ## Available Versions on RCAC Clusters
 

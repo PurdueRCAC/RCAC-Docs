@@ -10,7 +10,7 @@ To access the datasets on RCAC clusters:
 ```bash
 $ module avail
 $ module load datasets
-$ module avail datasets/hydrological
+$ module avail hydrological
 ```
 
 ## Tips:
@@ -21,5 +21,7 @@ $ module avail datasets/hydrological
 
 ## Hydrological Datasets
 
-* [**CAMELS**](hydrological/CAMELS.md)
-* [**MERIT_BASIN**](hydrological/MERIT_BASINS.md)
+| Dataset | Description |
+|---------|-------------|
+| [**CAMELS**](hydrological/CAMELS.md) | CAMELS is a collection of datasets combining hydrological and meteorological observations with catchment attributes for hundreds of catchments across the United States and other regions |
+| [**MERIT_BASIN**](hydrological/MERIT_BASINS.md) | MERIT Basins is a dataset derived from the MERIT Hydro digital elevation model, delineating global river basins and sub-basins |

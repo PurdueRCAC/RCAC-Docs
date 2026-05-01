@@ -1,6 +1,6 @@
 # udunits
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ Automated units conversion
 
 ## Homepage
 
-[https://www.unidata.ucar.edu/software/udunits](https://www.unidata.ucar.edu/software/udunits){:target="_blank"}
+[https://www.unidata.ucar.edu/software/udunits](https://www.unidata.ucar.edu/software/udunits)
 
 ## Available Versions on RCAC Clusters
 

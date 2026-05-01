@@ -1,6 +1,6 @@
 # qgis
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ QGIS is a free and open-source cross-platform desktop geographic information sys
 
 ## Homepage
 
-[https://qgis.org](https://qgis.org){:target="_blank"}
+[https://qgis.org](https://qgis.org)
 
 ## Available Versions on RCAC Clusters
 

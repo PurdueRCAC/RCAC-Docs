@@ -1,6 +1,6 @@
 # openblas
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ OpenBLAS: An optimized BLAS library
 
 ## Homepage
 
-[https://www.openblas.net](https://www.openblas.net){:target="_blank"}
+[https://www.openblas.net](https://www.openblas.net)
 
 ## Available Versions on RCAC Clusters
 

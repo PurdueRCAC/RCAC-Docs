@@ -1,6 +1,6 @@
 # tecplot
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ Tecplot 360 is a Computational Fluid Dynamics (CFD) and numerical simulation sof
 
 ## Homepage
 
-[https://www.tecplot.com/](https://www.tecplot.com/){:target="_blank"}
+[https://www.tecplot.com/](https://www.tecplot.com/)
 
 ## Available Versions on RCAC Clusters
 

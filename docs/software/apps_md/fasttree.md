@@ -1,6 +1,6 @@
 # fasttree
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ FastTree infers approximately-maximum-likelihood phylogenetic trees from alignme
 
 ## Homepage
 
-[http://www.microbesonline.org/fasttree](http://www.microbesonline.org/fasttree){:target="_blank"}
+[http://www.microbesonline.org/fasttree](http://www.microbesonline.org/fasttree)
 
 ## Available Versions on RCAC Clusters
 

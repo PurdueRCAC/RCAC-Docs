@@ -1,6 +1,6 @@
 # ghostscript
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ An interpreter for the PostScript language and for PDF.
 
 ## Homepage
 
-[https://ghostscript.com/](https://ghostscript.com/){:target="_blank"}
+[https://ghostscript.com/](https://ghostscript.com/)
 
 ## Available Versions on RCAC Clusters
 

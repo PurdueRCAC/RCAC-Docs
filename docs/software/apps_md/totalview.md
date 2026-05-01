@@ -1,6 +1,6 @@
 # totalview
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ Totalview parallel debugger.  Select the version associated with your machine ar
 
 ## Homepage
 
-[https://totalview.io](https://totalview.io){:target="_blank"}
+[https://totalview.io](https://totalview.io)
 
 ## Available Versions on RCAC Clusters
 

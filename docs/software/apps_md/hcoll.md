@@ -1,6 +1,6 @@
 # hcoll
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ Modern interface for Mellanox Fabric Collective Accelerator (FCA). FCA is a MPI-
 
 ## Homepage
 
-[https://developer.nvidia.com/networking/hpc-x](https://developer.nvidia.com/networking/hpc-x){:target="_blank"}
+[https://developer.nvidia.com/networking/hpc-x](https://developer.nvidia.com/networking/hpc-x)
 
 ## Available Versions on RCAC Clusters
 

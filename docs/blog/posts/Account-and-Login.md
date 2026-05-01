@@ -13,6 +13,8 @@ title: First Time Login Issue
 #Slug will change how it's shown in the domain url
 slug: firsttime_login_issue
 
+draft: true
+
 tags:
   - Account
   - Login

@@ -278,6 +278,9 @@
   "hadoop": [
     "Miscellaneous"
   ],
+  "hcoll": [
+    "Miscellaneous"
+  ],
   "hdf": [
     "Geoscience",
     "Library"
@@ -287,6 +290,9 @@
     "Library"
   ],
   "hpctoolkit": [
+    "Miscellaneous"
+  ],
+  "hpcx": [
     "Miscellaneous"
   ],
   "hspice": [
@@ -342,6 +348,9 @@
   ],
   "intel-rt": [
     "Compilers"
+  ],
+  "java": [
+    "Miscellaneous"
   ],
   "julia": [
     "Programming"
@@ -723,6 +732,9 @@
   "r-shiny": [
     "Math/Stat",
     "Programming"
+  ],
+  "rclone": [
+    "Miscellaneous"
   ],
   "readline": [
     "Library",

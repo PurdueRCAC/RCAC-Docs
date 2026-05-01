@@ -1,6 +1,6 @@
 # gaussian
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ Gaussian is a computer program for computational chemistry
 
 ## Homepage
 
-[http://www.gaussian.com/](http://www.gaussian.com/){:target="_blank"}
+[http://www.gaussian.com/](http://www.gaussian.com/)
 
 ## Available Versions on RCAC Clusters
 

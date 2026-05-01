@@ -1,6 +1,6 @@
 # gmp
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ GMP is a free library for arbitrary precision arithmetic, operating on signed in
 
 ## Homepage
 
-[https://gmplib.org](https://gmplib.org){:target="_blank"}
+[https://gmplib.org](https://gmplib.org)
 
 ## Available Versions on RCAC Clusters
 

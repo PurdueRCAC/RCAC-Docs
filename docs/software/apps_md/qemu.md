@@ -1,6 +1,6 @@
 # qemu
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ QEMU is a generic and open source machine emulator and virtualizer.
 
 ## Homepage
 
-[https://www.qemu.org](https://www.qemu.org){:target="_blank"}
+[https://www.qemu.org](https://www.qemu.org)
 
 ## Available Versions on RCAC Clusters
 
@@ -17,8 +17,10 @@ QEMU is a generic and open source machine emulator and virtualizer.
 **ANVIL**|4.1.1, 6.2.0
 **BELL**|9.1.0
 **GAUTSCHI**|4.2.1
-**NEGISHI**|4.2.1
+**NEGISHI**|4.2.1 (D), 6.2.0
 **SCHOLAR**|4.2.1
+
+(D): Default Module
 
 ## Module
 

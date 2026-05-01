@@ -1,6 +1,6 @@
 # nwchem
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ High-performance computational chemistry software
 
 ## Homepage
 
-[https://nwchemgit.github.io](https://nwchemgit.github.io){:target="_blank"}
+[https://nwchemgit.github.io](https://nwchemgit.github.io)
 
 ## Available Versions on RCAC Clusters
 

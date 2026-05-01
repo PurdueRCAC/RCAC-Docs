@@ -1,6 +1,6 @@
 # mpc
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ Gnu Mpc is a C library for the arithmetic of complex numbers with arbitrarily hi
 
 ## Homepage
 
-[https://www.multiprecision.org](https://www.multiprecision.org){:target="_blank"}
+[https://www.multiprecision.org](https://www.multiprecision.org)
 
 ## Available Versions on RCAC Clusters
 

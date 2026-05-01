@@ -1,6 +1,6 @@
 # picard
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ Picard is a set of command line tools for manipulating high-throughput sequencin
 
 ## Homepage
 
-[https://broadinstitute.github.io/picard/](https://broadinstitute.github.io/picard/){:target="_blank"}
+[https://broadinstitute.github.io/picard/](https://broadinstitute.github.io/picard/)
 
 ## Available Versions on RCAC Clusters
 

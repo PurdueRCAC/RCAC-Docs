@@ -1,6 +1,6 @@
 # gettext
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ GNU internationalization (i18n) and localization (l10n) library.
 
 ## Homepage
 
-[https://www.gnu.org/software/gettext/](https://www.gnu.org/software/gettext/){:target="_blank"}
+[https://www.gnu.org/software/gettext/](https://www.gnu.org/software/gettext/)
 
 ## Available Versions on RCAC Clusters
 

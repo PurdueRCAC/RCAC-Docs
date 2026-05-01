@@ -8,27 +8,36 @@ search:
   boost: 1
 ---
 
-AnvilGPT is an LLM service that makes open source LLM models like LLaMA accessible to ACCESS researchers.  It is hosted entirely with on-prem resources at Purdue, not only providing democratized access but adding another layer of control compared to commercial services.  Chats, documents, and models are not shared between users nor used for training.
+AnvilGPT is an LLM service that makes open source LLM models like LLaMA accessible to ACCESS researchers.  It is **hosted entirely with on-prem resources at Purdue**, not only providing democratized access but adding another layer of control compared to commercial services.  Chats, documents, and models are not shared between users nor used for training.
 
-There are two modalities for interacting with AnvilGPT, UI, and API, and additional functionality for both modalities is under active development. This system is integrated with a PostgreSQL vector database in the backend to enable retrieval-augmented generation (RAG) functionality.
+There are two modalities for interacting with AnvilGPT: UI, and API, with additional functionality for both modalities is under active development. This system is integrated with a PostgreSQL vector database in the backend to enable retrieval-augmented generation (RAG) functionality.
 
-Note this service is a pilot and provides only limited safety measures.  Models may hallucinate or generate offensive content.  AnvilGPT should not be used for any illegal, harmful, or violent purposes.
+!!! note "Pilot Program"
+    This service is a pilot and provides only limited safety measures.  Models may hallucinate or generate offensive content.  AnvilGPT should not be used for any illegal, harmful, or violent purposes.
 
-Do not input, by any method, any data into these systems that your research institution would consider sensitive or proprietary. Do not input, by any method, any data into these systems that is regulated by State or Federal Law. This includes, but is not limited to, HIPAA data, Export Controlled data, personal identification numbers (e.g. SSNs) or biometric data.
+!!! warning "Privacy"
+    Do not input, by any method, any data into these systems that your research institution would consider sensitive or proprietary. Do not input, by any method, any data into these systems that is regulated by State or Federal Law. This includes, but is not limited to, HIPAA data, Export Controlled data, personal identification numbers (e.g. SSNs) or biometric data.
 
 ## Access
 
+!!! warning "AnvilGPT Access"
+    AnvilGPT is only available for **Anvil users with an active account and project**. Once your project expires, your access to AnvilGPT gets revoked.
+
 Access is currently being given on a per request basis.  Navigate to [https://anvilgpt.rcac.purdue.edu/](https://anvilgpt.rcac.purdue.edu/) and log in using CILogon. Select ACCESS as the identity provider. This will create a pending account.
 
-Next, reach out to the [help desk](https://support.access-ci.org/open-a-ticket) with the subject/summary line “AnvilGPT Access Request”. In the description, provide a brief description of how you intend to use the service, your allocation number, and if you would like access to the UI, API, or both. Select "Some Other Question" as the user support issue and "Anvil" as the resource. An admin will assess and approve your request and get back to you.
+1. Navigate to [https://anvilgpt.rcac.purdue.edu/](https://anvilgpt.rcac.purdue.edu/) and log in using CILogon.
+2. Select ACCESS as the identity provider. **This will create a pending account**: ![](https://www.rcac.purdue.edu/files/login.png)
+3. Reach out to the [help desk](https://support.access-ci.org/open-a-ticket) with:
+    1. Subject/summary line: “AnvilGPT Access Request”
+    2. Description: provide a brief description of how you intend to use the service, your allocation number, and if you would like access to the UI, API, or both.
+    3. Select "Some Other Question" as the user support issue and "Anvil" as the resource.
+4. An admin will assess your request and approve or deny your request within 24-48 hours.
 
-**![](https://www.rcac.purdue.edu/files/login.png)**
+<hr style="border: 3px solid">
 
-## User Interface
+## Graphical User Interface: Chat
 
-### Chat Interface
-
-#### Model Selection
+### Model Selection
 
 The chat interface allows you to select from a list of available models to interface with.  This list includes both base models available to all users as well as any custom models you have created (covered below). 
 
@@ -36,9 +45,10 @@ You may also select multiple models to compare the output for any prompt.  In t
 
 ![](https://www.rcac.purdue.edu/files/model_selection.png)
 
-If there are additional open-source models you would like to use that are not available in the drop-down, please send in a ticket request. We are able to provide access to most open-source models.
+!!! tip "Add New Model"
+    If there are additional open-source models you would like to use that are not available in the drop-down, please send in a ticket request. We are able to provide access to most open-source models.
 
-#### Sending a Message
+### Sending a Message
 
 Sending a prompt is as simple as adding text into the message bar.  By clicking the microphone or headset buttons you can also use a speech-to-text service or have a “call” with the model where you can speak it the model will speak back.
 
@@ -50,7 +60,7 @@ When you get a model response, you can take various action including editing, co
 
 ![](https://www.rcac.purdue.edu/files/output_actions.png)
 
-#### Other Controls
+### Other Controls
 
 From the top left of the screen, you can access various controls which enable you to tweak the parameters and system prompt for the chat.  To persist this information, use a custom model. From these options you are also able to download chats and change other settings related to the UI.
 
@@ -66,13 +76,13 @@ From the workspace you can upload documents and create models with a RAG functio
 
  ![](https://www.rcac.purdue.edu/files/workspace.png)
 
-#### Documents
+### Documents
 
 In the documents tab, use the ‘+’ button to upload documents. Select documents using the upload functionality then add it to a collection if you wish by specifying a name.  The collection can be used to create different groupings of documents, for example to create custom RAGs focusing on different tasks. Documents will not be shared across users, but please do not upload documents with sensitive information or that are subject to regulations.
 
 ![](https://www.rcac.purdue.edu/files/documents.png)
 
-#### Models
+### Models
 
 To create a custom model, navigate to the Models tab in the workspace and click “Create a model”.
 
@@ -88,23 +98,21 @@ To use the API, you wil first need to find your API key, accessible from the UI.
 
 ![](https://www.rcac.purdue.edu/files/image-20241115131909-1.png)
 
-Use the following endpoint to connect to the API.
+### Response Formats
 
-**For an OpenAI API-compatible response, use [https://anvilgpt.rcac.purdue.edu/api/chat/completions](https://anvilgpt.rcac.purdue.edu/api/chat/completions)**
-
-For a streaming response, this will return results formated like:
+Streaming response:
 
 ```
 data: {"id": "llama3.1:latest-dd3f8a12-a36f-4fcc-9537-02a9e7c1d9c8", "created": 1749755137, "model": "llama3.1:latest", "choices": [{"index": 0, "logprobs": null, "finish_reason": null, "delta": {"content": "I"}}], "object": "chat.completion.chunk"}
 ```
 
- For a non-streaming response, this will return results formated like:
+Non-Streaming response:
 
 ```
 {"id":"llama3.1:latest-703c01b4-c58d-4f78-b7e3-f0df34a91ede","created":1749755251,"model":"llama3.1:latest","choices":[{"index":0,"logprobs":null,"finish_reason":"stop","message":{"content":"I don't have a personal name. I'm an AI designed to assist and communicate with users, so I'm often referred to as a \"chatbot\" or simply \"Assistant.\" If you'd like, I can generate a unique identifier for our conversation, but it won't be a traditional name. How can I help you today?","role":"assistant"}}],"object":"chat.completion","usage":{"response_token/s":180.38,"prompt_token/s":13403.27,"total_duration":397326193,"load_duration":13348992,"prompt_eval_count":15,"prompt_tokens":15,"prompt_eval_duration":1119130,"eval_count":69,"completion_tokens":69,"eval_duration":382515521,"approximate_total":"0h0m0s","total_tokens":84,"completion_tokens_details":{"reasoning_tokens":0,"accepted_prediction_tokens":0,"rejected_prediction_tokens":0}}}
 ```
 
-**To use the endpoint, insert your API key in the example Python code below:**
+### Example Python Use
 
 ```
 import requests

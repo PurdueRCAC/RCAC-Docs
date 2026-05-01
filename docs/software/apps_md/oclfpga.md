@@ -1,6 +1,6 @@
 # oclfpga
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ Intel OpenCL FPGA runtime and utilities for FPGA application development.
 
 ## Homepage
 
-[https://www.intel.com/content/www/us/en/software/programmable/sdk.html](https://www.intel.com/content/www/us/en/software/programmable/sdk.html){:target="_blank"}
+[https://www.intel.com/content/www/us/en/software/programmable/sdk.html](https://www.intel.com/content/www/us/en/software/programmable/sdk.html)
 
 ## Available Versions on RCAC Clusters
 

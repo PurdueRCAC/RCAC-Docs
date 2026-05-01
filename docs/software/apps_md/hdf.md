@@ -1,6 +1,6 @@
 # hdf
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ HDF4 (also known as HDF) is a library and multi-object file format for storing a
 
 ## Homepage
 
-[https://portal.hdfgroup.org](https://portal.hdfgroup.org){:target="_blank"}
+[https://portal.hdfgroup.org](https://portal.hdfgroup.org)
 
 ## Available Versions on RCAC Clusters
 

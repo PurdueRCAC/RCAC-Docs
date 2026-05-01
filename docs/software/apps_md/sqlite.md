@@ -1,6 +1,6 @@
 # sqlite
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ SQLite is a C-language library that implements a small, fast, self-contained, hi
 
 ## Homepage
 
-[https://www.sqlite.org](https://www.sqlite.org){:target="_blank"}
+[https://www.sqlite.org](https://www.sqlite.org)
 
 ## Available Versions on RCAC Clusters
 

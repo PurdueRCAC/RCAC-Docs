@@ -43,20 +43,68 @@
     "Anvil User Guide",
     "Help Desk"
   ],
+  "/userguides/anvil/faqs/": [
+    "Home",
+    "Anvil User Guide",
+    "Frequently Asked Questions"
+  ],
+  "/userguides/anvil/composable/": [
+    "Home",
+    "Anvil User Guide",
+    "Anvil Composable Subsystem"
+  ],
   "/userguides/anvil/composable/getting-started/": [
     "Home",
     "Anvil User Guide",
+    "Anvil Composable Subsystem",
     "Getting Started"
   ],
   "/userguides/anvil/composable/concepts/": [
     "Home",
     "Anvil User Guide",
+    "Anvil Composable Subsystem",
     "Concepts"
   ],
   "/userguides/anvil/composable/examples/": [
     "Home",
     "Anvil User Guide",
+    "Anvil Composable Subsystem",
     "Examples"
+  ],
+  "/userguides/anvil/objectstorage/": [
+    "Home",
+    "Anvil User Guide",
+    "Anvil Object Storage"
+  ],
+  "/userguides/anvil/objectstorage/getting-started/": [
+    "Home",
+    "Anvil User Guide",
+    "Anvil Object Storage",
+    "Getting Started"
+  ],
+  "/userguides/anvil/objectstorage/concepts/": [
+    "Home",
+    "Anvil User Guide",
+    "Anvil Object Storage",
+    "Object Storage Concepts"
+  ],
+  "/userguides/anvil/objectstorage/access/": [
+    "Home",
+    "Anvil User Guide",
+    "Anvil Object Storage",
+    "Access"
+  ],
+  "/userguides/anvil/objectstorage/usertools/": [
+    "Home",
+    "Anvil User Guide",
+    "Anvil Object Storage",
+    "User Tools"
+  ],
+  "/userguides/anvil/objectstorage/acl/": [
+    "Home",
+    "Anvil User Guide",
+    "Anvil Object Storage",
+    "Security and Access Control"
   ],
   "/userguides/anvil/anvilgpt/": [
     "Home",
@@ -76,7 +124,7 @@
   "/userguides/anvil/policies/": [
     "Home",
     "Anvil User Guide",
-    "Key Policies"
+    "Policies"
   ],
   "/userguides/gautschi/": [
     "Home",
@@ -122,15 +170,66 @@
     "Gautschi User Guide",
     "Compiling Source Code"
   ],
-  "/userguides/gautschi/faq/": [
+  "/userguides/gautschi/faqs/": [
     "Home",
     "Gautschi User Guide",
     "Frequently Asked Questions"
   ],
-  "/userguides/gautschi/datasets/": [
+  "/https://www.rcac.purdue.edu/knowledge/bell": [
     "Home",
-    "Gautschi User Guide",
-    "Datasets"
+    "Bell"
+  ],
+  "/https://www.rcac.purdue.edu/knowledge/gilbreth": [
+    "Home",
+    "Gilbreth"
+  ],
+  "/https://www.rcac.purdue.edu/knowledge/negishi": [
+    "Home",
+    "Negishi"
+  ],
+  "/https://www.rcac.purdue.edu/knowledge/scholar": [
+    "Home",
+    "Scholar"
+  ],
+  "/https://www.rcac.purdue.edu/knowledge/geddes": [
+    "Home",
+    "Geddes"
+  ],
+  "/https://www.rcac.purdue.edu/knowledge/hammer": [
+    "Home",
+    "Hammer"
+  ],
+  "/https://www.rcac.purdue.edu/knowledge/rossmann": [
+    "Home",
+    "Rossmann"
+  ],
+  "/https://www.rcac.purdue.edu/knowledge/weber": [
+    "Home",
+    "Weber"
+  ],
+  "/https://www.rcac.purdue.edu/knowledge/depot": [
+    "Home",
+    "Data Depot"
+  ],
+  "/https://www.rcac.purdue.edu/knowledge/fortress": [
+    "Home",
+    "Fortress"
+  ],
+  "/https://www.rcac.purdue.edu/knowledge/scratch": [
+    "Home",
+    "Scratch"
+  ],
+  "/https://www.rcac.purdue.edu/knowledge/home": [
+    "Home",
+    "Home Directory"
+  ],
+  "/https://www.rcac.purdue.edu/knowledge/reedfolder": [
+    "Home",
+    "REED Folder"
+  ],
+  "/https://www.rcac.purdue.edu/knowledge/boxfolder": [
+    "Home",
+    "Box Research Lab Folder"
   ],
   "/blog/": [
     "Home",
@@ -154,6 +253,11 @@
     "Home",
     "Software",
     "MPIs"
+  ],
+  "/software/bioinformatics_catalog/": [
+    "Home",
+    "Software",
+    "Bioinformatics"
   ],
   "/software/chemistry_catalog/": [
     "Home",
@@ -204,25 +308,20 @@
     "Home",
     "Datasets"
   ],
+  "/datasets/dataset_catalog/": [
+    "Home",
+    "Datasets",
+    "All Datasets"
+  ],
   "/datasets/ai/": [
     "Home",
     "Datasets",
     "AI"
   ],
-  "/datasets/hydrological/": [
+  "/datasets/climateModel/": [
     "Home",
     "Datasets",
-    "Hydrological"
-  ],
-  "/datasets/meteorological/": [
-    "Home",
-    "Datasets",
-    "Meteorological"
-  ],
-  "/datasets/geospatial/": [
-    "Home",
-    "Datasets",
-    "Geospatial"
+    "Climate Model"
   ],
   "/datasets/Covariates/": [
     "Home",
@@ -234,10 +333,20 @@
     "Datasets",
     "GeoAI"
   ],
-  "/datasets/igenomes/": [
+  "/datasets/geospatial/": [
     "Home",
     "Datasets",
-    "Igenomes"
+    "Geospatial"
+  ],
+  "/datasets/hydrological/": [
+    "Home",
+    "Datasets",
+    "Hydrological"
+  ],
+  "/datasets/meteorological/": [
+    "Home",
+    "Datasets",
+    "Meteorological"
   ],
   "/workshops/": [
     "Home",
@@ -248,174 +357,416 @@
     "RCAC Workshops",
     "HPC Exchange"
   ],
-  "/workshops/hpc_exchange/week1/week1/": [
+  "/workshops/hpc_exchange/week1/": [
     "Home",
     "RCAC Workshops",
     "HPC Exchange",
-    "Week 1 Index"
+    "Week 1"
   ],
-  "/workshops/hpc_exchange/week1/terminal/": [
+  "/workshops/hpc_exchange/week1/setup/": [
     "Home",
     "RCAC Workshops",
     "HPC Exchange",
-    "Setting up for the workshop"
+    "Week 1",
+    "Setting up"
   ],
   "/workshops/hpc_exchange/week1/access/": [
     "Home",
     "RCAC Workshops",
     "HPC Exchange",
-    "How to Access the Clusters"
+    "Week 1",
+    "Access"
   ],
   "/workshops/hpc_exchange/week1/unix/": [
     "Home",
     "RCAC Workshops",
     "HPC Exchange",
-    "What is Unix"
+    "Week 1",
+    "Unix"
   ],
   "/workshops/hpc_exchange/week1/shell/": [
     "Home",
     "RCAC Workshops",
     "HPC Exchange",
-    "What is the Shell"
+    "Week 1",
+    "The Shell"
   ],
-  "/workshops/hpc_exchange/week1/anatomy/": [
+  "/workshops/hpc_exchange/week1/commands/": [
     "Home",
     "RCAC Workshops",
     "HPC Exchange",
-    "Anatomy of a Command"
+    "Week 1",
+    "Commands"
   ],
-  "/workshops/hpc_exchange/week1/navigate/": [
+  "/workshops/hpc_exchange/week1/filesystem/": [
     "Home",
     "RCAC Workshops",
     "HPC Exchange",
-    "Navigate the Filesystem"
+    "Week 1",
+    "Navigating Filesystems"
   ],
-  "/workshops/hpc_exchange/week1/edit/": [
+  "/workshops/hpc_exchange/week1/editing/": [
     "Home",
     "RCAC Workshops",
     "HPC Exchange",
-    "Editing files from the command line"
+    "Week 1",
+    "Editing Files"
   ],
   "/workshops/hpc_exchange/week1/reference/": [
     "Home",
     "RCAC Workshops",
     "HPC Exchange",
+    "Week 1",
     "Command Reference"
   ],
-  "/workshops/hpc_exchange/week2/week2/": [
+  "/workshops/hpc_exchange/week2/": [
     "Home",
     "RCAC Workshops",
     "HPC Exchange",
-    "Week 2 Index"
+    "Week 2"
+  ],
+  "/workshops/hpc_exchange/week2/what-is-a-cluster/": [
+    "Home",
+    "RCAC Workshops",
+    "HPC Exchange",
+    "Week 2",
+    "What is a Cluster?"
   ],
   "/workshops/hpc_exchange/week2/clusters/": [
     "Home",
     "RCAC Workshops",
     "HPC Exchange",
+    "Week 2",
     "Purdue Clusters"
   ],
   "/workshops/hpc_exchange/week2/access/": [
     "Home",
     "RCAC Workshops",
     "HPC Exchange",
-    "Access"
-  ],
-  "/workshops/hpc_exchange/week2/files1/": [
-    "Home",
-    "RCAC Workshops",
-    "HPC Exchange",
-    "Files"
+    "Week 2",
+    "Cluster Access"
   ],
   "/workshops/hpc_exchange/week2/applications/": [
     "Home",
     "RCAC Workshops",
     "HPC Exchange",
-    "Applications"
+    "Week 2",
+    "Cluster Applications"
   ],
-  "/workshops/hpc_exchange/week2/what_cluster/": [
+  "/workshops/hpc_exchange/week2/slurm-basics/": [
     "Home",
     "RCAC Workshops",
     "HPC Exchange",
-    "What is a Cluster"
+    "Week 2",
+    "Cluster Job Submission"
   ],
-  "/workshops/hpc_exchange/week2/jobs/": [
+  "/workshops/hpc_exchange/week2/storage-transfer/": [
     "Home",
     "RCAC Workshops",
     "HPC Exchange",
-    "Jobs"
+    "Week 2",
+    "File Storage and Transfer"
   ],
-  "/workshops/hpc_exchange/week3/week3/": [
+  "/workshops/hpc_exchange/week3/": [
     "Home",
     "RCAC Workshops",
     "HPC Exchange",
-    "Week 3 Index"
+    "Week 3"
   ],
-  "/workshops/hpc_exchange/week3/scripts/": [
+  "/workshops/hpc_exchange/week3/scripting/": [
     "Home",
     "RCAC Workshops",
     "HPC Exchange",
+    "Week 3",
     "Scripting"
-  ],
-  "/workshops/hpc_exchange/week3/processes/": [
-    "Home",
-    "RCAC Workshops",
-    "HPC Exchange",
-    "Managing Processes"
   ],
   "/workshops/hpc_exchange/week3/pipes/": [
     "Home",
     "RCAC Workshops",
     "HPC Exchange",
-    "Managing Output with Pipes"
+    "Week 3",
+    "Pipes"
   ],
-  "/workshops/hpc_exchange/week3/managing_files/": [
+  "/workshops/hpc_exchange/week3/processes/": [
     "Home",
     "RCAC Workshops",
     "HPC Exchange",
-    "Managing Files and Directories"
+    "Week 3",
+    "Managing processes"
   ],
-  "/workshops/hpc_exchange/week4/week4/": [
+  "/workshops/hpc_exchange/week3/files-directories/": [
     "Home",
     "RCAC Workshops",
     "HPC Exchange",
-    "Week 4 Index"
+    "Week 3",
+    "Files & directories"
   ],
-  "/workshops/hpc_exchange/week4/files2/": [
+  "/workshops/hpc_exchange/week4/": [
     "Home",
     "RCAC Workshops",
     "HPC Exchange",
-    "File storage and transfers"
+    "Week 4"
   ],
-  "/workshops/hpc_exchange/week4/multinode/": [
+  "/workshops/hpc_exchange/week4/storage-transfer/": [
     "Home",
     "RCAC Workshops",
     "HPC Exchange",
-    "Multinode jobs and topology"
+    "Week 4",
+    "Storage & transfers"
   ],
-  "/workshops/hpc_exchange/week4/history/": [
+  "/workshops/hpc_exchange/week4/job-history/": [
     "Home",
     "RCAC Workshops",
     "HPC Exchange",
-    "Job History"
+    "Week 4",
+    "Job history"
   ],
-  "/workshops/hpc_exchange/week4/monitor/": [
+  "/workshops/hpc_exchange/week4/utilization-monitoring/": [
     "Home",
     "RCAC Workshops",
     "HPC Exchange",
-    "Resource Utilization and Monitoring"
+    "Week 4",
+    "Utilization & monitoring"
   ],
-  "/workshops/hpc_exchange/week4/workloads/": [
+  "/workshops/hpc_exchange/week4/workload-management/": [
     "Home",
     "RCAC Workshops",
     "HPC Exchange",
-    "Managing Workloads and Jobs"
+    "Week 4",
+    "Workload management"
   ],
-  "/tags/": [
+  "/workshops/hpc_exchange/week4/multinode-topology/": [
     "Home",
-    "Tags"
+    "RCAC Workshops",
+    "HPC Exchange",
+    "Week 4",
+    "Multinode & topology"
+  ],
+  "/workshops/genomics_exchange/": [
+    "Home",
+    "RCAC Workshops",
+    "Genomics Exchange"
+  ],
+  "/workshops/genomics_exchange/session1/": [
+    "Home",
+    "RCAC Workshops",
+    "Genomics Exchange",
+    "Session 1:Introduction & HPC Orientation"
+  ],
+  "/workshops/genomics_exchange/session2/": [
+    "Home",
+    "RCAC Workshops",
+    "Genomics Exchange",
+    "Session 2:Project Organization"
+  ],
+  "/workshops/genomics_exchange/session3/": [
+    "Home",
+    "RCAC Workshops",
+    "Genomics Exchange",
+    "Session 3:R Data Wrangling"
+  ],
+  "/workshops/genomics_exchange/session4/": [
+    "Home",
+    "RCAC Workshops",
+    "Genomics Exchange",
+    "Session 4:Publication-Quality Plots"
+  ],
+  "/workshops/genomics_exchange/session5/": [
+    "Home",
+    "RCAC Workshops",
+    "Genomics Exchange",
+    "Session 5:Running Bioinformatics on RCAC"
+  ],
+  "/workshops/genomics_exchange/session6/": [
+    "Home",
+    "RCAC Workshops",
+    "Genomics Exchange",
+    "Session 6:QC for Genomics"
+  ],
+  "/workshops/genomics_exchange/session7/": [
+    "Home",
+    "RCAC Workshops",
+    "Genomics Exchange",
+    "Session 7:Reproducible Bioinformatics with Nextflow"
+  ],
+  "/workshops/kubernetes-tutorial/": [
+    "Home",
+    "RCAC Workshops",
+    "Anvil Kubernetes"
+  ],
+  "/workshops/matplotlib/": [
+    "Home",
+    "RCAC Workshops",
+    "Scientific Visualization with MatPlotLib"
+  ],
+  "/workshops/matplotlib/introduction/": [
+    "Home",
+    "RCAC Workshops",
+    "Scientific Visualization with MatPlotLib",
+    "Getting Started"
+  ],
+  "/workshops/matplotlib/first_script/": [
+    "Home",
+    "RCAC Workshops",
+    "Scientific Visualization with MatPlotLib",
+    "Our First Script"
+  ],
+  "/workshops/matplotlib/sine_plot/": [
+    "Home",
+    "RCAC Workshops",
+    "Scientific Visualization with MatPlotLib",
+    "The Second Script"
+  ],
+  "/workshops/matplotlib/adv_plots/": [
+    "Home",
+    "RCAC Workshops",
+    "Scientific Visualization with MatPlotLib",
+    "Advanced Plotting"
+  ],
+  "/workshops/matplotlib/plot_types/": [
+    "Home",
+    "RCAC Workshops",
+    "Scientific Visualization with MatPlotLib",
+    "Types of Plots"
+  ],
+  "/workshops/matplotlib/colormaps/": [
+    "Home",
+    "RCAC Workshops",
+    "Scientific Visualization with MatPlotLib",
+    "Colormaps"
+  ],
+  "/workshops/matplotlib/animations/": [
+    "Home",
+    "RCAC Workshops",
+    "Scientific Visualization with MatPlotLib",
+    "Animations"
+  ],
+  "/workshops/matplotlib/env_cent/": [
+    "Home",
+    "RCAC Workshops",
+    "Scientific Visualization with MatPlotLib",
+    "Envision Center"
+  ],
+  "/lifesciences/": [
+    "Home",
+    "Life Sciences"
+  ],
+  "/lifesciences/guides/hpc-orientation/": [
+    "Home",
+    "Life Sciences",
+    "HPC Orientation for Biologists"
+  ],
+  "/lifesciences/guides/running-bioinformatics/": [
+    "Home",
+    "Life Sciences",
+    "Running Bioinformatics on RCAC"
+  ],
+  "/lifesciences/guides/project-organization/": [
+    "Home",
+    "Life Sciences",
+    "Project Organization"
+  ],
+  "/lifesciences/guides/nextflow/": [
+    "Home",
+    "Life Sciences",
+    "Nextflow and nf-core"
+  ],
+  "/lifesciences/guides/nextflow-gautschi/": [
+    "Home",
+    "Life Sciences",
+    "Nextflow on Gautschi"
+  ],
+  "/lifesciences/guides/sra-download/": [
+    "Home",
+    "Life Sciences",
+    "Downloading SRA Data"
+  ],
+  "/lifesciences/guides/r-packages/": [
+    "Home",
+    "Life Sciences",
+    "Installing R Packages"
+  ],
+  "/lifesciences/guides/r-data-wrangling/": [
+    "Home",
+    "Life Sciences",
+    "R Skills for Biological Data"
+  ],
+  "/lifesciences/guides/publication-quality-plots/": [
+    "Home",
+    "Life Sciences",
+    "Publication-Quality Plots"
+  ],
+  "/lifesciences/guides/qc-for-genomics/": [
+    "Home",
+    "Life Sciences",
+    "QC for Genomics"
+  ],
+  "/lifesciences/guides/perllib/": [
+    "Home",
+    "Life Sciences",
+    "Installing Perl Libraries"
+  ],
+  "/lifesciences/guides/trinity/": [
+    "Home",
+    "Life Sciences",
+    "Optimizing Trinity"
+  ],
+  "/lifesciences/guides/icommands/": [
+    "Home",
+    "Life Sciences",
+    "Transfer Data with iRODS"
+  ],
+  "/lifesciences/guides/vscode/": [
+    "Home",
+    "Life Sciences",
+    "VS Code on RCAC"
+  ],
+  "/lifesciences/guides/vispr/": [
+    "Home",
+    "Life Sciences",
+    "VISPR Visualization"
+  ],
+  "/lifesciences/guides/productivity-tips/": [
+    "Home",
+    "Life Sciences",
+    "Productivity Tips"
+  ],
+  "/lifesciences/tutorials/braker/": [
+    "Home",
+    "Life Sciences",
+    "BRAKER3"
+  ],
+  "/lifesciences/tutorials/gemoma/": [
+    "Home",
+    "Life Sciences",
+    "GeMoMa"
+  ],
+  "/lifesciences/tutorials/helixer/": [
+    "Home",
+    "Life Sciences",
+    "Helixer"
+  ],
+  "/lifesciences/tutorials/hifi-assembly/": [
+    "Home",
+    "Life Sciences",
+    "HiFiasm (HiFi reads)"
+  ],
+  "/lifesciences/tutorials/mitohifi/": [
+    "Home",
+    "Life Sciences",
+    "Mitochondrial Genomes (MitoHiFi)"
+  ],
+  "/lifesciences/tutorials/juicer/": [
+    "Home",
+    "Life Sciences",
+    "Juicer"
   ],
   "/contact/": [
     "Home",
     "Contact us"
+  ],
+  "/faqs/": [
+    "Home",
+    "FAQs"
   ]
 }

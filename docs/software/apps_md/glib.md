@@ -1,6 +1,6 @@
 # glib
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ GLib provides the core application building blocks for libraries and application
 
 ## Homepage
 
-[https://developer.gnome.org/glib/](https://developer.gnome.org/glib/){:target="_blank"}
+[https://developer.gnome.org/glib/](https://developer.gnome.org/glib/)
 
 ## Available Versions on RCAC Clusters
 

@@ -1,6 +1,6 @@
 # gdbm
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ GNU dbm (or GDBM, for short) is a library of database functions that use extensi
 
 ## Homepage
 
-[https://www.gnu.org.ua/software/gdbm/gdbm.html](https://www.gnu.org.ua/software/gdbm/gdbm.html){:target="_blank"}
+[https://www.gnu.org.ua/software/gdbm/gdbm.html](https://www.gnu.org.ua/software/gdbm/gdbm.html)
 
 ## Available Versions on RCAC Clusters
 

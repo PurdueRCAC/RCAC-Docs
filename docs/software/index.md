@@ -9,7 +9,7 @@ hide:
 # Software and versions on RCAC clusters
 
 ## Overview
-As of **February 10, 2026**, there have been a total of **272** applications with **2474** available versions deployed across **6** RCAC HPC clusters: **ANVIL, BELL, GAUTSCHI, GILBRETH, NEGISHI, SCHOLAR**.
+As of **May 01, 2026**, there have been a total of **274** applications with **2519** available versions deployed across **6** RCAC HPC clusters: **ANVIL, BELL, GAUTSCHI, GILBRETH, NEGISHI, SCHOLAR**.
 
 You can see [**a full list of all software and version deployed on all RCAC clusters**](app_catalog.md), OR
 
@@ -32,6 +32,14 @@ Check the software among popular domains below:
     MPI software catalog of deployed applications on RCAC clusters.
 
     [:octicons-arrow-right-24: MPIs Catalog](mpi_catalog.md)
+
+-   :material-application:{ .lg .middle } __Bioinformatics__
+
+    ---
+
+    Bioinformatics software catalog for genomics, transcriptomics, phylogenetics, and epigenomics workflows.
+
+    [:octicons-arrow-right-24: Bioinformatics Catalog](bioinformatics_catalog.md)
 
 -   :material-application:{ .lg .middle } __Computational Chemistry__
 
@@ -63,7 +71,7 @@ Check the software among popular domains below:
 
     Check the catalog of all deployed biocontainers on RCAC clusters.
 
-    [:octicons-arrow-right-24: Biocontainers :octicons-link-external-16:](https://biocontainer-doc.readthedocs.io/)
+    [:octicons-arrow-right-24: Biocontainers](https://biocontainer-doc.readthedocs.io/)
 
 -   :material-application:{ .lg .middle } __Library__
 

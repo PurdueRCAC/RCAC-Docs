@@ -1,6 +1,6 @@
 # netcdf-fortran
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ NetCDF Fortran library providing Fortran APIs to access scientific datasets.
 
 ## Homepage
 
-[https://www.unidata.ucar.edu/software/netcdf/](https://www.unidata.ucar.edu/software/netcdf/){:target="_blank"}
+[https://www.unidata.ucar.edu/software/netcdf/](https://www.unidata.ucar.edu/software/netcdf/)
 
 ## Available Versions on RCAC Clusters
 

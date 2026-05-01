@@ -1,6 +1,6 @@
 # r-devtools
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ R devtools package provides tools to simplify R package development.
 
 ## Homepage
 
-[https://cran.r-project.org/web/packages/devtools/index.html](https://cran.r-project.org/web/packages/devtools/index.html){:target="_blank"}
+[https://cran.r-project.org/web/packages/devtools/index.html](https://cran.r-project.org/web/packages/devtools/index.html)
 
 ## Available Versions on RCAC Clusters
 

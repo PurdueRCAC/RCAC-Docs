@@ -1,6 +1,6 @@
 # r-shiny
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ Shiny is an R package for building interactive web applications directly from R.
 
 ## Homepage
 
-[https://cran.r-project.org/web/packages/shiny/index.html](https://cran.r-project.org/web/packages/shiny/index.html){:target="_blank"}
+[https://cran.r-project.org/web/packages/shiny/index.html](https://cran.r-project.org/web/packages/shiny/index.html)
 
 ## Available Versions on RCAC Clusters
 

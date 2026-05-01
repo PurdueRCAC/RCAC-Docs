@@ -1,6 +1,6 @@
 # openjdk
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ The free and opensource java implementation
 
 ## Homepage
 
-[https://openjdk.org/](https://openjdk.org/){:target="_blank"}
+[https://openjdk.org/](https://openjdk.org/)
 
 ## Available Versions on RCAC Clusters
 
@@ -17,7 +17,7 @@ The free and opensource java implementation
 **ANVIL**|1.8.0_265-b01, 11.0.8_10
 **BELL**|17.0.11_9, 17.0.8.1_1
 **GAUTSCHI**|17.0.2_8
-**NEGISHI**|1.8.0_265-b01, 11.0.17_8
+**NEGISHI**|1.8.0_265-b01, 11.0.17_8, 17.0.5_8
 
 ## Module
 

@@ -12,11 +12,24 @@ search:
   boost: 2
 ---
 
-## Overview / Slurm Basics
+<!-- ------------------- General slurm overview SNIPPET -------------------- -->
+{% set host = "anvil.rcac.purdue.edu" %}
+{% set hostname = "anvil" %}
 
-Anvil uses the [Slurm Workload Manager](https://slurm.schedmd.com/) for job scheduling and management. With Slurm, a user requests resources and submits a job to a queue. The system takes jobs from queues, allocates the necessary compute nodes, and executes them. While users will typically SSH to an Anvil login node to access the Slurm job scheduler, they should note that Slurm should always be used to submit their work as a job rather than run computationally intensive jobs directly on a login node. All users share the login nodes, and running anything but the smallest test job will negatively impact everyone's ability to use Anvil.
+{{ slurm_general_overview(host, hostname) }}
 
-Anvil is designed to serve the moderate-scale computation and data needs of the majority of ACCESS users. Users with allocations can submit to a variety of queues with varying job size and walltime limits. Separate sets of queues are utilized for the CPU, GPU, and large memory nodes. Typically, queues with shorter walltime and smaller job size limits will feature faster turnarounds. Some additional points to be aware of regarding the Anvil queues are:
+<!-- --------------------------- Anvil-Specific ---------------------------- -->
+ACCESS users with allocations can submit jobs to several types of queues:
+
+- CPU queues – Standard computing jobs
+- GPU queues – Jobs that require GPUs
+- AI queues – Specialized hardware for AI workloads
+- Large-memory queues – Jobs that need very large RAM
+
+!!! note "Anvil Queues"
+    You can choose which queues you want access to by exchanging your Service Units (credits) for the corresponding queue (CPU, GPU, AI). You can have access to multiple queues if you divvy out your credits.
+
+**Other important queue considerations**
 
 - Anvil provides a debug queue for testing and debugging codes.
 - Anvil supports shared-node jobs (more than one job on a single node). Many applications are serial or can only scale to a few cores. Allowing shared nodes improves job throughput, provides higher overall system utilization and allows more users to run on Anvil.
@@ -24,13 +37,9 @@ Anvil is designed to serve the moderate-scale computation and data needs of the 
 - The maximum allowable job size on Anvil is 7,168 cores. To run larger jobs, submit a consulting ticket to discuss with Anvil support.
 - Shared-node queues will be utilized for managing jobs on the GPU and large memory nodes.
 
-## Job Scheduling Essentials
+<hr style="border: 3px solid">
 
-- What each job needs to request resources
-
-### Partitions (Queues)
-
-### Anvil Production Queues
+## Anvil Queues (Partitions)
 
 | Queue Name | Node Type | Max Nodes per Job | Max Cores per Job | Max Duration | Max Running Jobs per User | Max Running + Submitted Jobs | Charging Factor |
 |----------|-----------|-------------------|-------------------|--------------|---------------------------|------------------------------|-----------------|
@@ -54,9 +63,7 @@ Anvil is designed to serve the moderate-scale computation and data needs of the 
 !!! warning "Charges for Whole-Node Partitions"
     If the partition is **node-exclusive** (e.g., `wholenode` and `wide`), even if you request only one core, the job will be allocated an entire node. The job will be charged for **128 cores**, and `squeue` will reflect this allocation. See SU accounting for more details.
 
-### Useful Tools
-
-To display all Slurm partitions and their current usage, run:
+**To display all Slurm partitions and their current usage, run:**
 
 ```bash
 showpartitions
@@ -94,7 +101,11 @@ ondemand       32     90000     (null)            (null)
 z[000-007]     2      7684      Z,z,power_azure   (null)
 ```
 
+<hr style="border: 3px solid">
+
 ## Running Jobs
+
+For interactive jobs, navigate to [interactive jobs](#interactive-jobs).
 
 ### Job Submission Script
 
@@ -102,7 +113,15 @@ To submit work to a Slurm queue, you must first create a job submission file. Th
 
 ```bash
 #!/bin/sh -l
-# FILENAME:  myjobsubmissionfile
+
+#SBATCH -A <account>
+#SBATCH -p <partition>
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=2
+#SBATCH --mem=1G
+#SBATCH --job-name example-job
+#SBATCH -t 01:30:00  # 1 hour 30 minutes
 
 # Loads Matlab and sets the application up
 module load matlab
@@ -113,6 +132,14 @@ cd $SLURM_SUBMIT_DIR
 # Runs a Matlab script named 'myscript'
 matlab -nodisplay -singleCompThread -r myscript
 ```
+
+!!! warning "Mandatory SBATCH fields"
+    You must at a minimum specify:
+
+    1. Account (-A or --account): this is your allocation account. Run `$ mybalance` to see allocation accounts.
+    2. Partition (-p). Run `$ showpartitions` to view all available partitions.
+
+Once your script is prepared, you are ready to submit your job.
 
 The standard Slurm environment variables that can be used in the job submission file are listed in the table below:
 
@@ -127,25 +154,26 @@ The standard Slurm environment variables that can be used in the job submission 
 | SLURM\_SUBMIT\_HOST | Hostname of the system where you submitted this job |
 | SLURM\_JOB\_PARTITION | Name of the original queue to which you submitted this job |
 
-Once your script is prepared, you are ready to submit your job.
-
 ### Submitting a Job
 
-Once you have a job submission file, you may submit this script to SLURM using the sbatch command. Slurm will find, or wait for, available resources matching your request and run your job there.
+Once you have a job submission file, you may submit this script to SLURM using the `$ sbatch` command. Slurm will find, or wait for, available resources matching your request and run your job there.
 
 To submit your job to one compute node with one task:
 
 ```shell-session
 
-$ sbatch --nodes=1 --ntasks=1 myjobsubmissionfile
+$ sbatch --nodes=1 --ntasks=1 -t 1:30:00 myjobsubmissionfile
 ```
 
-By default, each job receives 30 minutes of wall time, or clock time. If you know that your job will not need more than a certain amount of time to run, request less than the maximum wall time, as this may allow your job to run sooner. To request the 1 hour and 30 minutes of wall time:
+!!! warning "Overriding #SBATCH"
+    If you use the command line to specify resources, such as `--nodes=1` above, that will override the `#SBATCH --nodes` configuration value in the job submission file.
 
-```shell-session
+**Job Defaults**
 
-$ sbatch -t 1:30:00 --nodes=1  --ntasks=1 myjobsubmissionfile
-```
+- **time:** 30 minutes of wall time, or clock time
+- **nodes:** 1
+
+**Multi-Node Jobs**
 
 Each compute node in Anvil has 128 processor cores. In some cases, you may want to request multiple nodes. To utilize multiple nodes, you will need to have a program or code that is specifically programmed to use multiple nodes such as with MPI. Simply requesting more nodes will not make your work go faster. Your code must utilize all the cores to support this ability. To request 2 compute nodes with 256 tasks:
 
@@ -154,7 +182,7 @@ Each compute node in Anvil has 128 processor cores. In some cases, you may want 
 $ sbatch --nodes=2 --ntasks=256 myjobsubmissionfile
 ```
 
-If more convenient, you may also specify any command line options to sbatch from within your job submission file, using a special form of comment:
+If more convenient, you may also specify any command line options to sbatch from within your job submission file, using the `#SBATCH` keyword:
 
 ```bash
 #!/bin/sh -l
@@ -162,7 +190,7 @@ If more convenient, you may also specify any command line options to sbatch from
 
 #SBATCH -A myallocation
 #SBATCH -p queue-name # the default queue is "shared" queue
-#SBATCH --nodes=1
+#SBATCH --nodes=2
 #SBATCH --ntasks=1 
 #SBATCH --time=1:30:00
 #SBATCH --job-name myjobname
@@ -175,19 +203,88 @@ module list # List currently loaded modules.
 hostname
 ```
 
-If an option is present in both your job submission file and on the command line, the option on the command line will take precedence.
+!!! note "Command-line vs. #SBATCH"
+    If an option is present in both your job submission file and on the command line, the option on the command line will take precedence.
 
-After you submit your job with `sbatch`, it may wait in the queue for minutes, hours, or even days. How long it takes for a job to start depends on the specific queue, the available resources, and time requested, and other jobs that are already waiting in that queue. It is impossible to say for sure when any given job will start. For best results, request no more resources than your job requires.
+After you submit your job with `sbatch`, it may wait in the queue for minutes, hours, or even days.
 
-Once your job is submitted, you can monitor the job status, wait for the job to complete, and check the job output.
+!!! warning "Job queue times"
+    How long it takes for a job to start depends on the specific queue, the available resources, and time requested, and other jobs that are already waiting in that queue. It is impossible to say for sure when any given job will start. For best results, request no more resources than your job requires.
+
+Once your job is submitted, you can [monitor the job status, wait for the job to complete, and check the job output](#monitoring-jobs).
+
+### Interactive jobs
+
+In addition to the ThinLinc and OnDemand interfaces, users can also choose to run interactive jobs on compute nodes to obtain a shell that they can interact with. This gives users the ability to type commands or use a graphical interface as if they were on a login node.
+
+To submit an interactive job, use `sinteractive` to run a login shell on allocated resources.
+
+`sinteractive` accepts most of the same resource requests as sbatch, so to request a login shell in the compute queue while allocating 2 nodes and 256 total cores, you might do:
+
+```
+$ sinteractive -p wholenode -N 2 -n 256 -A oneofyourallocations
+```
+
+!!! note "Wait times"
+    You can check the predicted wait time for a queued job by running `wait_time -j {your_job_id}`
+
+To quit your interactive job:
+
+`exit` or `Ctrl-D`
+
+<hr style="border: 3px solid">
+
+### Redirecting Job Output
+
+It is possible to redirect job output to somewhere other than the default location with the `--error` and `--output` directives:
+
+```bash
+#! /bin/sh -l
+#SBATCH --output=/path/myjob.out
+#SBATCH --error=/path/myjob.out
+
+# This job prints "Hello World" to output and exits
+echo "Hello World"
+```
+
+### Holding a Job
+
+Sometimes you may want to submit a job but not have it run just yet. You may be wanting to allow lab mates to cut in front of you in the queue - so hold the job until their jobs have started, and then release yours.
+
+To place a hold on a job before it starts running, use the scontrol hold job command:
+
+```shell-session
+$ scontrol hold job <myjobid>
+```
+
+Once a job has started running it can not be placed on hold.
+
+To release a hold on a job, use the scontrol release job command:
+
+```shell-session
+$ scontrol release job  myjobid
+```
+
+## Monitoring Jobs
+
+### Canceling a Job
+
+To stop a job before it finishes or remove it from a queue, use the scancel command:
+
+```shell-session
+$ scancel myjobid
+```
+
+!!! note "Cancelling all your jobs"
+    Use `$ scancel -u $USER` to cancel all jobs you currently have in the queue and running.
 
 ### Checking Job Status
 
-Once a job is submitted there are several commands you can use to monitor the progress of the job. To see your jobs, use the `squeue -u` command and specify your username.
+Once a job is submitted, there are several commands you can use to monitor the progress of the job. To see your jobs, use the `squeue -u $USER` command:
 
 ```shell-session
 
-$ squeue -u myusername
+$ squeue -u $USER
    JOBID   PARTITION   NAME     USER       ST    TIME   NODES   NODELIST(REASON)
    188     wholenode job1   myusername   R     0:14      2    a[010-011]
    189     wholenode job2   myusername   R     0:15      1    a012
@@ -231,48 +328,21 @@ JobId=189 JobName=myjobname
 *   `StdOut` and `Stderr` are the locations of stdout and stderr of the job, respectively.
 *   `Reason` will show why a `PENDING` job isn't running.
 
-You can check the predicted wait time for a queued job by running `wait_time -j {your_job_id}`
+!!! tip "Wait times"
+    You can check the predicted wait time for a queued job by running `wait_time -j {your_job_id}`
 
-For historic (completed) jobs, you can use the `jobinfo` command. While not as detailed as scontrol output, it can also report information on jobs that are no longer active.
+For historic (completed) jobs, you can use the `$ jobinfo <jobid>` command. While not as detailed as scontrol output, it can also report information on jobs that are no longer active. The `$ jobscript <jobid>` command outputs the full Slurm script used to launch the job.
 
 ### Checking Job Output
 
-Once a job is submitted, and has started, it will write its standard output and standard error to files that you can read.
+Once a job is submitted and has started, it will write its standard output and standard error to files that you can read.
 
-SLURM catches output written to standard output and standard error - what would be printed to your screen if you ran your program interactively. Unless you specified otherwise, SLURM will put the output in the directory where you submitted the job in a file named slurm- followed by the job id, with the extension out. For example `slurm-3509.out`. Note that both stdout and stderr will be written into the same file, unless you specify otherwise.
+SLURM catches output written to standard output and standard error - what would be printed to your screen if you ran your program interactively. Unless you specified otherwise, SLURM will put the output in the directory where you submitted the job in a file named `slurm-` followed by the job id, with the extension out. For example `slurm-3509.out`.
+
+!!! warning "stderr & stdout"
+    Both stdout and stderr will be written into the same file, unless you specify otherwise.
 
 If your program writes its own output files, those files will be created as defined by the program. This may be in the directory where the program was run, or may be defined in a configuration or input file. You will need to check the documentation for your program for more details.
-
-### Redirecting Job Output
-
-It is possible to redirect job output to somewhere other than the default location with the `--error` and `--output` directives:
-
-```bash
-#! /bin/sh -l
-#SBATCH --output=/path/myjob.out
-#SBATCH --error=/path/myjob.out
-
-# This job prints "Hello World" to output and exits
-echo "Hello World"
-```
-
-### Holding a Job
-
-Sometimes you may want to submit a job but not have it run just yet. You may be wanting to allow lab mates to cut in front of you in the queue - so hold the job until their jobs have started, and then release yours.
-
-To place a hold on a job before it starts running, use the scontrol hold job command:
-
-```shell-session
-$ scontrol hold job  myjobid
-```
-
-Once a job has started running it can not be placed on hold.
-
-To release a hold on a job, use the scontrol release job command:
-
-```shell-session
-$ scontrol release job  myjobid
-```
 
 ### Job Dependencies
 
@@ -312,55 +382,38 @@ To set more complex dependencies on multiple jobs and conditions:
 $ sbatch --dependency=after:myjobid1:myjobid2:myjobid3,afterok:myjobid4 myjobsubmissionfile
 ```
 
-### Canceling a Job
-
-To stop a job before it finishes or remove it from a queue, use the scancel command:
-
-```shell-session
-$ scancel myjobid
-```
-
-### Interactive jobs
-
-In addition to the ThinLinc and OnDemand interfaces, users can also choose to run interactive jobs on compute nodes to obtain a shell that they can interact with. This gives users the ability to type commands or use a graphical interface as if they were on a login node.
-
-To submit an interactive job, use `sinteractive` to run a login shell on allocated resources.
-
-`sinteractive` accepts most of the same resource requests as sbatch, so to request a login shell in the compute queue while allocating 2 nodes and 256 total cores, you might do:
-
-```
-$ sinteractive -p wholenode -N 2 -n 256 -A oneofyourallocations
-```
-
-You can check the predicted wait time for a queued job by running `wait_time -j {your_job_id}`
-
-To quit your interactive job:
-
-`exit` or `Ctrl-D`
-
 ## Job Accounting
 
-On Anvil, the CPU nodes and GPU nodes are charged separately.
-Link to section 'For CPU nodes' of 'Job Accounting'For CPU nodes
-The charge unit for Anvil is the Service Unit (SU). This corresponds to the equivalent use of one compute core utilizing less than approximately 2G of data in memory for one hour.
+!!! tip "Current balance"
+    You can use the `$ mybalance` command to check your current allocation usage.
 
-Keep in mind that your charges are based on the resources that are tied up by your job and do not necessarily reflect how the resources are used.
+!!! warning "CPU vs. GPU charges"
+    On Anvil, the CPU nodes and GPU nodes are charged separately.
 
-If you explicitly request --mem-per-cpu=2G, SLURM may allocate more resources than expected, since the default memory per core on Anvil is slightly less than 2GB (approximately 1896 MB). By requesting exactly 2GB per core, SLURM may allocate additional cores to meet the memory requirement, which can lead to higher SU charges.
+### CPU Nodes
 
-Charges on jobs submitted to the shared queues are based on the number of cores and the fraction of the memory requested, whichever is larger. Jobs submitted as node-exclusive will be charged for all 128 cores, whether the resources are used or not.
+The charge unit for Anvil is the **Service Unit (SU)**. This corresponds to the equivalent use of one compute core utilizing less than approximately 2G of data in memory for one hour.
+
+!!! warning "Charges are based on resource request"
+    Keep in mind that your charges are based on the resources that are tied up by your job and do not necessarily reflect how the resources are used.
+
+    For example, if you explicitly request --mem-per-cpu=2G, SLURM may allocate more resources than expected, since the default memory per core on Anvil is slightly less than 2GB (approximately 1896 MB). By requesting exactly 2GB per core, SLURM may allocate additional cores to meet the memory requirement, which can lead to higher SU charges.
+
+Charges on jobs submitted to the shared queues are based on the **number of cores** and the **fraction of the memory** requested, **whichever is larger**. Jobs submitted as node-exclusive will be charged for all 128 cores, whether the resources are used or not.
 
 Jobs submitted to the large memory nodes will be charged 4 SU per compute core (4x wholenode node charge).
 
-Link to section 'For GPU nodes' of 'Job Accounting'For GPU nodes
+### GPU Nodes
+
 1 SU corresponds to the equivalent use of one GPU utilizing less than or equal to approximately 120G of data in memory for one hour.
 
-Each GPU nodes on Anvil have 4 GPUs and all GPU nodes are shared.
+Each GPU node on Anvil has 4 GPUs and all GPU nodes are shared.
 
-Link to section 'For file system' of 'Job Accounting'For file system
+### Filesystem
+
 Filesystem storage is not charged.
 
-You can use mybalance command to check your current allocation usage.
+<hr style="border: 3px solid">
 
 ## Extended Examples
 

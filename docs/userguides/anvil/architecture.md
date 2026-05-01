@@ -5,6 +5,7 @@ authors:
   - jin456
 search:
   boost: 2
+draft: false
 ---
 
 # System Architecture
@@ -45,7 +46,7 @@ The Anvil local storage infrastructure provides users with their Home, Scratch, 
 
 The three tiers of storage are intended for different use cases and are optimized for that use. Use of data tiers for their unintended purposes is discouraged as poor performance or file system access problems may occur. These tiers have quotas in both capacity and numbers of files, so care should be taken to not exceed those. Use the `myquota` command to see what your usage is on the various tiers.
 
-Anvil File Systems
+**Anvil File Systems**
 
 |  | HOME | SCRATCH | PROJECT |
 | --- | --- | --- | --- |
@@ -57,20 +58,23 @@ Anvil File Systems
 
 ### Home
 
-Home is intended to hold configuration files for setting up the user's environment and some small files that are often needed to run jobs. Saving job output permanently is not really supported on this tier as the space is limited.
+Home is intended to hold configuration files for setting up the user's environment and some small files that are often needed to run jobs. Saving job output permanently is not really supported on this tier as the space is limited. Home can hold up to 25GB of data with no limit for total files.
+
+!!! tip
+    Save large virtual environments in your Project location to save space in your home directory. 
 
 ### Scratch
 
 Scratch is intended to hold input and output data for running jobs. This tier of storage is very high performance and the large default size (100TB) makes it ideal to handle a large number of jobs and large quantities of data. It is not intended for long-term storage of data, as scratch storage only lasts for 30 days.
 
 !!! warning "**Scratch storage gets deleted after 30 days!**"
-    Files that have not been augmented or touched in 30 days automatically get deleted from the scratch storage.
+    Files that have not been modified or touched in 30 days automatically get deleted from the scratch storage.
 
 
-Files older than 30 days go through an automated process which purges them. This automated process can not be cancelled or overridden. So make provisions for moving your data to your home institution or other storage before then. New files on Scratch are written to a fast tier of NVME disk where they will reside for 7 days or if that tier is more than 90% full, at which time they are moved to a slower SAS tier for the remaining 30 days or until deleted.
+Files older than 30 days go through an automated process which purges them. This automated process can not be cancelled or overridden, so make provisions for moving your data to your home institution or other storage before then. New files on Scratch are written to a fast tier of NVME disk where they will reside for 7 days or until that tier is more than 90% full, at which time they are moved to a slower SAS tier for the remaining 30 days or until deleted.
 
-!!! warning 
-    CAUTION: Be aware that data on this tier is not backed up or snapshotted, so files that are accidentally erased or lost due to mechanical problems is NOT recoverable. Movement of data to a more secure tier is recommended.
+!!! warning "**Scratch has no backup!**"
+    This storage tier does not provide backups or snapshots. As a result, accidentally deleted files or data lost due to hardware issues cannot be recovered. Important data should be migrated to a more secure storage tier.
 
 ### Project
 
@@ -78,7 +82,7 @@ The Project Space (`$PROJECT`) is intended for groups to store data that is rele
 
 ### Anvil Ceph
 
-Anvil Ceph is intended to provide scalable, fault-tolerant, and high-throughput storage for large or persistent research data. It supports both object and block storage, making it suitable for hosting shared datasets, storing long-term research outputs, and enabling data access for containerized or cloud-integrated workflows. Ceph complements the Lustre-based storage tiers by offering durable and easily expandable storage for diverse data management needs.
+Anvil Ceph is intended to provide scalable, fault-tolerant, and high-throughput storage for large or persistent research data. It supports both *object* and *block storage*, making it suitable for hosting shared datasets, storing long-term research outputs, and enabling data access for containerized or cloud-integrated workflows. Ceph complements the Lustre-based storage tiers by offering durable and easily expandable storage for diverse data management needs.
 
 Anvil Ceph Tech Detail
 

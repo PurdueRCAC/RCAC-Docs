@@ -1,6 +1,6 @@
 # protobuf
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ Google's data interchange format.
 
 ## Homepage
 
-[https://developers.google.com/protocol-buffers](https://developers.google.com/protocol-buffers){:target="_blank"}
+[https://developers.google.com/protocol-buffers](https://developers.google.com/protocol-buffers)
 
 ## Available Versions on RCAC Clusters
 

@@ -1,6 +1,6 @@
 # mpfr
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ The MPFR library is a C library for multiple-precision floating-point computatio
 
 ## Homepage
 
-[https://www.mpfr.org/](https://www.mpfr.org/){:target="_blank"}
+[https://www.mpfr.org/](https://www.mpfr.org/)
 
 ## Available Versions on RCAC Clusters
 

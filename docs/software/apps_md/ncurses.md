@@ -1,6 +1,6 @@
 # ncurses
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ The ncurses (new curses) library is a free software emulation of curses in Syste
 
 ## Homepage
 
-[https://invisible-island.net/ncurses/ncurses.html](https://invisible-island.net/ncurses/ncurses.html){:target="_blank"}
+[https://invisible-island.net/ncurses/ncurses.html](https://invisible-island.net/ncurses/ncurses.html)
 
 ## Available Versions on RCAC Clusters
 

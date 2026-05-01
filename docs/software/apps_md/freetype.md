@@ -1,6 +1,6 @@
 # freetype
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ FreeType is a freely available software library to render fonts. It is written i
 
 ## Homepage
 
-[https://www.freetype.org/index.html](https://www.freetype.org/index.html){:target="_blank"}
+[https://www.freetype.org/index.html](https://www.freetype.org/index.html)
 
 ## Available Versions on RCAC Clusters
 

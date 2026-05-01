@@ -1,6 +1,6 @@
 # gromacs
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ GROMACS is a high-performance molecular dynamics package primarily designed for 
 
 ## Homepage
 
-[http://www.gromacs.org](http://www.gromacs.org){:target="_blank"}
+[http://www.gromacs.org](http://www.gromacs.org)
 
 ## Available Versions on RCAC Clusters
 

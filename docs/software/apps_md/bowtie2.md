@@ -1,6 +1,6 @@
 # bowtie2
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ Bowtie 2 is an ultrafast and memory-efficient tool for aligning sequencing reads
 
 ## Homepage
 
-[https://bowtie-bio.sourceforge.net/bowtie2/index.shtml](https://bowtie-bio.sourceforge.net/bowtie2/index.shtml){:target="_blank"}
+[https://bowtie-bio.sourceforge.net/bowtie2/index.shtml](https://bowtie-bio.sourceforge.net/bowtie2/index.shtml)
 
 ## Available Versions on RCAC Clusters
 

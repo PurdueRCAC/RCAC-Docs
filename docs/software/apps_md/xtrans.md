@@ -1,6 +1,6 @@
 # xtrans
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ xtrans is a library of code that is shared among various X packages to handle ne
 
 ## Homepage
 
-[https://gitlab.freedesktop.org/xorg/lib/libxtrans](https://gitlab.freedesktop.org/xorg/lib/libxtrans){:target="_blank"}
+[https://gitlab.freedesktop.org/xorg/lib/libxtrans](https://gitlab.freedesktop.org/xorg/lib/libxtrans)
 
 ## Available Versions on RCAC Clusters
 

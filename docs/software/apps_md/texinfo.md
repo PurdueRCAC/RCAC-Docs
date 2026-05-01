@@ -1,6 +1,6 @@
 # texinfo
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ Texinfo is the official documentation format of the GNU project.  It was invente
 
 ## Homepage
 
-[https://www.gnu.org/software/texinfo/](https://www.gnu.org/software/texinfo/){:target="_blank"}
+[https://www.gnu.org/software/texinfo/](https://www.gnu.org/software/texinfo/)
 
 ## Available Versions on RCAC Clusters
 

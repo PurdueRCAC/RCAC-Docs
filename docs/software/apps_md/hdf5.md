@@ -1,6 +1,6 @@
 # hdf5
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ HDF5 is a data model, library, and file format for storing and managing data. It
 
 ## Homepage
 
-[https://support.hdfgroup.org](https://support.hdfgroup.org){:target="_blank"}
+[https://support.hdfgroup.org](https://support.hdfgroup.org)
 
 ## Available Versions on RCAC Clusters
 

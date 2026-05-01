@@ -28,7 +28,7 @@ Anvil File Systems
 
 \* Full schedule keeps nightly snapshots for 7 days, weekly snapshots for 3 weeks, and monthly snapshots for 2 months.
 
-### Useful tool
+### Useful tools
 
 To check the quota of different file systems, type `myquota` at the command line.
 
@@ -49,59 +49,29 @@ Anvil supports several methods for file transfer to and from the system. Users c
 
 ### SCP
 
-**SCP (Secure CoPy)** is a simple way of transferring files between two machines that use the SSH protocol. SCP is available as a protocol choice in some graphical file transfer programs and also as a command line program on most Linux, Unix, and Mac OS X systems. SCP can copy single files, but will also recursively copy directory contents if given a directory name. [SSH Keys](/knowledge/anvil/access/login/sshkeys) is required for SCP. Following is an example of transferring `test.txt` file from Anvil home directory to your local machine, make sure to use your anvil username `x-anvilusername`:
+{% set hostname = "anvil" %}
 
-```
-localhost> scp x-anvilusername@anvil.rcac.purdue.edu:/home/x-anvilusername/test.txt .
-Warning: Permanently added the xxxxxxx host key for IP address 'xxx.xxx.xxx.xxx' to the list of known hosts.
-test.txt                                                                    100%    0     0.0KB/s   00:00
-```
+{{ scp_snippet( hostname ) }}
 
 ### Rsync
 
-**Rsync, or Remote Sync**, is a free and efficient command-line tool that lets you transfer files and directories to local and remote destinations. It allows to copy only the changes from the source and offers customization, use for mirroring, performing backups, or migrating data between different filesystems. [SSH Keys](/knowledge/anvil/access/login/sshkeys) is required for Rsync. Similar to the above SCP example, make sure to use your anvil username `x-anvilusername` here.
+--8<-- "docs/snippets/rsync.md"
 
 ### SFTP
 
-*SFTP* (Secure File Transfer Protocol) is a reliable way of transferring files between two machines. SFTP is available as a protocol choice in some graphical file transfer programs and also as a command-line program on most Linux, Unix, and Mac OS X systems. SFTP has more features than SCP and allows for other operations on remote files, remote directory listing, and resuming interrupted transfers. Command-line SFTP cannot recursively copy directory contents; to do so, try using SCP or graphical SFTP client.
+{% set hostname = "anvil" %}
 
-Command-line usage:
-
-```
-
-$ sftp -B buffersize x-anvilusername@anvil.rcac.purdue.edu
-
-      (to a remote system from local)
-sftp> put sourcefile somedir/destinationfile
-sftp> put -P sourcefile somedir/
-
-      (from a remote system to local)
-sftp> get sourcefile somedir/destinationfile
-sftp> get -P sourcefile somedir/
-
-sftp> exit
-```
-
-* **-B**: optional, specify buffer size for transfer; larger may increase speed, but costs memory
-* **-P**: optional, preserve file attributes and permissions
-
-Linux / Solaris / AIX / HP-UX / Unix:
-
-* The "sftp" command-line program should already be installed.
-
-Microsoft Windows:
-
-* [MobaXterm](https://mobaxterm.mobatek.net/download.html)  
-  Free, full-featured, graphical Windows SSH, SCP, and SFTP client.
-
-Mac OS X:
-
-* The "sftp" command-line program should already be installed. You may start a local terminal window from "Applications->Utilities".
-* [Cyberduck](https://cyberduck.io/) is a full-featured and free graphical SFTP and SCP client.
+{{ sftp_snippet( hostname ) }}
 
 ### Globus
 
-**Globus** is a powerful and easy to use file transfer and sharing service for transferring files virtually anywhere. It works between any ACCESS and non-ACCESS sites running Globus, and it connects any of these research systems to personal systems. You may use Globus to connect to your home, scratch, and project storage directories on Anvil. Since Globus is web-based, it works on any operating system that is connected to the internet. The Globus Personal client is available on Windows, Linux, and Mac OS X. It is primarily used as a graphical means of transfer but it can also be used over the command line. More details can be found at  [ACCESS Using Globus](https://access-ci.atlassian.net/wiki/spaces/ACCESSdocumentation/pages/552861697/Using+Globus).
+**Globus** is a powerful and easy to use file transfer and sharing service for transferring files virtually anywhere.
+It works between any ACCESS and non-ACCESS sites running Globus, and it connects any of these research systems to personal
+systems. You may use Globus to connect to your home, scratch, and project storage directories on Anvil. Since Globus is
+web-based, it works on any operating system that is connected to the internet. The Globus Personal client is available on
+Windows, Linux, and Mac OS X. It is primarily used as a graphical means of transfer but it can also be used over the command
+line. More details can be found at 
+[ACCESS Using Globus](https://access-ci.atlassian.net/wiki/spaces/ACCESSdocumentation/pages/552861697/Using+Globus).
 
 ## Lost File Recovery
 
@@ -113,7 +83,7 @@ These snapshots are kept for a limited time at various intervals. Please refer t
 
 **Snapshots are not a substitute for regular backups.** It is the responsibility of the researchers to back up any important data to long-term storage space. Anvil **does** protect against hardware failures or physical disasters through other means however these other means are also **not** substitutes for backups.
 
-Anvil offers several ways for researchers to access snapshots of their files.
+Purdue RCAC offers several ways for researchers to access snapshots of their files.
 
 ### flost
 
@@ -146,8 +116,9 @@ Then copy files or directories from there back to where they belong:
     $ cp -r mylostdirectory /home
 ```
 
-Here is an example of `/home` directory. If you know more specifically where the lost file was you may provide the full path to that directory.
+Above is an example of `/home` directory. If you know more specifically where the lost file was, you may provide the full path to that directory.
 
-This tool will prompt you for the date on which you lost the file or would like to recover the file from. If the tool finds an appropriate snapshot it will provide instructions on how to search for and recover the file.
+!!! info "flost requires a date"
+    This tool will prompt you for the date on which you lost the file or would like to recover the file from. If the tool finds an appropriate snapshot it will provide instructions on how to search for and recover the file.
 
 If you are not sure what date you lost the file you may try entering different dates into the `flost` to try to find the file or you may also **manually browse** the snapshots in `/home/.zfs/snapshot` folder for **Home** directory and `/anvil/projects/.snapshots` folder for **Projects** directory.

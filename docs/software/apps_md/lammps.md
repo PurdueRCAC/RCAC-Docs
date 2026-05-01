@@ -1,6 +1,6 @@
 # lammps
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ LAMMPS stands for Large-scale Atomic/Molecular Massively Parallel Simulator.
 
 ## Homepage
 
-[https://www.lammps.org/](https://www.lammps.org/){:target="_blank"}
+[https://www.lammps.org/](https://www.lammps.org/)
 
 ## Available Versions on RCAC Clusters
 

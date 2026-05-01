@@ -1,6 +1,6 @@
 # curl
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ cURL is an open source command line tool and library for transferring data with 
 
 ## Homepage
 
-[https://curl.se/](https://curl.se/){:target="_blank"}
+[https://curl.se/](https://curl.se/)
 
 ## Available Versions on RCAC Clusters
 

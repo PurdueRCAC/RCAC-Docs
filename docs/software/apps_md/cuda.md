@@ -1,6 +1,6 @@
 # cuda
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ CUDA is a parallel computing platform and programming model invented by NVIDIA. 
 
 ## Homepage
 
-[https://developer.nvidia.com/cuda-zone](https://developer.nvidia.com/cuda-zone){:target="_blank"}
+[https://developer.nvidia.com/cuda-zone](https://developer.nvidia.com/cuda-zone)
 
 ## Available Versions on RCAC Clusters
 

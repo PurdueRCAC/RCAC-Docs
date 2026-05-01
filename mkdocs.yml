@@ -1,6 +1,6 @@
 site_name: RCAC Documentation
-site_description: A demo site for RCAC documentation.
-site_url: https://rcac-docs-demo.readthedocs.io
+site_description: Official RCAC documentation website.
+site_url: https://docs.rcac.purdue.edu
 
 theme:
   name: material
@@ -15,13 +15,12 @@ theme:
     # Back-to-top button
     - navigation.top
     - navigation.footer
-    #- navigation.sections
-    #- navigation.expand
+    - navigation.sections
     - toc.follow
     - search.suggest
     - search.highlight
-    #- search.share
     - content.code.copy
+    - content.tabs.link
   palette:
     - media: "(prefers-color-scheme)"
       toggle:
@@ -44,11 +43,11 @@ theme:
 
 extra_css:
   - stylesheets/extra.css
-  - assets/css/tablefilter.css
 extra_javascript:
   - assets/js/tablefilter.js
   - assets/js/init-tablefilter.js
   - assets/js/breadcrumbs.js
+  - assets/js/external-links.js
 
 plugins:
   - search
@@ -56,11 +55,13 @@ plugins:
       archive_date_format: MMMM yyyy
       post_date_format: long
       categories_allowed:
+        - Announcements
         - Anvil
         - Gautschi
         - Software
         - Slurm
         - Workflows
+        - Life Sciences
       pagination_per_page: 5
       pagination_if_single_page: true
   - tags:
@@ -77,9 +78,8 @@ plugins:
   - macros
 
 nav:
-  - Home: index.md
   - HPC User Guides:
-    - Anvil User Guide:
+    - Anvil:
       - userguides/anvil/index.md
       - About:
         - Overview: userguides/anvil/overview.md
@@ -90,10 +90,19 @@ nav:
       - File Management: userguides/anvil/file_management.md
       - Anvil Software: userguides/anvil/anvil-software.md
       - Help Desk: userguides/anvil/help.md
+      - Frequently Asked Questions: userguides/anvil/faqs.md
       - Anvil Composable Subsystem:
+        - userguides/anvil/composable/index.md
         - Getting Started: userguides/anvil/composable/getting-started.md
         - Concepts: userguides/anvil/composable/concepts.md
         - Examples: userguides/anvil/composable/examples.md
+      - Anvil Object Storage:
+        - userguides/anvil/objectstorage/index.md
+        - Getting Started: userguides/anvil/objectstorage/getting-started.md
+        - Object Storage Concepts: userguides/anvil/objectstorage/concepts.md
+        - Access: userguides/anvil/objectstorage/access.md
+        - User Tools: userguides/anvil/objectstorage/usertools.md
+        - Security and Access Control: userguides/anvil/objectstorage/acl.md
       - AnvilGPT (LLM): userguides/anvil/anvilgpt.md
       - Anvil Notebook: userguides/anvil/notebook.md
       - Key Policies: userguides/anvil/policies.md
@@ -107,70 +116,139 @@ nav:
       - File Storage and Transfer: userguides/gautschi/storage.md
       - Gateway (Open OnDemand): userguides/gautschi/gateway.md
       - Compiling Source Code: userguides/gautschi/compile.md
-      - Frequently Asked Questions: userguides/gautschi/faq.md
-      - Datasets: userguides/gautschi/datasets.md
-  - RCAC Blogs:
-    - blog/index.md
-  - Software:
-    - software/index.md
-    - All Software: software/app_catalog.md
-    - Compilers: software/compilers_catalog.md
-    - MPIs: software/mpi_catalog.md
-    - Computational Chemistry: software/chemistry_catalog.md
-    - Fluid Dynamics: software/fluid_dynamics_catalog.md
-    - Audio/Visualization: software/audio_visual_catalog.md
-    - Library: software/library_catalog.md
-    - Mathematics/Statistics: software/math_stat_catalog.md
-    - Engineering: software/engineering_catalog.md
-    - Geoscience: software/geoscience_catalog.md
-    - Utilities: software/utilities_catalog.md
-    - Workflow: software/workflow_catalog.md
-  - Datasets:
-    - datasets/index.md
-    - AI: datasets/ai.md
-    - Hydrological: datasets/hydrological.md
-    - Meteorological: datasets/meteorological.md
-    - Geospatial: datasets/geospatial.md
-    - Covariates: datasets/Covariates.md
-    - GeoAI: datasets/geoai.md
-    - Igenomes: datasets/igenomes.md
-  - RCAC Workshops:
-    - workshops/index.md
-    - HPC Exchange:
-      - workshops/hpc_exchange/index.md
-      - Week 1:
-        - Week 1 Index: workshops/hpc_exchange/week1/week1.md
-        - Setting up for the workshop: workshops/hpc_exchange/week1/terminal.md
-        - How to Access the Clusters: workshops/hpc_exchange/week1/access.md
-        - What is Unix: workshops/hpc_exchange/week1/unix.md
-        - What is the Shell: workshops/hpc_exchange/week1/shell.md
-        - Anatomy of a Command: workshops/hpc_exchange/week1/anatomy.md
-        - Navigate the Filesystem: workshops/hpc_exchange/week1/navigate.md
-        - Editing files from the command line: workshops/hpc_exchange/week1/edit.md
-        - Command Reference: workshops/hpc_exchange/week1/reference.md
-      - Week 2:
-        - Week 2 Index: workshops/hpc_exchange/week2/week2.md
-        - Purdue Clusters: workshops/hpc_exchange/week2/clusters.md
-        - Access: workshops/hpc_exchange/week2/access.md
-        - Files: workshops/hpc_exchange/week2/files1.md
-        - Applications: workshops/hpc_exchange/week2/applications.md
-        - What is a Cluster: workshops/hpc_exchange/week2/what_cluster.md
-        - Jobs: workshops/hpc_exchange/week2/jobs.md
-      - Week 3:
-        - Week 3 Index: workshops/hpc_exchange/week3/week3.md
-        - Scripting: workshops/hpc_exchange/week3/scripts.md
-        - Managing Processes: workshops/hpc_exchange/week3/processes.md
-        - Managing Output with Pipes: workshops/hpc_exchange/week3/pipes.md
-        - Managing Files and Directories: workshops/hpc_exchange/week3/managing_files.md
-      - Week 4:
-        - Week 4 Index: workshops/hpc_exchange/week4/week4.md
-        - File storage and transfers: workshops/hpc_exchange/week4/files2.md
-        - Multinode jobs and topology: workshops/hpc_exchange/week4/multinode.md
-        - Job History: workshops/hpc_exchange/week4/history.md
-        - Resource Utilization and Monitoring: workshops/hpc_exchange/week4/monitor.md
-        - Managing Workloads and Jobs: workshops/hpc_exchange/week4/workloads.md
-  - Tags: tags.md
+      - Frequently Asked Questions: userguides/gautschi/faqs.md
+    - Bell: https://www.rcac.purdue.edu/knowledge/bell
+    - Gilbreth: https://www.rcac.purdue.edu/knowledge/gilbreth
+    - Negishi: https://www.rcac.purdue.edu/knowledge/negishi
+    - Scholar: https://www.rcac.purdue.edu/knowledge/scholar
+    - Geddes: https://www.rcac.purdue.edu/knowledge/geddes
+    - Hammer: https://www.rcac.purdue.edu/knowledge/hammer
+    - Rossmann: https://www.rcac.purdue.edu/knowledge/rossmann
+    - Weber: https://www.rcac.purdue.edu/knowledge/weber
+  - Storage User Guides:
+    - Data Depot: https://www.rcac.purdue.edu/knowledge/depot
+    - Fortress: https://www.rcac.purdue.edu/knowledge/fortress
+    - Scratch: https://www.rcac.purdue.edu/knowledge/scratch
+    - Home Directory: https://www.rcac.purdue.edu/knowledge/home
+    - REED Folder: https://www.rcac.purdue.edu/knowledge/reedfolder
+    - Box Research Lab Folder: https://www.rcac.purdue.edu/knowledge/boxfolder
+  - RCAC Resources:
+    - RCAC Blogs:
+      - blog/index.md
+    - Software:
+      - software/index.md
+      - All Software: software/app_catalog.md
+      - Compilers: software/compilers_catalog.md
+      - MPIs: software/mpi_catalog.md
+      - Bioinformatics: software/bioinformatics_catalog.md
+      - Computational Chemistry: software/chemistry_catalog.md
+      - Fluid Dynamics: software/fluid_dynamics_catalog.md
+      - Audio/Visualization: software/audio_visual_catalog.md
+      - Library: software/library_catalog.md
+      - Mathematics/Statistics: software/math_stat_catalog.md
+      - Engineering: software/engineering_catalog.md
+      - Geoscience: software/geoscience_catalog.md
+      - Utilities: software/utilities_catalog.md
+      - Workflow: software/workflow_catalog.md
+    - Datasets:
+      - datasets/index.md
+      - All Datasets: datasets/dataset_catalog.md
+      - AI: datasets/ai.md
+      - Climate Model: datasets/climateModel.md
+      - Covariates: datasets/Covariates.md
+      - GeoAI: datasets/geoai.md
+      - Geospatial: datasets/geospatial.md
+      - Hydrological: datasets/hydrological.md
+      - Meteorological: datasets/meteorological.md
+    - RCAC Workshops:
+      - workshops/index.md
+      - HPC Exchange:
+        - workshops/hpc_exchange/index.md
+        - Week 1:
+            - workshops/hpc_exchange/week1/index.md
+            - Setting up: workshops/hpc_exchange/week1/setup.md
+            - Access: workshops/hpc_exchange/week1/access.md
+            - Unix: workshops/hpc_exchange/week1/unix.md
+            - The Shell: workshops/hpc_exchange/week1/shell.md
+            - Commands: workshops/hpc_exchange/week1/commands.md
+            - Navigating Filesystems: workshops/hpc_exchange/week1/filesystem.md
+            - Editing Files: workshops/hpc_exchange/week1/editing.md
+            - Command Reference: workshops/hpc_exchange/week1/reference.md
+        - Week 2:
+            - workshops/hpc_exchange/week2/index.md
+            - What is a Cluster?: workshops/hpc_exchange/week2/what-is-a-cluster.md
+            - Purdue Clusters: workshops/hpc_exchange/week2/clusters.md
+            - Cluster Access: workshops/hpc_exchange/week2/access.md
+            - Cluster Applications: workshops/hpc_exchange/week2/applications.md
+            - Cluster Job Submission: workshops/hpc_exchange/week2/slurm-basics.md
+            - File Storage and Transfer: workshops/hpc_exchange/week2/storage-transfer.md
+        - Week 3:
+            - workshops/hpc_exchange/week3/index.md
+            - Scripting: workshops/hpc_exchange/week3/scripting.md
+
+            - Pipes: workshops/hpc_exchange/week3/pipes.md
+            - Managing processes: workshops/hpc_exchange/week3/processes.md
+            - Files & directories: workshops/hpc_exchange/week3/files-directories.md
+        - Week 4:
+            - workshops/hpc_exchange/week4/index.md
+            - Storage & transfers: workshops/hpc_exchange/week4/storage-transfer.md
+            - Job history: workshops/hpc_exchange/week4/job-history.md
+            - Utilization & monitoring: workshops/hpc_exchange/week4/utilization-monitoring.md
+            - Workload management: workshops/hpc_exchange/week4/workload-management.md
+            - Multinode & topology: workshops/hpc_exchange/week4/multinode-topology.md
+      - Genomics Exchange:
+        - workshops/genomics_exchange/index.md
+        - Session 1:Introduction & HPC Orientation: workshops/genomics_exchange/session1/index.md
+        - Session 2:Project Organization: workshops/genomics_exchange/session2/index.md
+        - Session 3:R Data Wrangling: workshops/genomics_exchange/session3/index.md
+        - Session 4:Publication-Quality Plots: workshops/genomics_exchange/session4/index.md
+        - Session 5:Running Bioinformatics on RCAC: workshops/genomics_exchange/session5/index.md
+        - Session 6:QC for Genomics: workshops/genomics_exchange/session6/index.md
+        - Session 7:Reproducible Bioinformatics with Nextflow: workshops/genomics_exchange/session7/index.md
+      - Anvil Kubernetes: workshops/kubernetes-tutorial.md
+      - Scientific Visualization with MatPlotLib:
+        - workshops/matplotlib/index.md
+        - Getting Started: workshops/matplotlib/introduction.md
+        - Our First Script: workshops/matplotlib/first_script.md
+        - The Second Script: workshops/matplotlib/sine_plot.md
+        - Advanced Plotting: workshops/matplotlib/adv_plots.md
+        - Types of Plots: workshops/matplotlib/plot_types.md
+        - Colormaps: workshops/matplotlib/colormaps.md
+        - Animations: workshops/matplotlib/animations.md
+        - Envision Center: workshops/matplotlib/env_cent.md
+  - Life Sciences:
+    - lifesciences/index.md
+    - Getting Started:
+      - HPC Orientation for Biologists: lifesciences/guides/hpc-orientation.md
+      - Running Bioinformatics on RCAC: lifesciences/guides/running-bioinformatics.md
+      - Project Organization: lifesciences/guides/project-organization.md
+    - Guides:
+      - Nextflow and nf-core: lifesciences/guides/nextflow.md
+      - Nextflow on Gautschi: lifesciences/guides/nextflow-gautschi.md
+      - Downloading SRA Data: lifesciences/guides/sra-download.md
+      - Installing R Packages: lifesciences/guides/r-packages.md
+      - R Skills for Biological Data: lifesciences/guides/r-data-wrangling.md
+      - Publication-Quality Plots: lifesciences/guides/publication-quality-plots.md
+      - QC for Genomics: lifesciences/guides/qc-for-genomics.md
+      - Installing Perl Libraries: lifesciences/guides/perllib.md
+      - Optimizing Trinity: lifesciences/guides/trinity.md
+      - Transfer Data with iRODS: lifesciences/guides/icommands.md
+      - VS Code on RCAC: lifesciences/guides/vscode.md
+      - VISPR Visualization: lifesciences/guides/vispr.md
+      - Productivity Tips: lifesciences/guides/productivity-tips.md
+    - Tutorials:
+      - Gene Prediction:
+        - BRAKER3: lifesciences/tutorials/braker.md
+        - GeMoMa: lifesciences/tutorials/gemoma.md
+        - Helixer: lifesciences/tutorials/helixer.md
+      - Genome Assembly:
+        - HiFiasm (HiFi reads): lifesciences/tutorials/hifi-assembly.md
+        - Mitochondrial Genomes (MitoHiFi): lifesciences/tutorials/mitohifi.md
+      - Hi-C Analysis:
+        - Juicer: lifesciences/tutorials/juicer.md
+  # - Tags: tags.md
   - Contact us: contact.md
+  - FAQs: faqs.md
 
 extra:
   social:
@@ -205,7 +283,7 @@ extra:
           name: This page could be improved
           data: 0
           note: >-
-            Thanks for your feedback! Help us improve this page by using our <a href="https://github.com/PurdueRCAC/RCAC-Docs/issues/new?labels=feedback&title=[Feedback]:%20&body=>%20**Page%20Affected:**%20https://rcac-docs.s3-hosted.rcac.purdue.edu{url}%0A>%20Please%20describe%20the%20issue%20you%20found%20on%20this%20page.%0A%0A" target="_blank" rel="noopener">feedback form</a>.
+            Thanks for your feedback! Help us improve this page by using our <a href="https://github.com/PurdueRCAC/RCAC-Docs/issues/new?labels=feedback&title=[Feedback]:%20&body=>%20**Page%20Affected:**%20https://docs.rcac.purdue.edu{url}%0A>%20Please%20describe%20the%20issue%20you%20found%20on%20this%20page.%0A%0A" target="_blank" rel="noopener">feedback form</a>.
 
 markdown_extensions:
   - toc:

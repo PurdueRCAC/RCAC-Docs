@@ -1,6 +1,6 @@
 # aocc
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ The AOCC compiler system is a high performance, production quality code generati
 
 ## Homepage
 
-[https://www.amd.com/en/developer/aocc.html](https://www.amd.com/en/developer/aocc.html){:target="_blank"}
+[https://www.amd.com/en/developer/aocc.html](https://www.amd.com/en/developer/aocc.html)
 
 ## Available Versions on RCAC Clusters
 

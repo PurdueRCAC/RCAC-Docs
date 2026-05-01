@@ -1,6 +1,6 @@
 # mvapich2
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ Mvapich2 is a High-Performance MPI Library for clusters with diverse networks (I
 
 ## Homepage
 
-[https://mvapich.cse.ohio-state.edu/userguide/userguide_spack/](https://mvapich.cse.ohio-state.edu/userguide/userguide_spack/){:target="_blank"}
+[https://mvapich.cse.ohio-state.edu/userguide/userguide_spack/](https://mvapich.cse.ohio-state.edu/userguide/userguide_spack/)
 
 ## Available Versions on RCAC Clusters
 

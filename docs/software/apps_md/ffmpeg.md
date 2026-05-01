@@ -1,6 +1,6 @@
 # ffmpeg
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ FFmpeg is a complete, cross-platform solution to record, convert and stream audi
 
 ## Homepage
 
-[https://ffmpeg.org](https://ffmpeg.org){:target="_blank"}
+[https://ffmpeg.org](https://ffmpeg.org)
 
 ## Available Versions on RCAC Clusters
 

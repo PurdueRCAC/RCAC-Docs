@@ -1,6 +1,6 @@
 # gdb
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ GDB, the GNU Project debugger, allows you to see what is going on 'inside' anoth
 
 ## Homepage
 
-[https://www.gnu.org/software/gdb](https://www.gnu.org/software/gdb){:target="_blank"}
+[https://www.gnu.org/software/gdb](https://www.gnu.org/software/gdb)
 
 ## Available Versions on RCAC Clusters
 

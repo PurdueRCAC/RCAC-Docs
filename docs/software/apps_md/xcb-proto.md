@@ -1,6 +1,6 @@
 # xcb-proto
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ XCB protocol descriptions for building X11 applications.
 
 ## Homepage
 
-[https://xcb.freedesktop.org/](https://xcb.freedesktop.org/){:target="_blank"}
+[https://xcb.freedesktop.org/](https://xcb.freedesktop.org/)
 
 ## Available Versions on RCAC Clusters
 

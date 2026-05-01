@@ -1,6 +1,6 @@
 # motif
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@
 
 ## Homepage
 
-[https://motif.ics.com/](https://motif.ics.com/){:target="_blank"}
+[https://motif.ics.com/](https://motif.ics.com/)
 
 ## Available Versions on RCAC Clusters
 

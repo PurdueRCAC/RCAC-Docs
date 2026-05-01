@@ -5,6 +5,7 @@ MPI (Message Passing Interface) implementations provide the foundation for scala
 * [**amduprof**](apps_md/amduprof.md)
 * [**cuda**](apps_md/cuda.md)
 * [**cudnn**](apps_md/cudnn.md)
+* [**hpcx**](apps_md/hpcx.md)
 * [**impi**](apps_md/impi.md)
 * [**intel-oneapi-mpi**](apps_md/intel-oneapi-mpi.md)
 * [**mpi4py**](apps_md/mpi4py.md)

@@ -1,6 +1,6 @@
 # xextproto
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ X Protocol Extensions.
 
 ## Homepage
 
-[https://gitlab.freedesktop.org/xorg/proto/xextproto](https://gitlab.freedesktop.org/xorg/proto/xextproto){:target="_blank"}
+[https://gitlab.freedesktop.org/xorg/proto/xextproto](https://gitlab.freedesktop.org/xorg/proto/xextproto)
 
 ## Available Versions on RCAC Clusters
 

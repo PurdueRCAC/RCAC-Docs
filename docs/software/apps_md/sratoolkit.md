@@ -1,6 +1,6 @@
 # sratoolkit
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ The NCBI SRA Toolkit enables reading ("dumping") of sequencing files from the SR
 
 ## Homepage
 
-[https://trace.ncbi.nlm.nih.gov/Traces/sra](https://trace.ncbi.nlm.nih.gov/Traces/sra){:target="_blank"}
+[https://trace.ncbi.nlm.nih.gov/Traces/sra](https://trace.ncbi.nlm.nih.gov/Traces/sra)
 
 ## Available Versions on RCAC Clusters
 

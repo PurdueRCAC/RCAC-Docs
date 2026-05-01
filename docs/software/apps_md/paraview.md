@@ -1,6 +1,6 @@
 # paraview
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ ParaView is an open-source, multi-platform data analysis and visualization appli
 
 ## Homepage
 
-[https://www.paraview.org](https://www.paraview.org){:target="_blank"}
+[https://www.paraview.org](https://www.paraview.org)
 
 ## Available Versions on RCAC Clusters
 

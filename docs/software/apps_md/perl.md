@@ -1,6 +1,6 @@
 # perl
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ Perl as a Python package
 
 ## Homepage
 
-[https://www.perl.org](https://www.perl.org){:target="_blank"}
+[https://www.perl.org](https://www.perl.org)
 
 ## Available Versions on RCAC Clusters
 

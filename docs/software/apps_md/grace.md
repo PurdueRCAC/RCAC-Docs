@@ -1,6 +1,6 @@
 # grace
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ Grace is a WYSIWYG 2D plotting tool for the X Window System and M*tif.
 
 ## Homepage
 
-[https://plasma-gate.weizmann.ac.il/Grace](https://plasma-gate.weizmann.ac.il/Grace){:target="_blank"}
+[https://plasma-gate.weizmann.ac.il/Grace](https://plasma-gate.weizmann.ac.il/Grace)
 
 ## Available Versions on RCAC Clusters
 

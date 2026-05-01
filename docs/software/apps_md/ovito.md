@@ -1,6 +1,6 @@
 # ovito
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ OVITO is a scientific visualization and analysis software for atomistic and part
 
 ## Homepage
 
-[https://www.ovito.org](https://www.ovito.org){:target="_blank"}
+[https://www.ovito.org](https://www.ovito.org)
 
 ## Available Versions on RCAC Clusters
 

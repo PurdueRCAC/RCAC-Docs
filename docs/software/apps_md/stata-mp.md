@@ -1,6 +1,6 @@
 # stata-mp
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ Stata/MP is the multiprocessor version of Stata for statistical analysis.
 
 ## Homepage
 
-[https://www.stata.com/products/mp/](https://www.stata.com/products/mp/){:target="_blank"}
+[https://www.stata.com/products/mp/](https://www.stata.com/products/mp/)
 
 ## Available Versions on RCAC Clusters
 

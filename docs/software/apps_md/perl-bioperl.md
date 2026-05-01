@@ -1,6 +1,6 @@
 # perl-bioperl
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ BioPerl is a collection of Perl modules that facilitate the development of Perl 
 
 ## Homepage
 
-[https://bioperl.org/](https://bioperl.org/){:target="_blank"}
+[https://bioperl.org/](https://bioperl.org/)
 
 ## Available Versions on RCAC Clusters
 

@@ -1,6 +1,6 @@
 # aws-cli
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ The AWS Command Line Interface (CLI) is a unified tool to manage Amazon Web Serv
 
 ## Homepage
 
-[https://aws.amazon.com/cli/](https://aws.amazon.com/cli/){:target="_blank"}
+[https://aws.amazon.com/cli/](https://aws.amazon.com/cli/)
 
 ## Available Versions on RCAC Clusters
 

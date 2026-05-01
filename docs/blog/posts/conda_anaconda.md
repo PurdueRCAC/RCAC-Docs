@@ -51,12 +51,37 @@ Although these two distributions behave similarly, the components within them va
     * classic or libmamba solver
 
 
-|                     | **Anaconda** ( `anaconda` module)             | **Miniforge** (`conda` module)       |
-| ------------------- | ------------------------------------------    | ------------------------------------ |
-| **Default channel** | `defaults` (Anaconda, Inc.)                   | `conda-forge` (community-maintained) |
-| **Base packages**   | Large set of scientific & data analysis tools | Minimal                              |
-| **License**         | Anaconda Terms of Service                     | Open source                          |
-| **Package manager** | `conda` (classic & libmamba solvers)          | `conda` (classic & libmamba solvers) |
+<table>
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col"><strong>Anaconda</strong> (<code>anaconda</code> module)</th>
+      <th scope="col"><strong>Miniforge</strong> (<code>conda</code> module)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row"><strong>Default channel</strong></th>
+      <td><code>defaults</code> (Anaconda, Inc.)</td>
+      <td><code>conda-forge</code> (community-maintained)</td>
+    </tr>
+    <tr>
+      <th scope="row"><strong>Base packages</strong></th>
+      <td>Large set of scientific &amp; data analysis tools</td>
+      <td>Minimal</td>
+    </tr>
+    <tr>
+      <th scope="row"><strong>License</strong></th>
+      <td>Anaconda Terms of Service</td>
+      <td>Open source</td>
+    </tr>
+    <tr>
+      <th scope="row"><strong>Package manager</strong></th>
+      <td><code>conda</code> (classic &amp; libmamba solvers)</td>
+      <td><code>conda</code> (classic &amp; libmamba solvers)</td>
+    </tr>
+  </tbody>
+</table>
 
 
 ## Default Environment Locations

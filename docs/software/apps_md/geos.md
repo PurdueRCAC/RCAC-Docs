@@ -1,6 +1,6 @@
 # geos
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ GEOS (Geometry Engine, Open Source).  GEOS is a C/C++ library for computational 
 
 ## Homepage
 
-[https://libgeos.org/](https://libgeos.org/){:target="_blank"}
+[https://libgeos.org/](https://libgeos.org/)
 
 ## Available Versions on RCAC Clusters
 

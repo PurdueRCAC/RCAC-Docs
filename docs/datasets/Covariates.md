@@ -10,7 +10,7 @@ To access the datasets on RCAC clusters:
 ```bash
 $ module avail
 $ module load datasets
-$ module avail datasets/Covariates
+$ module avail Covariates
 ```
 
 ## Tips:
@@ -21,19 +21,21 @@ $ module avail datasets/Covariates
 
 ## Covariate Datasets
 
-* [**Cattle**](Covariates/Cattle.md)
-* [**CHELSA_Present_bio**](Covariates/CHELSA_Present_bio.md)
-* [**CHELSA_2011-2040**](Covariates/CHELSA_2011-2040.md)
-* [**CHELSA_2041-2070**](Covariates/CHELSA_2041-2070.md)
-* [**CHELSA_2071-2100**](Covariates/CHELSA_2071-2100.md)
-* [**ForestAge**](Covariates/ForestAge.md)
-* [**ForestHeight2020**](Covariates/ForestHeight2020.md)
-* [**ForestManagement**](Covariates/ForestManagement.md)
-* [**GEDI**](Covariates/GEDI.md)
-* [**HumanFootprint**](Covariates/HumanFootprint.md)
-* [**PBCOR_V1.0**](Covariates/PBCOR_V1.0.md)
-* [**PlantedYear**](Covariates/PlantedYear.md)
-* [**Roadless**](Covariates/Roadless.md)
-* [**Soil_WISE30sec**](Covariates/Soil_WISE30sec.md)
-* [**Tree_Species_Richness**](Covariates/Tree_Species_Richness.md)
-* [**WorldClim_Historical_bio**](Covariates/WorldClim_Historical_bio.md)
+| Dataset | Description |
+|---------|-------------|
+| [**Cattle**](Covariates/Cattle.md) | Distribution of cattle in 2010 expressed in total number of cattle per pixel (5 min of arc) |
+| [**CHELSA_Present_bio**](Covariates/CHELSA_Present_bio.md) | High-resolution climatic data for present-day bioclimatic analysis |
+| [**CHELSA_2011-2040**](Covariates/CHELSA_2011-2040.md) | Climatic data projections for analysis and modeling |
+| [**CHELSA_2041-2070**](Covariates/CHELSA_2041-2070.md) | Climatic data projections for mid-century climate modeling |
+| [**CHELSA_2071-2100**](Covariates/CHELSA_2071-2100.md) | End-of-century climate projections |
+| [**ForestAge**](Covariates/ForestAge.md) | Mapped global forest age from inventories, biomass, and climate data |
+| [**ForestHeight2020**](Covariates/ForestHeight2020.md) | Integration of GEDI and Landsat data for global forest canopy height |
+| [**ForestManagement**](Covariates/ForestManagement.md) | Detailed forest management data at a 100m resolution |
+| [**GEDI**](Covariates/GEDI.md) | Gridded land surface metrics from GEDI data |
+| [**HumanFootprint**](Covariates/HumanFootprint.md) | Global human footprint analysis at 1km resolution |
+| [**PBCOR_V1.0**](Covariates/PBCOR_V1.0.md) | Corrected global high-resolution precipitation climatologies |
+| [**PlantedYear**](Covariates/PlantedYear.md) | Year of planting for global plantation areas |
+| [**Roadless**](Covariates/Roadless.md) | A global map of roadless areas for conservation purposes |
+| [**Soil_WISE30sec**](Covariates/Soil_WISE30sec.md) | Harmonized global soil property database for modeling applications |
+| [**Tree_Species_Richness**](Covariates/Tree_Species_Richness.md) | Dataset on global tree species diversity and richness |
+| [**WorldClim_Historical_bio**](Covariates/WorldClim_Historical_bio.md) | Historical climate data for global land areas |

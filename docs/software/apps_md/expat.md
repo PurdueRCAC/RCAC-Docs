@@ -1,6 +1,6 @@
 # expat
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ Expat is an XML parser library written in C.
 
 ## Homepage
 
-[https://libexpat.github.io/](https://libexpat.github.io/){:target="_blank"}
+[https://libexpat.github.io/](https://libexpat.github.io/)
 
 ## Available Versions on RCAC Clusters
 

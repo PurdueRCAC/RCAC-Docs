@@ -7,7 +7,7 @@
 | **Description** | NALCMS offers land cover and land change data across North America. It provides consistent and harmonized land cover classifications, supporting environmental monitoring, resource management, and land-use planning. |
 | **Folder** | `/datasets/geospatial/NALCMS` |
 | **Discipline** | Geospatial / Environmental Science / Geography |
-| **DOI** | [](https://doi.org/) |
+| **DOI** |  |
 | **Link** | [Access Data](http://www.cec.org/north-american-land-change-monitoring-system/) |
 | **Public** | `true` |
 | **Publication Date** | 2020-01-01 |

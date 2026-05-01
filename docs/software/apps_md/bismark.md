@@ -1,6 +1,6 @@
 # bismark
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ A tool to map bisulfite converted sequence reads and determine cytosine methylat
 
 ## Homepage
 
-[https://www.bioinformatics.babraham.ac.uk/projects/bismark](https://www.bioinformatics.babraham.ac.uk/projects/bismark){:target="_blank"}
+[https://www.bioinformatics.babraham.ac.uk/projects/bismark](https://www.bioinformatics.babraham.ac.uk/projects/bismark)
 
 ## Available Versions on RCAC Clusters
 

@@ -5,6 +5,7 @@ authors:
   - jin456
 search:
   boost: 2
+draft: false
 ---
 
 ## Overview
@@ -18,11 +19,11 @@ The name &quot;Anvil&quot; reflects the Purdue Boilermakers&#39; strength and wo
 Anvil is built in partnership with Dell and AMD and consists of 1,000 nodes with two 64-core AMD Epyc &quot;Milan&quot; processors each and delivers over 1 billion CPU core hours to ACCESS each year, with a peak performance of 5.3 petaflops. Anvil&#39;s nodes are interconnected with **100 Gbps Mellanox HDR InfiniBand**. The supercomputer ecosystem also includes 32 large memory nodes, each with 1 TB of RAM, and 16 nodes each with four **NVIDIA A100 Tensor Core GPUs** providing 1.5 PF of single-precision performance to support machine learning and artificial intelligence applications.
 
 <figure markdown="span">
-  ![anvil_glance](https://www.rcac.purdue.edu/files/anvil/Anvil_final_AAB_25_1-1-2022%20to%2012-31-2024%20%28numbers%20only%29.png){ width="800" }
+  ![anvil_glance](../../assets/images/userguides/anvil/anvil-glance.png){ width="800" }
   <figcaption>Cumulative statistics January 2022 - December 2024</figcaption>
 </figure>
 
-Anvil is funded under NSF award number **2005632**. <a href="https://www.rcac.purdue.edu/about/staff/cxsong">Carol Song</a> is the principal investigator and project director. <a href="https://www.rcac.purdue.edu/about/staff/psmith">Preston Smith</a>, executive director of the Rosen Center for Advanced Computing, <a href="https://www.rcac.purdue.edu/about/staff/liu4201">Xiao Zhu</a>, computational scientist and senior research scientist, and Rajesh Kalyanam, data scientist, software engineer, and research scientist, are all co-PIs on the project.
+Anvil is funded under NSF award number **2005632**. <a href="https://www.rcac.purdue.edu/about/staff/cxsong">Carol Song</a> is the principal investigator and project director. <a href="https://www.rcac.purdue.edu/about/staff/psmith">Preston Smith</a>, executive director of the Rosen Center for Advanced Computing, <a href="https://www.linkedin.com/in/xiao-zhu-04963211/">Xiao Zhu</a>, former RCAC computational scientist and senior research scientist, and <a href="https://www.ornl.gov/staff-profile/rajesh-kalyanam">Rajesh Kalyanam</a>, former RCAC data scientist, software engineer, and research scientist, are all co-PIs on the project.
 
 ## Anvil Specifications
 

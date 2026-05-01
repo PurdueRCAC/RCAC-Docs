@@ -1,6 +1,6 @@
 # krb5
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ Network authentication protocol
 
 ## Homepage
 
-[https://kerberos.org](https://kerberos.org){:target="_blank"}
+[https://kerberos.org](https://kerberos.org)
 
 ## Available Versions on RCAC Clusters
 

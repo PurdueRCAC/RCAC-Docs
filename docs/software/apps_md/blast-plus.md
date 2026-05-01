@@ -1,6 +1,6 @@
 # blast-plus
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ BLAST+ (Basic Local Alignment Search Tool) is a suite of bioinformatics programs
 
 ## Homepage
 
-[https://blast.ncbi.nlm.nih.gov/Blast.cgi](https://blast.ncbi.nlm.nih.gov/Blast.cgi){:target="_blank"}
+[https://blast.ncbi.nlm.nih.gov/Blast.cgi](https://blast.ncbi.nlm.nih.gov/Blast.cgi)
 
 ## Available Versions on RCAC Clusters
 

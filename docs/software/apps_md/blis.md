@@ -1,6 +1,6 @@
 # blis
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ Base class for building BLIS, shared with the AMD optimized version of the libra
 
 ## Homepage
 
-[https://github.com/flame/blis](https://github.com/flame/blis){:target="_blank"}
+[https://github.com/flame/blis](https://github.com/flame/blis)
 
 ## Available Versions on RCAC Clusters
 

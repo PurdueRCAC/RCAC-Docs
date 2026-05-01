@@ -1,6 +1,6 @@
 # bamtools
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ C++ API & command-line toolkit for working with BAM data.
 
 ## Homepage
 
-[https://github.com/pezmaster31/bamtools](https://github.com/pezmaster31/bamtools){:target="_blank"}
+[https://github.com/pezmaster31/bamtools](https://github.com/pezmaster31/bamtools)
 
 ## Available Versions on RCAC Clusters
 

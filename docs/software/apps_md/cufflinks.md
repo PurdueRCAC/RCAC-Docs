@@ -1,6 +1,6 @@
 # cufflinks
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ Cufflinks assembles transcripts, estimates their abundances, and tests for diffe
 
 ## Homepage
 
-[https://cole-trapnell-lab.github.io/cufflinks](https://cole-trapnell-lab.github.io/cufflinks){:target="_blank"}
+[https://cole-trapnell-lab.github.io/cufflinks](https://cole-trapnell-lab.github.io/cufflinks)
 
 ## Available Versions on RCAC Clusters
 

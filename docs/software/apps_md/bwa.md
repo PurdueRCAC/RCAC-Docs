@@ -1,6 +1,6 @@
 # bwa
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ Burrow-Wheeler Aligner for pairwise alignment between DNA sequences.
 
 ## Homepage
 
-[https://github.com/lh3/bwa](https://github.com/lh3/bwa){:target="_blank"}
+[https://github.com/lh3/bwa](https://github.com/lh3/bwa)
 
 ## Available Versions on RCAC Clusters
 

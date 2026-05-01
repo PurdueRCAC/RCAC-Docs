@@ -1,18 +1,20 @@
 ## Introduction
 
-Provide the intuition for what this is and why people would use it.
+The [Anvil Composable Subsystem](https://composable.anvil.rcac.purdue.edu) is a Kubernetes based private cloud managed with Rancher that provides a platform for creating composable infrastructure on demand. This cloud-style flexibility provides researchers the ability to self-deploy and manage persistent services to complement HPC workflows and run container-based data analysis tools and applications.
+
+New usage patterns have emerged in research computing that depend on the availability of custom services such as notebooks, databases, elastic software stacks, and science gateways alongside traditional batch HPC. Anvil Composable is the platform to host these services and provide access to HPC resources.
 
 ## How to Access the Anvil Composable Subsystem
 
 There are 3 options to accessing and working with Anvil Composable:
 
-* Rancher (GUI)
-* kubectl (command line)
-* Harbor
+* [Rancher (GUI)](https://composable.anvil.rcac.purdue.edu)
+* [kubectl (command line)](https://kubernetes.io/docs/reference/kubectl/)
+* [Harbor](https://registry.anvil.rcac.purdue.edu)
 
 ## Rancher
 
-The Anvil Composable Subsystem Rancher interface can be accessed via a web browser at https://composable.anvil.rcac.purdue.edu. Log in by choosing "log in with shibboleth" and using your ACCESS credentials at the ACCESS login screen.
+The Anvil Composable Subsystem Rancher interface can be accessed via a web browser: [https://composable.anvil.rcac.purdue.edu](https://composable.anvil.rcac.purdue.edu). Log in by choosing "log in with shibboleth" and using your ACCESS credentials at the ACCESS login screen.
 
 ## kubectl
 
@@ -57,3 +59,7 @@ To login to the harbor registry using your ACCESS credentials:
 3. If this is the first time that you are logging in to Harbor with OIDC, specify a user name for Harbor to associate with your OIDC username.
    1. This is the user name by which you are identified in Harbor, which is used when adding you to projects, assigning roles, and so on. If the username is already taken, you are prompted to choose another one.
 4. After the OIDC provider has authenticated you, you are redirected back to the Anvil Harbor Registry.
+
+## Tutorial
+
+For a comprehensive tutorial you can follow along with, please  see our [Kubernetes Tutorial](/workshops/kubernetes-tutorial/)

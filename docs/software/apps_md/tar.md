@@ -1,6 +1,6 @@
 # tar
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ GNU Tar provides the ability to create tar archives, as well as various other ki
 
 ## Homepage
 
-[https://www.gnu.org/software/tar/](https://www.gnu.org/software/tar/){:target="_blank"}
+[https://www.gnu.org/software/tar/](https://www.gnu.org/software/tar/)
 
 ## Available Versions on RCAC Clusters
 

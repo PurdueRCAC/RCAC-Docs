@@ -1,6 +1,6 @@
 # imagemagick
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ ImageMagick is a software suite to create, edit, compose, or convert bitmap imag
 
 ## Homepage
 
-[https://www.imagemagick.org](https://www.imagemagick.org){:target="_blank"}
+[https://www.imagemagick.org](https://www.imagemagick.org)
 
 ## Available Versions on RCAC Clusters
 

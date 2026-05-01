@@ -1,6 +1,6 @@
 # fontconfig
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ Fontconfig is a library for configuring/customizing font access
 
 ## Homepage
 
-[https://www.freedesktop.org/wiki/Software/fontconfig/](https://www.freedesktop.org/wiki/Software/fontconfig/){:target="_blank"}
+[https://www.freedesktop.org/wiki/Software/fontconfig/](https://www.freedesktop.org/wiki/Software/fontconfig/)
 
 ## Available Versions on RCAC Clusters
 

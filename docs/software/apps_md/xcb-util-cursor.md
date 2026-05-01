@@ -1,6 +1,6 @@
 # xcb-util-cursor
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ xcb-util-cursor is a utility library for the XCB library, offering convenience f
 
 ## Homepage
 
-[https://xcb.freedesktop.org](https://xcb.freedesktop.org){:target="_blank"}
+[https://xcb.freedesktop.org](https://xcb.freedesktop.org)
 
 ## Available Versions on RCAC Clusters
 

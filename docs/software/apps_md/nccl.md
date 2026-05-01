@@ -1,6 +1,6 @@
 # nccl
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ Optimized primitives for collective multi-GPU communication.
 
 ## Homepage
 
-[https://github.com/NVIDIA/nccl](https://github.com/NVIDIA/nccl){:target="_blank"}
+[https://github.com/NVIDIA/nccl](https://github.com/NVIDIA/nccl)
 
 ## Available Versions on RCAC Clusters
 

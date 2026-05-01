@@ -1,6 +1,6 @@
 # netcdf-cxx4
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ NetCDF C++4 library for scientific data management and access.
 
 ## Homepage
 
-[https://www.unidata.ucar.edu/software/netcdf/](https://www.unidata.ucar.edu/software/netcdf/){:target="_blank"}
+[https://www.unidata.ucar.edu/software/netcdf/](https://www.unidata.ucar.edu/software/netcdf/)
 
 ## Available Versions on RCAC Clusters
 

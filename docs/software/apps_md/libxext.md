@@ -1,6 +1,6 @@
 # libxext
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ libXext - library for common extensions to the X11 protocol.
 
 ## Homepage
 
-[https://gitlab.freedesktop.org/xorg/lib/libXext](https://gitlab.freedesktop.org/xorg/lib/libXext){:target="_blank"}
+[https://gitlab.freedesktop.org/xorg/lib/libXext](https://gitlab.freedesktop.org/xorg/lib/libXext)
 
 ## Available Versions on RCAC Clusters
 

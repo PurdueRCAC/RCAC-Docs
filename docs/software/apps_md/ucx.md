@@ -1,6 +1,6 @@
 # ucx
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ a communication library implementing high-performance messaging for MPI/PGAS fra
 
 ## Homepage
 
-[https://www.openucx.org](https://www.openucx.org){:target="_blank"}
+[https://www.openucx.org](https://www.openucx.org)
 
 ## Available Versions on RCAC Clusters
 

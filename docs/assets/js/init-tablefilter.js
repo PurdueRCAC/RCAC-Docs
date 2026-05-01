@@ -1,22 +1,47 @@
 document.addEventListener("DOMContentLoaded", function () {
-  var tf = new TableFilter('appTable', {
-    base_path: '/assets/js/tablefilter/',   // adjust if you serve the assets from a different path
+
+  // Determine which table we're dealing with
+  const appTable = document.getElementById('appTable');
+  const datasetTable = document.getElementById('datasetTable');
+  const tableId = appTable ? 'appTable' : (datasetTable ? 'datasetTable' : null);
+  
+  if (!tableId) return;  // No table found on this page
+  
+  const isDatasetTable = tableId === 'datasetTable';
+
+  // Count visible tbody rows directly from the DOM (reliable after any filter)
+  function updateCounter() {
+    const span = document.getElementById('tf-row-counter');
+    if (!span) return;
+    const table = document.getElementById(tableId);
+    if (!table) return;
+    let count = 0;
+    table.querySelectorAll('tbody tr').forEach(function (row) {
+      if (row.style.display !== 'none') count++;
+    });
+    span.textContent = isDatasetTable ? 'Dataset(s): ' + count : 'Application(s): ' + count;
+  }
+
+  var tf = new TableFilter(tableId, {
+    base_path: '/assets/js/tablefilter/',
     paging: false,
-    rows_counter: true,
-    btn_reset: true,
+    rows_counter: false,
+    btn_reset: false,
     mark_active_columns: true,
     highlight_keywords: true,
-    // use input filters so we get substring/contains behaviour
-    col_0: 'input',              // Application → text input
-    col_1: 'input',             // Topic → input (we'll add a clickable select next to it)
-    col_2: 'input',             // Available at → input (we'll add a clickable select next to it)
+    col_0: 'input',              // Application/Dataset → text input
+    col_1: 'input',             // Topic/Category → text input
+    col_2: 'input',             // Available at/Discipline → text input
     alternate_rows: false,
-    themes: [{ name: 'transparent'}], 
-    extensions: [{ name: 'sort' }],
-    watermark: ['Start typing...', 'Topic...', 'Avalable cluster...'],
-    auto_filter: { delay: 100 }, // milliseconds
+    themes: [{ name: 'transparent'}],
+    extensions: [],
+    watermark: isDatasetTable 
+      ? ['Start typing...', 'Category...', 'Discipline...']
+      : ['Start typing...', 'Topic...', 'Avalable cluster...'],
+    auto_filter: { delay: 100 },
     msg_filter: 'Filtering...',
-    rows_counter: { text: 'Application(s): ' }
+    help_instructions: false,
+    on_after_filter: updateCounter  // fires after every filter operation
   });
 
   tf.init();
@@ -25,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // place it next to the column's input filter and wire it so selecting a token
   // sets the input value and triggers filtering.
   function buildTokensDropdown(colIndex, placeholderText) {
-    const table = document.getElementById('appTable');
+    const table = document.getElementById(tableId);
     if (!table) return;
 
     // collect unique tokens from the column (split by comma)
@@ -35,7 +60,6 @@ document.addEventListener("DOMContentLoaded", function () {
     for (let r = 0; r < tbody.rows.length; r++) {
       const cell = tbody.rows[r].cells[colIndex];
       if (!cell) continue;
-      // cell text — handle HTML cells safely
       const txt = (cell.textContent || cell.innerText || '').trim();
       if (!txt) continue;
       txt.split(',').map(s => s.trim()).filter(Boolean).forEach(t => tokensSet.add(t));
@@ -46,14 +70,11 @@ document.addEventListener("DOMContentLoaded", function () {
       a.localeCompare(b, undefined, { sensitivity: 'base' })
     );
 
-    // find the filters row. TableFilter creates a filter row with class 'fltrow'
-    // fall back to first thead row if not found
     const fltRow = table.querySelector('.fltrow') || (table.tHead && table.tHead.rows[0]);
     if (!fltRow) return;
     const fltCell = fltRow.cells[colIndex];
     if (!fltCell) return;
 
-    // create a select element
     const select = document.createElement('select');
     select.className = 'tf-token-select';
     select.setAttribute('aria-label', placeholderText || 'Select filter token');
@@ -70,30 +91,45 @@ document.addEventListener("DOMContentLoaded", function () {
       select.appendChild(opt);
     });
 
-    // Small styles so it sits nicely next to the input; override in your CSS if needed
     select.style.marginLeft = '6px';
     select.style.fontSize = '0.9em';
     select.style.padding = '2px 4px';
 
-    // Append select to the filter cell (so it shows beside the input)
     fltCell.appendChild(select);
 
-    // When user picks from this select, set the input filter value and trigger filtering
     select.addEventListener('change', function () {
-      // find the input in the same filter cell
       const inp = fltCell.querySelector('input');
       if (!inp) return;
-      inp.value = this.value || ''; // set the input to the token (or empty)
-      // dispatch input event so TableFilter's auto_filter will pick it up
+      inp.value = this.value || '';
       inp.dispatchEvent(new Event('input', { bubbles: true }));
-      // ensure filter runs
       tf.filter();
     });
-
-    // Optional: clicking the empty option clears the input and triggers reset
   }
 
-  // build dropdowns for the Topic and Available at columns (adjust indexes if needed)
-  buildTokensDropdown(1, 'Any Topic');
-  buildTokensDropdown(2, 'Any Cluster');
+  // Show dropdowns for both tables - different columns for each
+  if (isDatasetTable) {
+    buildTokensDropdown(1, 'Any Category');
+    buildTokensDropdown(2, 'Any Discipline');
+  } else {
+    buildTokensDropdown(1, 'Any Topic');
+    buildTokensDropdown(2, 'Any Cluster');
+  }
+
+  // Inject counter span into the first filter cell, below "Start typing..."
+  function setupInlineCounter() {
+    const table = document.getElementById(tableId);
+    if (!table) return;
+    const fltRow = table.querySelector('.fltrow');
+    if (!fltRow) return;
+    const firstCell = fltRow.cells[0];
+    if (!firstCell) return;
+
+    const counterSpan = document.createElement('span');
+    counterSpan.id = 'tf-row-counter';
+    firstCell.appendChild(counterSpan);
+
+    updateCounter();
+  }
+
+  setupInlineCounter();
 });

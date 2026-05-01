@@ -1,6 +1,6 @@
 # libszip
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ Szip is an implementation of the extended-Rice lossless compression algorithm.  
 
 ## Homepage
 
-[https://support.hdfgroup.org/doc_resource/SZIP/](https://support.hdfgroup.org/doc_resource/SZIP/){:target="_blank"}
+[https://support.hdfgroup.org/doc_resource/SZIP/](https://support.hdfgroup.org/doc_resource/SZIP/)
 
 ## Available Versions on RCAC Clusters
 

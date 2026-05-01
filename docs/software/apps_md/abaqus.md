@@ -1,6 +1,6 @@
 # abaqus
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ Abaqus is a commercial finite element analysis (FEA) software suite developed by
 
 ## Homepage
 
-[https://www.3ds.com/products-services/simulia/products/abaqus/](https://www.3ds.com/products-services/simulia/products/abaqus/){:target="_blank"}
+[https://www.3ds.com/products-services/simulia/products/abaqus/](https://www.3ds.com/products-services/simulia/products/abaqus/)
 
 ## Available Versions on RCAC Clusters
 
@@ -17,8 +17,8 @@ Abaqus is a commercial finite element analysis (FEA) software suite developed by
 **BELL**|2024, 2025
 **GAUTSCHI**|2024
 **GILBRETH**|2023, 2024
-**NEGISHI**|2022 (D), 2023, 2024
-**SCHOLAR**|2024
+**NEGISHI**|2022 (D), 2023, 2024, 2026
+**SCHOLAR**|2024, 2026
 
 (D): Default Module
 

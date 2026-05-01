@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: rcac-docs-prod
+  namespace: rcac-docs
+spec:
+  ingressClassName: public
+  tls:
+    - hosts:
+        - docs.rcac.purdue.edu
+      secretName: rcac-docs-prod-tls
+  rules:
+    - host: docs.rcac.purdue.edu
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: rcac-docs-prod
+                port:
+                  number: 80

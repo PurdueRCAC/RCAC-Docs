@@ -1,6 +1,6 @@
 # amdfftw
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ FFTW (AMD Optimized version) is a comprehensive collection of fast C routines fo
 
 ## Homepage
 
-[https://www.amd.com/en/developer/aocl/fftw.html](https://www.amd.com/en/developer/aocl/fftw.html){:target="_blank"}
+[https://www.amd.com/en/developer/aocl/fftw.html](https://www.amd.com/en/developer/aocl/fftw.html)
 
 ## Available Versions on RCAC Clusters
 

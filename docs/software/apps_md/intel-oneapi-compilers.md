@@ -1,6 +1,6 @@
 # intel-oneapi-compilers
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ Intel oneAPI compilers for building high-performance C, C++, and Fortran applica
 
 ## Homepage
 
-[https://www.intel.com/content/www/us/en/developer/tools/oneapi/dpc-compiler.html](https://www.intel.com/content/www/us/en/developer/tools/oneapi/dpc-compiler.html){:target="_blank"}
+[https://www.intel.com/content/www/us/en/developer/tools/oneapi/dpc-compiler.html](https://www.intel.com/content/www/us/en/developer/tools/oneapi/dpc-compiler.html)
 
 ## Available Versions on RCAC Clusters
 

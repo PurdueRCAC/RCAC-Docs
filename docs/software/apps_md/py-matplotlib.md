@@ -1,6 +1,6 @@
 # py-matplotlib
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ Matplotlib is a comprehensive library for creating static, animated, and interac
 
 ## Homepage
 
-[https://matplotlib.org/](https://matplotlib.org/){:target="_blank"}
+[https://matplotlib.org/](https://matplotlib.org/)
 
 ## Available Versions on RCAC Clusters
 

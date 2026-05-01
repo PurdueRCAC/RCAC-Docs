@@ -8,10 +8,6 @@ New usage patterns have emerged in research computing that depend on the availab
 
 ## Sections
 
-- [**Concepts**](overview.md)
-- [**Access**](architecture.md)
-- [**Workloads**](technical-specs.md)
-- [**Services**](access.md)
-- [**Registry**](getting-started.md)
-- [**Storage**](run_jobs/index.md)
-- [**Examples**](run_jobs/index.md)
+- [**Getting Started**](getting-started.md)
+- [**Concepts**](concepts.md)
+- [**Examples**](examples.md)

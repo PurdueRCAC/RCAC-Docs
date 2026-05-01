@@ -1,6 +1,6 @@
 # intel
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ Intel provides a wide range of software development tools and performance librar
 
 ## Homepage
 
-[https://www.intel.com/content/www/us/en/developer/tools/overview.html](https://www.intel.com/content/www/us/en/developer/tools/overview.html){:target="_blank"}
+[https://www.intel.com/content/www/us/en/developer/tools/overview.html](https://www.intel.com/content/www/us/en/developer/tools/overview.html)
 
 ## Available Versions on RCAC Clusters
 

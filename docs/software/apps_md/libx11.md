@@ -1,6 +1,6 @@
 # libx11
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ libX11 - Core X11 protocol client library.
 
 ## Homepage
 
-[https://www.x.org/](https://www.x.org/){:target="_blank"}
+[https://www.x.org/](https://www.x.org/)
 
 ## Available Versions on RCAC Clusters
 

@@ -1,6 +1,6 @@
 # vcftools
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ VCFtools is a program package designed for working with VCF files, such as those
 
 ## Homepage
 
-[https://vcftools.github.io/](https://vcftools.github.io/){:target="_blank"}
+[https://vcftools.github.io/](https://vcftools.github.io/)
 
 ## Available Versions on RCAC Clusters
 

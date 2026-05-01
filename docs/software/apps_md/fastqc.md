@@ -1,6 +1,6 @@
 # fastqc
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ A quality control tool for high throughput sequence data.
 
 ## Homepage
 
-[https://www.bioinformatics.babraham.ac.uk/projects/fastqc/](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/){:target="_blank"}
+[https://www.bioinformatics.babraham.ac.uk/projects/fastqc/](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
 
 ## Available Versions on RCAC Clusters
 

@@ -1,8 +1,10 @@
-## Examples
-
 This page provides step-by-step examples for deploying common workloads on Anvil's Composable Subsystem.
 
 ---
+
+## Interactive Tutorials:
+
+- Deploying a [Kubernetes cluster on Anvil Composable](/workshops/kubernetes-tutorial)
 
 ## Database Deployment (PostGIS)
 

@@ -1,6 +1,6 @@
 # rocm
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ AMD ROCm (Radeon Open Compute) is an open-source software platform for GPU compu
 
 ## Homepage
 
-[https://rocmdocs.amd.com](https://rocmdocs.amd.com){:target="_blank"}
+[https://rocmdocs.amd.com](https://rocmdocs.amd.com)
 
 ## Available Versions on RCAC Clusters
 

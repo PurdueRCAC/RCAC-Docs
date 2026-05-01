@@ -22,7 +22,7 @@ jq -r 'keys[]' "$INV_FILE" | while IFS= read -r app; do
   {
     echo "# $app"
     echo ""
-    echo "[Back to application catalog](/software/app_catalog/)"
+    echo "[Back to application catalog](../app_catalog.md)"
     echo ""
     echo "## Description"
     echo ""
@@ -35,7 +35,7 @@ jq -r 'keys[]' "$INV_FILE" | while IFS= read -r app; do
     echo "## Homepage"
     echo ""
     if [ -n "$homepage" ] && [ "$homepage" != "null" ]; then
-      echo "[$homepage]($homepage){:target=\"_blank\"}"
+      echo "[$homepage]($homepage)"
     else
       echo "N/A"
     fi
@@ -84,6 +84,16 @@ jq -r 'keys[]' "$INV_FILE" | while IFS= read -r app; do
     echo "!!! note \"Note for using \`$app\`\""
     echo "    Run \`module spider $app\` beforehand to check if this version requires any prerequisite modules."
   } > "$md_file"
+done
+
+# Remove stale .md files no longer present in the inventory
+mapfile -t inv_apps < <(jq -r 'keys[]' "$INV_FILE")
+find "$MD_DIR" -type f -name "*.md" | while read -r md_file; do
+  app=$(basename "$md_file" .md)
+  if ! printf '%s\n' "${inv_apps[@]}" | grep -qx "$app"; then
+    echo "Removing stale: $md_file"
+    rm "$md_file"
+  fi
 done
 
 echo "✅ Generated markdown files in $MD_DIR"

@@ -1,6 +1,6 @@
 # ansysem
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ ANSYS Electromagnetics (ANSYS EM or Ansys Electronics Desktop) is a suite of sim
 
 ## Homepage
 
-[https://www.ansys.com/products/electronics](https://www.ansys.com/products/electronics){:target="_blank"}
+[https://www.ansys.com/products/electronics](https://www.ansys.com/products/electronics)
 
 ## Available Versions on RCAC Clusters
 

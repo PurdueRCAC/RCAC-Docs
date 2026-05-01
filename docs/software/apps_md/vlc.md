@@ -1,6 +1,6 @@
 # vlc
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ VLC media player for multimedia playback.
 
 ## Homepage
 
-[https://www.videolan.org/vlc/](https://www.videolan.org/vlc/){:target="_blank"}
+[https://www.videolan.org/vlc/](https://www.videolan.org/vlc/)
 
 ## Available Versions on RCAC Clusters
 

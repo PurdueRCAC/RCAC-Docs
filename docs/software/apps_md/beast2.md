@@ -1,6 +1,6 @@
 # beast2
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ BEAST is a cross-platform program for Bayesian inference using MCMC of molecular
 
 ## Homepage
 
-[http://beast2.org/](http://beast2.org/){:target="_blank"}
+[http://beast2.org/](http://beast2.org/)
 
 ## Available Versions on RCAC Clusters
 

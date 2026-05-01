@@ -1,6 +1,6 @@
 # hwloc
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ The Hardware Locality (hwloc) software project.  The Portable Hardware Locality 
 
 ## Homepage
 
-[https://www.open-mpi.org/projects/hwloc/](https://www.open-mpi.org/projects/hwloc/){:target="_blank"}
+[https://www.open-mpi.org/projects/hwloc/](https://www.open-mpi.org/projects/hwloc/)
 
 ## Available Versions on RCAC Clusters
 

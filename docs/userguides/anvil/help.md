@@ -1,6 +1,7 @@
 ---
 tags:
   - Anvil
+  - Help
 authors:
   - dane
 draft: true
@@ -9,6 +10,9 @@ draft: true
  <p style="font-size: 1.75em; font-weight: bold;">Anvil Resources</p>
 
 !!! info "Anvil Resources"
+
+    **[ACCESS How To](https://allocations.access-ci.org/how-to)**
+    List of how-to questions regarding your ACCESS account.
 
     **[ACCESS Support Hub](https://support.access-ci.org/)**
     ACCESS-specific support if you do not see your question/issue here.
@@ -21,6 +25,8 @@ draft: true
 
     **[NAIRR Ticket Portal](https://nairrpilot.org/open-support-request)**
     For NAIRR users to submit support tickets.
+
+    **[Anvil Publication](https://dl.acm.org/doi/10.1145/3491418.3530766)** Original Anvil publication from 2022 by Song et. al.
 
 <hr style="border: 3px solid">
 
@@ -68,19 +74,15 @@ You can search all modules using `$ module spider`. Some modules require you to 
 
 * Error -- failed to map user (\<username\>@access-ci.org)
 
-<hr style="border: 3px solid">
-
-## **Common Questions**
-
 ### How to cite Anvil
 
 To acknowledge the use of Anvil for papers, presentations, or other publications, please use the following citation:
 
-* X. Carol Song, Preston Smith, Rajesh Kalyanam, Xiao Zhu, Eric Adams, Kevin Colby, Patrick Finnegan, Erik Gough, Elizabett Hillery, Rick Irvine, Amiya Maji, and Jason St. John. 2022. Anvil - System Architecture and Experiences from Deployment and Early User Operations. In Practice and Experience in Advanced Research Computing (PEARC '22). Association for Computing Machinery, New York, NY, USA, Article 23, 1–9. https://doi.org/10.1145/3491418.3530766
+* X. Carol Song, Preston Smith, Rajesh Kalyanam, Xiao Zhu, Eric Adams, Kevin Colby, Patrick Finnegan, Erik Gough, Elizabett Hillery, Rick Irvine, Amiya Maji, and Jason St. John. 2022. Anvil - System Architecture and Experiences from Deployment and Early User Operations. In Practice and Experience in Advanced Research Computing (PEARC '22). Association for Computing Machinery, New York, NY, USA, Article 23, 1–9. [https://doi.org/10.1145/3491418.3530766](https://doi.org/10.1145/3491418.3530766)
 
 <hr style="border: 3px solid">
 
-## **AI / GPU FAQs**
+## **AI- / GPU-Specific FAQs**
 
 ### Placeholder 1
 

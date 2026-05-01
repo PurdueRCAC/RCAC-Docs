@@ -1,6 +1,6 @@
 # tcl
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ Tcl (Tool Command Language) is a very powerful but easy to learn dynamic program
 
 ## Homepage
 
-[https://www.tcl.tk/](https://www.tcl.tk/){:target="_blank"}
+[https://www.tcl.tk/](https://www.tcl.tk/)
 
 ## Available Versions on RCAC Clusters
 

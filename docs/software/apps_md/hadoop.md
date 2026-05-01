@@ -1,6 +1,6 @@
 # hadoop
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ The Apache Hadoop software library is a framework that allows for the distribute
 
 ## Homepage
 
-[https://hadoop.apache.org/](https://hadoop.apache.org/){:target="_blank"}
+[https://hadoop.apache.org/](https://hadoop.apache.org/)
 
 ## Available Versions on RCAC Clusters
 

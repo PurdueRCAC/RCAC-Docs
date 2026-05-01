@@ -1,6 +1,6 @@
 # libmd
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ This library provides message digest functions found on BSD systems either on th
 
 ## Homepage
 
-[https://www.hadrons.org/software/libmd/](https://www.hadrons.org/software/libmd/){:target="_blank"}
+[https://www.hadrons.org/software/libmd/](https://www.hadrons.org/software/libmd/)
 
 ## Available Versions on RCAC Clusters
 

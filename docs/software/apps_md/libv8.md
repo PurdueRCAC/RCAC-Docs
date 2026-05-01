@@ -1,6 +1,6 @@
 # libv8
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ V8 JavaScript engine library for embedding JS in C++ applications.
 
 ## Homepage
 
-[https://v8.dev/](https://v8.dev/){:target="_blank"}
+[https://v8.dev/](https://v8.dev/)
 
 ## Available Versions on RCAC Clusters
 

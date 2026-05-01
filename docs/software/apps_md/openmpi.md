@@ -1,6 +1,6 @@
 # openmpi
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ An open source Message Passing Interface implementation.  The Open MPI Project i
 
 ## Homepage
 
-[https://www.open-mpi.org](https://www.open-mpi.org){:target="_blank"}
+[https://www.open-mpi.org](https://www.open-mpi.org)
 
 ## Available Versions on RCAC Clusters
 

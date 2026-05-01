@@ -1,6 +1,6 @@
 # mesa-glu
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ Mesa OpenGL Utility library (GLU) for 3D graphics rendering.
 
 ## Homepage
 
-[https://www.mesa3d.org/](https://www.mesa3d.org/){:target="_blank"}
+[https://www.mesa3d.org/](https://www.mesa3d.org/)
 
 ## Available Versions on RCAC Clusters
 

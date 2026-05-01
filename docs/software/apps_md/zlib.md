@@ -1,6 +1,6 @@
 # zlib
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ A free, general-purpose, legally unencumbered lossless data-compression library.
 
 ## Homepage
 
-[https://zlib.net](https://zlib.net){:target="_blank"}
+[https://zlib.net](https://zlib.net)
 
 ## Available Versions on RCAC Clusters
 

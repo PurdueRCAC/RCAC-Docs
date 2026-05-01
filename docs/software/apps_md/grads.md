@@ -1,6 +1,6 @@
 # grads
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ The Grid Analysis and Display System (GrADS) is an interactive desktop tool that
 
 ## Homepage
 
-[http://cola.gmu.edu/grads/grads.php](http://cola.gmu.edu/grads/grads.php){:target="_blank"}
+[http://cola.gmu.edu/grads/grads.php](http://cola.gmu.edu/grads/grads.php)
 
 ## Available Versions on RCAC Clusters
 

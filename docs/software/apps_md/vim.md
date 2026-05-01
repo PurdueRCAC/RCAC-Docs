@@ -1,6 +1,6 @@
 # vim
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ Vim is a highly configurable text editor built to enable efficient text editing.
 
 ## Homepage
 
-[https://www.vim.org](https://www.vim.org){:target="_blank"}
+[https://www.vim.org](https://www.vim.org)
 
 ## Available Versions on RCAC Clusters
 

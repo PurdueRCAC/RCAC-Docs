@@ -1,6 +1,6 @@
 # proj
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ PROJ is a generic coordinate transformation software, that transforms geospatial
 
 ## Homepage
 
-[https://proj.org/](https://proj.org/){:target="_blank"}
+[https://proj.org/](https://proj.org/)
 
 ## Available Versions on RCAC Clusters
 

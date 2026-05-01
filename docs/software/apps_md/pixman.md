@@ -1,6 +1,6 @@
 # pixman
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ The Pixman package contains a library that provides low-level pixel manipulation
 
 ## Homepage
 
-[https://www.pixman.org](https://www.pixman.org){:target="_blank"}
+[https://www.pixman.org](https://www.pixman.org)
 
 ## Available Versions on RCAC Clusters
 

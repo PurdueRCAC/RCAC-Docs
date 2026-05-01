@@ -1,6 +1,6 @@
 # berkeley-db
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ Berkeley DB is an embedded database software library providing scalable high-per
 
 ## Homepage
 
-[https://www.oracle.com/database/technologies/related/berkeleydb.html](https://www.oracle.com/database/technologies/related/berkeleydb.html){:target="_blank"}
+[https://www.oracle.com/database/technologies/related/berkeleydb.html](https://www.oracle.com/database/technologies/related/berkeleydb.html)
 
 ## Available Versions on RCAC Clusters
 

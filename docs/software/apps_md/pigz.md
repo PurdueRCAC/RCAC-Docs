@@ -1,6 +1,6 @@
 # pigz
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ A parallel implementation of gzip for modern multi-processor, multi-core machine
 
 ## Homepage
 
-[https://zlib.net/pigz/](https://zlib.net/pigz/){:target="_blank"}
+[https://zlib.net/pigz/](https://zlib.net/pigz/)
 
 ## Available Versions on RCAC Clusters
 

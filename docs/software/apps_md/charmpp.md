@@ -1,6 +1,6 @@
 # charmpp
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ Charm++ is a parallel programming framework in C++ supported by an adaptive runt
 
 ## Homepage
 
-[https://charmplusplus.org](https://charmplusplus.org){:target="_blank"}
+[https://charmplusplus.org](https://charmplusplus.org)
 
 ## Available Versions on RCAC Clusters
 

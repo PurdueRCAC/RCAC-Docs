@@ -1,6 +1,6 @@
 # emacs
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ Emacs is an extensible, customizable, free/libre text editor. At its core is an 
 
 ## Homepage
 
-[https://www.gnu.org/software/emacs](https://www.gnu.org/software/emacs){:target="_blank"}
+[https://www.gnu.org/software/emacs](https://www.gnu.org/software/emacs)
 
 ## Available Versions on RCAC Clusters
 

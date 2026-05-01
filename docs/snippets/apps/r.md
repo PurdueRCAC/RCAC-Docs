@@ -28,10 +28,10 @@ To display the properties (structure) of loaded data, enter the following:
 
 For more functions and tutorials:
 
-- [:octicons-link-external-16: The R Manuals](http://cran.r-project.org/manuals.html)
-- [:octicons-link-external-16: Other R Examples](http://www.mayin.org/ajayshah/KB/R/index.html)
-- [:octicons-link-external-16: Software Carpentry - Programming with R](https://swcarpentry.github.io/r-novice-inflammation/)
-- [:octicons-link-external-16: Data Carpentry Lessons](http://www.datacarpentry.org/lessons/)
+- [ The R Manuals](http://cran.r-project.org/manuals.html)
+- [ Other R Examples](http://www.mayin.org/ajayshah/KB/R/index.html)
+- [ Software Carpentry - Programming with R](https://swcarpentry.github.io/r-novice-inflammation/)
+- [ Data Carpentry Lessons](http://www.datacarpentry.org/lessons/)
 
 ## Installing R packages
 
@@ -141,5 +141,5 @@ $ R
 
 For more information about installing R packages:
 
-- [:octicons-link-external-16: Installing additional R packages on Linux](http://cran.r-project.org/doc/manuals/r-release/R-admin.html#Installing-packages)
-- [:octicons-link-external-16: List of Packages](https://cran.r-project.org/web/packages/)
+- [ Installing additional R packages on Linux](http://cran.r-project.org/doc/manuals/r-release/R-admin.html#Installing-packages)
+- [ List of Packages](https://cran.r-project.org/web/packages/)

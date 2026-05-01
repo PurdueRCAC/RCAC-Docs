@@ -1,6 +1,6 @@
 # gaussian16
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ Gaussian 16 is the latest release of the Gaussian series for electronic structur
 
 ## Homepage
 
-[https://gaussian.com/g16citation/](https://gaussian.com/g16citation/){:target="_blank"}
+[https://gaussian.com/g16citation/](https://gaussian.com/g16citation/)
 
 ## Available Versions on RCAC Clusters
 

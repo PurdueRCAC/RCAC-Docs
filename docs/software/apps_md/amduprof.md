@@ -1,6 +1,6 @@
 # amduprof
 
-[Back to application catalog](/software/app_catalog/)
+[Back to application catalog](../app_catalog.md)
 
 ## Description
 
@@ -8,7 +8,7 @@ AMD uProf ("MICRO-prof") is a software profiling analysis tool for x86 applicati
 
 ## Homepage
 
-[https://www.amd.com/en/developer/uprof.html](https://www.amd.com/en/developer/uprof.html){:target="_blank"}
+[https://www.amd.com/en/developer/uprof.html](https://www.amd.com/en/developer/uprof.html)
 
 ## Available Versions on RCAC Clusters
 
