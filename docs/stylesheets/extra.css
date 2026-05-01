@@ -586,3 +586,23 @@ th, td {
     font-size: 0.82rem;
   }
 }
+
+/* Show shortcut hint for search */
+[data-md-toggle="search"]:not(:checked) ~ .md-header .md-search__form::after {
+  position: absolute;
+  top: .3rem;
+  right: .3rem;
+  display: block;
+  padding: .1rem .4rem;
+  color: var(--md-default-bg-color);
+  font-weight: bold;
+  font-size: .8rem;
+  border: .05rem solid var(--md-default-bg-color--lighter);
+  border-radius: .2rem;
+  content: "/";
+}
+
+/* Hide the shortcut hint when search is open */
+[data-md-toggle="search"]:checked ~ .md-header .md-search__form::after {
+  display: none;
+}
