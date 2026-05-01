@@ -1,10 +1,10 @@
-## Introduction of R
+#### Introduction of R
 
 R, a GNU project, is a language and environment for data manipulation, statistics, and graphics. It is an open source version of the S programming language. R is quickly becoming the language of choice for data science due to the ease with which it can produce high quality plots and data visualizations. It is a versatile platform with a large, growing community and collection of packages.
 
 For more general information on R visit [The R Project for Statistical Computing](https://www.r-project.org).
 
-## Loading Data into R
+#### Loading Data into R
 
 R is an environment for manipulating data. In order to manipulate data, it must be brought into the R environment. R has a function to read any file that data is stored in. Some of the most common file types like comma-separated variable(CSV) files have functions that come in the basic R packages. Other less common file types require additional packages to be installed. To read data from a CSV file into the R environment, enter the following command in the R prompt:
 
@@ -33,16 +33,16 @@ For more functions and tutorials:
 - [ Software Carpentry - Programming with R](https://swcarpentry.github.io/r-novice-inflammation/)
 - [ Data Carpentry Lessons](http://www.datacarpentry.org/lessons/)
 
-## Installing R packages
+#### Installing R packages
 
-### Challenges of Managing R Packages in the Cluster Environment
+**Challenges of Managing R Packages in the Cluster Environment**
 
 - Different clusters have different hardware and softwares. So, if you have access to multiple clusters, you must install your R packages _separately for each cluster_.
 - Each cluster has multiple versions of R and packages installed with one version of R may not work with another version of R. So, libraries for **each R version** must be installed in a **separate directory**.
 - You can define the directory where your R packages will be installed using the environment variable `R_LIBS_USER`.
 - For your convenience, a sample [~/.Rprofile example file](https://www.rcac.purdue.edu/files/knowledge/run/examples/apps/r/Rprofile_example) is provided that can be downloaded to your cluster account and renamed into `~/.Rprofile` (or appended to one) to customize your installation preferences. [Detailed instructions](https://www.rcac.purdue.edu/knowledge/gautschi/run/examples/apps/r/rprofile).
 
-### Installing Packages
+**Installing Packages**
 
 - **Step 0: Set up installation preferences.**  
     Follow the [steps for setting up](https://www.rcac.purdue.edu/knowledge/gautschi/run/examples/apps/r/rprofile) your `~/.Rprofile` preferences. This step needs to be done only once. If you have created a `~/.Rprofile` file previously on Gautschi, ignore this step.
@@ -72,7 +72,6 @@ For more functions and tutorials:
     $ module load gdal
     $ module load geos
     ```
-
     
 - **Step 3: Install the package.**  
     Now install the desired package using the command `install.packages('package_name')`. R will automatically download the package and all its dependencies from [CRAN](https://cran.r-project.org/mirrors.html) and install each one. Your terminal will show the build progress and eventually show whether the package was installed successfully or not.
@@ -97,12 +96,11 @@ For more functions and tutorials:
       The downloaded source packages are in
           ‘/tmp/RtmpSVAGio/downloaded_packages’
     ```
-
     
 - **Step 4: Troubleshooting. (if needed)**  
     If Step 3 ended with an error, you need to investigate why the build failed. Most common reason for build failure is not loading the necessary modules.
 
-### Loading Libraries
+**Loading Libraries**
 
 Once you have packages installed you can load them with the `library()` function as shown below:
 
@@ -112,7 +110,7 @@ Once you have packages installed you can load them with the `library()` function
 
 The package is now installed and loaded and ready to be used in R.
 
-### Example: Installing `dplyr`
+**Example: Installing `dplyr`**
 
 The following demonstrates installing the `dplyr` package assuming the above-mentioned custom `~/.Rprofile` is in place (note its effect in the "Installing package into" information message):
 

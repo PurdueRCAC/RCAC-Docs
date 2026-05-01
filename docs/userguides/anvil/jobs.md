@@ -417,9 +417,10 @@ Filesystem storage is not charged.
 
 ## Extended Examples
 
-# Python on {{ cluster }} cluster
+### Python on {{ cluster }} cluster
+
 --8<-- "docs/snippets/apps/python.md"
 
-# R on {{ cluster }} cluster
+### R on {{ cluster }} cluster
 
 --8<-- "docs/snippets/apps/r.md"

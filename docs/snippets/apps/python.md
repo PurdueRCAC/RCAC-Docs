@@ -1,4 +1,4 @@
-## Introduction of Python
+#### Introduction of Python
 
 !!! note "Notice"
     Python 2.7 has reached end-of-life on Jan 1, 2020 (announcement). Please update your codes and your job scripts to use Python 3.
@@ -14,10 +14,10 @@ For a full list of available Anaconda and Python modules enter:
 $ module spider conda
 ```
 
-## Example Python Jobs
+#### Example Python Jobs
 This section illustrates how to submit a small Python job to a SLURM queue.
 
-### Example 1: Hello world
+**Example 1: Hello world**
 
 Prepare a Python input file with an appropriate filename, here named hello.py:
 
@@ -39,7 +39,7 @@ module load conda
 python hello.py
 ```
 
-### Example 2: Matrix multiply
+**Example 2: Matrix multiply**
 
 Save the following script as matrix.py:
 
@@ -69,7 +69,7 @@ The standard output file from this job will result in the following matrix:
 [63, 104, 54, 60]
 ```
 
-### Example 3: Sine wave plot using numpy and matplotlib packages
+**Example 3: Sine wave plot using numpy and matplotlib package**s
 
 Save the following script as `sine.py`:
 
