@@ -5,6 +5,8 @@ tags:
 authors:
   - dane
   - elian
+host: anvil.rcac.purdue.edu
+hostname: anvil
 cluster: Anvil
 search:
   boost: 2
