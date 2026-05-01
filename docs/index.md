@@ -32,7 +32,7 @@ Follow these steps to get up and running on RCAC clusters.
 
     Learn how to log in via SSH, set up your environment, and access the cluster for the first time.
 
-    [:octicons-arrow-right-24: Connection guide](faqs/#how-do-i-connect-to-a-rcac-cluster)
+    [:octicons-arrow-right-24: Connection guide](faq/#how-do-i-connect-to-a-rcac-cluster)
 
 -   :material-folder-upload:{ .lg .middle } __Transfer Your Data__
 
@@ -40,7 +40,7 @@ Follow these steps to get up and running on RCAC clusters.
 
     Move files to and from the cluster using SCP, SFTP, Globus, or the research data depot.
 
-    [:octicons-arrow-right-24: Data transfer](faqs/#how-can-i-transfer-my-data-from-local-devices-to-rcac-resources)
+    [:octicons-arrow-right-24: Data transfer](faq/#how-can-i-transfer-my-data-from-local-devices-to-rcac-resources)
 
 -   :material-play-circle:{ .lg .middle } __Submit Your First Job__
 
@@ -48,7 +48,7 @@ Follow these steps to get up and running on RCAC clusters.
 
     Write a Slurm batch script, submit it to the scheduler, and monitor your job's progress.
 
-    [:octicons-arrow-right-24: Job submission guide](faqs/#how-do-i-submit-jobs-on-a-rcac-cluster)
+    [:octicons-arrow-right-24: Job submission guide](faq/#how-do-i-submit-jobs-on-a-rcac-cluster)
 
 -   :material-package-variant:{ .lg .middle } __Install Software__
 
@@ -56,7 +56,7 @@ Follow these steps to get up and running on RCAC clusters.
 
     Find pre-installed modules via the LMOD system or request software from the RCAC help desk.
 
-    [:octicons-arrow-right-24: Software installation guide](faqs/#how-do-i-install-software-on-a-rcac-cluster)
+    [:octicons-arrow-right-24: Software installation guide](faq/#how-do-i-install-software-on-a-rcac-cluster)
 
 </div>
 
