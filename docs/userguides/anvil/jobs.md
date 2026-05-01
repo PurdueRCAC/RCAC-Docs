@@ -1,10 +1,13 @@
 ---
 tags:
   - Anvil
+  - Python
 authors:
   - dane
   - elian
-draft: true
+cluster: Anvil
+search:
+  boost: 2
 ---
 
 ## Overview / Slurm Basics
@@ -359,10 +362,9 @@ You can use mybalance command to check your current allocation usage.
 
 ## Extended Examples
 
-### Python Jobs
+# Python on {{ cluster }} cluster
+--8<-- "docs/snippets/apps/python.md"
 
-TODO: Snippet
+# R on {{ cluster }} cluster
 
-### R Jobs
-
-TODO: Snippet
+--8<-- "docs/snippets/apps/r.md"
