@@ -107,7 +107,7 @@ nav:
       - AnvilGPT (LLM): userguides/anvil/anvilgpt.md
       - Anvil Notebook: userguides/anvil/notebook.md
       - Key Policies: userguides/anvil/policies.md
-    - Gautschi User Guide:
+    - Gautschi:
       - userguides/gautschi/index.md
       - Gautschi Overview: userguides/gautschi/overview.md
       - Biography of Gautschi: userguides/gautschi/biography.md
