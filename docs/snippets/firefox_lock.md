@@ -16,12 +16,12 @@ When Firefox runs, it creates several lock files in the Firefox profile director
 This error can happen due to multiple reasons:
 
 1. Reason: You had a single Firefox process running, but it terminated abruptly without a chance to clean its lock files (e.g. the job got terminated, session ended, node crashed or rebooted, etc).
+    * Solution: If you are certain you do not have any other Firefox processes running elsewhere, please use the following command in a terminal window to detect and remove the lock files:
+    
+    ```bash
+    $ unlock-firefox
+    ```
 
-   * Solution: If you are certain you do not have any other Firefox processes running elsewhere, please use the following command in a terminal window to detect and remove the lock files:
-
-     ```bash
-     $ unlock-firefox
-     ```
 2. Reason: You may indeed have another Firefox process (in another Thinlinc or Gateway session on this or other cluster, another front-end or compute node). With many clusters sharing common home directory, a running Firefox instance on one can affect another.
-   * Solution: Try finding and closing running Firefox process(es) on other nodes and clusters.
-   * Solution: If you must have multiple Firefoxes running simultaneously, you may be able to create separate Firefox profiles and select which one to use for each instance.
+    * Solution: Try finding and closing running Firefox process(es) on other nodes and clusters.
+    * Solution: If you must have multiple Firefoxes running simultaneously, you may be able to create separate Firefox profiles and select which one to use for each instance.

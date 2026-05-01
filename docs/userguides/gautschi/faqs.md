@@ -70,3 +70,11 @@ Users who have access to **Gautschi** can use **ThinLinc** to launch an interac
         ![Thinlinc Application](../../assets/images/userguides/gautschi/thinlinc-jobsubmitted.png)
         <figcaption>Interactive job has been submitted</figcaption>
     </figure>
+
+### Close Firefox / Firefox is already running but not responding
+
+--8<-- "docs/snippets/firefox_lock.md"
+
+### Jupyter:  database is locked / can not load notebook format
+
+--8<-- "docs/snippets/jupyter_lock.md"
