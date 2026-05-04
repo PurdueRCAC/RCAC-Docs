@@ -602,7 +602,7 @@ auto_activate_base: false
 
 ## Resources
 
-- **RCAC Bioinformatics Tutorials**: [rcac-bioinformatics.github.io/guide/](https://rcac-bioinformatics.github.io/guide/)
+- **RCAC Lifesciences Tutorials**: [docs.rcac.purdue.edu/lifesciences/](https://docs.rcac.purdue.edu/lifesciences/)
 - **RCAC Knowledge Base**: [www.rcac.purdue.edu/knowledge](https://www.rcac.purdue.edu/knowledge)
 - **Open OnDemand**: [gateway.negishi.rcac.purdue.edu](https://gateway.negishi.rcac.purdue.edu) (replace `negishi` with your cluster name)
 - **Discord**: [discord.gg/zEF2nzhXdC](https://discord.gg/zEF2nzhXdC)
