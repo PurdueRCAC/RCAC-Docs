@@ -14,6 +14,7 @@ tags:
   - Fairuse
 authors:
   - rderue
+draft: true
 ---
 
 # Regarding Slurm fairuse on clusters 
