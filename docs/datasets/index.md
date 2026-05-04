@@ -68,7 +68,7 @@ For a filterable table of all datasets, see the [Complete Dataset Catalog](datas
 
     | Information | Why it's needed |
     |-------------|---------------|
-    | **Justification** | Explain why you need this dataset and how it supports your research |
+    | **Justification** | Explain why you need this dataset, how it supports your research, and its relevance to the broader community. Our goal is to host datasets that serve multiple users or groups, so requests limited to a single use case may be deprioritized. |
     | **Public availability** | Is the dataset publicly accessible? Are there license restrictions? |
     | **Research description** | Brief summary of your research project and goals |
     | **Dataset link** | URL or reference to access or download the dataset |
