@@ -113,7 +113,7 @@ The cost of skipping QC is real: wasted compute hours processing bad data, false
 
     3. **Authenticate**
 
-        After entering your credentials, you will be prompted for Duo two-factor authentication. Approve the push notification or enter the code.
+        After entering your credentials, you will be prompted for MFA two-factor authentication. Approve the push notification or enter the code.
 
     4. **Use the desktop**
 

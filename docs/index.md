@@ -12,6 +12,18 @@ hide:
 <!-- !!! Warning "Announcement"
     **This is a demo site.** You are visiting a demo site designed for testing purposes only. Contents on this website may not reflect production RCAC resources. Check [rcac.purdue.edu](https://www.rcac.purdue.edu) for official information. -->
 
+!!! info "Important: Use Microsoft Authenticator to Access Purdue RCAC Resources Starting May 11, 2026"
+    **Beginning May 11, 2026, RCAC will move from Duo Mobile to Microsoft Authenticator for logging in to Purdue’s research computing and supercomputing systems.**
+
+    To ensure uninterrupted access, please complete the steps below before May 11. What you need to do:
+    
+    1. [Enroll in Microsoft Multi-Factor Authentication (MFA)](https://service.purdue.edu/TDClient/32/Purdue/KB/ArticleDet?ID=1791) using the Microsoft Authenticator app (if you have not already).
+    2. [Set your default sign-in method](https://service.purdue.edu/TDClient/32/Purdue/KB/ArticleDet?ID=1788) in Microsoft MFA to your preferred method.
+
+    **After May 11, Duo Mobile will no longer work for accessing RCAC systems.**
+
+    Please contact [rcac-help@purdue.edu](mailto:rcac-help@purdue.edu) If you have any questions or need help.
+
 ## :material-rocket-launch: New to RCAC?
 
 Follow these steps to get up and running on RCAC clusters.

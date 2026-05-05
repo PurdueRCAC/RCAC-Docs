@@ -43,7 +43,7 @@ Detailed steps for different operating systems and specific SSH client softwares
 
 2. By default, the key files will be stored in `~/.ssh/id_rsa` and `~/.ssh/id_rsa.pub` on your local machine.
 
-3. Copy the contents of the public key into `$HOME/.ssh/authorized_keys` on the cluster with the following command. When asked for a password, type your password followed by "`,push`". Your Purdue Duo client will receive a notification to approve the login.
+3. Copy the contents of the public key into `$HOME/.ssh/authorized_keys` on the cluster with the following command. When asked for a password, type your Purdue password. Your Purdue MFA client will receive a notification to approve the login.
 
     ```bash
     ssh-copy-id -i ~/.ssh/id_rsa.pub username@{resource}.rcac.purdue.edu
@@ -114,14 +114,14 @@ Windows SSH Instructions
 
     Navigate back to *"Session"* on the left panel. Highlight *"Default Settings"* and click the "Save" button to ensure the change in place.
 
-4. Connect to the cluster. When asked for a password, type your password followed by "`,push`". Your Purdue Duo client will receive a notification to approve the login. Copy the contents of public key from *PuTTYgen* as shown below and paste it into `$HOME/.ssh/authorized_keys`. Please double-check that your text editor did not wrap or fold the pasted value (it should be one very long line).
+4. Connect to the cluster. When asked for a password, type your Purdue password. Your Purdue MFA client will receive a notification to approve the login. Copy the contents of public key from *PuTTYgen* as shown below and paste it into `$HOME/.ssh/authorized_keys`. Please double-check that your text editor did not wrap or fold the pasted value (it should be one very long line).
 
     <figure style="text-align: center;">
         ![PuTTY Key Generator form with the generated key highlighted](/assets/images/userguides/keygen4.png)
         <figcaption>The "Public key" will look like a long string of random letters and numbers in a text box at the top of the window.</figcaption>
     </figure>
 
-5. Test by connecting to the cluster. If successful, you will **not** be prompted for a password or receive a Duo notification. If you protected your private key with a passphrase in step 2, you **will** instead be prompted to enter your chosen passphrase when connecting.
+5. Test by connecting to the cluster. If successful, you will **not** be prompted for a password or receive a MFA notification. If you protected your private key with a passphrase in step 2, you **will** instead be prompted to enter your chosen passphrase when connecting.
 
 """
     
@@ -175,9 +175,9 @@ The native ThinLinc client will offer the best experience especially over off-ca
 
 * Download the ThinLinc client from the [ThinLinc website](https://www.cendio.com/thinlinc/download).
 * Start the ThinLinc client on your computer.
-* In the client's login window, use `desktop.{resource}.rcac.purdue.edu` as the Server. Use your Purdue Career Account username and password, but append "`,push`" to your password.
+* In the client's login window, use `desktop.{resource}.rcac.purdue.edu` as the Server. Use your Purdue Career Account username and password.
 * Click the Connect button.
-* Your Purdue Login Duo will receive a notification to approve your login.
+* Your Purdue Login MFA will receive a notification to approve your login.
 * Continue to following section on connecting to {resource} from ThinLinc.
 
 ### Using ThinLinc through your web browser
@@ -185,9 +185,9 @@ The native ThinLinc client will offer the best experience especially over off-ca
 The ThinLinc service can be accessed from your web browser as a convenience to installing the native client. This option works with no set up and is a good option for those on computers where you do not have privileges to install software. All that is required is an up-to-date web browser. Older versions of Internet Explorer may not work.
 
 * Open a web browser and navigate to [`desktop.{resource}.rcac.purdue.edu`.](https://desktop.{resource}.rcac.purdue.edu).
-* Log in with your Purdue Career Account username and password, but append "`,push`" to your password.
+* Log in with your Purdue Career Account username and password.
 * You may safely proceed past any warning messages from your browser.
-* Your Purdue Login Duo will receive a notification to approve your login.
+* Your Purdue Login MFA will receive a notification to approve your login.
 * Continue to the following section on connecting to {resource} from ThinLinc.
 
 ### Connecting to {resource} from ThinLinc
@@ -497,7 +497,7 @@ There are several ways to login to {cluster}:
 One can login to the {cluster} front-end with a full desktop environment via the [Thinlinc web client](https://desktop.{host}).
 
 !!! important
-    Your full password,push Duo passphrase is needed to trigger the Duo notification that is sent to your phone for approval.
+    Your full password is needed to trigger the MFA notification that is sent to your phone for approval.
 
 ### Gateway / OnDemand
 One can login to {cluster}'s [Gateway](https://gateway.{host}) to manage files in your home/scratch/depot directories and start Slurm jobs for supported OnDemand applications.
@@ -506,7 +506,7 @@ One can login to {cluster}'s [Gateway](https://gateway.{host}) to manage files i
 *Secure Shell* or *SSH* is a way of establishing a secure connection between two computers. It uses public-key cryptography to authenticate the user with the remote computer and to establish a secure connection. Its usual function involves logging in to a remote machine and executing commands. There are many SSH clients available for all operating systems.
 
 !!! note
-    {cluster} supports either Purdue's Duo two-factor authentication or SSH keys.
+    {cluster} supports either Purdue's MFA two-factor authentication or SSH keys.
 
 #### SSH Client Software
 Linux / Solaris / AIX / HP-UX / Unix:
@@ -522,7 +522,7 @@ Mac OS X:
 - The `ssh` command is pre-installed. You may start a local terminal window from "Applications->Utilities". Log in by typing the command `ssh username@{host}`.
 
 !!! important
-    When prompted to enter a password, enter your Purdue career account password **followed by "**`,push` **"**. Your Duo app will then receive a notification to approve the login.
+    When prompted to enter a password, enter your Purdue career account password. Your MFA app will then receive a notification to approve the login.
 """
     
     @env.macro

@@ -130,7 +130,7 @@ Pick the method that fits your workflow and follow the instructions below:
 
     3. **Authenticate**
 
-        After entering your credentials, you will be prompted for Duo two-factor authentication. Approve the push notification or enter the code.
+        After entering your credentials, you will be prompted for MFA two-factor authentication. Approve the push notification or enter the code.
 
     4. **Use the desktop**
 
