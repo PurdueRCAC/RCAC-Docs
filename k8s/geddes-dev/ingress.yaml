@@ -4,7 +4,7 @@ metadata:
   name: rcac-docs-dev
   namespace: rcac-docs
 spec:
-  ingressClassName: public
+  ingressClassName: nginx
   rules:
     - host: rcac-docs-dev.geddes.rcac.purdue.edu
       http:

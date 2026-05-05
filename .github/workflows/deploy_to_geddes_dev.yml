@@ -7,7 +7,6 @@ on:
     paths-ignore:
       - 'modulefiles/**'
       - 'tools/**'
-      - 'wcag_audit/**'
 
   # Manual trigger for testing
   workflow_dispatch:
