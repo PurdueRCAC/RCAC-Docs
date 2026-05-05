@@ -72,18 +72,14 @@ You can search all modules using `$ module spider`. Some modules require you to 
 
 ### Common Open OnDemand Errors
 
-* Error -- failed to map user (\<username\>@access-ci.org)
+```
+Error -- failed to map user (\<username\>@access-ci.org)
+```
+
+Reason: that is usually because your ACCESS account has not been propogated to Anvil system. Give it couple of days and check again.
 
 ### How to cite Anvil
 
 To acknowledge the use of Anvil for papers, presentations, or other publications, please use the following citation:
 
 * X. Carol Song, Preston Smith, Rajesh Kalyanam, Xiao Zhu, Eric Adams, Kevin Colby, Patrick Finnegan, Erik Gough, Elizabett Hillery, Rick Irvine, Amiya Maji, and Jason St. John. 2022. Anvil - System Architecture and Experiences from Deployment and Early User Operations. In Practice and Experience in Advanced Research Computing (PEARC '22). Association for Computing Machinery, New York, NY, USA, Article 23, 1–9. [https://doi.org/10.1145/3491418.3530766](https://doi.org/10.1145/3491418.3530766)
-
-<hr style="border: 3px solid">
-
-## **AI- / GPU-Specific FAQs**
-
-### Placeholder 1
-
-Placeholder answer 1
