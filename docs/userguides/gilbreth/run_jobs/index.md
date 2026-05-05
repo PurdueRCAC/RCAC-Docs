@@ -8,24 +8,15 @@ search:
   boost: 2
 ---
 
-# Running Jobs
+# Running jobs
 
-{::if resource.batchsystem == pbs}
+Jobs are submitted on {{ resource }} via the SLURM (Simple Linux Utility for Resource Management) scheduler, which is responsible for allocating resources and scheduling the start time of a job. You may use either the batch or interactive mode to run your jobs. The batch mode is ideal for finished programs, and the interactive mode is useful for debugging your job.
 
-There is one method for submitting jobs to Gilbreth. You may use PBS to submit jobs to a queue on Gilbreth. PBS performs job scheduling. Jobs may be any type of program. You may use either the batch or interactive mode to run your jobs. Use the batch mode for finished programs; use the interactive mode only for debugging.
+!!! important
+    Do NOT run large, long, multi-threaded, parallel, or CPU-intensive jobs on a front-end login host. All users share the front-end hosts, and running anything but the smallest test job will negatively impact everyone's ability to use Gautschi. Always use SLURM to submit your work as a job.
 
-In this section, you'll find a few pages describing the basics of creating and submitting PBS jobs. As well, a number of example PBS jobs that you may be able to adapt to your own needs.
+Before creating your submission script, learn more about how to use Slurm accounts, partitions, and QOS options:
 
-{::elseif resource.batchsystem == slurm}
+- [**Basics of using Slurm accounts, partitions, and QOS options**](queues.md)
 
-There is one method for submitting jobs to Gilbreth. You may use SLURM to submit jobs to a partition on Gilbreth. SLURM performs job scheduling. Jobs may be any type of program. You may use either the batch or interactive mode to run your jobs. Use the batch mode for finished programs; use the interactive mode only for debugging.
-
-In this section, you'll find a few pages describing the basics of creating and submitting SLURM jobs. As well, a number of example SLURM jobs that you may be able to adapt to your own needs.
-
-{::else}
-
-SLURM performs job scheduling. Jobs may be any type of program. You may use either the batch or interactive mode to run your jobs. Use the batch mode for finished programs; use the interactive mode only for debugging.
-
-In this section, you'll find a few pages describing the basics of creating and submitting SLURM jobs. As well, a number of example SLURM jobs that you may be able to adapt to your own needs.
-
-{::/}
+Batch jobs submitted via SLURM have four main steps:
