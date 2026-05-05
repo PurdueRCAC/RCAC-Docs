@@ -1,4 +1,4 @@
-# Demo for RCAC documentation website.
+# Official RCAC documentation website.
 
 ## How to setup local mkdoc server?
 1. Clone this repository with this `main` branch.
