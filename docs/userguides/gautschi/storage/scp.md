@@ -11,7 +11,7 @@ search:
 SCP (Secure CoPy) is a simple way of transferring files between two machines that use the SSH protocol. SCP is available as a protocol choice in some graphical file transfer programs and also as a command line program on most Linux, Unix, and Mac OS X systems. SCP can copy single files, but will also recursively copy directory contents if given a directory name.
 
 !!!note
-    After Aug 17, 2020, the community clusters will not support password-based authentication for login. Methods that can be used include two-factor authentication (Purdue Login) or SSH keys. If you do not have SSH keys installed, you would need to type your **password,push** passphrase into the SFTP's "Password" prompt.
+    After Aug 17, 2020, the community clusters will not support password-based authentication for login. Methods that can be used include two-factor authentication (Purdue Login) or SSH keys. If you do not have SSH keys installed, you would need to type your **password** passphrase into the SFTP's "Password" prompt.
 
 ## Command-line usage
 
