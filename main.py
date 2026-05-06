@@ -229,7 +229,10 @@ The ThinLinc service can be accessed from your web browser as a convenience to i
     </figure>
 
   * Click OK to return to the ThinLinc Client login window. You should now see a Key field in place of the Password field.
-  * In the Key field, type the path to your locally stored private key or click the `...` button to locate and select the key on your local system. **Note:** If *PuTTY* is used to generate the SSH Key pairs, please choose the private key in the openssh format.
+  * In the Key field, type the path to your locally stored private key or click the `...` button to locate and select the key on your local system. 
+      
+    !!! note
+        If *PuTTY* is used to generate the SSH Key pairs, please choose the private key in the openssh format.
 
     <figure style="text-align: center;">
         ![ThinLinc Options window](/assets/images/userguides/thinlinc3.png)
