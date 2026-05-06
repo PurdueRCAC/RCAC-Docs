@@ -128,7 +128,7 @@ Build VASP with command `make all` to install all three executables `vasp_std`, 
 
 ### Step 4: Test
 
-You can open an [Interactive session](https://www.rcac.purdue.edu/knowledge/anvil/run/interactive) to test the installed VASP, you may bring your own VASP test files:
+You can open an [Interactive session](../jobs.md/#interactive-jobs) to test the installed VASP, you may bring your own VASP test files:
 
 ```bash
 $ cd /path/to/vasp-test-folder/
