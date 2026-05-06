@@ -3,6 +3,7 @@ tags:
   - Gilbreth
 authors:
   - jin456
+  - verburgt
 resource: gilbreth
 search:
   boost: 2

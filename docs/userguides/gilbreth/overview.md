@@ -3,6 +3,7 @@ tags:
   - Gilbreth
 authors:
   - jin456
+  - verburgt
 resource: Gilbreth
 search:
   boost: 2
@@ -10,7 +11,7 @@ search:
 
 # Overview of Gilbreth
 
-Gilbreth is a Community Cluster optimized for communities running GPU intensive applications such as machine learning. Gilbreth consists of Dell compute nodes with Intel Xeon processors and Nvidia Tesla GPUs.
+Gilbreth is a Community Cluster optimized for communities running GPU intensive applications such as machine learning. Gilbreth consists of Dell compute nodes with Intel Xeon processors and Nvidia Ampere and Hopper GPUs.
 
 To purchase access to Gilbreth today, go to the [Cluster Access Purchase](https://www.rcac.purdue.edu/purchase) page. Please subscribe to our Community Cluster Program Mailing List to stay informed on the latest purchasing developments or contact us via email at [rcac-cluster-purchase@lists.purdue.edu](mailto:rcac-cluster-purchase@lists.purdue.edu) if you have any questions.
 
@@ -21,7 +22,7 @@ Gilbreth is named in honor of Lillian Moller Gilbreth, Purdue's first female eng
 
 ## Gilbreth Detailed Hardware Specification
 
-Gilbreth has heterogeneous hardware comprising of Nvidia V100, A100, A10, and A30 GPUs in separate sub-clusters. All the nodes are connected by 100 Gbps Infiniband interconnects. Please see the hardware specifications below for details about various node types.
+Gilbreth has heterogeneous hardware comprising of Nvidia A100, A10, and A30 GPUs in separate sub-clusters. All the nodes are connected by 100 Gbps Infiniband interconnects. Please see the hardware specifications below for details about various node types.
 
 Gilbreth Front-Ends
 
@@ -44,7 +45,7 @@ Gilbreth Sub-Clusters
 | M-Not for Sale | 2 | 96 | 2 TB | 4 H100 | 2029 |
 | N | 20 | 48 | 1024 GB | 4 A100 (40 GB) with NVLink | 2029 |
 
-Gilbreth nodes run CentOS 7 and use Slurm (Simple Linux Utility for Resource Management) as the batch scheduler for resource and job management. The application of operating system patches occurs as security needs dictate. All nodes allow for unlimited stack usage, as well as unlimited core dump size (though disk space and server quotas may still be a limiting factor).
+Gilbreth nodes run Rocky 9 and use Slurm (Simple Linux Utility for Resource Management) as the batch scheduler for resource and job management. The application of operating system patches occurs as security needs dictate. All nodes allow for unlimited stack usage, as well as unlimited core dump size (though disk space and server quotas may still be a limiting factor).
 
 On Gilbreth, the following set of compiler, math library, and message-passing library for parallel code are recommended:
 

@@ -3,6 +3,8 @@ tags:
   - Gilbreth
 authors:
   - jin456
+  - verburgt
+  - remender
 resource: Gilbreth
 search:
   boost: 2
@@ -12,12 +14,28 @@ search:
 
 Learn more about file storage transfer for Gilbreth.
 
-{::if resource.name == Fortress}
+## Storage Options
 
-Your home directory on Fortress is the default directory that in which your archive files are stored.
+File storage options on RCAC systems include long-term storage (home directories, depot, Fortress) and short-term storage (scratch directories, /tmp directory). Each option has different performance and intended uses, and some options vary from system to system as well. Daily snapshots of home directories are provided for a limited time for accidental deletion recovery. Scratch directories and temporary storage are not backed up and old files are regularly purged from scratch and /tmp directories. More details about each storage option appear below. 
 
-On Fortress, your home directory will appear as `/home/${user.username}`, but this is not the same directory as your home directory on any other Purdue IT systems. Your home directory on Fortress is your long-term storage directory for all Purdue IT systems.
+- [Home Directory](storage/home_directory.md)
+- [Scratch Space](storage/scratch_space.md)
+- [/tmp Directory](storage/tmp_directory.md)
+- [Long-Term Storage](storage/long_term_storage.md)
 
-The following link will take you to more information about transferring files in and out of Fortress.
+### Other Storage Topics
+- [Storage Quota / Limits](storage/storage_quota.md)
+- [Storage Environment Variables](storage/environment_variables.md)
+- [Archive and Compression](storage/archive_and_compression.md)
+- [Sharing](storage/sharing.md)
 
-{::/}
+## File Transfer
+
+Gilbreth supports several methods for file transfer. Use the links below to learn more about these methods. 
+
+- [Globus](storage/globus.md)
+- [Windows Network Drive / SMB](storage/windows_network_drive.md)
+- [SCP](storage/scp.md)
+- [FTP / SFTP](storage/ftp_sftp.md)
+- [HSI](storage/hsi.md)
+- [HTAR](storage/htar.md)
