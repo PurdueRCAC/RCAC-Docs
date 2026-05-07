@@ -1,6 +1,8 @@
 site_name: RCAC Documentation
 site_description: Official RCAC documentation website.
 site_url: https://docs.rcac.purdue.edu
+repo_url: https://github.com/PurdueRCAC/RCAC-Docs
+edit_uri: edit/main/docs/
 
 theme:
   name: material
@@ -21,6 +23,8 @@ theme:
     - search.highlight
     - content.code.copy
     - content.tabs.link
+    - content.action.view
+    - content.action.edit
   palette:
     - media: "(prefers-color-scheme)"
       toggle:
