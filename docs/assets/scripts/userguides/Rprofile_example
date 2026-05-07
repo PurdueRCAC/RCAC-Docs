@@ -1,0 +1,63 @@
+# This .Rprofile was designed by Phil Cheeseman <aai@purdue.edu>
+# and further tweaked by Lev Gorenstein <lev@purdue.edu> with the
+# help and input from other staff at Rosen Center for Advanced Computing
+# at Purdue University.
+#
+# It will place R packages into subdirectories on a per-cluster and
+# per-R version basis (so that you would not have to worry about
+# various architectures/R versions/OSes between clusters).
+#
+# The downside is that once you start doing this, you'll need to redo
+# all your install.packages() commands for every new R version. But the
+# upside is none of them would interfere with each other.
+#
+# ------------------------------------------------------------------------
+
+# Collect the pieces (including name of the cluster and R install location).
+# ... Starting from ~/R, as expected.
+homedir <- system('echo ~',intern=TRUE)
+rlibtop <- paste(homedir,'R',sep='/')
+
+# ... Cluster name is a little tricky (we have two naming schemes at the
+#     moment), so use a helper environment variable where available, 
+#     otherwise try to autodetect (autodetection is somewhat flaky, 
+#     based on having '-' in the name).
+if (! is.na(Sys.getenv('RCAC_CLUSTER', unset=NA))) {
+   cluster <- Sys.getenv('RCAC_CLUSTER')
+} else {
+   shortname <- system('hostname -s',intern=TRUE)
+   if (grepl('-', shortname)) {
+      # Old clusters, <cluster>-{feNN|aNNN}.rcac.purdue.edu naming scheme
+      cluster <- strsplit(shortname,split='-')[[1]][1]
+   } else {
+      # New clusters, {loginNN|aNNN}.<cluster>.rcac.purdue.edu
+      cluster <- strsplit(system('hostname -f',intern=TRUE),split='.',fixed=TRUE)[[1]][2]
+   }
+   rm(shortname)
+}
+
+# ... Use R version in lieu of install dir if no special environment
+#     variables are set for installation directory.
+if (! is.na(Sys.getenv('RCAC_R_ROOT', unset=NA))) {
+   rinstall <- Sys.getenv('RCAC_R_ROOT')
+} else if (! is.na(Sys.getenv('R_ROOT', unset=NA))) {
+   rinstall <- Sys.getenv('R_ROOT')
+} else {
+   rinstall <- strsplit(version[['version.string']], ' ')[[1]][3]
+}
+rinstall <- basename(rinstall)
+runique <- paste(cluster,rinstall,sep='_')
+
+# Assemble desired path to libraries (e.g. "~/R/brown/3.6.0_gcc-6.3.0_brown/")
+# R_LIBS_USER <- paste(rlibtop, cluster, runique, sep='/')
+R_LIBS_USER <- paste(rlibtop, cluster, rinstall, sep='/')
+
+# Ensure the directory exists and set the settings!
+# Also define environment variable R_LIBS_USER in case it's
+# referenced in system() calls during the R session.
+system(paste('mkdir -p ',R_LIBS_USER,sep=''))
+Sys.setenv(R_LIBS_USER=R_LIBS_USER)
+.libPaths(R_LIBS_USER)
+
+# And clean up auxillary variables.
+rm(cluster, homedir, rinstall, rlibtop, runique)

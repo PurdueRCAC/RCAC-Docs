@@ -107,7 +107,7 @@ htar -Hverify=1 -Kvf abc.tar
 
 Please note that the time for verifying an archive increases as you increase the verification level. Carefully choose the option that suits your dataset best.
 
-For details please see the [HTAR Man Page](https://rcac.purdue.edu/files/hpss/htar_man.html).
+For details please see the [HTAR Man Page](https://www.rcac.purdue.edu/knowledge/fortress/storage/transfer/htar).
 
 For more information about HTAR:
 
