@@ -13,10 +13,9 @@ search:
 ---
 
 <!-- ------------------- General slurm overview SNIPPET -------------------- -->
-{% set host = "anvil.rcac.purdue.edu" %}
-{% set hostname = "anvil" %}
+{% set resource = "anvil" %}
 
-{{ slurm_general_overview(host, hostname) }}
+{{ slurm_general_overview(resource) }}
 
 <!-- --------------------------- Anvil-Specific ---------------------------- -->
 ACCESS users with allocations can submit jobs to several types of queues:
