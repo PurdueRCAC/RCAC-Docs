@@ -77,27 +77,20 @@ The snippets will have to be defined in `main.py` under the same directory with 
     ```` python
     # main.py
 
-    def define_env(env):
-        @env.macro
-        def login_snippet(host,cluster):
-            return f"""
-    **Logging In**
+    @env.macro
+    def ssh_keys_snippet(resource):
+        return f"""
+### SSH Keys general overview
 
-    {cluster} accepts standard SSH connections with public keys-based authentication to {host} using your {cluster} username:
-
-    **SSH Login**
-    ```bash
-    $ ssh -l my-username {host}
-    ```
-    """
-
-        @env.macro
-        def account_snippet(host,cluster):
-            return f"""
-    **Get an account on {cluster} cluster**
-
-    Contact RCAC help to get your account set on `{host}`.
-    """
+To connect to {resource.title()} using SSH keys, you must follow three high-level steps:
+...
+"""
+    
+    @env.macro
+    def ssh_x11_snippet(resource):
+        return f"""
+SSH supports tunneling of X11 (X-Windows). If you have an X11 server running on your local machine, you may use X11 applications on remote systems and have their graphical displays appear on your local machine. These X11 connections are tunneled and encrypted automatically by your SSH client.
+...
 
     ````
 
@@ -113,8 +106,8 @@ Finally, the snippet functions can be called with
 
 ``` none
 {% raw %}
-{{ login_snippet(resource) }}
-{{ account_snippet(resource) }}
+{{ ssh_keys_snippet(resource) }}
+{{ ssh_x11_snippet(resource) }}
 {% endraw %}
 ```
 
@@ -122,8 +115,8 @@ And it will look like:
 
 {% set resource = "gautschi" %}
 
-{{ login_snippet(resource) }}
-{{ account_snippet(resource) }}
+{{ ssh_keys_snippet(resource) }}
+{{ ssh_x11_snippet(resource) }}
 
 
 ## Use admonitions
