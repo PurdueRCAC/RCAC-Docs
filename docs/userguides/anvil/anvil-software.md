@@ -11,9 +11,9 @@ Anvil provides a number of software packages to users of the system via the `mod
 
 ## Module system
 
-{% set cluster = "Anvil" %}
+{% set resource = "anvil" %}
 
-{{ module_system(cluster) }}
+{{ module_system(resource) }}
 
 ## Compiling, performance, and optimization on Anvil
 
