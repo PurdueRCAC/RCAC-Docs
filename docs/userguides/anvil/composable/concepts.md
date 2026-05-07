@@ -80,7 +80,7 @@ Kubernetes **ServiceTypes** allow you to specify what kind of Service you want. 
 - **NodePort**: Exposes the Service on each Node’s IP at a static port (the NodePort). A ClusterIP Service, to which the NodePort Service routes, is automatically created. You’ll be able to contact the NodePort Service, from outside the cluster, by requesting <NodeIP>:<NodePort>.
 - **LoadBalancer**: Exposes the Service externally using Anvil's load balancer. NodePort and ClusterIP Services, to which the external load balancer routes, are automatically created. Users can create LoadBalancer resources using a private IP pool on Purdue's network with the annotation `metallb.universe.tf/address-pool: anvil-private-pool`. Public LoadBalancer IPs are avaiable via request only.
 
-You can see an example of [exposing a workload using the LoadBalancer type](https://www.rcac.purdue.edu/knowledge/anvil/composable/examples/database#_expose_the_database_to_external_clients) on Anvil in the examples section.
+You can see an example of [exposing a workload using the LoadBalancer type](./examples.md/#expose-the-database-externally) on Anvil in the examples section.
 
 - **ExternalName**: Maps the Service to the contents of the externalName field (e.g. foo.bar.example.com), by returning a CNAME record with its value. No proxying of any kind is set up.
 
@@ -88,7 +88,7 @@ You can see an example of [exposing a workload using the LoadBalancer type](http
 
 An **Ingress** is an API object that manages external access to the services in a cluster, typically HTTP/HTTPS. An Ingress is not a ServiceType, but rather brings external traffic into the cluster and then passes it to an Ingress Controller to be routed to the correct location. Ingress may provide load balancing, SSL termination and name-based virtual hosting. Traffic routing is controlled by rules defined on the Ingress resource.
 
-You can see an example of [a service being exposed with an Ingress](https://www.rcac.purdue.edu/knowledge/anvil/composable/examples/webserver#_expose_the_web_server_to_external_clients_via_an_ingress) on Anvil in the examples section.
+You can see an example of [a service being exposed with an Ingress](./examples.md/#web-server-deployment-nginx) on Anvil in the examples section.
 
 ### Ingress Controller
 Anvil provides the [nginx](https://github.com/kubernetes/ingress-nginx/blob/main/README.md#readme) ingress controller configured to facilitate SSL termination and automatic DNS name generation under the `anvilcloud.rcac.purdue.edu` subdomain.

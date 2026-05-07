@@ -40,12 +40,12 @@ For more functions and tutorials:
 - Different clusters have different hardware and softwares. So, if you have access to multiple clusters, you must install your R packages _separately for each cluster_.
 - Each cluster has multiple versions of R and packages installed with one version of R may not work with another version of R. So, libraries for **each R version** must be installed in a **separate directory**.
 - You can define the directory where your R packages will be installed using the environment variable `R_LIBS_USER`.
-- For your convenience, a sample [~/.Rprofile example file](https://www.rcac.purdue.edu/files/knowledge/run/examples/apps/r/Rprofile_example) is provided that can be downloaded to your cluster account and renamed into `~/.Rprofile` (or appended to one) to customize your installation preferences. [Detailed instructions](https://www.rcac.purdue.edu/knowledge/gautschi/run/examples/apps/r/rprofile).
+- For your convenience, a sample [~/.Rprofile example file](/docs/assets/scripts/userguides/Rprofile_example) is provided that can be downloaded to your cluster account and renamed into `~/.Rprofile` (or appended to one) to customize your installation preferences.
 
 **Installing Packages**
 
 - **Step 0: Set up installation preferences.**  
-    Follow the [steps for setting up](https://www.rcac.purdue.edu/knowledge/gautschi/run/examples/apps/r/rprofile) your `~/.Rprofile` preferences. This step needs to be done only once. If you have created a `~/.Rprofile` file previously on Gautschi, ignore this step.
+    Follow the [steps for setting up](../../userguides/gautschi/run_jobs/examples/example_r_profile_setup.md) your `~/.Rprofile` preferences. This step needs to be done only once. If you have created a `~/.Rprofile` file previously on Gautschi, ignore this step.
     
 - **Step 1: Check if the package is already installed.**  
     As part of the R installations on community clusters, a lot of R libraries are pre-installed. You can check if your package is already installed by opening an R terminal and entering the command `installed.packages()`. For example,
