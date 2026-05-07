@@ -49,9 +49,9 @@ Anvil supports several methods for file transfer to and from the system. Users c
 
 ### SCP
 
-{% set hostname = "anvil" %}
+{% set resource = "anvil" %}
 
-{{ scp_snippet( hostname ) }}
+{{ scp_snippet( resource ) }}
 
 ### Rsync
 
@@ -59,9 +59,9 @@ Anvil supports several methods for file transfer to and from the system. Users c
 
 ### SFTP
 
-{% set hostname = "anvil" %}
+{% set resource = "anvil" %}
 
-{{ sftp_snippet( hostname ) }}
+{{ sftp_snippet( resource ) }}
 
 ### Globus
 

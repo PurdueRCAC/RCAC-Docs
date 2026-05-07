@@ -105,8 +105,7 @@ Then the following local variables are set with `Jinja` syntax.
 
 ``` none
 {% raw %}
-{% set host = "gautschi.rcac.purdue.edu" %}
-{% set cluster = "Gautschi" %}
+{% set resource = "gautschi" %}
 {% endraw %}
 ```
 
@@ -114,18 +113,17 @@ Finally, the snippet functions can be called with
 
 ``` none
 {% raw %}
-{{ login_snippet(host,cluster) }}
-{{ account_snippet(host,cluster) }}
+{{ login_snippet(resource) }}
+{{ account_snippet(resource) }}
 {% endraw %}
 ```
 
 And it will look like:
 
-{% set host = "gautschi.rcac.purdue.edu" %}
-{% set cluster = "Gautschi" %}
+{% set resource = "gautschi" %}
 
-{{ login_snippet(host,cluster) }}
-{{ account_snippet(host,cluster) }}
+{{ login_snippet(resource) }}
+{{ account_snippet(resource) }}
 
 
 ## Use admonitions
