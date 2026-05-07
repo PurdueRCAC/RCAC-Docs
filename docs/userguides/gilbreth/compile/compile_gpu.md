@@ -3,6 +3,7 @@ tags:
   - Gilbreth
 authors:
   - jin456
+  - verburgt
 resource: Gilbreth
 search:
   boost: 2
@@ -10,7 +11,7 @@ search:
 
 # Compiling GPU Programs
 
-The Gilbreth cluster nodes contain ${resource.nodegpus} {::if resource.nodegpus == 1}GPU{::else}GPUs{::/} that support *CUDA* and *OpenCL*. See the [detailed hardware overview](/knowledge/${resource.dir}/overview) for the specifics on the GPUs in Gilbreth. This section focuses on using CUDA.
+The Gilbreth cluster nodes contain GPUs that support *CUDA* and *OpenCL*. See the [Gilbreth Overivew](../overview.md) for the specifics on the GPUs in Gilbreth. This section focuses on using CUDA.
 
 A simple CUDA program has a basic workflow:
 
@@ -21,12 +22,11 @@ A simple CUDA program has a basic workflow:
 
 Here is a sample CUDA program:
 
-* [`gpu_hello.cu`](/files/knowledge/compile/src/gpu_hello.cu)
+* [`gpu_hello.cu`](src/gpu_hello.md)
 
 Both front-ends and GPU-enabled compute nodes have the CUDA tools and libraries available to compile CUDA programs. To compile a CUDA program, load CUDA, and use `nvcc` to compile the program:
 
-```
-
+```bash
 $ module load gcc/11.4.1 cuda/12.6.0
 $ nvcc gpu_hello.cu -o gpu_hello
 ./gpu_hello
@@ -37,10 +37,9 @@ The example illustrates only how to copy an array between a CPU and its GPU but 
 
 The following program times three square matrix multiplications on a CPU and on the global and shared memory of a GPU:
 
-* [`mm.cu`](/files/knowledge/compile/src/mm.cu)
+- [mm.cu](src/gpu_mm.md)
 
-```
-
+```bash
 $ module load cuda
 $ nvcc mm.cu -o mm
 $ ./mm 0
@@ -63,3 +62,5 @@ For more information about NVIDIA, CUDA, and GPUs:
 * [NVIDIA GPU Computing Webinars](http://developer.nvidia.com/gpu-computing-webinars)
 * [NVIDIA](http://www.nvidia.com/page/home.html)
 * [General-Purpose Computation on Graphics Hardware](http://gpgpu.org/)
+
+[Back to the Compiling Programs section](../compile.md)

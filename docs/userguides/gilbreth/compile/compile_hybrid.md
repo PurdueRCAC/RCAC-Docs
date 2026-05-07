@@ -3,6 +3,7 @@ tags:
   - Gilbreth
 authors:
   - jin456
+  - verburgt
 resource: Gilbreth
 search:
   boost: 2
@@ -10,49 +11,31 @@ search:
 
 # Compiling Hybrid Programs
 
-A hybrid program combines both MPI and shared-memory to take advantage of compute clusters with multi-core compute nodes. Libraries for OpenMPI and Intel MPI (IMPI) and compilers which include OpenMP for C, C++, and Fortran are available.
-
 Hybrid programs require including header files:
 
 | Language | Header Files |
-| --- | --- |
-| Fortran 77 | ``` 
- INCLUDE 'omp_lib.h'
- INCLUDE 'mpif.h'
- ``` |
-| Fortran 90 | ``` 
- use omp_lib
- INCLUDE 'mpif.h'
- ``` |
-| Fortran 95 | ``` 
- use omp_lib
- INCLUDE 'mpif.h'
- ``` |
-| C | ``` 
- #include <mpi.h>
- #include <omp.h>
- ``` |
-| C++ | ``` 
- #include <mpi.h>
- #include <omp.h>
- ``` |
+| -------- | -------- |
+| Fortran 77 | ```INCLUDE 'omp_lib.h'``` <br> ```INCLUDE 'mpif.h'```|
+| Fortran 90 | ```use omp_lib``` <br> ```INCLUDE 'mpif.h'``` |
+| Fortran 95 | ```use omp_lib``` <br> ```INCLUDE 'mpif.h'``` |
+| C | ```#include <mpi.h>``` <br> ```#include <omp.h>``` |
+| C++ | ```#include <mpi.h>``` <br> ```#include <omp.h>``` |
 
 A few examples illustrate hybrid programs with task parallelism of OpenMP:
 
-* [hybrid\_hello.f](/files/knowledge/compile/src/hybrid_hello.f)
-* [hybrid\_hello.f90](/files/knowledge/compile/src/hybrid_hello.f90)
-* [hybrid\_hello.f95](/files/knowledge/compile/src/hybrid_hello.f95)
-* [hybrid\_hello.c](/files/knowledge/compile/src/hybrid_hello.c)
-* [hybrid\_hello.cpp](/files/knowledge/compile/src/hybrid_hello.cpp)
+- [hybrid_hello.f](src/hybrid_hello_f.md)
+- [hybrid_hello.f90](src/hybrid_hello_f90.md)
+- [hybrid_hello.f95](src/hybrid_hello_f95.md)
+- [hybrid_hello.c](src/hybrid_hello_c.md)
+- [hybrid_hello.cpp](src/hybrid_hello_cpp.md)
 
 This example illustrates a hybrid program with loop-level (data) parallelism of OpenMP:
 
-* [hybrid\_loop.c](/files/knowledge/compile/src/hybrid_loop.c)
+- [hybrid_loop.c](src/hybrid_loop_c.md)
 
 To see the available MPI libraries:
 
-```
-
+```bash
 $ module avail impi
 $ module avail openmpi
 ```
