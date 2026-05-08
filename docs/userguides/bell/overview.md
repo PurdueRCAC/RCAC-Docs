@@ -8,10 +8,7 @@ search:
   boost: 2
 ---
 
-# Overview of Bell
-
-Overview of ${resource.name}
-============================
+# Bell Overview
 
 Bell is a Community Cluster optimized for communities running traditional, tightly-coupled science and engineering applications. Bell was built through a partnership with Dell and AMD over the summer of 2020. Bell consists of Dell compute nodes with two 64-core AMD Epyc 7662 "Rome" processors (128 cores per node) and 256 GB of memory. All nodes have 100 Gbps HDR Infiniband interconnect and a 6-year warranty.
 

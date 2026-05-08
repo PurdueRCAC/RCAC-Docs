@@ -117,7 +117,18 @@ nav:
       - Gateway (Open OnDemand): userguides/gautschi/gateway.md
       - Compiling Source Code: userguides/gautschi/compile.md
       - Frequently Asked Questions: userguides/gautschi/faqs.md
-    - Bell: https://www.rcac.purdue.edu/knowledge/bell
+    - Bell:
+      - userguides/bell/index.md
+      - Bell Overview: userguides/bell/overview.md
+      - Biography of Bell: userguides/bell/biography.md
+      - Accounts: userguides/bell/accounts.md
+      - Software: userguides/bell/software.md
+      - Running Jobs: userguides/bell/run.md
+      - Datasets: userguides/bell/datasets.md
+      - File Storage and Transfer: userguides/bell/storage.md
+      - Gateway (Open OnDemand): userguides/bell/gateway.md
+      - Compiling Source Code: userguides/bell/compile.md
+      - Frequently Asked Questions: faqs.md
     - Gilbreth: https://www.rcac.purdue.edu/knowledge/gilbreth
     - Negishi: https://www.rcac.purdue.edu/knowledge/negishi
     - Scholar: https://www.rcac.purdue.edu/knowledge/scholar

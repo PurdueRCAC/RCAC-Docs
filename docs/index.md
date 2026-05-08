@@ -100,7 +100,7 @@ Follow these steps to get up and running on RCAC clusters.
 
     **128 cores/node | 256 GB RAM | 100 Gbps HDR Infiniband**
 
-    [:octicons-arrow-right-24: Bell User Guide](https://www.rcac.purdue.edu/knowledge/bell)
+    [:octicons-arrow-right-24: Bell User Guide](userguides/bell/index.md)
 
 -   :material-server:{ .lg .middle } __Negishi__
 
