@@ -1,61 +1,48 @@
 ---
 tags:
   - Gilbreth
+  - Python
 authors:
   - jin456
+  - verburgt
 resource: Gilbreth
 search:
   boost: 2
 ---
 
-# Example Python Jobs
+## Example 1: Hello world
 
-This section illustrates how to submit a small Python job to a SLURM queue.
+Prepare a Python input file with an appropriate filename, here named ```hello.py```:
 
-Example 1: Hello world
-----------------------
-
-Prepare a Python input file with an appropriate filename, here named `hello.py`:
-
-```
-
+```python
 # FILENAME:  hello.py
 
 import string, sys
 print("Hello, world!")
 ```
 
-Prepare a job submission file with an appropriate filename, here named `myjob.sub`:
+Prepare a job submission file with an appropriate filename, here named ```myjob.sub```:
 
-```
-
+```bash
 #!/bin/bash
 # FILENAME:  myjob.sub
 
 module load conda
-{::if resource.batchsystem == pbs}
-cd $PBS_O_WORKDIR
-{::/}
+
 python hello.py
 ```
 
-[Submit the job](/knowledge/${resource.hostname}/run/${resource.batchsystem}/submit)
+Then, submit your job via SLURM and view the output file, which should simply output:
 
-[View job status](/knowledge/${resource.hostname}/run/${resource.batchsystem}/status)
-
-[View results of the job](/knowledge/${resource.hostname}/run/${resource.batchsystem}/output)
-
-```
-
+```bash
 Hello, world!
 ```
 
-### Example 2: Matrix multiply
+## Example 2: Matrix multiply
 
-Save the following script as matrix.py:
+Save the following script as ```matrix.py```:
 
-```
-
+```python
 # Matrix multiplication program
 
 x = [[3,1,4],[1,5,9],[2,6,5]]
@@ -69,26 +56,23 @@ for r in result:
 
 Change the last line in the job submission file above to read:
 
-```
-
+```bash
 python matrix.py
 ```
 
 The standard output file from this job will result in the following matrix:
 
-```
-
+```python
 [28, 56, 43, 53]
 [65, 122, 59, 73]
 [63, 104, 54, 60]
 ```
 
-### Example 3: Sine wave plot using numpy and matplotlib packages
+## Example 3: Sine wave plot using numpy and matplotlib packages
 
-Save the following script as sine.py:
+Save the following script as ```sine.py```:
 
-```
-
+```python
 import numpy as np
 import matplotlib
 matplotlib.use('Agg')
@@ -106,6 +90,8 @@ Change your job submission file to submit this script and the job will output a 
 
 For more information about Python:
 
-* [The Python Programming Language - Official Website](http://www.python.org/)
-* [Anaconda Python Distribution - Official Website](https://store.continuum.io/cshop/anaconda/)
-* [Conda User Guide](https://conda.io/projects/conda/en/latest/user-guide/)
+- [**The Python Programming Language - Official Website**](https://www.python.org/)
+- [**Anaconda Python Distribution - Official Website**](https://store.continuum.io/cshop/anaconda/)
+- [**Conda User Guide**](https://conda.io/projects/conda/en/latest/user-guide/)
+
+[**Back to the Python Examples section**](../python_example.md)

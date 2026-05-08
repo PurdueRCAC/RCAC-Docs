@@ -3,6 +3,7 @@ tags:
   - Gilbreth
 authors:
   - jin456
+  - verburgt
 resource: Gilbreth
 search:
   boost: 2
@@ -17,6 +18,35 @@ Jobs are submitted on {{ resource }} via the SLURM (Simple Linux Utility for Res
 
 Before creating your submission script, learn more about how to use Slurm accounts, partitions, and QOS options:
 
+
 - [**Basics of using Slurm accounts, partitions, and QOS options**](queues.md)
 
 Batch jobs submitted via SLURM have four main steps:
+
+- [**Creating the submission script**](creating_the_submission_script.md)
+- [**Submitting the script as a job**](submit_script.md)
+- [**Monitoring the job**](monitoring_job.md)
+- [**Checking the job output**](checking_output.md)
+
+### Other useful topics
+
+- [**Holding a job**](holding_job.md)
+- [**Job Dependencies**](job_dependencies.md)
+- [**Cancelling a job**](cancelling_job.md)
+- [**GPU Usage Monitoring**](gpu_usage_monitoring.md)
+
+### Example jobs
+
+- [**Generic SLURM jobs**](generic_slurm_jobs.md)
+- [**Python**](python_example.md)
+- [**R**](r_example.md)
+- [**Apptainer**](apptainer_example.md)
+- [**Matlab**](matlab_example.md)
+- [**Ansys**](ansysfluent_example.md)
+- [**Gaussian**](gaussian_example.md)
+- [**MPI**](mpi_jobs.md)
+- [**OpenMP**](openmp_jobs.md)
+- [**GPU**](gpu_jobs.md)
+
+
+[Back](../index.md)

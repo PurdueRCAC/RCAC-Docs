@@ -3,6 +3,7 @@ tags:
   - Gilbreth
 authors:
   - jin456
+  - verburgt
 resource: Gilbreth
 search:
   boost: 2
@@ -14,8 +15,7 @@ Sometimes you may want to submit a job but not have it run just yet. You may be 
 
 To place a hold on a job before it starts running, use the `scontrol hold job` command:
 
-```
-
+```bash
 $ scontrol hold job  myjobid
 ```
 
@@ -23,9 +23,10 @@ Once a job has started running it can not be placed on hold.
 
 To release a hold on a job, use the `scontrol release job` command:
 
-```
-
+```bash
 $ scontrol release job  myjobid
 ```
 
-You find the job ID using the `squeue`  command as explained in the [SLURM Job Status section](/knowledge/${resource.dir}/run/slurm/status).
+You find the job ID using the `squeue`  command as explained in the [SLURM Job Status section](monitoring_job.md).
+
+[**Back to the Running Jobs section**](index.md)

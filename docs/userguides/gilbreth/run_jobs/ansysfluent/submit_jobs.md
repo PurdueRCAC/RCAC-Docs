@@ -3,6 +3,7 @@ tags:
   - Gilbreth
 authors:
   - jin456
+  - verburgt
 resource: Gilbreth
 search:
   boost: 2
@@ -12,9 +13,7 @@ search:
 
 The Fluent simulations can also run in batch. In this section we provide an example script for submitting Fluent jobs to the SLURM scheduler. Please refer to the  [Running Jobs](/knowledge/${resource.dir}/run) section of our user guide for detailed tutorials of submitting jobs.
 
-```
-
-
+```bash
 #!/bin/bash
 # Job script for submitting a FLUENT job on multiple cores on a single node 
 
@@ -32,7 +31,8 @@ module load ansys/2022R1
 
 #Initiating Fluent and reading input journal file
 fluent 3ddp -t$NTASKS -g -i testJournal.jou
-
 ```
 
 For more information about submitting Fluent jobs, please refer to [Fluent FAQ]( https://www.cfd-online.com/Wiki/Fluent_FAQ) .
+
+[**Back to Ansys Fluent**](../ansysfluent_example.md)

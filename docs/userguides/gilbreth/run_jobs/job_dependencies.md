@@ -3,6 +3,7 @@ tags:
   - Gilbreth
 authors:
   - jin456
+  - verburgt
 resource: Gilbreth
 search:
   boost: 2
@@ -18,35 +19,32 @@ These examples illustrate setting dependencies in several ways. Typically depend
 
 To run a job after job `myjobid` has started:
 
-```
-
+```bash
 sbatch --dependency=after:myjobid myjobsubmissionfile
 ```
 
 To run a job after job `myjobid` ends without error:
 
-```
-
+```bash
 sbatch --dependency=afterok:myjobid myjobsubmissionfile
 ```
 
 To run a job after job `myjobid` ends with errors:
 
-```
-
+```bash
 sbatch --dependency=afternotok:myjobid myjobsubmissionfile
 ```
 
 To run a job after job `myjobid` ends with or without errors:
 
-```
-
+```bash
 sbatch --dependency=afterany:myjobid myjobsubmissionfile
 ```
 
 To set more complex dependencies on multiple jobs and conditions:
 
-```
-
+```bash
 sbatch --dependency=after:myjobid1:myjobid2:myjobid3,afterok:myjobid4 myjobsubmissionfile
 ```
+
+[**Back to the Running Jobs section**](index.md)

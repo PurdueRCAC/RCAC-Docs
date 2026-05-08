@@ -3,6 +3,7 @@ tags:
   - Gilbreth
 authors:
   - jin456
+  - verburgt
 resource: Gilbreth
 search:
   boost: 2
@@ -15,15 +16,12 @@ search:
 If you pay attention to the “Console” window in the Fluent window when setting up and carrying out the calculation, corresponding commands can be found and executed one after another. Almost all the setting processes can be accomplished by the command lines, which is called Fluent Text User Interface (TUI). Here are the main commands in Fluent TUI:
 
 ```
-
-
   adjoint/                parallel/               solve/
   define/                 plot/                   surface/
   display/                preferences/            turbo-workflow/
   exit                    print-license-usage     views/
   file/                   report/
   mesh/                   server/
-
 ```
 
 For example, instead of opening a case by clicking buttons in Ansys Fluent, we can type `/file read-case case_file_name.cas.gz` to open the saved case.
@@ -48,8 +46,6 @@ The order of your journal file commands is **highly important**. The correct seq
 Here is a sample Fluent journal file for the demo case:
 
 ```
-
-
   ;testJournal.jou
   ;Set the TUI version for Fluent
   /file/set-tui-version "22.1"
@@ -65,10 +61,13 @@ Here is a sample Fluent journal file for the demo case:
   /file write-case-data /home/jin456/Fluent_files/tutorial_case1/elbow_files/dp0/FFF/Fluent/result.cas.h5
   ;After computation, exit Flent
   /exit
-
 ```
 
-Before running this Fluent journal file, you need to make sure: 1) the ansys module has been loaded (it’s highly recommended to load the same version of Ansys when you built the case project); 2) the project case file (`***.cas.gz`) has been created.
+Before running this Fluent journal file, you need to make sure: 
+
+1) the ansys module has been loaded (it’s highly recommended to load the same version of Ansys when you built the case project); 
+
+2) the project case file (`***.cas.gz`) has been created.
 
 Then we can use Fluent to run this journal file by simply using:`fluent 3ddp -t$NTASKS -g -i testJournal.jou` in the terminal. Here, `3d` indicates this is a 3d model, `dp` indicates double precision, `-t$NTASKS` tells Fluent how many Solver Processes it will take (e.g. `-t4`), `-g` means to run without the GUI or graphics, `-i` testJournal.jou tells Fluent to read the specific journal file.
 
@@ -107,3 +106,6 @@ Options for Fluent TUI
 | `-tx` | all | Specify the number of processors x |
 
 For more information for Fluent text user interface and journal files, please refer to [Fluent FAQ]( https://www.cfd-online.com/Wiki/Fluent_FAQ).
+
+
+[**Back to Ansys Fluent**](../ansysfluent_example.md)

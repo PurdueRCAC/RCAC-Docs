@@ -3,26 +3,28 @@ tags:
   - Gilbreth
 authors:
   - jin456
+  - verburgt
 resource: Gilbreth
 search:
   boost: 2
 ---
 
-# Parallel Computing Toolbox (parfor)
+# Parallel Computing Toolbox (`parfor`)
 
-The MATLAB *Parallel Computing Toolbox (PCT)* extends the MATLAB language with high-level, parallel-processing features such as parallel for loops, parallel regions, message passing, distributed arrays, and parallel numerical methods. It offers a shared-memory computing environment running on the local cluster profile in addition to your MATLAB client. Moreover, the MATLAB *Distributed Computing Server (DCS)* scales PCT applications up to the limit of your DCS licenses.
+The MATLAB Parallel Computing Toolbox (PCT) extends MATLAB with high-level parallel-processing features such as parallel `for` loops, parallel regions, message passing, distributed arrays, and parallel numerical methods.
 
-This section illustrates the fine-grained parallelism of a parallel for loop (`parfor`) in a *pool job*.
+This example illustrates the fine-grained parallelism of a parallel `for` loop, or `parfor`, in a pool job.
 
-The following examples illustrate a method for submitting a small, parallel, MATLAB program with a parallel loop (`parfor` statement) as a job to a queue. This MATLAB program prints the name of the run host and shows the values of variables `numlabs` and `labindex` for each iteration of the `parfor` loop.
+The examples below show a method for submitting a small parallel MATLAB program with a `parfor` loop as a job to a queue. The MATLAB program prints the name of the run host and shows the values of the variables `numlabs` and `labindex` for each iteration of the `parfor` loop.
 
-This method uses the job submission command to submit a MATLAB client which calls the MATLAB `batch()` function with a [user-defined cluster profile](/knowledge/${resource.dir}/run/examples/apps/matlab/profile_manager).
+This method uses the job submission command to submit a MATLAB client, which calls the MATLAB `batch()` function with a user-defined cluster profile.
 
-Prepare a MATLAB pool program in a MATLAB script with an appropriate filename, here named `myscript.m`:
+## MATLAB `parfor` Script
 
-```
+Prepare a MATLAB pool program in a MATLAB script with an appropriate filename. In this example, the file is named `myscript.m`.
+
+```M
 % FILENAME:  myscript.m
-
 % SERIAL REGION
 [c name] = system('hostname');
 fprintf('SERIAL REGION:  hostname:%s\n', name)
@@ -48,25 +50,33 @@ fprintf('SERIAL REGION:  hostname:%s\n', name)
 fprintf('Elapsed time in parallel loop:   %f\n', elapsed_time)
 ```
 
-The execution of a pool job starts with a worker executing the statements of the first serial region up to the `parfor` block, when it pauses. A set of workers (the pool) executes the `parfor` block. When they finish, the first worker resumes by executing the second serial region. The code displays the names of the compute nodes running the batch session and the worker pool.
+The execution of a pool job starts with a worker executing the statements of the first serial region up to the `parfor` block, where it pauses. A set of workers, called the pool, executes the `parfor` block. When they finish, the first worker resumes by executing the second serial region.
 
-Prepare a MATLAB script that calls MATLAB function `batch()` which makes a four-lab pool on which to run the MATLAB code in the file `myscript.m`. Use an appropriate filename, here named `mylclbatch.m`:
+The code displays the names of the compute nodes running the batch session and the worker pool.
 
-```
+## MATLAB Batch Script
+
+Prepare a MATLAB script that calls the MATLAB `batch()` function. This creates a four-lab pool on which to run the MATLAB code in `myscript.m`.
+
+In this example, the file is named `mylclbatch.m`.
+
+```M
 % FILENAME:  mylclbatch.m
 
 !echo "mylclbatch.m"
 !hostname
 
-pjob=batch('myscript','Profile','my${resource.batchsystem}profile','Pool',4,'CaptureDiary',true);
+pjob=batch('myscript','Profile','myslurmprofile','Pool',4,'CaptureDiary',true);
 wait(pjob);
 diary(pjob);
 quit;
 ```
 
-Prepare a job submission file with an appropriate filename, here named `myjob.sub`:
+## SLURM Job Submission File
 
-```
+Prepare a job submission file with an appropriate filename. In this example, the file is named `myjob.sub`.
+
+```bash
 #!/bin/bash
 # FILENAME:  myjob.sub
 
@@ -74,27 +84,26 @@ echo "myjob.sub"
 hostname
 
 module load matlab
-{::if resource.batchsystem == pbs}
-cd $PBS_O_WORKDIR
-{::/}
+
 unset DISPLAY
 
 matlab -nodisplay -r mylclbatch
 ```
 
-[Submit the job](/knowledge/${resource.hostname}/run/${resource.batchsystem}/submit) as a single compute node with one processor core.
+## Submit the Job
+
+Submit the job as a single compute node with one processor core.
 
 One processor core runs `myjob.sub` and `mylclbatch.m`.
 
-Once this job starts, a second job submission is made.
+Once this job starts, a second job submission is made by MATLAB through the configured SLURM cluster profile.
 
-[View job status](/knowledge/${resource.hostname}/run/${resource.batchsystem}/status)
+## Example Output
 
-[View results of the job](/knowledge/${resource.hostname}/run/${resource.batchsystem}/output)
+The output may look similar to this:
 
-```
+```text
 myjob.sub
-
                             < M A T L A B (R) >
                   Copyright 1984-2013 The MathWorks, Inc.
                     R2013a (8.1.0.604) 64-bit (glnxa64)
@@ -103,29 +112,35 @@ myjob.sub
 To get started, type one of these: helpwin, helpdesk, or demo.
 For product information, visit www.mathworks.com.
 
-mylclbatch.m{::if resource.nodashnames == true}a000.${resource.hostname}{::else}${resource.hostname}-a000{::/}.rcac.purdue.edu
-SERIAL REGION:  hostname:{::if resource.nodashnames == true}a000.${resource.hostname}{::else}${resource.hostname}-a000{::/}.rcac.purdue.edu
-
+mylclbatch.mgilbreth-a000.rcac.purdue.edu
+SERIAL REGION:  hostname:gilbreth-a000.rcac.purdue.edu
                 hostname                         numlabs  labindex  iteration
                 -------------------------------  -------  --------  ---------
-PARALLEL LOOP:  {::if resource.nodashnames == true}a001.${resource.hostname}{::else}${resource.hostname}-a001{::/}.rcac.purdue.edu           4         1          2
-PARALLEL LOOP:  {::if resource.nodashnames == true}a002.${resource.hostname}{::else}${resource.hostname}-a002{::/}.rcac.purdue.edu           4         1          4
-PARALLEL LOOP:  {::if resource.nodashnames == true}a001.${resource.hostname}{::else}${resource.hostname}-a001{::/}.rcac.purdue.edu           4         1          5
-PARALLEL LOOP:  {::if resource.nodashnames == true}a002.${resource.hostname}{::else}${resource.hostname}-a002{::/}.rcac.purdue.edu           4         1          6
-PARALLEL LOOP:  {::if resource.nodashnames == true}a003.${resource.hostname}{::else}${resource.hostname}-a003{::/}.rcac.purdue.edu           4         1          1
-PARALLEL LOOP:  {::if resource.nodashnames == true}a003.${resource.hostname}{::else}${resource.hostname}-a003{::/}.rcac.purdue.edu           4         1          3
-PARALLEL LOOP:  {::if resource.nodashnames == true}a004.${resource.hostname}{::else}${resource.hostname}-a004{::/}.rcac.purdue.edu           4         1          7
-PARALLEL LOOP:  {::if resource.nodashnames == true}a004.${resource.hostname}{::else}${resource.hostname}-a004{::/}.rcac.purdue.edu           4         1          8
-
-SERIAL REGION:  hostname:{::if resource.nodashnames == true}a001.${resource.hostname}{::else}${resource.hostname}-a001{::/}.rcac.purdue.edu
+PARALLEL LOOP:  gilbreth-a001.rcac.purdue.edu           4         1          2
+PARALLEL LOOP:  gilbreth-a002.rcac.purdue.edu           4         1          4
+PARALLEL LOOP:  gilbreth-a001.rcac.purdue.edu           4         1          5
+PARALLEL LOOP:  gilbreth-a002.rcac.purdue.edu           4         1          6
+PARALLEL LOOP:  gilbreth-a003.rcac.purdue.edu           4         1          1
+PARALLEL LOOP:  gilbreth-a003.rcac.purdue.edu           4         1          3
+PARALLEL LOOP:  gilbreth-a004.rcac.purdue.edu           4         1          7
+PARALLEL LOOP:  gilbreth-a004.rcac.purdue.edu           4         1          8
+SERIAL REGION:  hostname:gilbreth-a001.rcac.purdue.edu
 
 Elapsed time in parallel loop:   5.411486
 ```
 
-To scale up this method to handle a real application, increase the wall time in the [submission](/knowledge/${resource.hostname}/run/${resource.batchsystem}/submit) command to accommodate a longer running job. Secondly, increase the wall time of `my${resource.batchsystem}profile` by using the [Cluster Profile Manager](/knowledge/${resource.dir}/run/examples/apps/matlab/profile_manager) in the `Parallel` menu to enter a new wall time in the property `SubmitArguments`.
+## Scaling Up
 
-For more information about MATLAB Parallel Computing Toolbox:
+To scale this method for a real application:
 
-* [MathWorks MATLAB Parallel Computing Toolbox User's Guide](http://www.mathworks.com/help/distcomp/index.html)
-* [MathWorks MATLAB Distributed Computing Server User's Guide](http://www.mathworks.com/help/mdce/index.html)
-* [MathWorks Website](http://www.mathworks.com/)
+1. Increase the wall time in the SLURM submission command to accommodate a longer-running job.
+2. Increase the wall time of `myslurmprofile` by using the MATLAB Cluster Profile Manager.
+3. In the Cluster Profile Manager, use the `Parallel` menu to enter a new wall time in the `SubmitArguments` property.
+
+## Additional Resources
+
+- [MathWorks MATLAB Parallel Computing Toolbox User's Guide](https://www.mathworks.com/help/parallel-computing/)
+- [MathWorks MATLAB Parallel Server Documentation](https://www.mathworks.com/help/matlab-parallel-server/)
+- [MathWorks Website](https://www.mathworks.com/)
+
+[**Back to Matlab**](../matlab_example.md)

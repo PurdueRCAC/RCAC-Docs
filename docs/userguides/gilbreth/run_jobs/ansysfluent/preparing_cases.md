@@ -3,6 +3,7 @@ tags:
   - Gilbreth
 authors:
   - jin456
+  - verburgt
 resource: Gilbreth
 search:
   boost: 2
@@ -14,7 +15,7 @@ search:
 
 In the Ansys Workbench, create a new fluid flow analysis by double-clicking the Fluid Flow (Fluent) option under the Analysis Systems in the Toolbox on the left panel. You can also drag-and-drop the analysis system into the Project Schematic. A green dotted outline indicating a potential location for the new system initially appears in the Project Schematic. When you drag the system to one of the outlines, it turns into a red box to indicate the chosen location of the new system.
 
-![Ansys Workbench GUI](/knowledge/run/examples/apps/ansys/1-Ansys Workbench GUI and the Fluid Flow system for Fluent.png)
+![Ansys Workbench GUI](../../../../assets/images/userguides/gilbreth/ansys/1-Ansys Workbench GUI and the Fluid Flow system for Fluent.png)
 
 Ansys Workbench GUI and the Fluid Flow system for Fluent.
 
@@ -22,7 +23,7 @@ The red rectangle indicates the Fluid Flow system for Fluent, which includes all
 
 It is important to save the project. Ansys Workbench saves the project with a `.wbpj` extension and also all the supporting files into a folder with the same name. In this case, a file named `elbow_demo.wbpj` and a folder `$Ansys_PROJECT_FOLDER/elbow_demo_files/` are created in the Ansys project folder:
 
-```
+```bash
 $ ll
 total 33
 drwxr-xr-x 7  ${user.username} itap     9 Mar  3 17:47 elbow_demo_files
@@ -37,7 +38,7 @@ Create a geometry in the Ansys DesignModeler (by double-clicking “Geometry” 
 
 You can use Ansys DesignModeler to create 2D/3D geometries or even draw the objects yourself. In our example, we created only half of the elbow pipe because the symmetry of the structure is taken into account to reduce the computation intensity.
 
-![DesignModeler](/knowledge/run/examples/apps/ansys/2-Elbow pipe created in Ansys DesignModeler.png)
+![DesignModeler](../../../../assets/images/userguides/gilbreth/ansys/2-Elbow pipe created in Ansys DesignModeler.png)
 
 Elbow pipe created in Ansys DesignModeler.
 
@@ -51,7 +52,7 @@ Now that we have created the elbow pipe geometry, a computational mesh can be ge
 
 With the successful creation of the geometry, there should be a green check showing the completion of “Geometry” in the Ansys Workbench. A Refresh Required icon within the “Mesh” cell indicates the mesh needs to be updated and refreshed for the system.
 
-![AnsysWorkbenchCells](/knowledge/run/examples/apps/ansys/3-Status for different cells shown in Ansys Workbench.png)
+![AnsysWorkbenchCells](../../../../assets/images/userguides/gilbreth/ansys/3-Status for different cells shown in Ansys Workbench.png)
 
 Status for different cells shown in Ansys Workbench.
 
@@ -118,3 +119,5 @@ Parameters used in demo case (use default if not assigned):
 7. Report: plot residual and “Facet Maximum” for “pressure-outlet”
 8. Hybrid Initialization;
 9. 300 iterations.
+
+[**Back to Ansys Fluent**](../ansysfluent_example.md)

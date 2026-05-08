@@ -3,6 +3,7 @@ tags:
   - Gilbreth
 authors:
   - jin456
+  - verburgt
 resource: Gilbreth
 search:
   boost: 2
@@ -10,48 +11,27 @@ search:
 
 # Slurm accounts, partitions, and QOS options
 
-[**Back to the Running Jobs section**](index.md)
-
 ## Queues
-On Gilbreth, the required options for job submission deviates from some of the other community clusters you might have experience using. In general every job submission will have four parts: “`sbatch --ntasks=1 --gpus-per-task=1 --cores-per-task=4 --mem=50G --partition=a100-40gb --account=rcac --qos=standby`”
+On Gilbreth, the required options for job submission deviates from some of the other community clusters you might have experience using. In general every job submission will have four parts:
 
-1. The number and type of resources you want (`--ntasks=1 --cores-per-task=4 --gpus-per-task=1 --mem=50G`)
-2. The partition where the resources are located (`--partition=a100-40gb`)
-3. The account the resources should come out of ( `--account=rcac`)
-4. The quality of service (QOS) this job expects from the resources (`--qos=standby`)
+- The number and type of resources you want 
+- The account the resources should come out of
+- The quality of service (QOS) this job expects from the resources
+- The partition where the resources are located
 
-Table Summary of Changes
+<!-- Table Summary of Changes
 
 | Use Case | Old Syntax | New Syntax |
 | --- | --- | --- |
 | Submit a job to your group's account | `sbatch -A mygroup --gres=gpu:1` | `sbatch -A mygroup -p a100-40gb --mem=50G --gres=gpu:1` |
 | Submit a standby job | `sbatch -A standby --gres=gpu:1` | `sbatch -A mygroup -p a100-40gb -q standby --mem=50G --gres=gpu:1` |
-| Submit a training job | `sbatch -A training --gres=gpu:4` | `sbatch -A mygroup -p training -q training --mem=50G --gres=gpu:4` |
+| Submit a training job | `sbatch -A training --gres=gpu:4` | `sbatch -A mygroup -p training -q training --mem=50G --gres=gpu:4` | -->
 
 If you have used other clusters, you will be familiar with first item. If you have not, you can read about how to format the request  on our job submission page. The rest of this page will focus on the last three items as they are specific to Gilbreth.
 
 ## Partitions
 
 On Gilbreth, the various types of nodes on the cluster are organized into distinct partitions. This allows jobs to different node types to be charged separately and differently. This also means that Instead of only needing to specify the account name in the job script, the desired partition must also be specified. Each of these partitions is subject to different limitations and has a specific use case that will be described below.  
-
-### V100 Partition
-
-This partition contains the resources a group purchases access to when they purchase V100 GPUs on Gilbreth and is made up of 14 Gilbreth-E nodes and 5 Gilbreth-F nodes. Each of these nodes contains NVIDIA V100 GPUs each with 16GB and 32GB of memory respectively, and they both have 190GB of CPU memory. Submission to this partition can be accomplished by using the option: `-p v100`or `--partition=v100`. If you know that your job requires more than 16 GB of GPU memory, make sure that you specify the `--constraint=v100-32gb` to ensure your job lands on the Gilbreth-F nodes.
-
-The purchasing model for this partition allows groups to purchase high priority access to these GPUs. When an account uses resources in this account by submitting a job tagged with the `normal` QOS, which is the default QOS, the GPUs used by that job are withdrawn from the account and deposited back into the account when the job terminates.
-
-When using the A100 partition, jobs are tagged by the `normal` QOS by default, but they can be tagged with the `standby` QOS if explicitly submitted using the `-q standby` or `--qos=standby` option.
-
-1. Jobs tagged with the `normal` QOS are subject to the following policies:
-    1. Jobs have a high priority and should not need to wait very long before starting.
-    2. Any GPUs requested by these jobs are withdrawn from the account until the job terminates.
-    3. These jobs can run for up to two weeks at a time.
-2. Jobs tagged with the `standby` QOS are subject to the following policies:
-    1. Jobs have a low priority and there is no expectation of job start time. If the partition is very busy with jobs using the `normal` QOS or if you are requesting a job requesting many GPUs, then jobs using the `standby` QOS may take hours or days to start.
-    2. These jobs can use idle resources on the cluster and as such GPUs requested by these jobs are not withdrawn from the account to which they were submitted.
-    3. These jobs can run for up to four hours at a time.
-
-Available QOSes: `normal`, `standby`
 
 ### A10 Partition
 

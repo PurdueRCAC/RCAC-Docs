@@ -3,6 +3,7 @@ tags:
   - Gilbreth
 authors:
   - jin456
+  - verburgt
 resource: Gilbreth
 search:
   boost: 2
@@ -16,7 +17,7 @@ Now all the files are ready for the Fluent calculations. Both “Geometry” and
 
 Ansys Fluent Launcher can be started by selecting “editing” on the “Setup” cell with many startup options (e.g. Precision, Parallel, Display). Note that “Dimension” is fixed to “3D” because we are using a 3D model in this project.
 
-![Ansys Fluent Launcher options](/knowledge/run/examples/apps/ansys/4-Ansys Fluent Launcher options.png)
+![Ansys Fluent Launcher options](../../../../assets/images/userguides/gilbreth/ansys/4-Ansys Fluent Launcher options.png)
 
 Ansys Fluent Launcher options.
 
@@ -58,6 +59,8 @@ Parameters used in demo case (use default if not assigned):
 
 The best methods to view and analyze the simulation should be the Ansys Fluent (directly after computation) or the Ansys CFD-Post (entering “Results” in Ansys Workbench). Both methods are straightforward so we will not cover this part in this tutorial. Here is a final simulation result showing the temperature of the symmetry after 300 iterations for reference:
 
-![Simulated temperature](/knowledge/run/examples/apps/ansys/5-Simulated temperature profile of the symmetry.png)
+![Simulated temperature](../../../../assets/images/userguides/gilbreth/ansys/5-Simulated temperature profile of the symmetry.png)
 
 Simulated temperature profile of the symmetry.
+
+[**Back to Ansys Fluent**](../ansysfluent_example.md)
