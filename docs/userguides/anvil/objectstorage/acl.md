@@ -17,7 +17,7 @@ draft: false
 The `mykeys` tool is available on Anvil login nodes to retrieve your S3 credentials for Anvil Object Storage. This tool fetches your unique access key and secret key from the RCAC S3 Key service.
 
 !!! note "Prerequisites"
-    You must reach out to RCAC first to enable your Anvil Object Storage access.
+    You must [request access to Anvil Object Storage](access.md) before you can retrieve your S3 credentials.
 
 #### Usage
 
