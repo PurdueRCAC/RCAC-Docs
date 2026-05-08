@@ -71,7 +71,7 @@ Ceph Object Storage \ (Ceph)
 
 #### 4. Enter credentials
 
-Provide **Access Key ID** and **Secret Access Key** These are provided by RCAC team when your object storage account is created.
+Provide **Access Key ID** and **Secret Access Key**. Retrieve these by running the `mykeys` command on any Anvil login node (see [Security and Access Control](acl.md)).
 
 ---
 
@@ -195,7 +195,7 @@ s3cmd --configure
 
 #### 3. Enter credentials
 
-Provide the following when prompted: **Access Key** and **Secret Key**. These are provided by the RCAC team when your object storage account is created.
+Provide the following when prompted: **Access Key** and **Secret Key**. Retrieve these by running the `mykeys` command on any Anvil login node (see [Security and Access Control](acl.md)).
 
 ---
 
