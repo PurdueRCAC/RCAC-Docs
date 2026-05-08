@@ -17,7 +17,11 @@ authors:
 draft: false
 ---
 
-The purpose of this article is to provide a deep-dive into how Slurm assigns priority to the jobs it is scheduling. The design space for such a scheduler is very large and so there are many options that Slurm provides to accommodate a variety of different clusters/policies. I will explain the majority of the settings that are available and all of them which we use. Our goal in designing the scheduler is to create something which is fair and reliable, and as in cryptography, the best way to create a secure and robust system is not to keep its machinations a secret, but to open it up to scrutiny from the community. I will provide you the tools needed to understand what is going on, and give you the commands you can use to inspect the system yourself. 
+The purpose of this article is to provide a deep-dive into how Slurm assigns priority to the jobs it is scheduling. The design space for such a scheduler is very large and so there are many options that Slurm provides to accommodate a variety of different clusters/policies. 
+
+<!-- more -->
+
+I will explain the majority of the settings that are available and all of them which we use. Our goal in designing the scheduler is to create something which is fair and reliable, and as in cryptography, the best way to create a secure and robust system is not to keep its machinations a secret, but to open it up to scrutiny from the community. I will provide you the tools needed to understand what is going on, and give you the commands you can use to inspect the system yourself. 
 
 # How Does Slurm Schedule?
 
