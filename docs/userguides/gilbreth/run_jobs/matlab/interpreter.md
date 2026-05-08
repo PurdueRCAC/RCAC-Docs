@@ -3,6 +3,7 @@ tags:
   - Gilbreth
 authors:
   - jin456
+  - verburgt
 resource: Gilbreth
 search:
   boost: 2
@@ -14,7 +15,7 @@ This section illustrates how to submit a small, serial, MATLAB program as a job 
 
 Prepare a MATLAB script `myscript.m`, and a MATLAB function file `myfunction.m`:
 
-```
+```M
 % FILENAME:  myscript.m
 
 % Display name of compute node which ran this job.
@@ -28,7 +29,7 @@ fprintf('%f %f %f\n', A);
 quit;
 ```
 
-```
+```M
 % FILENAME:  myfunction.m
 
 function result = myfunction ()
@@ -47,7 +48,7 @@ end
 
 Also, prepare a job submission file, here named `myjob.sub`. Run with the name of the script:
 
-```
+```bash
 #!/bin/bash
 # FILENAME:  myjob.sub
 
@@ -55,9 +56,7 @@ echo "myjob.sub"
 
 # Load module, and set up environment for Matlab to run
 module load matlab
-{::if resource.batchsystem == pbs}
-cd $PBS_O_WORKDIR
-{::/}
+
 unset DISPLAY
 
 # -nodisplay:        run MATLAB in text mode; X11 server not needed
@@ -67,13 +66,13 @@ unset DISPLAY
 matlab -nodisplay -singleCompThread -r myscript
 ```
 
-[Submit the job](/knowledge/${resource.hostname}/run/${resource.batchsystem}/submit)
+[Submit the job](../submit_script.md)
 
-[View job status](/knowledge/${resource.hostname}/run/${resource.batchsystem}/status)
+[View job status](../monitoring_job.md)
 
-[View results of the job](/knowledge/${resource.hostname}/run/${resource.batchsystem}/output)
+[View results of the job](../checking_output.md)
 
-```
+```bash
 myjob.sub
 
                             < M A T L A B (R) >
@@ -96,3 +95,5 @@ For more information about MATLAB:
 * [Run a Batch Job](http://www.mathworks.com/help/distcomp/introduction-to-parallel-solutions.html#brjw1fx-2)
 * [Archived MathWorks Documentation](http://www.mathworks.com/help/doc-archives.html)
 * [MathWorks Website](http://www.mathworks.com/)
+
+[**Back to Matlab**](../matlab_example.md)

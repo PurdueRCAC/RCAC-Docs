@@ -3,6 +3,7 @@ tags:
   - Gilbreth
 authors:
   - jin456
+  - verburgt
 resource: Gilbreth
 search:
   boost: 2
@@ -10,7 +11,7 @@ search:
 
 # Checking Job Output
 
-Once a job is [submitted](/knowledge/${resource.dir}/run/slurm/submit), and has started, it will write its standard output and standard error to files that you can read.
+Once a job is [submitted](submit_script.md), and has started, it will write its standard output and standard error to files that you can read.
 
 SLURM catches output written to standard output and standard error - what would be printed to your screen if you ran your program interactively. Unless you specfied otherwise, SLURM will put the output in the directory where you submitted the job in a file named `slurm-` followed by the `job id`, with the extension `out`. For example `slurm-3509.out`. Note that both stdout and stderr will be written into the same file, unless you specify otherwise.
 
@@ -20,7 +21,7 @@ If your program writes its own output files, those files will be created as defi
 
 It is possible to redirect job output to somewhere other than the default location with the `--error` and `--output` directives:
 
-```
+```bash
 #!/bin/bash
 #SBATCH --output=/home/${user.username}/joboutput/myjob.out
 #SBATCH --error=/home/${user.username}/joboutput/myjob.out
@@ -28,3 +29,5 @@ It is possible to redirect job output to somewhere other than the default locati
 # This job prints "Hello World" to output and exits
 echo "Hello World"
 ```
+
+[**Back to the Running Jobs section**](index.md)

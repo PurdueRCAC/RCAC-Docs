@@ -10,12 +10,17 @@ search:
 
 # Simple Job
 
-Every SLURM job consists of a job submission file. A job submission file contains a list of commands that run your program and a set of resource (nodes, walltime, queue) requests. The resource requests can appear in the [job submission file](/knowledge/${resource.hostname}/run/examples/slurm/directives) or can be specified at submit-time as shown below.
+Every SLURM job consists of a job submission file. A job submission file contains a list of commands that run your program and a set of resource requests, such as nodes, walltime, and queue/account requests.
 
-This simple example submits the job submission file `hello.sub` to the `${resource.queue}` queue on Gilbreth and requests a single node:
+The resource requests can appear in the [job submission file](submit_script.md), or they can be specified at submit time.
 
-```
+This simple example submits the job submission file `hello.sub` to the `standby` queue on Gilbreth and requests a single node.
 
+## Example Job Submission File
+
+Create a file named `hello.sub`:
+
+```bash
 #!/bin/bash
 # FILENAME: hello.sub
 
@@ -25,74 +30,60 @@ hostname
 echo "Hello World"
 ```
 
-{::if resource.qsub\_needs\_gpu == 1}
+On Gilbreth, specifying the number of GPUs requested per node is required.
 
-On Gilbreth, **specifying the number of GPUs requested per node is required.**
+## Submit the Job
 
-{::if resource.name == Gautschi}
+Submit the job with `sbatch`:
 
+```bash
+sbatch -A standby --nodes=1 --ntasks=1 --cpus-per-task=1 --gpus-per-node=1 --time=00:01:00 hello.sub
 ```
 
-sbatch -A myallocation -p queue-name --nodes=1 --ntasks=1 --cpus-per-task=1 --gpus-per-node=1 --time=00:01:00 hello.sub 
+Example output:
+
+```text
 Submitted batch job 3521
 ```
 
-{::else}
+For a real job, you would replace:
 
+```bash
+echo "Hello World"
 ```
 
-sbatch -A ${resource.queue} --nodes=1 --ntasks=1 --cpus-per-task=1 --gpus-per-node=1 --time=00:01:00 hello.sub 
-Submitted batch job 3521
-```
+with a command, or sequence of commands, that runs your program.
 
-{::/}
+## Check the Output File
 
-{::else}
+After your job finishes running, the `ls` command will show a new `.out` file in your directory:
 
-{::if resource.name == Gautschi}
-
-```
-
-sbatch -A myallocation -p queue-name --nodes=1 --ntasks=1 --cpus-per-task=1 --time=00:01:00 hello.sub 
-Submitted batch job 3521
-```
-
-{::else}
-
-```
-
-sbatch -A ${resource.queue} --nodes=1 --ntasks=1 --cpus-per-task=1 --time=00:01:00 hello.sub 
-Submitted batch job 3521
-```
-
-{::/}
-
-{::/}
-
-For a real job you would replace `echo "Hello World"` with a command, or sequence of commands, that run your program.
-
-After your job finishes running, the `ls` command will show a new file in your directory, the `.out` file:
-
-```
-
+```bash
 ls -l
+```
+
+Example output:
+
+```text
 hello.sub
 slurm-3521.out
 ```
 
-The file `slurm-3521.out` contains the output and errors your program would have written to the screen if you had typed its commands at a command prompt:
+The file `slurm-3521.out` contains the output and errors your program would have written to the screen if you had typed its commands at a command prompt.
 
+View the output file with:
+
+```bash
+cat slurm-3521.out
 ```
 
-cat slurm-3521.out 
-{::if resource.name != Weber}
-{::if resource.nodashnames == true}
-a001.${resource.hostname}{::else}
-${resource.hostname}-a001{::/}.rcac.purdue.edu
-{::else}
-${resource.hostname}.rcac.purdue.edu
-{::/}
+Example output:
+
+```text
+gilbreth-a001.rcac.purdue.edu
 Hello World
 ```
 
-You should see the hostname of the compute node your job was executed on. Following should be the "Hello World" statement.
+You should see the hostname of the compute node your job was executed on, followed by the `Hello World` statement.
+
+[**Back to the Example Jobs section**](generic_slurm_jobs.md)
