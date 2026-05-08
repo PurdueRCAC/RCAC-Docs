@@ -25,3 +25,5 @@ With her husband Frank, Professor Gilbreth developed a new way of performing tim
 After Frank Gilbreth’s death in 1924, Professor Gilbreth succeeded him as a visiting lecturer at Purdue. In 1935, she became a professor of management in Purdue’s School of Mechanical Engineering. She was the first female engineering professor at Purdue and, by some accounts, the first female engineering professor in the country. She was promoted to full professor in 1940 and remained at Purdue until her retirement in 1948.
 
 Purdue Libraries’ Archives and Special Collections is home to the books, working papers and family archives of Lillian and Frank Gilbreth. Researchers from around the world visit every year to study the Gilbreths’ papers.
+
+[Back](./index.md)
