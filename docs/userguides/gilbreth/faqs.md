@@ -83,3 +83,6 @@ Users who have access to **Gilbreth** can use **ThinLinc** to launch an interac
 ### Jupyter:  database is locked / can not load notebook format
 
 --8<-- "docs/snippets/jupyter_lock.md"
+
+
+[Back](./index.md)

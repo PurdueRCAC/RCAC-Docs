@@ -26,3 +26,5 @@ search:
 ## Purchasing Nodes
 
 --8<-- "docs/snippets/purchase_nodes.md"
+
+[Back](./index.md)

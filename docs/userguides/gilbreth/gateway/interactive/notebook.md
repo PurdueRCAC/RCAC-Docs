@@ -27,3 +27,5 @@ Once it is indicated the job has started you can connect to the desktop with the
 Often times you may want to use one of your existing Anaconda environments within your Jupyter session to use libraries specific to your workflow. In order to do so, you must ensure that the Anaconda environment you want to use contains the Python packages "IPyKernel" and "IPython" which are packages that are required by Jupyter. When you create a Jupyter session, Open OnDemand will check through your existing Anaconda environments and create a Jupyter kernel for any Anaconda environment that contains these two packages, and you will be able to select to use that kernel from within the application.
 
 The session will be terminated after the number of hours you specified have elapsed or you terminate the session early with the "Delete" button from the list of sessions. Deleting the session when you are finished will free up queue resources for your lab mates and other users on the system.
+
+[Back to Interactive Apps](../interactive_apps.md)
