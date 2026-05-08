@@ -22,7 +22,7 @@ Your subscription in the Gilbreth mailing list is tied to your access on Gilbret
  ### How is Gilbreth different than other Community Clusters?
 Gilbreth differs from the previous Community Clusters in many significant aspects:
 
-- Gautschi is a 
+- Gilbreth is a 
 
 Learn more from [Gilbreth overview](./overview.md).
 

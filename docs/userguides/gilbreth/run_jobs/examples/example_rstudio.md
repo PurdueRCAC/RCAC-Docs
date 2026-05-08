@@ -27,7 +27,7 @@ Note that RStudio is a graphical program and in order to run it you must have a 
 
 ## Launch Rstudio via the application menu icon:
 
-- Log into desktop.gautschi.rcac.purdue.edu with web browser or [ThinLinc](../../accounts.md#thinlinc) client
+- Log into desktop.gilbreth.rcac.purdue.edu with web browser or [ThinLinc](../../accounts.md#thinlinc) client
 - Click on the ```Applications``` drop down menu on the top left corner
 - Choose ```Cluster Software``` and then ```RStudio```
 
