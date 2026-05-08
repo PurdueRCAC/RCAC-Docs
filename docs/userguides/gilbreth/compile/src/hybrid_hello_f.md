@@ -1,9 +1,9 @@
 ---
 tags:
-  - Gautschi
+  - Gilbreth
 authors:
   - jin456
-resource: Gautschi
+resource: Gilbreth
 ---
 
 # hybrid_hello.f

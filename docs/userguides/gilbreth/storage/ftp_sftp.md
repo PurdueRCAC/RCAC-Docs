@@ -10,72 +10,71 @@ search:
 
 # FTP / SFTP
 
-FTP is not supported on any research systems because it does not allow for secure transmission of data. Use SFTP instead, as described below.
+!!!warning
+    FTP is not supported on any research systems because it does not allow for secure transmission of data. Use SFTP instead, as described below.
 
-*SFTP* (Secure File Transfer Protocol) is a reliable way of transferring files between two machines. SFTP is available as a protocol choice in some graphical file transfer programs and also as a command-line program on most Linux, Unix, and Mac OS X systems. SFTP has more features than SCP and allows for other operations on remote files, remote directory listing, and resuming interrupted transfers. Command-line SFTP cannot recursively copy directory contents; to do so, try using SCP or graphical SFTP client.
+SFTP (Secure File Transfer Protocol) is a reliable way of transferring files between two machines. SFTP is available as a protocol choice in some graphical file transfer programs and also as a command-line program on most Linux, Unix, and Mac OS X systems. SFTP has more features than SCP and allows for other operations on remote files, remote directory listing, and resuming interrupted transfers. Command-line SFTP cannot recursively copy directory contents; to do so, try using SCP or graphical SFTP client.
 
-{::if resource.hostname == data}
+!!!note
+    After Aug 17, 2020, the community clusters will not support password-based authentication for login. Methods that can be used include two-factor authentication (Purdue Login) or SSH keys. If you do not have SSH keys installed, you would need to type your Purdue Login response into the SFTP's "Password" prompt.
 
-After Aug 17, 2020, the community clusters will not support password-based authentication for login. Methods that can be used include two-factor authentication (Purdue Login) or SSH keys. If you do not have SSH keys installed, you would need to type your Purdue Login response into the SFTP's "Password" prompt.
+## Command-line usage
 
-{::else}
+You can transfer files both to and from Gilbreth while initiating an SFTP session on either some other computer or on Gilbreth (in other words, directionality of connection and directionality of data flow are independent from each other). Once the connection is established, you use ```put``` or ```get``` subcommands between "local" and "remote" computers. Either Gilbreth or another computer can be a remote.
 
-After Aug 17, 2020, the community clusters will not support password-based authentication for login. Methods that can be used include two-factor authentication ([Purdue Login](/knowledge/${resource.hostname}/accounts/login/purdue_login)) or [SSH keys](/knowledge/${resource.hostname}/accounts/login/sshkeys). If you do not have SSH keys installed, you would need to type your Purdue Login response into the SFTP's "Password" prompt.
+Example: Initiating SFTP session on some other computer (i.e. you are on another computer, connecting to Gilbreth):
 
-{::/}
+```bash
+$ sftp myusername@gilbreth.rcac.purdue.edu
 
-### Command-line usage
+      # (transfer TO Gilbreth)
+sftp> put sourcefile somedir/destinationfile
+sftp> put -P sourcefile somedir/
 
-You can transfer files both to and from Gilbreth while initiating an SFTP session on either some other computer or on Gilbreth (in other words, directionality of connection and directionality of data flow are independent from each other). Once the connection is established, you use `put` or `get` subcommands between "local" and "remote" computers. Either Gilbreth or another computer can be a remote.
+      # (transfer FROM Gilbreth)
+sftp> get sourcefile somedir/destinationfile
+sftp> get -P sourcefile somedir/
 
-* **Example:** Initiating SFTP session on some other computer (i.e. you are on another computer, connecting to Gilbreth):
+sftp> exit
+```
 
-  ```
-  $ sftp ${user.username}@${resource.hostname}.rcac.purdue.edu
+The **-P** flag is optional. When used, it will cause the transfer to preserve file attributes and permissions.
 
-        (transfer TO Gilbreth)
-  sftp> put sourcefile somedir/destinationfile
-  sftp> put -P sourcefile somedir/
+Example: Initiating SFTP session on Gilbreth (i.e. you are on Gilbreth, connecting to some other computer):
 
-        (transfer FROM Gilbreth)
-  sftp> get sourcefile somedir/destinationfile
-  sftp> get -P sourcefile somedir/
+```bash
+$ sftp myusername@$another.computer.example.com
 
-  sftp> exit
-  ```
+      # (transfer TO Gilbreth)
+sftp> get sourcefile somedir/destinationfile
+sftp> get -P sourcefile somedir/
 
-  The **-P** flag is optional. When used, it will cause the transfer to preserve file attributes and permissions.
-* **Example:** Initiating SFTP session on Gilbreth (i.e. you are on Gilbreth, connecting to some other computer):
+      # (transfer FROM Gilbreth)
+sftp> put sourcefile somedir/destinationfile
+sftp> put -P sourcefile somedir/
 
-  ```
-  $ sftp ${user.username}@$another.computer.example.com
+sftp> exit
+```
 
-        (transfer TO Gilbreth)
-  sftp> get sourcefile somedir/destinationfile
-  sftp> get -P sourcefile somedir/
+The **-P** flag is optional. When used, it will cause the transfer to preserve file attributes and permissions.
 
-        (transfer FROM Gilbreth)
-  sftp> put sourcefile somedir/destinationfile
-  sftp> put -P sourcefile somedir/
+## Software (SFTP Clients)
 
-  sftp> exit
-  ```
+### Linux and other Unix-like systems:
 
-  The **-P** flag is optional. When used, it will cause the transfer to preserve file attributes and permissions.
+The ```sftp``` command-line program should already be installed.
 
-### Software (SFTP clients)
+### Microsoft Windows
 
-Linux and other Unix-like systems:
+[MobaXterm](https://mobaxterm.mobatek.net/download.html)
+Free, full-featured, graphical Windows SSH, SCP, and SFTP client.
 
-* The `sftp` command-line program should already be installed.
+Command-line ```sftp``` program can be installed as part of Windows Subsystem for Linux (WSL), or Git-Bash.
 
-Microsoft Windows:
+### Mac OS
 
-* [MobaXterm](https://mobaxterm.mobatek.net/download.html)  
-  Free, full-featured, graphical Windows SSH, SCP, and SFTP client.
-* Command-line `sftp` program can be installed as part of Windows Subsystem for Linux (WSL), or Git-Bash.
+The ```sftp``` command-line program should already be installed. You may start a local terminal window from "Applications->Utilities".
 
-Mac OS X:
+[Cyberduck](https://cyberduck.io/) is a full-featured and free graphical SFTP and SCP client.
 
-* The `sftp` command-line program should already be installed. You may start a local terminal window from "Applications->Utilities".
-* [Cyberduck](https://cyberduck.io/) is a full-featured and free graphical SFTP and SCP client.
+[**Back to the Storage section**](../storage.md)

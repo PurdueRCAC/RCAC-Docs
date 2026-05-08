@@ -28,7 +28,7 @@ Apptainer is like Docker but tuned explicitly for HPC clusters. More information
 Apptainer’s user guide is available at: [https://apptainer.org/docs/user/main/introduction.html](https://apptainer.org/docs/user/main/introduction.html)
 
 ## Example
-Here is an example using an Ubuntu 16.04 image on Gautschi:
+Here is an example using an Ubuntu 16.04 image on Gilbreth:
 
 ```bash
 apptainer exec /depot/itap/singularity/ubuntu1604.img cat /etc/lsb-release
@@ -77,7 +77,7 @@ apptainer --version
 apptainer version 1.3.3-1.el9
 ```
 
-Everything you need on how to [build a container](https://apptainer.org/docs/user/main/build_a_container.html) is available from their user guide. Below are merely some quick tips for getting your own containers built for Gautschi.
+Everything you need on how to [build a container](https://apptainer.org/docs/user/main/build_a_container.html) is available from their user guide. Below are merely some quick tips for getting your own containers built for Gilbreth.
 
 You can use a [Definition File](https://apptainer.org/docs/user/main/definition_files.html) to both build your container and share its specification with collaborators (for the sake of reproducibility). Here is a simplistic example of such a file:
 

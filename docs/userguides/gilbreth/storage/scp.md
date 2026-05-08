@@ -10,74 +10,72 @@ search:
 
 # SCP
 
-*SCP* (Secure CoPy) is a simple way of transferring files between two machines that use the SSH protocol. SCP is available as a protocol choice in some graphical file transfer programs and also as a command line program on most Linux, Unix, and Mac OS X systems. SCP can copy single files, but will also recursively copy directory contents if given a directory name.
+SCP (Secure CoPy) is a simple way of transferring files between two machines that use the SSH protocol. SCP is available as a protocol choice in some graphical file transfer programs and also as a command line program on most Linux, Unix, and Mac OS X systems. SCP can copy single files, but will also recursively copy directory contents if given a directory name.
 
-{::if resource.hostname == data}
+!!!note
+    After Aug 17, 2020, the community clusters will not support password-based authentication for login. Methods that can be used include two-factor authentication (Purdue Login) or SSH keys. If you do not have SSH keys installed, you would need to type your **password,push** passphrase into the SFTP's "Password" prompt.
 
-After Aug 17, 2020, the community clusters will not support password-based authentication for login. Methods that can be used include two-factor authentication (Purdue Login) or SSH keys. If you do not have SSH keys installed, you would need to type your Purdue Login response into the SFTP's "Password" prompt.
+## Command-line usage
 
-{::else}
+You can transfer files both to and from Gilbreth while initiating an SCP session on either some other computer or on Gilbreth (in other words, directionality of connection and directionality of data flow are independent from each other). The scp command appears somewhat similar to the familiar ```cp``` command, with an extra ```user@host:file``` syntax to denote files and directories on a remote host. Either Gilbreth or another computer can be a remote.
 
-After Aug 17, 2020, the community clusters will not support password-based authentication for login. Methods that can be used include two-factor authentication ([Purdue Login](/knowledge/${resource.hostname}/accounts/login/purdue_login)) or [SSH keys](/knowledge/${resource.hostname}/accounts/login/sshkeys). If you do not have SSH keys installed, you would need to type your Purdue Login response into the SFTP's "Password" prompt.
+Example: Initiating SCP session on some other computer (i.e. you are on some other computer, connecting to Gilbreth):
 
-{::/}
+```bash
+      # (transfer TO Gilbreth)
+      # (Individual files) 
+$ scp  sourcefile  myusername@gilbreth.rcac.purdue.edu:somedir/destinationfile
+$ scp  sourcefile  myusername@gilbreth.rcac.purdue.edu:somedir/
+      # (Recursive directory copy)
+$ scp -pr sourcedirectory/  myusername@gilbreth.rcac.purdue.edu:somedir/
 
-### Command-line usage:
+      # (transfer FROM Gilbreth)
+      # (Individual files)
+$ scp  myusername@gilbreth.rcac.purdue.edu:somedir/sourcefile  destinationfile
+$ scp  myusername@gilbreth.rcac.purdue.edu:somedir/sourcefile  somedir/
+      # (Recursive directory copy)
+$ scp -pr myusername@gilbreth.rcac.purdue.edu:sourcedirectory  somedir/
+```
 
-You can transfer files both to and from Gilbreth while initiating an SCP session on either some other computer or on Gilbreth (in other words, directionality of connection and directionality of data flow are independent from each other). The `scp` command appears somewhat similar to the familiar `cp` command, with an extra `user@host:file` syntax to denote files and directories on a remote host. Either Gilbreth or another computer can be a remote.
+The **-p** flag is optional. When used, it will cause the transfer to preserve file attributes and permissions. The **-r** flag is required for recursive transfers of entire directories.
 
-* **Example:** Initiating SCP session on some other computer (i.e. you are on some other computer, connecting to Gilbreth):
+Example: Initiating SCP session on Gilbreth (i.e. you are on Gilbreth, connecting to some other computer):
 
-  ```
-        (transfer TO Gilbreth)
-        (Individual files) 
-  $ scp  sourcefile  ${user.username}@${resource.hostname}.rcac.purdue.edu:somedir/destinationfile
-  $ scp  sourcefile  ${user.username}@${resource.hostname}.rcac.purdue.edu:somedir/
-        (Recursive directory copy)
-  $ scp -pr sourcedirectory/  ${user.username}@${resource.hostname}.rcac.purdue.edu:somedir/
+```bash
+      # (transfer TO Gilbreth)
+      # (Individual files) 
+$ scp  myusername@$another.computer.example.com:sourcefile  somedir/destinationfile
+$ scp  myusername@$another.computer.example.com:sourcefile  somedir/
+      # (Recursive directory copy)
+$ scp -pr myusername@$another.computer.example.com:sourcedirectory/  somedir/
 
-        (transfer FROM Gilbreth)
-        (Individual files)
-  $ scp  ${user.username}@${resource.hostname}.rcac.purdue.edu:somedir/sourcefile  destinationfile
-  $ scp  ${user.username}@${resource.hostname}.rcac.purdue.edu:somedir/sourcefile  somedir/
-        (Recursive directory copy)
-  $ scp -pr ${user.username}@${resource.hostname}.rcac.purdue.edu:sourcedirectory  somedir/
-  ```
+      # (transfer FROM Gilbreth)
+      # (Individual files)
+$ scp  somedir/sourcefile  myusername@$another.computer.example.com:destinationfile
+$ scp  somedir/sourcefile  myusername@$another.computer.example.com:somedir/
+      # (Recursive directory copy)
+$ scp -pr sourcedirectory  myusername@$another.computer.example.com:somedir/
+```
 
-  The **-p** flag is optional. When used, it will cause the transfer to preserve file attributes and permissions. The **-r** flag is required for recursive transfers of entire directories.
-* **Example:** Initiating SCP session on Gilbreth (i.e. you are on Gilbreth, connecting to some other computer):
+The ```-p``` flag is optional. When used, it will cause the transfer to preserve file attributes and permissions. The ```-r``` flag is required for recursive transfers of entire directories.
 
-  ```
-        (transfer TO Gilbreth)
-        (Individual files) 
-  $ scp  ${user.username}@$another.computer.example.com:sourcefile  somedir/destinationfile
-  $ scp  ${user.username}@$another.computer.example.com:sourcefile  somedir/
-        (Recursive directory copy)
-  $ scp -pr ${user.username}@$another.computer.example.com:sourcedirectory/  somedir/
+## Software (SCP Clients)
 
-        (transfer FROM Gilbreth)
-        (Individual files)
-  $ scp  somedir/sourcefile  ${user.username}@$another.computer.example.com:destinationfile
-  $ scp  somedir/sourcefile  ${user.username}@$another.computer.example.com:somedir/
-        (Recursive directory copy)
-  $ scp -pr sourcedirectory  ${user.username}@$another.computer.example.com:somedir/
-  ```
+### Linux and other Unix-like systems:
 
-  The **-p** flag is optional. When used, it will cause the transfer to preserve file attributes and permissions. The **-r** flag is required for recursive transfers of entire directories.
+- The scp command-line program should already be installed.
 
-### Software (SCP clients)
+### Microsoft Windows:
 
-Linux and other Unix-like systems:
+[MobaXterm](https://mobaxterm.mobatek.net/download.html)
+Free, full-featured, graphical Windows SSH, SCP, and SFTP client.
 
-* The `scp` command-line program should already be installed.
+Command-line ```scp``` program can be installed as part of Windows Subsystem for Linux (WSL), or Git-Bash.
 
-Microsoft Windows:
+### Mac OS:
 
-* [MobaXterm](https://mobaxterm.mobatek.net/download.html)  
-  Free, full-featured, graphical Windows SSH, SCP, and SFTP client.
-* Command-line `scp` program can be installed as part of Windows Subsystem for Linux (WSL), or Git-Bash.
+The ```scp``` command-line program should already be installed. You may start a local terminal window from "Applications->Utilities".
 
-Mac OS X:
+[Cyberduck](https://cyberduck.io/) is a full-featured and free graphical SFTP and SCP client.
 
-* The `scp` command-line program should already be installed. You may start a local terminal window from "Applications->Utilities".
-* [Cyberduck](https://cyberduck.io/) is a full-featured and free graphical SFTP and SCP client.
+[**Back to the Storage section**](../storage.md)
