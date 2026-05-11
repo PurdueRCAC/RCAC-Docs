@@ -20,7 +20,7 @@ hide:
     1. [Enroll in Microsoft Multi-Factor Authentication (MFA)](https://service.purdue.edu/TDClient/32/Purdue/KB/ArticleDet?ID=1791) using the Microsoft Authenticator app (if you have not already).
     2. [Set your default sign-in method](https://service.purdue.edu/TDClient/32/Purdue/KB/ArticleDet?ID=1788) in Microsoft MFA to your preferred method.
 
-    **After May 11, Duo Mobile will no longer work for accessing RCAC systems. Anvil is NOT impacted.**
+    **After May 11, Duo Mobile will no longer work for accessing RCAC systems (excluding Anvil).**
 
     Please contact [rcac-help@purdue.edu](mailto:rcac-help@purdue.edu) If you have any questions or need help.
 
