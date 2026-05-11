@@ -13,10 +13,9 @@ search:
 ---
 
 <!-- ------------------- General slurm overview SNIPPET -------------------- -->
-{% set host = "anvil.rcac.purdue.edu" %}
-{% set hostname = "anvil" %}
+{% set resource = "anvil" %}
 
-{{ slurm_general_overview(host, hostname) }}
+{{ slurm_general_overview(resource) }}
 
 <!-- --------------------------- Anvil-Specific ---------------------------- -->
 ACCESS users with allocations can submit jobs to several types of queues:
@@ -424,3 +423,57 @@ Filesystem storage is not charged.
 ### R on {{ cluster }} cluster
 
 --8<-- "docs/snippets/apps/r.md"
+
+### Running VASP on Anvil
+
+This shows an example of a job submission file for running Anvil-built VASP with MPI jobs (CPU version):
+
+```bash
+#!/bin/sh
+# FILENAME:  myjobsubmissionfile
+
+#SBATCH -A myallocation # Allocation name
+#SBATCH --nodes=1       # Total # of nodes 
+#SBATCH --ntasks=64     # Total # of MPI tasks
+#SBATCH --time=1:30:00  # Total run time limit (hh:mm:ss)
+#SBATCH -J myjobname    # Job name
+#SBATCH -o myjob.o%j    # Name of stdout output file
+#SBATCH -e myjob.e%j    # Name of stderr error file
+#SBATCH -p shared       # Queue (partition) name
+
+# Manage processing environment, load compilers and applications.
+module --force purge
+module load gcc/11.2.0  openmpi/4.1.6
+module load vasp/5.4.4.pl2  # or module load vasp/6.3.0
+module list
+
+# Launch MPI code 
+srun -n $SLURM_NTASKS --kill-on-bad-exit vasp_std # or mpirun -np $SLURM_NTASKS vasp_std
+```
+
+Here is an example job script to run a GPU-VASP job on Anvil.
+
+```bash
+#!/bin/sh
+# FILENAME:  myjobsubmissionfile
+
+#SBATCH -A myallocation   # Allocation name
+#SBATCH --nodes=1         # Total # of nodes 
+#SBATCH --ntasks=1        # Total # of MPI tasks
+#SBATCH --gpus-per-node=1 # Total # of GPUs
+#SBATCH --time=1:30:00    # Total run time limit (hh:mm:ss)
+#SBATCH -J vasp_gpu       # Job name
+#SBATCH -o myjob.o%j      # Name of stdout output file
+#SBATCH -e myjob.e%j      # Name of stderr error file
+#SBATCH -p gpu            # Queue (partition) name
+
+# Manage processing environment, load compilers and applications.
+module --force purge
+module load modtree/gpu
+module purge
+module load vasp/6.3.0-gpu
+module list
+
+# Launch MPI code 
+mpirun -np $SLURM_NTASKS vasp_std
+```

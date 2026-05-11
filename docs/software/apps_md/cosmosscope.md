@@ -8,7 +8,7 @@ CosmosScope is a scientific visualization and analysis tool used for exploring c
 
 ## Homepage
 
-[https://ui.adsabs.harvard.edu/abs/2019A&C....27..111C/abstract](https://ui.adsabs.harvard.edu/abs/2019A&C....27..111C/abstract)
+[https://www.synopsys.com](https://www.synopsys.com)
 
 ## Available Versions on RCAC Clusters
 

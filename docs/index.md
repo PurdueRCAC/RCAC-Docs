@@ -70,6 +70,14 @@ Follow these steps to get up and running on RCAC clusters.
 
     [:octicons-arrow-right-24: Software installation guide](faqs/#how-do-i-install-software-on-a-rcac-cluster)
 
+-   :material-home:{ .lg .middle } __RCAC Website__
+
+    ---
+
+    Need to learn more about RCAC? Visit our official website.
+
+    [:octicons-arrow-right-24: RCAC Website](https://www.rcac.purdue.edu/)
+
 </div>
 
 ## :material-server-network: HPC User Guides

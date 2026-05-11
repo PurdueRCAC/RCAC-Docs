@@ -795,7 +795,7 @@ apptainer exec tool.sif my_tool -i "$SAMPLE.fq" -o "$SAMPLE.bam"
     ---
 
     Step-by-step guides for common bioinformatics tasks.
-    [Visit RCAC Bioinformatics Docs](https://rcac-bioinformatics.github.io/)
+    [Visit RCAC Lifesciences Docs](https://docs.rcac.purdue.edu/lifesciences/)
 
 -   :material-email: **Announcements**
 

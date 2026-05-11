@@ -845,4 +845,4 @@ theme_set(theme_publication())
 - [ggplot2 cheat sheet (PDF)](https://rstudio.github.io/cheatsheets/data-visualization.pdf) — print this
 - [ColorBrewer 2.0](https://colorbrewer2.org/) — interactive palette explorer with colorblind simulation
 - [Genomics Exchange Discord](https://discord.gg/zEF2nzhXdC) — ask questions between sessions
-- Questions? Email [arun@purdue.edu](mailto:arun@purdue.edu)
+- Questions? Email [aseethar@purdue.edu](mailto:aseethar@purdue.edu)

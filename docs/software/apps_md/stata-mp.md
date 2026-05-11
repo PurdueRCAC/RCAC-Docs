@@ -8,7 +8,7 @@ Stata/MP is the multiprocessor version of Stata for statistical analysis.
 
 ## Homepage
 
-[https://www.stata.com/products/mp/](https://www.stata.com/products/mp/)
+[https://www.stata.com/statamp/](https://www.stata.com/statamp/)
 
 ## Available Versions on RCAC Clusters
 

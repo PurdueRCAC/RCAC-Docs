@@ -520,9 +520,9 @@ samtools stats aligned/sample1.sorted.bam > sample1.stats.txt
 - **FastQC documentation**: [bioinformatics.babraham.ac.uk/projects/fastqc](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
 - **MultiQC documentation**: [multiqc.info](https://multiqc.info/)
 - **fastp paper**: Chen et al. (2018). fastp: an ultra-fast all-in-one FASTQ preprocessor. *Bioinformatics*, 34(17), i884-i890. DOI: 10.1093/bioinformatics/bty560
-- **RCAC Bioinformatics tutorials**: [rcac-bioinformatics.github.io](https://rcac-bioinformatics.github.io/guide/)
+- **RCAC Lifesciences tutorials**: [docs.rcac.purdue.edu/lifesciences/](https://docs.rcac.purdue.edu/lifesciences/)
 - **Genomics Exchange Discord**: [discord.gg/zEF2nzhXdC](https://discord.gg/zEF2nzhXdC)
-- **Questions?** Email [arun@purdue.edu](mailto:arun@purdue.edu) or [rcac-help@purdue.edu](mailto:rcac-help@purdue.edu)
+- **Questions?** Email [aseethar@purdue.edu](mailto:aseethar@purdue.edu) or [rcac-help@purdue.edu](mailto:rcac-help@purdue.edu)
 
 ---
 

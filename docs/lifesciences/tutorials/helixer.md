@@ -546,7 +546,7 @@ The plots were generated using the following R script: [`cds_assesment.R`](../..
 ## 5. References
 
 - [Helixer GitHub](https://github.com/weberlab-hhu/Helixer)
-- [Helixer Webtool](https://www.plabipd.de/helixer_main.html/)
+- [Helixer Webtool](https://www.plabipd.de/helixer_main.html)
 
 - Holst F, Bolger A, Gunther C, Mass J, Kindel F, Triesch S, Kiel N, Saadat N, Ebenhoh O, Usadel B,Schwacke R, Bolger M, Weber APM, Denton AK
 Helixer - de novo prediction of primary eukaryotic gene models combining deep learning and a Hidden Markov Model.

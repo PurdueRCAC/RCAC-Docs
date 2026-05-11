@@ -607,3 +607,8 @@ th, td {
 [data-md-toggle="search"]:checked ~ .md-header .md-search__form::after {
   display: none;
 }
+
+/* Remove empty space left by hidden repo source widget */
+.md-header__source {
+  display: none;
+}

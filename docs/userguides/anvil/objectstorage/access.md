@@ -52,6 +52,8 @@ Object storage uses HMAC credentials, not your ACCESS/NAIRR account password.
 - **Access Key ID:** 20-character alphanumeric string (Public identifier).
 - **Secret Access Key:** 40-character string (Private signature key).
 
+After your request is approved, retrieve your credentials by running the `mykeys` command on any Anvil login node. See [Security and Access Control](acl.md) for details.
+
 ---
 
 ### 5. Connecting to Storage

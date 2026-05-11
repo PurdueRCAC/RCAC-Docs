@@ -2,7 +2,8 @@
 
 [Back to all datasets](index.md)
 
-Climate model datasets provide comprehensive Earth system simulation data used in climate research, atmospheric chemistry modeling, and global climate projections. These datasets include input data, forcing files, and configuration datasets for running and validating global climate and Earth system models.
+Earth System Model simulations are essential tools for studying climate science and atmospheric chemistry. The ClimateModel archive stores input data, forcing files, and configuration datasets required to run and validate widely used global climate models, including CESM2 and GEOS-Chem.
+
 
 To access the datasets on RCAC clusters:
 ```bash
