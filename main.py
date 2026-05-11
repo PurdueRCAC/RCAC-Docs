@@ -1,35 +1,32 @@
 # main.py
-# Naming conventions for variables in `main.py`:
-# - `resource`: name for cluster (lower case), e.g. `gilbreth`
-# {resource.title()} will transform this to title case, e.g. `Gilbreth`
 
 def define_env(env):
-#     @env.macro
-#     def login_snippet(host,cluster):
-#         return f"""
-# **Logging In**
+    @env.macro
+    def login_snippet(host,cluster):
+        return f"""
+**Logging In**
 
-# {cluster} accepts standard SSH connections with public keys-based authentication to {host} using your {cluster} username:
+{cluster} accepts standard SSH connections with public keys-based authentication to {host} using your {cluster} username:
 
-# **SSH Login**
-# ```bash
-# $ ssh -l my-username {host}
-# ```
-# """
+**SSH Login**
+```bash
+$ ssh -l my-username {host}
+```
+"""
 
-#     @env.macro
-#     def account_snippet(host,cluster):
-#         return f"""
-# **Get an account on {cluster} cluster**
+    @env.macro
+    def account_snippet(host,cluster):
+        return f"""
+**Get an account on {cluster} cluster**
 
-# Contact RCAC help to get your account set on `{host}`.
-# """
+Contact RCAC help to get your account set on `{host}`.
+"""
     @env.macro
     def ssh_keys_snippet(resource):
         return f"""
 ### SSH Keys general overview
 
-To connect to {resource.title()} using SSH keys, you must follow three high-level steps:
+To connect to {resource} using SSH keys, you must follow three high-level steps:
 
 1. Generate a key pair consisting of a private and a public key on your local machine.
 2. Copy the public key to the cluster and append it to `$HOME/.ssh/authorized_keys` file in your account.
@@ -42,11 +39,11 @@ Detailed steps for different operating systems and specific SSH client softwares
 1. Run `ssh-keygen` in a terminal on your local machine. You may supply a filename and a passphrase for protecting your private key, but it is not mandatory. To accept the default settings, press Enter without specifying a filename.
 
     !!! note
-        If you do not protect your private key with a passphrase, anyone with access to your computer could SSH to your account on {resource.title()}.
+        If you do not protect your private key with a passphrase, anyone with access to your computer could SSH to your account on {resource}.
 
 2. By default, the key files will be stored in `~/.ssh/id_rsa` and `~/.ssh/id_rsa.pub` on your local machine.
 
-3. Copy the contents of the public key into `$HOME/.ssh/authorized_keys` on the cluster with the following command. When asked for a password, type your Purdue password. Your Purdue MFA client will receive a notification to approve the login.
+3. Copy the contents of the public key into `$HOME/.ssh/authorized_keys` on the cluster with the following command. When asked for a password, type your password followed by "`,push`". Your Purdue Duo client will receive a notification to approve the login.
 
     ```bash
     ssh-copy-id -i ~/.ssh/id_rsa.pub username@{resource}.rcac.purdue.edu
@@ -97,7 +94,7 @@ Windows SSH Instructions
     Use the **Save private key** button to save the private key, e.g. `Documents\SSH_Keys\mylaptop_private_key.ppk`. When saving the private key, you can also choose a reminder comment, as well as an optional passphrase to protect your key, as shown in the image below. 
     
     !!! note
-        If you do not protect your private key with a passphrase, anyone with access to your computer could SSH to your account on {resource.title()}.
+        If you do not protect your private key with a passphrase, anyone with access to your computer could SSH to your account on {resource}.
 
     <figure style="text-align: center;">
         ![PuTTY Key Generator form with the passphrase and comment fields highlighted](/assets/images/userguides/keygen2.png)
@@ -117,14 +114,14 @@ Windows SSH Instructions
 
     Navigate back to *"Session"* on the left panel. Highlight *"Default Settings"* and click the "Save" button to ensure the change in place.
 
-4. Connect to the cluster. When asked for a password, type your Purdue password. Your Purdue MFA client will receive a notification to approve the login. Copy the contents of public key from *PuTTYgen* as shown below and paste it into `$HOME/.ssh/authorized_keys`. Please double-check that your text editor did not wrap or fold the pasted value (it should be one very long line).
+4. Connect to the cluster. When asked for a password, type your password followed by "`,push`". Your Purdue Duo client will receive a notification to approve the login. Copy the contents of public key from *PuTTYgen* as shown below and paste it into `$HOME/.ssh/authorized_keys`. Please double-check that your text editor did not wrap or fold the pasted value (it should be one very long line).
 
     <figure style="text-align: center;">
         ![PuTTY Key Generator form with the generated key highlighted](/assets/images/userguides/keygen4.png)
         <figcaption>The "Public key" will look like a long string of random letters and numbers in a text box at the top of the window.</figcaption>
     </figure>
 
-5. Test by connecting to the cluster. If successful, you will **not** be prompted for a password or receive a MFA notification. If you protected your private key with a passphrase in step 2, you **will** instead be prompted to enter your chosen passphrase when connecting.
+5. Test by connecting to the cluster. If successful, you will **not** be prompted for a password or receive a Duo notification. If you protected your private key with a passphrase in step 2, you **will** instead be prompted to enter your chosen passphrase when connecting.
 
 """
     
@@ -178,26 +175,26 @@ The native ThinLinc client will offer the best experience especially over off-ca
 
 * Download the ThinLinc client from the [ThinLinc website](https://www.cendio.com/thinlinc/download).
 * Start the ThinLinc client on your computer.
-* In the client's login window, use `desktop.{resource}.rcac.purdue.edu` as the Server. Use your Purdue Career Account username and password.
+* In the client's login window, use `desktop.{resource}.rcac.purdue.edu` as the Server. Use your Purdue Career Account username and password, but append "`,push`" to your password.
 * Click the Connect button.
-* Your Purdue Login MFA will receive a notification to approve your login.
-* Continue to following section on connecting to {resource.title()} from ThinLinc.
+* Your Purdue Login Duo will receive a notification to approve your login.
+* Continue to following section on connecting to {resource} from ThinLinc.
 
 ### Using ThinLinc through your web browser
 
 The ThinLinc service can be accessed from your web browser as a convenience to installing the native client. This option works with no set up and is a good option for those on computers where you do not have privileges to install software. All that is required is an up-to-date web browser. Older versions of Internet Explorer may not work.
 
 * Open a web browser and navigate to [`desktop.{resource}.rcac.purdue.edu`.](https://desktop.{resource}.rcac.purdue.edu).
-* Log in with your Purdue Career Account username and password.
+* Log in with your Purdue Career Account username and password, but append "`,push`" to your password.
 * You may safely proceed past any warning messages from your browser.
-* Your Purdue Login MFA will receive a notification to approve your login.
-* Continue to the following section on connecting to {resource.title()} from ThinLinc.
+* Your Purdue Login Duo will receive a notification to approve your login.
+* Continue to the following section on connecting to {resource} from ThinLinc.
 
-### Connecting to {resource.title()} from ThinLinc
+### Connecting to {resource} from ThinLinc
 
 * Once logged in, you will be presented with a remote Linux desktop running directly on a cluster front-end.
 * Open the terminal application on the remote desktop.
-* Once logged in to the {resource.title()} head node, you may use graphical editors, debuggers, software like Matlab, or run graphical interactive jobs. For example, to test the X forwarding connection issue the following command to launch the graphical editor `gedit`:
+* Once logged in to the {resource} head node, you may use graphical editors, debuggers, software like Matlab, or run graphical interactive jobs. For example, to test the X forwarding connection issue the following command to launch the graphical editor `gedit`:
 
   ```
   $ gedit
@@ -232,10 +229,7 @@ The ThinLinc service can be accessed from your web browser as a convenience to i
     </figure>
 
   * Click OK to return to the ThinLinc Client login window. You should now see a Key field in place of the Password field.
-  * In the Key field, type the path to your locally stored private key or click the `...` button to locate and select the key on your local system. 
-      
-    !!! note
-        If *PuTTY* is used to generate the SSH Key pairs, please choose the private key in the openssh format.
+  * In the Key field, type the path to your locally stored private key or click the `...` button to locate and select the key on your local system. **Note:** If *PuTTY* is used to generate the SSH Key pairs, please choose the private key in the openssh format.
 
     <figure style="text-align: center;">
         ![ThinLinc Options window](/assets/images/userguides/thinlinc3.png)
@@ -244,29 +238,29 @@ The ThinLinc service can be accessed from your web browser as a convenience to i
 """
     
     @env.macro
-    def slurm_general_overview(resource):
+    def slurm_general_overview(host, hostname):
         return f"""
 ## Overview / Slurm Basics
 
-{resource.title()} uses the [Slurm Workload Manager](https://slurm.schedmd.com/) for job scheduling and management. With Slurm, a user requests resources and submits a job to a queue. The system takes jobs from queues, allocates the necessary compute nodes, and executes them.
+{hostname.title()} uses the [Slurm Workload Manager](https://slurm.schedmd.com/) for job scheduling and management. With Slurm, a user requests resources and submits a job to a queue. The system takes jobs from queues, allocates the necessary compute nodes, and executes them.
 
-!!! note "SSHing into {resource.title()} lands on login node"
-    Users will typically SSH to {resource.title()} (`<username>@{resource}.rcac.purdue.edu`) but note this lands you on a **login node**. Slurm should always be used to submit work as a job rather than running jobs directly on a login node.
+!!! note "SSHing into {hostname.title()} lands on login node"
+    Users will typically SSH to {hostname.title()} (`<username>@{host}`) but note this lands you on a **login node**. Slurm should always be used to submit work as a job rather than running jobs directly on a login node.
 
-On {resource.title()}, you do not run programs directly on the system. Instead, you submit jobs to a queue. A queue is simply a waiting line for computing resources. When you submit a job, you tell the scheduler:
+On { hostname.title() }, you do not run programs directly on the system. Instead, you submit jobs to a queue. A queue is simply a waiting line for computing resources. When you submit a job, you tell the scheduler:
 
 - How many resources you need (cores, GPUs, memory, etc.)
 - How long the job will run
 - What type of hardware you need
 
-!!! warning "Running jobs on login node is against {resource.title()} policy"
-    All users share the login nodes, and running anything but the smallest test job will negatively impact everyone's ability to use {resource.title()}.
+!!! warning "Running jobs on login node is against {hostname.title()} policy"
+    All users share the login nodes, and running anything but the smallest test job will negatively impact everyone's ability to use {hostname.title()}.
 
 The scheduler places your job in the appropriate queue and runs it when the requested resources become available. Different queues exist because different types of jobs have different needs. For example, some jobs need GPUs, some need large memory, and some only run for a short time. Separating these helps the system run efficiently and fairly for everyone.
 """
     
     @env.macro
-    def slurm_general_jobs(resource):
+    def slurm_general_jobs(host, hostname):
         return f"""
 
 ### Job Submission Script
@@ -337,7 +331,7 @@ $ sbatch --nodes=1 --ntasks=1 -t 1:30:00 myjobsubmissionfile
 
 **Multi-Node Jobs**
 
-Each compute node in {resource.title()} has 128 processor cores. In some cases, you may want to request multiple nodes. To utilize multiple nodes, you will need to have a program or code that is specifically programmed to use multiple nodes such as with MPI. Simply requesting more nodes will not make your work go faster. Your code must utilize all the cores to support this ability. To request 2 compute nodes with 256 tasks:
+Each compute node in { hostname.title() } has 128 processor cores. In some cases, you may want to request multiple nodes. To utilize multiple nodes, you will need to have a program or code that is specifically programmed to use multiple nodes such as with MPI. Simply requesting more nodes will not make your work go faster. Your code must utilize all the cores to support this ability. To request 2 compute nodes with 256 tasks:
 
 ```shell-session
 
@@ -430,7 +424,7 @@ $ scontrol release job  myjobid
 """
     
     @env.macro
-    def sftp_snippet(resource):
+    def sftp_snippet(hostname):
         return f"""
 *SFTP* (Secure File Transfer Protocol) is a reliable way of transferring files between two machines. SFTP is available as a protocol choice in some graphical file transfer programs and also as a command-line program on most Linux, Unix, and Mac OS X systems. SFTP has more features than SCP and allows for other operations on remote files, remote directory listing, and resuming interrupted transfers. Command-line SFTP cannot recursively copy directory contents; to do so, try using SCP or graphical SFTP client.
 
@@ -438,7 +432,7 @@ Command-line usage:
 
 ```
 
-$ sftp -B buffersize USERNAME@{resource}.rcac.purdue.edu
+$ sftp -B buffersize USERNAME@{ hostname }.rcac.purdue.edu
 
       (to a remote system from local)
 sftp> put sourcefile somedir/destinationfile
@@ -470,49 +464,49 @@ Mac OS X:
 """
     
     @env.macro
-    def scp_snippet(resource):
+    def scp_snippet(hostname):
         return f"""
 **SCP (Secure CoPy)** is a simple way of transferring files between two machines that use the SSH protocol. SCP is available
 as a protocol choice in some graphical file transfer programs and also as a command line program on most Linux, Unix, and Mac OS X
 systems. SCP can copy single files, but will also recursively copy directory contents if given a directory name. An SSH key is
-required for SCP. Following is an example of transferring `test.txt` file from {resource.title()} home directory to your local
+required for SCP. Following is an example of transferring `test.txt` file from { hostname.title() } home directory to your local
 machine, make sure to use your username `USERNAME`:
 
 ```
-localhost> scp USERNAME@{resource}.rcac.purdue.edu:/home/USERNAME/test.txt .
+localhost> scp USERNAME@{ hostname }.rcac.purdue.edu:/home/USERNAME/test.txt .
 Warning: Permanently added the xxxxxxx host key for IP address 'xxx.xxx.xxx.xxx' to the list of known hosts.
 test.txt                                                                    100%    0     0.0KB/s   00:00
 ```
 """
     
     @env.macro
-    def accounts_md_snippet(resource):
+    def accounts_md_snippet(host,cluster):
         return f"""
-# Accounts on {resource.title()}
+# Accounts on {cluster}
 ### Obtaining an Account
 
-To obtain an account, you must be part of a research group which has purchased access to {resource.title()}. Refer to the [Accounts / Access](https://www.rcac.purdue.edu/account/request) page for more details on how to request access.
+To obtain an account, you must be part of a research group which has purchased access to {cluster}. Refer to the [Accounts / Access](https://www.rcac.purdue.edu/account/request) page for more details on how to request access.
 
 !!! note
-    External (non-Purdue) collaborators can be granted access to {resource.title()}, provided the collaborator has a valid Purdue career account. If the collaborator does not have a Purdue career account, a current Purdue faculty or staff member must file a [Request for Privileges (R4P)](https://www.purdue.edu/apps/account/r4p) to have the career account created.
+    External (non-Purdue) collaborators can be granted access to {cluster}, provided the collaborator has a valid Purdue career account. If the collaborator does not have a Purdue career account, a current Purdue faculty or staff member must file a [Request for Privileges (R4P)](https://www.purdue.edu/apps/account/r4p) to have the career account created.
 
-## Logging In To {resource.title()}
-There are several ways to login to {resource.title()}:
+## Logging In To {cluster}
+There are several ways to login to {cluster}:
 
 ### Thinlinc web client
-One can login to the {resource.title()} front-end with a full desktop environment via the [Thinlinc web client](https://desktop.{resource}.rcac.purdue.edu).
+One can login to the {cluster} front-end with a full desktop environment via the [Thinlinc web client](https://desktop.{host}).
 
 !!! important
-    Your full password is needed to trigger the MFA notification that is sent to your phone for approval.
+    Your full password,push Duo passphrase is needed to trigger the Duo notification that is sent to your phone for approval.
 
 ### Gateway / OnDemand
-One can login to {resource.title()}'s [Gateway](https://gateway.{resource}.rcac.purdue.edu) to manage files in your home/scratch/depot directories and start Slurm jobs for supported OnDemand applications.
+One can login to {cluster}'s [Gateway](https://gateway.{host}) to manage files in your home/scratch/depot directories and start Slurm jobs for supported OnDemand applications.
 
 ### SSH
 *Secure Shell* or *SSH* is a way of establishing a secure connection between two computers. It uses public-key cryptography to authenticate the user with the remote computer and to establish a secure connection. Its usual function involves logging in to a remote machine and executing commands. There are many SSH clients available for all operating systems.
 
 !!! note
-    {resource.title()} supports either Purdue's MFA two-factor authentication or SSH keys.
+    {cluster} supports either Purdue's Duo two-factor authentication or SSH keys.
 
 #### SSH Client Software
 Linux / Solaris / AIX / HP-UX / Unix:
@@ -525,22 +519,21 @@ Microsoft Windows:
 
 Mac OS X:
 
-- The `ssh` command is pre-installed. You may start a local terminal window from "Applications->Utilities". Log in by typing the command `ssh username@{resource}.rcac.purdue.edu`.
+- The `ssh` command is pre-installed. You may start a local terminal window from "Applications->Utilities". Log in by typing the command `ssh username@{host}`.
 
 !!! important
-    When prompted to enter a password, enter your Purdue career account password. Your MFA app will then receive a notification to approve the login.
+    When prompted to enter a password, enter your Purdue career account password **followed by "**`,push` **"**. Your Duo app will then receive a notification to approve the login.
 """
     
-#     @env.macro
-#     def todo_file_recovery_snippet(host, hostname):
-#         return f"""
-
-# """
-
     @env.macro
-    def module_system(resource):
+    def todo_file_recovery_snippet(host, hostname):
         return f"""
-The {resource.title()} cluster uses **Lmod** to manage the user environment, so users have access to the necessary software packages and versions to conduct their research activities. The associated `module` command can be used to load applications and compilers, making the corresponding libraries and environment variables automatically available in the user environment.
+
+"""
+    @env.macro
+    def module_system(cluster):
+        return f"""
+The {cluster} cluster uses **Lmod** to manage the user environment, so users have access to the necessary software packages and versions to conduct their research activities. The associated `module` command can be used to load applications and compilers, making the corresponding libraries and environment variables automatically available in the user environment.
 
 Lmod is a hierarchical module system, meaning a module can only be loaded after loading the necessary compilers and MPI libraries that it depends on. This helps avoid conflicting libraries and dependencies being loaded at the same time. A list of all available modules on the system can be found with the `module spider` command:
 
@@ -584,7 +577,7 @@ $ module spider intel/19.1.3.304 # additional details on a specific module
       Intel Parallel Studio.
 ```
 
-When users log into {resource.title()}, a default compiler (GCC), MPI libraries (OpenMPI), and runtime environments (e.g., Cuda on GPU-nodes) are automatically loaded into the user environment. It is recommended that users explicitly specify which modules and which versions are needed to run their codes in their job scripts via the `module load` command. Users are advised not to insert `module load` commands in their bash profiles, as this can cause issues during initialization of certain software (e.g. Thinlinc).
+When users log into {cluster}, a default compiler (GCC), MPI libraries (OpenMPI), and runtime environments (e.g., Cuda on GPU-nodes) are automatically loaded into the user environment. It is recommended that users explicitly specify which modules and which versions are needed to run their codes in their job scripts via the `module load` command. Users are advised not to insert `module load` commands in their bash profiles, as this can cause issues during initialization of certain software (e.g. Thinlinc).
 
 When users load a module, the module system will automatically replace or deactivate modules to ensure the packages you have loaded are compatible with each other. Following example shows that the module system automatically unload the default Intel compiler version to a user-specified version:
 
@@ -602,7 +595,7 @@ The following have been reloaded with a version change:
   1) intel/19.0.5.281 => intel/19.1.3.304
 ```
 
-Most modules on {resource.title()} include extensive help messages, so users can take advantage of the `module help APPNAME` command to find information about a particular application or module. Every module also contains two environment variables named `$RCAC_APPNAME_ROOT` and `$RCAC_APPNAME_VERSION` identifying its installation prefix and its version. This information can be found by `module show APPNAME`. Users are encouraged to use generic environment variables such as CC, CXX, FC, MPICC, MPICXX etc. available through the compiler and MPI modules while compiling their code.
+Most modules on {cluster} include extensive help messages, so users can take advantage of the `module help APPNAME` command to find information about a particular application or module. Every module also contains two environment variables named `$RCAC_APPNAME_ROOT` and `$RCAC_APPNAME_VERSION` identifying its installation prefix and its version. This information can be found by `module show APPNAME`. Users are encouraged to use generic environment variables such as CC, CXX, FC, MPICC, MPICXX etc. available through the compiler and MPI modules while compiling their code.
 
 **Some other common module commands:**
 
@@ -629,4 +622,58 @@ To display information about a specified module, including environment changes, 
 ```bash
 $ module show mymodulename
 ```
+"""
+    # Below are two sample snippets for contionally changing content based on cluster.
+    @env.macro
+    def storage_conditonal(cluster):
+        paths = {
+            "anvil": {
+                "home":    "/home/x-username",
+                "scratch": "/anvil/scratch/x-username",
+                "project": "/anvil/projects/tdm/username",
+            },
+            "gautschi": {
+                "home":    "/home/username",
+                "scratch": "/scratch/gautschi/username",
+                "depot": "/depot/mylab/username",
+            },
+        }
+        p = paths.get(cluster, paths[cluster.lower()])
+        if cluster == "anvil":
+            return f"""
+| Directory | Path |
+|-----------|------|
+| Home      | `{p['home']}` |
+| Scratch   | `{p['scratch']}` |
+| Project   | `{p['project']}` |
+"""
+        elif cluster == "gautschi":
+            return f"""
+| Directory      | Path |
+|----------------|------|
+| Home           | `{p['home']}` |
+| Scratch        | `{p['scratch']}` |
+| Depot (if any) | `{p['depot']}` |
+"""
+
+    @env.macro
+    def login_conditonal(cluster):
+        if cluster == "anvil":
+            hostname = "anvil.rcac.purdue.edu"
+            note = "Use your ACCESS username (e.g., `x-myusername`)."
+        elif cluster == "gautschi":
+            hostname = "gautschi.rcac.purdue.edu"
+            note = "Use your Purdue career account username."
+
+        return f"""
+To log in, connect via SSH:
+
+```bash
+ssh username@{hostname}
+```
+
+!!! note
+    {note}
+
+For graphical access, use ThinLinc.
 """
