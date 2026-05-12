@@ -3,6 +3,9 @@ hide:
   - footer
   - toc
 #   - navigation
+meta:
+  - name: google-site-verification
+    content: HQsOhuVVa11DY0qIrxXPW6GUR9jk4EnFfQgUzCgKNbw
 ---
 
 <div class="home-page" markdown>
