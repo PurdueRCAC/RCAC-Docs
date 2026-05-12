@@ -22,5 +22,7 @@ $ module spider conda
 
 - [**Example Python Jobs**](examples/example_python_job.md)
 
+- [**Distributed Training on RCAC Clusters**](examples/example_distributed.md)
+
 
 [**Back to the Running Jobs section**](index.md)
