@@ -630,3 +630,20 @@ To display information about a specified module, including environment changes, 
 $ module show mymodulename
 ```
 """
+
+    @env.macro
+    def resource_use(resource):
+        with open("docs/snippets/resourceuse.md", "r") as f:
+            lines = f.readlines()
+        if resource.lower() == "anvil":
+            del lines[4:6]
+        return "".join(lines)
+
+    @env.macro
+    def scratch_purge(resource):
+        with open("docs/snippets/scratchpurge.md", "r") as f:
+            lines = f.readlines()
+        if resource.lower() == "anvil":
+            del lines[28:34]  # lines 29-34 (Recommendations + HPSS references)
+            del lines[5:21]   # lines 6-21 (purgelist email notifications)
+        return "".join(lines)
