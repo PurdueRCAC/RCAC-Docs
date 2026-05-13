@@ -180,7 +180,6 @@ The native ThinLinc client will offer the best experience especially over off-ca
 * Start the ThinLinc client on your computer.
 * In the client's login window, use `desktop.{resource}.rcac.purdue.edu` as the Server. Use your Purdue Career Account username and password.
 * Click the Connect button.
-<<<<<<< HEAD
 * Your Purdue Login MFA will receive a notification to approve your login.
 * Continue to following section on connecting to {resource.title()} from ThinLinc.
 
@@ -191,7 +190,6 @@ The ThinLinc service can be accessed from your web browser as a convenience to i
 * Open a web browser and navigate to [`desktop.{resource}.rcac.purdue.edu`.](https://desktop.{resource}.rcac.purdue.edu).
 * Log in with your Purdue Career Account username and password.
 * You may safely proceed past any warning messages from your browser.
-<<<<<<< HEAD
 * Your Purdue Login MFA will receive a notification to approve your login.
 * Continue to the following section on connecting to {resource.title()} from ThinLinc.
 
@@ -632,3 +630,20 @@ To display information about a specified module, including environment changes, 
 $ module show mymodulename
 ```
 """
+
+    @env.macro
+    def resource_use(resource):
+        with open("docs/snippets/resourceuse.md", "r") as f:
+            lines = f.readlines()
+        if resource.lower() == "anvil":
+            del lines[4:6]
+        return "".join(lines)
+
+    @env.macro
+    def scratch_purge(resource):
+        with open("docs/snippets/scratchpurge.md", "r") as f:
+            lines = f.readlines()
+        if resource.lower() == "anvil":
+            del lines[28:34]  # lines 29-34 (Recommendations + HPSS references)
+            del lines[5:21]   # lines 6-21 (purgelist email notifications)
+        return "".join(lines)
