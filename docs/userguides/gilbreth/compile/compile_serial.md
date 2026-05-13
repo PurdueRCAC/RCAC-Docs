@@ -39,4 +39,4 @@ $ module load gcc
 
 The Intel and GNU compilers will not output anything for a successful compilation. Also, the Intel compiler does not recognize the suffix ```.f95```.
 
-[Back to the Compiling Programs section](../compile.md)
+[**Back to the Compiling Programs section**](../compile.md)

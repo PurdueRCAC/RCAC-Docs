@@ -92,7 +92,7 @@ Available QOSes: `normal`, `standby`
 
 ### A100-80GB Partition
 
-This partition contains the resources a group purchases access to when they purchase A100-40GB GPUs on Gilbreth and is made up of 5 Gilbreth-I nodes and 52 Gilbreth-K nodes. Each of these nodes contains NVIDIA A100 GPUs each with 80GB of memory. Each node contains 2 GPUs and 512GB of CPU memory. Submission to this partition can be accomplished by using the option: `-p a100-80gb`or `--partition=a100-80gb`.
+This partition contains the resources a group purchases access to when they purchase A100-80GB GPUs on Gilbreth and is made up of 5 Gilbreth-I nodes and 52 Gilbreth-K nodes. Each of these nodes contains NVIDIA A100 GPUs each with 80GB of memory. Each node contains 2 GPUs and 512GB of CPU memory. Submission to this partition can be accomplished by using the option: `-p a100-80gb`or `--partition=a100-80gb`.
 
 The purchasing model for this partition allows groups to purchase high priority access to these GPUs. When an account uses resources in this account by submitting a job tagged with the `normal` QOS, which is the default QOS, the GPUs used by that job are withdrawn from the account and deposited back into the account when the job terminates.
 

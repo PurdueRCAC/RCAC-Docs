@@ -56,4 +56,4 @@ Here is some more documentation from other sources on the MPI libraries:
 - [Open MPI Home](http://www.open-mpi.org/)
 - [Open MPI Documentation](http://www.open-mpi.org/doc/)
 
-[Back to the Compiling Programs section](../compile.md)
+[**Back to the Compiling Programs section**](../compile.md)

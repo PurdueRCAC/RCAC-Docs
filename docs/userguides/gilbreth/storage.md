@@ -40,5 +40,8 @@ Gilbreth supports several methods for file transfer. Use the links below to lear
 - [HSI](storage/hsi.md)
 - [HTAR](storage/htar.md)
 
+## Lost File Recovery
 
-[Back](./index.md)
+- [Lost File Recovery](storage/recover.md)
+
+[**Back to Gilbreth Overview**](./index.md)
