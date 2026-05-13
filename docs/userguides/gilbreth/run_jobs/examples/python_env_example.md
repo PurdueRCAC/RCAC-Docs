@@ -14,26 +14,26 @@ search:
 
 To use Conda you must first load the anaconda module:
 
-```
+```bash
 module load conda
 ```
 
 Create an empty conda environment to install biopython:
 
-```
+```bash
 conda-env-mod create -n biopython
 ```
 
 Now activate the biopython environment:
 
-```
+```bash
 module load use.own
 module load conda-env/biopython-py3.12.5
 ```
 
 Install the biopython packages in your environment:
 
-```
+```bash
 conda install --channel anaconda biopython -y
 Fetching package metadata ..........
 Solving package specifications .........
@@ -46,16 +46,18 @@ The `--channel` option specifies that it searches the anaconda channel for the b
 
 Remember to add the following lines to your job submission script to use the custom environment in your jobs:
 
-```
+```bash
 module load conda
 module load use.own
 module load conda-env/biopython-py3.12.5
 ```
 
-If you need further help or run into any issues with creating environments, [contact us](/about/contact) or drop by [Coffee Hour](/coffee) for in-person help.
+If you need further help or run into any issues with creating environments, contact us or drop by a coffee hour session for in-person help.
 
 For more information about Python:
 
 * [The Python Programming Language - Official Website](http://www.python.org/)
 * [Anaconda Python Distribution - Official Website](https://store.continuum.io/cshop/anaconda/)
 * [Conda User Guide](https://conda.io/projects/conda/en/latest/user-guide/)
+
+[**Back to Python**](../python_example.md)

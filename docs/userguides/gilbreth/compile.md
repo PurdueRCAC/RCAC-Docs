@@ -14,5 +14,6 @@ search:
 - [Compiling Serial Programs](compile/compile_serial.md)
 - [Compiling MPI Programs](compile/compile_mpi.md)
 - [Compiling OpenMP Programs](compile/compile_openmp.md)
+- [Intel MKL Library](compile/compile_intel_mkl.md)
 
-[Back](./index.md)
+[**Back to Gilbreth Overview**](./index.md)

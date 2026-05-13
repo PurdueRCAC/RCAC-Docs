@@ -63,4 +63,4 @@ For more information about NVIDIA, CUDA, and GPUs:
 * [NVIDIA](http://www.nvidia.com/page/home.html)
 * [General-Purpose Computation on Graphics Hardware](http://gpgpu.org/)
 
-[Back to the Compiling Programs section](../compile.md)
+[**Back to the Compiling Programs section**](../compile.md)

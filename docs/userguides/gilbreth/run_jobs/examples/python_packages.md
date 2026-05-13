@@ -3,6 +3,7 @@ tags:
   - Gilbreth
 authors:
   - jin456
+  - verburgt
 resource: Gilbreth
 search:
   boost: 2
@@ -10,7 +11,7 @@ search:
 
 # Installing Packages
 
-Installing Python packages in an Anaconda environment is recommended. One key advantage of Anaconda is that it allows users to install unrelated packages in separate self-contained environments. Individual packages can later be reinstalled or updated without impacting others. If you are unfamiliar with Conda environments, please check our [Conda Guide](/knowledge/${resource.dir}/run/examples/apps/python/conda).
+Installing Python packages in an Anaconda environment is recommended. One key advantage of Anaconda is that it allows users to install unrelated packages in separate self-contained environments. Individual packages can later be reinstalled or updated without impacting others. If you are unfamiliar with Conda environments, please check our [Conda Guide](./python_conda.md).
 
 To facilitate the process of creating and using Conda environments, we support a script (`conda-env-mod`) that generates a module file for an environment, as well as an optional Jupyter kernel to use this environment in a JupyterHub notebook.
 
@@ -22,8 +23,8 @@ $ module load conda
 
 Step-by-step instructions for installing custom Python packages are presented below.
 
-Step 1: Create a conda environment
-----------------------------------
+## Step 1: Create a conda environment
+
 
 Users can use the `conda-env-mod` script to create an empty conda environment. This script needs either a name or a path for the desired environment. After the environment is created, it generates a module file for using it in future. Please note that `conda-env-mod` is different from the official `conda-env` script and supports a limited set of subcommands. Detailed instructions for using `conda-env-mod` can be found with the command `conda-env-mod --help`.
 
@@ -57,7 +58,12 @@ Note down the module names, as you will need to load these modules every time yo
 
 By default, module files are generated in your `$HOME/privatemodules` directory. The location of module files can be customized by specifying the `-m /path/to/modules` option to `conda-env-mod`.
 
-**Note:** The main differences between `-p` and `-m` are: 1) `-p` will change the location of packages to be installed for the env and the module file will still be located at the `$HOME/privatemodules` directory as defined in use.own. 2) `-m` will only change the location of the module file. So the method to load modules created with `-m` and `-p` are different, see Example 3 for details.
+!!! note
+    The main differences between `-p` and `-m` are: 
+    
+    1) `-p` will change the location of packages to be installed for the env and the module file will still be located at the `$HOME/privatemodules` directory as defined in use.own. 
+    
+    2) `-m` will only change the location of the module file. So the method to load modules created with `-m` and `-p` are different, see Example 3 for details.
 
 * **Example 3:** Create a conda environment named `labpackages` in your group's Data Depot space and place the module file at a shared location for the group to use.
 
@@ -89,8 +95,7 @@ By default, only the environment and a module file are created (no Jupyter kerne
   Your environment "labpackages" was created successfully.
   ```
 
-Step 2: Load the conda environment
-----------------------------------
+## Step 2: Load the conda environment
 
 * The following instructions assume that you have used `conda-env-mod` script to create an environment named `mypackages` (Examples 1 or 2 above). If you used `conda create` instead, please use `conda activate mypackages`.
 
@@ -100,6 +105,7 @@ Step 2: Load the conda environment
   ```
 
   Note that the `conda-env` module name includes the Python version that it supports (Python 3.8.5 in this example). This is same as the Python version in the `conda` module.
+  
 * If you used a custom module file location (Example 3 above), please use `module use` to load the `conda-env` module.
 
   ```
@@ -107,57 +113,8 @@ Step 2: Load the conda environment
   $ module load conda-env/labpackages-py3.8.5
   ```
 
-{::if resource.name != Weber}
 
-Step 3: Install packages
-------------------------
-
-Now you can install custom packages in the environment using either `conda install` or `pip install`.
-
-### Installing with conda
-
-* **Example 1:** Install OpenCV (open-source computer vision library) using conda.
-
-  ```
-  $ conda install opencv
-  ```
-* **Example 2:** Install a specific version of OpenCV using conda.
-
-  ```
-  $ conda install opencv=4.5.5
-  ```
-* **Example 3:** Install OpenCV from a specific anaconda channel.
-
-  ```
-  $ conda install -c anaconda opencv
-  ```
-
-### Installing with pip
-
-* **Example 4:** Install pandas using pip.
-
-  ```
-  $ pip install pandas
-  ```
-* **Example 5:** Install a specific version of pandas using pip.
-
-  ```
-  $ pip install pandas==1.4.3
-  ```
-
-  Follow the on-screen instructions while the packages are being installed. If installation is successful, please proceed to the next section to test the packages.
-
-**Note:** Do **NOT** run Pip with the `--user` argument, as that will install packages in a different location and might mess up your account environment.
-
-Step 4: Test the installed packages
------------------------------------
-
-{::else}
-
-Step 3: Test the installed packages
------------------------------------
-
-{::/}
+## Step 3: Test the installed packages
 
 To use the installed Python packages, you must load the module for your conda environment. If you have not loaded the `conda-env` module, please do so following the instructions at the end of Step 1.
 
@@ -179,8 +136,8 @@ $ module load conda-env/mypackages-py3.8.5
 
 If the commands finished without errors, then the installed packages can be used in your program.
 
-Additional capabilities of conda-env-mod script
------------------------------------------------
+## Additional capabilities of conda-env-mod script
+
 
 The `conda-env-mod` tool is intended to facilitate creation of a minimal Anaconda environment, matching module file and optionally a Jupyter kernel. Once created, the environment can then be accessed via familiar `module load` command, tuned and expanded as necessary. Additionally, the script provides several auxiliary functions to help manage environments, module files and Jupyter kernels.
 
@@ -208,13 +165,14 @@ Given a required name or prefix for an environment, the `conda-env-mod` script s
 
 Using these subcommands, you can iteratively fine-tune your environments, module files and Jupyter kernels, as well as delete and re-create them with ease. Below we cover several commonly occurring scenarios.
 
-**Note:** When you try to use `conda-env-mod delete`, remember to include the arguments as you create the environment (i.e. `-p package_location` and/or `-m module_location`).
+!!! note
+    When you try to use `conda-env-mod delete`, remember to include the arguments as you create the environment (i.e. `-p package_location` and/or `-m module_location`).
 
 ### Generating module file for an existing environment
 
 If you already have an existing configured Anaconda environment and want to generate a module file for it, follow appropriate examples from **Step 1** above, but use the `module` subcommand instead of the `create` one. E.g.
 
-```
+```bash
 $ conda-env-mod module -n mypackages
 ```
 
@@ -226,11 +184,11 @@ and follow printed instructions on how to load this module. With an optional `--
 
 If you already have an existing configured Anaconda environment and want to generate a Jupyter kernel file for it, you can use the `kernel` subcommand. E.g.
 
-```
+```bash
 $ conda-env-mod kernel -n mypackages
 ```
 
-This will add a `"Python (My mypackages Kernel)"` item to the dropdown list of available kernels upon your next login to the {::if resource.notebook == true}[JupyterHub](https://notebook.${resource.hostname}.rcac.purdue.edu/){::else}JupyterHub{::/}.
+This will add a `"Python (My mypackages Kernel)"` item to the dropdown list of available kernels upon your next login to the JupyterHub.
 
 Note that generated Jupiter kernels are always personal (i.e. each user has to make their own, even for shared environments). Note also that you (or the creator of the shared environment) will have to ensure that your environment has `ipython` and `ipykernel` packages installed into it.
 
@@ -242,14 +200,14 @@ Here is a suggested workflow for a common group-shared Anaconda environment with
 
 * Creates the environment and module file (once):
 
-  ```
+  ```bash
   $ module purge
   $ module load conda
   $ conda-env-mod create -p /depot/mylab/apps/labpackages -m /depot/mylab/etc/modules --jupyter
   ```
 * Installs required Python packages into the environment (as many times as needed):
 
-  ```
+  ```bash
   $ module use /depot/mylab/etc/modules
   $ module load conda-env/labpackages-py3.8.5
   $ conda install  .......                       # all the necessary packages
@@ -259,14 +217,14 @@ Here is a suggested workflow for a common group-shared Anaconda environment with
 
 * Lab members can start using the environment in their command line scripts or batch jobs simply by loading the corresponding module:
 
-  ```
+  ```bash
   $ module use /depot/mylab/etc/modules
   $ module load conda-env/labpackages-py3.8.5
   $ python my_data_processing_script.py .....
   ```
 * To use the environment in Jupyter notebooks, each lab member will need to create his/her own Jupyter kernel (once). This is because Jupyter kernels are private to individuals, even for shared environments.
 
-  ```
+  ```bash
   $ module use /depot/mylab/etc/modules
   $ module load conda-env/labpackages-py3.8.5
   $ conda-env-mod kernel -p /depot/mylab/apps/labpackages
@@ -274,31 +232,32 @@ Here is a suggested workflow for a common group-shared Anaconda environment with
 
 A similar process can be devised for instructor-provided or individually-managed class software, etc.
 
-Troubleshooting
----------------
+## Troubleshooting
 
 * Python packages often fail to install or run due to dependency incompatibility with other packages. More specifically, if you previously installed packages in your home directory it is safer to clean those installations.
 
-  ```
+  ```bash
   $ mv ~/.local ~/.local.bak
   $ mv ~/.cache ~/.cache.bak
   ```
 * Unload all the modules.
 
-  ```
+  ```bash
   $ module purge
   ```
 * Clean up PYTHONPATH.
 
-  ```
+  ```bash
   $ unset PYTHONPATH
   ```
 * Next load the modules (e.g. anaconda) that you need.
 
-  ```
+  ```bash
   $ module load conda/2024.02-py311
   $ module load use.own
   $ module load conda-env/2024.02-py311
   ```
 * Now try running your code again.
 * Few applications only run on specific versions of Python (e.g. Python 3.6). Please check the documentation of your application if that is the case.
+
+[**Back to Python**](../python_example.md)

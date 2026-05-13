@@ -3,6 +3,7 @@ tags:
   - Gilbreth
 authors:
   - jin456
+  - verburgt
 resource: Gilbreth
 search:
   boost: 2
@@ -12,19 +13,19 @@ search:
 
 Conda is a package manager in Anaconda that allows you to create and manage multiple environments where you can pick and choose which packages you want to use. To use Conda you must load an Anaconda module:
 
-```
+```bash 
 $ module load conda
 ```
 
 Many packages are pre-installed in the global environment. To see these packages:
 
-```
+```bash
 $ conda list
 ```
 
 To create your own custom environment:
 
-```
+```bash
 $ conda create --name MyEnvName python=3.8 FirstPackageName SecondPackageName -y
 ```
 
@@ -32,35 +33,25 @@ The `--name` option specifies that the environment created will be named MyEnvNa
 
 To create an environment at a custom location:
 
-```
+```bash
 $ conda create --prefix=$HOME/MyEnvName python=3.8 PackageName -y
 ```
 
 To see a list of your environments:
 
-```
+```bash
 $ conda env list
 ```
 
 To remove unwanted environments:
 
-```
+```bash
 $ conda remove --name MyEnvName --all
 ```
 
-{::if resource.name != Weber}
-
-To add packages to your environment:
-
-```
-$ conda install --name MyEnvName PackageNames
-```
-
-{::/}
-
 To remove a package from an environment:
 
-```
+```bash
 $ conda remove --name MyEnvName PackageName
 ```
 
@@ -68,21 +59,21 @@ Installing packages when creating your environment, instead of one at a time, wi
 
 To activate or deactivate an environment you have created:
 
-```
+```bash
 $ source activate MyEnvName
 $ source deactivate MyEnvName
 ```
 
 If you created your conda environment at a custom location using `--prefix` option, then you can activate or deactivate it using the full path.
 
-```
+```bash
 $ source activate $HOME/MyEnvName
 $ source deactivate $HOME/MyEnvName
 ```
 
 To use a custom environment inside a job you must load the module and activate the environment inside your job submission script. Add the following lines to your submission script:
 
-```
+```bash
 $ module load conda
 $ source activate MyEnvName
 ```
@@ -92,3 +83,5 @@ For more information about Python:
 * [The Python Programming Language - Official Website](http://www.python.org/)
 * [Anaconda Python Distribution - Official Website](https://store.continuum.io/cshop/anaconda/)
 * [Conda User Guide](https://conda.io/projects/conda/en/latest/user-guide/)
+
+[**Back to Python**](../python_example.md)

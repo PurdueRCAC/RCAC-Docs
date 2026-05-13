@@ -3,6 +3,7 @@ tags:
   - Gilbreth
 authors:
   - jin456
+  - verburgt
 resource: Gilbreth
 search:
   boost: 2
@@ -16,8 +17,20 @@ These snapshots are kept for a limited time at various intervals. RCAC keeps nig
 
 **Only files which have been saved during an overnight snapshot are recoverable.** If you lose a file the same day you created it, the file is **not** recoverable because the snapshot system has not had a chance to save the file.
 
-**Snapshots are not a substitute for regular backups.** It is the responsibility of the researchers to back up any important data to the [Fortress Archive](/storage/fortress). Gilbreth **does** protect against hardware failures or physical disasters through other means however these other means are also **not** substitutes for backups.
+**Snapshots are not a substitute for regular backups.** It is the responsibility of the researchers to back up any important data to the Fortress Archive. Gilbreth **does** protect against hardware failures or physical disasters through other means however these other means are also **not** substitutes for backups.
 
 Files in scratch directories are not recoverable. Files in scratch directories are not backed up. If you accidentally delete a file, a disk crashes, or old files are purged, they cannot be restored.
 
 Gilbreth offers several ways for researchers to access snapshots of their files.
+
+
+* [flost](recover/flost.md)
+
+* [Mac OS X](recover/mac.md)
+
+* [Windows](recover/windows.md)
+
+* [Manual Browsing](recover/manual.md)
+
+
+[**Back to the Storage section**](../storage.md)

@@ -48,5 +48,10 @@ Batch jobs submitted via SLURM have four main steps:
 - [**OpenMP**](openmp_jobs.md)
 - [**GPU**](gpu_jobs.md)
 
+### Machine Learning Examples
 
-[Back](../index.md)
+- [**Custom ML Packages**](learning/customml.md)
+- [**ML Batch Jobs**](learning/ml_batch.md)
+
+
+[**Back to Gilbreth Overview**](./index.md)

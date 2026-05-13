@@ -46,30 +46,22 @@ Intel MPI (IMPI) with Intel Compiler
 
 | Language | Command |
 | --- | --- |
-| Fortran 77 | ``` 
- $ mpiifort -qopenmp myprogram.f -o myprogram ``` |
-| Fortran 90 | ``` 
- $ mpiifort -openmp myprogram.f90 -o myprogram ``` |
-| Fortran 95 | ``` 
- $ mpiifort -openmp myprogram.f90 -o myprogram ``` |
-| C | ``` 
- $ mpiicc -qopenmp myprogram.c -o myprogram ``` |
-| C++ | ``` 
- $ mpiicpc -qopenmp myprogram.cpp -o myprogram ``` |
+| Fortran 77 | ```$ mpiifort -qopenmp myprogram.f -o myprogram ``` |
+| Fortran 90 | ```$ mpiifort -openmp myprogram.f90 -o myprogram ``` |
+| Fortran 95 | ```$ mpiifort -openmp myprogram.f90 -o myprogram ``` |
+| C | ```$ mpiicc -qopenmp myprogram.c -o myprogram ``` |
+| C++ | ```$ mpiicpc -qopenmp myprogram.cpp -o myprogram ``` |
 
 OpenMPI with GNU Compiler
 
 | Language | Command |
 | --- | --- |
-| Fortran 77 | ``` 
- $ mpif77 -fopenmp myprogram.f -o myprogram ``` |
-| Fortran 90 | ``` 
- $ mpif90 -fopenmp myprogram.f90 -o myprogram ``` |
-| Fortran 95 | ``` 
- $ mpif90 -fopenmp myprogram.f95 -o myprogram ``` |
-| C | ``` 
- $ mpicc -fopenmp myprogram.c -o myprogram ``` |
-| C++ | ``` 
- $ mpiCC -fopenmp myprogram.cpp -o myprogram ``` |
+| Fortran 77 | ```$ mpif77 -fopenmp myprogram.f -o myprogram ``` |
+| Fortran 90 | ```$ mpif90 -fopenmp myprogram.f90 -o myprogram ``` |
+| Fortran 95 | ```$ mpif90 -fopenmp myprogram.f95 -o myprogram ``` |
+| C | ```$ mpicc -fopenmp myprogram.c -o myprogram ``` |
+| C++ | ```$ mpiCC -fopenmp myprogram.cpp -o myprogram ``` |
 
 The Intel and GNU compilers will not output anything for a successful compilation. Also, the Intel compiler does not recognize the suffix `.f95`.
+
+[**Back to the Compiling Programs section**](../compile.md)

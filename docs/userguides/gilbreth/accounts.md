@@ -27,4 +27,4 @@ search:
 
 --8<-- "docs/snippets/purchase_nodes.md"
 
-[Back](./index.md)
+[**Back to Gilbreth Overview**](./index.md)

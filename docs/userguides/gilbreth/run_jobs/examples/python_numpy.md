@@ -3,6 +3,7 @@ tags:
   - Gilbreth
 authors:
   - jin456
+  - verburgt
 resource: Gilbreth
 search:
   boost: 2
@@ -18,11 +19,8 @@ Setting the `MKL_NUM_THREADS` or `OMP_NUM_THREADS` environment variable(s) allow
 
 When submitting batch jobs it is always a good idea to be explicit rather than implicit. If you are submitting a job that you want to make use of the full resources available on the node, set one or both of these variables to the number of cores you want to allow numpy to make use of.
 
-```
+```bash
 #!/bin/bash
-{::if resource.batchsystem == pbs}
-#PBS: -l nodes=1:ppn=${resource.nodecores}
-{::/}
 
 module load conda
 export MKL_NUM_THREADS=${resource.nodecores}
@@ -32,13 +30,10 @@ export MKL_NUM_THREADS=${resource.nodecores}
 
 If you are submitting multiple jobs that you intend to be scheduled together on the same node, it is probably best to restrict numpy to a single core.
 
-```
+```bash
 #!/bin/bash
-{::if resource.batchsystem == pbs}
-#PBS -l nodes=1:ppn=1
-#PBS -l naccesspolicy=singleuser
-{::/}
-
 module load conda
 export MKL_NUM_THREADS=1
 ```
+
+[**Back to Python**](../python_example.md)

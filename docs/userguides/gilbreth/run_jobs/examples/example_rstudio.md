@@ -31,7 +31,7 @@ Note that RStudio is a graphical program and in order to run it you must have a 
 - Click on the ```Applications``` drop down menu on the top left corner
 - Choose ```Cluster Software``` and then ```RStudio```
 
-![This image displays the Thinlinc Application Launcher menu and depicts the user selecting Cluster Software > Rstudio](example_rstudio_app_menu.png)
+![This image displays the Thinlinc Application Launcher menu and depicts the user selecting Cluster Software > Rstudio](../../../../assets/images/userguides/gilbreth/r/example_rstudio_app_menu.png)
 
 R and RStudio are free to download and run on your local machine. For more information about RStudio:
 

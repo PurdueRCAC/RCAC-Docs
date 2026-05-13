@@ -61,4 +61,4 @@ Here is some more documentation from other sources on OpenMP:
 - [Intel OpenMP](http://software.intel.com/en-us/articles/getting-started-with-openmp/)
 - [GCC OpenMP](http://gcc.gnu.org/wiki/openmp)
 
-[Back to the Compiling Programs section](../compile.md)
+[**Back to the Compiling Programs section**](../compile.md)

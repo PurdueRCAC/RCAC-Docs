@@ -118,7 +118,7 @@ Follow these steps to get up and running on RCAC clusters.
 
     Community Cluster optimized for communities running GPU intensive applications such as machine learning. Consists of Dell compute nodes with Intel Xeon processors and Nvidia Tesla GPUs.
 
-    [:octicons-arrow-right-24: Gilbreth User Guide](https://www.rcac.purdue.edu/knowledge/gilbreth)
+    [:octicons-arrow-right-24: Gilbreth User Guide](userguides/gilbreth/index.md)
 
 -   :material-server:{ .lg .middle } __Scholar__
 
