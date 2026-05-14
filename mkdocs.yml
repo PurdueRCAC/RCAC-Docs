@@ -123,7 +123,17 @@ nav:
       - Compiling Source Code: userguides/gautschi/compile.md
       - Frequently Asked Questions: userguides/gautschi/faqs.md
     - Bell: https://www.rcac.purdue.edu/knowledge/bell
-    - Gilbreth: https://www.rcac.purdue.edu/knowledge/gilbreth
+    - Gilbreth:
+      - userguides/gilbreth/index.md
+      - Gautschi Overview: userguides/gilbreth/overview.md
+      - Biography of Gilbreth: userguides/gilbreth/biography.md
+      - Accounts: userguides/gilbreth/accounts.md
+      - Software: userguides/gilbreth/software.md
+      - Running Jobs: userguides/gilbreth/run_jobs/index.md
+      - File Storage and Transfer: userguides/gilbreth/storage.md
+      - Gateway (Open OnDemand): userguides/gilbreth/gateway.md
+      - Compiling Source Code: userguides/gilbreth/compile.md
+      - Frequently Asked Questions: userguides/gilbreth/faqs.md
     - Negishi: https://www.rcac.purdue.edu/knowledge/negishi
     - Scholar: https://www.rcac.purdue.edu/knowledge/scholar
     - Geddes: https://www.rcac.purdue.edu/knowledge/geddes
