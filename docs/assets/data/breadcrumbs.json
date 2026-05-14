@@ -174,9 +174,54 @@
     "Home",
     "Bell"
   ],
-  "/https://www.rcac.purdue.edu/knowledge/gilbreth": [
+  "/userguides/gilbreth/": [
     "Home",
     "Gilbreth"
+  ],
+  "/userguides/gilbreth/overview/": [
+    "Home",
+    "Gilbreth",
+    "Gautschi Overview"
+  ],
+  "/userguides/gilbreth/biography/": [
+    "Home",
+    "Gilbreth",
+    "Biography of Gilbreth"
+  ],
+  "/userguides/gilbreth/accounts/": [
+    "Home",
+    "Gilbreth",
+    "Accounts"
+  ],
+  "/userguides/gilbreth/software/": [
+    "Home",
+    "Gilbreth",
+    "Software"
+  ],
+  "/userguides/gilbreth/run_jobs/": [
+    "Home",
+    "Gilbreth",
+    "Running Jobs"
+  ],
+  "/userguides/gilbreth/storage/": [
+    "Home",
+    "Gilbreth",
+    "File Storage and Transfer"
+  ],
+  "/userguides/gilbreth/gateway/": [
+    "Home",
+    "Gilbreth",
+    "Gateway (Open OnDemand)"
+  ],
+  "/userguides/gilbreth/compile/": [
+    "Home",
+    "Gilbreth",
+    "Compiling Source Code"
+  ],
+  "/userguides/gilbreth/faqs/": [
+    "Home",
+    "Gilbreth",
+    "Frequently Asked Questions"
   ],
   "/https://www.rcac.purdue.edu/knowledge/negishi": [
     "Home",
