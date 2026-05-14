@@ -1,8 +1,9 @@
-All users of research computing systems are provided a scratch directory. Research scratch directories are available for short-term storage of files. There is no backup service for scratch directories, and files not accessed or modified in the last 60 days will be removed. In the event of a disk crash or file removal, files in scratch directories are not recoverable. Please be sure to save copies of all important files elsewhere on a regular basis for long-term storage on the [Fortress HPSS Archive](https://www.rcac.purdue.edu/storage/fortress).
+<!-- Note: the content inside this snippet will be modified depending on resource. Refer to `scratch_purge` macro snippet in `main.py` for details. -->
+All users of research computing systems are provided a scratch directory. Research scratch directories are available for short-term storage of files. There is no backup service for scratch directories, and files not accessed or modified in the last **60 days** will be removed. In the event of a disk crash or file removal, files in scratch directories are not recoverable. Please be sure to save copies of all important files elsewhere on a regular basis for long-term storage on the [Fortress HPSS Archive](https://www.rcac.purdue.edu/storage/fortress).
 
 **Purge Policy**
 
-Scratch directories are purged on the basis of last **access time** and content **modification time** of an individual file. **Any file not accessed or had content modified in 60 days (30 days on Bell and Anvil) will be subject to purge.** Changing file metadata, such as file name or permissions, does not protect a file from purging.
+Scratch directories are purged on the basis of last **access time** and content **modification time** of an individual file. **Any file not accessed or had content modified in 60 days will be subject to purge.** Changing file metadata, such as file name or permissions, does not protect a file from purging.
 
 All scratch directories are scanned weekly to identify files subject to purging one week in advance. The owners of those files will receive an email notification that their files in a scratch directory will be removed the following week. Be sure to regularly check your Purdue email account or [set up mail forwarding](https://www.purdue.edu/apps/account/ChangeMailbox) to an email account you do regularly check.
 
