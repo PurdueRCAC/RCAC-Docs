@@ -1,4 +1,4 @@
-### SSH
+**SSH**
 - SSH to the cluster as usual.
 - When asked for a password, type your Purdue password.
 - Your Purdue MFA client will receive a notification to approve the login.
