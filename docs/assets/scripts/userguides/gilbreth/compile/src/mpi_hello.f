@@ -1,14 +1,3 @@
----
-tags:
-  - Gilbreth
-authors:
-  - jin456
-resource: Gilbreth
----
-
-# mpi_hello.f
-
-```f
 C  Fortran 77
 
       PROGRAM HELLO
@@ -35,6 +24,3 @@ C     Get run-host name.
 C     Terminate MPI.
       CALL MPI_FINALIZE(IERROR)
       END
-```
-
-[Back to the Compiling MPI Programs section](../compile_mpi.md)

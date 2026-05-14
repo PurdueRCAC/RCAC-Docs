@@ -15,7 +15,7 @@ MATLAB offers two kinds of profiles for parallel execution: the `local` profile 
 
 To prepare a user-defined cluster profile, use the `Cluster Profile Manager` in the `Parallel` menu. This profile contains the scheduler details (queue, nodes, processors, walltime, etc.) of your job submission. Ultimately, your cluster profile will be an argument to MATLAB functions like `batch()`.
 
-For your convenience, a generic cluster profile is provided that can be downloaded: [`myslurmprofile.settings`](../../../../assets/images/userguides/gilbreth/matlab/myslurmprofile.settings)
+For your convenience, a generic cluster profile is provided that can be downloaded: [`myslurmprofile.settings`](../../../../assets/scripts/userguides/myslurmprofile.settings)
 
 Please note that modifications are very likely to be required to make `myslurmprofile.settings` work. You may need to change values for number of nodes, number of workers, walltime, and submission queue specified in the file. As well, the generic profile itself depends on the particular job scheduler on the cluster, so you may need to download or create two or more generic profiles under different names. Each time you run a job using a Cluster Profile, make sure the specific profile you are using is appropriate for the job and the cluster.
 

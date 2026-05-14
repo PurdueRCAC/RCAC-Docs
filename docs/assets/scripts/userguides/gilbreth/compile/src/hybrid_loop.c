@@ -1,14 +1,3 @@
----
-tags:
-  - Gilbreth
-authors:
-  - jin456
-resource: Gilbreth
----
-
-# hybrid_loop.c
-
-```c
 /*  C  */
 
 #include <stdio.h>

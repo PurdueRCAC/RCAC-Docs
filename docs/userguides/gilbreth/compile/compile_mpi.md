@@ -25,11 +25,11 @@ OpenMPI and Intel MPI (IMPI) are implementations of the Message-Passing Interfac
 
 Here are a few sample programs using MPI:
 
-- [mpi_hello.f](src/mpi_hello_f.md)
-- [mpi_hello.f90](src/mpi_hello_f90.md)
-- [mpi_hello.f95](src/mpi_hello_f95.md)
-- [mpi_hello.c](src/mpi_hello_c.md)
-- [mpi_hello.cpp](src/mpi_hello_cpp.md)
+- [mpi_hello.f](../../../assets/scripts/userguides/gilbreth/compile/src/mpi_hello.f)
+- [mpi_hello.f90](../../../assets/scripts/userguides/gilbreth/compile/src/mpi_hello.f90)
+- [mpi_hello.f95](../../../assets/scripts/userguides/gilbreth/compile/src/mpi_hello.f95)
+- [mpi_hello.c](../../../assets/scripts/userguides/gilbreth/compile/src/mpi_hello.c)
+- [mpi_hello.cpp](../../../assets/scripts/userguides/gilbreth/compile/src/mpi_hello.cpp)
 
 To see the available MPI libraries:
 

@@ -1,14 +1,3 @@
----
-tags:
-  - Gilbreth
-authors:
-  - jin456
-resource: Gilbreth
----
-
-# omp_hello.cpp
-
-```cpp
 //  C++
 
 #include <iostream>
@@ -47,6 +36,3 @@ int main () {
     cout << "SERIAL REGION:     Runhost:" << name << "   Thread:" << id << " of " << nthreads << " thread    hello, world" << endl;
     return 0;
 }
-```
-
-[Back to the Compiling OpenMP Programs section](../compile_openmp.md)

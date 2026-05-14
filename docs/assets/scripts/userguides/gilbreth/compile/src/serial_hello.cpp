@@ -1,14 +1,3 @@
----
-tags:
-  - Gilbreth
-authors:
-  - jin456
-resource: Gilbreth
----
-
-# serial_hello.cpp
-
-```cpp
 //  C++
 
 #include <iostream>
@@ -23,6 +12,3 @@ int main () {
     cout << "Runhost:" << name << "   hello, world\n" << endl;
     return 0;
 }
-```
-
-[Back to the Compiling Serial Programs section](../compile_serial.md)

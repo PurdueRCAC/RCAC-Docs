@@ -1,14 +1,3 @@
----
-tags:
-  - Gilbreth
-authors:
-  - jin456
-resource: Gilbreth
----
-
-# serial_hello.f95
-
-```f95
 !  Fortran 95
 
 PROGRAM hello
@@ -18,6 +7,3 @@ PROGRAM hello
     CALL getenv("HOST",name)     ! get run-host name
     PRINT *, 'Runhost:', name, '   hello, world'
 END PROGRAM hello
-```
-
-[Back to the Compiling Serial Programs section](../compile_serial.md)

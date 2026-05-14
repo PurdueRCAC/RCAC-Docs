@@ -1,14 +1,3 @@
----
-tags:
-  - Gilbreth
-authors:
-  - jin456
-resource: Gilbreth
----
-
-# serial_hello.c
-
-```c
 /*  C  */
 
 #include <stdio.h>
@@ -21,6 +10,3 @@ int main () {
     printf("Runhost:%s   hello, world\n", name);
     return 0;
 }
-```
-
-[Back to the Compiling Serial Programs section](../compile_serial.md)

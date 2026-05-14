@@ -12,7 +12,7 @@ search:
 {% set cluster = "Gilbreth" %}
 {% set resource = "gilbreth" %}
 
-{{ accounts_md_snippet(host,cluster) }}
+{{ accounts_md_snippet(resource) }}
 
 ## SSH Keys
 {{ ssh_keys_snippet(resource) }}

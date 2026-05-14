@@ -1,14 +1,3 @@
----
-tags:
-  - Gilbreth
-authors:
-  - jin456
-resource: Gilbreth
----
-
-# hybrid_hello.f90
-
-```f90
 !  Fortran 90
 
 PROGRAM hello
@@ -58,6 +47,3 @@ PROGRAM hello
     ! Exit master thread.
     CALL mpi_finalize(ierror)                        ! terminate MPI
 END PROGRAM hello                                    ! Fortran 90
-```
-
-[Back to the Compiling Hybrid Programs section](../compile_hybrid.md)

@@ -15,7 +15,7 @@ Mac OS X does not provide any way to access the Gilbreth snapshots directly. To 
 
 To browse the snapshots by hand, follow the directions outlined in the [Manual Browsing](./manual.md) section.
 
-To use the automated command-line tool, log into a compute cluster or into the host `gilbreth.rcac.purdue.edu` (which is available to all Gilbreth users) and use the [flost](/knowledge/${resource.dir}/storage/recover/flost) tool. On Mac OS X you can use the built-in SSH terminal application to connect.
+To use the automated command-line tool, log into a compute cluster or into the host `gilbreth.rcac.purdue.edu` (which is available to all Gilbreth users) and use the [flost](./flost.md) tool. On Mac OS X you can use the built-in SSH terminal application to connect.
 
 
 * Open the Applications folder from Finder.
@@ -34,3 +34,4 @@ Once logged in use the [flost](./flost.md) tool as described above. The tool wil
 
 
 [**Back to the Recovery section**](../recover.md)
+

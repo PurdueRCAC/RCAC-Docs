@@ -1,14 +1,3 @@
----
-tags:
-  - Gilbreth
-authors:
-  - jin456
-resource: Gilbreth
----
-
-# hybrid_hello.c
-
-```c
 /*  C  */
 
 #include <stdio.h>
@@ -57,6 +46,3 @@ int main (int argc, char *argv[]) {
     MPI_Finalize();                         /* terminate MPI       */
     return 0;
 }
-```
-
-[Back to the Compiling Hybrid Programs section](../compile_hybrid.md)

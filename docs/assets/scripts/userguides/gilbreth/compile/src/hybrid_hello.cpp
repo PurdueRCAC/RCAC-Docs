@@ -1,14 +1,3 @@
----
-tags:
-  - Gilbreth
-authors:
-  - jin456
-resource: Gilbreth
----
-
-# hybrid_hello.cpp
-
-```cpp
 //  C++
 
 #include <iostream>
@@ -64,6 +53,3 @@ cout << "SERIAL REGION:     Runhost:" << name << "   Rank:" << rank << " of " <<
     MPI_Finalize();                         // terminate MPI
     return 0;
 }
-```
-
-[Back to the Compiling Hybrid Programs section](../compile_hybrid.md)
