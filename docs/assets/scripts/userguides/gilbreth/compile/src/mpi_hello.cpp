@@ -1,14 +1,3 @@
----
-tags:
-  - Gilbreth
-authors:
-  - jin456
-resource: Gilbreth
----
-
-# mpi_hello.cpp
-
-```cpp
 //  C++
 
 #include <iostream>
@@ -34,6 +23,3 @@ int main (int argc, char *argv[]) {
     MPI_Finalize();                         // terminate MPI
     return 0;
 }
-```
-
-[Back to the Compiling MPI Programs section](../compile_mpi.md)

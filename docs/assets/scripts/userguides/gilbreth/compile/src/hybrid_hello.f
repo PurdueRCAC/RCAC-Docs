@@ -1,14 +1,3 @@
----
-tags:
-  - Gilbreth
-authors:
-  - jin456
-resource: Gilbreth
----
-
-# hybrid_hello.f
-
-```f
 C  Fortran 77
 
       PROGRAM HELLO
@@ -68,6 +57,3 @@ C     Exit master thread.
 C     Terminate MPI.
       CALL MPI_FINALIZE(IERROR)
       END
-```
-
-[Back to the Compiling Hybrid Programs section](../compile_hybrid.md)

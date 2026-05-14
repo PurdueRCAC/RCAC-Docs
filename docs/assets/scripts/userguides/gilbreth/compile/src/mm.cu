@@ -1,14 +1,3 @@
----
-tags:
-  - Gilbreth
-authors:
-  - jin456
-resource: Gilbreth
----
-
-# mm.cu
-
-```bash
 /***********************************************************************
 * FILENAME:  MM.cu
 *            Matrix Multiplication
@@ -236,6 +225,3 @@ int main (int argc, char** argv) {
 
 	return 0; 
 }
-```
-
-[Back to the Compiling GPU Programs section](../compile_gpu.md)

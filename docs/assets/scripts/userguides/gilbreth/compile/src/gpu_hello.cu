@@ -1,14 +1,3 @@
----
-tags:
-  - Gilbreth
-authors:
-  - jin456
-resource: Gilbreth
----
-
-# gpu_hello.cu
-
-```bash
 /*
 
 FILENAME:  gpu_hello.cu
@@ -98,6 +87,4 @@ __global__ void HelloWorld(char* str1, char* str2) {
     /* Copy one element of the string.                        */
     str2[idx] = str1[idx];
 }
-```
 
-[Back to the Compiling GPU Programs section](../compile_gpu.md)

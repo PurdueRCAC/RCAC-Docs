@@ -20,4 +20,3 @@ Gilbreth is a Community Cluster optimized for communities running GPU intensive 
 - [**Gateway (Open OnDemand)**](gateway.md)
 - [**Compiling Source Code**](compile.md)
 - [**Frequently Asked Questions**](faqs.md)
-- [**Datasets**](datasets.md)

@@ -1,22 +1,14 @@
----
-tags:
-  - Gilbreth
-authors:
-  - jin456
-resource: Gilbreth
----
-
-# mpi_hello.f
-
-```f90
-!  Fortran 90
+!  Fortran 95
 
 PROGRAM hello
+
+    INTEGER, PARAMETER :: high=8
+    REAL (KIND=high) x           ! Fortran 95
 
     ! MPI Parameters
     INCLUDE 'mpif.h'
     INTEGER rank, size, ierror, len
-    CHARACTER(30) name                             ! Fortran 90
+    CHARACTER(30) name
 
     ! All ranks initiate the message-passing environment.
     ! Each rank obtains information about itself and its environment.
@@ -28,7 +20,4 @@ PROGRAM hello
     PRINT *, 'Runhost:', name, '   Rank:', rank, ' of ', size, 'ranks', '   hello, world'
 
     CALL mpi_finalize(ierror)                      ! terminate MPI
-END PROGRAM hello                                  ! Fortran 90
-```
-
-[Back to the Compiling MPI Programs section](../compile_mpi.md)
+END PROGRAM hello

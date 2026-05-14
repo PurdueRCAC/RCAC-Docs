@@ -25,15 +25,15 @@ All compilers installed on Brown include OpenMP functionality for C, C++, and Fo
 
 Sample programs illustrate task parallelism of OpenMP:
 
-- [omp_hello.f](src/omp_hello_f.md)
-- [omp_hello.f90](src/omp_hello_f90.md)
-- [omp_hello.f95](src/omp_hello_f95.md)
-- [omp_hello.c](src/omp_hello_c.md)
-- [omp_hello.cpp](src/omp_hello_cpp.md)
+- [omp_hello.f](../../../assets/scripts/userguides/gilbreth/compile/src/omp_hello.f)
+- [omp_hello.f90](../../../assets/scripts/userguides/gilbreth/compile/src/omp_hello.f90)
+- [omp_hello.f95](../../../assets/scripts/userguides/gilbreth/compile/src/omp_hello.f95)
+- [omp_hello.c](../../../assets/scripts/userguides/gilbreth/compile/src/omp_hello.c)
+- [omp_hello.cpp](../../../assets/scripts/userguides/gilbreth/compile/src/omp_hello.cpp)
 
 A sample program illustrates loop-level (data) parallelism of OpenMP:
 
-- [omp_loop.c](src/omp_loop_c.md)
+- [omp_loop.c](../../../assets/scripts/userguides/gilbreth/compile/src/omp_loop.c)
 
 To load a compiler, enter one of the following:
 

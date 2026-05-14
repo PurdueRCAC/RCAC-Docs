@@ -23,15 +23,15 @@ Hybrid programs require including header files:
 
 A few examples illustrate hybrid programs with task parallelism of OpenMP:
 
-- [hybrid_hello.f](src/hybrid_hello_f.md)
-- [hybrid_hello.f90](src/hybrid_hello_f90.md)
-- [hybrid_hello.f95](src/hybrid_hello_f95.md)
-- [hybrid_hello.c](src/hybrid_hello_c.md)
-- [hybrid_hello.cpp](src/hybrid_hello_cpp.md)
+- [hybrid_hello.f](../../../assets/scripts/userguides/gilbreth/compile/src/hybrid_hello.f)
+- [hybrid_hello.f90](../../../assets/scripts/userguides/gilbreth/compile/src/hybrid_hello.f90)
+- [hybrid_hello.f95](../../../assets/scripts/userguides/gilbreth/compile/src/hybrid_hello.f95)
+- [hybrid_hello.c](../../../assets/scripts/userguides/gilbreth/compile/src/hybrid_hello.c)
+- [hybrid_hello.cpp](../../../assets/scripts/userguides/gilbreth/compile/src/hybrid_hello.cpp)
 
 This example illustrates a hybrid program with loop-level (data) parallelism of OpenMP:
 
-- [hybrid_loop.c](src/hybrid_loop_c.md)
+- [hybrid_loop.c](../../../assets/scripts/userguides/gilbreth/compile/src/hybrid_loop.c)
 
 To see the available MPI libraries:
 

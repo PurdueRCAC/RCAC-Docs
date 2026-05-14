@@ -79,44 +79,6 @@ gilbreth-a003:~$ lstopo-no-graphics --physical --whole-io
 
 ## Applications
 
-### How should I launch common GUI applications on Gilbreth?
-Users who have access to **Gilbreth** can use **ThinLinc** to launch an interactive jobs. Refer to [this user guide section](./accounts.md/#thinlinc) to learn how to setup Thinlinc for Gilbreth.
-
-* In the upper left corner, the user can click on **Applications**, then **Cluster Software**, where multiple software options are listed with interactive SLURM jobs.
-
-    <figure style="text-align: center;">
-        ![Thinlinc Application](../../assets/images/userguides/gilbreth/thinlinc/thinlinc-application1.png)
-        <figcaption>Thinlinc application menu</figcaption>
-    </figure>
-
-* The **GUI launcher** starts with a window that prompts the user to select the desired version of the software to launch and guides them through the job submission process.
-
-    <figure style="text-align: center;">
-        ![Thinlinc Application2](../../assets/images/userguides/gilbreth/thinlinc/thinlinc-application2.png)
-        <figcaption>Thinlinc application selector</figcaption>
-    </figure>
-
-* The **GUI launcher** also makes it easy for users to view available accounts, the maximum wall times for each account, and the available computing resources with multiple help options at the bottom.
-
-    <figure style="text-align: center;">
-        ![Thinlinc Partition](../../assets/images/userguides/gilbreth/thinlinc/thinlinc-partition.png)
-        <figcaption>Partition selection</figcaption>
-    </figure>
-
-* After choosing the partition, the user is prompted to provide the computing resource they need for their job to run while adjusting the memory for them automatically.
-
-    <figure style="text-align: center;">
-        ![Thinlinc Resource](../../assets/images/userguides/gilbreth/thinlinc/thinlinc-resource_options.png)
-        <figcaption>Resource options for your job</figcaption>
-    </figure>
-
-* After requesting the resources the job will be submitted and waiting for slurm to allocate the computing resources.
-
-    <figure style="text-align: center;">
-        ![Thinlinc Application](../../assets/images/userguides/gilbreth/thinlinc/thinlinc-jobsubmitted.png)
-        <figcaption>Interactive job has been submitted</figcaption>
-    </figure>
-
 ### Close Firefox / Firefox is already running but not responding
 
 --8<-- "docs/snippets/firefox_lock.md"

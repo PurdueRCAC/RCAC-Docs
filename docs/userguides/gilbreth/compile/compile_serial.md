@@ -14,11 +14,11 @@ A serial program is a single process which executes as a sequential stream of in
 
 Here are a few sample serial programs:
 
-- [serial_hello.f](src/serial_hello_f.md)
-- [serial_hello.f90](src/serial_hello_f90.md)
-- [serial_hello.f95](src/serial_hello_f95.md)
-- [serial_hello.c](src/serial_hello_c.md)
-- [serial_hello.cpp](src/serial_hello_cpp.md)
+- [serial_hello.f](../../../assets/scripts/userguides/gilbreth/compile/src/serial_hello.f)
+- [serial_hello.f90](../../../assets/scripts/userguides/gilbreth/compile/src/serial_hello.f90)
+- [serial_hello.f95](../../../assets/scripts/userguides/gilbreth/compile/src/serial_hello.f95)
+- [serial_hello.c](../../../assets/scripts/userguides/gilbreth/compile/src/serial_hello.c)
+- [serial_hello.cpp](../../../assets/scripts/userguides/gilbreth/compile/src/serial_hello.cpp)
 
 To load a compiler, enter one of the following:
 

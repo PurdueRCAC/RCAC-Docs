@@ -1,14 +1,3 @@
----
-tags:
-  - Gilbreth
-authors:
-  - jin456
-resource: Gilbreth
----
-
-# omp_hello.f
-
-```f
 C  Fortran 77
 
       PROGRAM HELLO
@@ -43,6 +32,3 @@ C     Serial Region  (master thread)
       PRINT *, 'SERIAL REGION:     Runhost:', NAME, '   Thread:', ID,
      &    ' of ', NTHREADS, ' thread    hello, world'
       END
-```
-
-[Back to the Compiling OpenMP Programs section](../compile_openmp.md)

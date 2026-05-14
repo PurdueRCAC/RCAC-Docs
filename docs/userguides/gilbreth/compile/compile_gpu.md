@@ -22,7 +22,7 @@ A simple CUDA program has a basic workflow:
 
 Here is a sample CUDA program:
 
-* [`gpu_hello.cu`](src/gpu_hello.md)
+* [`gpu_hello.cu`](../../../assets/scripts/userguides/gilbreth/compile/src/gpu_hello.cu)
 
 Both front-ends and GPU-enabled compute nodes have the CUDA tools and libraries available to compile CUDA programs. To compile a CUDA program, load CUDA, and use `nvcc` to compile the program:
 
@@ -37,7 +37,7 @@ The example illustrates only how to copy an array between a CPU and its GPU but 
 
 The following program times three square matrix multiplications on a CPU and on the global and shared memory of a GPU:
 
-- [mm.cu](src/gpu_mm.md)
+- [mm.cu](../../../assets/scripts/userguides/gilbreth/compile/src/mm.cu)
 
 ```bash
 $ module load cuda

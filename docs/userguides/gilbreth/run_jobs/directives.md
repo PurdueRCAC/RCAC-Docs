@@ -13,15 +13,15 @@ search:
 So far these examples have shown submitting jobs with the resource requests on the `sbatch` command line such as:
 
 ```bash
-sbatch -A standby --nodes=1 --gpus-per-node=1 --time=00:01:00 hello.sub
+sbatch -A accountname --partition=a30 --qos=standby --nodes=1 --gpus-per-node=1 --time=00:01:00 --mem=20G hello.sub
 ```
 
 The resource requests can also be put into job submission file itself. Documenting the resource requests in the job submission is desirable because the job can be easily reproduced later. Details left in your command history are quickly lost. Arguments are specified with the `#SBATCH` syntax:
 
-```bash
+```bash title="hello.sub"
 #!/bin/bash
-#SBATCH -A standby 
-#SBATCH --nodes=1 --gpus-per-node=1 --time=00:01:00 
+#SBATCH -A accountname --partition=a30 --qos=standby
+#SBATCH --nodes=1 --gpus-per-node=1 --time=00:01:00 --mem=20G 
 # Show this ran on a compute node by running the hostname command.
 hostname
 echo "Hello World"

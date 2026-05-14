@@ -1,14 +1,3 @@
----
-tags:
-  - Gilbreth
-authors:
-  - jin456
-resource: Gilbreth
----
-
-# omp_loop.c
-
-```c
 /*  C  */
 
 #include <stdio.h>
@@ -57,6 +46,3 @@ int main () {
     printf("SERIAL REGION:   Runhost:%s   Thread:%d of %d thread    hello, world\n", name,id,nthreads);
     return 0;
 }
-```
-
-[Back to the Compiling OpenMP Programs section](../compile_openmp.md)
