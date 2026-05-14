@@ -11,7 +11,7 @@ search:
 # All software and versions on RCAC clusters
 
 ## Overview
-As of **May 07, 2026**, there have been a total of **274** applications with **2519** available versions deployed across **6** RCAC HPC clusters: **ANVIL, BELL, GAUTSCHI, GILBRETH, NEGISHI, SCHOLAR**.
+As of **May 14, 2026**, there have been a total of **275** applications with **2521** available versions deployed across **6** RCAC HPC clusters: **ANVIL, BELL, GAUTSCHI, GILBRETH, NEGISHI, SCHOLAR**.
 
 ## Applications Catalog
 
@@ -119,6 +119,11 @@ As of **May 07, 2026**, there have been a total of **274** applications with **2
       <td><a href="../apps_md/beast2"><strong>beast2</strong></a></td>
       <td>Miscellaneous</td>
       <td>ANVIL</td>
+    </tr>
+    <tr>
+      <td><a href="../apps_md/benchmarking"><strong>benchmarking</strong></a></td>
+      <td>Miscellaneous</td>
+      <td>NEGISHI</td>
     </tr>
     <tr>
       <td><a href="../apps_md/berkeley-db"><strong>berkeley-db</strong></a></td>
@@ -738,7 +743,7 @@ As of **May 07, 2026**, there have been a total of **274** applications with **2
     <tr>
       <td><a href="../apps_md/monitor"><strong>monitor</strong></a></td>
       <td>Math/Stat, Programming</td>
-      <td>ANVIL, BELL, GAUTSCHI, GILBRETH, NEGISHI</td>
+      <td>ANVIL, BELL, GAUTSCHI, GILBRETH, NEGISHI, SCHOLAR</td>
     </tr>
     <tr>
       <td><a href="../apps_md/motif"><strong>motif</strong></a></td>
