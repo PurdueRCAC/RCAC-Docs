@@ -643,7 +643,13 @@ $ module show mymodulename
     def scratch_purge(resource):
         with open("docs/snippets/scratchpurge.md", "r") as f:
             lines = f.readlines()
+        if resource.lower() in ("anvil", "bell"):
+            lines = [l.replace("60 days", "30 days") for l in lines]
         if resource.lower() == "anvil":
+            lines = [l.replace(
+                "Please be sure to save copies of all important files elsewhere on a regular basis for long-term storage on the [Fortress HPSS Archive](https://www.rcac.purdue.edu/storage/fortress).",
+                "Please be sure to save copies of all important files elsewhere (e.g. your `$PROJECT` space) on a regular basis."
+            ) for l in lines]
             del lines[28:34]  # lines 29-34 (Recommendations + HPSS references)
             del lines[5:21]   # lines 6-21 (purgelist email notifications)
         return "".join(lines)
