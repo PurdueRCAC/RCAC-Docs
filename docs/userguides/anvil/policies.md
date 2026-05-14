@@ -6,6 +6,8 @@ authors:
 draft: true
 ---
 
+{% set resource = "anvil" %}
+
 ## Software Installation Request Policy
 
 The Anvil team will go to every reasonable effort to provide a broadly useful set of popular software packages for research cluster users. However, many domain-specific packages that may only be of use to single users or small groups of users are beyond the capacity of staff to fully maintain and support. Please consider the following if you require software that is not available via the module command:
@@ -23,3 +25,11 @@ If you're not sure how your software request should be handled or need help inst
 - **Describe your issue as precisely and completely as you can:** what you did, what happened, verbatim error messages, other meaningful output. When appropriate, include the information a consultant would need to find your artifacts and understand your workflow: e.g. the directory containing your build and/or job script; the modules you were using; relevant job numbers; and recent changes in your workflow that could affect or explain the behavior you're observing.
 - **Have realistic expectations.** Consultants can address system issues and answer questions about Anvil. But they can't teach parallel programming in a ticket and may know nothing about the package you downloaded. They may offer general advice that will help you build, debug, optimize, or modify your code, but you shouldn't expect them to do these things for you.
 - **Be patient.** It may take a business day for a consultant to get back to you, especially if your issue is complex. It might take an exchange or two before you and the consultant are on the same page. If the admins disable your account, it's not punitive. When the file system is in danger of crashing, or a login node hangs, they don't have time to notify you before taking action.
+
+## Acceptable Purdue IT Research Resource Use
+
+{{ resource_use(resource) }}
+
+## Scratch File Purging
+
+{{ scratch_purge(resource) }}

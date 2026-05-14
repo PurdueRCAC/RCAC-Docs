@@ -283,7 +283,7 @@
   },
   "cosmosscope": {
     "description": "CosmosScope is a scientific visualization and analysis tool used for exploring cosmological and astrophysical simulation data, providing interactive interfaces for large-scale structure and particle-based datasets.",
-    "homepage": "https://ui.adsabs.harvard.edu/abs/2019A&C....27..111C/abstract",
+    "homepage": "https://www.synopsys.com",
     "source": "curated",
     "topic": [
       "Miscellaneous"
@@ -367,7 +367,7 @@
   },
   "edacfg": {
     "description": "edacfg (Error Detection and Correction configuration) is a Linux utility for configuring and managing the EDAC kernel subsystem, which handles detection and reporting of hardware memory errors.",
-    "homepage": "https://github.com/mchehab/edac-utils",
+    "homepage": "https://github.com/grondo/edac-utils",
     "source": "curated",
     "topic": [
       "Utilities"
@@ -710,7 +710,7 @@
   },
   "hspice": {
     "description": "HSPICE is a leading circuit simulator used for integrated circuit design and verification.",
-    "homepage": "https://www.synopsys.com/verification/analog-mixed-signal/hspice.html",
+    "homepage": "https://www.synopsys.com/",
     "source": "curated",
     "topic": [
       "Engineering"
@@ -992,7 +992,7 @@
   },
   "libszip": {
     "description": "Szip is an implementation of the extended-Rice lossless compression algorithm.  It provides lossless compression of scientific data, and is provided with HDF software products.",
-    "homepage": "https://support.hdfgroup.org/doc_resource/SZIP/",
+    "homepage": "https://packages.spack.io/package.html?name=szip",
     "source": "spack",
     "topic": [
       "Library",
@@ -1903,7 +1903,7 @@
   },
   "stata-mp": {
     "description": "Stata/MP is the multiprocessor version of Stata for statistical analysis.",
-    "homepage": "https://www.stata.com/products/mp/",
+    "homepage": "https://www.stata.com/statamp/",
     "source": "curated",
     "topic": [
       "Math/Stat"

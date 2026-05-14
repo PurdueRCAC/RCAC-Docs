@@ -13,10 +13,9 @@ search:
 ---
 
 <!-- ------------------- General slurm overview SNIPPET -------------------- -->
-{% set host = "anvil.rcac.purdue.edu" %}
-{% set hostname = "anvil" %}
+{% set resource = "anvil" %}
 
-{{ slurm_general_overview(host, hostname) }}
+{{ slurm_general_overview(resource) }}
 
 <!-- --------------------------- Anvil-Specific ---------------------------- -->
 ACCESS users with allocations can submit jobs to several types of queues:
@@ -401,7 +400,7 @@ The charge unit for Anvil is the **Service Unit (SU)**. This corresponds to the 
 
 Charges on jobs submitted to the shared queues are based on the **number of cores** and the **fraction of the memory** requested, **whichever is larger**. Jobs submitted as node-exclusive will be charged for all 128 cores, whether the resources are used or not.
 
-Jobs submitted to the large memory nodes will be charged 4 SU per compute core (4x wholenode node charge).
+Jobs submitted to the large memory nodes (`highmem` partition) will be charged 4 SU per compute core (4x wholenode node charge).
 
 ### GPU Nodes
 

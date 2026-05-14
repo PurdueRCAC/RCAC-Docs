@@ -9,11 +9,9 @@ search:
   boost: 2
 ---
 
-{% set host = "gautschi.rcac.purdue.edu" %}
-{% set cluster = "Gautschi" %}
 {% set resource = "gautschi" %}
 
-{{ accounts_md_snippet(host,cluster) }}
+{{ accounts_md_snippet(resource) }}
 
 ## SSH Keys
 {{ ssh_keys_snippet(resource) }}

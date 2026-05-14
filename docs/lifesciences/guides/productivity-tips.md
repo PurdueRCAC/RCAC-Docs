@@ -25,8 +25,8 @@ tags:
 
     Send your public key to the cluster. Replace `boilerid` with your actual username.
 
-    !!! tip "Duo Auth Tip"
-        When prompted for your password, type your password followed by `,push` (e.g., `password,push`) to approve the Duo request.
+    !!! tip "MFA Auth Tip"
+        When prompted for your password, type your password to approve the MFA request.
 
     === "Mac / Linux / Git Bash"
 

@@ -36,13 +36,13 @@ You should see something that looks like this:
 
 (USERNAME@CLUSTER.rcac.purdue.edu) Password:
 ```
-Here you should enter in 'password,push'. It will not look like anything is being typed. But the characters are being entered.
+Here you should enter in 'password'. It will not look like anything is being typed. But the characters are being entered.
 
 * This is a security feature of `ssh` so that people don't know
 how long your password is.
 
 Once you enter your password and hit the enter key, it will
-prompt a Duo push on your phone. Once you approve the Duo
+prompt a MFA push on your phone. Once you approve the MFA
 push, you will be logged in (if you have been granted access
 to the cluster you are trying to get into).
 
@@ -73,10 +73,9 @@ everything you need to.
 The Server here is `desktop.CLUSTER.rcac.purdue.edu`, where
 `CLUSTER` is replaced with the name of the cluster
 you want to access. The username is your Purdue username
-and password is your Purdue password appended with ',push'.
-That is, it would be 'password,push'. For the desktop version,
+and password is your Purdue password. For the desktop version,
 you will see one or two windows pop up that you just need to
-click through and then it will prompt two Duo pushes, that
+click through and then it will prompt two MFA pushes, that
 you need to approve. After you're logged in, you'll see
 something that looks like this:
 ![Image showing what the desktop looks like when logged into a cluster via ThinLinc.](/assets/images/workshops/hpc_exchange/TL_page.png)

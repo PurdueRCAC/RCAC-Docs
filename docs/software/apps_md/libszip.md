@@ -8,7 +8,7 @@ Szip is an implementation of the extended-Rice lossless compression algorithm.  
 
 ## Homepage
 
-[https://support.hdfgroup.org/doc_resource/SZIP/](https://support.hdfgroup.org/doc_resource/SZIP/)
+[https://packages.spack.io/package.html?name=szip](https://packages.spack.io/package.html?name=szip)
 
 ## Available Versions on RCAC Clusters
 

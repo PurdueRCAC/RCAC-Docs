@@ -16,11 +16,11 @@ Some common questions, errors, and problems are categorized below.
 Your subscription in the Anvil mailing list is tied to your account on Anvil which was granted to you through an ACCESS allocation. If you are no longer using your account on Anvil, you can contact your PI or allocation manager to remove you from their Anvil allocation.
 
 ### How is Anvil different than Purdue Community Clusters?
-Anvilis part of the national [Advanced Cyberinfrastructure Coordination Ecosystem: Services & Support (ACCESS)](https://access-ci.org/) ecosystem and is not part of Purdue Community Clusters program. There are a lot of similarities between the systems, yet there are also a few differences in hardware, software and overall governance. For Purdue users accustomed to the way Purdue supercomputing clusters operate, the following summarizes key differences between RCAC clusters and Anvil.
+Anvil is part of the national [Advanced Cyberinfrastructure Coordination Ecosystem: Services & Support (ACCESS)](https://access-ci.org/) ecosystem and is not part of Purdue Community Clusters program. There are a lot of similarities between the systems, yet there are also a few differences in hardware, software and overall governance. For Purdue users accustomed to the way Purdue supercomputing clusters operate, the following summarizes key differences between RCAC clusters and Anvil.
 
 **Support**
 
-* While Anvilis operated by Purdue RCAC, it is an ACCESS resource, and all support requests have to go through ACCESS channels rather than RCAC ones. Please direct your Anvilquestions to the [ACCESS Help Desk](https://support.access-ci.org/help-ticket) and they will be dispatched to us.
+* While Anvil is operated by Purdue RCAC, it is an ACCESS resource, and all support requests have to go through ACCESS channels rather than RCAC ones. Please direct your Anvilquestions to the [ACCESS Help Desk](https://support.access-ci.org/help-ticket) and they will be dispatched to us.
 
 **Resource Allocations**
 
@@ -31,7 +31,7 @@ Two key things to remember on Anvil and other ACCESS resources:
 
 More details on these differences are presented below.
 
-* Access to Anvilis free (no need to purchase nodes), and is governed by [ACCESS allocation policies](https://allocations.access-ci.org/allocations-policy). All allocation requests must be submitted via [ACCESS Resource Allocation System](https://allocations.access-ci.org/prepare-requests). These allocations other than the Maximize ACCESS Request can be requested at any time.
+* Access to Anvil is free (no need to purchase nodes), and is governed by [ACCESS allocation policies](https://allocations.access-ci.org/allocations-policy). All allocation requests must be submitted via [ACCESS Resource Allocation System](https://allocations.access-ci.org/prepare-requests). These allocations other than the Maximize ACCESS Request can be requested at any time.
 
     * [Explore ACCESS allocations](https://allocations.access-ci.org/project-types) are intended for purposes that require small resource amounts. Researchers can try out resources or run benchmarks, instructors can provide access for small-scale classroom activities, research software engineers can develop or port codes, and so on. Graduate students can conduct thesis or dissertation work. To prepare a request, visit [Prepare Requests](https://allocations.access-ci.org/prepare-requests).
     

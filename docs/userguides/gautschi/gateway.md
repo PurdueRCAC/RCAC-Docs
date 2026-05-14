@@ -15,7 +15,7 @@ Gautschi's Gateway is an [open-source HPC portal](http://openondemand.org/) deve
 To log into Gateway:
 
 - Navigate to [gateway.gautschi.rcac.purdue.edu](https://gateway.gautschi.rcac.purdue.edu/)
-- Log in using your Career account username and Purdue Login Duo client.
+- Log in using your Career account username and Purdue Login MFA client.
 
 On the splash page you will see a quota usage report. If you are over 90% on any of your quotas a warning will be displayed. This information will update every 10-15 minutes while you are active on Gateway.
 

@@ -19,6 +19,7 @@ N/A
 **GAUTSCHI**|2.3.1 (D)
 **GILBRETH**|2.3.1
 **NEGISHI**|2.3.1 (D)
+**SCHOLAR**|2.3.1
 
 (D): Default Module
 

@@ -23,7 +23,7 @@ SMB (Server Message Block), also known as CIFS, is an easy-to-use file transfer 
     - In the folder location, enter the following information and click Finish:
     - To access your Gautschi home directory, enter ```\\home.gautschi.rcac.purdue.edu\gautschi-home```
     - To access your scratch space on Gautschi, enter ```\\scratch.gautschi.rcac.purdue.edu\gautschi-scratch```
-    - Use your career account login name and password when prompted. (You will not need to add ```",push"``` nor use your Purdue Duo client.)
+    - Use your career account login name and password when prompted. (You will not need to add ```",push"``` nor use your Purdue MFA client.)
     - Your home or scratch directory should now be mounted as a drive in the Computer window
 
 !!!important
@@ -48,7 +48,7 @@ SMB (Server Message Block), also known as CIFS, is an easy-to-use file transfer 
 - To access your scratch space on Gautschi, enter ```smb://scratch.gautschi.rcac.purdue.edu/gautschi-scratch```
 
 !!!note
-    Use your career account login name and password when prompted. (You will not need to add ```",push"``` nor use your Purdue Duo client.)
+    Use your career account login name and password when prompted. (You will not need to add ```",push"``` nor use your Purdue MFA client.)
 
 - Your home or scratch directory should now be mounted as a drive in the Computer window.
 
@@ -64,6 +64,6 @@ If you would like access via samba on the command line you may install ```smbcli
 ```smbclient //scratch.gautschi.rcac.purdue.edu/gautschi-scratch -U boilerad/myusername```
 
 !!!note
-    Use your career account login name and password when prompted. (You will not need to add ```",push"``` nor use your Purdue Duo client.)
+    Use your career account login name and password when prompted. (You will not need to add ```",push"``` nor use your Purdue MFA client.)
 
 [**Back to the Storage section**](../storage.md)

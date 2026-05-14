@@ -130,7 +130,7 @@ Pick the method that fits your workflow and follow the instructions below:
 
     3. **Authenticate**
 
-        After entering your credentials, you will be prompted for Duo two-factor authentication. Approve the push notification or enter the code.
+        After entering your credentials, you will be prompted for MFA two-factor authentication. Approve the push notification or enter the code.
 
     4. **Use the desktop**
 
@@ -547,7 +547,7 @@ For small files, the OOD file browser provides drag-and-drop upload and download
 
 For specialized use cases:
 
-- **SMB (Windows network drive)**: Mount Depot as a network drive on campus. See [RCAC SMB documentation](https://www.rcac.purdue.edu/knowledge/gautschi/storage/depot/smb).
+- **SMB (Windows network drive)**: Mount Depot as a network drive on campus. See [RCAC SMB documentation](../../userguides/gautschi/storage/windows_network_drive.md).
 - **HSI/HTAR**: For interacting with the Fortress tape archive. See [RCAC Fortress documentation](https://www.rcac.purdue.edu/knowledge/fortress).
 - **iRODS/iCommands**: For transferring data to/from CyVerse. See our [iRODS guide](icommands.md).
 
