@@ -170,10 +170,6 @@
     "Gautschi User Guide",
     "Frequently Asked Questions"
   ],
-  "/https://www.rcac.purdue.edu/knowledge/bell": [
-    "Home",
-    "Bell"
-  ],
   "/userguides/gilbreth/": [
     "Home",
     "Gilbreth"
@@ -181,7 +177,7 @@
   "/userguides/gilbreth/overview/": [
     "Home",
     "Gilbreth",
-    "Gautschi Overview"
+    "Gilbreth Overview"
   ],
   "/userguides/gilbreth/biography/": [
     "Home",
@@ -222,6 +218,10 @@
     "Home",
     "Gilbreth",
     "Frequently Asked Questions"
+  ],
+  "/https://www.rcac.purdue.edu/knowledge/bell": [
+    "Home",
+    "Bell"
   ],
   "/https://www.rcac.purdue.edu/knowledge/negishi": [
     "Home",
