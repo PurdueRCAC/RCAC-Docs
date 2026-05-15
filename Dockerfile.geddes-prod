@@ -7,6 +7,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
+ENV CI=true
 # Override site_url for the Geddes production deployment
 RUN sed -i 's|site_url:.*|site_url: https://docs.rcac.purdue.edu|' mkdocs.yml && \
     mkdocs build --verbose
