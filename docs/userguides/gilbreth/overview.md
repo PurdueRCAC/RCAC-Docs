@@ -65,4 +65,4 @@ To verify what you loaded:
 $ module list
 ```
 
-[**Back to Gilbreth Overview**](./index.md)
+[**Back to Gilbreth User Guide**](./index.md)

@@ -23,7 +23,7 @@ When submitting batch jobs it is always a good idea to be explicit rather than i
 #!/bin/bash
 
 module load conda
-export MKL_NUM_THREADS=${resource.nodecores}
+export MKL_NUM_THREADS=128 #change this numbder to the actual number of cores on the node
 
 ...
 ```

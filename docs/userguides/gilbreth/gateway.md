@@ -30,4 +30,4 @@ There are a number of built-in apps in Gateway that can be accessed from the top
 - [Jobs](gateway/jobs.md)
 - [Cluster Tools](gateway/cluster_tools.md)
 
-[**Back to Gilbreth Overview**](./index.md)
+[**Back to Gilbreth User Guide**](./index.md)
