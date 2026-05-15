@@ -13,10 +13,10 @@ You can use the purgelist command to see a list of all your files which are curr
 $ purgelist
 
 The next purge run for scratch file systems is scheduled for Tue Apr 15, 2014.
-The following files owned by myusername will be removed from /scratch/brown:
+The following files owned by myusername will be removed from /scratch/gautschi:
 
-/scratch/brown/m/myusername/foo
-/scratch/brown/m/myusername/bar
+/scratch/gautschi/myusername/foo
+/scratch/gautschi/myusername/bar
 ```
 
 Files listed by purgelist will be permanently removed on the date shown. Deletion of files begins on the morning of the date shown by purgelist shortly after midnight. If you need to keep any of these files, please copy them elsewhere. Remember to account for transfer time of your files and do not wait until the last minute to copy files off scratch space.

@@ -644,6 +644,12 @@ $ module show mymodulename
         return content.replace("Gautschi", resource.title()).replace("gautschi", resource.lower())
 
     @env.macro
+    def compile_gpu_snippet(resource):
+        with open("docs/snippets/compile_gpu.md", "r") as f:
+            content = f.read()
+        return content.replace("Gilbreth", resource.title()).replace("gilbreth", resource.lower())
+
+    @env.macro
     def htar_snippet(resource):
         with open("docs/snippets/htar.md", "r") as f:
             content = f.read()
@@ -702,14 +708,21 @@ $ module show mymodulename
     @env.macro
     def scratch_purge(resource):
         with open("docs/snippets/scratchpurge.md", "r") as f:
-            lines = f.readlines()
+            content = f.read()
+        content = content.replace("gautschi", resource.lower())
         if resource.lower() in ("anvil", "bell"):
-            lines = [l.replace("60 days", "30 days") for l in lines]
+            content = content.replace("60 days", "30 days")
         if resource.lower() == "anvil":
-            lines = [l.replace(
+            content = content.replace(
                 "Please be sure to save copies of all important files elsewhere on a regular basis for long-term storage on the [Fortress HPSS Archive](https://www.rcac.purdue.edu/storage/fortress).",
                 "Please be sure to save copies of all important files elsewhere (e.g. your `$PROJECT` space) on a regular basis."
-            ) for l in lines]
-            del lines[28:34]  # lines 29-34 (Recommendations + HPSS references)
-            del lines[5:21]   # lines 6-21 (purgelist email notifications)
-        return "".join(lines)
+            )
+            content = content.replace(
+                "\nAll scratch directories are scanned weekly to identify files subject to purging one week in advance. The owners of those files will receive an email notification that their files in a scratch directory will be removed the following week. Be sure to regularly check your Purdue email account or [set up mail forwarding](https://www.purdue.edu/apps/account/ChangeMailbox) to an email account you do regularly check.\n\nYou can use the purgelist command to see a list of all your files which are currently scheduled for removal:\n\n```bash\n$ purgelist\n\nThe next purge run for scratch file systems is scheduled for Tue Apr 15, 2014.\nThe following files owned by myusername will be removed from /scratch/" + resource.lower() + ":\n\n/scratch/" + resource.lower() + "/myusername/foo\n/scratch/" + resource.lower() + "/myusername/bar\n```\n\nFiles listed by purgelist will be permanently removed on the date shown. Deletion of files begins on the morning of the date shown by purgelist shortly after midnight. If you need to keep any of these files, please copy them elsewhere. Remember to account for transfer time of your files and do not wait until the last minute to copy files off scratch space.",
+                ""
+            )
+            content = content.replace(
+                "\n**Recommendations**\n\nRCAC recommends that important data, research results, and other important files be permanently stored in the [Fortress HPSS Archive](https://www.rcac.purdue.edu/storage/fortress), and copied to scratch spaces while being actively worked on. The hsi and htar commands provide easy-to-use interfaces into the archive and can be used to copy files into the archive interactively or even automatically at the end of your regular job submission scripts. Making frequent copies of your files will minimize work required when these files eventually become subject to purge, as well as protect your work in the unlikely event of a scratch system failure.\n\nPlease [contact us](https://www.rcac.purdue.edu/help) if you have questions or need assistance in copying your files to a more permanent location such as the [Fortress HPSS Archive](https://www.rcac.purdue.edu/storage/fortress).",
+                ""
+            )
+        return content
