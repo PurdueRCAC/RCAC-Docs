@@ -83,11 +83,11 @@ myjob.sub
 To get started, type one of these: helpwin, helpdesk, or demo.
 For product information, visit www.mathworks.com.
 
-hostname:{::if resource.nodashnames == true}a001.${resource.hostname}{::else}${resource.hostname}-a001{::/}.rcac.purdue.edu
+hostname: <cluster-node>.rcac.purdue.edu
 0.814724 0.905792 0.126987
 ```
 
-Output shows that a processor core on one compute node ({::if resource.nodashnames == true}a001{::else}${resource.hostname}-a001{::/}) processed the job. Output also displays the three random numbers.
+Output shows that a processor core on one compute node (<cluster-node>) processed the job. Output also displays the three random numbers.
 
 For more information about MATLAB:
 

@@ -8,8 +8,6 @@ search:
   boost: 2
 ---
 
-{% set host = "gilbreth.rcac.purdue.edu" %}
-{% set cluster = "Gilbreth" %}
 {% set resource = "gilbreth" %}
 
 {{ accounts_md_snippet(resource) }}
@@ -27,4 +25,4 @@ search:
 
 --8<-- "docs/snippets/purchase_nodes.md"
 
-[**Back to Gilbreth Overview**](./index.md)
+[**Back to Gilbreth User Guide**](./index.md)

@@ -54,4 +54,4 @@ Batch jobs submitted via SLURM have four main steps:
 - [**ML Batch Jobs**](learning/ml_batch.md)
 
 
-[**Back to Gilbreth Overview**](./index.md)
+[**Back to Gilbreth User Guide**](./index.md)

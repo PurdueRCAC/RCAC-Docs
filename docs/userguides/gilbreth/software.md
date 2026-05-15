@@ -4,7 +4,6 @@ tags:
 authors:
   - jin456
   - verburgt
-resource: gilbreth
 search:
   boost: 2
 ---
@@ -19,9 +18,9 @@ A comprehensive list of centrally installed software applications can be found h
 
 ## Module system
 
-{% set cluster = "Gilbreth" %}
+{% set resource = "gilbreth" %}
 
-{{ module_system(cluster) }}
+{{ module_system(resource) }}
 
 ## Running the Apps
 ### Find available apps in the terminal
@@ -65,4 +64,4 @@ module load hypershell/2.7.0
 ### Running GUI versions of apps
 If the app you want to use has a GUI, you can also login to {{ resource }} via Thinlinc. More information on this process can be found [here](accounts.md#thinlinc).
 
-[**Back to Gilbreth Overview**](./index.md)
+[**Back to Gilbreth User Guide**](./index.md)

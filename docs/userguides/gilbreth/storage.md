@@ -44,4 +44,4 @@ Gilbreth supports several methods for file transfer. Use the links below to lear
 
 - [Lost File Recovery](storage/recover.md)
 
-[**Back to Gilbreth Overview**](./index.md)
+[**Back to Gilbreth User Guide**](./index.md)

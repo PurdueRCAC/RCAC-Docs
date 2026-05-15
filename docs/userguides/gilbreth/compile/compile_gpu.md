@@ -11,7 +11,7 @@ search:
 
 # Compiling GPU Programs
 
-The Gilbreth cluster nodes contain GPUs that support *CUDA* and *OpenCL*. See the [Gilbreth Overivew](../overview.md) for the specifics on the GPUs in Gilbreth. This section focuses on using CUDA.
+The Gilbreth cluster nodes contain GPUs that support *CUDA* and *OpenCL*. See the [Gilbreth Overview](../overview.md) for the specifics on the GPUs in Gilbreth. This section focuses on using CUDA.
 
 A simple CUDA program has a basic workflow:
 

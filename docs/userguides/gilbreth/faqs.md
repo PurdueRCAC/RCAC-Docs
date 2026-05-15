@@ -15,6 +15,7 @@ search:
 
 Some common questions, errors, and problems are categorized below. You can also use the search box above to search the user guide for any issues you are seeing.
 
+## About Gilbreth
 
 ### Can you remove me from the Gilbreth mailing list?
 Your subscription in the Gilbreth mailing list is tied to your access on Gilbreth. The only way to remove you from the Gilbreth mailing list is to remove your Gilbreth access. If you are no longer using your account on Gilbreth, your access can be removed by contacting your group PI or manager. Your Gilbreth mailing list subscription will then be removed overnight. Be sure to make a copy of any data you wish to keep first.
@@ -88,4 +89,4 @@ gilbreth-a003:~$ lstopo-no-graphics --physical --whole-io
 --8<-- "docs/snippets/jupyter_lock.md"
 
 
-[**Back to Gilbreth Overview**](./index.md)
+[**Back to Gilbreth User Guide**](./index.md)

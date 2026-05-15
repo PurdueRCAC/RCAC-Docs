@@ -25,6 +25,6 @@ Each of the available apps are documented through the following links.
 
 * [R Studio](interactive/rstudio.md)
 
-* [Windows](interactive/windows.md)
+<!-- * [Windows](interactive/windows.md) -->
 
 [Back to Gateway](../gateway.md)
