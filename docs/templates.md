@@ -4,6 +4,7 @@ hide:
 search:
   exclude: true
 host: anvil.rcac.purdue.edu
+draft: true
 # icon: /fontawesome/regular/home
 ---
 
@@ -34,36 +35,6 @@ In general, there are two ways to use snippets within Mkdocs.
 - Second, if the snippet will include variables (e.g. specific cluster name), a combination of macro + snippet is required.
 
 ### 1. Use entire snippets
-I have two snippets under `snippets` folder.
-
-=== "account.md"
-    This is a snippet for account.
-=== "login.md"
-    {% raw %}
-    This is a snippet for login.
-    Please use `ssh username@{{ host }}` to login.
-    {% endraw %}
-
-#### Include one entire snippet file
-Use command to include the entire snippet:
-<pre>
-<code>
---8&lt;-- "docs/snippets/account.md"
-</code>
-</pre>
-
-And result would be:
-
---8<-- "docs/snippets/account.md"
-#### Include snippet file in a code block
-``` title="account.md"
---8<-- "docs/snippets/account.md"
-```
-#### Include two snippet files
---8<--
-docs/snippets/account.md
-docs/snippets/login.md
---8<--
 
 #### Include snippet section (part of snippet)
 --8<-- "docs/snippets/app.md:python"
