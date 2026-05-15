@@ -70,6 +70,14 @@ You can search all modules using `$ module spider`. Some modules require you to 
 - `$ module load modtree/gpu` - this will allow you to see all GPU-compatable modules
 - `$ module load modtree/cpu` - this will allow you to see all CPU-compatable modules (this is loaded in by default at login)
 
+### I just got access or have just been given an allocation but I can't login
+
+It usually takes 12-48 hours of account propogation before your account is created or an account is associated with a queue. If it's been more than the given timeframe, you should check if the account creation request on ACCESS succeeded beforehand. 
+
+### I get Port 22/Port 60 connection errors when attempting to connect to Anvil
+
+This usually signifies a connection attempt made through a third-party VPN OR a connnection made from a foreign country. Both types of connections are filtered and blocked so make sure you are within the US or only using Purdue's VPN to connect to Anvil.
+
 ### Common Open OnDemand Errors
 
 ```
