@@ -72,6 +72,7 @@ plugins:
   - tags:
       enabled: true
   - git-revision-date-localized:
+      enabled: !ENV [CI, false]
       enable_creation_date: true
       exclude:
       # Do not include timestamp in the following pages
