@@ -16,4 +16,4 @@ search:
 - [Compiling OpenMP Programs](compile/compile_openmp.md)
 - [Intel MKL Library](compile/compile_intel_mkl.md)
 
-[**Back to Gilbreth Overview**](./index.md)
+[**Back to Gilbreth User Guide**](./index.md)

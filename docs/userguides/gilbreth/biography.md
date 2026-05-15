@@ -26,4 +26,4 @@ After Frank Gilbreth’s death in 1924, Professor Gilbreth succeeded him as a vi
 
 Purdue Libraries’ Archives and Special Collections is home to the books, working papers and family archives of Lillian and Frank Gilbreth. Researchers from around the world visit every year to study the Gilbreths’ papers.
 
-[**Back to Gilbreth Overview**](./index.md)
+[**Back to Gilbreth User Guide**](./index.md)

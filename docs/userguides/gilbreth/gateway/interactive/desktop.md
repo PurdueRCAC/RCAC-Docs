@@ -10,7 +10,7 @@ search:
 
 # Compute Node Desktop
 
-The Compute Node Desktop app will launch a graphical desktop session on a compute node. This is similar to using [Thinlinc](/knowledge/${resource.hostname}/accounts/login/thinlinc), however, this gives you a desktop directly on a compute node instead on a front-end. This app is useful if you have a custom application or application not directly available as an interactive app you would like to run inside Gateway.
+The Compute Node Desktop app will launch a graphical desktop session on a compute node. This is similar to using [Thinlinc](../../accounts.md/#thinlinc), however, this gives you a desktop directly on a compute node instead on a front-end. This app is useful if you have a custom application or application not directly available as an interactive app you would like to run inside Gateway.
 
 To launch a desktop session on a compute node, select the Gilbreth Compute Desktop app. From the submit form, select from the available options - the queue to which you wish to submit and the number of wallclock hours you wish to have job running. There is also a checkbox that enable a notification to your email when the job starts.
 
