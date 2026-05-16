@@ -15,6 +15,7 @@ xcb-util-cursor is a utility library for the XCB library, offering convenience f
 |Cluster|Versions|
 |---|---|
 **BELL**|0.1.4
+**GAUTSCHI**|0.1.4
 **GILBRETH**|0.1.4
 
 ## Module
