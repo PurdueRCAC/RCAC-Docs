@@ -3,9 +3,14 @@ tags:
   - Anvil
 authors:
   - jin456
+description: >
+  Anvil file systems, storage quotas, file transfer methods, and lost file
+  recovery using the flost command.
 search:
   boost: 2
 ---
+
+# File Management
 
 ## File Systems
 
@@ -85,9 +90,9 @@ These snapshots are kept for a limited time at various intervals. Please refer t
 
 Purdue RCAC offers several ways for researchers to access snapshots of their files.
 
-### flost
+### Recovering Lost Files on Anvil with flost
 
-If you know when you lost the file, the easiest way is to use the `flost` command.
+Anvil provides the `flost` command to help recover lost files from snapshots. If you know when you lost the file, this is the easiest way to locate it.
 
 To run the tool you will need to specify the location where the lost file was with the `-w` argument:
 
