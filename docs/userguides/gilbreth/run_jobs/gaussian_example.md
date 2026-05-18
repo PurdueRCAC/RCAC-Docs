@@ -107,7 +107,7 @@ To submit a bash job, a sample submit script looks like this:
 
 ```bash
 #!/bin/bash
-#SBATCH -A myqueuename     # Queue name; use the 'slist' command to find queue names
+#SBATCH -A accountname     # Queue name; use the 'slist' command to find queue names
 #SBATCH --nodes=1          # Total number of nodes
 #SBATCH --ntasks=64        # Total number of MPI tasks
 #SBATCH --gpus-per-node=1  # Total number of GPUs
@@ -115,6 +115,8 @@ To submit a bash job, a sample submit script looks like this:
 #SBATCH -J myjobname       # Job name
 #SBATCH -o myjob.o%j       # Name of stdout output file
 #SBATCH -e myjob.e%j       # Name of stderr error file
+#SBATCH --partition=a10
+#SBATCH --mem=8G
 
 module load gaussian16
 
