@@ -7,6 +7,8 @@ search:
   boost: 2
 ---
 
+# Getting started with Anvil
+
 ## Start here
 
 Before you can log in to Anvil, ensure you have:

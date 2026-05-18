@@ -8,6 +8,8 @@ search:
   boost: 2
 ---
 
+# Frequent Asked Questions on Gautschi
+
 Some common questions, errors, and problems are categorized below. You can also use the search box above to search the user guide for any issues you are seeing. 
 
 ## About Gautschi

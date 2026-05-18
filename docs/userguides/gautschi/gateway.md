@@ -8,6 +8,8 @@ search:
   boost: 2
 ---
 
+# Using Gateway (Open Ondemand) on Gautschi
+
 Gautschi's Gateway is an [open-source HPC portal](http://openondemand.org/) developed by the [Ohio Supercomputing Center](https://www.osc.edu/). Open OnDemand allows one to interact with HPC resources through a web browser and easily manage files, submit jobs, and interact with graphical applications directly in a browser, all with no software to install. Gautschi has an instance of OnDemand available that can be accessed via [gateway.gautschi.rcac.purdue.edu](https://gateway.gautschi.rcac.purdue.edu/).
 
 ## Logging In
