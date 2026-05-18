@@ -18,7 +18,7 @@ To submit an interactive job, use `sinteractive` to run a login shell on allocat
 `sinteractive` accepts most of the same resource requests as `sbatch`, so to request a login shell on the cpu account while allocating 2 nodes and 16 total cores, you might do:
 
 ```bash
-sinteractive -A cpu -N2 -n32 --gpus-per-node=1
+sinteractive -A accountname --partition=a10 -N2 -n32 --gpus-per-node=1 --mem=6G
 ```
 
 To quit your interactive job:
