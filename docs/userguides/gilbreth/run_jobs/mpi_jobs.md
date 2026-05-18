@@ -28,7 +28,9 @@ Create a job submission file named `mpi_hello.sub`:
 #SBATCH  --ntasks-per-node=16
 #SBATCH  --gpus-per-node=1
 #SBATCH  --time=00:01:00
-#SBATCH  -A standby
+#SBATCH  --account=accountname
+#SBATCH  --partition=a10
+#SBATCH  --mem=8G
 
 srun -n 32 ./mpi_hello
 ```

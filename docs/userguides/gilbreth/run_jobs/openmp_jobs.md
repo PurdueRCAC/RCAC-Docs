@@ -45,6 +45,9 @@ Create a job submission file named `omp_hello.sub`:
 #SBATCH --nodes=1
 #SBATCH --ntasks=16
 #SBATCH --gpus-per-node=1
+#SBATCH --account=accountname
+#SBATCH --partition=a10
+#SBATCH --mem=8G
 #SBATCH --time=00:01:00
 
 export OMP_NUM_THREADS=16
