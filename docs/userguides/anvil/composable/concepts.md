@@ -1,3 +1,15 @@
+---
+tags:
+  - Anvil
+  - Composable
+authors:
+  - jin456
+search:
+  boost: 1
+---
+
+# Concepts about Anvil Composable Subsystem
+
 ## Containers & Images
 
 **Image** - An image is a simple text file that defines the source code of an application you want to run as well as the libraries, dependencies, and tools required for the successful execution of the application. Images are immutable meaning they do not hold state or application data. Images represent a software environment at a specific point of time and provide an easy way to share applications across various environments. Images can be built from scratch or downloaded from various repositories on the internet, additionally many software vendors are now providing containers alongside traditional installation packages like Windows .exe and Linux rpm/deb.

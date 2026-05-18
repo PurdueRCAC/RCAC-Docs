@@ -1,11 +1,13 @@
 ---
 tags:
   - Anvil
+  - Notebook
 authors:
   - dane
   - Ibrahem
-draft: true
 ---
+
+# Notebook Service on Anvil
 
 ## Anvil Notebook Classroom Resource
 

@@ -8,6 +8,8 @@ search:
   boost: 2
 ---
 
+# Python examples on Gautschi
+
 Python is a high-level, general-purpose, interpreted, dynamic programming language. We suggest using Anaconda which is a Python distribution made for large-scale data processing, predictive analytics, and scientific computing. For example, to use the default Anaconda distribution:
 
 ```bash
