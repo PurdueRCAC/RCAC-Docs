@@ -23,7 +23,7 @@ Create a job submission file:
 Submit the job:
 
 ```bash
-sbatch --nodes=1 --ntasks=1 --gpus-per-node=1 --time=00:01:00 serial_hello.sub
+sbatch -A accountname --partition=a10 --nodes=1 --ntasks=1 --gpus-per-node=1 --time=00:01:00 --mem=4G serial_hello.sub
 ```
 
 After the job completes, view results in the output file:

@@ -38,7 +38,7 @@ echo $CUDA_VISIBLE_DEVICES
 Submit the job:
 
 ```bash
-sbatch -A gpu --nodes=1 --gres=gpu:1 -t 00:01:00 gpu_hello.sub
+sbatch -A accountname --partition=a10 --nodes=1 --gres=gpu:1 -t 00:01:00 --mem=4G gpu_hello.sub
 ```
 
 Requesting a GPU from the scheduler is required.
@@ -46,9 +46,9 @@ Requesting a GPU from the scheduler is required.
 You can specify the total number of GPUs, the number of GPUs per node, or the number of GPUs per task.
 
 ```bash
-sbatch -A gpu --nodes=1 --gres=gpu:1 -t 00:01:00 gpu_hello.sub
-sbatch -A gpu --nodes=1 --gpus-per-node=1 -t 00:01:00 gpu_hello.sub
-sbatch -A gpu --nodes=1 --gpus-per-task=1 -t 00:01:00 gpu_hello.sub
+sbatch -A accountname --partition=a10 --mem=4G --nodes=1 --gres=gpu:1 -t 00:01:00 gpu_hello.sub
+sbatch -A accountname --partition=a10 --mem=4G --nodes=1 --gpus-per-node=1 -t 00:01:00 gpu_hello.sub
+sbatch -A accountname --partition=a10 --mem=4G --nodes=1 --gpus-per-task=1 -t 00:01:00 gpu_hello.sub
 ```
 
 ## View Output

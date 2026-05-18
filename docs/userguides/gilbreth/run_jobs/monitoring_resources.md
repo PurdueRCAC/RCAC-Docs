@@ -31,7 +31,7 @@ In the context of a SLURM job you will need to put this monitoring task in the b
 #!/bin/bash
 # FILENAME: monitored_job.sh
 
- module load monitor 
+module load monitor 
 
 # track per-code CPU load
 monitor cpu percent --all-cores >cpu-percent.log &

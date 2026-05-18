@@ -34,7 +34,7 @@ On Gilbreth, specifying the number of GPUs requested per node is required.
 Submit the job with `sbatch`:
 
 ```bash
-sbatch --nodes=2 --ntasks=32 --gpus-per-node=1 --time=00:10:00 -A standby myjobsubmissionfile.sub
+sbatch --nodes=2 --ntasks=32 --gpus-per-node=1 --mem=8G --time=00:10:00 -A accountname --partition=a10 myjobsubmissionfile.sub
 ```
 
 ## Example Output
