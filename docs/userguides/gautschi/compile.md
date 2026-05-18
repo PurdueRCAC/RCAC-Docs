@@ -8,7 +8,7 @@ search:
   boost: 2
 ---
 
-# Compiling Sourcce codes on Gautschi
+# Compiling Source codes on Gautschi
 
 - [Compiling GPU Programs](compile/compile_gpu.md)
 - [Compiling Hybrid Programs](compile/compile_hybrid.md)
