@@ -8,6 +8,8 @@ search:
   boost: 2
 ---
 
+# Software on Gautschi
+
 ## Software Catalog
 
 A comprehensive list of centrally installed software applications can be found here:

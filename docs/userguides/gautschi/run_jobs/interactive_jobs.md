@@ -8,6 +8,8 @@ search:
   boost: 2
 ---
 
+# Running interactive jobs on Gautschi
+
 Interactive jobs are run on compute nodes, while giving you a shell to interact with. They give you the ability to type commands or use a graphical interface in the same way as if you were on a front-end login host.
 
 To submit an interactive job, use ```sinteractive``` to run a login shell on allocated resources.

@@ -3,8 +3,9 @@ tags:
   - Anvil
 authors:
   - dane
-draft: true
 ---
+
+# Anvil Policies
 
 {% set resource = "anvil" %}
 

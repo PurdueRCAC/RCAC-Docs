@@ -1,3 +1,15 @@
+---
+tags:
+  - Anvil
+  - Composable
+authors:
+  - jin456
+search:
+  boost: 1
+---
+
+# Examples on Anvil Composable Subsystem
+
 This page provides step-by-step examples for deploying common workloads on Anvil's Composable Subsystem.
 
 ---
