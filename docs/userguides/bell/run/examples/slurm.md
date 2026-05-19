@@ -15,11 +15,11 @@ The following examples demonstrate the basics of SLURM jobs, and are designed to
 ## In This Section
 
 - [Simple Job](slurm/batch.md)
-- [Directives](slurm/directives.md)
-- [Interactive Jobs](slurm/interactive.md)
-- [Monitoring Resources](slurm/monitor.md)
-- [MPI](slurm/mpi.md)
 - [Multiple Node](slurm/multiple.md)
-- [OpenMP](slurm/openmp.md)
-- [Serial Jobs](slurm/serial.md)
+- [Directives](slurm/directives.md)
 - [Specific Types of Nodes](slurm/specific.md)
+- [Interactive Jobs](slurm/interactive.md)
+- [Serial Jobs](slurm/serial.md)
+- [OpenMP](slurm/openmp.md)
+- [MPI](slurm/mpi.md)
+- [Monitoring Resources](slurm/monitor.md)

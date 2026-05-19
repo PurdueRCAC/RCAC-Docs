@@ -14,8 +14,8 @@ search:
 
 ## In This Section
 
-- [Windows Network Drive / SMB](transfer/cifs.md)
-- [Copying files from Purdue IT research computing home directory to Bell](transfer/copyhome.md)
-- [Globus](transfer/globus.md)
 - [SCP](transfer/scp.md)
+- [Globus](transfer/globus.md)
+- [Windows Network Drive / SMB](transfer/cifs.md)
 - [FTP / SFTP](transfer/sftp.md)
+- [Copying files from Purdue IT research computing home directory to Bell](transfer/copyhome.md)

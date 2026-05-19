@@ -24,6 +24,6 @@ These snapshots are kept for a limited time at various intervals. RCAC keeps nig
 Bell offers several ways for researchers to access snapshots of their files.
 
 - [flost](recover/flost.md)
-- [Mac OS X](recover/mac.md)
 - [Manual Browsing](recover/manual.md)
 - [Windows](recover/windows.md)
+- [Mac OS X](recover/mac.md)

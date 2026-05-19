@@ -16,6 +16,6 @@ Common errors and solutions/work-arounds for them.
 
 - [/usr/bin/xauth: error in locking authority file](errors/errorlockingauthfile.md)
 - [My SSH connection hangs](errors/sshsessionhangs.md)
-- [How to disable ThinLinc screensaver](errors/thinlinc-disable-screensaver.md)
-- [ThinLinc session unreachable](errors/thinlinc-session-is-unreachable.md)
 - [ThinLinc session frozen](errors/thinlinc_session_frozen.md)
+- [ThinLinc session unreachable](errors/thinlinc-session-is-unreachable.md)
+- [How to disable ThinLinc screensaver](errors/thinlinc-disable-screensaver.md)
