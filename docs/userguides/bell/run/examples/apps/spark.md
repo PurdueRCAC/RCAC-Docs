@@ -8,6 +8,4 @@ search:
   boost: 2
 ---
 
-# Spark
-
-[Apache Spark](http://spark.apache.org) is an open-source data analytics cluster computing framework.
+--8<-- "docs/snippets/examples/apps/spark.md"

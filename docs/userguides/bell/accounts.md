@@ -12,7 +12,7 @@ search:
 {% set cluster = "Bell" %}
 {% set resource = "bell" %}
 
-{{ accounts_md_snippet(host,cluster) }}
+{{ accounts_md_snippet(resource) }}
 
 ## SSH Keys
 {{ ssh_keys_snippet(resource) }}
@@ -23,6 +23,6 @@ search:
 ## Thinlinc
 {{ thinlinc_snippet(resource) }}
 
-## More In This Section
+## Purchasing Nodes
 
-- [Purchasing Nodes](accounts/purchase.md)
+--8<-- "docs/snippets/purchase_nodes.md"

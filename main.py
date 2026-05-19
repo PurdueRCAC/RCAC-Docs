@@ -512,12 +512,12 @@ One can login to {resource.title()}'s [Gateway](https://gateway.{resource}.rcac.
 *Secure Shell* or *SSH* is a way of establishing a secure connection between two computers. It uses public-key cryptography to authenticate the user with the remote computer and to establish a secure connection. Its usual function involves logging in to a remote machine and executing commands. There are many SSH clients available for all operating systems.
 
 !!! note
-    {cluster} supports either Purdue's MFA two-factor authentication or SSH keys.
+    {resource.title()} supports either Purdue's MFA two-factor authentication or SSH keys.
 
 #### SSH Client Software
 Linux / Solaris / AIX / HP-UX / Unix:
 
-- The `ssh` command is pre-installed. Log in using `ssh username@{host}` from a terminal.
+- The `ssh` command is pre-installed. Log in using `ssh username@{resource}` from a terminal.
 
 Microsoft Windows:
 

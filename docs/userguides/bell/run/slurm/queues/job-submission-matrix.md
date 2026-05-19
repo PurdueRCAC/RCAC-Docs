@@ -10,8 +10,6 @@ search:
 
 # Job Submission Matrix
 
-Job Submission Matrix
-
 | Job Type | Partition | QoS | Job Submission Options | Number of Cores Per Account | Number of Jobs Per Account | Priority Accrual | Max Walltime |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | PI Queue | cpu | normal | `-A "mygroup" -p cpu` | Limited to purchased cores | No limit | No Limit | 2 weeks |
@@ -20,4 +18,5 @@ Job Submission Matrix
 | GPU Job | gpu | normal | `-A "mygroup" -p gpu` | 128 cores | 1 | 1 | 24 hours |
 | Multi GPU Job | multigpu | normal | `-A "mygroup" -p multigpu` | 48 cores | 1 | 1 | 24 hours |
 
-Note: The normal QOS is the default and does not need to be specified.
+!!! Note
+    The normal QOS is the default and does not need to be specified.

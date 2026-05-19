@@ -10,7 +10,7 @@ search:
 
 # Quick Guide
 
-This table lists the most common command, environment variables, and job specification options used by the workload management systems and their equivalents (adapted from <http://www.schedmd.com/slurmdocs/rosetta.html>).
+This table lists the most common command, environment variables, and job specification options used by the workload management systems and their equivalents (adapted from <https://slurm.schedmd.com/rosetta.html>).
 
 Common commands across workload management systems
 

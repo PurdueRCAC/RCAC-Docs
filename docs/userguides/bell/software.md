@@ -18,6 +18,12 @@ A comprehensive list of centrally installed software applications can be found h
 
 Software can also be explored by popular domains and categories on the main [Software](../../software/index.md) page.
 
+## Module system
+
+{% set resource = "bell" %}
+
+{{ module_system(resource) }}
+
 ## Running the Apps
 ### Find available apps in the terminal
 In addition to searching the software catalog for available applications, one can generate a list via the terminal:

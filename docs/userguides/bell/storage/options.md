@@ -14,7 +14,7 @@ search:
 
 ## In This Section
 
-- [Home Directory](options/home.md)
-- [Long-Term Storage](options/longterm.md)
+- [Home Directory](options/home_directory.md)
+- [Long-Term Storage](options/long_term_storage.md)
 - [Scratch Space](options/scratch.md)
-- [/tmp Directory](options/tmp.md)
+- [/tmp Directory](options/tmp_directory.md)
