@@ -12,7 +12,7 @@ search:
 
 *Globus*, previously known as Globus Online, is a powerful and easy to use file transfer service for transferring files virtually anywhere. It works within RCAC's various research storage systems; it connects between RCAC and remote research sites running Globus; and it connects research systems to personal systems. You may use Globus to connect to your home, scratch, and Fortress storage directories. Since Globus is web-based, it works on any operating system that is connected to the internet. The Globus Personal client is available on Windows, Linux, and Mac OS X. It is primarily used as a graphical means of transfer but it can also be used over the command line.
 
-### Globus Web
+## Globus Web
 
 * Navigate to <http://transfer.rcac.purdue.edu>
 * Click "Proceed" to log in with your Purdue Career Account.
@@ -29,7 +29,7 @@ The RCAC collections are as follows. A search for "Purdue" will give you several
 
 From here, select a file or folder in either side of the two-pane window, and then use the arrows in the top-middle of the interface to instruct Globus to move files from one side to the other. You can transfer files in either direction. You will receive an email once the transfer is completed.
 
-### Globus Personal Client Setup
+## Globus Personal Client Setup
 
 Globus Connect Personal is a small software tool you can install to make your own computer a Globus endpoint on its own. It is useful if you need to transfer files via Globus to and from your computer directly.
 
@@ -37,7 +37,7 @@ Globus Connect Personal is a small software tool you can install to make your ow
 * Name this particular personal system and follow the setup prompts to create your Globus Connect Personal endpoint.
 * Your personal system is now available as a collection within the Globus transfer interface.
 
-### Globus Command Line
+## Globus Command Line
 
 Globus supports command line interface, allowing advanced automation of your transfers.
 
@@ -46,7 +46,7 @@ To use the recommended standalone Globus CLI application (the `globus` command):
 * First time use: issue the `globus login` command and follow instructions for initial login.
 * Commands for interfacing with the CLI can be found via [Using the Command Line Interface](https://docs.globus.org/cli/), as well as the [Globus CLI Examples](https://docs.globus.org/cli/examples/) pages.
 
-### Sharing Data with Outside Collaborators
+## Sharing Data with Outside Collaborators
 
 Globus allows convenient sharing of data with outside collaborators. Data can be shared with collaborators' personal computers or directly with many other computing resources at other institutions. See the Globus documentation on how to share data:
 

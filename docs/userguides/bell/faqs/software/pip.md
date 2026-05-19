@@ -11,11 +11,11 @@ search:
 # Cannot use pip after loading ml-toolkit modules
 
 
-### Question
+## Question
 
 Pip throws an error after loading the machine learning modules. How can I fix it?
 
-### Answer
+## Answer
 
 Machine learning modules (tensorflow, pytorch, opencv etc.) include a version of `pip` that is newer than the one installed with Anaconda. As a result it will throw an error when you try to use it.
 

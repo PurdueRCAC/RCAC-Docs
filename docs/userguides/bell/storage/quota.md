@@ -12,7 +12,7 @@ search:
 
 Some limits are imposed on your disk usage on research systems. A quota is implemented on each filesystem. Each filesystem (home directory, scratch directory, etc.) may have a different limit. If you exceed the quota, you will not be able to save new files or new data to the filesystem until you delete or move data to long-term storage.
 
-### Checking Quota
+## Checking Quota
 
 To check the current quotas of your home and scratch directories check the [My Quota](https://www.rcac.purdue.edu/account/myquota) page or use the `myquota` command:
 
@@ -57,14 +57,14 @@ $ du -h --max-depth=1 $RCAC_SCRATCH >myfile
 
 This strategy can be very helpful in figuring out the location of your largest usage. Move unneeded files and directories to long-term storage to free space in your home and scratch directories.
 
-### Increasing Quota
+## Increasing Quota
 
-#### Home Directory
+### Home Directory
 
 
 If you find you need additional disk space in your home directory, please consider archiving and compressing old files and moving them to long-term storage on the [Fortress HPSS Archive](https://www.rcac.purdue.edu/storage/fortress), or purchase the [Depot](https://www.rcac.purdue.edu/storage/depot) space for long-term storage. Unfortunately, it is not possible to increase your home directory quota beyond it's current level.   
 
-#### Scratch Space
+### Scratch Space
 
 
 If you find you need additional disk space in your scratch space, please first consider archiving and compressing old files and moving them to long-term storage on the [Fortress HPSS Archive](https://www.rcac.purdue.edu/storage/fortress). If you are unable to do so, you may ask for a quota increase by [contacting support](https://www.rcac.purdue.edu/help).

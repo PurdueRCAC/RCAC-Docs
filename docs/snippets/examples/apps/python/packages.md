@@ -12,8 +12,7 @@ $ module load conda
 
 Step-by-step instructions for installing custom Python packages are presented below.
 
-Step 1: Create a conda environment
-----------------------------------
+## Step 1: Create a conda environment
 
 Users can use the `conda-env-mod` script to create an empty conda environment. This script needs either a name or a path for the desired environment. After the environment is created, it generates a module file for using it in future. Please note that `conda-env-mod` is different from the official `conda-env` script and supports a limited set of subcommands. Detailed instructions for using `conda-env-mod` can be found with the command `conda-env-mod --help`.
 
@@ -80,8 +79,7 @@ By default, only the environment and a module file are created (no Jupyter kerne
   Your environment "labpackages" was created successfully.
   ```
 
-Step 2: Load the conda environment
-----------------------------------
+## Step 2: Load the conda environment
 
 * The following instructions assume that you have used `conda-env-mod` script to create an environment named `mypackages` (Examples 1 or 2 above). If you used `conda create` instead, please use `conda activate mypackages`.
 
@@ -99,8 +97,7 @@ Step 2: Load the conda environment
   ```
 
 
-Step 3: Install packages
-------------------------
+## Step 3: Install packages
 
 Now you can install custom packages in the environment using either `conda install` or `pip install`.
 
@@ -143,8 +140,7 @@ Now you can install custom packages in the environment using either `conda insta
 !!! Note
     Do **NOT** run Pip with the `--user` argument, as that will install packages in a different location and might mess up your account environment.
 
-Step 4: Test the installed packages
------------------------------------
+## Step 4: Test the installed packages
 
 
 To use the installed Python packages, you must load the module for your conda environment. If you have not loaded the `conda-env` module, please do so following the instructions at the end of Step 1.
@@ -168,8 +164,7 @@ $ module load conda-env/mypackages-py3.8.5
 
 If the commands finished without errors, then the installed packages can be used in your program.
 
-Additional capabilities of conda-env-mod script
------------------------------------------------
+## Additional capabilities of conda-env-mod script
 
 The `conda-env-mod` tool is intended to facilitate creation of a minimal Anaconda environment, matching module file and optionally a Jupyter kernel. Once created, the environment can then be accessed via familiar `module load` command, tuned and expanded as necessary. Additionally, the script provides several auxiliary functions to help manage environments, module files and Jupyter kernels.
 
@@ -200,7 +195,7 @@ Using these subcommands, you can iteratively fine-tune your environments, module
 !!! Note
     When you try to use `conda-env-mod delete`, remember to include the arguments as you create the environment (i.e. `-p package_location` and/or `-m module_location`).
 
-### Generating module file for an existing environment
+## Generating module file for an existing environment
 
 If you already have an existing configured Anaconda environment and want to generate a module file for it, follow appropriate examples from **Step 1** above, but use the `module` subcommand instead of the `create` one. E.g.
 
@@ -212,7 +207,7 @@ and follow printed instructions on how to load this module. With an optional `--
 
 **Note that** the module name `mypackages` should be exactly the same with the older conda environment name. **Note also that** if you intend to proceed with a Jupyter kernel generation (via the `--jupyter` flag or a `kernel` subcommand later), you will have to ensure that your environment has `ipython` and `ipykernel` packages installed into it. To avoid this and other related complications, we highly recommend making a fresh environment using a suitable `conda-env-mod create .... --jupyter` command instead.
 
-### Generating Jupyter kernel for an existing environment
+## Generating Jupyter kernel for an existing environment
 
 If you already have an existing configured Anaconda environment and want to generate a Jupyter kernel file for it, you can use the `kernel` subcommand. E.g.
 
@@ -224,7 +219,7 @@ This will add a `"Python (My mypackages Kernel)"` item to the dropdown list of a
 
 Note that generated Jupiter kernels are always personal (i.e. each user has to make their own, even for shared environments). Note also that you (or the creator of the shared environment) will have to ensure that your environment has `ipython` and `ipykernel` packages installed into it.
 
-### Managing and using shared Python environments
+## Managing and using shared Python environments
 
 Here is a suggested workflow for a common group-shared Anaconda environment with Jupyter capabilities:
 
@@ -266,8 +261,7 @@ Here is a suggested workflow for a common group-shared Anaconda environment with
 
 A similar process can be devised for instructor-provided or individually-managed class software, etc.
 
-Troubleshooting
----------------
+## Troubleshooting
 
 * Python packages often fail to install or run due to dependency incompatibility with other packages. More specifically, if you previously installed packages in your home directory it is safer to clean those installations.
 

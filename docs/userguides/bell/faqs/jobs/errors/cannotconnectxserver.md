@@ -10,13 +10,13 @@ search:
 
 # cannot connect to X server / cannot open display
 
-### Problem
+## Problem
 
 You receive the following message after entering a command to bring up a graphical window
 
 `cannot connect to X server` `cannot open display`
 
-### Solution
+## Solution
 
 This can happen due to multiple reasons:
 

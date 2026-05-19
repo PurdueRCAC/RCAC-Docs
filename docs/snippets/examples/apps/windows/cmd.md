@@ -37,7 +37,7 @@ $ windows  -i $RCAC_SCRATCH/windows.qcow2
 ```
 
 
-### Command line options:
+## Command line options:
 
 ```
 -i <path to qcow image file> (For example, $RCAC_SCRATCH/windows-2k16.qcow2)

@@ -19,7 +19,7 @@ search:
     After Aug 17, 2020, the community clusters will not support password-based authentication for login. Methods that can be used include two-factor authentication ([Purdue Login](/userguides/bell/accounts/#logging-in-to-bell)) or [SSH keys](/userguides/bell/accounts/#ssh-keys). If you do not have SSH keys installed, you would need to type your Purdue Login response into the SFTP's "Password" prompt.
 
 
-### Command-line usage
+## Command-line usage
 
 You can transfer files both to and from Bell while initiating an SFTP session on either some other computer or on Bell (in other words, directionality of connection and directionality of data flow are independent from each other). Once the connection is established, you use `put` or `get` subcommands between "local" and "remote" computers. Either Bell or another computer can be a remote.
 
@@ -59,7 +59,7 @@ You can transfer files both to and from Bell while initiating an SFTP session on
 
     The **-P** flag is optional. When used, it will cause the transfer to preserve file attributes and permissions.
 
-### Software (SFTP clients)
+## Software (SFTP clients)
 
 Linux and other Unix-like systems:
 

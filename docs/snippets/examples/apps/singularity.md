@@ -3,14 +3,13 @@
 
 **Note:** Singularity was originally a project out of [Lawrence Berkeley National Laboratory](https://www.lbl.gov). It has now been spun off into a distinct offering under a new corporate entity under the name [Sylabs Inc](https://sylabs.io). This guide pertains to the open source community edition, *SingularityCE*.
 
-What is Singularity?
---------------------
+## What is Singularity?
 
 Singularity is a new feature of the Community Clusters allowing the portability and reproducibility of operating system and application environments through the use of Linux containers. It gives users complete control over their environment.
 
 Singularity is like Docker but tuned explicitly for HPC clusters. More information is available from the [project’s website](https://sylabs.io/singularity).
 
-### Features
+## Features
 
 * Run the latest applications on an Ubuntu or Centos userland
 * Gain access to the latest developer tools
@@ -19,7 +18,7 @@ Singularity is like Docker but tuned explicitly for HPC clusters. More informati
 
 Singularity’s user guide is available at: [sylabs.io/guides/3.8/user-guide](https://sylabs.io/guides/3.8/user-guide/)
 
-### Example
+## Example
 
 Here is an example using an Ubuntu 16.04 image on Bell:
 
@@ -38,8 +37,7 @@ singularity exec /depot/itap/singularity/centos7.img cat /etc/redhat-release
 CentOS Linux release 7.2.1511 (Core)
 ```
 
-Purdue Cluster Specific Notes
------------------------------
+## Purdue Cluster Specific Notes
 
 All service providers will integrate Singularity slightly differently depending on site. The largest customization will be which default files are inserted into your images so that routine services will work.
 
@@ -56,7 +54,7 @@ Here is a list of paths:
 
 This means that within the container environment these paths will be present and the same as outside the container. The `/apps`, `/scratch`, and `/depot` directories will need to exist *inside* your container to work properly.
 
-### Creating Singularity Images
+## Creating Singularity Images
 
 Due to how singularity containers work, you must have root privileges to *build* an image. Once you have a singularity container image built on your own system, you can copy the image file up to the cluster (you do not need root privileges to *run* the container).
 

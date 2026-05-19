@@ -10,12 +10,12 @@ search:
 
 # bash: command not found
 
-### Problem
+## Problem
 
 You receive the following message after typing a command
 
 `bash: command not found`
 
-### Solution
+## Solution
 
 This means the system doesn't know how to find your command. Typically, you need to load a module to do it.

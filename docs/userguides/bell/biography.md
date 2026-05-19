@@ -19,7 +19,7 @@ Bell was also active in national organizations. In 1992 and 1993, she co-chaired
 
 Clara Bell Sessions died on March 3, 1996 in Terre Haute, Indiana. After her death, the Black Caucus of Faculty and Staff created the annual Clara E. Bell Academic Achievement Award for the senior in nursing or health sciences with the highest grade point average. In 2013, she was posthumously awarded the Title IX Distinguished Service Award for her contributions to gender equity in education.
 
-### Citations
+## Citations
 
 Archives and Special Collections. (2020, July 28). Bell, Clara E., 1934-. Purdue University. Retrieved from: <https://archives.lib.purdue.edu/agents/people/3085>
 

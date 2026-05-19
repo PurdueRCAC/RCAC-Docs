@@ -1,13 +1,13 @@
 # Installing R packages
 
-### Challenges of Managing R Packages in the Cluster Environment
+## Challenges of Managing R Packages in the Cluster Environment
 
 * Different clusters have different hardware and softwares. So, if you have access to multiple clusters, you must install your R packages *separately for each cluster*.
 * Each cluster has multiple versions of R and packages installed with one version of R may not work with another version of R. So, libraries for *each R version* must be installed in a *separate directory*.
 * You can define the directory where your R packages will be installed using the environment variable `R_LIBS_USER`.
 * For your convenience, a sample [~/.Rprofile example file](https://www.rcac.purdue.edu/files/knowledge/run/examples/apps/r/Rprofile_example) is provided that can be downloaded to your cluster account and renamed into `~/.Rprofile` (or appended to one) to customize your installation preferences. [Detailed instructions](rprofile.md).
 
-### Installing Packages
+## Installing Packages
 
 * **Step 0: Set up installation preferences.**  
   Follow the [steps for setting up](rprofile.md) your `~/.Rprofile` preferences. This step needs to be done only once. If you have created a `~/.Rprofile` file previously on Bell, ignore this step.
@@ -67,7 +67,7 @@
 * **Step 4: Troubleshooting. (if needed)**  
   If Step 3 ended with an error, you need to investigate why the build failed. Most common reason for build failure is not loading the necessary modules.
 
-### Loading Libraries
+## Loading Libraries
 
 Once you have packages installed you can load them with the `library()` function as shown below:
 
@@ -77,7 +77,7 @@ library('packagename')
 
 The package is now installed and loaded and ready to be used in R.
 
-### Example: Installing `dplyr`
+## Example: Installing `dplyr`
 
 The following demonstrates installing the `dplyr` package assuming the above-mentioned custom `~/.Rprofile` is in place (note its effect in the "Installing package into" information message):
 

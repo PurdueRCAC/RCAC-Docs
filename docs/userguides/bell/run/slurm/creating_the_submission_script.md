@@ -28,7 +28,7 @@ matlab -nodisplay -singleCompThread -r myscript
 
 Once your script is prepared, you are ready to [submit your job](submit_script.md).
 
-### Job Script Environment Variables
+## Job Script Environment Variables
 
 SLURM sets several potentially useful environment variables which you may use within your job submission files. Here is a list of some:
 

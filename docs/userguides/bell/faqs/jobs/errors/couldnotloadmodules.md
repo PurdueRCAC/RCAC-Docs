@@ -10,13 +10,13 @@ search:
 
 # bash: module command not found
 
-### Problem
+## Problem
 
 You receive the following message after typing a command, e.g. module load intel
 
 `bash: module command not found`
 
-### Solution
+## Solution
 
 The system cannot find the module command. You need to source the modules.sh file as below
 

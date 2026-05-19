@@ -15,7 +15,7 @@ search:
 !!! Note
     To access Bell through SMB file sharing, you must be on a Purdue campus network or connected through [VPN](http://www.itap.purdue.edu/connections/vpn/).
 
-### Windows:
+## Windows:
 
 * Windows 7: Click Windows menu > Computer, then click Map Network Drive in the top bar
 * Windows 8 & 10: Tap the Windows key, type `computer`, select This PC, click Computer > Map Network Drive in the top bar
@@ -34,7 +34,7 @@ search:
     + Then save it and try mapping again.
         - If there's already an entry for the server you are trying to map delete it.
 
-### Mac OS X:
+## Mac OS X:
 
 * In the Finder, click Go > Connect to Server
 * In the Server Address enter the following information and click Connect:
@@ -44,7 +44,7 @@ search:
 * Note: Use your career account login name and password when prompted. (You will **not** need to add "`,push`" nor use your Purdue Duo client.)
 * Your home or scratch directory should now be mounted as a drive in the Computer window.
 
-### Linux:
+## Linux:
 
 * There are several graphical methods to connect in Linux depending on your desktop environment. Once you find out how to connect to a network server on your desktop environment, choose the Samba/SMB protocol and adapt the information from the Mac OS X section to connect.
 * If you would like access via samba on the command line you may install `smbclient` which will give you FTP-like access and can be used as shown below. For all the possible ways to connect look at the Mac OS X instructions. 

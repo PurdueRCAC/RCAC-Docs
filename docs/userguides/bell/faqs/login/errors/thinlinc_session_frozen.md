@@ -10,11 +10,11 @@ search:
 
 # ThinLinc session frozen
 
-### Problem
+## Problem
 
 Your ThinLinc session is frozen and you can not launch any commands or close the session.
 
-### Solution
+## Solution
 
 This can happen due to various reasons. The most common reason is that you ran something memory-intensive inside that ThinLinc session on a front-end, so parts of the ThinLinc session got killed by Cgroups, and the entire session got stuck.
 

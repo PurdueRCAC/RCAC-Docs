@@ -14,7 +14,7 @@ The Bell home directory and its contents are specific to the Bell cluster, and a
 
 Please note that copying may fail if the size of your research computing home directory is larger than the Bell one's quota. Please [check](../quota.md) usage and limits before proceeding!
 
-### Complete copy
+## Complete copy
 
 For your convenience, a custom tool `copy-rcac-home` is provided to simplify at-will duplication of your main research computing home directory into Bell. The tool performs a complete 1-to-1 copy using `rsync -auH` (with exception of a narrow subset of system-specific service files).
 
@@ -37,7 +37,7 @@ Would you like to proceed? [Y/n]:
 
 At this stage answering `yes` will proceed with copying, or you can respond with a `no` (or `Ctrl-C`) to cancel. See `copy-rcac-home --help` for more details on the tool.
 
-### Partial copy
+## Partial copy
 
 Desired parts (or whole) of your research computing home directories can be copied to Bell via any of the home directories' supported [transfer methods](../transfer.md), such as SCP, SFTP, rsync, or Globus.
 

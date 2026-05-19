@@ -16,7 +16,7 @@ search:
       After Aug 17, 2020, the community clusters will not support password-based authentication for login. Methods that can be used include two-factor authentication ([Purdue Login](/userguides/bell/accounts/#logging-in-to-bell)) or [SSH keys](/userguides/bell/accounts/#ssh-keys). If you do not have SSH keys installed, you would need to type your Purdue Login response into the SFTP's "Password" prompt.
 
 
-### Command-line usage:
+## Command-line usage:
 
 You can transfer files both to and from Bell while initiating an SCP session on either some other computer or on Bell (in other words, directionality of connection and directionality of data flow are independent from each other). The `scp` command appears somewhat similar to the familiar `cp` command, with an extra `user@host:file` syntax to denote files and directories on a remote host. Either Bell or another computer can be a remote.
 
@@ -60,7 +60,7 @@ You can transfer files both to and from Bell while initiating an SCP session on 
 
       The **-p** flag is optional. When used, it will cause the transfer to preserve file attributes and permissions. The **-r** flag is required for recursive transfers of entire directories.
 
-### Software (SCP clients)
+## Software (SCP clients)
 
 Linux and other Unix-like systems:
 

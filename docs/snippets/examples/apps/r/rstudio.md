@@ -5,7 +5,7 @@ RStudio is a graphical integrated development environment (IDE) for R. RStudio i
 
 There are two methods to launch RStudio on the cluster: **command-line** and **application menu icon**.
 
-### Launch RStudio by the command-line:
+## Launch RStudio by the command-line:
 
 ```
 module load gcc
@@ -16,7 +16,7 @@ rstudio
 
 Note that RStudio is a graphical program and in order to run it you must have a local X11 server running or use [ThinLinc](../../../../accounts.md#thinlinc) Remote Desktop environment. See the [SSH X11 Forwarding section](../../../../accounts.md#ssh-x11-forwarding) for more details.
 
-### Launch Rstudio by the application menu icon:
+## Launch Rstudio by the application menu icon:
 
 * Log into desktop.bell.rcac.purdue.edu with web browser or [ThinLinc](../../../../accounts.md#thinlinc) client
 * Click on the `Applications` drop down menu on the top left corner

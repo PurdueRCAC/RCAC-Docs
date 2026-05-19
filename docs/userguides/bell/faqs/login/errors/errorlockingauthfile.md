@@ -10,13 +10,13 @@ search:
 
 # /usr/bin/xauth: error in locking authority file
 
-### Problem
+## Problem
 
 I receive this message when logging in:
 
 `/usr/bin/xauth: error in locking authority file`
 
-### Solution
+## Solution
 
 Your home directory disk quota is full. You may check your quota with `myquota`.
 

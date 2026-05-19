@@ -10,11 +10,11 @@ search:
 
 # I worked on Bell after I graduated/left Purdue, but can not access it anymore
 
-### Problem
+## Problem
 
 You have graduated or left Purdue but continue collaboration with your Purdue colleagues. You find that your access to Purdue resources has suddenly stopped and your password is no longer accepted.
 
-### Solution
+## Solution
 
 Access to all resources depends on having a valid Purdue Career Account. Expired Career Accounts are removed twice a year, during Spring and October breaks (more details at the [official page](https://www.purdue.edu/apps/account/IAMO/Purdue_CareerAccount_Expiration.jsp)). If your Career Account was purged due to expiration, you will not be be able to access the resources.
 

@@ -10,11 +10,11 @@ search:
 
 # How to disable ThinLinc screensaver
 
-### Problem
+## Problem
 
 Your ThinLinc desktop is locked after being idle for a while, and it asks for a password to refresh it. It means the "screensaver" and "lock screen" functions are turned on, but you want to disable these functions.
 
-### Solution
+## Solution
 
 If your screen is locked, close the ThinLinc client, reopen the client login popup, and select `End existing session`.
 

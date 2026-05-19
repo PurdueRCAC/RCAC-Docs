@@ -14,7 +14,7 @@ The Windows VMs can be launched in two fashions:
 
 Click each of the above links for detailed instructions on using them.
 
-### Software Provided in Pre-configured Virtual Machines
+## Software Provided in Pre-configured Virtual Machines
 
 The Windows 2016 Base server image available on Bell has the following software packages preloaded:
 

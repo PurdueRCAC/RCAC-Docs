@@ -1,6 +1,6 @@
 # Example: Create and Use Biopython Environment with Conda
 
-### Using conda to create an environment that uses the biopython package
+## Using conda to create an environment that uses the biopython package
 
 To use Conda you must first load the anaconda module:
 

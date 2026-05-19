@@ -26,7 +26,7 @@ Batch jobs submitted via SLURM have four main steps:
 * [Monitor job status](run/slurm/monitoring_job.md)
 * [Check output](run/slurm/checking_output.md)
 
-### Other useful topics
+## Other useful topics
 
 - [Canceling a Job](run/slurm/cancelling_job.md)
 - [Job Dependencies](run/slurm/job_dependencies.md)

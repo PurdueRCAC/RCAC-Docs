@@ -11,11 +11,11 @@ search:
 # How can I get access to Sentaurus software?
 
 
-### Question
+## Question
 
 How can I get access to Sentaurus tools for micro- and nano-electronics design?
 
-### Answer
+## Answer
 
 Sentaurus software license requires a signed NDA. Please contact [Dr. Mark Johnson, Director of ECE Instructional Laboratories](https://engineering.purdue.edu/Mark-Johnson) to complete the process.
 

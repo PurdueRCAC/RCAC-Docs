@@ -10,11 +10,11 @@ search:
 
 # ThinLinc session unreachable
 
-### Problem
+## Problem
 
 When trying to login to ThinLinc and re-connect to your existing session, you receive an error *"Your ThinLinc session is currently unreachable"*.
 
-### Solution
+## Solution
 
 This can happen if the specific login node your existing remote desktop session was residing on is currently offline or down, so ThinLinc can not reconnect to your existing session.  Most often the session is non-recoverable at this point, so the solution is to terminate your existing ThinLinc desktop session and start a new one.
 

@@ -14,13 +14,11 @@ Bell is a Community Cluster optimized for communities running traditional, tight
 
 Bell access is offered on the basis of each 64-core Rome processor, or a half-node share. To purchase access to Bell today, go to the [Cluster Access Purchase](https://www.rcac.purdue.edu/purchase) page. Please subscribe to our Community Cluster Program Mailing List to stay informed on the latest purchasing developments or contact us via email at [rcac-cluster-purchase@lists.purdue.edu](mailto:rcac-cluster-purchase@lists.purdue.edu) if you have any questions.
 
-Bell Namesake
--------------
+## Bell Namesake
 
 Bell is named in honor of Clara Bell Sessions, minority advocate and Professor and Director of Continuing Education of Nursing. More information about her life and impact on Purdue is available in a [Biography of Bell](biography.md).
 
-Bell Specifications
--------------------
+## Bell Specifications
 
 All Bell compute nodes have 128 processor cores and 100 Gbps Infiniband interconnects.
 

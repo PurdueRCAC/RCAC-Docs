@@ -10,11 +10,11 @@ search:
 
 # My SSH connection hangs
 
-### Problem
+## Problem
 
 Your console hangs while trying to connect to a RCAC Server.
 
-### Solution
+## Solution
 
 This can happen due to various reasons. Most common reasons for hanging SSH terminals are:
 

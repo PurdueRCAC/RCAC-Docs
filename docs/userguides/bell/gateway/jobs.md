@@ -12,7 +12,7 @@ search:
 
 There are two apps under the Jobs apps: Active Jobs and Job Composer. These are detailed below.
 
-### Active Jobs
+## Active Jobs
 
 This shows you active SLURM jobs currently on the cluster. The default view will show you your current jobs, similar to `squeue -u rices`. Using the button labeled "Your Jobs" in the upper right allows you to select different filters by queue (account). All accounts output by `slist` will appear for you here. Using the arrow on the left hand side will expand the full job details.
 
@@ -84,7 +84,7 @@ The folder contents will be listed, showing the resulting output files from runn
 
 Clicking on one of the output files will open it in the file editor for your viewing.
 
-### Creating New Template
+## Creating New Template
 
 First, prepare a template directory containing a template submission script along with any input files. Then, to import the job into the Job Composer app, click the 'Create New Template' button. Fill in the directory containing your template job script and files in the first box. Give it an appropriate name and notes.
 

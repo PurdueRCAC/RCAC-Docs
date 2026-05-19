@@ -1,11 +1,10 @@
 # BioContainers Collection
 
-What is BioContainers?
-----------------------
+## What is BioContainers?
 
 The BioContainers project came from the idea of using the containers-based technologies such as [Docker](https://www.docker.com) or [rkt](https://github.com/rkt/rkt) for bioinformatics software. Having a common and controllable environment for running software could help to deal with some of the current problems during software development and distribution. BioContainers is a community-driven project that provides the infrastructure and basic guidelines to create, manage and distribute bioinformatics containers with a special focus on omics fields such as proteomics, genomics, transcriptomics and metabolomics. . For more information, please visit [BioContainers project](https://biocontainers.pro).
 
-### Getting Started
+## Getting Started
 
 Users can download bioinformatic containers from the [BioContainers.pro](https://biocontainers.pro) and run them directly using Singularity instructions from the corresponding container’s catalog page.
 
@@ -34,7 +33,7 @@ module avail
 [....]
 ```
 
-### Example
+## Example
 
 This example demonstrates how to run BLASTP with the `blast` module. This `blast` module is a biocontainer wrapper for [NCBI BLAST](https://blast.ncbi.nlm.nih.gov).
 

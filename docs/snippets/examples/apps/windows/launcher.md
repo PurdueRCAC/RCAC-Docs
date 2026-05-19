@@ -25,6 +25,6 @@ The dialog menus will walk you through setting up and loading your VM.
 You will also be prompted to select a storage space to mount on your image (Home, Scratch, or Data Depot). You can only choose one to be mounted. It will appear on a shortcut on the desktop once the VM loads.
 
 
-### Notes
+## Notes
 
 Using the menu launcher will launch automatically select reasonable CPU and memory values. If you wish to choose other options or work Windows VMs into scripted workflows see the section on [using the command line](cmd.md).

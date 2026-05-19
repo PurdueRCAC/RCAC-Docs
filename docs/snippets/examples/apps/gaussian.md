@@ -71,7 +71,7 @@ bell-a012.rcac.purdue.edu
 bell-a012.rcac.purdue.edu
 ```
 
-### Examples of Gaussian SLURM Job Submissions
+## Examples of Gaussian SLURM Job Submissions
 
 Submit job using 128 processor cores on a single node:
 

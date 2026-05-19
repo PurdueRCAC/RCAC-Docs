@@ -39,6 +39,6 @@ $ echo $RCAC_SCRATCH
 
 **Your scratch directory has a quota capping the total size and number of files you may store in it.** For more information, refer to the section [Storage Quotas / Limits](../quota.md).
 
-### Performance
+## Performance
 
 Your scratch directory is located on a high-performance, large-capacity parallel filesystem engineered to provide work-area storage optimized for a wide variety of job types. It is designed to perform well with data-intensive computations, while scaling well to large numbers of simultaneous connections.

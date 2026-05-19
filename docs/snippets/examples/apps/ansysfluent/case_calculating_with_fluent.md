@@ -1,6 +1,6 @@
 # Case Calculating with Fluent
 
-### Calculation with Fluent
+## Calculation with Fluent
 
 Now all the files are ready for the Fluent calculations. Both “Geometry” and “Mesh” cells should have green checks. We can set up the CFD simulation parameters in the Ansys Fluent by double-clicking the “Setup” cell.
 
@@ -46,7 +46,7 @@ Parameters used in demo case (use default if not assigned):
 8. Hybrid Initialization;
 9. 300 iterations.
 
-### Results analysis
+## Results analysis
 
 The best methods to view and analyze the simulation should be the Ansys Fluent (directly after computation) or the Ansys CFD-Post (entering “Results” in Ansys Workbench). Both methods are straightforward so we will not cover this part in this tutorial. Here is a final simulation result showing the temperature of the symmetry after 300 iterations for reference:
 
