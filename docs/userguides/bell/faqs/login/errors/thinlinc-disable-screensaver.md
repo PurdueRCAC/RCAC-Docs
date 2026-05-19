@@ -18,26 +18,34 @@ Your ThinLinc desktop is locked after being idle for a while, and it asks for a 
 
 If your screen is locked, close the ThinLinc client, reopen the client login popup, and select `End existing session`.
 
-![ThinLinc Login Popup](../../../../../assets/images/userguides/bell/accounts-ThinLinc-End-Existing-Session.png)
+<p style="text-align: center;">
+  <img src="/assets/images/userguides/bell/accounts-ThinLinc-End-Existing-Session.png" alt="ThinLinc Login Popup" width="80%">
+</p>
 
 
 Select "End existing session" and try "Connect" again.
 
 To permanently avoid screen lock issue, right click desktop and select `Applications`, then `settings`, and select `Screensaver`.
 
-![ThinLinc Screensaver](../../../../../assets/images/userguides/bell/accounts-Anvil-ThinLinc-screensaver.png)
+<p style="text-align: center;">
+  <img src="/assets/images/userguides/bell/accounts-Anvil-ThinLinc-screensaver.png" alt="ThinLinc Screensaver" width="80%">
+</p>
 
 
 Select "Applications", then "settings", and select "Screensaver".
 
 Under **Screensaver**, turn off the `Enable Screensaver`, then under **Lock Screen**, turn off the `Enable Lock Screen`, and close the window.
 
-![ThinLinc Disable Screensaver](../../../../../assets/images/userguides/bell/accounts-Anvil-ThinLinc-screensaver-5.png)
+<p style="text-align: center;">
+  <img src="/assets/images/userguides/bell/accounts-Anvil-ThinLinc-screensaver-5.png" alt="ThinLinc Disable Screensaver" width="80%">
+</p>
 
 
 Under "Screensaver" tab, turn off the "Enable Screensaver" option.
 
-![ThinLinc Disable Lock Screen](../../../../../assets/images/userguides/bell/accounts-Anvil-ThinLinc-screensaver-4.png)
+<p style="text-align: center;">
+  <img src="/assets/images/userguides/bell/accounts-Anvil-ThinLinc-screensaver-4.png" alt="ThinLinc Disable Lock Screen" width="80%">
+</p>
 
 
 Under "Lock Screen" tab, turn off the "Enable Lock Screen" option.

@@ -71,4 +71,6 @@ bowtie2 -p 8 -x ref -1  reads_1.fq -2 reads_2.fq -S align.sam
 
 To help users get started, we provided detailed user guides for each containerized bioinformatics module on the [ReadTheDocs platform](https://biocontainer-doc.readthedocs.io/)
 
-![RCAC Biocontainers one ReadTheDocs](../../../../../assets/images/userguides/bell/biocontainers-biocontainer_doc.png)
+<p style="text-align: center;">
+  <img src="/assets/images/userguides/bell/biocontainers-biocontainer_doc.png" alt="RCAC Biocontainers one ReadTheDocs" width="80%">
+</p>
