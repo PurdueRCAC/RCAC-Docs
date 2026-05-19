@@ -22,8 +22,15 @@ def ignore_unknown(loader, tag_suffix, node):
     # ignore unknown python tags
     return None
 
+def handle_env_tag(loader, node):
+    # Handle MkDocs !ENV tag: !ENV [VAR, default] — return the default value
+    value = loader.construct_sequence(node)
+    return value[1] if len(value) >= 2 else None
+
 # Register wildcard multi-constructor for python/name: tags
 IgnoreUnknownTagsLoader.add_multi_constructor('tag:yaml.org,2002:python/name:', ignore_unknown)
+# Register handler for MkDocs !ENV tag
+IgnoreUnknownTagsLoader.add_constructor('!ENV', handle_env_tag)
 
 # ----------------------------
 # Breadcrumb title overrides
