@@ -21,3 +21,7 @@ search:
 
 ## Thinlinc
 {{ thinlinc_snippet(resource) }}
+
+## Purchasing Nodes
+
+--8<-- "docs/snippets/purchase_nodes.md"
