@@ -1,6 +1,8 @@
 site_name: RCAC Documentation
 site_description: Official RCAC documentation website.
 site_url: https://docs.rcac.purdue.edu
+exclude_docs: |
+  snippets/
 repo_url: https://github.com/PurdueRCAC/RCAC-Docs
 edit_uri: edit/main/docs/
 
