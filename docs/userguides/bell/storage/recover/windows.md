@@ -10,7 +10,7 @@ search:
 
 # Windows
 
-If you use ${resource.name} through "network drives" on Windows you may recover lost files directly from within Windows:
+If you use Bell through "network drives" on Windows you may recover lost files directly from within Windows:
 
 * Open the folder that contained the lost file.
 * Right click inside the window and select "Properties".

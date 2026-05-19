@@ -10,4 +10,14 @@ search:
 
 # Frequently Asked Questions
 
-Some common questions, errors, and problems are categorized below. Click the [Expand Topics](?all=true) link in the upper right to see all entries at once. You can also use the search box above to search the user guide for any issues you are seeing.
+Some common questions, errors, and problems are categorized below.
+
+## In This Section
+
+- [About Bell](faqs/about.md)
+- [Logging In & Accounts](faqs/login.md)
+- [Jobs](faqs/jobs.md)
+- [Data](faqs/data.md)
+- [Software](faqs/software.md)
+- [About Research Computing](faqs/researchcomputing.md)
+

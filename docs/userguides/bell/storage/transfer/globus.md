@@ -10,30 +10,26 @@ search:
 
 # Globus
 
-Globus
-------
-
 *Globus*, previously known as Globus Online, is a powerful and easy to use file transfer service for transferring files virtually anywhere. It works within RCAC's various research storage systems; it connects between RCAC and remote research sites running Globus; and it connects research systems to personal systems. You may use Globus to connect to your home, scratch, and Fortress storage directories. Since Globus is web-based, it works on any operating system that is connected to the internet. The Globus Personal client is available on Windows, Linux, and Mac OS X. It is primarily used as a graphical means of transfer but it can also be used over the command line.
 
-### [Link to section 'Globus Web:' of 'Globus'](https://www.rcac.purdue.edu/knowledge/weber/storage/transfer/globus#globus_web "Link to section 'Globus Web:' of 'Globus'") Globus Web:
+### Globus Web
 
 * Navigate to <http://transfer.rcac.purdue.edu>
 * Click "Proceed" to log in with your Purdue Career Account.
 * On your first login it will ask to make a connection to a Globus account. Accept the conditions.
 * Now you are at the main screen. Click "File Transfer" which will bring you to a two-panel interface (if you only see one panel, you can use selector in the top-right corner to switch the view).
-* You will need to select one collection and file path on one side as the source, and the second collection on the other as the destination. This can be one of several Purdue endpoints, or another University, or even your personal computer (see [Personal Client section](https://www.rcac.purdue.edu/knowledge/weber/storage/transfer/globus#globus_personal_client_setup) below).
+* You will need to select one collection and file path on one side as the source, and the second collection on the other as the destination. This can be one of several Purdue endpoints, or another University, or even your personal computer (see the [Globus Personal Client Setup](#globus-personal-client-setup) section below).
 
 The RCAC collections are as follows. A search for "Purdue" will give you several suggested results you can choose from, or you can give a more specific search.
 
-{::if resource.hostname == gautschi}* **Home directory and Scratch storage:** *"Gautschi Cluster Collection"*, however, you can start typing "${resource.hostname}" and it will suggest appropriate matches.
-{::else}* Home Directory storage: *"Purdue Research Computing - Home Directories"*, however, you can start typing "Purdue" and "Home Directories" and it will suggest appropriate matches.
-* Weber scratch storage: *"Purdue Weber Cluster"*, however, you can start typing "Purdue" and "Weber and it will suggest appropriate matches. From here you will need to navigate into the first letter of your username, and then into your username.
-{::/}* **Research Data Depot:** *"Purdue Research Computing - Data Depot"*, a search for "Depot" should provide appropriate matches to choose from.
+* Home Directory storage: *"Purdue Research Computing - Home Directories"*, however, you can start typing "Purdue" and "Home Directories" and it will suggest appropriate matches.
+* Bell scratch storage: *"Purdue Bell Cluster"*, however, you can start typing "Purdue" and "Bell" and it will suggest appropriate matches. From here you will need to navigate into your username.
+* **Research Data Depot:** *"Purdue Research Computing - Data Depot"*, a search for "Depot" should provide appropriate matches to choose from.
 * **Fortress:** *"Purdue Fortress HPSS Archive"*, a search for "Fortress" should provide appropriate matches to choose from.
 
 From here, select a file or folder in either side of the two-pane window, and then use the arrows in the top-middle of the interface to instruct Globus to move files from one side to the other. You can transfer files in either direction. You will receive an email once the transfer is completed.
 
-### [Link to section 'Globus Personal Client setup:' of 'Globus'](https://www.rcac.purdue.edu/knowledge/weber/storage/transfer/globus#globus_personal_client_setup "Link to section 'Globus Personal Client setup:' of 'Globus'") Globus Personal Client setup:
+### Globus Personal Client Setup
 
 Globus Connect Personal is a small software tool you can install to make your own computer a Globus endpoint on its own. It is useful if you need to transfer files via Globus to and from your computer directly.
 
@@ -41,7 +37,7 @@ Globus Connect Personal is a small software tool you can install to make your ow
 * Name this particular personal system and follow the setup prompts to create your Globus Connect Personal endpoint.
 * Your personal system is now available as a collection within the Globus transfer interface.
 
-### [Link to section 'Globus Command Line:' of 'Globus'](https://www.rcac.purdue.edu/knowledge/weber/storage/transfer/globus#globus_command_line "Link to section 'Globus Command Line:' of 'Globus'") Globus Command Line:
+### Globus Command Line
 
 Globus supports command line interface, allowing advanced automation of your transfers.
 
@@ -50,7 +46,7 @@ To use the recommended standalone Globus CLI application (the `globus` command):
 * First time use: issue the `globus login` command and follow instructions for initial login.
 * Commands for interfacing with the CLI can be found via [Using the Command Line Interface](https://docs.globus.org/cli/), as well as the [Globus CLI Examples](https://docs.globus.org/cli/examples/) pages.
 
-### [Link to section 'Sharing Data with Outside Collaborators' of 'Globus'](https://www.rcac.purdue.edu/knowledge/weber/storage/transfer/globus#sharing_data_with_outside_collaborators "Link to section 'Sharing Data with Outside Collaborators' of 'Globus'") Sharing Data with Outside Collaborators
+### Sharing Data with Outside Collaborators
 
 Globus allows convenient sharing of data with outside collaborators. Data can be shared with collaborators' personal computers or directly with many other computing resources at other institutions. See the Globus documentation on how to share data:
 

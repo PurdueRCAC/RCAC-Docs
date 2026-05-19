@@ -514,7 +514,7 @@ One can login to {cluster}'s [Gateway](https://gateway.{host}) to manage files i
 #### SSH Client Software
 Linux / Solaris / AIX / HP-UX / Unix:
 
-- The `ssh` command is pre-installed. Log in using `ssh username@gautschi.rcac.purdue.edu` from a terminal.
+- The `ssh` command is pre-installed. Log in using `ssh username@{host}` from a terminal.
 
 Microsoft Windows:
 

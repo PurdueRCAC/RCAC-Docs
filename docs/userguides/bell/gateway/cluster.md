@@ -14,4 +14,4 @@ The Cluster Tools menu contains cluster utilities. At the moment, only a termina
 
 ### Shell Access
 
-Launching the shell app will provide you with a web-based terminal session on the cluster front-end. This is equivalent to using a standalone SSH client to connect to `${resource.frontend}.rcac.purdue.edu` where you are connected to one several front-ends. The normal acceptable [front-end use policy](/policies/frontenduse) applies to access through the web-app. X11 Forwarding is not supported. Use of one of the [interactive apps](/knowledge/${resource.hostname}/gateway/interactive) is recommended for graphical applications.
+Launching the shell app will provide you with a web-based terminal session on the cluster front-end. This is equivalent to using a standalone SSH client to connect to `bell.rcac.purdue.edu` where you are connected to one several front-ends. The normal acceptable [front-end use policy](https://www.rcac.purdue.edu/policies/frontenduse) applies to access through the web-app. X11 Forwarding is not supported. Use of one of the [interactive apps](interactive.md) is recommended for graphical applications.

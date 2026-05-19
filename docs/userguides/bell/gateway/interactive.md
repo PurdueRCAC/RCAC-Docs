@@ -15,3 +15,8 @@ There are several interactive apps available through Gateway that can be accesse
 After you a submit an interactive app to the queue, Gateway will track and manage the session. Once it starts, you may connect and disconnect from the session in your browser, leaving the job running while you log out of your browser.
 
 Each of the available apps are documented through the following links.
+
+- [Compute Node Desktop](interactive/desktop.md)
+- [Jupyter Notebook](interactive/notebook.md)
+- [MATLAB](interactive/matlab.md)
+- [RStudio Server](interactive/rstudio.md)

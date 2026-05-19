@@ -10,10 +10,12 @@ search:
 
 # File Transfer
 
-{::if resource.name == Weber} In order to comply with regulatory security requirements, files may only be imported into the CUI ecosystem via the ${resource.name} Inbox and exported from the ecosystem via ${resource.name} Outbox. Other authorized systems within the CUI boundary may work with files stored on ${resource.name}.  {::else} ${resource.name} supports several methods for file transfer. Use the links below to learn more about these methods. {::/}
+ Bell supports several methods for file transfer. Use the links below to learn more about these methods.
 
-{::if resource.name == Fortress}
+## In This Section
 
-${resource.name} does not support SCP or SSH.
-
-{::/}
+- [Windows Network Drive / SMB](transfer/cifs.md)
+- [Copying files from Purdue IT research computing home directory to Bell](transfer/copyhome.md)
+- [Globus](transfer/globus.md)
+- [SCP](transfer/scp.md)
+- [FTP / SFTP](transfer/sftp.md)

@@ -14,14 +14,14 @@ Some limits are imposed on your disk usage on research systems. A quota is imple
 
 ### Checking Quota
 
-To check the current quotas of your home and scratch directories check the [My Quota](/account/myquota) page or use the `myquota` command:
+To check the current quotas of your home and scratch directories check the [My Quota](https://www.rcac.purdue.edu/account/myquota) page or use the `myquota` command:
 
 ```
 $ myquota
 Type        Filesystem          Size    Limit  Use         Files    Limit  Use
 ==============================================================================
-home        ${user.username}         5.0GB   25.0GB  20%             -        -   -
-{::if resource.hostname != workbench}scratch     ${resource.hostname}        220.7GB  100.0TB  0.22%            8k   2,000k  0.43%{::/}
+home        myusername         5.0GB   25.0GB  20%             -        -   -
+scratch     bell        220.7GB  100.0TB  0.22%            8k   2,000k  0.43%
 ```
 
 The columns are as follows:
@@ -41,9 +41,9 @@ To see in a human-readable format an estimate of the disk usage of your top-leve
 
 ```
 $ du -h --max-depth=1 $HOME >myfile
-32K     /home/${user.username}/mysubdirectory_1
-529M    /home/${user.username}/mysubdirectory_2
-608K    /home/${user.username}/mysubdirectory_3
+32K     /home/myusername/mysubdirectory_1
+529M    /home/myusername/mysubdirectory_2
+608K    /home/myusername/mysubdirectory_3
 ```
 
 The second directory is the largest of the three, so apply command `du` to it.
@@ -52,7 +52,7 @@ To see in a human-readable format an estimate of the disk usage of your top-leve
 
 ```
 $ du -h --max-depth=1 $RCAC_SCRATCH >myfile
-{::if resource.letteredscratch == true}160K    ${resource.scratch}/${user.usernameletter}/${user.username}{::else}160K    ${resource.scratch}/${user.username}{::/}
+160K    /scratch/bell/myusername
 ```
 
 This strategy can be very helpful in figuring out the location of your largest usage. Move unneeded files and directories to long-term storage to free space in your home and scratch directories.
@@ -61,20 +61,10 @@ This strategy can be very helpful in figuring out the location of your largest u
 
 #### Home Directory
 
-{::if resource.name != Weber}
 
-If you find you need additional disk space in your home directory, please consider archiving and compressing old files and moving them to long-term storage on the [Fortress HPSS Archive](/storage/fortress), or purchase the [Depot](/storage/depot) space for long-term storage. Unfortunately, it is not possible to increase your home directory quota beyond it's current level. {::else} If you find you need additional disk space in your home directory, please first consider archiving and compressing old files and moving them to long-term storage on ${resource.name}. Unfortunately, it is not possible to increase your home directory quota beyond it's current level.
-
-{::/} {::if resource.name == Weber}
+If you find you need additional disk space in your home directory, please consider archiving and compressing old files and moving them to long-term storage on the [Fortress HPSS Archive](https://www.rcac.purdue.edu/storage/fortress), or purchase the [Depot](https://www.rcac.purdue.edu/storage/depot) space for long-term storage. Unfortunately, it is not possible to increase your home directory quota beyond it's current level.   
 
 #### Scratch Space
 
-If you find you need additional disk space in your scratch space, please first consider archiving and compressing old files and moving them to long-term storage on ${resource.name}.
 
-{::elseif resource.hostname == workbench} {::else}
-
-#### Scratch Space
-
-If you find you need additional disk space in your scratch space, please first consider archiving and compressing old files and moving them to long-term storage on the [Fortress HPSS Archive](/storage/fortress). If you are unable to do so, you may ask for a quota increase by [contacting support](/help).
-
-{::/}
+If you find you need additional disk space in your scratch space, please first consider archiving and compressing old files and moving them to long-term storage on the [Fortress HPSS Archive](https://www.rcac.purdue.edu/storage/fortress). If you are unable to do so, you may ask for a quota increase by [contacting support](https://www.rcac.purdue.edu/help).

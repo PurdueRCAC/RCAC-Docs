@@ -10,14 +10,6 @@ search:
 
 # Archive and Compression
 
-Archive and Compression
-=======================
-
-{::if resource.name == Weber}
-
-Archived files and directories must remain on ${resource.name} and cannot be removed from the cluster without prior authorization. Upon the completion of a project, all project data and materials will be archived and stored within Weber by system admins.
-
- {::/}  
 There are several options for archiving and compressing groups of files or directories. The mostly commonly used options are:
 
 ### **tar**

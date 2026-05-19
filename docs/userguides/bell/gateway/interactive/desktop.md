@@ -10,9 +10,9 @@ search:
 
 # Compute Node Desktop
 
-The Compute Node Desktop app will launch a graphical desktop session on a compute node. This is similar to using [Thinlinc](/knowledge/${resource.hostname}/accounts/login/thinlinc), however, this gives you a desktop directly on a compute node instead on a front-end. This app is useful if you have a custom application or application not directly available as an interactive app you would like to run inside Gateway.
+The Compute Node Desktop app will launch a graphical desktop session on a compute node. This is similar to using [ThinLinc](/userguides/bell/accounts/#thinlinc), however, this gives you a desktop directly on a compute node instead on a front-end. This app is useful if you have a custom application or application not directly available as an interactive app you would like to run inside Gateway.
 
-To launch a desktop session on a compute node, select the ${resource.name} Compute Desktop app. From the submit form, select from the available options - the queue to which you wish to submit and the number of wallclock hours you wish to have job running. There is also a checkbox that enable a notification to your email when the job starts.
+To launch a desktop session on a compute node, select the Bell Compute Desktop app. From the submit form, select from the available options - the queue to which you wish to submit and the number of wallclock hours you wish to have job running. There is also a checkbox that enable a notification to your email when the job starts.
 
 After the interactive job is submitted you will be taken to your list of active interactive app sessions. You can monitor the status of the job from here until it starts, or if you enabled the email notification, watch your Purdue email for the notification the job has started.
 

@@ -8,9 +8,10 @@ search:
   boost: 2
 ---
 
-# Sharing
+# Sharing Files from Bell
 
-Sharing Files from ${resource.name}
-===================================
+Bell supports several methods for file sharing. Use the links below to learn more about these methods.
 
-${resource.name} supports several methods for file sharing. Use the links below to learn more about these methods.
+## In This Section
+
+- [Globus](sharing/globus.md)

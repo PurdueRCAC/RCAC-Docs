@@ -8,10 +8,7 @@ search:
   boost: 2
 ---
 
-# Globus
-
-Sharing Data with Globus
-========================
+# Sharing Data with Globus
 
 Data on any RCAC resource can be shared with other users within Purdue or with collaborators at other institutions. Globus allows convenient sharing of data with outside collaborators. Data can be shared with collaborators' personal computers or directly with many other computing resources at other institutions.
 
@@ -19,4 +16,4 @@ To share files, login to [https://transfer.rcac.purdue.edu](https://transfer.rca
 
 * <https://docs.globus.org/how-to/share-files/>
 
-See also [RCAC Globus presentation](/training/globus).
+See also [RCAC Globus presentation](https://www.rcac.purdue.edu/training/globus).

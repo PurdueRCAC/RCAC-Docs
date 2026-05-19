@@ -14,7 +14,6 @@ Bell is a Community Cluster optimized for communities running traditional, tight
 - [**Accounts**](accounts.md)
 - [**Software**](software.md)
 - [**Running Jobs**](run.md)
-- [**Datasets**](datasets.md)
 - [**File Storage and Transfer**](storage.md)
 - [**Gateway (Open OnDemand)**](gateway.md)
 - [**Compiling Source Code**](compile.md)

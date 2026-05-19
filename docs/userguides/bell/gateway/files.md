@@ -10,9 +10,9 @@ search:
 
 # Files
 
-The Files app will let you access your files in your [Home Directory](/storage/home), [Scratch](/storage/scratch), and [Data Depot](/storage/depot) spaces. The app lets you manage create, manage, and delete files and directories from your web browser. Navigate by double clicking on folders in the file explorer or by using the file tree on the left.
+The Files app will let you access your files in your [Home Directory](../storage/options/home.md), [Scratch](../storage/options/scratch.md), and [Data Depot](https://www.rcac.purdue.edu/storage/depot) spaces. The app lets you manage create, manage, and delete files and directories from your web browser. Navigate by double clicking on folders in the file explorer or by using the file tree on the left.
 
-![Open OnDemand file browser](knowledge/gateway/filebrowser.png)
+![Open OnDemand file browser](../../../assets/images/userguides/bell/gateway-filebrowser.png)
 
 
 The browser-based file explorer. Navigate by double clicking on folders in the file explorer or by using the file tree on the left.
@@ -25,11 +25,11 @@ On the top row, there are buttons to:
 * New Dir: creates a new, empty directory
 * Upload: upload a file from your computer
 
-**Note:** File uploads from your browser are limited to 100 GB per file. Be mindful that uploads over a few gigabytes may be unreliable through your browser, especially from off-campus connections. For very large files or off-campus transfers alternative methods such as [Globus](/knowledge/gilbreth/storage/transfer/globus) are highly recommended.
+**Note:** File uploads from your browser are limited to 100 GB per file. Be mindful that uploads over a few gigabytes may be unreliable through your browser, especially from off-campus connections. For very large files or off-campus transfers alternative methods such as [Globus](../storage/transfer/globus.md) are highly recommended.
 
 The second row of buttons lets you perform typical file management operations. The Edit button will open files in a fully fledged browser based text editor - it features syntax highlighting and vim and Emacs key bindings.
 
-![Open OnDemand file editor](knowledge/gateway/fileeditor.png)
+![Open OnDemand file editor](../../../assets/images/userguides/bell/gateway-fileeditor.png)
 
 
 The browser-based text editor interface, shown here editing a Bash script, includes syntax highlighting, font-size adjustments, and various key bindings.

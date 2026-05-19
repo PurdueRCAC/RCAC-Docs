@@ -10,18 +10,15 @@ search:
 
 # Storage Environment Variables
 
-Storage Environment Variables
-=============================
-
 Several environment variables are automatically defined for you to help you manage your storage. Use environment variables instead of actual paths whenever possible to avoid problems if the specific paths to any of these change.
 
 Some of the environment variables you should have are:
 
 | Name | Description |
 | --- | --- |
-| HOME | /home/${user.username} |
+| HOME | /home/myusername |
 | PWD | path to your current directory |
-| RCAC\_SCRATCH | /scratch/${resource.hostname}/${user.username} |
+| RCAC\_SCRATCH | /scratch/bell/myusername |
 
 By convention, environment variable names are all uppercase. You may use them on the command line or in any scripts in place of and in combination with hard-coded values:
 
@@ -37,16 +34,16 @@ To find the value of any environment variable:
 
 ```
 $ echo $RCAC_SCRATCH
-{::if resource.letteredscratch == 1}${resource.scratch}/${user.usernameletter}/${user.username} {::else}${resource.scratch}/${user.username} {::/}
+/scratch/bell/myusername 
 ```
 
 To list the values of all environment variables:
 
 ```
 $ env
-USER=${user.username}
-HOME=/home/${user.username}
-{::if resource.letteredscratch == true}RCAC_SCRATCH=${resource.scratch}/${user.usernameletter}/${user.username} {::else}RCAC_SCRATCH=${resource.scratch}/${user.username} {::/}
+USER=myusername
+HOME=/home/myusername
+RCAC_SCRATCH=/scratch/bell/myusername 
 ...
 ```
 

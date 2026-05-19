@@ -8,12 +8,8 @@ search:
   boost: 2
 ---
 
-# Biography of Clara Bell Sessions
-
-![Portrait of Clara Bell Sessions](resources/bell/bio.png)
-
-Clara Bell Sessions
--------------------
+# Clara Bell Sessions
+![Portrait of Clara Bell Sessions](/assets/images/userguides/bell/bell-bio.png){ align=right width="260" }
 
 Clara Bell Sessions was a nursing professor and director of continuing education in nursing at Purdue University. While at Purdue, she helped establish the Minority Student Nurses' Association (MSNA) and Minority Faculty Fellows program. Bell attended Indiana State University where she earned her bachelor of science in nursing, followed by Indiana University where she earned her master's and doctoral degrees in their School of Education.
 
