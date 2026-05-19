@@ -70,3 +70,5 @@ Common commands across workload management systems
 | Begin Time | `-A "y-m-d h:m:s"` | `--begin=y-m-d[Th:m[:s]]` |
 
 See the official [Slurm Documentation](http://slurm.schedmd.com/documentation.html) for further details.
+
+[**Back to the Running Jobs section**](../../run.md)

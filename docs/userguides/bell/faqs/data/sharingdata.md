@@ -15,3 +15,4 @@ Yes! Globus allows convenient sharing of data with outside collaborators. Data c
 
 * <https://docs.globus.org/how-to/share-files/>
 
+[**Back to the Data section**](../data.md)

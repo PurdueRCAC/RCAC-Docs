@@ -9,3 +9,5 @@ search:
 ---
 
 --8<-- "docs/snippets/temp_directory.md"
+
+[**Back to the Storage Options section**](../options.md)

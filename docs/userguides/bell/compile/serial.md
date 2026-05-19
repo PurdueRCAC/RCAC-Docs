@@ -9,3 +9,5 @@ search:
 ---
 
 --8<-- "docs/snippets/compile_serial.md"
+
+[**Back to the Compiling Source Code section**](../compile.md)

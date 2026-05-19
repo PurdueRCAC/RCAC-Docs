@@ -33,3 +33,4 @@ The preferred way to use `pip` with the machine learning modules is to invoke it
 $ python -m pip --version
 ```
 
+[**Back to the Software section**](../software.md)

@@ -19,3 +19,5 @@ Common errors and solutions/work-arounds for them.
 - [ThinLinc session frozen](errors/thinlinc_session_frozen.md)
 - [ThinLinc session unreachable](errors/thinlinc-session-is-unreachable.md)
 - [How to disable ThinLinc screensaver](errors/thinlinc-disable-screensaver.md)
+
+[**Back to the Logging In & Accounts section**](../login.md)

@@ -23,3 +23,5 @@ The following examples demonstrate the basics of SLURM jobs, and are designed to
 - [OpenMP](slurm/openmp.md)
 - [MPI](slurm/mpi.md)
 - [Monitoring Resources](slurm/monitor.md)
+
+[**Back to the Running Jobs section**](../../run.md)

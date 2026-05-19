@@ -29,3 +29,5 @@ search:
     The output and error files are created in their final location immediately that the job begins or an error is generated, whereas in PBS/Torque temporary files are created that are only moved to the final location at the end of the job. Therefore in Slurm you can examine the output and error files from your job during its execution.
 
 See the official [Slurm Documentation](http://slurm.schedmd.com/documentation.html) for further details.
+
+[**Back to the Running Jobs section**](../../run.md)

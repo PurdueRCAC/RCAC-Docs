@@ -9,3 +9,5 @@ search:
 ---
 
 --8<-- "docs/snippets/examples/apps/rocmcontainers/gromacs.md"
+
+[**Back to the ROCm Containers Collection section**](../rocmcontainers.md)

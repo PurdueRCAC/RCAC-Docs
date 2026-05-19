@@ -15,3 +15,5 @@ Bell supports several methods for file sharing. Use the links below to learn mor
 ## In This Section
 
 - [Globus](sharing/globus.md)
+
+[**Back to the Storage section**](../storage.md)

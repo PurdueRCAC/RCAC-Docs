@@ -31,3 +31,5 @@ This can happen due to multiple reasons:
      
 3. Reason: If you are trying to open a graphical window within an interactive PBS job, make sure you are using the `-X` option with `qsub` after following the previous step(s) for connecting to the front-end. Please see the example in the [Interactive Jobs guide](../../../run/examples/slurm/interactive.md). 
 4. Reason: If none of the above apply, make sure that you are [within quota of your home directory](../../login/errors/errorlockingauthfile.md).
+
+[**Back to the Errors section**](../errors.md)

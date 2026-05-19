@@ -55,3 +55,5 @@ Desired parts (or whole) of your research computing home directories can be copi
 * **Example:** copying using Globus.
 
     Search collections for *"Purdue Research Computing - Home Directories"* and * "Purdue Bell Cluster - Home" * endpoints, respectively, then transfer desired files and/or directories as usual.
+
+[**Back to the File Transfer section**](../transfer.md)

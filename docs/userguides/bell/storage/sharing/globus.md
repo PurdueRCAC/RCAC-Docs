@@ -17,3 +17,5 @@ To share files, login to [https://transfer.rcac.purdue.edu](https://transfer.rca
 * <https://docs.globus.org/how-to/share-files/>
 
 See also [RCAC Globus presentation](https://www.rcac.purdue.edu/training/globus).
+
+[**Back to the Sharing Files from Bell section**](../sharing.md)

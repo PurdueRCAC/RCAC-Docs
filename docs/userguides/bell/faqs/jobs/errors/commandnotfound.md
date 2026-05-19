@@ -19,3 +19,5 @@ You receive the following message after typing a command
 ## Solution
 
 This means the system doesn't know how to find your command. Typically, you need to load a module to do it.
+
+[**Back to the Errors section**](../errors.md)

@@ -23,3 +23,5 @@ search:
   ```
   
 * Please note that NUMA information is useful for advanced MPI/OpenMP/GPU optimizations. For most users, using default NUMA settings in MPI or OpenMP would give you the best performance.
+
+[**Back to the Questions section**](../questions.md)

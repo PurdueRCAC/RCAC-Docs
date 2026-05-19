@@ -9,3 +9,5 @@ search:
 ---
 
 --8<-- "docs/snippets/holding_job.md"
+
+[**Back to the Running Jobs section**](../../run.md)

@@ -34,3 +34,5 @@ This can happen due to various reasons. The most common reason is that you ran s
 
 
   Select "End existing session" and try "Connect" again.
+
+[**Back to the Errors section**](../errors.md)

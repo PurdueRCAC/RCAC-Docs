@@ -9,3 +9,5 @@ search:
 ---
 
 --8<-- "docs/snippets/examples/hadoop/hbase.md"
+
+[**Back to the Hadoop section**](../hadoop.md)

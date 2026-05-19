@@ -53,3 +53,5 @@ Globus allows convenient sharing of data with outside collaborators. Data can be
 * <https://docs.globus.org/how-to/share-files/>
 
 For links to more information, please see [Globus Support](https://support.globus.org/home) page and [RCAC Globus presentation](https://www.rcac.purdue.edu/training/globus).
+
+[**Back to the File Transfer section**](../transfer.md)

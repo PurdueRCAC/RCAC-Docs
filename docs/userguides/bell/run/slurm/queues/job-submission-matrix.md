@@ -20,3 +20,5 @@ search:
 
 !!! Note
     The normal QOS is the default and does not need to be specified.
+
+[**Back to the Queues section**](../queues.md)

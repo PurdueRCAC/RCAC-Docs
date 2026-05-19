@@ -37,3 +37,5 @@ The second row of buttons lets you perform typical file management operations. T
 
 
 The browser-based text editor interface, shown here editing a Bash script, includes syntax highlighting, font-size adjustments, and various key bindings.
+
+[**Back to the Gateway (Open OnDemand) section**](../gateway.md)

@@ -9,3 +9,5 @@ search:
 ---
 
 --8<-- "docs/snippets/examples/apps/r/server.md"
+
+[**Back to the R section**](../r.md)

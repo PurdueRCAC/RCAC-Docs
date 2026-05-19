@@ -18,3 +18,5 @@ search:
 - [Long-Term Storage](options/long_term_storage.md)
 - [Scratch Space](options/scratch.md)
 - [/tmp Directory](options/tmp_directory.md)
+
+[**Back to the Storage section**](../storage.md)

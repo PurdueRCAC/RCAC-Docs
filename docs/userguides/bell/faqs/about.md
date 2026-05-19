@@ -18,3 +18,5 @@ Frequently asked questions about Bell.
 - [How is Bell different than other Community Clusters?](about/different.md)
 - [Do I need to do anything to my firewall to access Bell?](about/firewall.md)
 - [Does Bell have the same home directory as other clusters?](about/selfhome.md)
+
+[**Back to the Frequently Asked Questions section**](../faqs.md)

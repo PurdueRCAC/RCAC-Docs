@@ -9,3 +9,5 @@ search:
 ---
 
 --8<-- "docs/snippets/home_directory.md"
+
+[**Back to the Storage Options section**](../options.md)

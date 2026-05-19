@@ -29,3 +29,5 @@ We strongly encourage any Purdue faculty or staff with computational needs to jo
 Through the Community Cluster Program, Purdue affiliates have invested several million dollars in computational and storage resources from Q4 2006 to the present with great success in both the research accomplished and the money saved on equipment purchases.
 
 For more information or to purchase access to our latest cluster today, see the [Purchase](https://www.rcac.purdue.edu/purchase) page. Have questions? contact us at [rcac-cluster-purchase@lists.purdue.edu](mailto:rcac-cluster-purchase@lists.purdue.edu) to discuss.
+
+[**Back to the Accounts section**](../accounts.md)

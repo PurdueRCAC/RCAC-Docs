@@ -9,3 +9,5 @@ search:
 ---
 
 --8<-- "docs/snippets/examples/apps/python/numpy.md"
+
+[**Back to the Python section**](../python.md)

@@ -13,3 +13,4 @@ search:
 
 No firewall changes are needed to access Bell. However, to access data through Network Drives (i.e., CIFS, "Z: Drive"), you must be on a Purdue campus network or connected through [VPN](http://www.itap.purdue.edu/connections/vpn/).
 
+[**Back to the About Bell section**](../about.md)

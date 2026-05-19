@@ -9,3 +9,5 @@ search:
 ---
 
 --8<-- "docs/snippets/examples/apps/matlab/interpreter.md"
+
+[**Back to the Matlab section**](../matlab.md)

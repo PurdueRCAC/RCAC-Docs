@@ -75,3 +75,5 @@ Mac OS X:
 
 * The `sftp` command-line program should already be installed. You may start a local terminal window from "Applications->Utilities".
 * [Cyberduck](https://cyberduck.io/) is a full-featured and free graphical SFTP and SCP client.
+
+[**Back to the File Transfer section**](../transfer.md)

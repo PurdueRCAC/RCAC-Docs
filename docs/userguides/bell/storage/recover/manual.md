@@ -64,3 +64,5 @@ You may `cd` into any of these directories where you will find the entire Bell f
 If you are browsing these directories over a Samba network drive you can simply drag and drop the files over into your live Data Depot folder.
 
 Once you find the file you are looking for, use `cp` to copy the file back into your lab's live Bell space. **Do not attempt to modify files directly in the snapshot directories.**
+
+[**Back to the Lost File Recovery section**](../recover.md)

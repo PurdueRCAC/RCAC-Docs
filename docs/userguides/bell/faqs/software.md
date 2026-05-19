@@ -17,3 +17,5 @@ Frequently asked questions about software.
 - [Cannot use pip after loading ml-toolkit modules](software/pip.md)
 - [How can I get access to Sentaurus software?](software/sentaurus.md)
 - [Julia package installation](software/julia_package.md)
+
+[**Back to the Frequently Asked Questions section**](../faqs.md)

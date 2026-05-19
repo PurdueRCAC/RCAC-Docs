@@ -49,3 +49,5 @@ Under "Screensaver" tab, turn off the "Enable Screensaver" option.
 
 
 Under "Lock Screen" tab, turn off the "Enable Lock Screen" option.
+
+[**Back to the Errors section**](../errors.md)

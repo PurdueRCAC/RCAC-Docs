@@ -20,3 +20,5 @@ Each of the available apps are documented through the following links.
 - [Jupyter Notebook](interactive/notebook.md)
 - [MATLAB](interactive/matlab.md)
 - [RStudio Server](interactive/rstudio.md)
+
+[**Back to the Gateway (Open OnDemand) section**](../gateway.md)

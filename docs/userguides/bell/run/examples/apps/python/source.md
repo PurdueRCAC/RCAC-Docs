@@ -9,3 +9,5 @@ search:
 ---
 
 --8<-- "docs/snippets/examples/apps/python/source.md"
+
+[**Back to the Python section**](../python.md)

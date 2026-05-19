@@ -98,3 +98,5 @@ The "Create New Template" form has inputs for "Path", "Name", "Cluster", and "No
 
 
 This template will now appear in your list of templates to choose from when composing jobs. You can now go create and submit a job from this new template.
+
+[**Back to the Gateway (Open OnDemand) section**](../gateway.md)

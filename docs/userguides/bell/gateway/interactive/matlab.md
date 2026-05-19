@@ -20,3 +20,5 @@ Once it is indicated the job has started you can connect to the desktop with the
 
 !!! Warning
     There are known issues with running Matlab in this way and resizing your web browser. Graphical corruption may occur if you resize the browser. Fixes for this are being investigated.
+
+[**Back to the Interactive Apps section**](../interactive.md)

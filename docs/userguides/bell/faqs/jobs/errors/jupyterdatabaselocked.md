@@ -11,3 +11,5 @@ search:
 # Jupyter:  database is locked / can not load notebook format
 
 --8<-- "docs/snippets/jupyter_lock.md"
+
+[**Back to the Errors section**](../errors.md)

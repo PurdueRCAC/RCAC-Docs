@@ -9,3 +9,5 @@ search:
 ---
 
 --8<-- "docs/snippets/examples/apps/ansysfluent/preparing_case_files_for_fluent.md"
+
+[**Back to the Ansys Fluent section**](../ansysfluent.md)

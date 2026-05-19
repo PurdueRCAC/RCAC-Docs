@@ -28,3 +28,5 @@ Klink, A. (2020, February 4). Clara E. Bell was a trailblazing African American 
 Lythgoe, D. (2001-2020). Clara E. Stewart. The Lost Creek Settlement of Vigo County, Indiana. Retrieved from: https://www.lost-creek.org/genealogy/getperson.php?personID=I72&tree=tree2
 
 Purdue Today. (2013, April 19). Purdue Today presenting profiles on Title IX service awardees. Purdue University. Retrieved from: <https://www.purdue.edu/newsroom/purduetoday/releases/2013/Q2/purdue-today-presenting-profiles-on-title-ix-service-awardees.html>
+
+[**Back to Bell User Guide**](index.md)

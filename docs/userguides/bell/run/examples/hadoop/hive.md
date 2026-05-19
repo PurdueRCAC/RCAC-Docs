@@ -9,3 +9,5 @@ search:
 ---
 
 --8<-- "docs/snippets/examples/hadoop/hive.md"
+
+[**Back to the Hadoop section**](../hadoop.md)

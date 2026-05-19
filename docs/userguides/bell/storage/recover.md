@@ -27,3 +27,5 @@ Bell offers several ways for researchers to access snapshots of their files.
 - [Manual Browsing](recover/manual.md)
 - [Windows](recover/windows.md)
 - [Mac OS X](recover/mac.md)
+
+[**Back to the Storage section**](../storage.md)

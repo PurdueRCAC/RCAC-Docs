@@ -17,3 +17,5 @@ To launch a RStudio session on a compute node, select the RStudio app. From the 
 After the interactive job is submitted you will be taken to your list of active interactive app sessions. You can monitor the status of the job from here until it starts, or if you enabled the email notification, watch your Purdue email for the notification the job has started.
 
 Once it is indicated the job has started you can connect to the desktop with the "Connect to RStudio Server" button. The session will be terminated after the wallclock hours you specified have elapsed or you terminate the session early with the "Delete" button from the list of sessions. Deleting the session when you are finished will free up queue resources for your lab mates and other users on the system.
+
+[**Back to the Interactive Apps section**](../interactive.md)

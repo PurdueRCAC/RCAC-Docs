@@ -21,3 +21,4 @@ Some common questions, errors, and problems are categorized below.
 - [Software](faqs/software.md)
 - [About Research Computing](faqs/researchcomputing.md)
 
+[**Back to Bell User Guide**](index.md)

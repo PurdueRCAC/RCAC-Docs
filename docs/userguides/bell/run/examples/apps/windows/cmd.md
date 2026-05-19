@@ -9,3 +9,5 @@ search:
 ---
 
 --8<-- "docs/snippets/examples/apps/windows/cmd.md"
+
+[**Back to the Windows section**](../windows.md)

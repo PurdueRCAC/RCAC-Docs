@@ -9,3 +9,5 @@ search:
 ---
 
 --8<-- "docs/snippets/examples/apps/r/package.md"
+
+[**Back to the R section**](../r.md)

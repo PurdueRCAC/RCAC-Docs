@@ -9,3 +9,5 @@ search:
 ---
 
 --8<-- "docs/snippets/job_dependencies.md"
+
+[**Back to the Running Jobs section**](../../run.md)

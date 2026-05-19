@@ -24,3 +24,4 @@ This can happen due to various reasons. Most common reasons for hanging SSH term
 
 If neither of the suggestions above work, please [contact support](https://www.rcac.purdue.edu/help) specifying the name of the server where your console is hung.
 
+[**Back to the Errors section**](../errors.md)

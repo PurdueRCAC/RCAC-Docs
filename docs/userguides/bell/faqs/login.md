@@ -16,3 +16,5 @@ Frequently asked questions about logging in & accounts.
 
 - [Errors](login/errors.md)
 - [Questions](login/questions.md)
+
+[**Back to the Frequently Asked Questions section**](../faqs.md)

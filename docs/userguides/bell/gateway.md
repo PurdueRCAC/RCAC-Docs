@@ -29,3 +29,5 @@ There are a number of built-in apps in Gateway that can be accessed from the top
 - [Files](gateway/files.md)
 - [Jobs](gateway/jobs.md)
 - [Cluster Tools](gateway/cluster.md)
+
+[**Back to Bell User Guide**](index.md)

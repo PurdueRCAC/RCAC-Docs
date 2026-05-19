@@ -58,3 +58,5 @@ search:
 
 !!! Note
     Use your career account login name and password when prompted. (You will **not** need to add "`,push`" nor use your Purdue Duo client.)
+
+[**Back to the File Transfer section**](../transfer.md)

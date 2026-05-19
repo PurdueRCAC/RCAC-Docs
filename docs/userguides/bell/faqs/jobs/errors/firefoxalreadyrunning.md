@@ -12,3 +12,5 @@ search:
 
 
 --8<-- "docs/snippets/firefox_lock.md"
+
+[**Back to the Errors section**](../errors.md)

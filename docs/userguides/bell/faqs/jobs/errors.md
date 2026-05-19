@@ -19,3 +19,5 @@ Common errors and potential solutions/workarounds for them.
 - [bash: module command not found](errors/couldnotloadmodules.md)
 - [Close Firefox / Firefox is already running but not responding](errors/firefoxalreadyrunning.md)
 - [Jupyter:  database is locked / can not load notebook format](errors/jupyterdatabaselocked.md)
+
+[**Back to the Jobs section**](../jobs.md)

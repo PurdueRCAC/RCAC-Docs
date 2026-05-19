@@ -9,3 +9,5 @@ search:
 ---
 
 --8<-- "docs/snippets/examples/apps/spark/pbs.md"
+
+[**Back to the Spark section**](../spark.md)

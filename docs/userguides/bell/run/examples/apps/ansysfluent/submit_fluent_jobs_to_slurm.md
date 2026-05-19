@@ -9,3 +9,5 @@ search:
 ---
 
 --8<-- "docs/snippets/examples/apps/ansysfluent/submit_fluent_jobs_to_slurm.md"
+
+[**Back to the Ansys Fluent section**](../ansysfluent.md)

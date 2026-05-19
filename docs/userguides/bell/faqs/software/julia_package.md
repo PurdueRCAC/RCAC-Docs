@@ -20,3 +20,4 @@ $ export JULIA_DEPOT_PATH=$HOME/.julia
 $ julia -e 'using Pkg; Pkg.add("PackageName")'
 ```
 
+[**Back to the Software section**](../software.md)

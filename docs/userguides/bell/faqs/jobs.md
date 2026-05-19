@@ -16,3 +16,5 @@ Frequently asked questions related to running jobs.
 
 - [Errors](jobs/errors.md)
 - [Questions](jobs/questions.md)
+
+[**Back to the Frequently Asked Questions section**](../faqs.md)

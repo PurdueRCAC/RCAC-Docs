@@ -9,3 +9,5 @@ search:
 ---
 
 --8<-- "docs/snippets/examples/slurm/multiple.md"
+
+[**Back to the Generic SLURM Jobs section**](../slurm.md)

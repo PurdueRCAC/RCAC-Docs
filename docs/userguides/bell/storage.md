@@ -21,3 +21,5 @@ Learn more about file storage transfer for Bell.
 - [Sharing](storage/sharing.md)
 - [File Transfer](storage/transfer.md)
 - [Lost File Recovery](storage/recover.md)
+
+[**Back to Bell User Guide**](index.md)

@@ -41,3 +41,5 @@ SLURM sets several potentially useful environment variables which you may use wi
 | SLURM\_CLUSTER\_NAME | Name of the cluster executing the job |
 | SLURM\_SUBMIT\_HOST | Hostname of the system where you submitted this job |
 | SLURM\_JOB\_PARTITION | Name of the original queue to which you submitted this job |
+
+[**Back to the Running Jobs section**](../../run.md)

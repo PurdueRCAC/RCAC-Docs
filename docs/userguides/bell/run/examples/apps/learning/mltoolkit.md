@@ -9,3 +9,5 @@ search:
 ---
 
 --8<-- "docs/snippets/examples/apps/learning/mltoolkit.md"
+
+[**Back to the Machine Learning section**](../learning.md)
