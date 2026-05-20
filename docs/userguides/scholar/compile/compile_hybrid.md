@@ -9,6 +9,6 @@ search:
   boost: 2
 ---
 
---8<-- "docs/snippets/compile_gpu.md"
+--8<-- "docs/snippets/compile_hybrid.md"
 
 [**Back to the Compiling Programs section**](../compile.md)
