@@ -27,5 +27,5 @@ There are a number of built-in apps in Gateway that can be accessed from the top
 
 - [Interactive Apps](gateway/interactive_apps.md)
 - [Files](gateway/files.md)
-- [Jobs]()
-- [Cluster Tools]()
+- [Jobs](gateway/jobs.md)
+- [Cluster Tools](gateway/cluster_tools.md)
