@@ -82,6 +82,14 @@ plugins:
         - blog/*
         - software/*
         - datasets/*
+  - rss:
+      match_path: blog/posts/.*
+      date_from_meta:
+        as_creation: date
+      categories:
+        - categories
+        - tags
+      image: https://docs.rcac.purdue.edu/assets/purdue.png
   - macros
 
 nav:
@@ -268,6 +276,9 @@ nav:
 
 extra:
   social:
+  - icon: fontawesome/solid/rss
+    name: RCAC Blog RSS Feed
+    link: /feed_rss_created.xml
   - icon: /fontawesome/regular/envelope
     name: Get additional help from rcac-help
     link: mailto:<rcac-help@purdue.edu>
