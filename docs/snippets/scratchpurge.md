@@ -1,4 +1,4 @@
-<!-- Note: the content inside this snippet will be modified depending on resource. Refer to `scratch_purge` macro snippet in `main.py` for details. -->
+<!-- Template snippet: {cluster} = lowercase cluster name (e.g. "{cluster}"). Replaced at build time by `scratch_purge` in main.py. -->
 All users of research computing systems are provided a scratch directory. Research scratch directories are available for short-term storage of files. There is no backup service for scratch directories, and files not accessed or modified in the last **60 days** will be removed. In the event of a disk crash or file removal, files in scratch directories are not recoverable. Please be sure to save copies of all important files elsewhere on a regular basis for long-term storage on the [Fortress HPSS Archive](https://www.rcac.purdue.edu/storage/fortress).
 
 **Purge Policy**
@@ -13,10 +13,10 @@ You can use the purgelist command to see a list of all your files which are curr
 $ purgelist
 
 The next purge run for scratch file systems is scheduled for Tue Apr 15, 2014.
-The following files owned by myusername will be removed from /scratch/gautschi:
+The following files owned by myusername will be removed from /scratch/{cluster}:
 
-/scratch/gautschi/myusername/foo
-/scratch/gautschi/myusername/bar
+/scratch/{cluster}/myusername/foo
+/scratch/{cluster}/myusername/bar
 ```
 
 Files listed by purgelist will be permanently removed on the date shown. Deletion of files begins on the morning of the date shown by purgelist shortly after midnight. If you need to keep any of these files, please copy them elsewhere. Remember to account for transfer time of your files and do not wait until the last minute to copy files off scratch space.

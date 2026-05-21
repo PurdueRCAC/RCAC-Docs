@@ -1,4 +1,4 @@
-<!-- Note: the content inside this snippet will be modified depending on resource. Refer to `scratch_space` macro snippet in `main.py` for details. -->
+<!-- Template snippet: {CLUSTER} = title-case cluster name (e.g. "{CLUSTER}"), {cluster} = lowercase (e.g. "{cluster}"). Replaced at build time by `scratch_space` in main.py. -->
 Scratch directories are provided for short-term file storage only. The quota of your scratch directory is much greater than the quota of your home directory. You should use your scratch directory for storing temporary input files which your job reads or for writing temporary output files which you may examine after execution of your job. You should use your home directory and Fortress for longer-term storage or for holding critical results. The ```hsi``` and ```htar``` commands provide easy-to-use interfaces into the archive and can be used to copy files into the archive interactively or even automatically at the end of your regular job submission scripts.
 
 !!!danger
@@ -7,22 +7,22 @@ Scratch directories are provided for short-term file storage only. The quota of 
 !!!danger
     Files that have not been accessed or had content modified in 60 days **are purged**. For more information, please refer to our [Scratch File Purging Policy](https://www.rcac.purdue.edu/policies/scratchpurge).
 
-All users may access scratch directories on Gautschi. To find the path to your scratch directory:
+All users may access scratch directories on {CLUSTER}. To find the path to your scratch directory:
 
 ```bash
 $ findscratch
-/scratch/gautschi/myusername
+/scratch/{cluster}/myusername
 ```
 
 The value of variable ```$RCAC_SCRATCH``` is your scratch directory path. Use this variable in any scripts. Your actual scratch directory path may change without warning, but this variable will remain current.
 
 ```bash
 $ echo $RCAC_SCRATCH
-/scratch/gautschi/myusername
+/scratch/{cluster}/myusername
 ```
 
 !!!note
-    Scratch directories are specific per cluster. I.e. only the /scratch/gautschi directory is available on Gautschi front-end and compute nodes. No other scratch directories are available on Gautschi.
+    Scratch directories are specific per cluster. I.e. only the /scratch/{cluster} directory is available on {CLUSTER} front-end and compute nodes. No other scratch directories are available on {CLUSTER}.
 
 **Your scratch directory has a quota capping the total size and number of files you may store in it.** For more information, refer to the section [Storage Quotas / Limits](storage_quota.md).
 
