@@ -635,67 +635,67 @@ $ module show mymodulename
     def scp_file_snippet(resource):
         with open("docs/snippets/scp.md", "r") as f:
             content = f.read()
-        return content.replace("Gautschi", resource.title()).replace("gautschi", resource.lower())
+        return content.replace("{CLUSTER}", resource.title()).replace("{cluster}", resource.lower())
 
     @env.macro
     def ftp_sftp_snippet(resource):
         with open("docs/snippets/ftp_sftp.md", "r") as f:
             content = f.read()
-        return content.replace("Gautschi", resource.title()).replace("gautschi", resource.lower())
+        return content.replace("{CLUSTER}", resource.title()).replace("{cluster}", resource.lower())
 
     @env.macro
     def compile_gpu_snippet(resource):
         with open("docs/snippets/compile_gpu.md", "r") as f:
             content = f.read()
-        return content.replace("Gilbreth", resource.title()).replace("gilbreth", resource.lower())
+        return content.replace("{CLUSTER}", resource.title()).replace("{cluster}", resource.lower())
 
     @env.macro
     def htar_snippet(resource):
         with open("docs/snippets/htar.md", "r") as f:
             content = f.read()
-        return content.replace("Gautschi", resource.title())
+        return content.replace("{CLUSTER}", resource.title()).replace("{cluster}", resource.lower())
 
     @env.macro
     def hsi_snippet(resource):
         with open("docs/snippets/hsi.md", "r") as f:
             content = f.read()
-        return content.replace("Gautschi", resource.title())
+        return content.replace("{CLUSTER}", resource.title()).replace("{cluster}", resource.lower())
 
     @env.macro
     def windows_network_drive(resource):
         with open("docs/snippets/windows_network_drive.md", "r") as f:
             content = f.read()
-        return content.replace("Gautschi", resource.title()).replace("gautschi", resource.lower())
+        return content.replace("{CLUSTER}", resource.title()).replace("{cluster}", resource.lower())
 
     @env.macro
     def sharing_snippet(resource):
         with open("docs/snippets/sharing.md", "r") as f:
             content = f.read()
-        return content.replace("Gautschi", resource.title())
+        return content.replace("{CLUSTER}", resource.title()).replace("{cluster}", resource.lower())
 
     @env.macro
     def globus_snippet(resource):
         with open("docs/snippets/globus.md", "r") as f:
             content = f.read()
-        return content.replace("Gautschi", resource.title()).replace("gautschi", resource.lower())
+        return content.replace("{CLUSTER}", resource.title()).replace("{cluster}", resource.lower())
 
     @env.macro
     def environment_variables(resource):
         with open("docs/snippets/environment_variables.md", "r") as f:
             content = f.read()
-        return content.replace("gautschi", resource.lower())
+        return content.replace("{cluster}", resource.lower())
 
     @env.macro
     def storage_quota(resource):
         with open("docs/snippets/storage_quota.md", "r") as f:
             content = f.read()
-        return content.replace("Gautschi", resource.title()).replace("gautschi", resource.lower())
+        return content.replace("{CLUSTER}", resource.title()).replace("{cluster}", resource.lower())
 
     @env.macro
     def scratch_space(resource):
         with open("docs/snippets/scratch_space.md", "r") as f:
             content = f.read()
-        return content.replace("Gautschi", resource.title()).replace("gautschi", resource.lower())
+        return content.replace("{CLUSTER}", resource.title()).replace("{cluster}", resource.lower())
 
     @env.macro
     def resource_use(resource):
@@ -709,7 +709,7 @@ $ module show mymodulename
     def scratch_purge(resource):
         with open("docs/snippets/scratchpurge.md", "r") as f:
             content = f.read()
-        content = content.replace("gautschi", resource.lower())
+        content = content.replace("{cluster}", resource.lower())
         if resource.lower() in ("anvil", "bell"):
             content = content.replace("60 days", "30 days")
         if resource.lower() == "anvil":

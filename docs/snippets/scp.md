@@ -1,4 +1,4 @@
-<!-- Note: the content inside this snippet will be modified depending on resource. Refer to `scp_file_snippet` macro snippet in `main.py` for details. -->
+<!-- Template snippet: {CLUSTER} = title-case cluster name (e.g. "{CLUSTER}"), {cluster} = lowercase (e.g. "{cluster}"). Replaced at build time by `scp_file_snippet` in main.py. -->
 # SCP
 
 SCP (Secure CoPy) is a simple way of transferring files between two machines that use the SSH protocol. SCP is available as a protocol choice in some graphical file transfer programs and also as a command line program on most Linux, Unix, and Mac OS X systems. SCP can copy single files, but will also recursively copy directory contents if given a directory name.
@@ -8,39 +8,39 @@ SCP (Secure CoPy) is a simple way of transferring files between two machines tha
 
 ## Command-line usage
 
-You can transfer files both to and from Gautschi while initiating an SCP session on either some other computer or on Gautschi (in other words, directionality of connection and directionality of data flow are independent from each other). The scp command appears somewhat similar to the familiar ```cp``` command, with an extra ```user@host:file``` syntax to denote files and directories on a remote host. Either Gautschi or another computer can be a remote.
+You can transfer files both to and from {CLUSTER} while initiating an SCP session on either some other computer or on {CLUSTER} (in other words, directionality of connection and directionality of data flow are independent from each other). The scp command appears somewhat similar to the familiar ```cp``` command, with an extra ```user@host:file``` syntax to denote files and directories on a remote host. Either {CLUSTER} or another computer can be a remote.
 
-Example: Initiating SCP session on some other computer (i.e. you are on some other computer, connecting to Gautschi):
+Example: Initiating SCP session on some other computer (i.e. you are on some other computer, connecting to {CLUSTER}):
 
 ```bash
-      # (transfer TO Gautschi)
+      # (transfer TO {CLUSTER})
       # (Individual files) 
-$ scp  sourcefile  myusername@gautschi.rcac.purdue.edu:somedir/destinationfile
-$ scp  sourcefile  myusername@gautschi.rcac.purdue.edu:somedir/
+$ scp  sourcefile  myusername@{cluster}.rcac.purdue.edu:somedir/destinationfile
+$ scp  sourcefile  myusername@{cluster}.rcac.purdue.edu:somedir/
       # (Recursive directory copy)
-$ scp -pr sourcedirectory/  myusername@gautschi.rcac.purdue.edu:somedir/
+$ scp -pr sourcedirectory/  myusername@{cluster}.rcac.purdue.edu:somedir/
 
-      # (transfer FROM Gautschi)
+      # (transfer FROM {CLUSTER})
       # (Individual files)
-$ scp  myusername@gautschi.rcac.purdue.edu:somedir/sourcefile  destinationfile
-$ scp  myusername@gautschi.rcac.purdue.edu:somedir/sourcefile  somedir/
+$ scp  myusername@{cluster}.rcac.purdue.edu:somedir/sourcefile  destinationfile
+$ scp  myusername@{cluster}.rcac.purdue.edu:somedir/sourcefile  somedir/
       # (Recursive directory copy)
-$ scp -pr myusername@gautschi.rcac.purdue.edu:sourcedirectory  somedir/
+$ scp -pr myusername@{cluster}.rcac.purdue.edu:sourcedirectory  somedir/
 ```
 
 The **-p** flag is optional. When used, it will cause the transfer to preserve file attributes and permissions. The **-r** flag is required for recursive transfers of entire directories.
 
-Example: Initiating SCP session on Gautschi (i.e. you are on Gautschi, connecting to some other computer):
+Example: Initiating SCP session on {CLUSTER} (i.e. you are on {CLUSTER}, connecting to some other computer):
 
 ```bash
-      # (transfer TO Gautschi)
+      # (transfer TO {CLUSTER})
       # (Individual files) 
 $ scp  myusername@$another.computer.example.com:sourcefile  somedir/destinationfile
 $ scp  myusername@$another.computer.example.com:sourcefile  somedir/
       # (Recursive directory copy)
 $ scp -pr myusername@$another.computer.example.com:sourcedirectory/  somedir/
 
-      # (transfer FROM Gautschi)
+      # (transfer FROM {CLUSTER})
       # (Individual files)
 $ scp  somedir/sourcefile  myusername@$another.computer.example.com:destinationfile
 $ scp  somedir/sourcefile  myusername@$another.computer.example.com:somedir/

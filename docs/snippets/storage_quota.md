@@ -1,4 +1,4 @@
-<!-- Note: the content inside this snippet will be modified depending on resource. Refer to `storage_quota` macro snippet in `main.py` for details. -->
+<!-- Template snippet: {CLUSTER} = title-case cluster name (e.g. "{CLUSTER}"), {cluster} = lowercase (e.g. "{cluster}"). Replaced at build time by `storage_quota` in main.py. -->
 # Storage Quota / Limits
 
 Some limits are imposed on your disk usage on research systems. A quota is implemented on each filesystem. Each filesystem (home directory, scratch directory, etc.) may have a different limit. If you exceed the quota, you will not be able to save new files or new data to the filesystem until you delete or move data to long-term storage.
@@ -12,7 +12,7 @@ $ myquota
 Type        Filesystem          Size    Limit  Use         Files    Limit  Use
 ==============================================================================
 home        myusername         5.0GB   25.0GB  20%             -        -   -
-scratch     gautschi        220.7GB  100.0TB  0.22%            8k   2,000k  0.43%
+scratch     {cluster}        220.7GB  100.0TB  0.22%            8k   2,000k  0.43%
 ```
 
 The columns are as follows:
@@ -43,7 +43,7 @@ To see in a human-readable format an estimate of the disk usage of your top-leve
 
 ```bash
 $ du -h --max-depth=1 $RCAC_SCRATCH >myfile
-160K    /scratch/gautschi/myusername
+160K    /scratch/{cluster}/myusername
 ```
 
 This strategy can be very helpful in figuring out the location of your largest usage. Move unneeded files and directories to long-term storage to free space in your home and scratch directories.

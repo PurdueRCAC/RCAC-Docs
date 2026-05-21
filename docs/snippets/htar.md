@@ -1,13 +1,13 @@
-<!-- Note: the content inside this snippet will be modified depending on resource. Refer to `htar_snippet` macro snippet in `main.py` for details. -->
+<!-- Template snippet: {CLUSTER} = title-case cluster name (e.g. "{CLUSTER}"), {cluster} = lowercase (e.g. "gautschi"). Replaced at build time by `htar_snippet` in main.py. -->
 ## HTAR
 
-HTAR (short for "HPSS TAR") is a utility program that writes TAR-compatible archive files directly onto Gautschi, without having to first create a local file. Its command line was originally based on ```tar```, with a number of extensions added to provide extra features.
+HTAR (short for "HPSS TAR") is a utility program that writes TAR-compatible archive files directly onto {CLUSTER}, without having to first create a local file. Its command line was originally based on ```tar```, with a number of extensions added to provide extra features.
 
 HTAR is provided on all research systems as the command ```htar```. HTAR is also available for [download](https://rcac.purdue.edu/downloads/archive#hsi) for many operating systems.
 
 Usage:
 
-Create a tar archive on Gautschi named data.tar including all files with the extension ".fits":
+Create a tar archive on {CLUSTER} named data.tar including all files with the extension ".fits":
 
 ```bash
 $ htar -cvf data.tar *.fits
@@ -21,7 +21,7 @@ HTAR Create complete for data.tar. 5,120,006,144 bytes written for 5 member file
 HTAR: HTAR SUCCESSFUL
 ```
 
-Unpack a tar archive on Gautschi named data.tar into a scratch directory for use in a batch job:
+Unpack a tar archive on {CLUSTER} named data.tar into a scratch directory for use in a batch job:
 
 ```bash
 $ cd $RCAC_SCRATCH/job_dir
@@ -35,7 +35,7 @@ HTAR: Extract complete for data.tar, 5 files. total bytes read: 5,120,004,608 in
 HTAR: HTAR SUCCESSFUL
 ```
 
-Look at the contents of the data.tar HTAR archive on Gautschi:
+Look at the contents of the data.tar HTAR archive on {CLUSTER}:
 
 ```bash
 $ htar -tvf data.tar
@@ -49,7 +49,7 @@ HTAR: Listing complete for data.tar, 6 files 6 total objects
 HTAR: HTAR SUCCESSFUL
 ```
 
-Unpack a single file, ```data5.fits```, from the tar archive on Gautschi named data.tar into a scratch directory:
+Unpack a single file, ```data5.fits```, from the tar archive on {CLUSTER} named data.tar into a scratch directory:
 
 ```bash
 $ htar -xvf data.tar data5.fits

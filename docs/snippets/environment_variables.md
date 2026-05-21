@@ -1,4 +1,4 @@
-<!-- Note: the content inside this snippet will be modified depending on resource. Refer to `environment_variables` macro snippet in `main.py` for details. -->
+<!-- Template snippet: {cluster} = lowercase cluster name (e.g. "{cluster}"). Replaced at build time by `environment_variables` in main.py. -->
 Several environment variables are automatically defined for you to help you manage your storage. Use environment variables instead of actual paths whenever possible to avoid problems if the specific paths to any of these change.
 
 Some of the environment variables you should have are:
@@ -7,7 +7,7 @@ Some of the environment variables you should have are:
 | --------| -------- |
 | HOME | /home/myusername |
 | PWD | path to your current directory |
-| RCAC_SCRATCH | /scratch/gautschi/myusername |
+| RCAC_SCRATCH | /scratch/{cluster}/myusername |
 
 By convention, environment variable names are all uppercase. You may use them on the command line or in any scripts in place of and in combination with hard-coded values:
 
@@ -23,7 +23,7 @@ To find the value of any environment variable:
 
 ```bash
 $ echo $RCAC_SCRATCH
-/scratch/gautschi/myusername 
+/scratch/{cluster}/myusername 
 ```
 
 To list the values of all environment variables:
@@ -32,7 +32,7 @@ To list the values of all environment variables:
 $ env
 USER=myusername
 HOME=/home/myusername
-RCAC_SCRATCH=/scratch/gautschi/myusername 
+RCAC_SCRATCH=/scratch/{cluster}/myusername 
 ...
 ```
 
