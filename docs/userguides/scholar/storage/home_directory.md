@@ -3,6 +3,7 @@ tags:
   - Scholar
 authors:
   - jin456
+  - remender
 resource: Scholar
 host: scholar.rcac.purdue.edu
 search:
