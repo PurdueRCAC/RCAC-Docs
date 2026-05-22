@@ -84,22 +84,6 @@ Follow these steps to get up and running on RCAC clusters.
 
     [:octicons-arrow-right-24: Gautschi User Guide](userguides/gautschi/index.md)
 
--   :material-server:{ .lg .middle } __Gilbreth__
-
-    ---
-
-    Community Cluster optimized for communities running GPU intensive applications such as machine learning. Consists of Dell compute nodes with Intel Xeon processors and Nvidia Tesla GPUs.
-
-    [:octicons-arrow-right-24: Gilbreth User Guide](userguides/gilbreth/index.md)
-
--   :material-server:{ .lg .middle } __Scholar__
-
-    ---
-
-    A small cluster suitable for classroom learning about high performance computing. Consists of 6 interactive login servers and 16 batch worker nodes, accessible as a typical cluster with a job scheduler or as an interactive resource with a desktop-like environment.
-
-    [:octicons-arrow-right-24: Scholar User Guide](userguides/scholar/index.md)
-
 -   :material-server:{ .lg .middle } __Bell__
 
     ---
