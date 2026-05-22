@@ -10,6 +10,10 @@ search:
   boost: 2
 ---
 
---8<-- "docs/snippets/scratch_space.md"
+{% set resource = "scholar" %}
+
+# Scratch Space
+
+{{ scratch_space(resource) }}
 
 [**Back to the Storage section**](../storage.md)

@@ -10,6 +10,10 @@ search:
   boost: 2
 ---
 
---8<-- "docs/snippets/ftp_sftp.md"
+{% set resource = "scholar" %}
+
+# FTP / SFTP
+
+{{ ssh_keys_snippet(resource) }}
 
 [**Back to the Storage section**](../storage.md)

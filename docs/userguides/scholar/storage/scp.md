@@ -10,6 +10,10 @@ search:
   boost: 2
 ---
 
---8<-- "docs/snippets/scp.md"
+{% set resource = "scholar" %}
+
+# SCP
+
+{{ scp_snippet(resource) }}
 
 [**Back to the Storage section**](../storage.md)

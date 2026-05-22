@@ -10,6 +10,10 @@ search:
   boost: 2
 ---
 
---8<-- "docs/snippets/hsi.md"
+{% set resource = "scholar" %}
+
+# HSI
+
+{{ hsi_snippet(resource) }}
 
 [**Back to the Storage section**](../storage.md)

@@ -10,6 +10,8 @@ search:
   boost: 2
 ---
 
---8<-- "docs/snippets/storage_quota.md"
+{% set resource = "scholar" %}
+
+{{ storage_quota(resource) }}
 
 [**Back to the Storage section**](../storage.md)

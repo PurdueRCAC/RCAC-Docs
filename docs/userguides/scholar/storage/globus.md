@@ -10,6 +10,8 @@ search:
   boost: 2
 ---
 
---8<-- "docs/snippets/globus.md"
+{% set resource = "scholar" %}
+
+{{ globus_snippet(resource) }}
 
 [**Back to the Storage section**](../storage.md)

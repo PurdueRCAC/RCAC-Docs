@@ -10,6 +10,10 @@ search:
   boost: 2
 ---
 
---8<-- "docs/snippets/environment_variables.md"
+{% set resource = "scholar" %}
+
+# Storage Environment Variables
+
+{{ environment_variables(resource) }}
 
 [**Back to the Storage section**](../storage.md)
