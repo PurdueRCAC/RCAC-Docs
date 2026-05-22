@@ -214,6 +214,50 @@
     "Gilbreth",
     "Frequently Asked Questions"
   ],
+  "/userguides/scholar/": [
+    "Home",
+    "Scholar"
+  ],
+  "/userguides/scholar/overview/": [
+    "Home",
+    "Scholar",
+    "Scholar Overview"
+  ],
+  "/userguides/scholar/accounts/": [
+    "Home",
+    "Scholar",
+    "Accounts"
+  ],
+  "/userguides/scholar/software/": [
+    "Home",
+    "Scholar",
+    "Software"
+  ],
+  "/userguides/scholar/run_jobs/": [
+    "Home",
+    "Scholar",
+    "Running Jobs"
+  ],
+  "/userguides/scholar/storage/": [
+    "Home",
+    "Scholar",
+    "File Storage and Transfer"
+  ],
+  "/userguides/scholar/gateway/": [
+    "Home",
+    "Scholar",
+    "Gateway (Open OnDemand)"
+  ],
+  "/userguides/scholar/compile/": [
+    "Home",
+    "Scholar",
+    "Compiling Source Code"
+  ],
+  "/userguides/scholar/faqs/": [
+    "Home",
+    "Scholar",
+    "Frequently Asked Questions"
+  ],
   "/https://www.rcac.purdue.edu/knowledge/bell": [
     "Home",
     "Bell"
@@ -221,10 +265,6 @@
   "/https://www.rcac.purdue.edu/knowledge/negishi": [
     "Home",
     "Negishi"
-  ],
-  "/https://www.rcac.purdue.edu/knowledge/scholar": [
-    "Home",
-    "Scholar"
   ],
   "/https://www.rcac.purdue.edu/knowledge/geddes": [
     "Home",
