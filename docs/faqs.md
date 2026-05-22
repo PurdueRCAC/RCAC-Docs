@@ -13,6 +13,12 @@ RCAC clusters support the SSH (Secure Shell), Thinlinc and Open OnDemand mechani
 === "Gautschi"
     Please refer to [SSH section on Gautschi User Guide](/userguides/gautschi/accounts/#ssh) to learn how to SSH to Gautschi.
 
+=== "Gilbreth"
+    Please refer to [SSH section on Gilbreth User Guide](/userguides/gilbreth/accounts/#ssh) to learn how to SSH to Gilbreth.
+
+=== "Scholar"
+    Please refer to [SSH section on Scholar User Guide](/userguides/scholar/accounts/#ssh) to learn how to SSH to Scholar.
+
 #### Thinlinc
 
 === "Anvil"
@@ -21,6 +27,13 @@ RCAC clusters support the SSH (Secure Shell), Thinlinc and Open OnDemand mechani
 === "Gautschi"
     Please refer to [Thinlinc section on Gautschi User Guide](/userguides/gautschi/accounts/#thinlinc) to learn how to configure and use Thinlinc to get connected to Gautschi.
 
+=== "Gilbreth"
+    Please refer to [Thinlinc section on Gilbreth User Guide](/userguides/gilbreth/accounts/#thinlinc) to learn how to configure and use Thinlinc to get connected to Gilbreth.
+
+=== "Scholar"
+    Please refer to [Thinlinc section on Scholar User Guide](/userguides/scholar/accounts/#thinlinc) to learn how to configure and use Thinlinc to get connected to Scholar.
+
+
 #### Open OnDemand (Gateway)
 
 === "Anvil"
@@ -28,6 +41,13 @@ RCAC clusters support the SSH (Secure Shell), Thinlinc and Open OnDemand mechani
 
 === "Gautschi"
     One can visit Open OnDemand (Gateway) on Gautschi via [https://gateway.gautschi.rcac.purdue.edu/](https://gateway.gautschi.rcac.purdue.edu/).
+
+=== "Gilbreth"
+    One can visit Open OnDemand (Gateway) on Gilbreth via [https://gateway.gilbreth.rcac.purdue.edu/](https://gateway.gilbreth.rcac.purdue.edu/).
+
+=== "Scholar"
+    One can visit Open OnDemand (Gateway) on Scholar via [https://gateway.scholar.rcac.purdue.edu/](https://gateway.scholar.rcac.purdue.edu/).
+
 
 ### How can I transfer my data from local devices to RCAC resources?
 
@@ -38,6 +58,12 @@ We support several methods for file transfer to and from RCAC systems. Users can
 
 === "Gautschi"
     [Data transfer on Gautschi cluster](/userguides/gautschi/storage/)
+
+=== "Gilbreth"
+    [Data transfer on Gilbreth cluster](/userguides/gilbreth/storage/)
+
+=== "Scholar"
+    [Data transfer on Scholar cluster](/userguides/scholar/storage/)
 
 ### How do I submit jobs on a RCAC cluster?
 
@@ -54,6 +80,12 @@ All RCAC clusters use the [Slurm Workload Manager](https://slurm.schedmd.com/) f
 
 === "Gautschi"
     Learn how to submit your jobs to Gautschi through [this section](/userguides/gautschi/run_jobs/) on Gautschi User Guide.
+
+=== "Gilbreth"
+    Learn how to submit your jobs to Gilbreth through [this section](/userguides/gilbreth/run_jobs/) on Gilbreth User Guide.
+
+=== "Scholar"
+    Learn how to submit your jobs to Scholar through [this section](/userguides/scholar/run_jobs/) on Scholar User Guide.
 
 ### How do I install software on a RCAC cluster?
 

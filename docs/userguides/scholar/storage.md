@@ -4,7 +4,7 @@ tags:
 authors:
   - jin456
   - remender
-resource: Scholar
+resource: scholar
 search:
   boost: 2
 ---
