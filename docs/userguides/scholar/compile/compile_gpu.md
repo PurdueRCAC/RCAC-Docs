@@ -10,6 +10,8 @@ search:
   boost: 2
 ---
 
---8<-- "docs/snippets/compile_gpu.md"
+{% set resource = "scholar" %}
+
+{{ compile_gpu_snippet(resource) }}
 
 [**Back to the Compiling Programs section**](../compile.md)
