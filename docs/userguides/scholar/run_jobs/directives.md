@@ -10,6 +10,8 @@ search:
   boost: 2
 ---
 
+# Directives
+
 So far these examples have shown submitting jobs with the resource requests on the ```sbatch``` command line such as:
 
 ```bash

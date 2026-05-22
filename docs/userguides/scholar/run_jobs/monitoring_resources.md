@@ -10,7 +10,9 @@ search:
   boost: 2
 ---
 
-### Collecting System Resource Utilization Data
+# Monitoring Resources
+
+## Collecting System Resource Utilization Data
 
 Knowing the precise resource utilization an application had during a job, such as CPU load or memory, can be incredibly useful. This is especially the case when the application isn't performing as expected.
 

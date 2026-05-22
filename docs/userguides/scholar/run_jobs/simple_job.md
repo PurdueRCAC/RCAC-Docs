@@ -10,6 +10,8 @@ search:
   boost: 2
 ---
 
+# Running Simple Jobs
+
 Every SLURM job consists of a job submission file. A job submission file contains a list of commands that run your program and a set of resource (nodes, walltime, queue) requests. The resource requests can appear in the job submission file or can be specified at submit-time as shown below.
 
 This simple example submits the job submission file ```hello.sub``` to the cpu queue on Gautschi and requests a single node:
