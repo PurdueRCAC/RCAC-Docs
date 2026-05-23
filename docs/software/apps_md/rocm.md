@@ -14,7 +14,7 @@ AMD ROCm (Radeon Open Compute) is an open-source software platform for GPU compu
 
 |Cluster|Versions|
 |---|---|
-**BELL**|6.2.2
+**BELL**|7.2.3
 **NEGISHI**|6.0.0, 6.1.2, 6.3.4
 
 ## Module
