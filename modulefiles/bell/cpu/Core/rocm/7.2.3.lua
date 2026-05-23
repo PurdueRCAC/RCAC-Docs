@@ -6,7 +6,7 @@ help([[
 
 
 local app = "rocm"
-local version = "6.2.2"
+local version = "7.2.3"
 local contact = "rderue"
 local license_type = "mit-like"
 
