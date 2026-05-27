@@ -7,10 +7,6 @@ on:
 
   workflow_dispatch:
 
-concurrency:
-  group: sync-main-to-dev
-  cancel-in-progress: false
-
 permissions:
   contents: read
 
