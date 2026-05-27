@@ -1,4 +1,4 @@
-<!-- Note: the content inside this snippet will be modified depending on resource. Refer to `ftp_sftp_snippet` macro snippet in `main.py` for details. -->
+<!-- Template snippet: {CLUSTER} = title-case cluster name (e.g. "{CLUSTER}"), {cluster} = lowercase (e.g. "{cluster}"). Replaced at build time by `ftp_sftp_snippet` in main.py. -->
 # FTP / SFTP
 
 !!!warning
@@ -11,18 +11,18 @@ SFTP (Secure File Transfer Protocol) is a reliable way of transferring files bet
 
 ## Command-line usage
 
-You can transfer files both to and from Gautschi while initiating an SFTP session on either some other computer or on Gautschi (in other words, directionality of connection and directionality of data flow are independent from each other). Once the connection is established, you use ```put``` or ```get``` subcommands between "local" and "remote" computers. Either Gautschi or another computer can be a remote.
+You can transfer files both to and from {CLUSTER} while initiating an SFTP session on either some other computer or on {CLUSTER} (in other words, directionality of connection and directionality of data flow are independent from each other). Once the connection is established, you use ```put``` or ```get``` subcommands between "local" and "remote" computers. Either {CLUSTER} or another computer can be a remote.
 
-Example: Initiating SFTP session on some other computer (i.e. you are on another computer, connecting to Gautschi):
+Example: Initiating SFTP session on some other computer (i.e. you are on another computer, connecting to {CLUSTER}):
 
 ```bash
-$ sftp myusername@gautschi.rcac.purdue.edu
+$ sftp myusername@{cluster}.rcac.purdue.edu
 
-      # (transfer TO Gautschi)
+      # (transfer TO {CLUSTER})
 sftp> put sourcefile somedir/destinationfile
 sftp> put -P sourcefile somedir/
 
-      # (transfer FROM Gautschi)
+      # (transfer FROM {CLUSTER})
 sftp> get sourcefile somedir/destinationfile
 sftp> get -P sourcefile somedir/
 
@@ -31,16 +31,16 @@ sftp> exit
 
 The **-P** flag is optional. When used, it will cause the transfer to preserve file attributes and permissions.
 
-Example: Initiating SFTP session on Gautschi (i.e. you are on Gautschi, connecting to some other computer):
+Example: Initiating SFTP session on {CLUSTER} (i.e. you are on {CLUSTER}, connecting to some other computer):
 
 ```bash
 $ sftp myusername@$another.computer.example.com
 
-      # (transfer TO Gautschi)
+      # (transfer TO {CLUSTER})
 sftp> get sourcefile somedir/destinationfile
 sftp> get -P sourcefile somedir/
 
-      # (transfer FROM Gautschi)
+      # (transfer FROM {CLUSTER})
 sftp> put sourcefile somedir/destinationfile
 sftp> put -P sourcefile somedir/
 

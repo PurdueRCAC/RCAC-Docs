@@ -1,4 +1,4 @@
-<!-- Note: the content inside this snippet will be modified depending on resource. Refer to `globus_snippet` macro snippet in `main.py` for details. -->
+<!-- Template snippet: {CLUSTER} = title-case cluster name (e.g. "{CLUSTER}"), {cluster} = lowercase (e.g. "{cluster}"). Replaced at build time by `globus_snippet` in main.py. -->
 # Globus
 
 Globus, previously known as Globus Online, is a powerful and easy to use file transfer service for transferring files virtually anywhere. It works within RCAC's various research storage systems; it connects between RCAC and remote research sites running Globus; and it connects research systems to personal systems. You may use Globus to connect to your home, scratch, and Fortress storage directories. Since Globus is web-based, it works on any operating system that is connected to the internet. The Globus Personal client is available on Windows, Linux, and Mac OS X. It is primarily used as a graphical means of transfer but it can also be used over the command line.
@@ -13,7 +13,7 @@ Globus, previously known as Globus Online, is a powerful and easy to use file tr
 
 The RCAC collections are as follows. A search for "Purdue" will give you several suggested results you can choose from, or you can give a more specific search.
 
-- **Home directory and Scratch storage**: "Gautschi Cluster Collection", however, you can start typing "gautschi" and it will suggest appropriate matches.
+- **Home directory and Scratch storage**: "{CLUSTER} Cluster Collection", however, you can start typing "{cluster}" and it will suggest appropriate matches.
 - **Research Data Depot**: "Purdue Research Computing - Data Depot", a search for "Depot" should provide appropriate matches to choose from.
 - **Fortress**: "Purdue Fortress HPSS Archive", a search for "Fortress" should provide appropriate matches to choose from.
 

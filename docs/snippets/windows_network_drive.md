@@ -1,10 +1,10 @@
-<!-- Note: the content inside this snippet will be modified depending on resource. Refer to `windows_network_drive` macro snippet in `main.py` for details. -->
+<!-- Template snippet: {CLUSTER} = title-case cluster name (e.g. "{CLUSTER}"), {cluster} = lowercase (e.g. "{cluster}"). Replaced at build time by `windows_network_drive` in main.py. -->
 # Windows Network Drive / SMB
 
 SMB (Server Message Block), also known as CIFS, is an easy-to-use file transfer protocol that is useful for transferring files between RCAC systems and a desktop or laptop. You may use SMB to connect to your home, scratch, and Fortress storage directories. The SMB protocol is available on Windows, Linux, and Mac OS X. It is primarily used as a graphical means of transfer, but it can also be used over the command line.
 
 !!!note
-    To access Gautschi through SMB file sharing, you must be on a Purdue campus network or connected through [VPN](https://it.purdue.edu/services/vpn.php).
+    To access {CLUSTER} through SMB file sharing, you must be on a Purdue campus network or connected through [VPN](https://it.purdue.edu/services/vpn.php).
 
 ## Windows
 
@@ -12,8 +12,8 @@ SMB (Server Message Block), also known as CIFS, is an easy-to-use file transfer 
 - **Windows 11**: Windows 11: Tap the Windows key, type ```File Explorer```, select This PC, click Computer > Map Network Drive in the top bar
 
     - In the folder location, enter the following information and click Finish:
-    - To access your Gautschi home directory, enter ```\\home.gautschi.rcac.purdue.edu\gautschi-home```
-    - To access your scratch space on Gautschi, enter ```\\scratch.gautschi.rcac.purdue.edu\gautschi-scratch```
+    - To access your {CLUSTER} home directory, enter ```\\home.{cluster}.rcac.purdue.edu\{cluster}-home```
+    - To access your scratch space on {CLUSTER}, enter ```\\scratch.{cluster}.rcac.purdue.edu\{cluster}-scratch```
     - Use your career account login name and password when prompted. (You will not need to add ```",push"``` nor use your Purdue MFA client.)
     - Your home or scratch directory should now be mounted as a drive in the Computer window
 
@@ -24,7 +24,7 @@ SMB (Server Message Block), also known as CIFS, is an easy-to-use file transfer 
     
     - In the Credential Manager window, click ```Windows Credentials``` and ```Add New Credential```
     
-    - Servername: ```\\home.gautschi.rcac.purdue.edu``` or ```\\scratch.gautschi.rcac.purdue.edu```
+    - Servername: ```\\home.{cluster}.rcac.purdue.edu``` or ```\\scratch.{cluster}.rcac.purdue.edu```
     
     - Username: ```boilerad\PurdueLogin```
     
@@ -35,8 +35,8 @@ SMB (Server Message Block), also known as CIFS, is an easy-to-use file transfer 
 - In the Finder, click Go > Connect to Server
 - In the Server Address enter the following information and click Connect:
 
-- To access your Gautschi home directory, enter ```smb://home.gautschi.rcac.purdue.edu/gautschi-home```
-- To access your scratch space on Gautschi, enter ```smb://scratch.gautschi.rcac.purdue.edu/gautschi-scratch```
+- To access your {CLUSTER} home directory, enter ```smb://home.{cluster}.rcac.purdue.edu/{cluster}-home```
+- To access your scratch space on {CLUSTER}, enter ```smb://scratch.{cluster}.rcac.purdue.edu/{cluster}-scratch```
 
 !!!note
     Use your career account login name and password when prompted. (You will not need to add ```",push"``` nor use your Purdue MFA client.)
@@ -50,9 +50,9 @@ There are several graphical methods to connect in Linux depending on your deskto
 
 If you would like access via samba on the command line you may install ```smbclient``` which will give you FTP-like access and can be used as shown below. For all the possible ways to connect look at the Mac OS X instructions.
 
-```smbclient //home.gautschi.rcac.purdue.edu/gautschi-home -U boilerad\myusername```
+```smbclient //home.{cluster}.rcac.purdue.edu/{cluster}-home -U boilerad\myusername```
 
-```smbclient //scratch.gautschi.rcac.purdue.edu/gautschi-scratch -U boilerad/myusername```
+```smbclient //scratch.{cluster}.rcac.purdue.edu/{cluster}-scratch -U boilerad/myusername```
 
 !!!note
     Use your career account login name and password when prompted. (You will not need to add ```",push"``` nor use your Purdue MFA client.)

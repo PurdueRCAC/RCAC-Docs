@@ -1,7 +1,7 @@
-<!-- Note: the content inside this snippet will be modified depending on resource. Refer to `compile_gpu_snippet` macro snippet in `main.py` for details. -->
+<!-- Template snippet: {CLUSTER} = title-case cluster name (e.g. "{CLUSTER}"), {cluster} = lowercase (e.g. "gilbreth"). Replaced at build time by `compile_gpu_snippet` in main.py. -->
 # Compiling GPU Programs
 
-The Gilbreth cluster nodes contain GPUs that support *CUDA* and *OpenCL*. See the [Gilbreth Overview](../overview.md) for the specifics on the GPUs in Gilbreth. This section focuses on using CUDA.
+The {CLUSTER} cluster nodes contain GPUs that support *CUDA* and *OpenCL*. See the [{CLUSTER} Overview](../overview.md) for the specifics on the GPUs in {CLUSTER}. This section focuses on using CUDA.
 
 A simple CUDA program has a basic workflow:
 

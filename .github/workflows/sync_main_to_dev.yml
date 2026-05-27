@@ -7,6 +7,10 @@ on:
 
   workflow_dispatch:
 
+concurrency:
+  group: sync-main-to-dev
+  cancel-in-progress: false
+
 permissions:
   contents: read
 
@@ -38,8 +42,10 @@ jobs:
         run: |
           git fetch origin main
           git merge origin/main --no-edit -X ours
-          # Restore dev-only framework files
-          git checkout ORIG_HEAD -- docs/index.md
+          # Restore dev-only files: homepage and all workflow files.
+          # Workflow files are excluded because the GitHub App lacks the
+          # `workflows` permission required to push changes to them.
+          git checkout ORIG_HEAD -- docs/index.md .github/workflows/
           git diff --cached --quiet || git commit -m "Restore dev framework files after main sync"
 
       - name: Push dev

@@ -11,6 +11,12 @@ if (not found) then
     LmodBreak(err_message)
 end
 
+if isloaded('xalt')
+then
+	unload('xalt')
+	LmodMessage('lmod: xalt was automatically unloaded')
+end
+
 prepend_path("MODULEPATH","/opt/spack/eda")
 
 setenv("EDA_CFG_ROOT","/apps/eda")

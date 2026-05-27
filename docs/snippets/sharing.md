@@ -1,7 +1,7 @@
-<!-- Note: the content inside this snippet will be modified depending on resource. Refer to `sharing_snippet` macro snippet in `main.py` for details. -->
+<!-- Template snippet: {CLUSTER} = title-case cluster name (e.g. "{CLUSTER}"), {cluster} = lowercase (e.g. "gautschi"). Replaced at build time by `sharing_snippet` in main.py. -->
 # Sharing
 
-Gautschi supports several methods for file sharing:
+{CLUSTER} supports several methods for file sharing:
 
 ## Globus
 

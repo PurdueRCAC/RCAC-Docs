@@ -82,6 +82,14 @@ plugins:
         - blog/*
         - software/*
         - datasets/*
+  - rss:
+      match_path: blog/posts/.*
+      date_from_meta:
+        as_creation: date
+      categories:
+        - categories
+        - tags
+      image: https://docs.rcac.purdue.edu/assets/purdue.png
   - macros
 
 nav:
@@ -145,8 +153,17 @@ nav:
       - Gateway (Open OnDemand): userguides/gilbreth/gateway.md
       - Compiling Source Code: userguides/gilbreth/compile.md
       - Frequently Asked Questions: userguides/gilbreth/faqs.md
+    - Scholar: 
+      - userguides/scholar/index.md
+      - Scholar Overview: userguides/scholar/overview.md
+      - Accounts: userguides/scholar/accounts.md
+      - Software: userguides/scholar/software.md
+      - Running Jobs: userguides/scholar/run_jobs/index.md
+      - File Storage and Transfer: userguides/scholar/storage.md
+      - Gateway (Open OnDemand): userguides/scholar/gateway.md
+      - Compiling Source Code: userguides/scholar/compile.md
+      - Frequently Asked Questions: userguides/scholar/faqs.md
     - Negishi: https://www.rcac.purdue.edu/knowledge/negishi
-    - Scholar: https://www.rcac.purdue.edu/knowledge/scholar
     - Geddes: https://www.rcac.purdue.edu/knowledge/geddes
     - Hammer: https://www.rcac.purdue.edu/knowledge/hammer
     - Rossmann: https://www.rcac.purdue.edu/knowledge/rossmann
@@ -278,6 +295,9 @@ nav:
 
 extra:
   social:
+  - icon: fontawesome/solid/rss
+    name: RCAC Blog RSS Feed
+    link: /feed_rss_created.xml
   - icon: /fontawesome/regular/envelope
     name: Get additional help from rcac-help
     link: mailto:<rcac-help@purdue.edu>

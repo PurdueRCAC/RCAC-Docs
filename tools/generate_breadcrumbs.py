@@ -41,6 +41,11 @@ BREADCRUMB_TITLE_OVERRIDES = {
     "Gautschi": "Gautschi User Guide",
     "Bell": "Bell User Guide",
     "Gilbreth": "Gilbreth User Guide",
+    "Scholar": "Scholar User Guide",
+    "Negishi": "Negishi User Guide",
+    "Geddes": "Geddes User Guide",
+    "Hammer": "Hammer User Guide",
+    "Rossmann": "Rossmann User Guide",
 }
 
 # ----------------------------
