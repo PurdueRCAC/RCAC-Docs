@@ -34,7 +34,7 @@ The Job Composer app allows you to create and submit jobs to the cluster. You ca
 Click "New Job" menu, then select "From Template":
 
 <p style="text-align: center;">
-  <img src="/assets/images/userguides/jobs2.png" alt="The job composer interface" width="80%">
+  <img src="/assets/images/userguides/jobs2.png" alt="The job composer interface" width="40%">
 </p>
 
 
