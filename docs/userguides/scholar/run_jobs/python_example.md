@@ -10,6 +10,8 @@ search:
   boost: 2
 ---
 
+# Python Example Jobs
+
 --8<-- "docs/snippets/apps/python.md"
 
 [**Back to the Running Jobs section**](index.md)

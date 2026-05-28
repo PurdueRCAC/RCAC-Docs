@@ -8,6 +8,8 @@ search:
   boost: 2
 ---
 
+# Monitoring GPU Usage
+
 ## What is it?
 
 To ensure that GPUs are effectively utilized on our cluster, we log and store the power, memory, and utilization of every GPU on our cluster every 10 seconds. RCAC uses this data to identify users that request large amounts of GPU hours but do not actually use them.
