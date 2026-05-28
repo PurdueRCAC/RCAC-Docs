@@ -8,6 +8,8 @@ search:
   boost: 2
 ---
 
+# RStudio
+
 RStudio is a graphical integrated development environment (IDE) for R. RStudio is the most popular environment for developing both R scripts and packages. RStudio is provided on most Research systems.
 
 There are two methods to launch RStudio on the cluster: command-line and application menu icon.

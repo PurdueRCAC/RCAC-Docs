@@ -10,6 +10,8 @@ search:
   boost: 2
 ---
 
+# Example Python Jobs
+
 ## Example 1: Hello world
 
 Prepare a Python input file with an appropriate filename, here named ```hello.py```:

@@ -8,6 +8,8 @@ search:
   boost: 2
 ---
 
+# Apptainer on Gautschi Cluster
+
 !!! note
     Note: Apptainer was formerly known as Singularity and is now a part of the [Linux Foundation](https://apptainer.org/news/community-announcement-20211130). When migrating from Singularity see the [user compatibility documentation](https://apptainer.org/docs/user/main/singularity_compatibility.html).
 

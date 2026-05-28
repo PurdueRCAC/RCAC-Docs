@@ -7,7 +7,8 @@ resource: Gautschi
 search:
   boost: 2
 ---
-## Loading Data into R
+
+# Loading Data into R
 
 R is an environment for manipulating data. In order to manipulate data, it must be brought into the R environment. R has a function to read any file that data is stored in. Some of the most common file types like comma-separated variable(CSV) files have functions that come in the basic R packages. Other less common file types require additional packages to be installed. To read data from a CSV file into the R environment, enter the following command in the R prompt:
 

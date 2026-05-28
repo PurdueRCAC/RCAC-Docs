@@ -9,6 +9,8 @@ search:
   boost: 2
 ---
 
+# RUnning Jobs
+
 Jobs are submitted on {{ resource }} via the SLURM (Simple Linux Utility for Resource Management) scheduler, which is responsible for allocating resources and scheduling the start time of a job. You may use either the batch or interactive mode to run your jobs. The batch mode is ideal for finished programs, and the interactive mode is useful for debugging your job.
 
 !!! important
