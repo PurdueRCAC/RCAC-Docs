@@ -16,7 +16,6 @@ theme:
     code: Consolas
   features:
     - navigation.indexes
-    # Back-to-top button
     - navigation.top
     - navigation.footer
     - navigation.sections
