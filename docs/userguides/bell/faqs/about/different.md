@@ -12,7 +12,7 @@ search:
 
 Bell differs from the previous Community Clusters in several significant aspects:
 
-* Bell home directories are entirely separate from other Community Clusters home directories. There is no automatic copying or synchronization between the two. At their discretion, users can copy parts or all of the Community Clusters home directory into Bell. [Instructions are provided](../../storage/transfer/copyhome.md).
+* Bell home directories are entirely separate from other Community Clusters home directories. There is no automatic copying or synchronization between the two. At their discretion, users can copy parts or all of the Community Clusters home directory into Bell. [Instructions are provided](../../storage/transfer.md).
 * Users of `hsi` and `htar` commands may encounter Fortress keytab- and authentication-related error messages due to the dedicated nature of Bell home directories. A [temporary workaround is provided](../data/transferkeytab.md) while a permanent solution is being developed.
 * Bell contains the latest generation of AMD EPYC processors, codenamed "Rome". These CPUs support AVX2 vector instructions set. When compiling your code, use of `-march=znver2` flag (for latest GCC, Clang and AOCC compilers) or `-march=core-avx2` (for Intel compilers and GCC prior to 9.3) is recommended.
 * If your application heavily uses Intel MKL routines, setting the following environment variable is beneficial:

@@ -15,16 +15,15 @@ The following examples demonstrate job submission files for some common real-wor
 ## In This Section
 
 - [Ansys Fluent](apps/ansysfluent.md)
+- [Apptainer](apps/apptainer.md)
 - [BioContainers Collection](apps/biocontainers.md)
 - [Gaussian](apps/gaussian.md)
-- [Machine Learning](apps/learning.md)
 - [Mathematica](apps/mathematica.md)
 - [Matlab](apps/matlab.md)
 - [Octave](apps/octave.md)
 - [Python](apps/python.md)
 - [R](apps/r.md)
 - [ROCm Containers Collection](apps/rocmcontainers.md)
-- [Singularity](apps/singularity.md)
 - [Spark](apps/spark.md)
 - [Windows](apps/windows.md)
 

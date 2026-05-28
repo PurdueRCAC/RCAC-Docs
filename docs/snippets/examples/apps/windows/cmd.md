@@ -1,12 +1,12 @@
 # Command line
 
-If you wish to work with Windows VMs on the command line or work into scripted workflows you can interact directly with the Windows system:
+If you wish to work with Windows VMs on the command line or work them into scripted workflows, you can interact directly with the Windows system:
 
 
-* Submit an interactive PBS job, with the appropriate walltime and queue:
+* Submit an interactive Slurm job with the appropriate account, partition, and walltime:
 
-  ```
-  $ qsub -X -I -l walltime=8:00:00 -l nodes=1:ppn=128
+  ```shell-session
+  $ sinteractive -A accountname -p partition-name -N 1 -n 128 -t 8:00:00
   ```
   
 * Load the "qemu" module:

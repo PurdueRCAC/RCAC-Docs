@@ -696,7 +696,13 @@ $ module show mymodulename
         with open("docs/snippets/scratch_space.md", "r") as f:
             content = f.read()
         return content.replace("{CLUSTER}", resource.title()).replace("{cluster}", resource.lower())
-
+    
+    @env.macro
+    def apptainer_snippet(resource):
+        with open("docs/snippets/examples/apps/apptainer.md", "r") as f:
+            content = f.read()
+        return content.replace("{CLUSTER}", resource.title()).replace("{cluster}", resource.lower())
+    
     @env.macro
     def resource_use(resource):
         with open("docs/snippets/resourceuse.md", "r") as f:

@@ -41,12 +41,4 @@ A number of example jobs are available for you to look over and adapt to your ow
 - [Hadoop](run/examples/hadoop.md)
 - [Generic SLURM Jobs](run/examples/slurm.md)
 
-
-## PBS to Slurm
-
-This is a reference for the most common command, environment variables, and job specification options used by the workload management systems and their equivalents.
-
-- [Notable Differences](run/rosetta/differences.md)
-- [Quick Guide](run/rosetta/stone.md)
-
 [**Back to Bell User Guide**](index.md)
