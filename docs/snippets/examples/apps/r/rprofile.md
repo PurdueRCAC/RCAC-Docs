@@ -1,10 +1,10 @@
 # Setting Up R Preferences with .Rprofile
 
-For your convenience, a sample [~/.Rprofile example file](https://www.rcac.purdue.edu/files/knowledge/run/examples/apps/r/Rprofile_example) is provided that can be downloaded to your cluster account and renamed into `~/.Rprofile` (or appended to one). Follow these steps to download our recommended `~/.Rprofile` example and copy it into place:
+For your convenience, a sample [~/.Rprofile example file](/assets/scripts/userguides/Rprofile_example) is provided that can be downloaded to your cluster account and renamed into `~/.Rprofile` (or appended to one). Follow these steps to download our recommended `~/.Rprofile` example and copy it into place:
 
 ```
 
-curl -#LO https://www.rcac.purdue.edu/files/knowledge/run/examples/apps/r/Rprofile_example
+curl -#LO https://docs.rcac.purdue.edu/assets/scripts/userguides/Rprofile_example
 mv -ib Rprofile_example ~/.Rprofile
 ```
 

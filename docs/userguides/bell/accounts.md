@@ -7,11 +7,6 @@ resource: bell
 search:
   boost: 2
 ---
-
-{% set host = "bell.rcac.purdue.edu" %}
-{% set cluster = "Bell" %}
-{% set resource = "bell" %}
-
 {{ accounts_md_snippet(resource) }}
 
 ## SSH Keys

@@ -5,7 +5,7 @@
 In the Ansys Workbench, create a new fluid flow analysis by double-clicking the Fluid Flow (Fluent) option under the Analysis Systems in the Toolbox on the left panel. You can also drag-and-drop the analysis system into the Project Schematic. A green dotted outline indicating a potential location for the new system initially appears in the Project Schematic. When you drag the system to one of the outlines, it turns into a red box to indicate the chosen location of the new system.
 
 <p style="text-align: center;">
-  <img src="/assets/images/userguides/bell/run-examples-apps-ansys-1-Ansys-Workbench-GUI-and-the-Fluid-Flow-system-for-Fluent.png" alt="Ansys Workbench GUI" width="80%">
+  <img src="/assets/images/userguides/examples/ansys1.png" alt="Ansys Workbench GUI" width="80%">
 </p>
 
 <p style="text-align: center;">Ansys Workbench GUI and the Fluid Flow system for Fluent.</p>
@@ -31,7 +31,7 @@ Create a geometry in the Ansys DesignModeler (by double-clicking “Geometry” 
 You can use Ansys DesignModeler to create 2D/3D geometries or even draw the objects yourself. In our example, we created only half of the elbow pipe because the symmetry of the structure is taken into account to reduce the computation intensity.
 
 <p style="text-align: center;">
-  <img src="/assets/images/userguides/bell/run-examples-apps-ansys-2-Elbow-pipe-created-in-Ansys-DesignModeler.png" alt="DesignModeler" width="80%">
+  <img src="/assets/images/userguides/examples/ansys2.png" alt="DesignModeler" width="80%">
 </p>
 
 <p style="text-align: center;">Elbow pipe created in Ansys DesignModeler.</p>
@@ -48,7 +48,7 @@ Now that we have created the elbow pipe geometry, a computational mesh can be ge
 With the successful creation of the geometry, there should be a green check showing the completion of “Geometry” in the Ansys Workbench. A Refresh Required icon within the “Mesh” cell indicates the mesh needs to be updated and refreshed for the system.
 
 <p style="text-align: center;">
-  <img src="/assets/images/userguides/bell/run-examples-apps-ansys-3-Status-for-different-cells-shown-in-Ansys-Workbench.png" alt="AnsysWorkbenchCells" width="60%">
+  <img src="/assets/images/userguides/examples/ansys3.png" alt="AnsysWorkbenchCells" width="60%">
 </p>
 
 <p style="text-align: center;">Status for different cells shown in Ansys Workbench.</p>

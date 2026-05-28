@@ -1,4 +1,6 @@
 ---
+tags:
+  - Bell
 authors:
   - mahlawat
 resource: Bell

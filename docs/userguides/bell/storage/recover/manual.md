@@ -51,7 +51,7 @@ weekly_20190203002501
 
   </td>
       <td style="text-align: center;">
-        <img src="/assets/images/userguides/bell/recover-depot_smb_snapshots.png" alt="Bell snapshots via Samba" width="90%">
+        <img src="/assets/images/userguides/storage_recover_manual.png" alt="Bell snapshots via Samba" width="90%">
       </td>
     </tr>
   </tbody>

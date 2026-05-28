@@ -18,7 +18,7 @@ This shows you active SLURM jobs currently on the cluster. The default view will
 
 
 <p style="text-align: center;">
-  <img src="/assets/images/userguides/bell/gateway-active-jobs.png" alt="A table of active jobs" width="80%">
+  <img src="/assets/images/userguides/jobs1.png" alt="A table of active jobs" width="80%">
 </p>
 
 
@@ -34,7 +34,7 @@ The Job Composer app allows you to create and submit jobs to the cluster. You ca
 Click "New Job" menu, then select "From Template":
 
 <p style="text-align: center;">
-  <img src="/assets/images/userguides/bell/gateway-jobcomposer1.png" alt="The job composer interface" width="80%">
+  <img src="/assets/images/userguides/jobs2.png" alt="The job composer interface" width="80%">
 </p>
 
 
@@ -44,7 +44,7 @@ Then select from one of the available templates.
 
 
 <p style="text-align: center;">
-  <img src="/assets/images/userguides/bell/gateway-job-template.png" alt="A sortable data table containing a list of all the available templates." width="80%">
+  <img src="/assets/images/userguides/jobs3.png" alt="A sortable data table containing a list of all the available templates." width="80%">
 </p>
 
 
@@ -55,7 +55,7 @@ Click 'Create New Job' in second pane.
 
 
 <p style="text-align: center;">
-  <img src="/assets/images/userguides/bell/gateway-create-simple-job.png" alt="The 'Create New Job' pane" width="80%">
+  <img src="/assets/images/userguides/jobs4.png" alt="The 'Create New Job' pane" width="80%">
 </p>
 
 
@@ -66,7 +66,7 @@ Your new job should be selected in your list of jobs. In the 'Submit Script' pan
 
 
 <p style="text-align: center;">
-  <img src="/assets/images/userguides/bell/gateway-job-script.png" alt="The 'Submit Script' pane" width="80%">
+  <img src="/assets/images/userguides/jobs5.png" alt="The 'Submit Script' pane" width="80%">
 </p>
 
 
@@ -76,7 +76,7 @@ The "Submit Script" pane will show a preview of the contents of the script file 
 When you are finished with editing the job and are ready to submit, click the green 'Submit' button at the top of the job list. You can monitor progress from here or from the Active Jobs app. Once completed, you should see the output files appear:
 
 <p style="text-align: center;">
-  <img src="/assets/images/userguides/bell/gateway-jobcomposer5.png" alt="A list of files found in the output folder" width="80%">
+  <img src="/assets/images/userguides/jobs6.png" alt="A list of files found in the output folder" width="80%">
 </p>
 
 
@@ -90,7 +90,7 @@ First, prepare a template directory containing a template submission script alon
 
 
 <p style="text-align: center;">
-  <img src="/assets/images/userguides/bell/gateway-new-template.png" alt="The 'Create New Template' form" width="80%">
+  <img src="/assets/images/userguides/jobs7.png" alt="The 'Create New Template' form" width="80%">
 </p>
 
 

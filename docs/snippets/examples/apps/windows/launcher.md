@@ -9,7 +9,7 @@ Windows VMs can be easily launched through the [ThinLinc](../../../../accounts.m
 * Follow the dialogs to set up your VM.
 
 <p style="text-align: center;">
-  <img src="/assets/images/userguides/bell/run-examples-apps-windows-menu.png" alt="ThinLinc Applications list" width="60%">
+  <img src="/assets/images/userguides/examples/windows.png" alt="ThinLinc Applications list" width="40%">
 </p>
 
 

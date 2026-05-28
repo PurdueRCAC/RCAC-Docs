@@ -7,7 +7,7 @@ Now all the files are ready for the Fluent calculations. Both “Geometry” and
 Ansys Fluent Launcher can be started by selecting “editing” on the “Setup” cell with many startup options (e.g. Precision, Parallel, Display). Note that “Dimension” is fixed to “3D” because we are using a 3D model in this project.
 
 <p style="text-align: center;">
-  <img src="/assets/images/userguides/bell/run-examples-apps-ansys-4-Ansys-Fluent-Launcher-options.png" alt="Ansys Fluent Launcher options" width="60%">
+  <img src="/assets/images/userguides/examples/ansys4.png" alt="Ansys Fluent Launcher options" width="60%">
 </p>
 
 <p style="text-align: center;">Ansys Fluent Launcher options.</p>
@@ -51,7 +51,7 @@ Parameters used in demo case (use default if not assigned):
 The best methods to view and analyze the simulation should be the Ansys Fluent (directly after computation) or the Ansys CFD-Post (entering “Results” in Ansys Workbench). Both methods are straightforward so we will not cover this part in this tutorial. Here is a final simulation result showing the temperature of the symmetry after 300 iterations for reference:
 
 <p style="text-align: center;">
-  <img src="/assets/images/userguides/bell/run-examples-apps-ansys-5-Simulated-temperature-profile-of-the-symmetry.png" alt="Simulated temperature" width="80%">
+  <img src="/assets/images/userguides/examples/ansys5.png" alt="Simulated temperature" width="80%">
 </p>
 
 <p style="text-align: center;">Simulated temperature profile of the symmetry.</p>

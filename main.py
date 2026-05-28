@@ -517,7 +517,7 @@ One can login to {resource.title()}'s [Gateway](https://gateway.{resource}.rcac.
 #### SSH Client Software
 Linux / Solaris / AIX / HP-UX / Unix:
 
-- The `ssh` command is pre-installed. Log in using `ssh username@{resource}` from a terminal.
+- The `ssh` command is pre-installed. Log in using `ssh username@{resource}.rcac.purdue.edu` from a terminal.
 
 Microsoft Windows:
 

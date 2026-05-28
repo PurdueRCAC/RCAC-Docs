@@ -1,9 +1,9 @@
 ---
 tags:
-  - Gautschi
+  - Bell
 authors:
-  - jin456
-resource: Gautschi
+  - mahlawat
+resource: Bell
 search:
   boost: 2
 ---

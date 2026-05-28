@@ -23,7 +23,7 @@ Note that RStudio is a graphical program and in order to run it you must have a 
 * Choose `Cluster Software` and then `RStudio`
 
 <p style="text-align: center;">
-  <img src="/assets/images/userguides/bell/run-examples-apps-r-rstudio_icon.png" alt="This shows where to find Rstudio under the 'Cluster Software' option in the list of Applications." width="80%">
+  <img src="/assets/images/userguides/examples/rstudio1.png" alt="This shows where to find Rstudio under the 'Cluster Software' option in the list of Applications." width="80%">
 </p>
 
 R and RStudio are free to download and run on your local machine. For more information about RStudio:

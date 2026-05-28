@@ -13,7 +13,7 @@ search:
 The Files app will let you access your files in your [Home Directory](../storage/options/home.md), [Scratch](../storage/options/scratch.md), and [Data Depot](https://www.rcac.purdue.edu/storage/depot) spaces. The app lets you manage create, manage, and delete files and directories from your web browser. Navigate by double clicking on folders in the file explorer or by using the file tree on the left.
 
 <p style="text-align: center;">
-  <img src="/assets/images/userguides/bell/gateway-filebrowser.png" alt="Open OnDemand file browser" width="80%">
+  <img src="/assets/images/userguides/files1.png" alt="Open OnDemand file browser" width="80%">
 </p>
 
 
@@ -32,7 +32,7 @@ On the top row, there are buttons to:
 The second row of buttons lets you perform typical file management operations. The Edit button will open files in a fully fledged browser based text editor - it features syntax highlighting and vim and Emacs key bindings.
 
 <p style="text-align: center;">
-  <img src="/assets/images/userguides/bell/gateway-fileeditor.png" alt="Open OnDemand file editor" width="80%">
+  <img src="/assets/images/userguides/files2.png" alt="Open OnDemand file editor" width="80%">
 </p>
 
 
