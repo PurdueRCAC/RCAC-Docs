@@ -10,6 +10,8 @@ search:
   boost: 2
 ---
 
+# R Example Jobs
+
 --8<-- "docs/snippets/apps/r.md"
 
 [**Back to the Running Jobs section**](index.md)

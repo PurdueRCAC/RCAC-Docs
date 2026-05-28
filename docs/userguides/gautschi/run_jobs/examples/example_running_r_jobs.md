@@ -8,6 +8,8 @@ search:
   boost: 2
 ---
 
+# Running R Jobs 
+
 This section illustrates how to submit a small R job to a SLURM queue. The example job computes a Pythagorean triple.
 
 Prepare an R input file with an appropriate filename, here named ```myjob.R```:
