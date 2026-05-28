@@ -18,5 +18,7 @@ search:
 - [Globus](transfer/globus.md)
 - [Windows Network Drive / SMB](transfer/cifs.md)
 - [FTP / SFTP](transfer/sftp.md)
+- [HSI](transfer/hsi.md)
+- [HTAR](transfer/htar.md)
 
 [**Back to the Storage section**](../storage.md)

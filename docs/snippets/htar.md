@@ -1,5 +1,5 @@
 <!-- Template snippet: {CLUSTER} = title-case cluster name (e.g. "{CLUSTER}"), {cluster} = lowercase (e.g. "gautschi"). Replaced at build time by `htar_snippet` in main.py. -->
-## HTAR
+# HTAR
 
 HTAR (short for "HPSS TAR") is a utility program that writes TAR-compatible archive files directly onto {CLUSTER}, without having to first create a local file. Its command line was originally based on ```tar```, with a number of extensions added to provide extra features.
 
