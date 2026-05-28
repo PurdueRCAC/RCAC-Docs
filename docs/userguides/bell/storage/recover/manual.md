@@ -12,7 +12,7 @@ search:
 
 You may also search through the snapshots by hand on the Bell filesystem if you are not sure what date you lost the file or would like to browse by hand. Snapshots can be browsed from any RCAC resource. If you do not have access to a compute cluster, any Bell user may use an SSH client to connect to `bell.rcac.purdue.edu` and browse from there. The snapshots are located at `/depot/.snapshots` on these resources.
 
-You can also mount the snapshot directory over Samba (or SMB, CIFS) on Windows or Mac OS X. Mount (or map) the snapshot directory in the [same way](../transfer/cifs.md) as you did for your main Bell space substituting the server name and path for `\\datadepot.rcac.purdue.edu\depot\.winsnaps` (Windows) or `smb://datadepot.rcac.purdue.edu/depot/.winsnaps` (Mac OS X).
+You can also mount the snapshot directory over Samba (or SMB, CIFS) on Windows or Mac OS X. Mount (or map) the snapshot directory in the [same way](../windows_network_drive.md) as you did for your main Bell space substituting the server name and path for `\\datadepot.rcac.purdue.edu\depot\.winsnaps` (Windows) or `smb://datadepot.rcac.purdue.edu/depot/.winsnaps` (Mac OS X).
 
 Once connected to the snapshot directory through SSH or Samba, you will see something similar to this:
 

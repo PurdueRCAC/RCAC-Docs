@@ -10,4 +10,4 @@ search:
 
 {{ apptainer_snippet(resource) }}
 
-[**Back to the Running Jobs section**](index.md)
+[**Back to the Specific Applications section**](../apps.md)

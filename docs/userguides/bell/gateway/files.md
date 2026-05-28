@@ -10,7 +10,7 @@ search:
 
 # Files
 
-The Files app will let you access your files in your [Home Directory](../storage/options/home.md), [Scratch](../storage/options/scratch.md), and [Data Depot](https://www.rcac.purdue.edu/storage/depot) spaces. The app lets you manage create, manage, and delete files and directories from your web browser. Navigate by double clicking on folders in the file explorer or by using the file tree on the left.
+The Files app will let you access your files in your [Home Directory](../storage/home_directory.md), [Scratch](../storage/scratch_space.md), and [Data Depot](https://www.rcac.purdue.edu/storage/depot) spaces. The app lets you manage create, manage, and delete files and directories from your web browser. Navigate by double clicking on folders in the file explorer or by using the file tree on the left.
 
 <p style="text-align: center;">
   <img src="/assets/images/userguides/files1.png" alt="Open OnDemand file browser" width="80%">
@@ -27,7 +27,7 @@ On the top row, there are buttons to:
 * New Dir: creates a new, empty directory
 * Upload: upload a file from your computer
 
-**Note:** File uploads from your browser are limited to 100 GB per file. Be mindful that uploads over a few gigabytes may be unreliable through your browser, especially from off-campus connections. For very large files or off-campus transfers alternative methods such as [Globus](../storage/transfer/globus.md) are highly recommended.
+**Note:** File uploads from your browser are limited to 100 GB per file. Be mindful that uploads over a few gigabytes may be unreliable through your browser, especially from off-campus connections. For very large files or off-campus transfers alternative methods such as [Globus](../storage/globus.md) are highly recommended.
 
 The second row of buttons lets you perform typical file management operations. The Edit button will open files in a fully fledged browser based text editor - it features syntax highlighting and vim and Emacs key bindings.
 

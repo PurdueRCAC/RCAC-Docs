@@ -22,7 +22,7 @@ Your subscription in the Bell mailing list is tied to your account on Bell. If y
 
 Bell differs from the previous Community Clusters in several significant aspects:
 
-* Bell home directories are entirely separate from other Community Clusters home directories. There is no automatic copying or synchronization between the two. At their discretion, users can copy parts or all of the Community Clusters home directory into Bell. [Instructions are provided](storage/transfer.md).
+* Bell home directories are entirely separate from other Community Clusters home directories. There is no automatic copying or synchronization between the two. At their discretion, users can copy parts or all of the Community Clusters home directory into Bell. [Instructions are provided](storage.md#file-transfer).
 * Users of `hsi` and `htar` commands may encounter Fortress keytab- and authentication-related error messages due to the dedicated nature of Bell home directories. A [temporary workaround is provided](#hsihtar-unable-to-authenticate-user-with-remote-gateway-error-2-or-9) while a permanent solution is being developed.
 * Bell contains the latest generation of AMD EPYC processors, codenamed "Rome". These CPUs support AVX2 vector instructions set. When compiling your code, use of `-march=znver2` flag (for latest GCC, Clang and AOCC compilers) or `-march=core-avx2` (for Intel compilers and GCC prior to 9.3) is recommended.
 * If your application heavily uses Intel MKL routines, setting the following environment variable is beneficial:
@@ -49,7 +49,7 @@ No firewall changes are needed to access Bell. However, to access data through N
 
 The Bell home directory and its contents are exclusive to Bell cluster front-end hosts and compute nodes. This home directory is not available on other RCAC machines but Bell. There is no automatic copying or synchronization between home directories.
 
-At your discretion you can manually copy all or parts of your main research computing home to Bell using one of the [suggested methods](storage/transfer.md).
+At your discretion you can manually copy all or parts of your main research computing home to Bell using one of the [suggested methods](storage.md#file-transfer).
 
 If you plan to use `hsi` or `htar` commands to access Fortress tape archive from Bell, please see also the [keytab generation question](#hsihtar-unable-to-authenticate-user-with-remote-gateway-error-2-or-9) for a temporary workaround to a potential caveat, while a permanent mitigation is being developed.
 

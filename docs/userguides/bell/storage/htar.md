@@ -8,6 +8,6 @@ search:
   boost: 2
 ---
 
-{{ hsi_snippet(resource) }}
+{{ htar_snippet(resource) }}
 
-[**Back to the Transfer section**](../transfer.md)
+[**Back to the Storage section**](../storage.md)
