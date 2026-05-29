@@ -3,7 +3,7 @@ tags:
   - Bell
 authors:
   - mahlawat
-resource: bell
+resource: Bell
 search:
   boost: 2
 ---
