@@ -10,10 +10,6 @@ search:
   boost: 2
 ---
 
-{% set resource = "scholar" %}
-
-# HTAR
-
 {{ htar_snippet(resource) }}
 
 [**Back to the Storage section**](../storage.md)

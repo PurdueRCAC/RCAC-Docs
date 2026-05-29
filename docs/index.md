@@ -97,6 +97,16 @@ Follow these steps to get up and running on RCAC clusters.
 
     [:octicons-arrow-right-24: Anvil User Guide](userguides/anvil/index.md)
 
+-   :material-server:{ .lg .middle } __Bell__
+
+    ---
+
+    Community Cluster optimized for communities running traditional, tightly-coupled science and engineering applications. Built through a partnership with Dell and AMD, Bell consists of compute nodes with two 64-core AMD EPYC "Rome" processors and 256 GB of memory.
+
+    **128 cores/node | 256 GB RAM | 100 Gbps HDR Infiniband**
+
+    [:octicons-arrow-right-24: Bell User Guide](userguides/bell/index.md)
+
 -   :material-server:{ .lg .middle } __Gautschi__
 
     ---
@@ -122,16 +132,6 @@ Follow these steps to get up and running on RCAC clusters.
     A small cluster suitable for classroom learning about high performance computing. Consists of 6 interactive login servers and 16 batch worker nodes, accessible as a typical cluster with a job scheduler or as an interactive resource with a desktop-like environment.
 
     [:octicons-arrow-right-24: Scholar User Guide](userguides/scholar/index.md)
-
--   :material-server:{ .lg .middle } __Bell__
-
-    ---
-
-    Community Cluster optimized for communities running traditional, tightly-coupled science and engineering applications. Built through a partnership with Dell and AMD, Bell consists of compute nodes with two 64-core AMD EPYC "Rome" processors and 256 GB of memory.
-
-    **128 cores/node | 256 GB RAM | 100 Gbps HDR Infiniband**
-
-    [:octicons-arrow-right-24: Bell User Guide](userguides/bell/index.md)
 
 -   :material-server:{ .lg .middle } __Negishi__
 

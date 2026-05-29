@@ -1,13 +1,15 @@
 <!-- Template snippet: {cluster} = lowercase cluster name (e.g. "{cluster}"). Replaced at build time by `environment_variables` in main.py. -->
+# Storage Environment Variables
+
 Several environment variables are automatically defined for you to help you manage your storage. Use environment variables instead of actual paths whenever possible to avoid problems if the specific paths to any of these change.
 
 Some of the environment variables you should have are:
 
 | Name | Description |
 | --------| -------- |
-| HOME | /home/myusername |
-| PWD | path to your current directory |
-| RCAC_SCRATCH | /scratch/{cluster}/myusername |
+| `HOME` | `/home/myusername` |
+| `PWD` | path to your current directory |
+| `RCAC_SCRATCH` | `/scratch/{cluster}/myusername` |
 
 By convention, environment variable names are all uppercase. You may use them on the command line or in any scripts in place of and in combination with hard-coded values:
 
