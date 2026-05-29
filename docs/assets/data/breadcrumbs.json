@@ -116,55 +116,6 @@
     "Anvil User Guide",
     "Key Policies"
   ],
-  "/userguides/gautschi/": [
-    "Home",
-    "Gautschi User Guide"
-  ],
-  "/userguides/gautschi/overview/": [
-    "Home",
-    "Gautschi User Guide",
-    "Gautschi Overview"
-  ],
-  "/userguides/gautschi/biography/": [
-    "Home",
-    "Gautschi User Guide",
-    "Biography of Gautschi"
-  ],
-  "/userguides/gautschi/accounts/": [
-    "Home",
-    "Gautschi User Guide",
-    "Accounts"
-  ],
-  "/userguides/gautschi/software/": [
-    "Home",
-    "Gautschi User Guide",
-    "Software"
-  ],
-  "/userguides/gautschi/run_jobs/": [
-    "Home",
-    "Gautschi User Guide",
-    "Running Jobs"
-  ],
-  "/userguides/gautschi/storage/": [
-    "Home",
-    "Gautschi User Guide",
-    "File Storage and Transfer"
-  ],
-  "/userguides/gautschi/gateway/": [
-    "Home",
-    "Gautschi User Guide",
-    "Gateway (Open OnDemand)"
-  ],
-  "/userguides/gautschi/compile/": [
-    "Home",
-    "Gautschi User Guide",
-    "Compiling Source Code"
-  ],
-  "/userguides/gautschi/faqs/": [
-    "Home",
-    "Gautschi User Guide",
-    "Frequently Asked Questions"
-  ],
   "/userguides/bell/": [
     "Home",
     "Bell User Guide"
@@ -212,6 +163,55 @@
   "/userguides/bell/faqs/": [
     "Home",
     "Bell User Guide",
+    "Frequently Asked Questions"
+  ],
+  "/userguides/gautschi/": [
+    "Home",
+    "Gautschi User Guide"
+  ],
+  "/userguides/gautschi/overview/": [
+    "Home",
+    "Gautschi User Guide",
+    "Gautschi Overview"
+  ],
+  "/userguides/gautschi/biography/": [
+    "Home",
+    "Gautschi User Guide",
+    "Biography of Gautschi"
+  ],
+  "/userguides/gautschi/accounts/": [
+    "Home",
+    "Gautschi User Guide",
+    "Accounts"
+  ],
+  "/userguides/gautschi/software/": [
+    "Home",
+    "Gautschi User Guide",
+    "Software"
+  ],
+  "/userguides/gautschi/run_jobs/": [
+    "Home",
+    "Gautschi User Guide",
+    "Running Jobs"
+  ],
+  "/userguides/gautschi/storage/": [
+    "Home",
+    "Gautschi User Guide",
+    "File Storage and Transfer"
+  ],
+  "/userguides/gautschi/gateway/": [
+    "Home",
+    "Gautschi User Guide",
+    "Gateway (Open OnDemand)"
+  ],
+  "/userguides/gautschi/compile/": [
+    "Home",
+    "Gautschi User Guide",
+    "Compiling Source Code"
+  ],
+  "/userguides/gautschi/faqs/": [
+    "Home",
+    "Gautschi User Guide",
     "Frequently Asked Questions"
   ],
   "/userguides/gilbreth/": [
