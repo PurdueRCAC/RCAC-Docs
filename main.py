@@ -710,6 +710,12 @@ $ module show mymodulename
         return content.replace("{CLUSTER}", resource.title()).replace("{cluster}", resource.lower())
 
     @env.macro
+    def rocmcontainers_snippet(resource):
+        with open("docs/snippets/examples/apps/rocmcontainers.md", "r") as f:
+            content = f.read()
+        return content.replace("{CLUSTER}", resource.title()).replace("{cluster}", resource.lower())
+
+    @env.macro
     def resource_use(resource):
         with open("docs/snippets/resourceuse.md", "r") as f:
             lines = f.readlines()

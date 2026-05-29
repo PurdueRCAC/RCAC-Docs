@@ -8,6 +8,6 @@ search:
   boost: 2
 ---
 
---8<-- "docs/snippets/examples/apps/rocmcontainers.md"
+{{ rocmcontainers_snippet(resource) }}
 
 [**Back to the Specific Applications section**](../apps.md)

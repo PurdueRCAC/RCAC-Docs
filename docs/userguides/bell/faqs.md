@@ -77,7 +77,7 @@ There are several common locations that tend to grow large over time and are mer
 /home/myusername/.local/share/Trash
 /home/myusername/.cache/pip
 /home/myusername/.conda/pkgs
-/home/myusername/.singularity/cache
+/home/myusername/.apptainer/cache
 ```
 
 ### My SSH connection hangs
