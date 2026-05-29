@@ -3,7 +3,7 @@ tags:
   - Gautschi
 authors:
   - remender
-resource: gautschi
+resource: Gautschi
 search:
   boost: 2
 ---

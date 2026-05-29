@@ -4,7 +4,7 @@ tags:
 authors:
   - jin456
   - remender
-resource: scholar
+resource: Scholar
 host: scholar.rcac.purdue.edu
 search:
   boost: 2

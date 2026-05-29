@@ -4,7 +4,7 @@ tags:
 authors:
   - jin456
   - remender
-resource: gautschi
+resource: Gautschi
 search:
   boost: 2
 ---
