@@ -8,6 +8,6 @@ search:
   boost: 2
 ---
 
---8<-- "docs/snippets/examples/apps/biocontainers.md"
+{{ biocontainers_snippet(resource) }}
 
 [**Back to the Specific Applications section**](../apps.md)

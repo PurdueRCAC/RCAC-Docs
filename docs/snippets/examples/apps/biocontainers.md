@@ -1,3 +1,4 @@
+<!-- Template snippet: {CLUSTER} = title-case cluster name (e.g. "{CLUSTER}"), {cluster} = lowercase (e.g. "{cluster}"). Replaced at build time by `biocontainers_snippet` in main.py. -->
 # BioContainers Collection
 
 ## What is BioContainers?
@@ -6,13 +7,13 @@ The BioContainers project came from the idea of using the containers-based techn
 
 ## Getting Started
 
-Users can download bioinformatic containers from the [BioContainers.pro](https://biocontainers.pro) and run them directly using Singularity instructions from the corresponding container’s catalog page.
+Users can download bioinformatic containers from the [BioContainers.pro](https://biocontainers.pro) and run them directly using Apptainer instructions from the corresponding container’s catalog page.
 
-Brief Singularity guide and examples are available at the [Bell Singularity user guide](singularity.md) page. Detailed Singularity user guide is available at: [sylabs.io/guides/3.8/user-guide](https://sylabs.io/guides/3.8/user-guide/)
+Brief Apptainer guide and examples are available at the [{CLUSTER} Apptainer user guide](apptainer.md) page. Detailed Apptainer user guide is available at: [sylabs.io/guides/3.8/user-guide](https://sylabs.io/guides/3.8/user-guide/)
 
 In addition, a subset of pre-downloaded biocontainers wrapped into convenient software modules are provided. These modules wrap underlying complexity and provide the same commands that are expected from non-containerized versions of each application.
 
-On Bell, type the command below to see the lists of biocontainers we deployed.
+On {CLUSTER}, type the command below to see the lists of biocontainers we deployed.
 
 ```
 module load biocontainers

@@ -1,4 +1,4 @@
-<!-- Template snippet: {cluster} = lowercase cluster name (e.g. "{cluster}"). Replaced at build time by `apptainer` in main.py. -->
+<!-- Template snippet: {CLUSTER} = title-case cluster name (e.g. "{CLUSTER}"), {cluster} = lowercase (e.g. "{cluster}"). Replaced at build time by `apptainer_snippet` in main.py. -->
 # Apptainer
 
 !!! note
