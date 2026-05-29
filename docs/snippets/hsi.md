@@ -1,4 +1,6 @@
 <!-- Template snippet: {CLUSTER} = title-case cluster name (e.g. "{CLUSTER}"), {cluster} = lowercase (e.g. "gautschi"). Replaced at build time by `hsi_snippet` in main.py. -->
+# HSI
+
 HSI, the Hierarchical Storage Interface, is the preferred method of transferring files to and from {CLUSTER}. HSI is designed to be a friendly interface for users of the High Performance Storage System (HPSS). It provides a familiar Unix-style environment for working within HPSS while automatically taking advantage of high-speed, parallel file transfers without requiring any special user knowledge.
 
 HSI is provided on all research systems as the command ```hsi```. HSI is also available for [download](https://rcac.purdue.edu/downloads/archive#hsi) for many operating systems.
