@@ -10,6 +10,9 @@ RCAC clusters support the SSH (Secure Shell), Thinlinc and Open OnDemand mechani
 === "Anvil"
     Please refer to [SSH section on Anvil User Guide](/userguides/anvil/getting-started/#ssh) to learn how to SSH to Anvil.
 
+=== "Bell"
+    Please refer to [SSH section on Bell User Guide](/userguides/bell/accounts/#ssh) to learn how to SSH to Bell.
+
 === "Gautschi"
     Please refer to [SSH section on Gautschi User Guide](/userguides/gautschi/accounts/#ssh) to learn how to SSH to Gautschi.
 
@@ -23,6 +26,9 @@ RCAC clusters support the SSH (Secure Shell), Thinlinc and Open OnDemand mechani
 
 === "Anvil"
     Please refer to [Thinlinc section on Anvil User Guide](/userguides/anvil/getting-started/#thinlinc) to learn how to configure and use Thinlinc to get connected to Anvil.
+
+=== "Bell"
+    Please refer to [Thinlinc section on Bell User Guide](/userguides/bell/accounts/#thinlinc) to learn how to configure and use Thinlinc to get connected to Bell.
 
 === "Gautschi"
     Please refer to [Thinlinc section on Gautschi User Guide](/userguides/gautschi/accounts/#thinlinc) to learn how to configure and use Thinlinc to get connected to Gautschi.
@@ -38,6 +44,9 @@ RCAC clusters support the SSH (Secure Shell), Thinlinc and Open OnDemand mechani
 
 === "Anvil"
     One can visit Open OnDemand on Anvil via [https://ondemand.anvil.rcac.purdue.edu/](https://ondemand.anvil.rcac.purdue.edu/).
+
+=== "Bell"
+    One can visit Open OnDemand (Gateway) on Bell via [https://gateway.bell.rcac.purdue.edu/](https://gateway.bell.rcac.purdue.edu/).
 
 === "Gautschi"
     One can visit Open OnDemand (Gateway) on Gautschi via [https://gateway.gautschi.rcac.purdue.edu/](https://gateway.gautschi.rcac.purdue.edu/).
@@ -55,6 +64,9 @@ We support several methods for file transfer to and from RCAC systems. Users can
 
 === "Anvil"
     [Data transfer on Anvil cluster](/userguides/anvil/file_management/#transferring-files)
+
+=== "Bell"
+    [Data transfer on Bell cluster](/userguides/bell/storage/)
 
 === "Gautschi"
     [Data transfer on Gautschi cluster](/userguides/gautschi/storage/)
@@ -77,6 +89,9 @@ All RCAC clusters use the [Slurm Workload Manager](https://slurm.schedmd.com/) f
 
 === "Anvil"
     Learn how to submit your jobs to Anvil through [this section](/userguides/anvil/jobs/) on Anvil User Guide.
+
+=== "Bell"
+    Learn how to submit your jobs to Bell through [this section](/userguides/bell/run/) on Bell User Guide.
 
 === "Gautschi"
     Learn how to submit your jobs to Gautschi through [this section](/userguides/gautschi/run_jobs/) on Gautschi User Guide.

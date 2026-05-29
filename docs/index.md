@@ -74,6 +74,16 @@ Follow these steps to get up and running on RCAC clusters.
 
     [:octicons-arrow-right-24: Anvil User Guide](userguides/anvil/index.md)
 
+-   :material-server:{ .lg .middle } __Bell__
+
+    ---
+
+    Community Cluster optimized for communities running traditional, tightly-coupled science and engineering applications. Built through a partnership with Dell and AMD, Bell consists of compute nodes with two 64-core AMD EPYC "Rome" processors and 256 GB of memory.
+
+    **128 cores/node | 256 GB RAM | 100 Gbps HDR Infiniband**
+
+    [:octicons-arrow-right-24: Bell User Guide](userguides/bell/index.md)
+
 -   :material-server:{ .lg .middle } __Gautschi__
 
     ---

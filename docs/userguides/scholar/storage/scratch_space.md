@@ -10,10 +10,6 @@ search:
   boost: 2
 ---
 
-{% set resource = "scholar" %}
-
-# Scratch Space
-
 {{ scratch_space(resource) }}
 
 [**Back to the Storage section**](../storage.md)

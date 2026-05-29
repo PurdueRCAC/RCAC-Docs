@@ -10,10 +10,6 @@ search:
   boost: 2
 ---
 
-{% set resource = "scholar" %}
-
-# Storage Environment Variables
-
 {{ environment_variables(resource) }}
 
 [**Back to the Storage section**](../storage.md)
