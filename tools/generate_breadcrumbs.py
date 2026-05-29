@@ -39,6 +39,7 @@ IgnoreUnknownTagsLoader.add_constructor('!ENV', handle_env_tag)
 BREADCRUMB_TITLE_OVERRIDES = {
     "Anvil": "Anvil User Guide",
     "Gautschi": "Gautschi User Guide",
+    "Bell": "Bell User Guide",
     "Gilbreth": "Gilbreth User Guide",
     "Scholar": "Scholar User Guide",
     "Negishi": "Negishi User Guide",

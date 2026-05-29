@@ -165,6 +165,55 @@
     "Gautschi User Guide",
     "Frequently Asked Questions"
   ],
+  "/userguides/bell/": [
+    "Home",
+    "Bell User Guide"
+  ],
+  "/userguides/bell/overview/": [
+    "Home",
+    "Bell User Guide",
+    "Overview of Bell"
+  ],
+  "/userguides/bell/biography/": [
+    "Home",
+    "Bell User Guide",
+    "Biography of Bell"
+  ],
+  "/userguides/bell/accounts/": [
+    "Home",
+    "Bell User Guide",
+    "Accounts"
+  ],
+  "/userguides/bell/software/": [
+    "Home",
+    "Bell User Guide",
+    "Software"
+  ],
+  "/userguides/bell/run/": [
+    "Home",
+    "Bell User Guide",
+    "Running Jobs"
+  ],
+  "/userguides/bell/storage/": [
+    "Home",
+    "Bell User Guide",
+    "File Storage and Transfer"
+  ],
+  "/userguides/bell/gateway/": [
+    "Home",
+    "Bell User Guide",
+    "Gateway (Open OnDemand)"
+  ],
+  "/userguides/bell/compile/": [
+    "Home",
+    "Bell User Guide",
+    "Compiling Source Code"
+  ],
+  "/userguides/bell/faqs/": [
+    "Home",
+    "Bell User Guide",
+    "Frequently Asked Questions"
+  ],
   "/userguides/gilbreth/": [
     "Home",
     "Gilbreth User Guide"
@@ -257,10 +306,6 @@
     "Home",
     "Scholar User Guide",
     "Frequently Asked Questions"
-  ],
-  "/https://www.rcac.purdue.edu/knowledge/bell": [
-    "Home",
-    "Bell"
   ],
   "/https://www.rcac.purdue.edu/knowledge/negishi": [
     "Home",

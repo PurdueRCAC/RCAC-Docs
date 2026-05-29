@@ -3,7 +3,7 @@
 - When asked for a password, type your Purdue password.
 - Your Purdue MFA client will receive a notification to approve the login.
 
-### Thinlinc Web/Client
+**Thinlinc Web/Client**
 - When asked for a password, type your Purdue password.
 - Your Purdue MFA client will receive a notification to approve the login.
 - The native Thinlinc client will prompt for MFA approval **twice** due to the way Thinlinc works.
