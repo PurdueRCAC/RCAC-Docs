@@ -9,7 +9,7 @@ The BioContainers project came from the idea of using the containers-based techn
 
 Users can download bioinformatic containers from the [BioContainers.pro](https://biocontainers.pro) and run them directly using Apptainer instructions from the corresponding container’s catalog page.
 
-Brief Apptainer guide and examples are available at the [{CLUSTER} Apptainer user guide](apptainer.md) page. Detailed Apptainer user guide is available at: [sylabs.io/guides/3.8/user-guide](https://sylabs.io/guides/3.8/user-guide/)
+Brief Apptainer guide and examples are available at the [{CLUSTER} Apptainer user guide](apptainer.md) page. Detailed Apptainer user guide is available at: [apptainer.org/docs/user/main](https://apptainer.org/docs/user/main/)
 
 In addition, a subset of pre-downloaded biocontainers wrapped into convenient software modules are provided. These modules wrap underlying complexity and provide the same commands that are expected from non-containerized versions of each application.
 
