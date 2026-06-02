@@ -163,7 +163,28 @@ nav:
       - Compiling Source Code: userguides/scholar/compile.md
       - Frequently Asked Questions: userguides/scholar/faqs.md
     - Negishi: https://www.rcac.purdue.edu/knowledge/negishi
-    - Geddes: https://www.rcac.purdue.edu/knowledge/geddes
+    - Geddes:
+      - userguides/geddes/index.md
+      - Biography of Lanelle Geddes: userguides/geddes/biography.md
+      - Overview of Geddes: userguides/geddes/overview.md
+      - Concepts: userguides/geddes/concepts.md
+      - Accounts: userguides/geddes/accounts.md
+      - Access:
+        - userguides/geddes/access/index.md
+        - Rancher UI: userguides/geddes/access/rancher.md
+        - Kubectl: userguides/geddes/access/kubectl.md
+        - Refreshing Your Kubectl Token: userguides/geddes/access/tokens.md
+      - Container Registry: userguides/geddes/registry.md
+      - Storage: userguides/geddes/storage.md
+      - Workloads: userguides/geddes/workloads.md
+      - Services: userguides/geddes/services.md
+      - Examples:
+        - userguides/geddes/examples/index.md
+        - Deploy a Database: userguides/geddes/examples/database.md
+        - Deploy a Web Server: userguides/geddes/examples/webserver.md
+        - Deploy an R Shiny App: userguides/geddes/examples/r-shiny.md
+        - Deploy JupyterHub: userguides/geddes/examples/jupyterhub.md
+      - Troubleshooting: userguides/geddes/troubleshooting.md
     - Hammer: https://www.rcac.purdue.edu/knowledge/hammer
     - Rossmann: https://www.rcac.purdue.edu/knowledge/rossmann
     - Weber: https://www.rcac.purdue.edu/knowledge/weber
