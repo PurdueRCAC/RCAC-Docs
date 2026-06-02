@@ -8,7 +8,7 @@ search:
   boost: 2
 ---
 
-# Deploy an R Shiny App
+# R Shiny App
 
 This guide provides instructions on how to build a Docker image for an R Shiny application, push it to the Geddes Registry and deploy it on Geddes.
 
@@ -44,7 +44,7 @@ COPY ./<app directory> /srv/shiny-server/
 
 Build the Docker image locally based on the Dockerfile above. The Dockerfile must be in your current working directory. This command tags the image with the name "myshinyapp" and version 1.0.
 
-```
+```bash
 docker build -t myshinyapp:1.0 .
 ```
 
@@ -60,17 +60,17 @@ Iterate on code changes locally until you want to deploy on Geddes.
 
 Tag the image for upload to the Geddes Registry.
 
-```
+```bash
 docker tag myshinyapp:1.0 geddes-registry.rcac.purdue.edu/<repo>/myshinyapp:1.0
 ```
 
 Push the image to the Geddes Registry. Run the login command using your Purdue career account username and password if you currently are not authenticated to the registry.
 
-```
+```bash
 docker login geddes-registry.rcac.purdue.edu
 ```
 
-```
+```bash
 docker push geddes-registry.rcac.purdue.edu/<repo>/myshinyapp:1.0
 ```
 

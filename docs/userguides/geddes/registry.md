@@ -8,11 +8,11 @@ search:
   boost: 2
 ---
 
-# Container Registry
+# Registry
 
 ## Accessing the Geddes Harbor Registry
 
-The Geddes Harbor registry is only accessible via campus networks and the Purdue VPN. Use a web browser to navigate to [geddes-registry.rcac.purdue.edu](https://geddes-registry.rcac.purdue.edu) and log in with your Purdue career account username and password. (Do not add "`,push`" to your password nor use the Purdue Duo client.)
+The Geddes Harbor registry is only accessible via campus networks and the Purdue VPN. Use a web browser to navigate to [geddes-registry.rcac.purdue.edu](https://geddes-registry.rcac.purdue.edu) and log in with your Purdue career account username and password.
 
 ## Using the Geddes Registry Docker Hub Cache
 

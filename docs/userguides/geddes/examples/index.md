@@ -10,9 +10,8 @@ search:
 
 # Examples
 
-These examples walk through deploying a database with persistent storage and making it available on the network, deploying a web server using a self-assigned URL, building and deploying an R Shiny application, and installing JupyterHub.
+Examples of deploying a database with persistent storage and making it available on the network and deploying a webserver using a self-assigned URL.
 
-- [**Deploy a Database**](database.md)
-- [**Deploy a Web Server**](webserver.md)
-- [**Deploy an R Shiny App**](r-shiny.md)
-- [**Deploy JupyterHub**](jupyterhub.md)
+- [**Database**](database.md)
+- [**Web Server**](webserver.md)
+- [**R Shiny**](r-shiny.md)
