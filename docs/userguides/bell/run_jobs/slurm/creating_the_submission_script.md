@@ -42,4 +42,4 @@ SLURM sets several potentially useful environment variables which you may use wi
 | SLURM\_SUBMIT\_HOST | Hostname of the system where you submitted this job |
 | SLURM\_JOB\_PARTITION | Name of the original queue to which you submitted this job |
 
-[**Back to the Running Jobs section**](../../run.md)
+[**Back to the Running Jobs section**](../index.md)

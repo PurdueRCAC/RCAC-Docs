@@ -104,6 +104,6 @@ After you submit your job with `SBATCH`, it may wait in queue for minutes, hours
 
 Once your job is submitted, you can [monitor the job status](monitoring_job.md), wait for the job to complete, and [check the job output](checking_output.md).
 
-[**Back to the Running Jobs section**](../../run.md)
+[**Back to the Running Jobs section**](../index.md)
 
 ​

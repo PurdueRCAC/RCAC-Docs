@@ -126,7 +126,7 @@ nav:
       - Biography of Bell: userguides/bell/biography.md
       - Accounts: userguides/bell/accounts.md
       - Software: userguides/bell/software.md
-      - Running Jobs: userguides/bell/run.md
+      - Running Jobs: userguides/bell/run_jobs/index.md
       - File Storage and Transfer: userguides/bell/storage.md
       - Gateway (Open OnDemand): userguides/bell/gateway.md
       - Compiling Source Code: userguides/bell/compile.md

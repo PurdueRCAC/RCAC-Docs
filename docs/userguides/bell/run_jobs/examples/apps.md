@@ -27,4 +27,4 @@ The following examples demonstrate job submission files for some common real-wor
 - [Spark](apps/spark.md)
 - [Windows](apps/windows.md)
 
-[**Back to the Running Jobs section**](../../run.md)
+[**Back to the Running Jobs section**](../index.md)

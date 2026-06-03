@@ -1,6 +1,6 @@
 # Submitting Fluent jobs to SLURM
 
-The Fluent simulations can also run in batch. In this section we provide an example script for submitting Fluent jobs to the SLURM scheduler. Please refer to the  [Running Jobs](../../../../run.md) section of our user guide for detailed tutorials of submitting jobs.
+The Fluent simulations can also run in batch. In this section we provide an example script for submitting Fluent jobs to the SLURM scheduler. Please refer to the  [Running Jobs](../../../index.md) section of our user guide for detailed tutorials of submitting jobs.
 
 ```
 
