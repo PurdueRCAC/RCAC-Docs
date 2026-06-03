@@ -162,7 +162,6 @@ nav:
       - Gateway (Open OnDemand): userguides/scholar/gateway.md
       - Compiling Source Code: userguides/scholar/compile.md
       - Frequently Asked Questions: userguides/scholar/faqs.md
-    - Negishi: https://www.rcac.purdue.edu/knowledge/negishi
     - Geddes:
       - userguides/geddes/index.md
       - Overview of Geddes: userguides/geddes/overview.md
@@ -179,6 +178,7 @@ nav:
         - Web Server: userguides/geddes/examples/webserver.md
         - R Shiny: userguides/geddes/examples/r-shiny.md
       - Troubleshooting: userguides/geddes/troubleshooting.md
+    - Negishi: https://www.rcac.purdue.edu/knowledge/negishi
     - Hammer: https://www.rcac.purdue.edu/knowledge/hammer
     - Rossmann: https://www.rcac.purdue.edu/knowledge/rossmann
     - Weber: https://www.rcac.purdue.edu/knowledge/weber
