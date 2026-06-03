@@ -32,7 +32,7 @@ Block and Filesystem storage can both be provisioned in a similar way.
 
 1. While deploying a Workload, click the Storage tab and click **Add Volume**…
 2. Select "**Create Persistent Volume Claim**"
-3. Set a unique Persistent Volume Claim Name, i.e. "**<username>-volume**"
+3. Set a unique Persistent Volume Claim Name, i.e. "`<username>-volume`"
 4. Select a Storage Class. The default storage class is "geddes-standard-singlenode".
 5. Select an Access Mode. The "geddes-standard-singlenode" class only supports Single-Node Read/Write.
 6. Request an amount of storage in Gigabytes
@@ -133,7 +133,7 @@ Further information about using Cyberduck can be found on the [Cyberduck documen
 The overall process is:
 
 1. Submit request.
-    1. An admin will create the needed Persistent Volume needed to access your depot space and will provide you with the name **pv-depot-<your-pv-name>**
+    1. An admin will create the needed Persistent Volume needed to access your depot space and will provide you with the name `pv-depot-<your-pv-name>`
 2. Create Kubernetes secrets for Depot username/password authentication.
 3. Create a Persistent Volume Claim via Rancher UI or kubectl.
 4. Use that claim for your workloads/pods to mount depot.
@@ -144,11 +144,11 @@ The overall process is:
 2. Click **Create** at the top right
 3. Select **Opaque** and fill out the form.
     1. Make sure to select the namespace that will be accessing depot
-    2. Name should be **depot-credentials-<myusername>**
+    2. Name should be `depot-credentials-<myusername>`
     3. Under the data tab click **add** to create a second secret key field
     4. Provide key/values
-        1. Key: **username** value: **<yourUsername>**
-        2. Key: **password** value: **<yourPassword>**
+        1. Key: **username** value: `<yourUsername>`
+        2. Key: **password** value: `<yourPassword>`
     5. Click **Create** at the bottom right
 
 **Create a PersistentVolumeClaim for Depot (Rancher UI)**
@@ -156,9 +156,9 @@ The overall process is:
 1. From the Rancher UI, use the left navigation bar to select **Storage > PersistentVolumeClaims**
 2. Click **Create** at the top right and fill out the form
     1. Make sure to select the namespace that will be accessing depot
-    2. Name should be **pvc-depot-<yourUsername>**
+    2. Name should be `pvc-depot-<yourUsername>`
     3. Select **Use an existing Persistent Volume**
-    4. Use the dropdown to the immediate right to select **pv-depot-<your pv name>**
+    4. Use the dropdown to the immediate right to select `pv-depot-<your pv name>`
     5. Click **Customize** in the form tab on the left
     6. Select **Many Nodes Read-Write**
     7. Click **Create** at the bottom right.
@@ -183,6 +183,6 @@ The overall process is:
       storageClassName: ""
     ```
 
-2. Replace all the **<yourUsername>** and **<namespace>** with the appropriate values.
-    1. Do not include the example angle brackets **< >** in your code
+2. Replace all the `<yourUsername>` and `<namespace>` with the appropriate values.
+    1. Do not include the example angle brackets `< >` in your code
 3. Apply the yaml with the command `kubectl apply -f depot-pvc.yaml`

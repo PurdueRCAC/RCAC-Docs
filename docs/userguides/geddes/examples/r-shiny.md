@@ -8,7 +8,7 @@ search:
   boost: 2
 ---
 
-# R Shiny App
+# R Shiny
 
 This guide provides instructions on how to build a Docker image for an R Shiny application, push it to the Geddes Registry and deploy it on Geddes.
 

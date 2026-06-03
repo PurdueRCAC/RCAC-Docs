@@ -43,7 +43,7 @@ spec:
 
 One can also launch a persistent Pod by specifying the sleep command via the Geddes UI.
 
-![Launching a persistent Pod via the Geddes UI](https://www.rcac.purdue.edu/files/image-20231004151457-1.png)
+![Launching a persistent Pod via the Geddes UI](/assets/images/userguides/geddes/pod-debugging-1.png)
 
 ## Permission Denied on PVC for non-root User
 
@@ -58,7 +58,7 @@ Where gid is the group id your container is running as, or the group id of the p
 
 This setting can also be applied under the Pod menu when deploying a workload via the Geddes UI.
 
-![Setting the fsGroup SecurityContext via the Geddes UI](https://www.rcac.purdue.edu/files/image-20231004152714-1.png)
+![Setting the fsGroup SecurityContext via the Geddes UI](/assets/images/userguides/geddes/pod-debugging-2.png)
 
 ## Pull Rate Limit Error
 

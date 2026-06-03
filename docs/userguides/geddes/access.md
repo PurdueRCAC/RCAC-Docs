@@ -8,9 +8,21 @@ search:
   boost: 2
 ---
 
-# Kubectl
+# Access
 
-## Configuring local kubectl access with a Kubeconfig file
+Access to the Geddes Composable Platform is handled via the RCAC web portal. When access is purchased, a Rancher project with your research group's name will be created and managers will be able to click to give users access, similar to how access is managed for community clusters. Links to access Geddes via the Rancher UI and the command line (`kubectl`) are below.
+
+## Rancher
+
+### Logging in to Rancher
+
+To access the Geddes user interface, you must be on a Purdue campus network or connected through [VPN](https://it.purdue.edu/services/vpn.php).
+
+Once connected to a Purdue network, the Geddes Rancher interface can be accessed via a web browser at [geddes.rcac.purdue.edu](https://geddes.rcac.purdue.edu). Log in by choosing "log in with shibboleth" and using Purdue Login at the login screen.
+
+## Kubectl
+
+### Configuring local kubectl access with a Kubeconfig file
 
 **kubectl** can be installed and run on your local machine to perform various actions against the Kubernetes cluster using the API server.
 
@@ -30,6 +42,6 @@ To begin accessing Geddes via **kubectl** you must first gather your rancher gen
 
 To see more options of kubectl, review the [Kubernetes' kubectl cheatsheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/).
 
-## Accessing kubectl in the Rancher web UI
+### Accessing kubectl in the Rancher web UI
 
 You can launch a kubectl command window from within the Rancher UI by selecting the **Kubectl Shell** button at the top right or using the hotkey (`` CTRL + ` ``). This will deploy a container in the cluster with kubectl installed and give you an interactive window to use the command from.

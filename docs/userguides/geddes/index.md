@@ -15,7 +15,7 @@ New usage patterns have emerged in research computing that depend on the availab
 - [**Overview of Geddes**](overview.md)
 - [**Biography of Lanelle Geddes**](biography.md)
 - [**Concepts**](concepts.md)
-- [**Access**](access/index.md)
+- [**Access**](access.md)
 - [**Registry**](registry.md)
 - [**Workloads**](workloads.md)
 - [**Services**](services.md)

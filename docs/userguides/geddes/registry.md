@@ -35,19 +35,21 @@ If the image you are using is an "Official" docker image (like httpd or mongo) t
 
 1. Tag your image
 
-   ```
-   $ docker tag my-image:tag geddes-registry.rcac.purdue.edu/project-registry/my-image:tag
-   ```
+    ```
+    $ docker tag my-image:tag geddes-registry.rcac.purdue.edu/project-registry/my-image:tag
+    ```
+
 2. Login to the Geddes registry via command line
 
-   ```
-   $ docker login geddes-registry.rcac.purdue.edu
-   ```
+    ```
+    $ docker login geddes-registry.rcac.purdue.edu
+    ```
+
 3. Push your image to your project registry
 
-   ```
-   $ docker push geddes-registry.rcac.purdue.edu/project-registry/my-image:tag
-   ```
+    ```
+    $ docker push geddes-registry.rcac.purdue.edu/project-registry/my-image:tag
+    ```
 
 ## Creating a Robot Account for a Private Registry
 
@@ -56,16 +58,16 @@ A robot account and token can be used to authenticate to your registry in place 
 1. Navigate to your project by logging into [geddes-registry.rcac.purdue.edu](https://geddes-registry.rcac.purdue.edu)
 2. Navigate to the **Robot Accounts** tab and click **New Robot Account**
 3. Fill out the form
-   * Name your robot account
-   * Select account expiration if any, select never to make permanent
-   * Customize what permissions you wish the account to have
-   * Click **Add**
+    * Name your robot account
+    * Select account expiration if any, select never to make permanent
+    * Customize what permissions you wish the account to have
+    * Click **Add**
 4. Copy your information
-   * Your robot's account name will be something longer than what you specified, since this is a multi-tenant registry, Harbor does this to avoid unrelated project owners creating a similarly named robot account
-   * Export your token as JSON or copy it to a clipboard
+    * Your robot's account name will be something longer than what you specified, since this is a multi-tenant registry, Harbor does this to avoid unrelated project owners creating a similarly named robot account
+    * Export your token as JSON or copy it to a clipboard
 
-   !!! note
-       Harbor does not store account tokens, once you exit this page your token will be unrecoverable.
+    !!! note
+        Harbor does not store account tokens, once you exit this page your token will be unrecoverable.
 
 ## Adding Your Private Registry to Rancher
 
@@ -74,13 +76,13 @@ A robot account and token can be used to authenticate to your registry in place 
 3. Click **Create**
 4. Click **Registry**
 5. Fill out the form
-   * Select **namespace** that will have access to the registry
-   * Give a **name** to the Registry secret (this is an arbitrary name)
-   * Under the **Data** tab ensure **custom** is selected
-   * Enter "geddes-registry.rcac.purdue.edu" under **Registry Domain Name**
-   * Enter your robot account's long name **eg. robot$my-registry+robot** as the **Username**
-   * Enter your robot account's token as the **password**
-   * Click **Create**
+    * Select **namespace** that will have access to the registry
+    * Give a **name** to the Registry secret (this is an arbitrary name)
+    * Under the **Data** tab ensure **custom** is selected
+    * Enter "geddes-registry.rcac.purdue.edu" under **Registry Domain Name**
+    * Enter your robot account's long name **eg. robot$my-registry+robot** as the **Username**
+    * Enter your robot account's token as the **password**
+    * Click **Create**
 
 ## External Harbor Documentation
 
