@@ -307,13 +307,81 @@
     "Scholar User Guide",
     "Frequently Asked Questions"
   ],
+  "/userguides/geddes/": [
+    "Home",
+    "Geddes User Guide"
+  ],
+  "/userguides/geddes/overview/": [
+    "Home",
+    "Geddes User Guide",
+    "Overview of Geddes"
+  ],
+  "/userguides/geddes/biography/": [
+    "Home",
+    "Geddes User Guide",
+    "Biography of Lanelle Geddes"
+  ],
+  "/userguides/geddes/concepts/": [
+    "Home",
+    "Geddes User Guide",
+    "Concepts"
+  ],
+  "/userguides/geddes/access/": [
+    "Home",
+    "Geddes User Guide",
+    "Access"
+  ],
+  "/userguides/geddes/registry/": [
+    "Home",
+    "Geddes User Guide",
+    "Registry"
+  ],
+  "/userguides/geddes/workloads/": [
+    "Home",
+    "Geddes User Guide",
+    "Workloads"
+  ],
+  "/userguides/geddes/services/": [
+    "Home",
+    "Geddes User Guide",
+    "Services"
+  ],
+  "/userguides/geddes/storage/": [
+    "Home",
+    "Geddes User Guide",
+    "Storage"
+  ],
+  "/userguides/geddes/examples/": [
+    "Home",
+    "Geddes User Guide",
+    "Examples"
+  ],
+  "/userguides/geddes/examples/database/": [
+    "Home",
+    "Geddes User Guide",
+    "Examples",
+    "Database"
+  ],
+  "/userguides/geddes/examples/webserver/": [
+    "Home",
+    "Geddes User Guide",
+    "Examples",
+    "Web Server"
+  ],
+  "/userguides/geddes/examples/r-shiny/": [
+    "Home",
+    "Geddes User Guide",
+    "Examples",
+    "R Shiny"
+  ],
+  "/userguides/geddes/troubleshooting/": [
+    "Home",
+    "Geddes User Guide",
+    "Troubleshooting"
+  ],
   "/https://www.rcac.purdue.edu/knowledge/negishi": [
     "Home",
     "Negishi User Guide"
-  ],
-  "/https://www.rcac.purdue.edu/knowledge/geddes": [
-    "Home",
-    "Geddes User Guide"
   ],
   "/https://www.rcac.purdue.edu/knowledge/hammer": [
     "Home",

@@ -163,8 +163,23 @@ nav:
       - Gateway (Open OnDemand): userguides/scholar/gateway.md
       - Compiling Source Code: userguides/scholar/compile.md
       - Frequently Asked Questions: userguides/scholar/faqs.md
+    - Geddes:
+      - userguides/geddes/index.md
+      - Overview of Geddes: userguides/geddes/overview.md
+      - Biography of Lanelle Geddes: userguides/geddes/biography.md
+      - Concepts: userguides/geddes/concepts.md
+      - Access: userguides/geddes/access.md
+      - Registry: userguides/geddes/registry.md
+      - Workloads: userguides/geddes/workloads.md
+      - Services: userguides/geddes/services.md
+      - Storage: userguides/geddes/storage.md
+      - Examples:
+        - userguides/geddes/examples/index.md
+        - Database: userguides/geddes/examples/database.md
+        - Web Server: userguides/geddes/examples/webserver.md
+        - R Shiny: userguides/geddes/examples/r-shiny.md
+      - Troubleshooting: userguides/geddes/troubleshooting.md
     - Negishi: https://www.rcac.purdue.edu/knowledge/negishi
-    - Geddes: https://www.rcac.purdue.edu/knowledge/geddes
     - Hammer: https://www.rcac.purdue.edu/knowledge/hammer
     - Rossmann: https://www.rcac.purdue.edu/knowledge/rossmann
     - Weber: https://www.rcac.purdue.edu/knowledge/weber
