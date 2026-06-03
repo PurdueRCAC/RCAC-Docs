@@ -21,4 +21,4 @@ search:
     * Set **Container Image**. Ensure you're using the Geddes registry for personal images or the Geddes registry docker-hub cache when pulling public docker-hub specific images. **e.g**: `geddes-registry.rcac.purdue.edu/my-registry/myimage:tag` or `geddes-registry.rcac.purdue.edu/docker-hub-cache/library/image:tag`
     * Click **Create**
 
-See the [Examples](examples/index.md) section for complete walkthroughs of deploying a database, a web server, an R Shiny app, and JupyterHub.
+See the [Examples](examples/index.md) section for complete walkthroughs of deploying a database, a web server, and an R Shiny app.

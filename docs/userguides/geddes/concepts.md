@@ -51,6 +51,6 @@ The most common you will see are typically `:latest` and `:number` where *number
 
 After setting up the Rancher CLI you can issue `rancher --help` to view the full range of options available.
 
-**Kubectl** - Kubectl is a text based tool for working with the underlying Geddes Kubernetes cluster. In order to take advantage of kubectl you will either need to set up a Kubeconfig File or use the built in kubectl shell in the Rancher UI. You can learn more about kubectl and how to download the kubectl file on the [Kubectl](access/kubectl.md) page.
+**Kubectl** - Kubectl is a text based tool for working with the underlying Geddes Kubernetes cluster. In order to take advantage of kubectl you will either need to set up a Kubeconfig File or use the built in kubectl shell in the Rancher UI. You can learn more about kubectl and how to download the kubectl file on the [Kubectl](access.md#kubectl) page.
 
 **Storage** - Storage is utilized to provide persistent data storage between container deployments. The **Ceph** filesystem provides access to Block, Object and shared file systems. File storage provides an interface to access data in a file and folder hierarchy similar to NTFS or NFS. Block storage is a flexible type of storage that allows for snapshotting and is good for database workloads and generic container storage. Object storage is also provided by Ceph, this features a REST based bucket file system providing S3 and Swift compatibility.
