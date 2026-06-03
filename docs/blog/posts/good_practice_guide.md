@@ -36,36 +36,24 @@ Login nodes are shared among all connected users. Running computationally intens
 
 ### How to tell you are on a login node
 
-Your shell prompt will show a hostname started in `login` (e.g., `login00.anvil`) or ended with `fexx` (e.g., `gilbreth-fe00`). Or you can run `hostname`.
+Your shell prompt will show a hostname started in `login` (e.g., `login00.anvil`) or ended with `fexx` (e.g., `gilbreth-fe00`). You can run `hostname` to check your current landed node.
 
 ### What to do instead
 
 | Need | Solution |
 |---|---|
 | Short interactive work | `sinteractive` |
-| Quick script test | Submit to `debug` (`#SBATCH -p debug`) |
 | Long-running batch work | `sbatch myjob.sh` |
 | Jupyter notebook | Use the Open OnDemand gateway, not a login node terminal |
 
-### VS Code remote — extra caution required
-
-VS Code's Remote SSH extension runs persistent background server processes on
-whichever node it connects to. Connecting VS Code directly to a login node
-can pin a CPU core continuously. Always connect VS Code to a compute node
-via an interactive job. See the blog: [VS Code on RCAC Resources](vscode.md).
-
-
 ## Do Not Stress the Shared Filesystem
 
-The filesystems (`$HOME`, `$SCRATCH`, `$DEPOT` or `$PROJECT`) are shared infrastructure. Certain
-access patterns can degrade performance for the entire cluster.
+The filesystems (`$HOME`, `$SCRATCH`, `$DEPOT` or `$PROJECT`) are shared infrastructure. Certain access patterns can degrade performance for the entire cluster.
 
 ### Patterns that harm the filesystem
 
-- Opening and closing millions of small files in rapid succession (common with
-  large conda environments installed in `$HOME`)
-- Many parallel MPI ranks simultaneously writing to the same output file without
-  collective I/O
+- Opening and closing millions of small files in rapid succession (common with large conda environments installed in `$HOME`)
+- Many parallel MPI ranks simultaneously writing to the same output file without   collective I/O
 - Tight loops checking for the existence of a file (polling with `ls` or `stat`)
 
 ### Recommended filesystem usage
@@ -78,23 +66,16 @@ access patterns can degrade performance for the entire cluster.
 
 ### Conda environment tip
 
-Large conda environments (>20,000 files) in `$HOME` can cause slow logins and
-filesystem load. Move heavy environments to `$PROJECT` or `$SCRATCH`, or use
-Apptainer/Singularity containers for portability.
+Large conda environments (>20,000 files) in `$HOME` can cause slow logins and filesystem load. Move heavy environments to `$PROJECT` or `$SCRATCH`, or use Apptainer/Singularity containers for portability.
 
 
 ## Scratch Is Not Permanent Storage
 
-!!! warning "Anvil: No warning before purge"
-    Files on Anvil's `$SCRATCH` that have not been **accessed** in **30 days** are
-    deleted automatically. There are no warning emails. Back up results immediately
+!!! warning
+    Files on `$SCRATCH` of all RCAC systems that have not been **accessed** in a certain time are purged automatically. There are no warning emails. Back up results immediately
     after your jobs complete.
 
-To find files at risk of purge:
-
-    find $SCRATCH -atime +25 -type f
-
-For Gautschi scratch purge policy, see [File Storage and Transfer](../userguides/gautschi/storage/).
+Check sections user guides for how to TODO....
 
 ## Request Only What Your Job Actually Uses
 
