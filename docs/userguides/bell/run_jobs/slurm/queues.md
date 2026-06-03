@@ -131,4 +131,4 @@ Some of these QOSes may not be available in every partition. Each of the partiti
 !!! Note
     The normal QOS is the default and does not need to be specified.
 
-[**Back to the Running Jobs section**](../../run.md)
+[**Back to the Running Jobs section**](../index.md)

@@ -17,28 +17,28 @@ Jobs are submitted on {{ resource }} via the SLURM (Simple Linux Utility for Res
 
 Before creating your submission script, learn more about how to use Slurm accounts, partitions, and QOS options:
 
-- [**Basics of using Slurm accounts, partitions, and QOS options**](run/slurm/queues.md)
+- [**Basics of using Slurm accounts, partitions, and QOS options**](slurm/queues.md)
 
 Batch jobs submitted via SLURM have four main steps:
 
-* [Create job submission script](run/slurm/creating_the_submission_script.md)
-* [Submit job script](run/slurm/submit_script.md)
-* [Monitor job status](run/slurm/monitoring_job.md)
-* [Check output](run/slurm/checking_output.md)
+* [Create job submission script](slurm/creating_the_submission_script.md)
+* [Submit job script](slurm/submit_script.md)
+* [Monitor job status](slurm/monitoring_job.md)
+* [Check output](slurm/checking_output.md)
 
 ## Other useful topics
 
-- [Canceling a Job](run/slurm/cancelling_job.md)
-- [Job Dependencies](run/slurm/job_dependencies.md)
-- [Holding a Job](run/slurm/holding_job.md)
+- [Canceling a Job](slurm/cancelling_job.md)
+- [Job Dependencies](slurm/job_dependencies.md)
+- [Holding a Job](slurm/holding_job.md)
 
 
 ## Example Jobs
 
 A number of example jobs are available for you to look over and adapt to your own needs. The first few are generic examples, and latter ones go into specifics for particular software packages.
 
-- [Specific Applications](run/examples/apps.md)
-- [Hadoop](run/examples/hadoop.md)
-- [Generic SLURM Jobs](run/examples/slurm.md)
+- [Specific Applications](examples/apps.md)
+- [Hadoop](examples/hadoop.md)
+- [Generic SLURM Jobs](examples/slurm.md)
 
 [**Back to Bell User Guide**](index.md)

@@ -91,7 +91,7 @@ All RCAC clusters use the [Slurm Workload Manager](https://slurm.schedmd.com/) f
     Learn how to submit your jobs to Anvil through [this section](/userguides/anvil/jobs/) on Anvil User Guide.
 
 === "Bell"
-    Learn how to submit your jobs to Bell through [this section](/userguides/bell/run/) on Bell User Guide.
+    Learn how to submit your jobs to Bell through [this section](/userguides/bell/run_jobs/) on Bell User Guide.
 
 === "Gautschi"
     Learn how to submit your jobs to Gautschi through [this section](/userguides/gautschi/run_jobs/) on Gautschi User Guide.

@@ -10,4 +10,4 @@ search:
 
 --8<-- "docs/snippets/monitoring_job.md"
 
-[**Back to the Running Jobs section**](../../run.md)
+[**Back to the Running Jobs section**](../index.md)
