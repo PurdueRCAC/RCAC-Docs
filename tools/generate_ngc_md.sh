@@ -112,6 +112,9 @@ for app in "${APPS[@]}"; do
     echo "module load ngc"
     echo "module load $app"
     echo '```'
+    echo ""
+    echo "!!! note \"Note for using \`$app\`\""
+    echo "    Run \`module spider $app\` beforehand to check available versions and any prerequisite modules."
   } > "$md_file"
 done
 
