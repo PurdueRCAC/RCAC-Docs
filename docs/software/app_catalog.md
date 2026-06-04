@@ -122,8 +122,8 @@ As of **June 04, 2026**, there have been a total of **276** applications with **
     </tr>
     <tr>
       <td><a href="../apps_md/benchmarking"><strong>benchmarking</strong></a></td>
-      <td></td>
-      <td></td>
+      <td>Miscellaneous</td>
+      <td>NEGISHI</td>
     </tr>
     <tr>
       <td><a href="../apps_md/berkeley-db"><strong>berkeley-db</strong></a></td>
@@ -743,7 +743,7 @@ As of **June 04, 2026**, there have been a total of **276** applications with **
     <tr>
       <td><a href="../apps_md/monitor"><strong>monitor</strong></a></td>
       <td>Math/Stat, Programming</td>
-      <td>ANVIL, BELL, GAUTSCHI, GILBRETH, NEGISHI</td>
+      <td>ANVIL, BELL, GAUTSCHI, GILBRETH, NEGISHI, SCHOLAR</td>
     </tr>
     <tr>
       <td><a href="../apps_md/motif"><strong>motif</strong></a></td>
@@ -952,8 +952,8 @@ As of **June 04, 2026**, there have been a total of **276** applications with **
     </tr>
     <tr>
       <td><a href="../apps_md/pelican"><strong>pelican</strong></a></td>
-      <td></td>
-      <td></td>
+      <td>Miscellaneous</td>
+      <td>ANVIL</td>
     </tr>
     <tr>
       <td><a href="../apps_md/perl-bioperl"><strong>perl-bioperl</strong></a></td>
@@ -1343,7 +1343,7 @@ As of **June 04, 2026**, there have been a total of **276** applications with **
     <tr>
       <td><a href="../apps_md/xcb-util-cursor"><strong>xcb-util-cursor</strong></a></td>
       <td>Math/Stat, Programming</td>
-      <td>BELL, GILBRETH</td>
+      <td>BELL, GAUTSCHI, GILBRETH</td>
     </tr>
     <tr>
       <td><a href="../apps_md/xcb-util-image"><strong>xcb-util-image</strong></a></td>
