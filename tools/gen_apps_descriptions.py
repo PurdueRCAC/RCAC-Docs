@@ -156,8 +156,10 @@ def main(apps):
     for app in apps:
         topics = get_topics_for_app(app, topics_db)   
         if app in db and db[app].get("description") and db[app]["description"] != "TODO: add description":
-            # Force update topics
-            db[app]["topic"] = topics
+            # Only update topic if it is unset or was previously Miscellaneous
+            existing = db[app].get("topic", [])
+            if not existing or existing == ["Miscellaneous"]:
+                db[app]["topic"] = topics
             continue
 
         print(f"Fetching description for {app}...")
