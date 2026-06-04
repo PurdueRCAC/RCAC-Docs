@@ -36,7 +36,7 @@ trap 'rm -f "$BLOCK_FILE"' EXIT
 {
   echo "As of **$today**, there have been a total of **$container_count** NGC containers with **$version_count** available versions deployed across **$cluster_count** RCAC HPC clusters: **$cluster_names**."
   echo
-  echo '<table id="ngcTable" class="tablefilter">'
+  echo '<table id="ngcTable" class="tablefilter container-catalog-table">'
   echo "  <thead>"
   echo "    <tr><th scope=\"col\"><strong>Container</strong></th><th scope=\"col\"><strong>Available at</strong></th></tr>"
   echo "  </thead>"
