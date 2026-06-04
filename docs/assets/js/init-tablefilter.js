@@ -3,11 +3,15 @@ document.addEventListener("DOMContentLoaded", function () {
   // Determine which table we're dealing with
   const appTable = document.getElementById('appTable');
   const datasetTable = document.getElementById('datasetTable');
-  const tableId = appTable ? 'appTable' : (datasetTable ? 'datasetTable' : null);
-  
+  const ngcTable = document.getElementById('ngcTable');
+  const tableId = appTable ? 'appTable'
+                : (datasetTable ? 'datasetTable'
+                : (ngcTable ? 'ngcTable' : null));
+
   if (!tableId) return;  // No table found on this page
-  
+
   const isDatasetTable = tableId === 'datasetTable';
+  const isNgcTable = tableId === 'ngcTable';
 
   // Count visible tbody rows directly from the DOM (reliable after any filter)
   function updateCounter() {
@@ -19,30 +23,39 @@ document.addEventListener("DOMContentLoaded", function () {
     table.querySelectorAll('tbody tr').forEach(function (row) {
       if (row.style.display !== 'none') count++;
     });
-    span.textContent = isDatasetTable ? 'Dataset(s): ' + count : 'Application(s): ' + count;
+    const label = isDatasetTable ? 'Dataset(s): '
+                : (isNgcTable ? 'Container(s): ' : 'Application(s): ');
+    span.textContent = label + count;
   }
 
-  var tf = new TableFilter(tableId, {
+  // NGC table has only 2 columns (Container, Available at); the others have 3.
+  var tfConfig = {
     base_path: '/assets/js/tablefilter/',
     paging: false,
     rows_counter: false,
     btn_reset: false,
     mark_active_columns: true,
     highlight_keywords: true,
-    col_0: 'input',              // Application/Dataset → text input
-    col_1: 'input',             // Topic/Category → text input
-    col_2: 'input',             // Available at/Discipline → text input
+    col_0: 'input',              // Application/Dataset/Container → text input
+    col_1: 'input',              // Topic/Category/Available at → text input
     alternate_rows: false,
     themes: [{ name: 'transparent'}],
     extensions: [],
-    watermark: isDatasetTable 
-      ? ['Start typing...', 'Category...', 'Discipline...']
-      : ['Start typing...', 'Topic...', 'Avalable cluster...'],
     auto_filter: { delay: 100 },
     msg_filter: 'Filtering...',
     help_instructions: false,
     on_after_filter: updateCounter  // fires after every filter operation
-  });
+  };
+  if (isNgcTable) {
+    tfConfig.watermark = ['Start typing...', 'Avalable cluster...'];
+  } else {
+    tfConfig.col_2 = 'input';    // Available at/Discipline → text input
+    tfConfig.watermark = isDatasetTable
+      ? ['Start typing...', 'Category...', 'Discipline...']
+      : ['Start typing...', 'Topic...', 'Avalable cluster...'];
+  }
+
+  var tf = new TableFilter(tableId, tfConfig);
 
   tf.init();
 
@@ -106,10 +119,12 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Show dropdowns for both tables - different columns for each
+  // Show dropdowns - different columns for each table
   if (isDatasetTable) {
     buildTokensDropdown(1, 'Any Category');
     buildTokensDropdown(2, 'Any Discipline');
+  } else if (isNgcTable) {
+    buildTokensDropdown(1, 'Any Cluster');
   } else {
     buildTokensDropdown(1, 'Any Topic');
     buildTokensDropdown(2, 'Any Cluster');

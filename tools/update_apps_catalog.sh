@@ -104,52 +104,12 @@ cluster_names=$(jq -r '[to_entries[] | .value.availability | keys[] | ascii_upca
   echo
   echo '<div class="grid cards" markdown>'
   echo
-  echo "-   :material-application:{ .lg .middle } __Compilers__"
-  echo
-  echo "    ---"
-  echo
-  echo "    Compilers catalog of deployed applications on RCAC clusters."
-  echo 
-  echo '    [:octicons-arrow-right-24: Compilers Catalog](compilers_catalog.md)'
-  echo
-  echo "-   :material-application:{ .lg .middle } __MPIs__"
-  echo
-  echo "    ---"
-  echo
-  echo "    MPI software catalog of deployed applications on RCAC clusters."
-  echo 
-  echo '    [:octicons-arrow-right-24: MPIs Catalog](mpi_catalog.md)'
-  echo
-  echo "-   :material-application:{ .lg .middle } __Bioinformatics__"
-  echo
-  echo "    ---"
-  echo
-  echo "    Bioinformatics software catalog for genomics, transcriptomics, phylogenetics, and epigenomics workflows."
-  echo
-  echo '    [:octicons-arrow-right-24: Bioinformatics Catalog](bioinformatics_catalog.md)'
-  echo
-  echo "-   :material-application:{ .lg .middle } __Computational Chemistry__"
-  echo
-  echo "    ---"
-  echo
-  echo "    Chemistry software catalog of deployed applications on RCAC clusters."
-  echo
-  echo '    [:octicons-arrow-right-24: Computational Chemistry Software Catalog](chemistry_catalog.md)'
-  echo
-  echo "-   :material-application:{ .lg .middle } __Fluid Dynamics__"
-  echo
-  echo "    ---"
-  echo 
-  echo "    Fluid Dynamics software catalog of deployed applications on RCAC clusters."
-  echo
-  echo '    [:octicons-arrow-right-24: Fluid Dynamics Software Catalog](fluid_dynamics_catalog.md)'
-  echo
   echo "-   :material-application:{ .lg .middle } __Audio/Visualization__"
   echo
   echo "    ---"
   echo
   echo "    Audio/Visualization software catalog of deployed applications on RCAC clusters."
-  echo 
+  echo
   echo '    [:octicons-arrow-right-24: Audio/Visualization Software Catalog](audio_visual_catalog.md)'
   echo
   echo "-   :simple-docker:{ .lg .middle } __Biocontainers__"
@@ -159,6 +119,54 @@ cluster_names=$(jq -r '[to_entries[] | .value.availability | keys[] | ascii_upca
   echo "    Check the catalog of all deployed biocontainers on RCAC clusters."
   echo
   echo '    [:octicons-arrow-right-24: Biocontainers](https://biocontainer-doc.readthedocs.io/)'
+  echo
+  echo "-   :material-application:{ .lg .middle } __Bioinformatics__"
+  echo
+  echo "    ---"
+  echo
+  echo "    Bioinformatics software catalog for genomics, transcriptomics, phylogenetics, and epigenomics workflows."
+  echo
+  echo '    [:octicons-arrow-right-24: Bioinformatics Catalog](bioinformatics_catalog.md)'
+  echo
+  echo "-   :material-application:{ .lg .middle } __Compilers__"
+  echo
+  echo "    ---"
+  echo
+  echo "    Compilers catalog of deployed applications on RCAC clusters."
+  echo
+  echo '    [:octicons-arrow-right-24: Compilers Catalog](compilers_catalog.md)'
+  echo
+  echo "-   :material-application:{ .lg .middle } __Computational Chemistry__"
+  echo
+  echo "    ---"
+  echo
+  echo "    Chemistry software catalog of deployed applications on RCAC clusters."
+  echo
+  echo '    [:octicons-arrow-right-24: Computational Chemistry Software Catalog](chemistry_catalog.md)'
+  echo
+  echo "-   :material-application:{ .lg .middle } __Engineering__"
+  echo
+  echo "    ---"
+  echo
+  echo "    Engineering tools and simulation software used for design and analysis."
+  echo
+  echo '    [:octicons-arrow-right-24: Engineering Catalog](engineering_catalog.md)'
+  echo
+  echo "-   :material-application:{ .lg .middle } __Fluid Dynamics__"
+  echo
+  echo "    ---"
+  echo
+  echo "    Fluid Dynamics software catalog of deployed applications on RCAC clusters."
+  echo
+  echo '    [:octicons-arrow-right-24: Fluid Dynamics Software Catalog](fluid_dynamics_catalog.md)'
+  echo
+  echo "-   :material-application:{ .lg .middle } __Geoscience__"
+  echo
+  echo "    ---"
+  echo
+  echo "    Geoscience modeling and analysis software for Earth and environmental research."
+  echo
+  echo '    [:octicons-arrow-right-24: Geoscience Catalog](geoscience_catalog.md)'
   echo
   echo "-   :material-application:{ .lg .middle } __Library__"
   echo
@@ -176,21 +184,21 @@ cluster_names=$(jq -r '[to_entries[] | .value.availability | keys[] | ascii_upca
   echo
   echo '    [:octicons-arrow-right-24: Mathematics/Statistics Catalog](math_stat_catalog.md)'
   echo
-  echo "-   :material-application:{ .lg .middle } __Engineering__"
+  echo "-   :material-application:{ .lg .middle } __MPIs__"
   echo
   echo "    ---"
   echo
-  echo "    Engineering tools and simulation software used for design and analysis."
+  echo "    MPI software catalog of deployed applications on RCAC clusters."
   echo
-  echo '    [:octicons-arrow-right-24: Engineering Catalog](engineering_catalog.md)'
+  echo '    [:octicons-arrow-right-24: MPIs Catalog](mpi_catalog.md)'
   echo
-  echo "-   :material-application:{ .lg .middle } __Geoscience__"
+  echo "-   :simple-nvidia:{ .lg .middle } __NGC Containers__"
   echo
   echo "    ---"
   echo
-  echo "    Geoscience modeling and analysis software for Earth and environmental research."
+  echo "    NVIDIA NGC GPU-accelerated container catalog deployed on RCAC clusters."
   echo
-  echo '    [:octicons-arrow-right-24: Geoscience Catalog](geoscience_catalog.md)'
+  echo '    [:octicons-arrow-right-24: NGC Containers](ngc_catalog.md)'
   echo
   echo "-   :material-application:{ .lg .middle } __Utilities__"
   echo

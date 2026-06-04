@@ -6,3 +6,5 @@ run:
 	./update_apps_descriptions_from_inventory.sh
 	./generate_md.sh
 	./update_apps_catalog.sh
+	./generate_ngc_md.sh
+	./update_ngc_catalog.sh

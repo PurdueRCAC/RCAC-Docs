@@ -9,53 +9,13 @@ hide:
 # Software and versions on RCAC clusters
 
 ## Overview
-As of **June 03, 2026**, there have been a total of **276** applications with **2531** available versions deployed across **6** RCAC HPC clusters: **ANVIL, BELL, GAUTSCHI, GILBRETH, NEGISHI, SCHOLAR**.
+As of **June 04, 2026**, there have been a total of **276** applications with **2531** available versions deployed across **6** RCAC HPC clusters: **ANVIL, BELL, GAUTSCHI, GILBRETH, NEGISHI, SCHOLAR**.
 
 You can see [**a full list of all software and version deployed on all RCAC clusters**](app_catalog.md), OR
 
 Check the software among popular domains below:
 
 <div class="grid cards" markdown>
-
--   :material-application:{ .lg .middle } __Compilers__
-
-    ---
-
-    Compilers catalog of deployed applications on RCAC clusters.
-
-    [:octicons-arrow-right-24: Compilers Catalog](compilers_catalog.md)
-
--   :material-application:{ .lg .middle } __MPIs__
-
-    ---
-
-    MPI software catalog of deployed applications on RCAC clusters.
-
-    [:octicons-arrow-right-24: MPIs Catalog](mpi_catalog.md)
-
--   :material-application:{ .lg .middle } __Bioinformatics__
-
-    ---
-
-    Bioinformatics software catalog for genomics, transcriptomics, phylogenetics, and epigenomics workflows.
-
-    [:octicons-arrow-right-24: Bioinformatics Catalog](bioinformatics_catalog.md)
-
--   :material-application:{ .lg .middle } __Computational Chemistry__
-
-    ---
-
-    Chemistry software catalog of deployed applications on RCAC clusters.
-
-    [:octicons-arrow-right-24: Computational Chemistry Software Catalog](chemistry_catalog.md)
-
--   :material-application:{ .lg .middle } __Fluid Dynamics__
-
-    ---
-
-    Fluid Dynamics software catalog of deployed applications on RCAC clusters.
-
-    [:octicons-arrow-right-24: Fluid Dynamics Software Catalog](fluid_dynamics_catalog.md)
 
 -   :material-application:{ .lg .middle } __Audio/Visualization__
 
@@ -73,6 +33,54 @@ Check the software among popular domains below:
 
     [:octicons-arrow-right-24: Biocontainers](https://biocontainer-doc.readthedocs.io/)
 
+-   :material-application:{ .lg .middle } __Bioinformatics__
+
+    ---
+
+    Bioinformatics software catalog for genomics, transcriptomics, phylogenetics, and epigenomics workflows.
+
+    [:octicons-arrow-right-24: Bioinformatics Catalog](bioinformatics_catalog.md)
+
+-   :material-application:{ .lg .middle } __Compilers__
+
+    ---
+
+    Compilers catalog of deployed applications on RCAC clusters.
+
+    [:octicons-arrow-right-24: Compilers Catalog](compilers_catalog.md)
+
+-   :material-application:{ .lg .middle } __Computational Chemistry__
+
+    ---
+
+    Chemistry software catalog of deployed applications on RCAC clusters.
+
+    [:octicons-arrow-right-24: Computational Chemistry Software Catalog](chemistry_catalog.md)
+
+-   :material-application:{ .lg .middle } __Engineering__
+
+    ---
+
+    Engineering tools and simulation software used for design and analysis.
+
+    [:octicons-arrow-right-24: Engineering Catalog](engineering_catalog.md)
+
+-   :material-application:{ .lg .middle } __Fluid Dynamics__
+
+    ---
+
+    Fluid Dynamics software catalog of deployed applications on RCAC clusters.
+
+    [:octicons-arrow-right-24: Fluid Dynamics Software Catalog](fluid_dynamics_catalog.md)
+
+-   :material-application:{ .lg .middle } __Geoscience__
+
+    ---
+
+    Geoscience modeling and analysis software for Earth and environmental research.
+
+    [:octicons-arrow-right-24: Geoscience Catalog](geoscience_catalog.md)
+
 -   :material-application:{ .lg .middle } __Library__
 
     ---
@@ -89,21 +97,21 @@ Check the software among popular domains below:
 
     [:octicons-arrow-right-24: Mathematics/Statistics Catalog](math_stat_catalog.md)
 
--   :material-application:{ .lg .middle } __Engineering__
+-   :material-application:{ .lg .middle } __MPIs__
 
     ---
 
-    Engineering tools and simulation software used for design and analysis.
+    MPI software catalog of deployed applications on RCAC clusters.
 
-    [:octicons-arrow-right-24: Engineering Catalog](engineering_catalog.md)
+    [:octicons-arrow-right-24: MPIs Catalog](mpi_catalog.md)
 
--   :material-application:{ .lg .middle } __Geoscience__
+-   :simple-nvidia:{ .lg .middle } __NGC Containers__
 
     ---
 
-    Geoscience modeling and analysis software for Earth and environmental research.
+    NVIDIA NGC GPU-accelerated container catalog deployed on RCAC clusters.
 
-    [:octicons-arrow-right-24: Geoscience Catalog](geoscience_catalog.md)
+    [:octicons-arrow-right-24: NGC Containers](ngc_catalog.md)
 
 -   :material-application:{ .lg .middle } __Utilities__
 
