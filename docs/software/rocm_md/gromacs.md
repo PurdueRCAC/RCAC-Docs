@@ -14,6 +14,7 @@ GROMACS is a molecular dynamics application designed to simulate Newtonian equat
 
 |Cluster|Versions|
 |---|---|
+**BELL**|2020.3, 2021.1.amd1, 2022.3.amd1
 **NEGISHI**|2020.3, 2022.3.amd1
 
 ## Module

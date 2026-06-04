@@ -15,6 +15,9 @@ NAMD is a parallel molecular dynamics code designed for high-performance simulat
 |Cluster|Versions|
 |---|---|
 **ANVIL**|3.0-alpha3-singlenode (D), 3.0.1
+**GAUTSCHI**|3.0-beta5
+**GILBRETH**|2.13-multinode, 2.13-singlenode (D), 3.0-alpha3-singlenode
+**SCHOLAR**|2.13-multinode, 2.13-singlenode (D), 3.0-alpha3-singlenode
 
 (D): Default Module
 

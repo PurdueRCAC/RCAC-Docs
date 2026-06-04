@@ -15,6 +15,9 @@ RELION (for REgularized LIkelihood OptimizatioN) implements an empirical Bayesia
 |Cluster|Versions|
 |---|---|
 **ANVIL**|3.1.0, 3.1.2, 3.1.3, 4.0.1, 5.0.0
+**GAUTSCHI**|2.1.b1, 3.0.8, 3.1.0, 3.1.2, 3.1.3, 4.0.1, 5.0.0
+**GILBRETH**|2.1.b1, 3.0.8, 3.1.0, 3.1.2, 3.1.3, 4.0.1, 5.0.0
+**SCHOLAR**|2.1.b1, 3.0.8, 3.1.0, 3.1.2, 3.1.3, 4.0.1, 5.0.0
 
 ## Module
 

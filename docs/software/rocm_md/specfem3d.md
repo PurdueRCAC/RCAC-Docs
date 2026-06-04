@@ -14,6 +14,7 @@ SPECFEM3D Cartesian simulates acoustic (fluid), elastic (solid), coupled acousti
 
 |Cluster|Versions|
 |---|---|
+**BELL**|20201122--h9c0626d1
 **NEGISHI**|20201122--h9c0626d1
 
 ## Module

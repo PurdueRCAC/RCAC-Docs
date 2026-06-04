@@ -14,6 +14,7 @@ HPCG is a HPC benchmark intended to better represent computational and data acce
 
 |Cluster|Versions|
 |---|---|
+**BELL**|3.1.amd1, 3.1.0
 **NEGISHI**|3.1.0
 
 ## Module

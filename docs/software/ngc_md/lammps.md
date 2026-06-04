@@ -15,6 +15,9 @@ Large-scale Atomic/Molecular Massively Parallel Simulator (LAMMPS) is a software
 |Cluster|Versions|
 |---|---|
 **ANVIL**|10Feb2021, 10Sep25_pytorch, 15Jun2020, 29Oct2020
+**GAUTSCHI**|15jun2023
+**GILBRETH**|10Feb2021, 15Jun2020, 15Jun2023, 24Oct2018, 29Oct2020
+**SCHOLAR**|10Feb2021, 15Jun2020, 24Oct2018, 29Oct2020
 
 ## Module
 

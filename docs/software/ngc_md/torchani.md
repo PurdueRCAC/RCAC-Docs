@@ -15,6 +15,8 @@ TODO: add description...
 |Cluster|Versions|
 |---|---|
 **ANVIL**|2021.04
+**GILBRETH**|2021.04
+**SCHOLAR**|2021.04
 
 ## Module
 

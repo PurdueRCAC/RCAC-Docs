@@ -15,6 +15,8 @@ NVIDIA's Clara Parabricks brings next generation sequencing to GPUs, acceleratin
 |Cluster|Versions|
 |---|---|
 **ANVIL**|4.0.0-1
+**GILBRETH**|4.0.0-1, 4.4.0-1
+**SCHOLAR**|4.0.0-1
 
 ## Module
 

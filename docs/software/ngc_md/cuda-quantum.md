@@ -15,6 +15,8 @@ CUDA Quantum is a comprehensive framework for quantum programming.
 |Cluster|Versions|
 |---|---|
 **ANVIL**|0.4.0, 0.8.0, 0.9.1
+**GAUTSCHI**|0.8.0, 0.9.1
+**GILBRETH**|0.4.0, 0.8.0, cu11-0.9.0, cu11-0.9.1, cu12-0.9.0, cu12-0.9.1
 
 ## Module
 

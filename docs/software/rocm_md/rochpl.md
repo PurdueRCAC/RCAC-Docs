@@ -14,6 +14,7 @@ HPL, or High-Performance Linpack, is a benchmark which solves a uniformly random
 
 |Cluster|Versions|
 |---|---|
+**BELL**|5.0.5, 6.0.amd0
 **NEGISHI**|5.0.5
 
 ## Module

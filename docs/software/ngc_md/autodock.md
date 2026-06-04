@@ -15,6 +15,8 @@ The AutoDock Suite is a growing collection of methods for computational docking 
 |Cluster|Versions|
 |---|---|
 **ANVIL**|2020.06
+**GILBRETH**|2020.06, 2025.11
+**SCHOLAR**|2020.06
 
 ## Module
 

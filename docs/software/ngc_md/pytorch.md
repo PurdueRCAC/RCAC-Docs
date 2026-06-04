@@ -15,6 +15,8 @@ PyTorch is a GPU accelerated tensor computational framework with a Python front 
 |Cluster|Versions|
 |---|---|
 **ANVIL**|20.06-py3, 20.11-py3, 20.12-py3, 21.06-py3, 21.09-py3
+**GILBRETH**|20.02-py3, 20.03-py3, 20.06-py3, 20.11-py3, 20.12-py3, 21.06-py3, 21.09-py3, 24.10-py3, 24.11-py3, 24.12-py3, 25.01-py3
+**SCHOLAR**|20.02-py3, 20.03-py3, 20.06-py3, 20.11-py3, 20.12-py3, 21.06-py3, 21.09-py3
 
 ## Module
 

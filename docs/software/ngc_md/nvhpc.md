@@ -15,6 +15,8 @@ TODO: add description...
 |Cluster|Versions|
 |---|---|
 **ANVIL**|20.7, 20.9, 20.11, 21.5, 21.9
+**GILBRETH**|20.7, 20.9, 20.11, 21.5, 21.9, 24.11, 25.1
+**SCHOLAR**|20.7, 20.9, 20.11, 21.5, 21.9
 
 ## Module
 
