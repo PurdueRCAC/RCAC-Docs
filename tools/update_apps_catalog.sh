@@ -200,6 +200,14 @@ cluster_names=$(jq -r '[to_entries[] | .value.availability | keys[] | ascii_upca
   echo
   echo '    [:octicons-arrow-right-24: NGC Containers](ngc_catalog.md)'
   echo
+  echo "-   :simple-amd:{ .lg .middle } __ROCm Containers__"
+  echo
+  echo "    ---"
+  echo
+  echo "    AMD ROCm GPU-accelerated container catalog deployed on RCAC clusters."
+  echo
+  echo '    [:octicons-arrow-right-24: ROCm Containers](rocm_catalog.md)'
+  echo
   echo "-   :material-application:{ .lg .middle } __Utilities__"
   echo
   echo "    ---"

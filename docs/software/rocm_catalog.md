@@ -7,7 +7,7 @@ search:
 
 # AMD ROCm containers
 
-![NGC=](/files/knowledge/software/amd_logo.png)
+![AMD ROCM Logo](../../assets/images/rocm_logo.png){ align=right width=250px }
 
 ## What is AMD ROCm
 
@@ -34,3 +34,63 @@ $ module avail
 ```
 
 ## Available ROCm Containers on RCAC Clusters
+
+<!-- ROCM_TABLE_START -->
+As of **June 04, 2026**, there have been a total of **12** ROCm containers with **19** available versions deployed across **1** RCAC HPC clusters: **NEGISHI**.
+
+<table id="rocmTable" class="tablefilter container-catalog-table">
+  <thead>
+    <tr><th scope="col"><strong>Container</strong></th><th scope="col"><strong>Available at</strong></th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="../rocm_md/cp2k"><strong>cp2k</strong></a></td>
+      <td>NEGISHI</td>
+    </tr>
+    <tr>
+      <td><a href="../rocm_md/deepspeed"><strong>deepspeed</strong></a></td>
+      <td>NEGISHI</td>
+    </tr>
+    <tr>
+      <td><a href="../rocm_md/gromacs"><strong>gromacs</strong></a></td>
+      <td>NEGISHI</td>
+    </tr>
+    <tr>
+      <td><a href="../rocm_md/lammps"><strong>lammps</strong></a></td>
+      <td>NEGISHI</td>
+    </tr>
+    <tr>
+      <td><a href="../rocm_md/namd"><strong>namd</strong></a></td>
+      <td>NEGISHI</td>
+    </tr>
+    <tr>
+      <td><a href="../rocm_md/openmm"><strong>openmm</strong></a></td>
+      <td>NEGISHI</td>
+    </tr>
+    <tr>
+      <td><a href="../rocm_md/pytorch"><strong>pytorch</strong></a></td>
+      <td>NEGISHI</td>
+    </tr>
+    <tr>
+      <td><a href="../rocm_md/rochpcg"><strong>rochpcg</strong></a></td>
+      <td>NEGISHI</td>
+    </tr>
+    <tr>
+      <td><a href="../rocm_md/rochpl"><strong>rochpl</strong></a></td>
+      <td>NEGISHI</td>
+    </tr>
+    <tr>
+      <td><a href="../rocm_md/specfem3d"><strong>specfem3d</strong></a></td>
+      <td>NEGISHI</td>
+    </tr>
+    <tr>
+      <td><a href="../rocm_md/specfem3d_globe"><strong>specfem3d_globe</strong></a></td>
+      <td>NEGISHI</td>
+    </tr>
+    <tr>
+      <td><a href="../rocm_md/tensorflow"><strong>tensorflow</strong></a></td>
+      <td>NEGISHI</td>
+    </tr>
+  </tbody>
+</table>
+<!-- ROCM_TABLE_END -->

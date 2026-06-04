@@ -8,3 +8,5 @@ run:
 	./update_apps_catalog.sh
 	./generate_ngc_md.sh
 	./update_ngc_catalog.sh
+	./generate_rocm_md.sh
+	./update_rocm_catalog.sh

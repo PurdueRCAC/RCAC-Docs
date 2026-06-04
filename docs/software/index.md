@@ -113,6 +113,14 @@ Check the software among popular domains below:
 
     [:octicons-arrow-right-24: NGC Containers](ngc_catalog.md)
 
+-   :simple-amd:{ .lg .middle } __ROCm Containers__
+
+    ---
+
+    AMD ROCm GPU-accelerated container catalog deployed on RCAC clusters.
+
+    [:octicons-arrow-right-24: ROCm Containers](rocm_catalog.md)
+
 -   :material-application:{ .lg .middle } __Utilities__
 
     ---

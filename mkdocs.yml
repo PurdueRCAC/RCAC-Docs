@@ -196,6 +196,7 @@ nav:
       - software/index.md
       - All Software: software/app_catalog.md
       - Audio/Visualization: software/audio_visual_catalog.md
+      - Biocontainers: https://biocontainer-doc.readthedocs.io
       - Bioinformatics: software/bioinformatics_catalog.md
       - Compilers: software/compilers_catalog.md
       - Computational Chemistry: software/chemistry_catalog.md
@@ -206,6 +207,7 @@ nav:
       - Mathematics/Statistics: software/math_stat_catalog.md
       - MPIs: software/mpi_catalog.md
       - NGC Containers: software/ngc_catalog.md
+      - ROCm Containers: software/rocm_catalog.md
       - Utilities: software/utilities_catalog.md
       - Workflow: software/workflow_catalog.md
     - Datasets:

@@ -4,14 +4,17 @@ document.addEventListener("DOMContentLoaded", function () {
   const appTable = document.getElementById('appTable');
   const datasetTable = document.getElementById('datasetTable');
   const ngcTable = document.getElementById('ngcTable');
+  const rocmTable = document.getElementById('rocmTable');
   const tableId = appTable ? 'appTable'
                 : (datasetTable ? 'datasetTable'
-                : (ngcTable ? 'ngcTable' : null));
+                : (ngcTable ? 'ngcTable'
+                : (rocmTable ? 'rocmTable' : null)));
 
   if (!tableId) return;  // No table found on this page
 
   const isDatasetTable = tableId === 'datasetTable';
-  const isNgcTable = tableId === 'ngcTable';
+  const isContainerTable = tableId === 'ngcTable' || tableId === 'rocmTable';
+  const isNgcTable = tableId === 'ngcTable';  // kept for compatibility
 
   // Count visible tbody rows directly from the DOM (reliable after any filter)
   function updateCounter() {
@@ -24,11 +27,11 @@ document.addEventListener("DOMContentLoaded", function () {
       if (row.style.display !== 'none') count++;
     });
     const label = isDatasetTable ? 'Dataset(s): '
-                : (isNgcTable ? 'Container(s): ' : 'Application(s): ');
+                : (isContainerTable ? 'Container(s): ' : 'Application(s): ');
     span.textContent = label + count;
   }
 
-  // NGC table has only 2 columns (Container, Available at); the others have 3.
+  // Container catalog tables (NGC, ROCm) have only 2 columns; the others have 3.
   var tfConfig = {
     base_path: '/assets/js/tablefilter/',
     paging: false,
@@ -46,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
     help_instructions: false,
     on_after_filter: updateCounter  // fires after every filter operation
   };
-  if (isNgcTable) {
+  if (isContainerTable) {
     tfConfig.watermark = ['Start typing...', 'Avalable cluster...'];
   } else {
     tfConfig.col_2 = 'input';    // Available at/Discipline → text input
@@ -123,7 +126,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (isDatasetTable) {
     buildTokensDropdown(1, 'Any Category');
     buildTokensDropdown(2, 'Any Discipline');
-  } else if (isNgcTable) {
+  } else if (isContainerTable) {
     buildTokensDropdown(1, 'Any Cluster');
   } else {
     buildTokensDropdown(1, 'Any Topic');

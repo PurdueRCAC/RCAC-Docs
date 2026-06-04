@@ -41,7 +41,7 @@ lammps/10Feb2021
 <!-- NGC_TABLE_START -->
 As of **June 04, 2026**, there have been a total of **16** NGC containers with **50** available versions deployed across **1** RCAC HPC clusters: **ANVIL**.
 
-<table id="ngcTable" class="tablefilter">
+<table id="ngcTable" class="tablefilter container-catalog-table">
   <thead>
     <tr><th scope="col"><strong>Container</strong></th><th scope="col"><strong>Available at</strong></th></tr>
   </thead>
