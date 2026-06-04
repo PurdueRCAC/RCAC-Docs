@@ -15,6 +15,8 @@ TensorFlow is an open-source software library for numerical computation using da
 |Cluster|Versions|
 |---|---|
 **ANVIL**|20.06-tf1-py3, 20.06-tf2-py3, 20.11-tf1-py3, 20.11-tf2-py3, 20.12-tf1-py3, 20.12-tf2-py3, 21.06-tf1-py3, 21.06-tf2-py3, 21.09-tf1-py3, 21.09-tf2-py3
+**GILBRETH**|20.02-tf1-py3, 20.02-tf2-py3, 20.03-tf1-py3, 20.03-tf2-py3, 20.06-tf1-py3, 20.06-tf2-py3, 20.11-tf1-py3, 20.11-tf2-py3, 20.12-tf1-py3, 20.12-tf2-py3, 21.06-tf1-py3, 21.06-tf2-py3, 21.09-tf1-py3, 21.09-tf2-py3, 24.10-tf2-py3, 24.11-tf2-py3, 24.12-tf2-py3, 25.01-tf2-py3
+**SCHOLAR**|20.02-tf1-py3, 20.02-tf2-py3, 20.03-tf1-py3, 20.03-tf2-py3, 20.06-tf1-py3, 20.06-tf2-py3, 20.11-tf1-py3, 20.11-tf2-py3, 20.12-tf1-py3, 20.12-tf2-py3, 21.06-tf1-py3, 21.06-tf2-py3, 21.09-tf1-py3, 21.09-tf2-py3
 
 ## Module
 

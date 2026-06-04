@@ -15,6 +15,8 @@ The RAPIDS suite of software libraries gives you the freedom to execute end-to-e
 |Cluster|Versions|
 |---|---|
 **ANVIL**|21.06, 21.10
+**GILBRETH**|0.12, 0.13, 0.14, 0.15, 0.16, 0.17, 21.06, 21.10, 23.06
+**SCHOLAR**|0.12, 0.13, 0.14, 0.15, 0.16, 0.17, 21.06, 21.10
 
 ## Module
 

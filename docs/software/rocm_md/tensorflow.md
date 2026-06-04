@@ -14,6 +14,7 @@ TensorFlow is an end-to-end open source platform for machine learning.
 
 |Cluster|Versions|
 |---|---|
+**BELL**|2.5-rocm4.2-dev, 2.7-rocm5.0-dev, 2.16.2-rocm6.3.1-py3.12-dev, 2.17.0-rocm6.3.1-py3.12-dev
 **NEGISHI**|2.5-rocm4.2-dev, 2.7-rocm5.0-dev
 
 ## Module

@@ -15,6 +15,8 @@ NVIDIA cuQuantum Appliance is a highly performant multi-GPU solution for quantum
 |Cluster|Versions|
 |---|---|
 **ANVIL**|23.03, 24.08
+**GAUTSCHI**|24.08
+**GILBRETH**|23.03, 24.08-cuda12.2.2
 
 ## Module
 

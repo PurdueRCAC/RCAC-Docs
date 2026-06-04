@@ -15,6 +15,8 @@ Quantum ESPRESSO is an integrated suite of Open-Source computer codes for electr
 |Cluster|Versions|
 |---|---|
 **ANVIL**|v6.6a1, v6.7, v7.1, v7.3.1
+**GILBRETH**|qe-7.1, qe-7.3.1, v6.6a1, v6.7, v7.1
+**SCHOLAR**|v6.6a1, v6.7
 
 ## Module
 

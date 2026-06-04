@@ -15,6 +15,8 @@ The Julia programming language is a flexible dynamic language, appropriate for s
 |Cluster|Versions|
 |---|---|
 **ANVIL**|v2.4.2
+**GILBRETH**|v1.5.0, v2.4.2
+**SCHOLAR**|v1.5.0, v2.4.2
 
 ## Module
 
