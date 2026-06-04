@@ -49,17 +49,16 @@ jobs:
           # Stage files we want to commit
           git add ../docs/software/apps_md ../docs/software/app_catalog.md ../docs/software/index.md apps_descriptions.json ../docs/software/ngc_md ../docs/software/ngc_catalog.md ../docs/software/rocm_md ../docs/software/rocm_catalog.md || true
 
-          # Stash remaining unstaged changes (make generates many files we don't commit)
-          # --keep-index leaves the staged files untouched
-          git stash --keep-index || true
+          # Stash everything (staged + unstaged) so rebase sees a fully clean tree
+          git stash || true
 
-          # Pull and rebase cleanly now that working tree is clean
+          # Pull and rebase cleanly
           git pull origin ${{ github.ref_name }} --rebase
 
-          # Restore stashed files (not committed, just put back for cleanliness)
-          git stash pop || true
+          # Restore stash and reinstate the index (staged) state
+          git stash pop --index || true
 
-          # Re-stage in case rebase touched our files
+          # Re-stage as a safety net in case pop --index couldn't restore the index
           git add ../docs/software/apps_md ../docs/software/app_catalog.md ../docs/software/index.md apps_descriptions.json ../docs/software/ngc_md ../docs/software/ngc_catalog.md ../docs/software/rocm_md ../docs/software/rocm_catalog.md || true
           
           git diff --cached --quiet && echo "No changes to commit" && exit 0
