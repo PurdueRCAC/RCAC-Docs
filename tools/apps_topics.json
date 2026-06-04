@@ -63,6 +63,9 @@
   "beast2": [
     "Miscellaneous"
   ],
+  "benchmarking": [
+    "Miscellaneous"
+  ],
   "berkeley-db": [
     "Miscellaneous"
   ],
@@ -625,6 +628,9 @@
     "Miscellaneous"
   ],
   "pcre2": [
+    "Miscellaneous"
+  ],
+  "pelican": [
     "Miscellaneous"
   ],
   "perl": [

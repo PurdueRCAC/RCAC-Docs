@@ -1,6 +1,6 @@
 {
   "abaqus": {
-    "description": "Abaqus is a commercial finite element analysis (FEA) software suite developed by Dassault Syst\u00e8mes SIMULIA. It is widely used in engineering and scientific applications to simulate the behavior of structures and materials under various conditions, including static, dynamic, thermal, and multiphysics environments. Abaqus supports advanced nonlinear analysis, contact modeling, composite materials, and coupled simulations with fluid dynamics or electromagnetics. It is particularly valued in aerospace, automotive, and civil engineering industries, as well as academic research requiring high-fidelity structural simulations.",
+    "description": "Abaqus is a commercial finite element analysis (FEA) software suite developed by Dassault Systèmes SIMULIA. It is widely used in engineering and scientific applications to simulate the behavior of structures and materials under various conditions, including static, dynamic, thermal, and multiphysics environments. Abaqus supports advanced nonlinear analysis, contact modeling, composite materials, and coupled simulations with fluid dynamics or electromagnetics. It is particularly valued in aerospace, automotive, and civil engineering industries, as well as academic research requiring high-fidelity structural simulations.",
     "homepage": "https://www.3ds.com/products-services/simulia/products/abaqus/",
     "source": "curated",
     "topic": [
@@ -1927,7 +1927,7 @@
     ]
   },
   "tbb": {
-    "description": "Intel\u00ae oneAPI Threading Building Blocks (oneTBB)",
+    "description": "Intel® oneAPI Threading Building Blocks (oneTBB)",
     "homepage": null,
     "source": "pypi",
     "topic": [
@@ -2309,6 +2309,22 @@
     "source": "spack",
     "topic": [
       "Utilities"
+    ]
+  },
+  "benchmarking": {
+    "description": "Simple benchmark framework (in active development)",
+    "homepage": null,
+    "source": "pypi",
+    "topic": [
+      "Miscellaneous"
+    ]
+  },
+  "pelican": {
+    "description": "The Pelican command line tool allows one to use a Pelican federation as a client and serve datasets through running a Pelican origin service.",
+    "homepage": "https://pelicanplatform.org/",
+    "source": "spack",
+    "topic": [
+      "Miscellaneous"
     ]
   }
 }
