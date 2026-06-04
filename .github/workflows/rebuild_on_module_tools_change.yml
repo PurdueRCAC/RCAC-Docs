@@ -47,7 +47,7 @@ jobs:
           GITHUB_APP_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
           # Stage files we want to commit
-          git add ../docs/software/apps_md ../docs/software/app_catalog.md ../docs/software/index.md apps_descriptions.json || true
+          git add ../docs/software/apps_md ../docs/software/app_catalog.md ../docs/software/index.md apps_descriptions.json ../docs/software/ngc_md ../docs/software/ngc_catalog.md ../docs/software/rocm_md ../docs/software/rocm_catalog.md || true
 
           # Stash remaining unstaged changes (make generates many files we don't commit)
           # --keep-index leaves the staged files untouched
@@ -60,7 +60,7 @@ jobs:
           git stash pop || true
 
           # Re-stage in case rebase touched our files
-          git add ../docs/software/apps_md ../docs/software/app_catalog.md ../docs/software/index.md apps_descriptions.json || true
+          git add ../docs/software/apps_md ../docs/software/app_catalog.md ../docs/software/index.md apps_descriptions.json ../docs/software/ngc_md ../docs/software/ngc_catalog.md ../docs/software/rocm_md ../docs/software/rocm_catalog.md || true
           
           git diff --cached --quiet && echo "No changes to commit" && exit 0
           git commit -m "Auto-update app catalog and markdown files"
