@@ -432,35 +432,45 @@
     "Software",
     "All Software"
   ],
-  "/software/compilers_catalog/": [
+  "/software/audio_visual_catalog/": [
     "Home",
     "Software",
-    "Compilers"
+    "Audio/Visualization"
   ],
-  "/software/mpi_catalog/": [
+  "/https://biocontainer-doc.readthedocs.io": [
     "Home",
     "Software",
-    "MPIs"
+    "Biocontainers"
   ],
   "/software/bioinformatics_catalog/": [
     "Home",
     "Software",
     "Bioinformatics"
   ],
+  "/software/compilers_catalog/": [
+    "Home",
+    "Software",
+    "Compilers"
+  ],
   "/software/chemistry_catalog/": [
     "Home",
     "Software",
     "Computational Chemistry"
+  ],
+  "/software/engineering_catalog/": [
+    "Home",
+    "Software",
+    "Engineering"
   ],
   "/software/fluid_dynamics_catalog/": [
     "Home",
     "Software",
     "Fluid Dynamics"
   ],
-  "/software/audio_visual_catalog/": [
+  "/software/geoscience_catalog/": [
     "Home",
     "Software",
-    "Audio/Visualization"
+    "Geoscience"
   ],
   "/software/library_catalog/": [
     "Home",
@@ -472,15 +482,20 @@
     "Software",
     "Mathematics/Statistics"
   ],
-  "/software/engineering_catalog/": [
+  "/software/mpi_catalog/": [
     "Home",
     "Software",
-    "Engineering"
+    "MPIs"
   ],
-  "/software/geoscience_catalog/": [
+  "/software/ngc_catalog/": [
     "Home",
     "Software",
-    "Geoscience"
+    "NGC Containers"
+  ],
+  "/software/rocm_catalog/": [
+    "Home",
+    "Software",
+    "ROCm Containers"
   ],
   "/software/utilities_catalog/": [
     "Home",
