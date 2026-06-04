@@ -104,11 +104,12 @@ th, td {
     background-color: hsla(var(--md-hue),25%,25%,1)
 }
 
-/* ===== App Catalog Table (#appTable) and Dataset Catalog Table (#datasetTable) ===== */
+/* ===== App Catalog (#appTable), Dataset Catalog (#datasetTable), container catalogs (.container-catalog-table) ===== */
 
 /* Base table */
 #appTable,
-#datasetTable {
+#datasetTable,
+.container-catalog-table {
   width: 100%;
   border-collapse: collapse;
   font-size: 0.78rem;
@@ -118,7 +119,9 @@ th, td {
 #appTable th,
 #appTable td,
 #datasetTable th,
-#datasetTable td {
+#datasetTable td,
+.container-catalog-table th,
+.container-catalog-table td {
   background-color: var(--md-default-bg-color) !important;
   color: var(--md-default-fg-color) !important;
   border: 1px solid var(--md-typeset-table-color, rgba(0, 0, 0, 0.12));
@@ -128,7 +131,8 @@ th, td {
 
 /* Column header row (Application / Topic / Available at) */
 #appTable thead tr:not(.fltrow) th,
-#datasetTable thead tr:not(.fltrow) th {
+#datasetTable thead tr:not(.fltrow) th,
+.container-catalog-table thead tr:not(.fltrow) th {
   background-color: var(--md-default-fg-color--lightest) !important;
   font-weight: 600;
   white-space: nowrap;
@@ -136,7 +140,8 @@ th, td {
 
 /* Column header with an active filter */
 #appTable thead tr:not(.fltrow) th.activeHeader,
-#datasetTable thead tr:not(.fltrow) th.activeHeader {
+#datasetTable thead tr:not(.fltrow) th.activeHeader,
+.container-catalog-table thead tr:not(.fltrow) th.activeHeader {
   background-color: var(--md-typeset-table-color) !important;
   color: var(--md-default-fg-color) !important;
 }
@@ -145,7 +150,9 @@ th, td {
 #appTable .fltrow th,
 #appTable .fltrow td,
 #datasetTable .fltrow th,
-#datasetTable .fltrow td {
+#datasetTable .fltrow td,
+.container-catalog-table .fltrow th,
+.container-catalog-table .fltrow td {
   background-color: var(--md-default-bg-color) !important;
   color: var(--md-default-fg-color) !important;
   border: 1px solid var(--md-typeset-table-color, rgba(0, 0, 0, 0.12));
@@ -161,6 +168,10 @@ th, td {
 #datasetTable .flt_s,
 #datasetTable .fltrow input,
 #datasetTable .fltrow select,
+.container-catalog-table .flt,
+.container-catalog-table .flt_s,
+.container-catalog-table .fltrow input,
+.container-catalog-table .fltrow select,
 .tf-token-select {
   background-color: var(--md-default-bg-color) !important;
   color: var(--md-default-fg-color) !important;
@@ -180,6 +191,10 @@ th, td {
 #datasetTable .flt_s:focus,
 #datasetTable .fltrow input:focus,
 #datasetTable .fltrow select:focus,
+.container-catalog-table .flt:focus,
+.container-catalog-table .flt_s:focus,
+.container-catalog-table .fltrow input:focus,
+.container-catalog-table .fltrow select:focus,
 .tf-token-select:focus {
   outline: 2px solid var(--md-accent-fg-color);
   outline-offset: -1px;
@@ -187,13 +202,15 @@ th, td {
 
 /* Alternating body rows */
 #appTable tbody tr:nth-child(even) td,
-#datasetTable tbody tr:nth-child(even) td {
+#datasetTable tbody tr:nth-child(even) td,
+.container-catalog-table tbody tr:nth-child(even) td {
   background-color: var(--md-code-bg-color) !important;
 }
 
 /* Row hover */
 #appTable tbody tr:hover td,
-#datasetTable tbody tr:hover td {
+#datasetTable tbody tr:hover td,
+.container-catalog-table tbody tr:hover td {
   background-color: var(--md-default-fg-color--lightest) !important;
 }
 
@@ -227,14 +244,17 @@ th, td {
 #appTable td,
 #appTable th,
 #datasetTable td,
-#datasetTable th {
+#datasetTable th,
+.container-catalog-table td,
+.container-catalog-table th {
   white-space: normal;
   overflow-wrap: anywhere;
   text-overflow: clip;
 }
 .md-typeset__table pre,
 #appTable pre,
-#datasetTable pre {
+#datasetTable pre,
+.container-catalog-table pre {
   white-space: pre-wrap !important;
   word-break: break-word;
   overflow-x: auto;
