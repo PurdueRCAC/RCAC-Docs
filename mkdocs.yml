@@ -203,7 +203,15 @@ nav:
         - Common Scenarios: userguides/depot/permissions/scenarios.md
         - Unix Groups: userguides/depot/permissions/unixgroups.md
       - Frequently Asked Questions: userguides/depot/faqs.md
-    - Fortress: https://www.rcac.purdue.edu/knowledge/fortress
+    - Fortress:
+      - userguides/fortress/index.md
+      - Overview: userguides/fortress/overview.md
+      - Accounts: userguides/fortress/accounts.md
+      - File Storage and Transfer:
+        - userguides/fortress/storage/index.md
+        - Sharing Files: userguides/fortress/storage/sharing.md
+        - File Transfer: userguides/fortress/storage/transfer/index.md
+      - Frequently Asked Questions: userguides/fortress/faqs.md
     - Scratch: https://www.rcac.purdue.edu/knowledge/scratch
     - Home Directory: https://www.rcac.purdue.edu/knowledge/home
     - REED Folder: https://www.rcac.purdue.edu/knowledge/reedfolder
