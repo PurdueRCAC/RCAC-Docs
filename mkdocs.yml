@@ -183,7 +183,26 @@ nav:
     - Rossmann: https://www.rcac.purdue.edu/knowledge/rossmann
     - Weber: https://www.rcac.purdue.edu/knowledge/weber
   - Storage User Guides:
-    - Data Depot: https://www.rcac.purdue.edu/knowledge/depot
+    - Data Depot:
+      - userguides/depot/index.md
+      - Overview: userguides/depot/overview.md
+      - File Storage and Transfer:
+        - userguides/depot/storage/index.md
+        - Archive and Compression: userguides/depot/storage/compress.md
+        - File Transfer: userguides/depot/storage/transfer.md
+        - Sharing Files: userguides/depot/storage/sharing.md
+      - Lost File Recovery:
+        - userguides/depot/recover/index.md
+        - flost Tool: userguides/depot/recover/flost.md
+        - Manual Browsing: userguides/depot/recover/manual.md
+        - Windows: userguides/depot/recover/windows.md
+        - Mac OS X: userguides/depot/recover/mac.md
+      - Access Permissions and Directories:
+        - userguides/depot/permissions/index.md
+        - Default Configuration: userguides/depot/permissions/default.md
+        - Common Scenarios: userguides/depot/permissions/scenarios.md
+        - Unix Groups: userguides/depot/permissions/unixgroups.md
+      - Frequently Asked Questions: userguides/depot/faqs.md
     - Fortress: https://www.rcac.purdue.edu/knowledge/fortress
     - Scratch: https://www.rcac.purdue.edu/knowledge/scratch
     - Home Directory: https://www.rcac.purdue.edu/knowledge/home

@@ -46,6 +46,12 @@ BREADCRUMB_TITLE_OVERRIDES = {
     "Geddes": "Geddes User Guide",
     "Hammer": "Hammer User Guide",
     "Rossmann": "Rossmann User Guide",
+    "Data Depot": "Data Depot User Guide",
+    "Fortress": "Fortress User Guide",
+    "Scratch": "Scratch User Guide",
+    "Home Directory": "Home Directory User Guide",
+    "REED Folder": "REED Folder User Guide",
+    "Box Research Lab Folder": "Box Research Lab Folder User Guide",
 }
 
 # ----------------------------
