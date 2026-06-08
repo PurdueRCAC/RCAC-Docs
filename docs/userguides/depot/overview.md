@@ -22,9 +22,9 @@ The Data Depot offers research groups in need of centralized data storage unique
 
 - **Accessible**
 
-    - As a [Windows or Mac OS X network drive](storage/transfer/cifs.md) on personal and lab computers on campus.
+    - As a [Windows or Mac OS X network drive](storage/transfer.md#windows-network-drive--smb) on personal and lab computers on campus.
     - Directly on Community Cluster nodes.
-    - From other universities or labs [through Globus](storage/transfer/globus.md).
+    - From other universities or labs [through Globus](./storage/transfer.md#globus).
 
 - **Capable**
 
@@ -32,7 +32,7 @@ The Data Depot offers research groups in need of centralized data storage unique
 
 - **Controllable Access**
 
-    Access management is under your direct control. Unix groups can be created for your group and staff can assist you in setting appropriate permissions to allow exactly the access you want and prevent any you do not. Easily manage who has access through [a simple web application](/account/groups) — the same application used to manage access to Community Cluster queues.
+    Access management is under your direct control. Unix groups can be created for your group and staff can assist you in setting appropriate permissions to allow exactly the access you want and prevent any you do not. Easily manage who has access through [a simple web application](https://www.rcac.purdue.edu/account/myinfo) — the same application used to manage access to Community Cluster queues.
 
 - **Data Retention**
 

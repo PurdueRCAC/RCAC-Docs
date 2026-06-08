@@ -1,6 +1,6 @@
 ---
 tags:
-  - Data Depot
+  - Home Directory
 authors:
   - jin456
 search:
