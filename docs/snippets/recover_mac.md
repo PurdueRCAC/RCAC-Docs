@@ -20,4 +20,3 @@ To use the automated command-line tool, log into a compute cluster or into the h
 
 Once logged in use the [flost](flost.md) tool as described above. The tool will guide you through the process and show you the commands necessary to retrieve your lost file.
 
-[**Back to the Lost File Recovery section**](../recover.md)

@@ -89,4 +89,3 @@ You may also search through the snapshots by hand on the {CLUSTER} filesystem if
 
     Once you find the file you are looking for, use `cp` to copy the file back into your lab's live {CLUSTER} space. **Do not attempt to modify files directly in the snapshot directories.**
 
-[**Back to the Lost File Recovery section**](../recover.md)

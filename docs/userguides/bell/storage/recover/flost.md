@@ -9,3 +9,5 @@ search:
 ---
 
 {{ recover_flost_snippet(resource) }}
+
+[**Back to the Lost File Recovery section**](../recover.md)
