@@ -716,6 +716,30 @@ $ module show mymodulename
         return content.replace("{CLUSTER}", resource.title()).replace("{cluster}", resource.lower())
 
     @env.macro
+    def recover_flost_snippet(resource):
+        with open("docs/snippets/recover_flost.md", "r") as f:
+            content = f.read()
+        return content.replace("{CLUSTER}", resource.title()).replace("{cluster}", resource.lower())
+
+    @env.macro
+    def recover_mac_snippet(resource):
+        with open("docs/snippets/recover_mac.md", "r") as f:
+            content = f.read()
+        return content.replace("{CLUSTER}", resource.title()).replace("{cluster}", resource.lower())
+
+    @env.macro
+    def recover_windows_snippet(resource):
+        with open("docs/snippets/recover_windows.md", "r") as f:
+            content = f.read()
+        return content.replace("{CLUSTER}", resource.title()).replace("{cluster}", resource.lower())
+
+    @env.macro
+    def recover_manual_snippet(resource):
+        with open("docs/snippets/recover_manual.md", "r") as f:
+            content = f.read()
+        return content.replace("{CLUSTER}", resource.title()).replace("{cluster}", resource.lower())
+
+    @env.macro
     def resource_use(resource):
         with open("docs/snippets/resourceuse.md", "r") as f:
             lines = f.readlines()
