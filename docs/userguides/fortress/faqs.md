@@ -129,7 +129,7 @@ Error - authentication/initialization failed
 
 The root cause for these errors is an expired or non-existent keytab file (a special authentication token stored in your home directory). These keytabs are valid for 90 days and on most RCAC resources they are usually automatically checked and regenerated when you execute `hsi` or `htar` commands. However, if the keytab is invalid, or fails to generate, Fortress may be unable to authenticate you and you would see the above errors. This is especially common on those RCAC clusters that have their own dedicated home directories (such as Bell), or on standalone installations (such as if you downloaded and installed HSI and HTAR on your non-RCAC computer).
 
-The recommended workaround is to generate a new valid keytab file in your main research computing home directory, and then copy it to your home directory on Fortress. The `fortresskey` command is used to generate the keytab and can be executed on another cluster or a dedicated data management host `data.rcac.purdue.edu`:
+*This is a temporary problem and a permanent system-wide solution is being developed.* In the interim, the recommended workaround is to generate a new valid keytab file in your main research computing home directory, and then copy it to your home directory on Fortress. The `fortresskey` command is used to generate the keytab and can be executed on another cluster or a dedicated data management host `data.rcac.purdue.edu`:
 
 ```
 $ ssh username@data.rcac.purdue.edu fortresskey
