@@ -1,10 +1,10 @@
 ---
 tags:
-  - Gilbreth
+  - Gautschi
 authors:
   - jin456
-  - verburgt
-resource: Gilbreth
+  - remender
+resource: Gautschi
 search:
   boost: 2
 ---
