@@ -74,7 +74,7 @@ Selecting any of these will bring you to a submission page to specify the accoun
     ![Screenshot of a Jypyter server running in-browser](../../assets/images/userguides/scholar/spark/spark_jupyter_1.png)
 
     The default kernels (Python, R, Julia) available on Jupyter Spark are all `aarch64` compatible. Users are also able to install their own kernels from conda environments via 
-    ```
+    ```bash linenums="0"
     python -m ipykernel install --user --name envname --display-name "Python (envname)"
     ``` 
     
@@ -104,13 +104,13 @@ To request resources on Spark nodes specifically, you need use a Spark specific 
 
     This can be specified via the command line options:
     
-    ```
+    ``` linenums="0"
     --account=spark
     ``` 
 
     or 
     
-    ```
+    ``` linenums="0"
     -A spark
     ``` 
 
@@ -129,13 +129,13 @@ To request resources on Spark nodes specifically, you need use a Spark specific 
 
     These can also be specified via command line options:
 
-    ```
+    ``` linenums="0"
     --partition=spark-interactive
     ```
     
     or 
     
-    ```
+    ``` linenums="0"
     -P spark-batch
     ```
 
@@ -150,7 +150,7 @@ To request resources on Spark nodes specifically, you need use a Spark specific 
 The following script requests a batch job with 10 cores and 1 gpu for a 1 hour duration
 
 
-```bash title="example_spark_job.sub"
+```bash title="example_spark_job.sub" linenums="0"
 #!/bin/bash
 #SBATCH  --account=spark
 #SBATCH  --partition=spark-batch
@@ -168,7 +168,7 @@ hostnamectl | grep "Hardware Model"
 
 You can submit this job to the Slurm scheduler with the command
 
-```bash
+```bash linenums="0"
 sbatch example_spark_job.sub
 ```
 
@@ -181,7 +181,7 @@ Alternatively, you can request an interactive shell on a Spark node via the `sin
 
 In the example below, running `sinteractive` on a frontend node, results in a shell running on `scholar-l005`
 
-```text hl_lines="1 8"
+```text hl_lines="1 8" linenums="0"
 username@scholar-fe00 ~ $ sinteractive -A spark --partition=spark-interactive --time=0-1:00:00  --nodes=1 --cpus-per-task=10 --gres=gpu:1
 salloc: Pending job allocation 456808
 salloc: job 456808 queued and waiting for resources
@@ -204,7 +204,7 @@ On Spark nodes, which contain `aarch64` architecture, **you must have the spark 
 Once the Spark module tree is loaded, users can see available modules with the `module avail` command:
 
 
-``` bash
+``` bash linenums="0"
 module load modtree/spark
 module avail
 
@@ -233,9 +233,46 @@ module avail
 !!! warning "**Important:** Scholar-Spark Nodes have aarch64 architecture"
     Programs built for `x86_64` architecture will **NOT** be able to run on Scholar-Spark. This includes all modules loaded in the `rcac` and `modtree/all` module trees. We provide a separate module tree with `aarch64` built programs that can be loaded with:
 
-    ```bash
+    ```bash linenums="0"
     module load  modtree/spark
     ```
+
+### Example: Pytorch Conda Environment
+
+Load Necessary Modules:
+
+```bash linenums="0"
+module load modtree/spark
+module load conda
+```
+
+Create environment (Placed in `~/.conda/envs_aarch64/` by default):
+
+```bash linenums="0"
+conda create -n "torch_test" python pip --yes
+conda activate torch_test
+pip3 install torch torchvision
+
+# (optional) Add jupyter kernel (to ~/.local/share/jupyter/kernels)
+conda install ipykernel --yes
+python -m ipykernel install --user --name torch_test --display-name "Python (torch_test)"
+```
+
+Test:
+```bash linenums="0"
+python -c "import torch; print(torch.cuda.is_available()); A = torch.zeros([100,100], device='cuda:0'); print(A)"
+```
+
+```text linenums="0"
+True
+tensor([[0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        ...,
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.]], device='cuda:0')
+```
 
 
 ## FAQs
@@ -253,7 +290,7 @@ If the `hostname` command returns either `scholar-lXXX.rcac.purdue.edu` or `scho
 
 Error messages like `cannot execute binary file: Exec format error` are caused when you try running an `x86_64` application on a host with `aarch64` architecture. If you are using centrally installed applications, please ensure you are using the `spark` modules, which can be loaded with: 
 
-```bash
+```bash linenums="0"
 module load modtree/spark
 ```
 
