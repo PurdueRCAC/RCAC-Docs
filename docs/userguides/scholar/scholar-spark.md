@@ -22,7 +22,7 @@ All Spark nodes run the Ubuntu 24.04 LTS operating system.
 
 ## Layout
 
-The Spark nodes are a subset of the broader Scholar instructional cluster. Because of this, there are not dedicated front-end nodes. Instead, users can perform work interactively on a "spark interactive" node. Further, being a subset of Scholar, the Spark nodes share the same Slurm scheduler and filesystems (`/home`, `/scratch`, `/depot`, `/class`, and `/apps`) as the broader Scholar cluster. 
+The Spark nodes are a subset of the broader Scholar instructional cluster. Because of this, there are not dedicated front-end nodes. Instead, users can perform work interactively on a "spark interactive" node. Further, being a subset of Scholar, the Spark nodes share the same Slurm scheduler and filesystems (`/home`, `/scratch`, `/depot`, `/class`, and `/apps`) as the broader Scholar cluster. See the [Storage Systems](./storage.md) user guide page for more details!
 
 ### Partitions
 The spark nodes are are split into two partitions in the back-end nodes:
@@ -31,7 +31,7 @@ The spark nodes are are split into two partitions in the back-end nodes:
     * Spark Interactive nodes are "oversubscribed" and are available for immediate access by students and researchers through the Slurm scheduler.
     * These are a shared environment that is useful for interactive work and staging heavier computational work.
 * **Spark Batch**
-    * These nodes allow you to request resources exclusive to you through the Slurm scheduler.
+    * These nodes function like traditional back-end compute nodes, and allow you to request resources exclusive to you through the Slurm scheduler.
     * If the resources you requested are not available, your job will be queued and will run when resources become available.
 
 !!! question 
@@ -123,7 +123,7 @@ To request resources on Spark nodes specifically, you need use a Spark specific 
         * Spark Interactive nodes are "oversubscribed" and are available for immediate access by students and researchers through the Slurm scheduler.
         * These are a shared environment that is useful for interactive work and staging heavier computational work.
     * `spark-batch`
-        * These nodes allow you to request resources exclusive to you through the Slurm scheduler.
+        * These nodes function like traditional back-end compute nodes, and allow you to request resources exclusive to you through the Slurm scheduler.
         * If the resources you requested are not available, your job will be queued and will run when resources become available.
 
 
@@ -141,7 +141,7 @@ To request resources on Spark nodes specifically, you need use a Spark specific 
 
 
 !!! question
-    **TODO** Hoa are GPU gres going to be managed when submitting to oversubscribed spark-interactive nodes? Can they all be allocated the same GPU?
+    **TODO** How are GPU gres going to be managed when submitting to oversubscribed spark-interactive nodes? Can they all be allocated the same GPU?
 
 --- 
 
@@ -179,7 +179,7 @@ sbatch example_spark_job.sub
 
 Alternatively, you can request an interactive shell on a Spark node via the `sinteractive` command. The submission options are identical to batch submission, but you will instead be placed in an interactive shell running on a Spark node.
 
-In the example below, running `sinteractive` on a frontend node, results in a shell running on `scholar-l005`
+In the example below, running `sinteractive` on a frontend node results in a shell running on `scholar-l005`. Make sure that the correct module tree is loaded on Spark nodes!
 
 ```text hl_lines="1 8" linenums="0"
 username@scholar-fe00 ~ $ sinteractive -A spark --partition=spark-interactive --time=0-1:00:00  --nodes=1 --cpus-per-task=10 --gres=gpu:1
@@ -190,6 +190,7 @@ salloc: Granted job allocation 456808
 salloc: Waiting for resource configuration
 salloc: Nodes scholar-l005 are ready for job
 username@scholar-l005 ~ $ 
+username@scholar-l005 ~ $ module load modtree/spark
 ```
 
 ---
@@ -246,7 +247,7 @@ module load modtree/spark
 module load conda
 ```
 
-Create environment (Placed in `~/.conda/envs_aarch64/` by default):
+Create Environment (Placed in `~/.conda/envs_aarch64/` by default):
 
 ```bash linenums="0"
 conda create -n "torch_test" python pip --yes
@@ -262,7 +263,6 @@ Test:
 ```bash linenums="0"
 python -c "import torch; print(torch.cuda.is_available()); A = torch.zeros([100,100], device='cuda:0'); print(A)"
 ```
-
 ```text linenums="0"
 True
 tensor([[0., 0., 0.,  ..., 0., 0., 0.],
