@@ -1,0 +1,197 @@
+/* ==========================================================================
+ * RCAC System Status / Outage Widget — styles
+ * Inherits Material for MkDocs design tokens (colors, fonts, shadows),
+ * so it follows the site's light/dark scheme automatically.
+ * ========================================================================== */
+
+#rcac-outage-widget {
+  position: fixed;
+  right: 1rem;
+  bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+  z-index: 5; /* above content, below Material dialogs/search overlay */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+  font-family: var(--md-text-font-family, "Roboto", sans-serif);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Status colors (WCAG-checked on white and on slate backgrounds) */
+#rcac-outage-widget {
+  --ow-ok: #2e7d32;
+  --ow-warn: #b26a00;
+  --ow-error: #c62828;
+}
+[data-md-color-scheme="slate"] #rcac-outage-widget {
+  --ow-ok: #66bb6a;
+  --ow-warn: #ffb74d;
+  --ow-error: #ef5350;
+}
+
+#rcac-outage-widget[data-level="ok"]    { --ow-status: var(--ow-ok); }
+#rcac-outage-widget[data-level="warn"]  { --ow-status: var(--ow-warn); }
+#rcac-outage-widget[data-level="error"] { --ow-status: var(--ow-error); }
+
+/* --- Pill ----------------------------------------------------------- */
+.rcac-ow-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.9rem;
+  border: 1px solid color-mix(in srgb, var(--ow-status) 45%, transparent);
+  border-radius: 999px;
+  background: var(--md-default-bg-color, #fff);
+  color: var(--md-typeset-color, #000);
+  font: inherit;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  box-shadow: var(--md-shadow-z2, 0 2px 8px rgba(0, 0, 0, 0.2));
+  transition: box-shadow 0.15s, transform 0.15s;
+}
+.rcac-ow-pill:hover,
+.rcac-ow-pill:focus-visible {
+  box-shadow: var(--md-shadow-z3, 0 4px 12px rgba(0, 0, 0, 0.25));
+  transform: translateY(-1px);
+}
+.rcac-ow-pill:focus-visible {
+  outline: 2px solid var(--md-accent-fg-color, #526cfe);
+  outline-offset: 2px;
+}
+
+.rcac-ow-dot {
+  width: 0.55rem;
+  height: 0.55rem;
+  flex: none;
+  border-radius: 50%;
+  background: var(--ow-status);
+}
+#rcac-outage-widget[data-level="error"] .rcac-ow-dot {
+  animation: rcac-ow-pulse 1.6s ease-in-out infinite;
+}
+@keyframes rcac-ow-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--ow-status) 45%, transparent); }
+  50%      { box-shadow: 0 0 0 5px transparent; }
+}
+
+/* --- Panel ----------------------------------------------------------- */
+.rcac-ow-panel {
+  width: min(21rem, calc(100vw - 2rem));
+  max-height: min(24rem, 70vh);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 0.4rem;
+  border-top: 3px solid var(--ow-status);
+  background: var(--md-default-bg-color, #fff);
+  color: var(--md-typeset-color, #000);
+  box-shadow: var(--md-shadow-z3, 0 4px 16px rgba(0, 0, 0, 0.25));
+  font-size: 0.65rem;
+  line-height: 1.45;
+}
+.rcac-ow-panel[hidden] { display: none; }
+
+.rcac-ow-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 0.8rem 0.3rem;
+}
+.rcac-ow-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+.rcac-ow-close {
+  border: 0;
+  background: none;
+  color: var(--md-default-fg-color--light, #0009);
+  font-size: 1rem;
+  line-height: 1;
+  padding: 0.1rem 0.3rem;
+  cursor: pointer;
+  border-radius: 0.2rem;
+}
+.rcac-ow-close:hover { color: var(--md-typeset-color, #000); }
+.rcac-ow-close:focus-visible {
+  outline: 2px solid var(--md-accent-fg-color, #526cfe);
+}
+
+.rcac-ow-body {
+  padding: 0 0.8rem 0.4rem;
+  overflow-y: auto;
+}
+
+.rcac-ow-section {
+  margin: 0.5rem 0 0.2rem;
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.rcac-ow-section.is-error { color: var(--ow-error); }
+.rcac-ow-section.is-warn  { color: var(--ow-warn); }
+
+.rcac-ow-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.rcac-ow-list li + li {
+  border-top: 1px solid var(--md-default-fg-color--lightest, #0000001f);
+}
+.rcac-ow-list a {
+  display: block;
+  padding: 0.45rem 0.2rem;
+  color: inherit;
+  text-decoration: none;
+  border-radius: 0.2rem;
+}
+.rcac-ow-list a:hover .rcac-ow-item-title,
+.rcac-ow-list a:focus-visible .rcac-ow-item-title {
+  color: var(--md-accent-fg-color, #526cfe);
+  text-decoration: underline;
+}
+.rcac-ow-item-title {
+  display: block;
+  font-weight: 600;
+}
+.rcac-ow-item-meta {
+  display: block;
+  margin-top: 0.1rem;
+  color: var(--md-default-fg-color--light, #0009);
+  font-size: 0.6rem;
+}
+
+.rcac-ow-empty {
+  margin: 0.4rem 0 0.6rem;
+  color: var(--md-default-fg-color--light, #0009);
+}
+
+.rcac-ow-foot {
+  padding: 0.45rem 0.8rem 0.6rem;
+  border-top: 1px solid var(--md-default-fg-color--lightest, #0000001f);
+}
+.rcac-ow-foot a {
+  font-size: 0.62rem;
+  font-weight: 600;
+  color: var(--md-accent-fg-color, #526cfe);
+  text-decoration: none;
+}
+.rcac-ow-foot a:hover { text-decoration: underline; }
+
+/* --- Small screens & motion ----------------------------------------- */
+@media (max-width: 30em) {
+  .rcac-ow-label { max-width: 9rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rcac-ow-pill { transition: none; }
+  #rcac-outage-widget[data-level="error"] .rcac-ow-dot { animation: none; }
+}
+
+/* Keep clear of Material's back-to-top button on print */
+@media print {
+  #rcac-outage-widget { display: none; }
+}

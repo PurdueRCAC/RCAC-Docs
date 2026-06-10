@@ -12,6 +12,8 @@ meta:
 
 # Welcome to RCAC Documentation
 
+<div id="outage-widget-anchor"></div>
+
 <!-- !!! Warning "Announcement"
     **This is a demo site.** You are visiting a demo site designed for testing purposes only. Contents on this website may not reflect production RCAC resources. Check [rcac.purdue.edu](https://www.rcac.purdue.edu) for official information. -->
 
