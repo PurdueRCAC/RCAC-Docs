@@ -18,7 +18,7 @@ meta:
 <!-- !!! Warning "Announcement"
     **This is a demo site.** You are visiting a demo site designed for testing purposes only. Contents on this website may not reflect production RCAC resources. Check [rcac.purdue.edu](https://www.rcac.purdue.edu) for official information. -->
 
-!!! info "Important: Use Microsoft Authenticator to Access Purdue RCAC Resources Starting May 11, 2026"
+??? info "Important: Use Microsoft Authenticator to Access Purdue RCAC Resources Starting May 11, 2026"
     **Beginning May 11, 2026, RCAC will move from Duo Mobile to Microsoft Authenticator for logging in to Purdue’s research computing and supercomputing systems (excluding Anvil).**
 
     To ensure uninterrupted access, please complete the steps below before May 11. What you need to do:
