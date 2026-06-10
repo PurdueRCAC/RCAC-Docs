@@ -15,6 +15,7 @@ Gaussian 16 is the latest release of the Gaussian series for electronic structur
 |Cluster|Versions|
 |---|---|
 **BELL**|B.01 (D)
+**GAUTSCHI**|B.01
 **NEGISHI**|B.01 (D)
 **SCHOLAR**|B.01
 
