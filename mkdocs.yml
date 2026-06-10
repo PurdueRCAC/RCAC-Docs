@@ -48,6 +48,7 @@ theme:
 
 extra_css:
   - stylesheets/extra.css
+  - stylesheets/outage-widget.css
 extra_javascript:
   - assets/js/tablefilter.js
   - assets/js/init-tablefilter.js
