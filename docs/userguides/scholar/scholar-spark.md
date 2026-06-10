@@ -71,7 +71,7 @@ Selecting any of these will bring you to a submission page to specify the accoun
 
     The Jupyter Notebook (Spark) will launch a Jupyter server on a spark node, which will be displayed in your browser. 
 
-    ![Screenshot of a Jypyter server running in-browser](../../assets/images/userguides/scholar/spark/spark_jupyter_1.png)
+    ![Screenshot of a Jupyter server running in-browser](../../assets/images/userguides/scholar/spark/spark_jupyter_1.png)
 
     The default kernels (Python, R, Julia) available on Jupyter Spark are all `aarch64` compatible. Users are also able to install their own kernels from conda environments via 
     ```bash linenums="0"
@@ -81,6 +81,14 @@ Selecting any of these will bring you to a submission page to specify the accoun
     or by building the conda environment via the `conda-env-mod` command. As with all applications on Spark nodes, please ensure that they are `aarch64` compatible.
 
     ![Screenshot of a Jupyter notebook showing that it is running on a Spark Node](../../assets/images/userguides/scholar/spark/spark_jupyter_2.png)
+    
+=== "VS Code (Spark)"
+
+    The VS Code (Spark) will launch a Visual Studio Code server on a spark node, which will be displayed in your browser. 
+
+    ![Screenshot of a VS Code server running in-browser](../../assets/images/userguides/scholar/spark/spark_vscode.png)
+
+    This can be useful for on-cluster development and code management.
 
 ---
 
@@ -315,8 +323,6 @@ case "$arch" in
         echo "Unknown Arch ${arch}"
         ;;
 esac
-
-
 ```
 
 [**Back to Scholar Cluster Overview**](./index.md)
