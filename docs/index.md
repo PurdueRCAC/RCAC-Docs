@@ -12,6 +12,7 @@ meta:
 
 # Welcome to RCAC Documentation
 
+<!-- The invisible anchor below will make sure the outage widget only anchors to homepage. -->
 <div id="outage-widget-anchor"></div>
 
 <!-- !!! Warning "Announcement"
