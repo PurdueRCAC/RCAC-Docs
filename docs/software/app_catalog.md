@@ -333,7 +333,7 @@ As of **June 08, 2026**, there have been a total of **276** applications with **
     <tr>
       <td><a href="../apps_md/gaussian16"><strong>gaussian16</strong></a></td>
       <td>Chemistry, Material Science</td>
-      <td>BELL, NEGISHI, SCHOLAR</td>
+      <td>BELL, GAUTSCHI, NEGISHI, SCHOLAR</td>
     </tr>
     <tr>
       <td><a href="../apps_md/gaussview"><strong>gaussview</strong></a></td>
