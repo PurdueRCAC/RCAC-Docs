@@ -139,7 +139,6 @@ To request resources on Spark nodes specifically, you need use a Spark specific 
     -P spark-batch
     ```
 
-
 !!! question
     **TODO** How are GPU gres going to be managed when submitting to oversubscribed spark-interactive nodes? Can they all be allocated the same GPU?
 
@@ -296,5 +295,28 @@ module load modtree/spark
 
 If you have built or downloaded your own applications, please rebuild any applications on a Spark node, or check for an `aarch64` distribution of your software.
 
+
+### How can I separate my `x86_64` applications from `aarch64` applications?
+
+If you plan on working on both `aarch64` and `x86_64` nodes, we strongly reccomend separating applications and configurations in separate directories. 
+
+For example, you may choose to make separate `bin` directories for `x86_64` and `aarch64` applications. In your `~/.bash_profile` file, you can then source the correct applications based on the architecture:
+
+```bash linenums="0" title=".bash_profile"
+arch="$(uname -m)"
+case "$arch" in
+    x86_64)
+        export PATH="~/bin_x86_64":$PATH
+        ;;
+    aarch64|arm64)
+        export PATH="~/bin_aarch64":$PATH
+        ;;
+    *)
+        echo "Unknown Arch ${arch}"
+        ;;
+esac
+
+
+```
 
 [**Back to Scholar Cluster Overview**](./index.md)
