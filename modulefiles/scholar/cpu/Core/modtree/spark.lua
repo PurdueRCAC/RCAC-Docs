@@ -22,6 +22,6 @@ if (mode() == "load") then
    end
 end
 
-load("gcc/12.5.0")
+load("gcc/14.2.0")
 load("openmpi/5.0.5")
 load("cuda/13.1")
