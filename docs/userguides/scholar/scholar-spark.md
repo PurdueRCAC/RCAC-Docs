@@ -24,7 +24,7 @@ All Spark nodes run the Ubuntu 24.04 LTS operating system.
  *\*Memory is unified LPDDR5X shared by CPU and GPU, not separate system RAM plus GPU VRAM.*
 
 !!! warning "**Important:** Scholar-Spark Nodes have `aarch64` architecture"
-    Programs built for `x86_64` architecture will **NOT** be able to run on Scholar-Spark. See the [Software & Applications](#software--applications) section below for more details.
+    Programs built for `x86_64` architecture will **NOT** be able to run on Scholar-Spark. See the [Software & Applications](./scholar-spark.md#software-and-applications) section below for more details.
 
 ## Layout
 
@@ -208,7 +208,7 @@ username@scholar-l005 ~ $ module load modtree/spark
 
 ---
 
-## Software & Applications
+## Software and Applications
 
 RCAC offers a wide array of pre-installed applications and libraries across many different disciplines. These applications are accessible through the `LMod` module system. This module system can load and unload programs and commands within your shell environment.
 
