@@ -6,7 +6,8 @@ authors:
 date:
   created: 2026-06-11
   updated: 2026-06-11
-draft: true
+search:
+  exclude: true
 resource: Scholar
 host: scholar.rcac.purdue.edu
 search:
