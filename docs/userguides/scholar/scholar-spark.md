@@ -325,7 +325,7 @@ If you have built or downloaded your own applications, please rebuild any applic
 
 ### How can I check the architecture of the node I'm running on?
 
-Since Scholar has nodes with `x86_64` architecture and `aarch64` architecture, you can use the following command to print the architecture of the node you are currently running on.
+Since Scholar has nodes with `x86_64` architecture and `aarch64` architecture, it is important to pay attention to what the architecture is on the node you plan to build or run software on. You can use the following command to print the architecture of the node you are currently running on.
  
 ```bash linenums="0"
 uname -m
