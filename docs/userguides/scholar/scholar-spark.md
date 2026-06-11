@@ -64,16 +64,6 @@ The Spark nodes are are split into two partitions:
 ![Image showing a cluster layout, with the spark interactive and batch paritions specified](../../assets/images/userguides/scholar/spark/spark_structure.png)
 
 
-### ECE Spark Nodes
-
-<!-- !!! question
-    **TODO** If RCAC + ECE nodes are in the same interactive and batch partitions (per slack), I'm assuming that access to ECE nodes is managed by the reservations (as per the scholar spark expansion word doc)? -->
-
-
-The 80 DGX Spark nodes within the `scholar-k` subcluster are for exclusive use by ECE researchers and courses at the Purdue Main Campus and Purdue Indianapolis. All eligible ECE users are added to reservations that will grant them access to these nodes, and will be automatically used for submitted jobs.
-
-Of these, 10 (`scholar-kxxx`-`scholar-kxxx`) are exclusively for use by Purdue Main Campus, 10 (`scholar-kxxx`-`scholar-kxxx`) are exclusively for use by Purdue Indianapolis, with the remaining nodes existing within a shared pool.
-
 
 ## Accessing Spark Nodes
 
