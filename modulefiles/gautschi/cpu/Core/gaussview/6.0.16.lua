@@ -1,3 +1,4 @@
+
 whatis("invoke GaussView 6.0.16")
 
 -- for Tcl script use only
