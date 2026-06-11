@@ -160,7 +160,7 @@
         headline: a.headline || "Untitled",
         date: a.formatteddate || "",
         url: a.uri || CONFIG.newsPage,
-        resources: (a.associations || [])
+        resources: (a.resources || [])
           .map(function (x) { return x && (x.name || x.associd); })
           .filter(Boolean)
       };
