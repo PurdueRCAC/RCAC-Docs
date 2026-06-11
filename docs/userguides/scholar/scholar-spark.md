@@ -6,12 +6,11 @@ authors:
 date:
   created: 2026-06-11
   updated: 2026-06-11
-search:
-  exclude: true
 resource: Scholar
 host: scholar.rcac.purdue.edu
 search:
   boost: 2
+  exclude: true
 ---
 
 # Scholar Spark Nodes
@@ -63,16 +62,6 @@ The Spark nodes are are split into two partitions:
 
 ![Image showing a cluster layout, with the spark interactive and batch paritions specified](../../assets/images/userguides/scholar/spark/spark_structure.png)
 
-
-### ECE Spark Nodes
-
-<!-- !!! question
-    **TODO** If RCAC + ECE nodes are in the same interactive and batch partitions (per slack), I'm assuming that access to ECE nodes is managed by the reservations (as per the scholar spark expansion word doc)? -->
-
-
-The 80 DGX Spark nodes within the `scholar-k` subcluster are for exclusive use by ECE researchers and courses at the Purdue Main Campus and Purdue Indianapolis. All eligible ECE users are added to reservations that will grant them access to these nodes, and will be automatically used for submitted jobs.
-
-Of these, 10 (`scholar-kxxx`-`scholar-kxxx`) are exclusively for use by Purdue Main Campus, 10 (`scholar-kxxx`-`scholar-kxxx`) are exclusively for use by Purdue Indianapolis, with the remaining nodes existing within a shared pool.
 
 
 ## Accessing Spark Nodes
@@ -334,10 +323,18 @@ module load modtree/spark
 
 If you have built or downloaded your own applications, please rebuild any applications on a Spark node, or check for an `aarch64` distribution of your software.
 
+### How can I check the architecture of the node I'm running on?
+
+Since Scholar has nodes with `x86_64` architecture and `aarch64` architecture, it is important to pay attention to what the architecture is on the node you plan to build or run software on. You can use the following command to print the architecture of the node you are currently running on.
+ 
+```bash linenums="0"
+uname -m
+```
+
 
 ### How can I separate my `x86_64` applications from `aarch64` applications?
 
-If you plan on working on both `aarch64` and `x86_64` nodes, we strongly reccomend separating applications and configurations in separate directories. 
+If you plan on working on both `aarch64` and `x86_64` nodes, we strongly recommend separating applications and configurations in separate directories. 
 
 For example, you may choose to make separate `bin` directories for `x86_64` and `aarch64` applications. In your `~/.bash_profile` file, you can then source the correct applications based on the architecture:
 
