@@ -1,8 +1,14 @@
 # Scholar Spark Nodes
 
+!!! info "You are viewing an unlisted demo page"
+     This page is unlisted and contains information that not might represent the current state of Scholar Spark nodes. 
+
+     In particular, the `spark` account, and the `spark-interactive` and `spark-batch` partitions do not yet exist. Early users should instead use the `testpbs` account and the `scholar-l` or `scholar-k` partitions.
+
+
 ## Overview
 
-Scholar-Spark is a unique subset of our Scholar instructional cluster. It can be accessed as a typical cluster, with a job scheduler distributing batch jobs onto its worker nodes, or as an interactive resource, with software packages available through a desktop-like environment on the spark-interactive nodes.
+Scholar Spark nodes exist as a unique subset of our Scholar instructional cluster. It can be accessed as a typical cluster, with a job scheduler distributing batch jobs onto its worker nodes, or as an interactive resource, with software packages available through a desktop-like environment on the spark-interactive nodes.
 
 ### Specifications
 
@@ -25,7 +31,7 @@ All Spark nodes run the Ubuntu 24.04 LTS operating system.
 The Spark nodes are a subset of the broader Scholar instructional cluster. Because of this, there are not dedicated front-end nodes. Instead, users can perform work interactively on a "spark interactive" node. Further, being a subset of Scholar, the Spark nodes share the same Slurm scheduler and filesystems (`/home`, `/scratch`, `/depot`, `/class`, and `/apps`) as the broader Scholar cluster. See the [Storage Systems](./storage.md) user guide page for more details!
 
 ### Partitions
-The spark nodes are are split into two partitions in the back-end nodes:
+The Spark nodes are are split into two partitions in the back-end nodes:
 
 * **Spark Interactive**
     * Spark Interactive nodes are "oversubscribed" and are available for immediate access by students and researchers through the Slurm scheduler.
@@ -46,7 +52,7 @@ The spark nodes are are split into two partitions in the back-end nodes:
     **TODO** If RCAC + ECE nodes are in the same interactive and batch partitions (per slack), I'm assuming that access to ECE nodes is managed by the reservations (as per the scholar spark expansion word doc)?
 
 
-The 80 DGX Spark nodes within the `scholar-k` subcluster are for exclusive use by ECE researchers and courses at Purdue Main Campus and Purdue Indianapolis. All eligible ECE users are added to reservations that will grant them access to these nodes, and will be automatically used for submitted jobs.
+The 80 DGX Spark nodes within the `scholar-k` subcluster are for exclusive use by ECE researchers and courses at the Purdue Main Campus and Purdue Indianapolis. All eligible ECE users are added to reservations that will grant them access to these nodes, and will be automatically used for submitted jobs.
 
 Of these, 10 (`scholar-kxxx`-`scholar-kxxx`) are exclusively for use by Purdue Main Campus, 10 (`scholar-kxxx`-`scholar-kxxx`) are exclusively for use by Purdue Indianapolis, with the remaining nodes existing within a shared pool.
 
@@ -55,7 +61,7 @@ Of these, 10 (`scholar-kxxx`-`scholar-kxxx`) are exclusively for use by Purdue M
 
 ### Interactive Open OnDemand Applications
 
-To run Open OnDemand Applications on a Spark node, you will first need to log into [gateway.scholar.rcac.purdue.edu](https://gateway.scholar.rcac.purdue.edu). On the top ribbon, you will see an "Spark Apps" dropdown menu that contains all interactive applications designed for use on Scholar-Spark nodes. 
+To run Open OnDemand applications on a Spark node, you will first need to log into [gateway.scholar.rcac.purdue.edu](https://gateway.scholar.rcac.purdue.edu). On the top ribbon, you will see an "Spark Apps" dropdown menu that contains all interactive applications designed for use on Scholar Spark nodes. 
 
 ![Screenshot of Spark Applications Dropdown Menu](../../assets/images/userguides/scholar/spark/spark_ood_apps.png)
 
@@ -63,17 +69,17 @@ Selecting any of these will bring you to a submission page to specify the accoun
 
 === "Desktop (Spark)"
 
-    The Desktop (Spark) option provides a virtual desktop on a spark node, running completely in your browser. This can be useful for running graphical applications, or for users with limited command line experience.
+    The Desktop (Spark) option provides a virtual desktop on a Spark node, running completely in your browser. This can be useful for running graphical applications, or for users with limited command line experience.
 
     ![Screenshot of a Computer Desktop](../../assets/images/userguides/scholar/spark/spark_desktop.png)
 
 === "Jupyter Notebook (Spark)"
 
-    The Jupyter Notebook (Spark) will launch a Jupyter server on a spark node, which will be displayed in your browser. 
+    The Jupyter Notebook (Spark) will launch a Jupyter server on a Spark node, which will be displayed in your browser. 
 
     ![Screenshot of a Jupyter server running in-browser](../../assets/images/userguides/scholar/spark/spark_jupyter_1.png)
 
-    The default kernels (Python, R, Julia) available on Jupyter Spark are all `aarch64` compatible. Users are also able to install their own kernels from conda environments via 
+    The default kernels (Python, R, Julia) available on Jupyter Spark are all `aarch64` compatible. Users are also able to install their own kernels from conda environments via: 
     ```bash linenums="0"
     python -m ipykernel install --user --name envname --display-name "Python (envname)"
     ``` 
@@ -92,14 +98,14 @@ Selecting any of these will bring you to a submission page to specify the accoun
 
 ---
 
-### Accessing through Scholar Frontend
+### Accessing Through Scholar Frontend
 
-As Scholar Spark nodes exist within the broader Scholar cluster, you must first login to the Scholar front-end to access the spark nodes. Once you are logged into Scholar, you can navigate onto the Spark nodes. An overview of the methods for accessing scholar are given below, but complete details can be found in the Scholar [Accounts](./accounts.md#logging-in) userguide page.
+As Scholar Spark nodes exist within the broader Scholar cluster, you must first login to the Scholar front-end to access the Spark nodes. Once you are logged into Scholar, you can navigate onto the Spark nodes. An overview of the methods for accessing scholar are given below, but complete details can be found in the Scholar [Accounts](./accounts.md#logging-in) userguide page.
 
 !!! question
     **TODO** Are we supporting direct ssh to interactive nodes?
 
-Once Logged in, you can submit resource requests to the Slurm scheduler to request resources on the Spark nodes. These can either be [batch jobs](./run_jobs/generic_slurm_jobs.md) or [interactive jobs](./run_jobs/interactive_jobs.md).
+Once logged in, you can submit resource requests to the Slurm scheduler to request resources on the Spark nodes. These can either be [batch jobs](./run_jobs/generic_slurm_jobs.md) or [interactive jobs](./run_jobs/interactive_jobs.md).
 
 To request resources on Spark nodes specifically, you need use a Spark specific **Account** and **Partition**:
 
@@ -108,7 +114,7 @@ To request resources on Spark nodes specifically, you need use a Spark specific 
     !!! question
         **TODO** Just checking that we're only having a single account for all spark usage (Powerpoint shows this) for all spark access types (Non-ECE, ECE-WL, ECE-Indy)
 
-    To access spark nodes, you must submit jobs through the `spark` account. 
+    To access Spark nodes, you must submit jobs through the `spark` account. 
 
     This can be specified via the command line options:
     
@@ -173,7 +179,7 @@ echo "This job is running on $(hostname)!"
 hostnamectl | grep "Hardware Model"
 ```
 
-You can submit this job to the Slurm scheduler with the command
+You can submit this job to the Slurm scheduler with the command:
 
 ```bash linenums="0"
 sbatch example_spark_job.sub
@@ -182,7 +188,7 @@ sbatch example_spark_job.sub
 #### Interactive Job Example
 
 !!! question
-    **TODO**: Are users going to be able to submit batch jobs to the spark interactive partition, and interactive jobs to the spark batch partition? If not, how do we plan on controlling that.
+    **TODO**: Are users going to be able to submit batch jobs to the Spark interactive partition, and interactive jobs to the Spark batch partition? If not, how do we plan on controlling that.
 
 Alternatively, you can request an interactive shell on a Spark node via the `sinteractive` command. The submission options are identical to batch submission, but you will instead be placed in an interactive shell running on a Spark node.
 
@@ -207,7 +213,7 @@ username@scholar-l005 ~ $ module load modtree/spark
 RCAC offers a wide array of pre-installed applications and libraries across many different disciplines. These applications are accessible through the `LMod` module system. This module system can load and unload programs and commands within your shell environment.
 
 
-On Spark nodes, which contain `aarch64` architecture, **you must have the spark module tree loaded**, which can be done with the command `module load modtree/spark`. The modules that are available in the `rcac` and `modtree/all` module trees are built with `x86_64` architecture. and will not work on Spark nodes.
+On Spark nodes, which contain `aarch64` architecture, **you must have the Spark module tree loaded**, which can be done with the command `module load modtree/spark`. The modules that are available in the `rcac` and `modtree/all` module trees are built with `x86_64` architecture. and will not work on Spark nodes.
 
 Once the Spark module tree is loaded, users can see available modules with the `module avail` command:
 
@@ -238,8 +244,8 @@ module avail
 
 ```
 
-!!! warning "**Important:** Scholar-Spark Nodes have aarch64 architecture"
-    Programs built for `x86_64` architecture will **NOT** be able to run on Scholar-Spark. This includes all modules loaded in the `rcac` and `modtree/all` module trees. We provide a separate module tree with `aarch64` built programs that can be loaded with:
+!!! warning "**Important:** Scholar Spark Nodes have aarch64 architecture"
+    Programs built for `x86_64` architecture will **NOT** be able to run on Scholar Spark nodes. This includes all modules loaded in the `rcac` and `modtree/all` module trees. We provide a separate module tree with `aarch64` built programs that can be loaded with:
 
     ```bash linenums="0"
     module load  modtree/spark
