@@ -26,7 +26,7 @@
     // Where "view all" links go:
     newsPage: "https://www.rcac.purdue.edu/news/outages-and-maintenance",
     // News type whose alias matches this pattern is treated as outage news:
-    typeAliasPattern: /outage/i,
+    typeAliasPattern: /outages-and-maintenance/i,
     homepageOnly: true,          // require #outage-widget-anchor on the page
     upcomingWindowDays: 14,      // how far ahead to surface scheduled work
     staleActiveDays: 7,          // open-ended items older than this are ignored
@@ -131,7 +131,7 @@
     return resolveOutageTypeId()
       .then(function (typeId) {
         var url = CONFIG.apiBase + "/news?type=" + typeId +
-          "&limit=25&order=datetimecreated&order_dir=desc";
+          "&limit=25&order=datetimenews&order_dir=desc";
         return fetchJSON(url);
       })
       .then(function (json) {
