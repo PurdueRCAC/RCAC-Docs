@@ -1,3 +1,18 @@
+---
+tags:
+  - Scholar
+authors:
+  - verburgt
+date:
+  created: 2026-06-11
+  updated: 2026-06-11
+draft: true
+resource: Scholar
+host: scholar.rcac.purdue.edu
+search:
+  boost: 2
+---
+
 # Scholar Spark Nodes
 
 !!! info "You are viewing an unlisted demo page for early users of the Spark partitions"
@@ -114,7 +129,7 @@ To request resources on Spark nodes specifically, you need use a Spark specific 
 
 !!! info "Different Accounts and Partitions Necessary for Early Users"
      Early users of Spark nodes should instead use the following accounts and partitions:
-     
+
      * `--account=testpbs`
      * `--partition=scholar-l` or `--partition=scholar-k`
 
