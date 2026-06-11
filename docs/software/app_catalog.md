@@ -11,7 +11,7 @@ search:
 # All software and versions on RCAC clusters
 
 ## Overview
-As of **June 08, 2026**, there have been a total of **276** applications with **2531** available versions deployed across **6** RCAC HPC clusters: **ANVIL, BELL, GAUTSCHI, GILBRETH, NEGISHI, SCHOLAR**.
+As of **June 11, 2026**, there have been a total of **276** applications with **2533** available versions deployed across **6** RCAC HPC clusters: **ANVIL, BELL, GAUTSCHI, GILBRETH, NEGISHI, SCHOLAR**.
 
 ## Applications Catalog
 
@@ -338,7 +338,7 @@ As of **June 08, 2026**, there have been a total of **276** applications with **
     <tr>
       <td><a href="../apps_md/gaussview"><strong>gaussview</strong></a></td>
       <td>Chemistry, Material Science</td>
-      <td>BELL, GILBRETH, NEGISHI, SCHOLAR</td>
+      <td>BELL, GAUTSCHI, GILBRETH, NEGISHI, SCHOLAR</td>
     </tr>
     <tr>
       <td><a href="../apps_md/gcc-runtime"><strong>gcc-runtime</strong></a></td>
