@@ -1,14 +1,16 @@
 # Scholar Spark Nodes
 
-!!! info "You are viewing an unlisted demo page"
-     This page is unlisted and contains information that not might represent the current state of Scholar Spark nodes. 
+!!! info "You are viewing an unlisted demo page for early users of the Spark partitions"
+     This page is unlisted and contains information that might not represent the current state of Scholar Spark nodes. 
 
-     In particular, the `spark` account, and the `spark-interactive` and `spark-batch` partitions do not yet exist. Early users should instead use the `testpbs` account and the `scholar-l` or `scholar-k` partitions.
+     In particular, the `scholar` account cannot yet access Spark nodes, and the `spark-interactive` and `spark-batch` partitions do not yet exist. 
+     
+     **Early users should instead use the `testpbs` account and the `scholar-l` or `scholar-k` partitions.**
 
 
 ## Overview
 
-Scholar Spark nodes exist as a unique subset of our Scholar instructional cluster. It can be accessed as a typical cluster, with a job scheduler distributing batch jobs onto its worker nodes, or as an interactive resource, with software packages available through a desktop-like environment on the spark-interactive nodes.
+Scholar Spark nodes exist as a unique subset of our Scholar instructional cluster. They can be accessed as a typical cluster, with a job scheduler distributing batch jobs onto its worker nodes, or as an interactive resource, with software packages available through a desktop-like environment on the spark-interactive nodes.
 
 ### Specifications
 
@@ -31,7 +33,7 @@ All Spark nodes run the Ubuntu 24.04 LTS operating system.
 The Spark nodes are a subset of the broader Scholar instructional cluster. Because of this, there are not dedicated front-end nodes. Instead, users can perform work interactively on a "spark interactive" node. Further, being a subset of Scholar, the Spark nodes share the same Slurm scheduler and filesystems (`/home`, `/scratch`, `/depot`, `/class`, and `/apps`) as the broader Scholar cluster. See the [Storage Systems](./storage.md) user guide page for more details!
 
 ### Partitions
-The Spark nodes are are split into two partitions in the back-end nodes:
+The Spark nodes are are split into two partitions:
 
 * **Spark Interactive**
     * Spark Interactive nodes are "oversubscribed" and are available for immediate access by students and researchers through the Slurm scheduler.
@@ -40,16 +42,16 @@ The Spark nodes are are split into two partitions in the back-end nodes:
     * These nodes function like traditional back-end compute nodes, and allow you to request resources exclusive to you through the Slurm scheduler.
     * If the resources you requested are not available, your job will be queued and will run when resources become available.
 
-!!! question 
-    **TODO** Are we calling this "spark batch" or "spark compute" Slack channel and outline word doc differ
+<!-- !!! question 
+    **TODO** Are we calling this "spark batch" or "spark compute" Slack channel and outline word doc differ -->
 
 ![Image showing a cluster layout, with the spark interactive and batch paritions specified](../../assets/images/userguides/scholar/spark/spark_structure.png)
 
 
 ### ECE Spark Nodes
 
-!!! question
-    **TODO** If RCAC + ECE nodes are in the same interactive and batch partitions (per slack), I'm assuming that access to ECE nodes is managed by the reservations (as per the scholar spark expansion word doc)?
+<!-- !!! question
+    **TODO** If RCAC + ECE nodes are in the same interactive and batch partitions (per slack), I'm assuming that access to ECE nodes is managed by the reservations (as per the scholar spark expansion word doc)? -->
 
 
 The 80 DGX Spark nodes within the `scholar-k` subcluster are for exclusive use by ECE researchers and courses at the Purdue Main Campus and Purdue Indianapolis. All eligible ECE users are added to reservations that will grant them access to these nodes, and will be automatically used for submitted jobs.
@@ -100,32 +102,39 @@ Selecting any of these will bring you to a submission page to specify the accoun
 
 ### Accessing Through Scholar Frontend
 
-As Scholar Spark nodes exist within the broader Scholar cluster, you must first login to the Scholar front-end to access the Spark nodes. Once you are logged into Scholar, you can navigate onto the Spark nodes. An overview of the methods for accessing scholar are given below, but complete details can be found in the Scholar [Accounts](./accounts.md#logging-in) userguide page.
+As Scholar Spark nodes exist within the broader Scholar cluster, you must first login to the Scholar front-end to access the Spark nodes. Once you are logged into Scholar, you can navigate onto the Spark nodes. An overview of the methods for accessing Scholar are given below, but complete details can be found in the Scholar [Accounts](./accounts.md#logging-in) userguide page.
 
-!!! question
-    **TODO** Are we supporting direct ssh to interactive nodes?
+<!-- !!! question
+    **TODO** Are we supporting direct ssh to interactive nodes? -->
 
 Once logged in, you can submit resource requests to the Slurm scheduler to request resources on the Spark nodes. These can either be [batch jobs](./run_jobs/generic_slurm_jobs.md) or [interactive jobs](./run_jobs/interactive_jobs.md).
 
 To request resources on Spark nodes specifically, you need use a Spark specific **Account** and **Partition**:
 
+
+!!! info "Different Accounts and Partitions Necessary for Early Users"
+     Early users of Spark nodes should instead use the following accounts and partitions:
+     
+     * `--account=testpbs`
+     * `--partition=scholar-l` or `--partition=scholar-k`
+
 === "Account"
 
-    !!! question
-        **TODO** Just checking that we're only having a single account for all spark usage (Powerpoint shows this) for all spark access types (Non-ECE, ECE-WL, ECE-Indy)
+    <!-- !!! question
+        **TODO** Just checking that we're only having a single account for all spark usage (Powerpoint shows this) for all spark access types (Non-ECE, ECE-WL, ECE-Indy) -->
 
-    To access Spark nodes, you must submit jobs through the `spark` account. 
+    To access Spark nodes, you must submit jobs through the `scholar` account. 
 
     This can be specified via the command line options:
     
     ``` linenums="0"
-    --account=spark
+    --account=scholar
     ``` 
 
     or 
     
     ``` linenums="0"
-    -A spark
+    -A scholar
     ``` 
 
 
@@ -153,8 +162,8 @@ To request resources on Spark nodes specifically, you need use a Spark specific 
     -P spark-batch
     ```
 
-!!! question
-    **TODO** How are GPU gres going to be managed when submitting to oversubscribed spark-interactive nodes? Can they all be allocated the same GPU?
+<!-- !!! question
+    **TODO** How are GPU gres going to be managed when submitting to oversubscribed spark-interactive nodes? Can they all be allocated the same GPU? -->
 
 --- 
 
@@ -165,7 +174,7 @@ The following script requests a batch job with 10 cores and 1 gpu for a 1 hour d
 
 ```bash title="example_spark_job.sub" linenums="0"
 #!/bin/bash
-#SBATCH  --account=spark
+#SBATCH  --account=scholar
 #SBATCH  --partition=spark-batch
 #SBATCH  --time=0-1:00:00
 #SBATCH  --nodes=1
@@ -187,15 +196,15 @@ sbatch example_spark_job.sub
 
 #### Interactive Job Example
 
-!!! question
-    **TODO**: Are users going to be able to submit batch jobs to the Spark interactive partition, and interactive jobs to the Spark batch partition? If not, how do we plan on controlling that.
+<!-- !!! question
+    **TODO**: Are users going to be able to submit batch jobs to the Spark interactive partition, and interactive jobs to the Spark batch partition? If not, how do we plan on controlling that. -->
 
 Alternatively, you can request an interactive shell on a Spark node via the `sinteractive` command. The submission options are identical to batch submission, but you will instead be placed in an interactive shell running on a Spark node.
 
 In the example below, running `sinteractive` on a frontend node results in a shell running on `scholar-l005`. Make sure that the correct module tree is loaded on Spark nodes!
 
 ```text hl_lines="1 8" linenums="0"
-username@scholar-fe00 ~ $ sinteractive -A spark --partition=spark-interactive --time=0-1:00:00  --nodes=1 --cpus-per-task=10 --gres=gpu:1
+username@scholar-fe00 ~ $ sinteractive -A scholar --partition=spark-interactive --time=0-1:00:00  --nodes=1 --cpus-per-task=10 --gres=gpu:1
 salloc: Pending job allocation 456808
 salloc: job 456808 queued and waiting for resources
 salloc: job 456808 has been allocated resources
@@ -213,7 +222,7 @@ username@scholar-l005 ~ $ module load modtree/spark
 RCAC offers a wide array of pre-installed applications and libraries across many different disciplines. These applications are accessible through the `LMod` module system. This module system can load and unload programs and commands within your shell environment.
 
 
-On Spark nodes, which contain `aarch64` architecture, **you must have the Spark module tree loaded**, which can be done with the command `module load modtree/spark`. The modules that are available in the `rcac` and `modtree/all` module trees are built with `x86_64` architecture. and will not work on Spark nodes.
+On Spark nodes, which contain `aarch64` architecture, _**you must have the Spark module tree loaded**_, which can be done with the command `module load modtree/spark`. The modules that are available in the `rcac` and `modtree/all` module trees are built with `x86_64` architecture. and will not work on Spark nodes.
 
 Once the Spark module tree is loaded, users can see available modules with the `module avail` command:
 
