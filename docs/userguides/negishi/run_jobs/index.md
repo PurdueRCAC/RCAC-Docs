@@ -38,7 +38,7 @@ Batch jobs submitted via SLURM have four main steps:
 
 - [**Generic SLURM jobs**](generic_slurm_jobs.md)
 - [**Python**](python.md)
-- [**R**](r_example.md)
+- [**R**](r.md)
 - [**Apptainer**](apptainer.md)
 - [**Matlab**](matlab.md)
 - [**Ansys**](ansysfluent_example.md)
