@@ -37,10 +37,10 @@ Batch jobs submitted via SLURM have four main steps:
 ### Example jobs
 
 - [**Generic SLURM jobs**](generic_slurm_jobs.md)
-- [**Python**](python_example.md)
+- [**Python**](python.md)
 - [**R**](r_example.md)
-- [**Apptainer**](apptainer_example.md)
-- [**Matlab**](matlab_example.md)
+- [**Apptainer**](apptainer.md)
+- [**Matlab**](matlab.md)
 - [**Ansys**](ansysfluent_example.md)
 - [**Gaussian**](gaussian_example.md)
 - [**MPI**](mpi_jobs.md)
