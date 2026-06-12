@@ -37,7 +37,7 @@ Once added, your Gautschi account is created automatically using your Purdue car
 === "ThinLinc (GUI)"
     For graphical applications, connect via ThinLinc at:
 
-    **`https://desktop.gautschi.rcac.purdue.edu`**
+    [**`https://desktop.gautschi.rcac.purdue.edu`**](https://desktop.gautschi.rcac.purdue.edu)
 
     or with ThinLinc client. Log in with your Purdue career account. ThinLinc provides a full desktop environment with an application menu for launching GUI software through interactive jobs.
 
@@ -46,7 +46,7 @@ Once added, your Gautschi account is created automatically using your Purdue car
 === "Gateway (Web Browser)"
     Gateway (Open OnDemand) lets you manage files, submit jobs, and launch interactive applications entirely in a browser — no software to install.
 
-    **`https://gateway.gautschi.rcac.purdue.edu`**
+    [**`https://gateway.gautschi.rcac.purdue.edu`**](https://gateway.gautschi.rcac.purdue.edu)
 
     Log in with your Purdue career account and Duo MFA.
 
@@ -123,7 +123,7 @@ Output is written to `slurm-<jobid>.out` in the directory where you ran `sbatch`
 slist                         # view your accounts and available resources
 ```
 
-[:octicons-arrow-right-24: Queues and partitions](run_jobs/queues.md) · [:octicons-arrow-right-24: More job examples](run_jobs/index.md)
+[:octicons-arrow-right-24: Queues and partitions](run_jobs/queues.md) · [:octicons-arrow-right-24: Run jobs documentation](run_jobs/index.md)
 
 ---
 
