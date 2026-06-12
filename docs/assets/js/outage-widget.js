@@ -304,10 +304,10 @@
     });
 
     // Re-open if it was open before an instant-navigation reload,
-    // or auto-open once per session when there is an active outage.
+    // or auto-open once per session when there is an active outage or upcoming maintenance.
     var wasOpen = null;
     try { wasOpen = sessionStorage.getItem(OPEN_KEY); } catch (e) {}
-    if (wasOpen === "1" || (level === "error" && wasOpen === null)) setOpen(true);
+    if (wasOpen === "1" || ((level === "error" || level === "warn") && wasOpen === null)) setOpen(true);
   }
 
   /* ------------------------------------------------------------------ *
