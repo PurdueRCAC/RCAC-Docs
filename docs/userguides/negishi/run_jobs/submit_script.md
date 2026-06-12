@@ -16,6 +16,7 @@ Once you have a [job submission file](./creating_the_submission_script.md), you 
 
 ```
 Partition statistics for cluster negishi at Wed Jul 30 13:07:17 EDT 2025
+
              Partition     #Nodes     #CPU_cores  Cores_pending   Job_Nodes MaxJobTime Cores Mem/Node
              Name State Total  Idle  Total   Idle Resorc  Other   Min   Max  Day-hr:mn /node     (GB)
     negishi-nodes   up$     6     0    768    768      0      0     1 infin   infinite   128     257
@@ -114,4 +115,4 @@ After you submit your job with `SBATCH`, it may wait in queue for minutes, hours
 
 Once your job is submitted, you can [monitor the job status](/knowledge/${resource.dir}/run/slurm/status), wait for the job to complete, and [check the job output](/knowledge/${resource.dir}/run/slurm/output).
 
-​
+​[**Back to the Running Jobs section**](index.md)

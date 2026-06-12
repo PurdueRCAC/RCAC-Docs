@@ -18,6 +18,7 @@ Jobs are submitted on {{ resource }} via the SLURM (Simple Linux Utility for Res
 Before creating your submission script, learn more about how to use Slurm accounts, partitions, and QOS options:
 
 - [**Basics of using Slurm accounts, partitions, and QOS options**](queues.md)
+    - [**Job Submission Matrix**](job_submission_matrix.md)
 
 Batch jobs submitted via SLURM have four main steps:
 
@@ -31,7 +32,7 @@ Batch jobs submitted via SLURM have four main steps:
 - [**Holding a job**](holding_job.md)
 - [**Job Dependencies**](job_dependencies.md)
 - [**Cancelling a job**](cancelling_job.md)
-- [**GPU Usage Monitoring**](gpu_usage_monitoring.md)
+
 
 ### Example jobs
 
