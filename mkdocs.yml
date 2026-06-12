@@ -134,6 +134,7 @@ nav:
       - Frequently Asked Questions: userguides/bell/faqs.md
     - Gautschi:
       - userguides/gautschi/index.md
+      - Quick Start: userguides/gautschi/quickstart.md
       - Gautschi Overview: userguides/gautschi/overview.md
       - Biography of Gautschi: userguides/gautschi/biography.md
       - Accounts: userguides/gautschi/accounts.md
