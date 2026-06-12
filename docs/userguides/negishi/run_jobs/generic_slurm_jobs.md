@@ -20,8 +20,6 @@ The following examples demonstrate the basics of SLURM jobs, and are designed to
 - [**Specific Types of Nodes**](specific_nodes.md)
 - [**Interactive Jobs**](interactive_jobs.md)
 - [**Serial Jobs**](serial_jobs.md)
-- [**OpenMP**](openmp.md)
-- [**MPI**](mpi.md)
 - [**Monitoring Resources**](monitoring_resources.md)
 
 
