@@ -632,3 +632,64 @@ th, td {
 .md-header__source {
   display: none;
 }
+
+/* ── Quick Launcher Cards ─────────────────────────────────────── */
+.quick-launcher {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0 1.5rem;
+  flex-wrap: wrap;
+}
+
+.quick-launcher-card {
+  flex: 0 0 auto;
+  width: 250px;
+  border: 2px solid rgba(0, 0, 0, 0.25);
+  border-radius: 6px;
+  padding: 0.6rem 0.75rem 0.6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--md-default-bg-color);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.quick-launcher-card .launcher-title {
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-align: center;
+  color: var(--md-default-fg-color);
+}
+
+.quick-launcher-card .launcher-btn {
+  display: block;
+  width: 100%;
+  padding: 0.45rem 0;
+  text-align: center;
+  background-color: #CBBA94;
+  color: #3d2e0e !important;
+  text-decoration: none !important;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: background-color 0.15s;
+}
+
+.quick-launcher-card .launcher-btn:hover {
+  background-color: #b8a57e;
+}
+
+[data-md-color-scheme="slate"] .quick-launcher-card {
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+[data-md-color-scheme="slate"] .quick-launcher-card .launcher-btn {
+  background-color: #CBBA94;
+  color: #1a1200 !important;
+}
+
+[data-md-color-scheme="slate"] .quick-launcher-card .launcher-btn:hover {
+  background-color: #ddd0b0;
+}
