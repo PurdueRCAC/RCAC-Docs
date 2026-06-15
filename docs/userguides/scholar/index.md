@@ -9,6 +9,18 @@ search:
 ---
 
 # Scholar User Guide
+
+<div class="quick-launcher">
+  <div class="quick-launcher-card">
+    <span class="launcher-title">Gateway (Open OnDemand)</span>
+    <a href="https://gateway.scholar.rcac.purdue.edu/" class="launcher-btn" target="_blank" rel="noopener">Launch</a>
+  </div>
+  <div class="quick-launcher-card">
+    <span class="launcher-title">Remote Desktop (ThinLinc)</span>
+    <a href="https://desktop.scholar.rcac.purdue.edu/" class="launcher-btn" target="_blank" rel="noopener">Launch</a>
+  </div>
+</div>
+
 Scholar is a small computer cluster, suitable for classroom learning about high performance computing (HPC).
 
 - [**Scholar Overview**](overview.md)
