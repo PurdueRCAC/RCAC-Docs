@@ -395,29 +395,163 @@
     "Home",
     "Weber"
   ],
-  "/https://www.rcac.purdue.edu/knowledge/depot": [
+  "/userguides/depot/": [
     "Home",
-    "Data Depot"
+    "Data Depot User Guide"
   ],
-  "/https://www.rcac.purdue.edu/knowledge/fortress": [
+  "/userguides/depot/overview/": [
     "Home",
-    "Fortress"
+    "Data Depot User Guide",
+    "Overview"
   ],
-  "/https://www.rcac.purdue.edu/knowledge/scratch": [
+  "/userguides/depot/storage/": [
     "Home",
-    "Scratch"
+    "Data Depot User Guide",
+    "File Storage and Transfer"
   ],
-  "/https://www.rcac.purdue.edu/knowledge/home": [
+  "/userguides/depot/storage/compress/": [
     "Home",
-    "Home Directory"
+    "Data Depot User Guide",
+    "File Storage and Transfer",
+    "Archive and Compression"
   ],
-  "/https://www.rcac.purdue.edu/knowledge/reedfolder": [
+  "/userguides/depot/storage/transfer/": [
     "Home",
-    "REED Folder"
+    "Data Depot User Guide",
+    "File Storage and Transfer",
+    "File Transfer"
   ],
-  "/https://www.rcac.purdue.edu/knowledge/boxfolder": [
+  "/userguides/depot/storage/sharing/": [
     "Home",
-    "Box Research Lab Folder"
+    "Data Depot User Guide",
+    "File Storage and Transfer",
+    "Sharing Files"
+  ],
+  "/userguides/depot/recover/": [
+    "Home",
+    "Data Depot User Guide",
+    "Lost File Recovery"
+  ],
+  "/userguides/depot/recover/flost/": [
+    "Home",
+    "Data Depot User Guide",
+    "Lost File Recovery",
+    "flost Tool"
+  ],
+  "/userguides/depot/recover/manual/": [
+    "Home",
+    "Data Depot User Guide",
+    "Lost File Recovery",
+    "Manual Browsing"
+  ],
+  "/userguides/depot/recover/windows/": [
+    "Home",
+    "Data Depot User Guide",
+    "Lost File Recovery",
+    "Windows"
+  ],
+  "/userguides/depot/recover/mac/": [
+    "Home",
+    "Data Depot User Guide",
+    "Lost File Recovery",
+    "Mac OS X"
+  ],
+  "/userguides/depot/permissions/": [
+    "Home",
+    "Data Depot User Guide",
+    "Access Permissions and Directories"
+  ],
+  "/userguides/depot/permissions/default/": [
+    "Home",
+    "Data Depot User Guide",
+    "Access Permissions and Directories",
+    "Default Configuration"
+  ],
+  "/userguides/depot/permissions/scenarios/": [
+    "Home",
+    "Data Depot User Guide",
+    "Access Permissions and Directories",
+    "Common Scenarios"
+  ],
+  "/userguides/depot/permissions/unixgroups/": [
+    "Home",
+    "Data Depot User Guide",
+    "Access Permissions and Directories",
+    "Unix Groups"
+  ],
+  "/userguides/depot/faqs/": [
+    "Home",
+    "Data Depot User Guide",
+    "Frequently Asked Questions"
+  ],
+  "/userguides/fortress/": [
+    "Home",
+    "Fortress User Guide"
+  ],
+  "/userguides/fortress/overview/": [
+    "Home",
+    "Fortress User Guide",
+    "Overview"
+  ],
+  "/userguides/fortress/accounts/": [
+    "Home",
+    "Fortress User Guide",
+    "Accounts"
+  ],
+  "/userguides/fortress/storage/": [
+    "Home",
+    "Fortress User Guide",
+    "File Storage and Transfer"
+  ],
+  "/userguides/fortress/storage/sharing/": [
+    "Home",
+    "Fortress User Guide",
+    "File Storage and Transfer",
+    "Sharing Files"
+  ],
+  "/userguides/fortress/storage/transfer/": [
+    "Home",
+    "Fortress User Guide",
+    "File Storage and Transfer",
+    "File Transfer"
+  ],
+  "/userguides/fortress/faqs/": [
+    "Home",
+    "Fortress User Guide",
+    "Frequently Asked Questions"
+  ],
+  "/userguides/boxfolder/": [
+    "Home",
+    "Box Research Lab Folder User Guide"
+  ],
+  "/userguides/boxfolder/overview/": [
+    "Home",
+    "Box Research Lab Folder User Guide",
+    "Overview"
+  ],
+  "/userguides/boxfolder/accounts/": [
+    "Home",
+    "Box Research Lab Folder User Guide",
+    "Accounts"
+  ],
+  "/userguides/boxfolder/faqs/": [
+    "Home",
+    "Box Research Lab Folder User Guide",
+    "Frequently Asked Questions"
+  ],
+  "/userguides/reedfolder/": [
+    "Home",
+    "REED Folder User Guide"
+  ],
+  "/userguides/reedfolder/overview/": [
+    "Home",
+    "REED Folder User Guide",
+    "Overview"
+  ],
+  "/userguides/reedfolder/faqs/": [
+    "Home",
+    "REED Folder User Guide",
+    "Frequently Asked Questions"
   ],
   "/blog/": [
     "Home",
