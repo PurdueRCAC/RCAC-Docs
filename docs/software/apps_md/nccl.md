@@ -15,6 +15,7 @@ Optimized primitives for collective multi-GPU communication.
 |Cluster|Versions|
 |---|---|
 **ANVIL**|cuda-11.2_2.8.4 (D), cuda-11.0_2.11.4, cuda-11.4_2.11.4, cuda-12.8_2.26.2
+**GAUTSCHI**|2.30.4_cu13.2
 
 (D): Default Module
 
