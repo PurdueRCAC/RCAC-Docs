@@ -12,6 +12,9 @@ search:
 
 On Hammer, jobs are submitted to named queues (also called accounts). Each research partner who has purchased access to Hammer receives a dedicated queue named after their research group. In addition, all users have access to the `standby` and `debug` queues.
 
+!!! note
+    Hammer is optimized for **high-throughput computing (HTC)**. The maximum job size is **8 processor cores**. By default, SLURM jobs on Hammer have exclusive access to compute nodes — a job requesting fewer than a full node's cores still occupies the entire node.
+
 ## Named (mylab) Queues
 
 Each research partner on Hammer has a dedicated queue named after their research group (e.g., `mylab`). These queues provide priority access to the resources purchased by that group.

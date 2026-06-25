@@ -22,9 +22,10 @@ Your subscription in the Hammer mailing list is tied to your account on Hammer. 
 
 Hammer differs from the other Community Clusters in several significant aspects:
 
-* Hammer is optimized for loosely-coupled, high-throughput computing (HTC), rather than tightly-coupled parallel applications. This makes it ideal for workloads consisting of many independent, single-node jobs.
+* Hammer is optimized for loosely-coupled, high-throughput computing (HTC), rather than tightly-coupled parallel applications. This makes it ideal for workloads consisting of many independent, single-node jobs. The **maximum job size is 8 processor cores**.
+* By default, SLURM jobs on Hammer receive exclusive access to compute nodes. Jobs requiring fewer than a full node's cores still occupy the entire node unless node sharing is explicitly requested.
 * Hammer home directories are entirely separate from other Community Clusters home directories. There is no automatic copying or synchronization between the two. At their discretion, users can copy parts or all of another Community Cluster home directory into Hammer. [Instructions are provided](storage.md#file-transfer).
-* Hammer uses a named queue (mylab) system where each research partner gets a dedicated queue. All users also have access to the `standby` queue for lower-priority work and the `debug` queue for short interactive debugging sessions.
+* Hammer uses a named queue system where each research partner gets a dedicated queue. All users also have access to the `standby` queue for lower-priority work and the `debug` queue for short interactive debugging sessions.
 * Users of `hsi` and `htar` commands may encounter Fortress keytab- and authentication-related error messages due to the dedicated nature of Hammer home directories. A [temporary workaround is provided](#hsihtar-unable-to-authenticate-user-with-remote-gateway-error-2-or-9) while a permanent solution is being developed.
 
 ### Do I need to do anything to my firewall to access Hammer?
@@ -211,7 +212,7 @@ This can happen due to multiple reasons:
 
      `ssh -Y -l username hostname`
 
-3. Reason: If you are trying to open a graphical window within an interactive PBS job, make sure you are using the `-X` option with `qsub` after following the previous step(s) for connecting to the front-end. Please see the example in the [Interactive Jobs guide](run_jobs/examples/slurm/interactive.md).
+3. Reason: If you are trying to open a graphical window within an interactive SLURM job, make sure you are using the `--x11` option with `srun` or `salloc` after following the previous step(s) for connecting to the front-end. Please see the example in the [Interactive Jobs guide](run_jobs/examples/slurm/interactive.md).
 4. Reason: If none of the above apply, make sure that you are [within quota of your home directory](#usrbinxauth-error-in-locking-authority-file).
 
 ### bash: command not found
@@ -257,13 +258,13 @@ or
 * You can learn about processor layout on Hammer nodes using the following command:
 
   ```
-  hammer-a001:~$ lstopo-no-graphics
+  hammer-a003:~$ lstopo-no-graphics
   ```
 
 * For detailed IO connectivity:
 
   ```
-  hammer-a001:~$ lstopo-no-graphics --physical --whole-io
+  hammer-a003:~$ lstopo-no-graphics --physical --whole-io
   ```
 
 * Please note that NUMA information is useful for advanced MPI/OpenMP optimizations. For most users, using default NUMA settings in MPI or OpenMP would give you the best performance.

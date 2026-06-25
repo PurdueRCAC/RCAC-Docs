@@ -10,15 +10,9 @@ search:
 
 # Hammer User Guide
 
-<div class="quick-launcher">
-  <div class="quick-launcher-card">
-    <span class="launcher-title">Gateway (Open OnDemand)</span>
-    <a href="https://gateway.hammer.rcac.purdue.edu/" class="launcher-btn" target="_blank" rel="noopener">Launch</a>
-  </div>
-  <div class="quick-launcher-card">
-    <span class="launcher-title">Remote Desktop (ThinLinc)</span>
-    <a href="https://desktop.hammer.rcac.purdue.edu/" class="launcher-btn" target="_blank" rel="noopener">Launch</a>
-  </div>
+<div class="quick-launcher-card">
+  <span class="launcher-title">Remote Desktop (ThinLinc)</span>
+  <a href="https://desktop.hammer.rcac.purdue.edu/" class="launcher-btn" target="_blank" rel="noopener">Launch</a>
 </div>
 
 Hammer is optimized for Purdue's communities utilizing loosely-coupled, high-throughput computing.
