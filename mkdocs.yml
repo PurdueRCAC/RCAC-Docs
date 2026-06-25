@@ -181,7 +181,16 @@ nav:
         - R Shiny: userguides/geddes/examples/r-shiny.md
       - Troubleshooting: userguides/geddes/troubleshooting.md
     - Negishi: https://www.rcac.purdue.edu/knowledge/negishi
-    - Hammer: https://www.rcac.purdue.edu/knowledge/hammer
+    - Hammer:
+      - userguides/hammer/index.md
+      - Hammer Overview: userguides/hammer/overview.md
+      - Accounts: userguides/hammer/accounts.md
+      - Software: userguides/hammer/software.md
+      - Running Jobs: userguides/hammer/run_jobs/index.md
+      - File Storage and Transfer: userguides/hammer/storage.md
+      - Compiling Source Code: userguides/hammer/compile.md
+      - Jupyter Hub: userguides/hammer/jupyter.md
+      - Frequently Asked Questions: userguides/hammer/faqs.md
     - Rossmann: https://www.rcac.purdue.edu/knowledge/rossmann
     - Weber: https://www.rcac.purdue.edu/knowledge/weber
   - Storage User Guides:
