@@ -10,11 +10,13 @@ search:
 
 # Hammer Overview
 
-Hammer is optimized for Purdue's communities utilizing loosely-coupled, high-throughput computing. Hammer was established in April 2015 through a partnership with HP and Intel and has been expanded annually, with each year's nodes kept in production for five years.
+Hammer is optimized for Purdue's communities utilizing loosely-coupled, high-throughput computing. Hammer was established in April 2015 through a partnership with HP and Intel and has been expanded annually, with each year's nodes kept in production for five years. Hammer was expanded again in late 2016. Hammer will be expanded annually, with each year's purchase of nodes to remain in production for 5 years from their initial purchase.
+
+To purchase access to Hammer today, go to the [Cluster Access Purchase](https://www.rcac.purdue.edu/purchase) page. Please subscribe to our Community Cluster Program Mailing List to stay informed on the latest purchasing developments or contact us via email at [rcac-cluster-purchase@lists.purdue.edu](mailto:rcac-cluster-purchase@lists.purdue.edu) if you have any questions.
 
 ## Hammer Specifications
 
-All Hammer compute nodes are connected via 10 Gbps or 25 Gbps Ethernet interconnects.
+Most Hammer nodes consist of identical hardware. All Hammer compute nodes are connected via 10 Gbps or 25 Gbps Ethernet interconnects.
 
 Hammer Front-Ends
 
