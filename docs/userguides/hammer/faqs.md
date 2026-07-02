@@ -296,4 +296,40 @@ Yes. While Fortress directories are not directly mounted on Hammer for performan
 
 ## Software
 
+### Cannot use pip after loading ml-toolkit modules
 
+**Question**
+
+`pip` throws an error after loading the machine learning modules. How can I fix it?
+
+**Answer**
+
+Machine learning modules (`tensorflow`, `pytorch`, `opencv` etc.) include a version of `pip` that is newer than the one installed with Anaconda. As a result it will throw an error when you try to use it.
+
+```bash
+$ pip --version
+Traceback (most recent call last):
+  File "/apps/cent7/anaconda/5.1.0-py36/bin/pip", line 7, in <module>
+    from pip import main
+ImportError: cannot import name 'main'
+```
+
+The preferred way to use pip with the machine learning modules is to invoke it via Python as shown below.
+
+```bash
+$ python -m pip --version
+```
+
+### How can I get access to Sentaurus software?
+
+**Question**
+
+How can I get access to Sentaurus tools for micro- and nano-electronics design?
+
+**Answer**
+
+Sentaurus software license requires a signed NDA. Please contact [Dr. Mark Johnson, Director of ECE Instructional Laboratories](https://engineering.purdue.edu/Mark-Johnson) to complete the process.
+
+Once the licensing process is complete and you have been added into a `cae2` Unix group, you could use Sentaurus on RCAC community clusters by loading the corresponding environment module:
+
+`module load sentaurus`

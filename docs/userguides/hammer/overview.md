@@ -20,17 +20,17 @@ Currently, all Hammer nodes consist of identical hardware with the exception for
 
 Hammer Front-Ends
 
-| Front-Ends | Number of Nodes | Processors per Node | Cores per Node | Memory per Node | Retires in |
-| --- | --- | --- | --- | --- | --- |
-|  | 2 | Intel(R) Xeon(R) CPU E5-2420 v2 @ 2.20GHz | 12 | 101 GB | 2020 |
+| Front-Ends | Number of Nodes | Processors per Node | Cores per Node | Memory per Node |
+| --- | --- | --- | --- | --- |
+|  | 2 | Two Sky Lake CPUs @ 2.60GHz | 48 (Logical) | 192 GB |
 
 Hammer Sub-Clusters
 
-| Sub-Cluster | Number of Nodes | Processors per Node | Cores per Node | Memory per Node | Retires in |
-| --- | --- | --- | --- | --- | --- |
-| F[000-012] | 13 | Two AMD EPYC 7702 @ 2GHz w/ One nVidia Tesla T4 GPU | 256 | 512GB | 2020 |
-| F[013-015] | 3 | Two AMD EPYC 7702 @ 2GHz | 256 | 512GB | 2020 |
-| G | 40 | Two AMD EPYC 7702 @ 2GHz | 256 | 512GB | 2021 |
+| Sub-Cluster | Number of Nodes | Processors per Node | Cores per Node | Memory per Node |
+| --- | --- | --- | --- | --- |
+| F [000-012] | 13 | Two AMD EPYC 7702 @ 2GHz, one Nvidia Tesla T4 GPU | 256 | 512GB |
+| F [013-015] | 3 | Two AMD EPYC 7702 @ 2GHz | 256 | 512GB |
+| G | 40 | Two AMD EPYC 7702 @ 2GHz | 256 | 512GB |
 
 Hammer nodes run Rocky Linux 8 and use Slurm (Simple Linux Utility for Resource Management) as the batch scheduler for resource and job management. The application of operating system patches occurs as security needs dictate. All nodes allow for unlimited stack usage, as well as unlimited core dump size (though disk space and server quotas may still be a limiting factor).
 
