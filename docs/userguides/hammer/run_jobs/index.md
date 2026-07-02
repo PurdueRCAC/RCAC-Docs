@@ -37,8 +37,7 @@ Batch jobs submitted via SLURM have four main steps:
 
 A number of example jobs are available for you to look over and adapt to your own needs. The first few are generic examples, and latter ones go into specifics for particular software packages.
 
-- [Specific Applications](examples/apps.md)
-- [Hadoop](examples/hadoop.md)
 - [Generic SLURM Jobs](examples/slurm.md)
+- [Specific Applications](examples/apps.md)
 
 [**Back to Hammer User Guide**](../index.md)

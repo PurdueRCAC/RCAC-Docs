@@ -8,6 +8,6 @@ search:
   boost: 2
 ---
 
---8<-- "docs/snippets/windows_network_drive.md"
+{{ windows_network_drive("hammer") }}
 
 [**Back to the Storage section**](../storage.md)

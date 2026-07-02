@@ -8,6 +8,6 @@ search:
   boost: 2
 ---
 
---8<-- "docs/snippets/scp.md"
+{{ scp_file_snippet("hammer") }}
 
 [**Back to the Storage section**](../storage.md)

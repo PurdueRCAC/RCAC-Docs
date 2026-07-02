@@ -32,25 +32,17 @@ Hammer differs from the other Community Clusters in several significant aspects:
 
 No firewall changes are needed to access Hammer. However, to access data through Network Drives (i.e., CIFS, "Z: Drive"), you must be on a Purdue campus network or connected through [VPN](http://www.itap.purdue.edu/connections/vpn/).
 
-### Does Hammer have the same home directory as other clusters?
-
-The Hammer home directory and its contents are exclusive to Hammer cluster front-end hosts and compute nodes. This home directory is not available on other RCAC machines but Hammer. There is no automatic copying or synchronization between home directories.
-
-At your discretion you can manually copy all or parts of your main research computing home to Hammer using one of the [suggested methods](storage.md#file-transfer).
-
-If you plan to use `hsi` or `htar` commands to access Fortress tape archive from Hammer, please see also the [keytab generation question](#hsihtar-unable-to-authenticate-user-with-remote-gateway-error-2-or-9) for a temporary workaround to a potential caveat, while a permanent mitigation is being developed.
-
 ## Logging In & Accounts
 
 ### /usr/bin/xauth: error in locking authority file
 
-#### Problem
+**Problem**
 
 I receive this message when logging in:
 
 `/usr/bin/xauth: error in locking authority file`
 
-#### Solution
+**Solution**
 
 Your home directory disk quota is full. You may check your quota with `myquota`.
 
@@ -69,11 +61,11 @@ There are several common locations that tend to grow large over time and are mer
 
 ### My SSH connection hangs
 
-#### Problem
+**Problem**
 
 Your console hangs while trying to connect to a RCAC Server.
 
-#### Solution
+**Solution**
 
 This can happen due to various reasons. Most common reasons for hanging SSH terminals are:
 
@@ -85,11 +77,11 @@ If neither of the suggestions above work, please [contact support](https://www.r
 
 ### ThinLinc session frozen
 
-#### Problem
+**Problem**
 
 Your ThinLinc session is frozen and you can not launch any commands or close the session.
 
-#### Solution
+**Solution**
 
 This can happen due to various reasons. The most common reason is that you ran something memory-intensive inside that ThinLinc session on a front-end, so parts of the ThinLinc session got killed by Cgroups, and the entire session got stuck.
 
@@ -111,11 +103,11 @@ This can happen due to various reasons. The most common reason is that you ran s
 
 ### ThinLinc session unreachable
 
-#### Problem
+**Problem**
 
 When trying to login to ThinLinc and re-connect to your existing session, you receive an error *"Your ThinLinc session is currently unreachable"*.
 
-#### Solution
+**Solution**
 
 This can happen if the specific login node your existing remote desktop session was residing on is currently offline or down, so ThinLinc can not reconnect to your existing session. Most often the session is non-recoverable at this point, so the solution is to terminate your existing ThinLinc desktop session and start a new one.
 
@@ -135,51 +127,13 @@ This can happen if the specific login node your existing remote desktop session 
 
   Select "End existing session" and try "Connect" again.
 
-### How to disable ThinLinc screensaver
-
-#### Problem
-
-Your ThinLinc desktop is locked after being idle for a while, and it asks for a password to refresh it. It means the "screensaver" and "lock screen" functions are turned on, but you want to disable these functions.
-
-#### Solution
-
-If your screen is locked, close the ThinLinc client, reopen the client login popup, and select `End existing session`.
-
-<p style="text-align: center;">
-  <img src="/assets/images/userguides/thinlinc4.png" alt="ThinLinc Login Popup" width="80%">
-</p>
-
-Select "End existing session" and try "Connect" again.
-
-To permanently avoid screen lock issue, right click desktop and select `Applications`, then `settings`, and select `Screensaver`.
-
-<p style="text-align: center;">
-  <img src="/assets/images/userguides/thinlinc5.png" alt="ThinLinc Screensaver" width="80%">
-</p>
-
-Select "Applications", then "settings", and select "Screensaver".
-
-Under **Screensaver**, turn off the `Enable Screensaver`, then under **Lock Screen**, turn off the `Enable Lock Screen`, and close the window.
-
-<p style="text-align: center;">
-  <img src="/assets/images/userguides/thinlinc6.png" alt="ThinLinc Disable Screensaver" width="80%">
-</p>
-
-Under "Screensaver" tab, turn off the "Enable Screensaver" option.
-
-<p style="text-align: center;">
-  <img src="/assets/images/userguides/thinlinc7.png" alt="ThinLinc Disable Lock Screen" width="80%">
-</p>
-
-Under "Lock Screen" tab, turn off the "Enable Lock Screen" option.
-
 ### I worked on Hammer after I graduated/left Purdue, but can not access it anymore
 
-#### Problem
+**Problem**
 
 You have graduated or left Purdue but continue collaboration with your Purdue colleagues. You find that your access to Purdue resources has suddenly stopped and your password is no longer accepted.
 
-#### Solution
+**Solution**
 
 Access to all resources depends on having a valid Purdue Career Account. Expired Career Accounts are removed twice a year, during Spring and October breaks (more details at the [official page](https://www.purdue.edu/apps/account/IAMO/Purdue_CareerAccount_Expiration.jsp)). If your Career Account was purged due to expiration, you will not be be able to access the resources.
 
@@ -194,48 +148,45 @@ After your R4P is completed and Career Account is restored, please note two addi
 
 ### cannot connect to X server / cannot open display
 
-#### Problem
+**Problem**
 
 You receive the following message after entering a command to bring up a graphical window
 
 `cannot connect to X server` `cannot open display`
 
-#### Solution
+**Solution**
 
 This can happen due to multiple reasons:
 
 1. Reason: Your SSH client software does not support graphical display by itself (e.g. SecureCRT or PuTTY).
-   * Solution: Try using a client software like ThinLinc or MobaXterm as described in the [SSH X11 Forwarding guide](accounts.md#ssh-x11-forwarding).
+    * Solution: Try using a client software like ThinLinc or MobaXterm as described in the [SSH X11 Forwarding guide](accounts.md#ssh-x11-forwarding).
 2. Reason: You did not enable X11 forwarding in your SSH connection.
-
-   * Solution: If you are in a Windows environment, make sure that X11 forwarding is enabled in your connection settings (e.g. in MobaXterm or PuTTY). If you are in a Linux environment, try
-
+    * Solution: If you are in a Windows environment, make sure that X11 forwarding is enabled in your connection settings (e.g. in MobaXterm or PuTTY). If you are in a Linux environment, try
      `ssh -Y -l username hostname`
-
 3. Reason: If you are trying to open a graphical window within an interactive SLURM job, make sure you are using the `--x11` option with `srun` or `salloc` after following the previous step(s) for connecting to the front-end. Please see the example in the [Interactive Jobs guide](run_jobs/examples/slurm/interactive.md).
 4. Reason: If none of the above apply, make sure that you are [within quota of your home directory](#usrbinxauth-error-in-locking-authority-file).
 
 ### bash: command not found
 
-#### Problem
+**Problem**
 
 You receive the following message after typing a command
 
 `bash: command not found`
 
-#### Solution
+**Solution**
 
 This means the system doesn't know how to find your command. Typically, you need to load a module to do it.
 
 ### bash: module command not found
 
-#### Problem
+**Problem**
 
 You receive the following message after typing a command, e.g. module load intel
 
 `bash: module command not found`
 
-#### Solution
+**Solution**
 
 The system cannot find the module command. You need to source the modules.sh file as below
 
@@ -245,48 +196,13 @@ or
 
 `#!/bin/bash -i`
 
-### Close Firefox / Firefox is already running but not responding
+### What is the "debug" queue?
 
---8<-- "docs/snippets/firefox_lock.md"
-
-### Jupyter: database is locked / can not load notebook format
-
---8<-- "docs/snippets/jupyter_lock.md"
-
-### How do I know Non-uniform Memory Access (NUMA) layout on Hammer?
-
-* You can learn about processor layout on Hammer nodes using the following command:
-
-  ```
-  hammer-a003:~$ lstopo-no-graphics
-  ```
-
-* For detailed IO connectivity:
-
-  ```
-  hammer-a003:~$ lstopo-no-graphics --physical --whole-io
-  ```
-
-* Please note that NUMA information is useful for advanced MPI/OpenMP optimizations. For most users, using default NUMA settings in MPI or OpenMP would give you the best performance.
-
-### Why cannot I use --mem=0 when submitting jobs?
-
-#### Question
-
-Why can't I specify `--mem=0` for my job?
-
-#### Answer
-
-We no longer support requesting unlimited memory (`--mem=0`) as it has an adverse effect on the way scheduler allocates job, and could lead to large amount of nodes being blocked from usage.
-
-!!! note
-    Most often we suggest relying on default memory allocation (cluster-specific). But if you have to request custom amounts of memory, you can do it explicitly. For example `--mem=20G`.
-
-If you want to use the entire node's memory, you can submit the job with the `--exclusive` option.
+The `debug` queue allows you to quickly start small, short, interactive jobs in order to debug code, test programs, or test configurations. You are limited to one running job at a time in the queue, and you may run up to two compute nodes for 30 minutes.
 
 ### Can I extend the walltime on a job?
 
-In some circumstances, yes. Walltime extensions must be requested of and completed by staff. Walltime extension requests will be considered on named (your advisor or research lab) queues. **Standby or debug queue jobs cannot be extended**.
+In some circumstances, yes. Walltime extensions must be requested of and completed by staff. Walltime extension requests will be considered on named (your advisor or research lab) queues. **`standby` or `debug` queue jobs cannot be extended.**
 
 Extension requests are at the discretion of staff based on factors such as any upcoming maintenance or resource availability. Extensions can be made past the normal maximum walltime on named queues but these jobs are subject to early termination should a conflicting maintenance downtime be scheduled.
 
@@ -294,25 +210,47 @@ Please be mindful of time remaining on your job when making requests and make re
 
 We ask that you make accurate walltime requests during job submissions. Accurate walltimes will allow the job scheduler to efficiently and quickly schedule jobs on the cluster. Please consider that extensions can impact scheduling efficiency for all users of the cluster.
 
-Requests can be made by [contacting support](https://www.rcac.purdue.edu/help). We ask that you:
+Requests can be made by [contacting support](mailto:rcac-help@purdue.edu). We ask that you:
 
 * Provide numerical job IDs, cluster name, and your desired extension amount.
 * Provide at least 24 hours notice before job will end (more if request is made on a weekend or holiday).
 * Consider making requests during business hours. We may not be able to respond in time to requests made after-hours, on a weekend, or on a holiday.
 
-### What is the debug queue?
+### How do I know Non-uniform Memory Access (NUMA) layout on Hammer?
 
-The debug queue is intended for short interactive debugging sessions. It allows up to 2 compute nodes per job, has a maximum walltime of 30 minutes, and limits each user to 1 running job at a time. Jobs submitted to the debug queue are expected to start within minutes. To submit to the debug queue:
+* You can learn about processor layout on Hammer nodes using the following command:
+    ```bash
+    hammer-f003:~$ lstopo-no-graphics
+    ```
+* For detailed IO connectivity:
+    ```bash
+    hammer-f003:~$ lstopo-no-graphics --physical --whole-io
+    ```
+* Please note that NUMA information is useful for advanced MPI/OpenMP/GPU optimizations. For most users, using default NUMA settings in MPI or OpenMP would give you the best performance.
 
-```
-$ sbatch --account=debug --nodes=1 myjobsubmissionfile
-```
+### Why cannot I use --mem=0 when submitting jobs?
+
+**Question**
+
+Why can't I specify `--mem=0` for my job?
+
+**Answer**
+
+We no longer support requesting unlimited memory (`--mem=0`) as it has an adverse effect on the way scheduler allocates job, and could lead to large amount of nodes being blocked from usage.
+
+Most often we suggest relying on default memory allocation (cluster-specific). But if you have to request custom amounts of memory, you can do it explicitly. For example `--mem=20G`.
+
+If you want to use the entire node's memory, you can submit the job with the `--exclusive` option.
 
 ## Data
 
-### My scratch files were purged — are they recoverable?
+### My scratch files were purged. Can I retrieve them?
 
-No. Files in scratch directories are not backed up and are not recoverable once purged. Scratch files on Hammer are automatically purged after 60 days of inactivity. Please ensure that any important data is moved to your home directory, Data Depot, or Fortress archive before the purge deadline.
+Unfortunately, once files are purged, they are purged permanently and cannot be retrieved. Notices of pending purges are sent one week in advance to your Purdue email address. Be sure to regularly check your Purdue email or set up forwarding to an account you do frequently check.
+
+**Can you tell me what files were purged?**
+
+You can see a list of files removed with the command `lastpurge`. The command accepts a `-n` option to specify how many weeks/purges ago you want to look back at.
 
 ### How is my Data Secured on Hammer?
 
@@ -325,130 +263,37 @@ Hammer is not approved for storing data at the L3 restricted (covered by HIPAA) 
 
 For resources designed to support research with heightened security requirements, please look for resources within the [REED+ Ecosystem](https://www.rcac.purdue.edu/services/reedplus).
 
+**High Level Data Security Diagram**
+
+![System Security Diagram](/assets/images/userguides/secdiagram.png)
+
+**Notes on Data Security Configuration**
+
+* Only research groups that have purchased access may access Hammer.
+* All access to Hammer is through [Purdue Career Accounts](https://www.purdue.edu/securepurdue/iamoServices/index.php), managed by Purdue's identity and access management office.
+* Scratch storage on Hammer is private only to the individual user, using POSIX file permissions.
+* Scratch storage on Hammer is not encrypted at rest or in flight.
+* Scratch storage on Hammer is not backed up. We recommend using Fortress and the Data Depot as part of your lab's data management strategy.
+* Access to the PI's Data Depot space is only possible from HPC systems, or with the use of the Purdue VPN.
+* Access to the PI's Data Depot space is directly controlled by the PI via UNIX groups, POSIX file permissions and ACLs.
+* [Globus](https://transfer.rcac.purdue.edu) is provided as a tool for secure, high-performance file transfer and sharing.
+* All compute nodes on Hammer are firewalled and accessible only from within the boundaries of research computing resources.
+* Access to a compute node is limited to the specific user assigned to the node via the job scheduler. No more than 1 user may access any one compute node at a time.
+* The Purdue research network is monitored with an intrustion detection system.
+* Purdue system administrators use two-factor authentication for administrative access to research systems.
+* All research systems are manged with version control, configuration management software and patched at regular intervals.
+* Usage, access, system, and application data is centrally logged and reviewed.
+* Physical access to data center facilties is restricted by swipe card access to data center and systems staff.
+
 ### Can I share data with outside collaborators?
 
 Yes! Globus allows convenient sharing of data with outside collaborators. Data can be shared with collaborators' personal computers or directly with many other computing resources at other institutions. See the Globus documentation on how to share data:
-
-* <https://docs.globus.org/how-to/share-files/>
-
-### HSI/HTAR: Unable to authenticate user with remote gateway (error 2 or 9)
-
-There could be a variety of such errors, with wordings along the lines of
-
-```
-Could not initialize keytab on remote server.
-result = -2, errno = 2rver connection
-*** hpssex_OpenConnection: Unable to authenticate user with remote gateway at 128.211.138.40.1217result = -2, errno = 9
-Unable to setup communication to HPSS...
-ERROR (main) unable to open remote gateway server connection
-HTAR: HTAR FAILED
-```
-
-and
-
-```
-*** hpssex_OpenConnection: Unable to authenticate user with remote gateway at 128.211.138.40.1217result = -11000, errno = 9
-Unable to setup communication to HPSS...
-*** HSI: error opening logging
-Error - authentication/initialization failed
-```
-
-The root cause for these errors is an expired or non-existent keytab file (a special authentication token stored in your home directory). These keytabs are valid for 90 days and on most RCAC resources they are usually automatically checked and regenerated when you execute `hsi` or `htar` commands. However, if the keytab is invalid, or fails to generate, Fortress may be unable to authenticate you and you would see the above errors. This is especially common on those RCAC clusters that have their own dedicated home directories (such as Hammer), or on standalone installations (such as if you downloaded and installed HSI and HTAR on your non-RCAC computer).
-
-*This is a temporary problem and a permanent system-wide solution is being developed.* In the interim, the recommended workaround is to generate a new valid keytab file in your main research computing home directory, and then copy it to your home directory on Hammer. The `fortresskey` command is used to generate the keytab and can be executed on another cluster or a dedicated data management host `data.rcac.purdue.edu`:
-
-```
-$ ssh myusername@data.rcac.purdue.edu fortresskey
-$ scp -pr myusername@data.rcac.purdue.edu:~/.private $HOME
-```
-
-With a valid keytab in place, you should then be able to use `hsi` and `htar` commands to access Fortress from Hammer. Note that only one keytab can be valid at any given time (i.e. if you regenerated it, you may have to copy the new keytab to all systems that you intend to use `hsi` or `htar` from if they do not share the main research computing home directory).
-
-### HSI/HTAR: put: Error -5 on transfer
-
-First, check your firewall settings, and ensure that there are no firewall rules interfering with connecting to Fortress. For firewall configuration, please see "[Do I need to do anything to my firewall to access Hammer?](#do-i-need-to-do-anything-to-my-firewall-to-access-hammer)" **If firewalls are not responsible:**
-
-Open the file named `/etc/hosts` on your workstation, especially if you run a Debian or Ubuntu Linux distribution. Look for a line like:
-
-```
-127.0.1.1  hostname.dept.purdue.edu hostname
-```
-
-Replace the IP address 127.0.1.1 with the real IP address for your system. If you don't know your IP address, you can find it with the command:
-
-```
-host `hostname --fqdn`
-```
+* https://docs.globus.org/how-to/share-files/
 
 ### Can I access Fortress from Hammer?
 
-Yes. While Fortress directories are not directly mounted on Hammer for performance and archival protection reasons, they can be accessed from Hammer front-ends and nodes using any of the recommended methods of [HSI, HTAR or Globus](https://www.rcac.purdue.edu/knowledge/fortress/storage/transfer).
+Yes. While Fortress directories are not directly mounted on Hammer for performance and archival protection reasons, they can be accessed from Hammer front-ends and nodes using any of the recommended methods of HSI, HTAR or Globus.
 
 ## Software
 
-### Cannot use pip after loading ml-toolkit modules
 
-#### Question
-
-Pip throws an error after loading the machine learning modules. How can I fix it?
-
-#### Answer
-
-Machine learning modules (tensorflow, pytorch, opencv etc.) include a version of `pip` that is newer than the one installed with Anaconda. As a result it will throw an error when you try to use it.
-
-```
-$ pip --version
-Traceback (most recent call last):
-  File "/apps/cent7/anaconda/5.1.0-py36/bin/pip", line 7, in <module>
-    from pip import main
-ImportError: cannot import name 'main'
-```
-
-The preferred way to use `pip` with the machine learning modules is to invoke it via Python as shown below.
-
-```
-$ python -m pip --version
-```
-
-### How can I get access to Sentaurus software?
-
-#### Question
-
-How can I get access to Sentaurus tools for micro- and nano-electronics design?
-
-#### Answer
-
-Sentaurus software license requires a signed NDA. Please contact [Dr. Mark Johnson, Director of ECE Instructional Laboratories](https://engineering.purdue.edu/Mark-Johnson) to complete the process.
-
-Once the licensing process is complete and you have been added into a `cae2` Unix group, you could use Sentaurus on RCAC community clusters by loading the corresponding environment module:
-
-```
-module load sentaurus
-```
-
-### Julia package installation
-
-Users do not have write permission to the default julia package installation destination. However, users can install packages into home directory under `~/.julia`.
-
-Users can side step this by explicitly defining where to put julia packages:
-
-```
-$ export JULIA_DEPOT_PATH=$HOME/.julia
-$ julia -e 'using Pkg; Pkg.add("PackageName")'
-```
-
-## About Research Computing
-
-### Can I get a private server from RCAC?
-
-#### Question
-
-Can I get a private (virtual or physical) server from RCAC?
-
-#### Answer
-
-Often, researchers may want a private server to run databases, web servers, or other software. RCAC currently has [Geddes](https://www.rcac.purdue.edu/compute/geddes), a Community Composable Platform optimized for composable, cloud-like workflows that are complementary to the batch applications run on Community Clusters. Funded by the National Science Foundation under grant OAC-2018926, Geddes consists of Dell Compute nodes with two 64-core AMD Epyc 'Rome' processors (128 cores per node).
-
-To purchase access to Geddes today, go to the [Cluster Access Purchase](https://www.rcac.purdue.edu/purchase) page. Please subscribe to our Community Cluster Program Mailing List to stay informed on the latest purchasing developments or contact us (rcac-cluster-purchase@lists.purdue.edu) if you have any questions.
-
-[**Back to Hammer User Guide**](index.md)

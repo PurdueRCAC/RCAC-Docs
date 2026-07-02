@@ -16,23 +16,21 @@ To purchase access to Hammer today, go to the [Cluster Access Purchase](https://
 
 ## Hammer Specifications
 
-Most Hammer nodes consist of identical hardware. All Hammer compute nodes are connected via 10 Gbps or 25 Gbps Ethernet interconnects.
+Currently, all Hammer nodes consist of identical hardware with the exception for some of them hosting an Nvidia T4 GPU.  All Hammer nodes have 128 HT-enabled processor cores, 512 GB of RAM, and 10 Gbps Ethernet interconnects.
 
 Hammer Front-Ends
 
 | Front-Ends | Number of Nodes | Processors per Node | Cores per Node | Memory per Node | Retires in |
 | --- | --- | --- | --- | --- | --- |
-|  | 2 | Two Haswell CPUs @ 2.60GHz | 20 | 64 GB | 2020 |
+|  | 2 | Intel(R) Xeon(R) CPU E5-2420 v2 @ 2.20GHz | 12 | 101 GB | 2020 |
 
 Hammer Sub-Clusters
 
 | Sub-Cluster | Number of Nodes | Processors per Node | Cores per Node | Memory per Node | Retires in |
 | --- | --- | --- | --- | --- | --- |
-| A | 198 | Two Haswell CPUs @ 2.60GHz | 20 | 64 GB | 2020 |
-| B | 40 | Two Haswell CPUs @ 2.60GHz | 40 | 128 GB | 2021 |
-| C | 27 | Two Sky Lake CPUs @ 2.60GHz | 48 | 192 GB | 2022 |
-| D | 18 | Two Sky Lake CPUs @ 2.60GHz | 48 | 192 GB | 2023 |
-| E | 15 | Two Intel Xeon Gold CPUs @ 2.60GHz | 48 | 96 GB | 2024 |
+| F[000-012] | 13 | Two AMD EPYC 7702 @ 2GHz w/ One nVidia Tesla T4 GPU | 256 | 512GB | 2020 |
+| F[013-015] | 3 | Two AMD EPYC 7702 @ 2GHz | 256 | 512GB | 2020 |
+| G | 40 | Two AMD EPYC 7702 @ 2GHz | 256 | 512GB | 2021 |
 
 Hammer nodes run Rocky Linux 8 and use Slurm (Simple Linux Utility for Resource Management) as the batch scheduler for resource and job management. The application of operating system patches occurs as security needs dictate. All nodes allow for unlimited stack usage, as well as unlimited core dump size (though disk space and server quotas may still be a limiting factor).
 

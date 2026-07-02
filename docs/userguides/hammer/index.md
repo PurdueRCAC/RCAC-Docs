@@ -19,9 +19,8 @@ Hammer is optimized for Purdue's communities utilizing loosely-coupled, high-thr
 
 - [**Hammer Overview**](overview.md)
 - [**Accounts**](accounts.md)
-- [**Software**](software.md)
-- [**Running Jobs**](run_jobs/index.md)
 - [**File Storage and Transfer**](storage.md)
+- [**Software**](software.md)
 - [**Compiling Source Code**](compile.md)
-- [**Jupyter Hub**](jupyter.md)
+- [**Running Jobs**](run_jobs/index.md)
 - [**Frequently Asked Questions**](faqs.md)

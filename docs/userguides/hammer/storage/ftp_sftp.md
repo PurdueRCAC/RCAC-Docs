@@ -8,6 +8,6 @@ search:
   boost: 2
 ---
 
---8<-- "docs/snippets/ftp_sftp.md"
+{{ ftp_sftp_snippet("hammer") }}
 
 [**Back to the Storage section**](../storage.md)

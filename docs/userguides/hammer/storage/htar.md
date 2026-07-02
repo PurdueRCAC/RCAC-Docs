@@ -8,6 +8,6 @@ search:
   boost: 2
 ---
 
---8<-- "docs/snippets/htar.md"
+{{ htar_snippet(resource) }}
 
 [**Back to the Storage section**](../storage.md)
