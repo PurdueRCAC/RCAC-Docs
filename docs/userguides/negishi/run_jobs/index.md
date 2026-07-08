@@ -40,6 +40,7 @@ Batch jobs submitted via SLURM have four main steps:
 - [**Python**](python.md)
 - [**R**](r.md)
 - [**Apptainer**](apptainer.md)
+- [**Biocontainers**](biocontainers.md)
 - [**Matlab**](matlab.md)
 - [**Ansys**](ansysfluent.md)
 - [**Gaussian**](gaussian.md)
