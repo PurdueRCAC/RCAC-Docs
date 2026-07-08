@@ -41,8 +41,10 @@ Batch jobs submitted via SLURM have four main steps:
 - [**R**](r.md)
 - [**Apptainer**](apptainer.md)
 - [**Matlab**](matlab.md)
-- [**Ansys**](ansysfluent_example.md)
-- [**Gaussian**](gaussian_example.md)
+- [**Ansys**](ansysfluent.md)
+- [**Gaussian**](gaussian.md)
+- [**VASP**](vasp.md)
+- [**Windows**](windows.md)
 - [**MPI**](mpi_jobs.md)
 - [**OpenMP**](openmp_jobs.md)
-- [**GPU**](gpu_jobs.md)
+
