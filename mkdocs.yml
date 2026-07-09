@@ -191,7 +191,6 @@ nav:
         - Web Server: userguides/geddes/examples/webserver.md
         - R Shiny: userguides/geddes/examples/r-shiny.md
       - Troubleshooting: userguides/geddes/troubleshooting.md
-    - Negishi: https://www.rcac.purdue.edu/knowledge/negishi
     - Hammer: https://www.rcac.purdue.edu/knowledge/hammer
     - Rossmann: https://www.rcac.purdue.edu/knowledge/rossmann
     - Weber: https://www.rcac.purdue.edu/knowledge/weber
