@@ -11,7 +11,7 @@ search:
 
 # Installing Packages
 
-Installing Python packages in an Anaconda environment is recommended. One key advantage of Anaconda is that it allows users to install unrelated packages in separate self-contained environments. Individual packages can later be reinstalled or updated without impacting others. If you are unfamiliar with Conda environments, please check our [Conda Guide](../conda.md).
+Installing Python packages in an Anaconda environment is recommended. One key advantage of Anaconda is that it allows users to install unrelated packages in separate self-contained environments. Individual packages can later be reinstalled or updated without impacting others. If you are unfamiliar with Conda environments, please check our [Conda Guide](../conda).
 
 To facilitate the process of creating and using Conda environments, we support a script (`conda-env-mod`) that generates a module file for an environment, as well as an optional Jupyter kernel to use this environment in a JupyterHub notebook.
 

@@ -12,7 +12,7 @@ search:
 
 A shared-memory job is a single process that takes advantage of a multi-core processor and its shared memory to achieve parallelization.
 
-This example shows how to submit an OpenMP program compiled in the section [Compiling OpenMP Programs](../compile/compile_openmp.md).
+This example shows how to submit an OpenMP program compiled in the section [Compiling OpenMP Programs](../compile/openmp).
 
 !!! note 
     When running OpenMP programs, all threads must be on the same compute node to take advantage of shared memory. The threads cannot communicate between nodes.

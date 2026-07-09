@@ -28,7 +28,7 @@ Table Summary of Changes
 | Submit a gpu job | `sbatch -A gpu` | `sbatch -A mygroup -p gpu` |
 | Submit a job to your group's interactive account | `sbatch -A interactive` | `sbatch -A mygroup -p negishi -q interactive` |
 
-If you have used other clusters, you will be familiar with the first item. If you have not, you can read about how to format the request [on our job submission page.](https://www.rcac.purdue.edu/index.php/knowledge/negishi/run/slurm/submit) The rest of this page will focus on the last three items.
+If you have used other clusters, you will be familiar with the first item. If you have not, you can read about how to format the request [on our job submission page.](../submit_script) The rest of this page will focus on the last three items.
 
 ## Partitions
 

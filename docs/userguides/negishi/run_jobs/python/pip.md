@@ -20,7 +20,7 @@ Traceback (most recent call last):
 OSError: [Errno 13] Permission denied: '/apps/cent7/anaconda/2020.07-py38/lib/python3.8/site-packages/mkl_random-1.1.1.dist-info'
 ```
 
-If you encounter this error, it means that you cannot modify the global Python installation. We recommend installing Python packages in a conda environment. Detailed instructions for installing packages with `pip` can be found in our [Python package installation page](../packages.md).
+If you encounter this error, it means that you cannot modify the global Python installation. We recommend installing Python packages in a conda environment. Detailed instructions for installing packages with `pip` can be found in our [Python package installation page](../packages).
 
 Below we list some other useful `pip` commands.
 

@@ -12,7 +12,7 @@ search:
 
 An MPI job is a set of processes that take advantage of multiple compute nodes by communicating with each other. OpenMPI and Intel MPI (IMPI) are implementations of the MPI standard.
 
-This section shows how to submit one of the MPI programs compiled in the section [Compiling MPI Programs](../compile/compile_mpi.md).
+This section shows how to submit one of the MPI programs compiled in the section [Compiling MPI Programs](../../compile/mpi).
 
 Use `module load` to set up the paths to access these libraries. Use `module avail` to see all MPI packages installed on Negishi.
 

@@ -10,7 +10,7 @@ search:
 
 # Running Serial Jobs
 
-This shows how to submit one of the serial programs compiled in the section [Compiling Serial Programs](../../compile/compile_serial.md).
+This shows how to submit one of the serial programs compiled in the section [Compiling Serial Programs](../../compile/serial).
 
 Create a job submission file:
 

@@ -113,6 +113,6 @@ If an option is present in both your job submission file and on the command line
 
 After you submit your job with `SBATCH`, it may wait in queue for minutes, hours, or even weeks. How long it takes for a job to start depends on the specific queue, the resources and time requested, and other jobs already waiting in that queue requested as well. It is impossible to say for sure when any given job will start. For best results, request no more resources than your job requires.
 
-Once your job is submitted, you can [monitor the job status](/knowledge/${resource.dir}/run/slurm/status), wait for the job to complete, and [check the job output](/knowledge/${resource.dir}/run/slurm/output).
+Once your job is submitted, you can [monitor the job status](../monitoring_job), wait for the job to complete, and [check the job output](../checking_output).
 
 ​[**Back to the Running Jobs section**](index.md)

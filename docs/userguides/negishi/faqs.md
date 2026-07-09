@@ -20,19 +20,19 @@ Your subscription in the Negishi mailing list is tied to your account on Negishi
 
 ### How is Negishi different than other Community Clusters?
 
-${resource.name} differs from the previous Community Clusters in several significant aspects:
+Negishi differs from the previous Community Clusters in several significant aspects:
 
-* Host naming convention in the ${resource.name} cluster is different from earlier Community Clusters. Everything ${resource.name}-related is contained within a `${resource.hostname}.rcac.purdue.edu` subdomain. Front-end login nodes are now named `loginNN` (as opposed to earlier `<cluster>-feNN`), and compute nodes of each type `X` are named `xNNN` (as opposed to `<cluster>-xNNN`).
-* ${resource.name} OnDemand Gateway is at the {::if resource.active != false}[${resource.oodname}.${resource.hostname}.rcac.purdue.edu](https://${resource.oodname}.${resource.hostname}.rcac.purdue.edu){::else}${resource.oodname}.${resource.hostname}.rcac.purdue.edu{::/} (as opposed to earlier `gateway.${resource.hostname}.rcac.purdue.edu` convention).
-* ${resource.name} home directories are entirely separate from other Community Clusters home directories. There is no automatic copying or synchronization between the two. At their discretion, users can copy parts or all of the Community Clusters home directory into ${resource.name} - [instructions are provided](/knowledge/${resource.dir}/storage/transfer/copyhome).
-* ${resource.name} contains the 3rd generation of AMD EPYC processors, codenamed "Milan". These CPUs support AVX2 vector instructions set. When compiling your code, use of `-march=znver3` flag (for latest GCC, Clang and AOCC compilers) or `-march=core-avx2` (for Intel compilers and GCC prior to 11.0) is recommended.
-* GCC compiler with OpenMPI or MVAPICH2 MPI libraries are recommended for software development on ${resource.name}. You can enable this software with `module load gcc openmpi` (default) or `module load gcc mvapich2`.
-* If you use Jupyter notebooks, JupyterHub on ${resource.name} will be available only via the [OnDemand Gateway](https://${resource.oodname}.${resource.hostname}.rcac.purdue.edu) rather than the freestanding version as on some previous systems. Other RCAC systems will transition to OnDemand as well, following ${resource.name}.
+* Host naming convention in the Negishi cluster is different from earlier Community Clusters. Everything Negishi-related is contained within a `a003.negishi.rcac.purdue.edu` subdomain. Front-end login nodes are now named `loginNN` (as opposed to earlier `<cluster>-feNN`), and compute nodes of each type `X` are named `xNNN` (as opposed to `<cluster>-xNNN`).
+* Negishi OnDemand Gateway is at the [gateway.negishi.rcac.purdue.edu](https://gateway.negishi.rcac.purdue.edu) (as opposed to earlier `gateway.negishi.rcac.purdue.edu` convention).
+* Negishi home directories are entirely separate from other Community Clusters home directories. There is no automatic copying or synchronization between the two. At their discretion, users can copy parts or all of the Community Clusters home directory into Negishi - [instructions are provided](../storage/copyhome).
+* Negishi contains the 3rd generation of AMD EPYC processors, codenamed "Milan". These CPUs support AVX2 vector instructions set. When compiling your code, use of `-march=znver3` flag (for latest GCC, Clang and AOCC compilers) or `-march=core-avx2` (for Intel compilers and GCC prior to 11.0) is recommended.
+* GCC compiler with OpenMPI or MVAPICH2 MPI libraries are recommended for software development on Negishi. You can enable this software with `module load gcc openmpi` (default) or `module load gcc mvapich2`.
+* If you use Jupyter notebooks, JupyterHub on Negishi will be available only via the [OnDemand Gateway](https://gateway.negishi.rcac.purdue.edu) rather than the freestanding version as on some previous systems. Other RCAC systems will transition to OnDemand as well, following Negishi.
 
 Upcoming 2023
 -------------
 
-* A subset of ${resource.name} compute nodes contain ${resource.gpuname} accelerator cards which can significantly improve performance of compute-intensive workloads. These can be utilized by submitting jobs to the `${resource.gpuqueue}` queue (add `-A ${resource.gpuqueue}` to your job submission command).
+* A subset of Negishi compute nodes contain ${resource.gpuname} accelerator cards which can significantly improve performance of compute-intensive workloads. These can be utilized by submitting jobs to the `${resource.gpuqueue}` queue (add `-A ${resource.gpuqueue}` to your job submission command).
 * A selection of GPU-enabled ROCm application containers from the AMD InfinityHub collection is installed.
 
 
