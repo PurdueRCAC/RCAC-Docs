@@ -56,4 +56,4 @@ For more information about Python:
 * [Anaconda Python Distribution - Official Website](https://store.continuum.io/cshop/anaconda/)
 * [Conda User Guide](https://conda.io/projects/conda/en/latest/user-guide/)
 
-[**Return to the Python**](../python.md)
+[**Back to the Python section**](../python.md)

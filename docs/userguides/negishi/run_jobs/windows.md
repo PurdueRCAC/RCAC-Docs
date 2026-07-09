@@ -20,7 +20,7 @@ The following images are pre-configured and made available by staff:
 The Windows VMs can be launched in two fashions:
 
 * [Menu Launcher](windows/launcher.md) - Point and click to start
-* [Command Line](windows/cmd.) - Advanced and customized usage
+* [Command Line](windows/cmd.md) - Advanced and customized usage
 
 Click each of the above links for detailed instructions on using them.
 
@@ -39,4 +39,4 @@ The Windows 2016 Base server image available on ${resource.name} has the followi
 * VLC Media Player
 
 
-[**Back to the Running Jobs section**](../run_jobs/index.md)
+[**Back to the Running Jobs section**](index.md)

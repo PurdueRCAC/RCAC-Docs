@@ -20,4 +20,4 @@ For more general information on R visit [The R Project for Statistical Computing
 - [**Running R Jobs**](r/example_running_r_jobs.md)
 - [**Setting Up R Preferences with .Rprofile**](r/example_r_profile_setup.md)
 
-[**Back to the Running Jobs section**](../run_jobs/index.md)
+[**Back to the Running Jobs section**](index.md)

@@ -120,4 +120,4 @@ apptainer build ubuntu-18.04.sif ubuntu-18.04
 
 Finally, copy the new image to Negishi and run it.
 
-[**Back to the Running Jobs section**](../run_jobs/index.md)
+[**Back to the Running Jobs section**](index.md)

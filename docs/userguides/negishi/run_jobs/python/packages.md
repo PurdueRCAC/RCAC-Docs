@@ -304,4 +304,4 @@ A similar process can be devised for instructor-provided or individually-managed
 
 * Few applications only run on specific versions of Python (e.g. Python 3.6). Please check the documentation of your application if that is the case.
 
-[**Return to the Python**](../python.md)
+[**Back to the Python section**](../python.md)

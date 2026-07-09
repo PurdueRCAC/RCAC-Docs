@@ -17,7 +17,7 @@ We maintain several [Anaconda](https://www.anaconda.com/) installations. Anacond
 ```
 $ module load conda
 $ conda list
-# packages in environment at /apps/spack/bell/apps/anaconda/2020.02-py37-gcc-4.8.5-u747gsx:
+# packages in environment at /apps/spack/negishi/apps/anaconda/2020.02-py37-gcc-4.8.5-u747gsx:
 #
 # Name                    Version                   Build  Channel
 _ipyw_jlab_nb_ext_conf    0.1.0                    py37_0  
@@ -61,4 +61,4 @@ For more information about Python:
 * [Anaconda Python Distribution - Official Website](https://store.continuum.io/cshop/anaconda/)
 * [Conda User Guide](https://conda.io/projects/conda/en/latest/user-guide/)
 
-[**Return to the Python**](../python.md)
+[**Back to the Python section**](../python.md)

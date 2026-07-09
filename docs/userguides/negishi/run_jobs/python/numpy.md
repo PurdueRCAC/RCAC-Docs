@@ -36,4 +36,4 @@ module load conda
 export MKL_NUM_THREADS=1
 ```
 
-[**Return to the Python**](../python.md)
+[**Back to the Python section**](../python.md)

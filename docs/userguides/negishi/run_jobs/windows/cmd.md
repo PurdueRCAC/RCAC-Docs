@@ -54,4 +54,4 @@ $ windows -i /path/to/image.qcow2  -m 16G -c 10 -s /depot/mylab
 The Windows 2016 server desktop will open, and automatically log in as an administrator, so that you can install any software into the Windows virtual machine that your research requires. Changes to the image will be stored in the file specified with the `-i` option.
  
 
-[**Back to the Running Jobs section**](../../run_jobs/index.md)
+[**Back to the Windows section**](../windows.md)

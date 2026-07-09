@@ -4,6 +4,7 @@ tags:
 authors:
   - jin456
   - remender
+  - hkashgar
 resource: Negishi
 search:
   boost: 2

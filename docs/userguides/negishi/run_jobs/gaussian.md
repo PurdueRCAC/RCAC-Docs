@@ -4,6 +4,7 @@ tags:
 authors:
   - jin456
   - remender
+  - hkashgar
 resource: Negishi
 search:
   boost: 2
@@ -60,7 +61,7 @@ Only the first and last few lines are shown here:
 ```text
  Entering Gaussian System, Link 0=/apps/cent7/gaussian/g16-A.03/g16-haswell/g16/g16
  Initial command:
- /apps/cent7/gaussian/g16-A.03/g16-haswell/g16/l1.exe /scratch/gautschi/myusername/gaussian/Gau-7781.inp -scrdir=/scratch/gautschi/myusername/gaussian/
+ /apps/cent7/gaussian/g16-A.03/g16-haswell/g16/l1.exe /scratch/negishi/myusername/gaussian/Gau-7781.inp -scrdir=/scratch/negishi/myusername/gaussian/
  Entering Link 1 = /apps/cent7/gaussian/g16-A.03/g16-haswell/g16/l1.exe PID=      7782.
 
  Copyright (c) 1988,1990,1992,1993,1995,1998,2003,2009,2016,
@@ -77,14 +78,14 @@ real 13.85
 user 202.05
 sys 6.12
 Machine:
-a012.gautschi.rcac.purdue.edu
-a012.gautschi.rcac.purdue.edu
-a012.gautschi.rcac.purdue.edu
-a012.gautschi.rcac.purdue.edu
-a012.gautschi.rcac.purdue.edu
-a012.gautschi.rcac.purdue.edu
-a012.gautschi.rcac.purdue.edu
-a012.gautschi.rcac.purdue.edu
+a003.negishi.rcac.purdue.edu
+a003.negishi.rcac.purdue.edu
+a003.negishi.rcac.purdue.edu
+a003.negishi.rcac.purdue.edu
+a003.negishi.rcac.purdue.edu
+a003.negishi.rcac.purdue.edu
+a003.negishi.rcac.purdue.edu
+a003.negishi.rcac.purdue.edu
 ```
 
 ## Examples of Gaussian SLURM Job Submissions
