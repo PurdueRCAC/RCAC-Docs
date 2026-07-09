@@ -11,7 +11,7 @@ search:
 # All software and versions on RCAC clusters
 
 ## Overview
-As of **June 24, 2026**, there have been a total of **276** applications with **2543** available versions deployed across **6** RCAC HPC clusters: **ANVIL, BELL, GAUTSCHI, GILBRETH, NEGISHI, SCHOLAR**.
+As of **July 09, 2026**, there have been a total of **276** applications with **2545** available versions deployed across **6** RCAC HPC clusters: **ANVIL, BELL, GAUTSCHI, GILBRETH, NEGISHI, SCHOLAR**.
 
 ## Applications Catalog
 
@@ -1153,7 +1153,7 @@ As of **June 24, 2026**, there have been a total of **276** applications with **
     <tr>
       <td><a href="../apps_md/sentaurus"><strong>sentaurus</strong></a></td>
       <td>Engineering</td>
-      <td>BELL, NEGISHI</td>
+      <td>BELL, GAUTSCHI, NEGISHI</td>
     </tr>
     <tr>
       <td><a href="../apps_md/setuptools"><strong>setuptools</strong></a></td>
