@@ -15,6 +15,7 @@ Synopsys Sentaurus software suite for TCAD simulation of semiconductor devices.
 |Cluster|Versions|
 |---|---|
 **BELL**|2022.03
+**GAUTSCHI**|2025.06, 2026.03
 **NEGISHI**|2021.06, 2022.03, 2024.09
 
 ## Module
