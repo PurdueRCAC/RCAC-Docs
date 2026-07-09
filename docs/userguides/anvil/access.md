@@ -2,8 +2,10 @@
 tags:
   - Anvil
   - ACCESS
+  - NAIRR
 authors:
   - jin456
+  - hkashgar
 search:
   boost: 2
 draft: true
@@ -13,12 +15,14 @@ draft: true
 
 ## Obtaining an Account
 
-Anvil is an ACCESS computing resource. To use Anvil, you must first create an ACCESS account and request an allocation through the [ACCESS Allocation Request System](https://allocations.access-ci.org/).
+Anvil is an ACCESS an NAIRR computing resource. To use Anvil, you must first create an ACCESS account and request an allocation through the [ACCESS Allocation Request System](https://allocations.access-ci.org/) or [NAIRR Pilot](https://nairrpilot.org/).
 
 !!! tip "New users to existing projects"
-    If you are joining an existing project, all you need to do is [login or create your ACCESS account](https://allocations.access-ci.org/) and the manager of your project can add you themselves!
+    If you are joining an existing project with an **[ACCESS allocation](#access)**, [login or create your ACCESS account](https://allocations.access-ci.org/) and the project manager can add you through the ACCESS portal. If your project has a **[NAIRR allocation](#nairr)**, you still need an [ACCESS account](https://allocations.access-ci.org/), but user management and allocation administration are handled by the project manager through the [NAIRR Pilot portal](https://submit-nairr.xras.org/).
 
 <hr style="border: 3px solid">
+
+## ACCESS
 
 ### What is ACCESS?
 
@@ -28,11 +32,9 @@ Anvil is an ACCESS computing resource. To use Anvil, you must first create an AC
 
 ACCESS coordinates a diverse set of resources including Anvil and other traditional HPC resources suited for resource-intensive CPU workloads, modern accelerator-based systems (e.g., GPU), as well as cloud resources. **Anvil provides both CPU and GPU resources as part of ACCESS.** A comprehensive list of all the ACCESS-managed resources can be found here along with their descriptions and ideal workloads: [https://allocations.access-ci.org/resources](https://allocations.access-ci.org/resources).
 
-<hr style="border: 3px solid">
+### Access to Anvil through ACCESS program
 
-## Access to Anvil
-
-### Applying for a New Project
+#### Applying for a New Project
 
 1. Sign up for an ACCESS account (if you don’t have one already) at [https://allocations.access-ci.org](https://allocations.access-ci.org).
 2. Prepare an allocation request with details of your proposed computational workflows (science, software needs), resource requirements, and a short CV. See the individual “Preparing Your … Request” pages for details on what documents are required: [https://allocations.access-ci.org/prepare-requests](https://allocations.access-ci.org/prepare-requests).
@@ -41,7 +43,7 @@ ACCESS coordinates a diverse set of resources including Anvil and other traditio
 !!! tip "Help with proposal"
     Interested parties may contact the [ACCESS support](https://support.access-ci.org/) for help with an Anvil proposal.
 
-### Joining an Existing Project
+#### Joining an Existing Project
 
 1. Sign up for an ACCESS account (if you don’t have one already) at [https://allocations.access-ci.org](https://allocations.access-ci.org).
 2. Have the manager of the project add you through their admin portal. That simple!
@@ -55,7 +57,7 @@ ACCESS coordinates a diverse set of resources including Anvil and other traditio
 
 You will use your Anvil username when logging into Anvil systems via SSH or your ACCESS username when using Open OnDemand.
 
-### Which ACCESS tier should I choose?
+#### Which ACCESS tier should I choose?
 
 As you can gather from [https://allocations.access-ci.org/project-types](https://allocations.access-ci.org/project-types), there are **four different tiers in ACCESS**. Broadly, these tiers provide increasing computational resources with corresponding stringent documentation and resource justification requirements. Furthermore, while Explore and Discover tier requests are reviewed on a rolling basis as they are submitted, Accelerate requests will be reviewed monthly and Maximize will be reviewed twice a year. The review period reflects the level of resources provided, and Explore and Discover applications are generally reviewed within a week. An important point to note is that ACCESS does not award you time on a specific computational resource (except for the Maximize tier). Users are awarded a certain number of ACCESS credits which they then exchange for time on a particular resource. Here are some guidelines on how to choose between the tiers:
 
@@ -64,7 +66,7 @@ As you can gather from [https://allocations.access-ci.org/project-types](https:/
 3. If you would like to run simulations across multiple resources to identify the one best suited for you, Discover will provide you with sufficient credits to exchange across multiple systems.
 4. One way of determining the appropriate tier is to determine what the credits would translate to in terms of computational resources. The [exchange calculator](https://allocations.access-ci.org/exchange_calculator) can be used to calculate what a certain number of ACCESS credits translates to in terms of “core-hours” or “GPU-hours” or “node-hours” on an ACCESS resource. For example: the maximum 400,000 ACCESS credits that you may be awarded in the Explore tier translates to ~334,000 CPU core hours or ~6000 GPU hours on Anvil. Based on the scale of simulations you would like to run, you may need to choose one tier or the other.
 
-### What else should I know?
+#### What else should I know?
 
 1. You may request a **separate** allocation for each of your research grants and the allocation can last the duration of the grant (except for the Maximize tier which only lasts for 12 months). Allocations that do not cite a grant will last for 12 months.
 2. **Supplements are not allowed** for Explore, Discover, and Accelerate tiers. Instead, you will need to move to a different tier if you require more resources.
@@ -73,6 +75,47 @@ As you can gather from [https://allocations.access-ci.org/project-types](https:/
 5. When your request is approved, you only get ACCESS credits awarded. You still need to go through the step of exchanging these credits for time on Anvil. You need not use up all your credits and may also use part of your credits for time on other ACCESS resources.
 6. You will also need to go to the allocations page and add any users you would like to have access to these resources. Note that they will need to sign up for ACCESS accounts as well before you can add them.
 7. For other questions you may have, take a look at [ACCESS policies](https://allocations.access-ci.org/allocations-policy).
+
+
+<hr style="border: 3px solid">
+
+## NAIRR
+### What is NAIRR?
+
+The [National Artificial Intelligence Research Resource (NAIRR)](https://nairrpilot.org/) is a shared national research infrastructure that connects U.S. researchers and educators to AI resources to advance research, discovery, and innovation. The NAIRR Pilot is led by the U.S. National Science Foundation in collaboration with federal agency partners and non-governmental organizations.
+
+
+### Which Anvil resources are available via NAIRR?
+
+NAIRR users can access Anvil's CPU, GPU, and AI resources for AI/ML research:
+
+- **Anvil GPU**: Nodes with AMD EPYC™ 7763 CPUs and 4 NVIDIA A100 GPUs (40GB each)
+- **Anvil AI**: Nodes with Intel Xeon Platinum 8468 CPUs and 4 NVIDIA H100 GPUs (80GB each)
+
+<hr style="border: 3px solid">
+
+
+### Access to Anvil through NAIRR program
+
+Anvil is also available as a resource through the [National AI Research Resource (NAIRR) Pilot](https://nairrpilot.org/). **Anvil GPU** (NVIDIA A100) and **Anvil AI** (NVIDIA H100) nodes are accessible through the NAIRR Pilot for AI research and research that employs AI.
+
+#### Applying for NAIRR Access
+
+To request access to Anvil through the NAIRR Pilot:
+
+1. Sign up for an ACCESS account (if you don’t have one already) at [https://allocations.access-ci.org](https://allocations.access-ci.org).
+2. Visit the [NAIRR Pilot portal](https://submit-nairr.xras.org/login).
+2. Create a new proposal request for start up there is 1 page required proposal and for research resource there is 3 page one.
+3. Submit an allocation request under the appropriate opportunity (such as Research Resources or Start-Up Projects).
+4. Select Anvil GPU or Anvil AI as the target resource for your AI research also justify in you proposal on how you will use the resource and why you need the specific GPU or CPU hours.
+
+For more details on available opportunities and application procedures, see [https://nairrpilot.org/](https://nairrpilot.org/).
+
+!!! note "NAIRR Acknowledgment"
+    When you publish research based on NAIRR Pilot-provided resources, please include the following acknowledgment:
+    
+    *"This research is supported by the National Artificial Intelligence Research Resource (NAIRR) Pilot and the Anvil supercomputer supported by the National Science Foundation (award NSF-OAC 2005632) at Purdue University."*
+
 
 ## Helpful Tips
 

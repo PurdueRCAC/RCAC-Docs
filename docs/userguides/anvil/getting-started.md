@@ -11,7 +11,9 @@ search:
 
 ## Start here
 
-Before you can log in to Anvil, ensure you have:
+Before you can log in to Anvil, ensure you have completed the steps for your allocation type:
+
+**For ACCESS allocations:**
 
 1. Created your [ACCESS account](https://access-ci.org)
 2. Applied for a project
@@ -19,7 +21,14 @@ Before you can log in to Anvil, ensure you have:
 4. [Transferred your credits to Anvil](https://allocations.access-ci.org/how-to#manage-an-explore-discover-or-accelerate-project)
 
 !!! warning "Anvil account creation"
-    Unless you have **transferred** credits onto Anvil, you will not have a valid Anvil username. This will result in errors that may look like: `failed to map user <username@access-cli.com>`. If you are not the PI of the project, ensure the PI has added you to the project and exchanged credits to Anvil.
+    For ACCESS allocations, unless you have **transferred** credits onto Anvil, you will not have a valid Anvil username. This will result in errors that may look like: `failed to map user <username@access-cli.com>`. If you are not the PI of the project, ensure the PI has added you to the project and exchanged credits to Anvil. For NAIRR allocations, your account is created automatically when your allocation is approved.
+
+**For NAIRR allocations:**
+
+1. Create your [ACCESS account](https://access-ci.org)
+2. Apply for a project through the [NAIRR Pilot](https://nairrpilot.org/)
+3. Your allocation on Anvil is approved (no credit transfer required with NAIRR—when your NAIRR proposal is accepted for Anvil resources, or when your transfer request to Anvil is accepted, your allocation is automatically available)
+4. For more information on NAIRR allocation management, see the [NAIRR section](access.md#nairr).
 
 ## Logging in
 

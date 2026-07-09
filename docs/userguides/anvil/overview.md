@@ -3,6 +3,7 @@ tags:
   - Anvil
 authors:
   - jin456
+  - hkashgar
 search:
   boost: 2
 draft: false
@@ -18,7 +19,7 @@ Anvil, which is funded by a $10 million award from the National Science Foundati
 
 The name &quot;Anvil&quot; reflects the Purdue Boilermakers&#39; strength and workmanlike focus on producing results, and the Anvil supercomputer enables important discoveries across many different areas of science and engineering. Anvil also serves as an experiential learning laboratory for students to gain real-world experience using computing for their science, and for student interns to work with the Anvil team for construction and operation. We are training the research computing practitioners of the future.
 
-Anvil is built in partnership with Dell and AMD and consists of 1,000 nodes with two 64-core AMD Epyc &quot;Milan&quot; processors each and delivers over 1 billion CPU core hours to ACCESS each year, with a peak performance of 5.3 petaflops. Anvil&#39;s nodes are interconnected with **100 Gbps Mellanox HDR InfiniBand**. The supercomputer ecosystem also includes 32 large memory nodes, each with 1 TB of RAM, and 16 nodes each with four **NVIDIA A100 Tensor Core GPUs** providing 1.5 PF of single-precision performance to support machine learning and artificial intelligence applications.
+Anvil is built in partnership with Dell and AMD and consists of 1,000 nodes with two 64-core AMD Epyc &quot;Milan&quot; processors each and delivers over 1 billion CPU core hours to ACCESS each year, with a peak performance of 5.3 petaflops. Anvil&#39;s nodes are interconnected with **100 Gbps Mellanox HDR InfiniBand**. The supercomputer ecosystem also includes 32 large memory nodes, each with 1 TB of RAM, 16 nodes each with four **NVIDIA A100 Tensor Core GPUs**, and 21 nodes each with four **NVIDIA H100 Tensor Core GPUs** providing accelerated performance to support machine learning and artificial intelligence applications.
 
 <figure markdown="span">
   ![anvil_glance](../../assets/images/userguides/anvil/anvil-glance.png){ width="800" }
@@ -41,6 +42,7 @@ All Anvil nodes have 128 processor cores, 256 GB to 1 TB of RAM, and 100 Gbps In
 |A          |1,000          |Two Milan CPUs @ 2.45GHz|128             |256GB           |
 |B          |32             |Two Milan CPUs @ 2.45GHz|128             |1TB           |
 |G          |16             |Two Milan CPUs @ 2.45GHz + Four NVIDIA A100 GPUs|128             |512GB           |
+|H          |21             |Dual Intel Xeon Platinum 8468 CPUs + Four NVIDIA H100 GPUs|96             |1TB           |
 
 
 Anvil nodes run CentOS 8 (Rocky Linux) and use Slurm (Simple Linux Utility for Resource Management) as the batch scheduler for resource and job management. The application of operating system patches will occur as security needs dictate. All nodes allow for unlimited stack usage, as well as unlimited core dump size (though disk space and server quotas may still be a limiting factor).
