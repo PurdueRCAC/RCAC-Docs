@@ -11,22 +11,22 @@ search:
 
 # AnvilGPT on Anvil
 
-AnvilGPT is an LLM service that makes open source LLM models accessible to ACCESS researchers.  It is **hosted entirely with on-prem resources at Purdue**, not only providing democratized access but adding another layer of control compared to commercial services.  Chats, documents, and models are not shared between users nor used for training.
+AnvilGPT is an LLM service that makes open-source LLM models accessible to ACCESS researchers. It is **hosted entirely on on-prem resources at Purdue**, which not only democratizes access but also adds another layer of control compared to commercial services. Chats, documents, and models are not shared between users or used for training.
 
-There are two modalities for interacting with AnvilGPT: UI, and API, with additional functionality for both modalities is under active development. This system is integrated with a PostgreSQL vector database in the backend to enable retrieval-augmented generation (RAG) functionality.
+There are two ways to interact with AnvilGPT: the UI and the API. Additional functionality for both is under active development. The system uses a PostgreSQL vector database in the backend to enable retrieval-augmented generation (RAG).
 
 !!! note "Pilot Program"
     This service is a pilot and provides only limited safety measures. Models may hallucinate or generate offensive content. AnvilGPT should not be used for any illegal, harmful, or violent purposes.
 
 !!! warning "Privacy"
-    Do not input, by any method, any data into these systems that your research institution would consider sensitive or proprietary. Do not input, by any method, any data into these systems that is regulated by State or Federal Law. This includes, but is not limited to, HIPAA data, Export Controlled data, personal identification numbers (e.g. SSNs) or biometric data.
+    Do not enter, by any method, any data into these systems that your research institution would consider sensitive or proprietary. Do not enter any data that is regulated by state or federal law. This includes, but is not limited to, HIPAA data, export-controlled data, personal identification numbers (e.g. SSNs), or biometric data.
 
 ## Access
 
 !!! warning "AnvilGPT Access"
     AnvilGPT is only available for **Anvil users with an active account and project**. Once your project expires, your access to AnvilGPT gets revoked.
 
-Access is currently being given on a per request basis.  Navigate to [https://anvilgpt.rcac.purdue.edu/](https://anvilgpt.rcac.purdue.edu/) and log in using CILogon. Select ACCESS as the identity provider. This will create a pending account.
+Access is currently granted on a per-request basis. Navigate to [https://anvilgpt.rcac.purdue.edu/](https://anvilgpt.rcac.purdue.edu/) and log in using CILogon. Select ACCESS as the identity provider. This will create a pending account.
 
 1. Navigate to [https://anvilgpt.rcac.purdue.edu/](https://anvilgpt.rcac.purdue.edu/) and log in using CILogon.
 2. Select ACCESS as the identity provider. **This will create a pending account**:
@@ -37,9 +37,9 @@ Access is currently being given on a per request basis.  Navigate to [https://a
 
 3. Reach out to the [help desk](https://support.access-ci.org/open-a-ticket) with:
     1. Subject/summary line: “AnvilGPT Access Request”
-    2. Description: provide a brief description of how you intend to use the service, your allocation number, and if you would like access to the UI, API, or both.
+    2. Description: Provide a brief description of how you intend to use the service, your allocation number, and whether you would like access to the UI, the API, or both.
     3. Select "Some Other Question" as the user support issue and "Anvil" as the resource.
-4. An admin will assess your request and approve or deny your request within 24-48 hours.
+4. An admin will review your request and approve or deny it within 24 to 48 hours.
 
 For more detailed AnvilGPT documentation, see the following pages:
 

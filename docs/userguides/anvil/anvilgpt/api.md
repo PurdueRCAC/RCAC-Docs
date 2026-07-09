@@ -2,7 +2,7 @@
 
 ## Authentication
 
-Your API key is accessible from the Settings page. Click on your user avatar in the top right, navigate to Settings, then Account. The API Keys section can be expanded to create and copy keys. Treat your API key as a credential and do not share it or commit it to version control.
+Your API key is available from the Settings page. Click your user avatar in the top-right corner, navigate to Settings, then Account. Expand the API Keys section to create and copy keys. Treat your API key as a credential, and do not share it or commit it to version control.
 
 <p style="text-align: center;">
   <img src="/assets/images/userguides/anvil/anvilgpt/image-20241115131909-1.png" alt="AnvilGPT API key settings page" width="80%">
@@ -16,7 +16,7 @@ The primary endpoint for completions is:
 
 `https://anvilgpt.rcac.purdue.edu/api/chat/completions`
 
-This endpoint is compatible with the OpenAI API format, which means most libraries and tools designed for OpenAI can be pointed at this URL with minimal changes.
+This endpoint is compatible with the OpenAI API format, which means most libraries and tools designed for OpenAI can be pointed to this URL with minimal changes.
 
 ##### Listing Available Models
 
@@ -96,7 +96,7 @@ data: {"id": "llama3.1:latest-dd3f8a12-a36f-4fcc-9537-02a9e7c1d9c8", "created": 
 
 ## Image and Multimodal Inputs
 
-Several models hosted on AnvilGPT support image inputs. To send an image, encode it as base64 and include it in the message content as an image_url block alongside your text prompt.
+Several models hosted on AnvilGPT support image inputs. To send an image, encode it as base64 and include it in the message content as an `image_url` block alongside your text prompt.
 
 ```
 import base64
@@ -126,25 +126,23 @@ body = {
 }
 ```
 
-For vision tasks requiring a more capable model, `llama4:latest` and `qwen3-vl:32b` are recommended over llava:latest.
-
 ## RAG via API
 
-To use a custom model through the API, specify the name of your custom model in the `model` field of the request body, exactly as it appears in the UI. Any Knowledge Base attached to that custom model at definition time will be automatically included as context in API responses. No additional parameters are needed to activate the knowledge retrieval.
+To use a custom model through the API, specify the name of your custom model in the `model` field of the request body exactly as it appears in the UI. Any Knowledge Base attached to that custom model when it was defined will automatically be included as context in API responses. No additional parameters are needed to activate knowledge retrieval.
 
-This means you do not need to implement your own retrieval logic if you are working within AnvilGPT's ecosystem. Define the knowledge attachment once in the Workspace, and it will be consistent across both UI and API interactions.
+This means you do not need to implement your own retrieval logic if you are working within the AnvilGPT ecosystem. Define the knowledge attachment once in the Workspace, and it will remain consistent across both UI and API interactions.
 
 ## Rate Limits
 
-The API enforces a rate limit of 60 requests per minute per user. Both concurrent and sequential requests count toward this limit, so if you are parallelizing calls you should account for this when setting concurrency levels.
+The API enforces a rate limit of 60 requests per minute per user. Both concurrent and sequential requests count toward this limit, so if you are parallelizing calls, you should account for this when setting concurrency levels.
 
-If the rate limit is exceeded, the API will not return an HTTP error. Instead, it returns a null value in the response. You should handle this in your code by checking for null responses before processing output.
+If the rate limit is exceeded, the API will not return an HTTP error. Instead, it returns a null value in the response. You should handle this in your code by checking for null responses before processing the output.
 
-For workloads that require parallel requests, up to approximately 10 concurrent calls to the same model are well-supported. It is preferable to direct parallel requests to a single model rather than spreading them across multiple models simultaneously, as this helps maintain stability on the shared system.
+For workloads that require parallel requests, up to approximately 10 concurrent calls to the same model are well supported. It is preferable to direct parallel requests to a single model rather than spreading them across multiple models simultaneously, as this helps maintain stability on the shared system.
 
 ## Structured Output
 
-AnvilGPT hosts models on two different serving backends: vLLM and Ollama. The format used to request structured output differs depending on which backend serves the model you are using. As of the time of writing, `gpt-oss:120b` and `llama4` run on vLLM, while the remaining models run on Ollama.
+AnvilGPT hosts models on two different serving backends: vLLM and Ollama. The format used to request structured output differs depending on which backend serves the model you are using. As of this writing, `gpt-oss:120b` and `llama4` run on vLLM, while the remaining models run on Ollama.
 
 **For vLLM-backed models**, use the `response_format` key:
 
