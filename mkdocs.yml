@@ -180,7 +180,6 @@ nav:
         - Web Server: userguides/geddes/examples/webserver.md
         - R Shiny: userguides/geddes/examples/r-shiny.md
       - Troubleshooting: userguides/geddes/troubleshooting.md
-    - Negishi: https://www.rcac.purdue.edu/knowledge/negishi
     - Hammer:
       - userguides/hammer/index.md
       - Hammer Overview: userguides/hammer/overview.md
@@ -190,6 +189,7 @@ nav:
       - Compiling Source Code: userguides/hammer/compile.md
       - Running Jobs: userguides/hammer/run_jobs/index.md
       - Frequently Asked Questions: userguides/hammer/faqs.md
+    - Negishi: https://www.rcac.purdue.edu/knowledge/negishi
     - Rossmann: https://www.rcac.purdue.edu/knowledge/rossmann
     - Weber: https://www.rcac.purdue.edu/knowledge/weber
   - Storage User Guides:
