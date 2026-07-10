@@ -379,13 +379,48 @@
     "Geddes User Guide",
     "Troubleshooting"
   ],
+  "/userguides/hammer/": [
+    "Home",
+    "Hammer User Guide"
+  ],
+  "/userguides/hammer/overview/": [
+    "Home",
+    "Hammer User Guide",
+    "Hammer Overview"
+  ],
+  "/userguides/hammer/accounts/": [
+    "Home",
+    "Hammer User Guide",
+    "Accounts"
+  ],
+  "/userguides/hammer/storage/": [
+    "Home",
+    "Hammer User Guide",
+    "File Storage and Transfer"
+  ],
+  "/userguides/hammer/software/": [
+    "Home",
+    "Hammer User Guide",
+    "Software"
+  ],
+  "/userguides/hammer/compile/": [
+    "Home",
+    "Hammer User Guide",
+    "Compiling Source Code"
+  ],
+  "/userguides/hammer/run_jobs/": [
+    "Home",
+    "Hammer User Guide",
+    "Running Jobs"
+  ],
+  "/userguides/hammer/faqs/": [
+    "Home",
+    "Hammer User Guide",
+    "Frequently Asked Questions"
+  ],
   "/https://www.rcac.purdue.edu/knowledge/negishi": [
     "Home",
     "Negishi User Guide"
-  ],
-  "/https://www.rcac.purdue.edu/knowledge/hammer": [
-    "Home",
-    "Hammer User Guide"
   ],
   "/https://www.rcac.purdue.edu/knowledge/rossmann": [
     "Home",
