@@ -19,7 +19,6 @@ The following examples demonstrate job submission files for some common real-wor
 - [Matlab](apps/matlab.md)
 - [Python](apps/python.md)
 - [R](apps/r.md)
-- [Spark](apps/spark.md)
 - [Apptainer](apps/apptainer.md)
 - [Windows](apps/windows.md)
 - [Mathematica](apps/mathematica.md)
