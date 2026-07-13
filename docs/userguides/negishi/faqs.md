@@ -29,10 +29,9 @@ Negishi differs from the previous Community Clusters in several significant aspe
 * GCC compiler with OpenMPI or MVAPICH2 MPI libraries are recommended for software development on Negishi. You can enable this software with `module load gcc openmpi` (default) or `module load gcc mvapich2`.
 * If you use Jupyter notebooks, JupyterHub on Negishi will be available only via the [OnDemand Gateway](https://gateway.negishi.rcac.purdue.edu) rather than the freestanding version as on some previous systems. Other RCAC systems will transition to OnDemand as well, following Negishi.
 
-Upcoming 2023
--------------
+#### Upcoming 2023
 
-* A subset of Negishi compute nodes contain ${resource.gpuname} accelerator cards which can significantly improve performance of compute-intensive workloads. These can be utilized by submitting jobs to the `${resource.gpuqueue}` queue (add `-A ${resource.gpuqueue}` to your job submission command).
+* A subset of Negishi compute nodes contain AMD Radeon Instinct MI210 accelerator cards which can significantly improve performance of compute-intensive workloads. These can be utilized by submitting jobs to the `gpu` queue (add `-A gpu` to your job submission command).
 * A selection of GPU-enabled ROCm application containers from the AMD InfinityHub collection is installed.
 
 

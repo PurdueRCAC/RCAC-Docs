@@ -49,3 +49,4 @@ Batch jobs submitted via SLURM have four main steps:
 - [**MPI**](mpi_jobs.md)
 - [**OpenMP**](openmp_jobs.md)
 
+[**Back to Negishi User Guide**](../index.md)

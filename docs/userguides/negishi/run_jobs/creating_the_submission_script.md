@@ -8,7 +8,7 @@ search:
   boost: 2
 ---
 
-# Creatting the Slurm Job Submission Script
+# Creating the Slurm Job Submission Script
 
 ### Script
 

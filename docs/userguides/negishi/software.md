@@ -85,4 +85,6 @@ Pre-downloaded bioinformatics containers with module wrappers are available. You
 ```bash
 $ module load biocontainers
 ```
-More information on pre-downloaded ROCm containers can be found [here](https://biocontainer-doc.readthedocs.io/).
+More information on pre-downloaded Biocontainers can be found [here](https://biocontainer-doc.readthedocs.io/).
+
+[**Back to Negishi User Guide**](index.md)

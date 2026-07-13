@@ -25,3 +25,5 @@ search:
 ## Purchasing Nodes
 
 --8<-- "docs/snippets/purchase_nodes.md"
+
+[**Back to Negishi User Guide**](index.md)

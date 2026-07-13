@@ -10,9 +10,9 @@ search:
 
 # Negishi Overview
 
-Negishi is a Community Cluster optimized for communities running traditional, tightly-coupled science and engineering applications. Negishi is being built through a partnership with Dell and AMD over the summer of 2022. Negishi consists of Dell compute nodes with two 64-core AMD Epyc "Milan" processors (128 cores per node) and 256 GB of memory. All nodes have 100 Gbps HDR Infiniband interconnect and a 6-year warranty.
+Negishi is a Community Cluster optimized for communities running traditional, tightly-coupled science and engineering applications. Negishi was built through a partnership with Dell and AMD over the summer of 2022. Negishi consists of Dell compute nodes with two 64-core AMD Epyc "Milan" processors (128 cores per node) and 256 GB of memory. All nodes have 100 Gbps HDR Infiniband interconnect and a 6-year warranty.
 
-New with Negishi is that access is being offered on the basis of each 64-core Rome processor, or a half-node share. To purchase access to Negishi today, go to the [Cluster Access Purchase](https://www.rcac.purdue.edu/purchase) page. Please subscribe to our Community Cluster Program Mailing List to stay informed on the latest purchasing developments or contact us via email at [rcac-cluster-purchase@lists.purdue.edu](mailto:rcac-cluster-purchase@lists.purdue.edu) if you have any questions.
+New with Negishi is that access is being offered on the basis of each 64-core Milan processor, or a half-node share. To purchase access to Negishi today, go to the [Cluster Access Purchase](https://www.rcac.purdue.edu/purchase) page. Please subscribe to our Community Cluster Program Mailing List to stay informed on the latest purchasing developments or contact us via email at [rcac-cluster-purchase@lists.purdue.edu](mailto:rcac-cluster-purchase@lists.purdue.edu) if you have any questions.
 
 ## Negishi Interactive 
 
@@ -49,3 +49,4 @@ On Negishi, the following set of compiler and message-passing libraries for para
 * OpenMPI or MVAPICH2
 
 
+[**Back to Negishi User Guide**](index.md)

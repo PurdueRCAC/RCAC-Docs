@@ -39,7 +39,7 @@ Negishi supports several methods for file transfer. Use the links below to learn
 - [FTP / SFTP](storage/ftp_sftp.md)
 - [HSI](storage/hsi.md)
 - [HTAR](storage/htar.md)
-- [Copying files from Purdue IT research computing home directory to Negishi](storage/copyhome.md)
+
 ## Lost File Recovery
 
 - [Lost File Recovery](storage/recover.md)

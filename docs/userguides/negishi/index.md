@@ -1,8 +1,9 @@
 ---
-#tags:
-#  - Negishi
+tags:
+  - Negishi
 authors:
   - hkashgar
+resource: Negishi
 search:
   boost: 2
 ---
@@ -20,4 +21,5 @@ Negishi is a Community Cluster optimized for communities running traditional, ti
 - [**Gateway (Open OnDemand)**](gateway.md)
 - [**Compiling Source Code**](compile.md)
 - [**Frequently Asked Questions**](faqs.md)
+
 

@@ -36,7 +36,7 @@ On Negishi, the various types of nodes on the cluster are organized into distinc
 
 ### CPU Partition
 
-This partition contains the resources a group purchases access to when they purchase CPU resources on Negishi and is made up of 446 Bell-A nodes. Each of these nodes contains two Zen 3 AMD EPYC 7763 64-core processors for a total of 128 cores and 256 GB of memory for a total of more than 57,000 cores in the partition. Memory in this partition is allocated proportional to your core request such that each core is given about 2 GB of memory per core requested. Submission to this partition can be accomplished by using the option: `-p cpu` or `--partition=cpu`.
+This partition contains the resources a group purchases access to when they purchase CPU resources on Negishi and is made up of 450 Negishi-A nodes. Each of these nodes contains two Zen 3 AMD EPYC 7763 64-core processors for a total of 128 cores and 256 GB of memory for a total of more than 57,000 cores in the partition. Memory in this partition is allocated proportional to your core request such that each core is given about 2 GB of memory per core requested. Submission to this partition can be accomplished by using the option: `-p cpu` or `--partition=cpu`.
 
 The purchasing model for this partition allows groups to purchase high priority access to some number of cores. When an account uses resources in this account by submitting a job tagged with the `normal` QOS, the cores used by that job are withdrawn from the account and deposited back into the account when the job terminates.
 
@@ -55,7 +55,7 @@ Available QOSes: `normal`, `standby`
 
 ### Highmem Partition
 
-This partition is made up of 6 Bell-B nodes which have four times as much memory as a standard Bell-A node, and access to this partition is given to all accounts on the cluster to enable work that has higher memory requirements. Each of these nodes contains two Zen 2 AMD EPYC 7763 64-core processors for a total of 128 cores and 1 TB of memory. Memory in this partition is allocated proportional to your core request such that each core is given about 8 GB of memory per core requested. Submission to this partition can be accomplished by using the option: `-p highmem` or `--partition=highmem`.
+This partition is made up of 6 Negishi-B nodes which have four times as much memory as a standard Negishi-A node, and access to this partition is given to all accounts on the cluster to enable work that has higher memory requirements. Each of these nodes contains two Zen 3 AMD EPYC 7763 64-core processors for a total of 128 cores and 1 TB of memory. Memory in this partition is allocated proportional to your core request such that each core is given about 8 GB of memory per core requested. Submission to this partition can be accomplished by using the option: `-p highmem` or `--partition=highmem`.
 
 When using the Highmem partition, jobs are tagged by the `normal` QOS by default, and this is the only QOS that is available for this partition, so there is no need to specify a QOS when using this partition. Additionally jobs are tagged by a highmem partition QOS that enforces the following policies
 
@@ -69,7 +69,7 @@ Available QOSes: `normal`
 
 ### GPU Partition
 
-This partition is made up of 5 Negishi-G nodes. Each of these nodes contains two AMD MI210s and two Zen 2 AMD EPYC 7313 16-core processors for a total of 32 cores and 512GB of memory. Memory in this partition is allocated proportional to your core request such that each core is given about 8 GB of memory per core requested. You should request cores proportional to the number of GPUs you are using in this partition (i.e. if you only need one of the two GPUs, you should request half of the cores on the node) Submission to this partition can be accomplished by using the option: `-p gpu` or `--partition=gpu`.
+This partition is made up of 5 Negishi-G nodes. Each of these nodes contains three AMD MI210s and two Zen 3 AMD EPYC 7313 16-core processors for a total of 32 cores and 512GB of memory. Memory in this partition is allocated proportional to your core request such that each core is given about 16 GB of memory per core requested. You should request cores proportional to the number of GPUs you are using in this partition (i.e. if you only need one of the two GPUs, you should request half of the cores on the node) Submission to this partition can be accomplished by using the option: `-p gpu` or `--partition=gpu`.
 
 When using the gpu partition, jobs are tagged by the `normal` QOS by default, and this is the only QOS that is available for this partition, so there is no need to specify a QOS when using this partition. Additionally jobs are tagged by a gpu partition QOS that enforces the following policies
 
@@ -82,10 +82,10 @@ Available QOSes: `normal`
 
 ### Login Partition
 
-This partition contains the resources a group purchases access to when they purchase "interactive access" on Negishi. Interactive access allows submission of jobs directly to the front ends for immediate job start times. These jobs can only request up to 4 CPUs and 8 GB of memory each and interactive users can only have one job at a time. Submission to this partition can be accomplished by using the option: `-p login` or `--partition=login`. In order to use this partition, you must submit using the interactive QOS which enforces the following policies:
+This partition contains the resources a group purchases access to when they purchase "interactive access" on Negishi. Interactive access allows submission of jobs directly to the front ends for immediate job start times. These jobs can only request up to 4 CPUs and 16 GB of memory each and interactive users can only have one job at a time. Submission to this partition can be accomplished by using the option: `-p login` or `--partition=login`. In order to use this partition, you must submit using the interactive QOS which enforces the following policies:
 
 1. You can have one job running at a time.
-2. You can use up to 4 cores and 8 GB of memory at a time.
+2. You can use up to 4 cores and 16 GB of memory at a time.
 3. Jobs can run for up to 24 hours.
 
 Available QOSes: `interactive`
