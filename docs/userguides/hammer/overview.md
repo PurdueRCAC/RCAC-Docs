@@ -30,7 +30,7 @@ Hammer Sub-Clusters
 | --- | --- | --- | --- | --- |
 | F [000-012] | 13 | Two AMD EPYC 7702 @ 2GHz, one Nvidia Tesla T4 GPU | 256 | 512GB |
 | F [013-015] | 3 | Two AMD EPYC 7702 @ 2GHz | 256 | 512GB |
-| G | 40 | Two AMD EPYC 7702 @ 2GHz | 256 | 512GB |
+| G | 6 | Two AMD EPYC 7702 @ 2GHz | 256 | 512GB |
 
 Hammer nodes run Rocky Linux 8 and use Slurm (Simple Linux Utility for Resource Management) as the batch scheduler for resource and job management. The application of operating system patches occurs as security needs dictate. All nodes allow for unlimited stack usage, as well as unlimited core dump size (though disk space and server quotas may still be a limiting factor).
 
