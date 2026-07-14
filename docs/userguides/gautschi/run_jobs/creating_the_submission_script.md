@@ -8,7 +8,7 @@ search:
   boost: 2
 ---
 
-# Creatting the Slurm Job Submission Script
+# Creating the Slurm Job Submission Script
 
 To submit work to a SLURM queue, you must first create a job submission file. This job submission file is essentially a simple shell script that includes special comments to specify sbatch options. It will set any required environment variables, load any necessary modules, create or modify files and directories, and run any applications that you need. A simple submission script to the {{ resource }} cpu partition looks like:
 

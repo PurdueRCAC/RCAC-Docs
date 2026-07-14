@@ -1,6 +1,6 @@
 ---
-# tags:
-#   - Gilbreth
+tags:
+  - Gilbreth
 authors:
   - jin456
 search:
@@ -8,6 +8,17 @@ search:
 ---
 
 # Gilbreth User Guide
+
+<div class="quick-launcher">
+  <div class="quick-launcher-card">
+    <span class="launcher-title">Gateway (Open OnDemand)</span>
+    <a href="https://gateway.gilbreth.rcac.purdue.edu/" class="launcher-btn" target="_blank" rel="noopener">Launch</a>
+  </div>
+  <div class="quick-launcher-card">
+    <span class="launcher-title">Remote Desktop (ThinLinc)</span>
+    <a href="https://desktop.gilbreth.rcac.purdue.edu/" class="launcher-btn" target="_blank" rel="noopener">Launch</a>
+  </div>
+</div>
 
 Gilbreth is a Community Cluster optimized for communities running GPU intensive applications such as machine learning.
 

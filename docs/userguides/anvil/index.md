@@ -1,4 +1,20 @@
+---
+tags:
+   - Anvil
+authors:
+  - jin456
+search:
+  boost: 2
+---
+
 # Anvil User Guide
+
+<div class="quick-launcher">
+  <div class="quick-launcher-card">
+    <span class="launcher-title">Gateway (Open OnDemand)</span>
+    <a href="https://ondemand.anvil.rcac.purdue.edu/" class="launcher-btn" target="_blank" rel="noopener">Launch</a>
+  </div>
+</div>
 
 ## About Anvil
 

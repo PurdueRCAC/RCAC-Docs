@@ -46,12 +46,12 @@ Every RCAC cluster has its own dedicated guide organized into consistent chapter
 
 | Cluster User Guide | Notable Hardware |
 |---|---|
-| [Anvil](../../userguides/anvil/) | 128 cores/node, A100 (40GB) and H100 (80GB) GPUs |
-| [Gautschi](../../userguides/gautschi) | 192 cores/node, L40S (48GB) and H100 (80GB) GPUs |
-| [Bell (Under Migration)](https://www.rcac.purdue.edu/knowledge/bell)  | 128 cores/node, AMD MI50 (32GB) GPUs |
+| [Anvil](/userguides/anvil/) | 128 cores/node, A100 (40GB) and H100 (80GB) GPUs |
+| [Gautschi](/userguides/gautschi) | 192 cores/node, L40S (48GB) and H100 (80GB) GPUs |
+| [Bell](/userguides/bell)  | 128 cores/node, AMD MI50 (32GB) GPUs |
 | [Negishi (Under Migration)](https://www.rcac.purdue.edu/knowledge/negishi) | 128 cores/node, AMD MI210 (64GB) GPUs |
-| [Gilbreth (Under Migration)](https://www.rcac.purdue.edu/knowledge/gilbreth) | Various Nvida GPUs |
-| [Scholar (Under Migration)](https://www.rcac.purdue.edu/knowledge/scholar) | 168 cores/node, Various Nvida GPUs |
+| [Gilbreth](/userguides/gilbreth) | Various Nvida GPUs |
+| [Scholar](/userguides/scholar) | 168 cores/node, Various Nvida GPUs |
 
 ![Gautschi user guide](/assets/images/blog/docs-userguide.png)
 
@@ -110,6 +110,12 @@ We are also continously adding more RCAC workshop materials to the website.
 ## 7. RCAC Blog & Community Comments
 
 The [RCAC Blog](../index.md) is where staff share how-tos, tips, announcements, and deep dives. Posts are organized by **category** and **tag** and are fully searchable.
+
+### Stay connected via RSS feed
+
+RSS feed function for RCAC Blog has been enabled to allow subscribe with your favorite RSS tools. Just click the RSS button at the top of blog index page then add into your RSS tools.
+
+![Blog RSS](/assets/images/blog/docs-blog-rss.png)
 
 ### Comments powered by Giscus
 

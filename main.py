@@ -754,17 +754,42 @@ $ module show mymodulename
         content = content.replace("{cluster}", resource.lower())
         if resource.lower() in ("anvil", "bell"):
             content = content.replace("60 days", "30 days")
+            content = content.replace(" (or 30 days on Bell)", "")
         if resource.lower() == "anvil":
             content = content.replace(
-                "Please be sure to save copies of all important files elsewhere on a regular basis for long-term storage on the [Fortress HPSS Archive](https://www.rcac.purdue.edu/storage/fortress).",
-                "Please be sure to save copies of all important files elsewhere (e.g. your `$PROJECT` space) on a regular basis."
-            )
-            content = content.replace(
-                "\nAll scratch directories are scanned weekly to identify files subject to purging one week in advance. The owners of those files will receive an email notification that their files in a scratch directory will be removed the following week. Be sure to regularly check your Purdue email account or [set up mail forwarding](https://www.purdue.edu/apps/account/ChangeMailbox) to an email account you do regularly check.\n\nYou can use the purgelist command to see a list of all your files which are currently scheduled for removal:\n\n```bash\n$ purgelist\n\nThe next purge run for scratch file systems is scheduled for Tue Apr 15, 2014.\nThe following files owned by myusername will be removed from /scratch/" + resource.lower() + ":\n\n/scratch/" + resource.lower() + "/myusername/foo\n/scratch/" + resource.lower() + "/myusername/bar\n```\n\nFiles listed by purgelist will be permanently removed on the date shown. Deletion of files begins on the morning of the date shown by purgelist shortly after midnight. If you need to keep any of these files, please copy them elsewhere. Remember to account for transfer time of your files and do not wait until the last minute to copy files off scratch space.",
+                "\n**Removal of purge warning emails**\n\nRCAC previously sent warning emails shortly before eligible files were purged from scratch. This notification mechanism is no longer supported and should not be considered an operational safeguard. Users are solely responsible for monitoring and managing their own data in scratch, and data may be deleted due to age at any time, without prior notice.\n\nYou can use the `purgelist` command to see a list of all your files which are currently scheduled for removal:\n\n```bash\n$ purgelist\n\nThe next purge run for scratch file systems is scheduled for Tue Apr 15, 2014.\nThe following files owned by myusername will be removed from /scratch/" + resource.lower() + ":\n\n/scratch/" + resource.lower() + "/myusername/foo\n/scratch/" + resource.lower() + "/myusername/bar\n```\n\nFiles listed by `purgelist` will be permanently removed on the date shown. Deletion of files begins on the morning of the date shown by `purgelist` shortly after midnight. If you need to keep any of these files, please copy them elsewhere. Remember to account for transfer time of your files and do not wait until the last minute to copy files off scratch space.",
                 ""
             )
             content = content.replace(
-                "\n**Recommendations**\n\nRCAC recommends that important data, research results, and other important files be permanently stored in the [Fortress HPSS Archive](https://www.rcac.purdue.edu/storage/fortress), and copied to scratch spaces while being actively worked on. The hsi and htar commands provide easy-to-use interfaces into the archive and can be used to copy files into the archive interactively or even automatically at the end of your regular job submission scripts. Making frequent copies of your files will minimize work required when these files eventually become subject to purge, as well as protect your work in the unlikely event of a scratch system failure.\n\nPlease [contact us](https://www.rcac.purdue.edu/help) if you have questions or need assistance in copying your files to a more permanent location such as the [Fortress HPSS Archive](https://www.rcac.purdue.edu/storage/fortress).",
+                "such as Data Depot or Fortress.",
+                "such as your project space."
+            )
+            content = content.replace(
+                "Data Depot is storage suitable for active research data, while Fortress is a large, long-term archival system optimized for data that must be saved but is not accessed or used frequently.",
+                " "
+            )
+            content = content.replace(
+                "(e.g., home directory, Data Depot, or Fortress)",
+                "(e.g., home directory or project space)"
+            )
+            content = content.replace(
+                "Data Depot, project space, or Fortress",
+                "project space"
+            )
+            content = content.replace(
+                "Data Depot or Fortress",
+                "your project space"
+            )
+            content = content.replace(
+                "[Fortress HPSS Archive](https://www.rcac.purdue.edu/storage/fortress)",
+                "your project space"
+            )
+            content = content.replace(
+                " (for example, using hsi, htar, or other transfer tools)",
                 ""
+            )
+            content = content.replace(
+                "and, where available, use tools such as `purgelist` to see which files are currently candidates for removal and proactively move or delete them",
+                "and proactively move or delete old files"
             )
         return content
