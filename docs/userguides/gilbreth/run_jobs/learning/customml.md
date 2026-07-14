@@ -182,4 +182,4 @@ Due to firewall rules, the TensorBoard URL may only be accessible from Gilbreth 
 
 For more details, refer to the [TensorBoard User Guide](https://www.tensorflow.org/tensorboard).
 
-[**Back to the Running Jobs section**](index.md)
+[**Back to the Running Jobs section**](../index.md)

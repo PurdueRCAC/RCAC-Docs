@@ -55,4 +55,4 @@ sbatch tensor_hello.sub
 
 Once the job finishes, you will find an output file (`slurm-xxxxx.out`).
 
-[**Back to the Running Jobs section**](index.md)
+[**Back to the Running Jobs section**](../index.md)

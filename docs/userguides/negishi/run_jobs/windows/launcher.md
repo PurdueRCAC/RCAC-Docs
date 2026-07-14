@@ -18,7 +18,7 @@ Windows VMs can be easily launched through the [thinlinc](../../../accounts/#thi
 * The "Windows 10" launcher will launch a VM directly on the front-end.
 * Follow the dialogs to set up your VM.
 
-![Thinlinc Applications list](../../../../../assets/images/userguides/examples/windows.png)
+![Thinlinc Applications list](../../../../assets/images/userguides/examples/windows.png)
 
 *Find Windows 10 under the 'Cluster Software' option in the list of Applications.*
 
