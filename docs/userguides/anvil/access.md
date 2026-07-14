@@ -15,7 +15,7 @@ draft: true
 
 ## Obtaining an Account
 
-Anvil is an ACCESS an NAIRR computing resource. To use Anvil, you must first create an ACCESS account and request an allocation through the [ACCESS Allocation Request System](https://allocations.access-ci.org/) or [NAIRR Pilot](https://nairrpilot.org/).
+Anvil is an ACCESS and NAIRR computing resource. To use Anvil, you must first create an ACCESS account and request an allocation through the [ACCESS Allocation Request System](https://allocations.access-ci.org/) or [NAIRR Pilot](https://nairrpilot.org/).
 
 !!! tip "New users to existing projects"
     If you are joining an existing project with an **[ACCESS allocation](#access)**, [login or create your ACCESS account](https://allocations.access-ci.org/) and the project manager can add you through the ACCESS portal. If your project has a **[NAIRR allocation](#nairr)**, you still need an [ACCESS account](https://allocations.access-ci.org/), but user management and allocation administration are handled by the project manager through the [NAIRR Pilot portal](https://submit-nairr.xras.org/).
