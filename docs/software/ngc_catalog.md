@@ -9,7 +9,7 @@ search:
 
 ## What is NGC?
 
-![Nvidia Logo](../../assets/images/nvidia_logo.png){ align=right width=250px }
+![Nvidia Logo](../assets/images/nvidia_logo.png){ align=right width=250px }
 
 Nvidia GPU cloud (NGC) is a GPU-accelerated cloud platform optimized for deep learning and scientific computing. NGC offers a comprehensive catalogue of GPU-accelerated containers, so the application runs quickly and reliably on the high performance computing environment. NGC was deployed to extend the cluster capabilities and to enable powerful software and deliver the fastest results. By utilizing Singularity and NGC, users can focus on building lean models, producing optimal solutions and gathering faster insights. For more information, please visit  [https://www.nvidia.com/en-us/gpu-cloud](https://www.nvidia.com/en-us/gpu-cloud/) and [NGC software catalog](https://ngc.nvidia.com/catalog/).
 

@@ -45,7 +45,7 @@ For more functions and tutorials:
 **Installing Packages**
 
 - **Step 0: Set up installation preferences.**  
-    Follow the [steps for setting up](../../userguides/gautschi/run_jobs/examples/example_r_profile_setup.md) your `~/.Rprofile` preferences. This step needs to be done only once. If you have created a `~/.Rprofile` file previously on Gautschi, ignore this step.
+    Follow the [steps for setting up](/userguides/gautschi/run_jobs/examples/example_r_profile_setup) your `~/.Rprofile` preferences. This step needs to be done only once. If you have created a `~/.Rprofile` file previously on Gautschi, ignore this step.
     
 - **Step 1: Check if the package is already installed.**  
     As part of the R installations on community clusters, a lot of R libraries are pre-installed. You can check if your package is already installed by opening an R terminal and entering the command `installed.packages()`. For example,

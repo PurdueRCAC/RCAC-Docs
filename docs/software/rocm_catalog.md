@@ -7,7 +7,7 @@ search:
 
 # AMD ROCm containers
 
-![AMD ROCM Logo](../../assets/images/rocm_logo.png){ align=right width=250px }
+![AMD ROCM Logo](../assets/images/rocm_logo.png){ align=right width=250px }
 
 ## What is AMD ROCm
 
