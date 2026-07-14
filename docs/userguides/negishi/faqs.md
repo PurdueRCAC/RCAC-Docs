@@ -29,7 +29,7 @@ Negishi differs from the previous Community Clusters in several significant aspe
 * GCC compiler with OpenMPI or MVAPICH2 MPI libraries are recommended for software development on Negishi. You can enable this software with `module load gcc openmpi` (default) or `module load gcc mvapich2`.
 * If you use Jupyter notebooks, JupyterHub on Negishi will be available only via the [OnDemand Gateway](https://gateway.negishi.rcac.purdue.edu) rather than the freestanding version as on some previous systems. Other RCAC systems will transition to OnDemand as well, following Negishi.
 
-#### Upcoming 2023
+**Starting from 2023**
 
 * A subset of Negishi compute nodes contain AMD Radeon Instinct MI210 accelerator cards which can significantly improve performance of compute-intensive workloads. These can be utilized by submitting jobs to the `gpu` queue (add `-A gpu` to your job submission command).
 * A selection of GPU-enabled ROCm application containers from the AMD InfinityHub collection is installed.
@@ -51,13 +51,13 @@ If you plan to use `hsi` or `htar` commands to access Fortress tape archive from
 
 ### /usr/bin/xauth: error in locking authority file
 
-#### Problem
+**Problem**
 
 I receive this message when logging in:
 
 `/usr/bin/xauth: error in locking authority file`
 
-#### Solution
+**Solution**
 
 Your home directory disk quota is full. You may check your quota with `myquota`.
 
@@ -76,11 +76,11 @@ There are several common locations that tend to grow large over time and are mer
 
 ### My SSH connection hangs
 
-#### Problem
+**Problem**
 
 Your console hangs while trying to connect to a RCAC Server.
 
-#### Solution
+**Solution**
 
 This can happen due to various reasons. Most common reasons for hanging SSH terminals are:
 
@@ -92,68 +92,68 @@ If neither of the suggestions above work, please [contact support](https://www.r
 
 ### ThinLinc session frozen
 
-#### Problem
+**Problem**
 
 Your ThinLinc session is frozen and you can not launch any commands or close the session.
 
-#### Solution
+**Solution**
 
 This can happen due to various reasons. The most common reason is that you ran something memory-intensive inside that ThinLinc session on a front-end, so parts of the ThinLinc session got killed by Cgroups, and the entire session got stuck.
 
 * **If you are using a web-version ThinLinc remote desktop (inside the browser):**
 
-  The web version does not have the capability to kill the existing session, only the standalone client does. Please install the standalone client and follow the steps below:
+    The web version does not have the capability to kill the existing session, only the standalone client does. Please install the standalone client and follow the steps below:
 
-  [ThinLinc](accounts.md#thinlinc)
+    [ThinLinc](accounts.md#thinlinc)
 
 * **If you are using a ThinLinc client:**
 
-  Close the ThinLinc client, reopen the client login popup, and select `End existing session`.
+    Close the ThinLinc client, reopen the client login popup, and select `End existing session`.
 
-  <p style="text-align: center;">
-    <img src="/assets/images/userguides/thinlinc4.png" alt="ThinLinc Login Popup" width="80%">
-  </p>
+    <p style="text-align: center;">
+        <img src="/assets/images/userguides/thinlinc4.png" alt="ThinLinc Login Popup" width="80%">
+    </p>
 
   Select "End existing session" and try "Connect" again.
 
 ### ThinLinc session unreachable
 
-#### Problem
+**Problem**
 
 When trying to login to ThinLinc and re-connect to your existing session, you receive an error *"Your ThinLinc session is currently unreachable"*.
 
-#### Solution
+**Solution**
 
 This can happen if the specific login node your existing remote desktop session was residing on is currently offline or down, so ThinLinc can not reconnect to your existing session. Most often the session is non-recoverable at this point, so the solution is to terminate your existing ThinLinc desktop session and start a new one.
 
 * **If you are using a web-version ThinLinc remote desktop (inside the browser):**
 
-  The web version does not have the capability to kill the existing session, only the standalone client does. Please install the standalone client and follow the steps below:
+    The web version does not have the capability to kill the existing session, only the standalone client does. Please install the standalone client and follow the steps below:
 
-  [ThinLinc](accounts.md#thinlinc)
+    [ThinLinc](accounts.md#thinlinc)
 
 * **If you are using a ThinLinc client:**
 
-  Close the ThinLinc client, reopen the client login popup, and select `End existing session`.
+    Close the ThinLinc client, reopen the client login popup, and select `End existing session`.
 
-  <p style="text-align: center;">
-    <img src="/assets/images/userguides/thinlinc4.png" alt="ThinLinc Login Popup" width="80%">
-  </p>
+    <p style="text-align: center;">
+        <img src="/assets/images/userguides/thinlinc4.png" alt="ThinLinc Login Popup" width="80%">
+    </p>
 
-  Select "End existing session" and try "Connect" again.
+    Select "End existing session" and try "Connect" again.
 
 ### How to disable ThinLinc screensaver
 
-#### Problem
+**Problem**
 
 Your ThinLinc desktop is locked after being idle for a while, and it asks for a password to refresh it. It means the "screensaver" and "lock screen" functions are turned on, but you want to disable these functions.
 
-#### Solution
+**Solution**
 
 If your screen is locked, close the ThinLinc client, reopen the client login popup, and select `End existing session`.
 
 <p style="text-align: center;">
-  <img src="/assets/images/userguides/thinlinc4.png" alt="ThinLinc Login Popup" width="80%">
+    <img src="/assets/images/userguides/thinlinc4.png" alt="ThinLinc Login Popup" width="80%">
 </p>
 
 Select "End existing session" and try "Connect" again.
@@ -161,7 +161,7 @@ Select "End existing session" and try "Connect" again.
 To permanently avoid screen lock issue, right click desktop and select `Applications`, then `settings`, and select `Screensaver`.
 
 <p style="text-align: center;">
-  <img src="/assets/images/userguides/thinlinc5.png" alt="ThinLinc Screensaver" width="80%">
+    <img src="/assets/images/userguides/thinlinc5.png" alt="ThinLinc Screensaver" width="80%">
 </p>
 
 Select "Applications", then "settings", and select "Screensaver".
@@ -169,24 +169,24 @@ Select "Applications", then "settings", and select "Screensaver".
 Under **Screensaver**, turn off the `Enable Screensaver`, then under **Lock Screen**, turn off the `Enable Lock Screen`, and close the window.
 
 <p style="text-align: center;">
-  <img src="/assets/images/userguides/thinlinc6.png" alt="ThinLinc Disable Screensaver" width="80%">
+    <img src="/assets/images/userguides/thinlinc6.png" alt="ThinLinc Disable Screensaver" width="80%">
 </p>
 
 Under "Screensaver" tab, turn off the "Enable Screensaver" option.
 
 <p style="text-align: center;">
-  <img src="/assets/images/userguides/thinlinc7.png" alt="ThinLinc Disable Lock Screen" width="80%">
+    <img src="/assets/images/userguides/thinlinc7.png" alt="ThinLinc Disable Lock Screen" width="80%">
 </p>
 
 Under "Lock Screen" tab, turn off the "Enable Lock Screen" option.
 
 ### I worked on Negishi after I graduated/left Purdue, but can not access it anymore
 
-#### Problem
+**Problem**
 
 You have graduated or left Purdue but continue collaboration with your Purdue colleagues. You find that your access to Purdue resources has suddenly stopped and your password is no longer accepted.
 
-#### Solution
+**Solution**
 
 Access to all resources depends on having a valid Purdue Career Account. Expired Career Accounts are removed twice a year, during Spring and October breaks (more details at the [official page](https://www.purdue.edu/apps/account/IAMO/Purdue_CareerAccount_Expiration.jsp)). If your Career Account was purged due to expiration, you will not be be able to access the resources.
 
@@ -201,48 +201,47 @@ After your R4P is completed and Career Account is restored, please note two addi
 
 ### cannot connect to X server / cannot open display
 
-#### Problem
+**Problem**
 
 You receive the following message after entering a command to bring up a graphical window
 
 `cannot connect to X server` `cannot open display`
 
-#### Solution
+**Solution**
 
 This can happen due to multiple reasons:
 
 1. Reason: Your SSH client software does not support graphical display by itself (e.g. SecureCRT or PuTTY).
-   * Solution: Try using a client software like ThinLinc or MobaXterm as described in the [SSH X11 Forwarding guide](accounts.md#ssh-x11-forwarding).
+    * Solution: Try using a client software like ThinLinc or MobaXterm as described in the [SSH X11 Forwarding guide](accounts.md#ssh-x11-forwarding).
+
 2. Reason: You did not enable X11 forwarding in your SSH connection.
-
-   * Solution: If you are in a Windows environment, make sure that X11 forwarding is enabled in your connection settings (e.g. in MobaXterm or PuTTY). If you are in a Linux environment, try
-
-     `ssh -Y -l username hostname`
+    * Solution: If you are in a Windows environment, make sure that X11 forwarding is enabled in your connection settings (e.g. in MobaXterm or PuTTY). If you are in a Linux environment, try `ssh -Y -l username hostname`
 
 3. Reason: If you are trying to open a graphical window within an interactive PBS job, make sure you are using the `-X` option with `qsub` after following the previous step(s) for connecting to the front-end. Please see the example in the [Interactive Jobs guide](../run_jobs/interactive_jobs).
+
 4. Reason: If none of the above apply, make sure that you are [within quota of your home directory](#usrbinxauth-error-in-locking-authority-file).
 
 ### bash: command not found
 
-#### Problem
+**Problem**
 
 You receive the following message after typing a command
 
 `bash: command not found`
 
-#### Solution
+**Solution**
 
 This means the system doesn't know how to find your command. Typically, you need to load a module to do it.
 
 ### bash: module command not found
 
-#### Problem
+**Problem**
 
 You receive the following message after typing a command, e.g. module load intel
 
 `bash: module command not found`
 
-#### Solution
+**Solution**
 
 The system cannot find the module command. You need to source the modules.sh file as below
 
@@ -264,15 +263,15 @@ or
 
 * You can learn about processor layout on Negishi nodes using the following command:
 
-  ```
-  a003.negishi:~$ lstopo-no-graphics
-  ```
+    ```
+    a003.negishi:~$ lstopo-no-graphics
+    ```
 
 * For detailed IO connectivity:
 
-  ```
-  a003.negishi:~$ lstopo-no-graphics --physical --whole-io
-  ```
+    ```
+    a003.negishi:~$ lstopo-no-graphics --physical --whole-io
+    ```
 
 * Please note that NUMA information is useful for advanced MPI/OpenMP/GPU optimizations. For most users, using default NUMA settings in MPI or OpenMP would give you the best performance.
 
