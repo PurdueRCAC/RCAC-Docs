@@ -11,7 +11,7 @@ search:
 # All software and versions on RCAC clusters
 
 ## Overview
-As of **July 09, 2026**, there have been a total of **276** applications with **2545** available versions deployed across **6** RCAC HPC clusters: **ANVIL, BELL, GAUTSCHI, GILBRETH, NEGISHI, SCHOLAR**.
+As of **July 14, 2026**, there have been a total of **278** applications with **2548** available versions deployed across **6** RCAC HPC clusters: **ANVIL, BELL, GAUTSCHI, GILBRETH, NEGISHI, SCHOLAR**.
 
 ## Applications Catalog
 
@@ -314,6 +314,11 @@ As of **July 09, 2026**, there have been a total of **276** applications with **
       <td><a href="../apps_md/freetype"><strong>freetype</strong></a></td>
       <td>Library</td>
       <td>ANVIL, NEGISHI</td>
+    </tr>
+    <tr>
+      <td><a href="../apps_md/fusioncompiler"><strong>fusioncompiler</strong></a></td>
+      <td>Compilers, Geoscience</td>
+      <td>GILBRETH</td>
     </tr>
     <tr>
       <td><a href="../apps_md/gatk"><strong>gatk</strong></a></td>
@@ -996,6 +1001,11 @@ As of **July 09, 2026**, there have been a total of **276** applications with **
       <td>ANVIL, GILBRETH</td>
     </tr>
     <tr>
+      <td><a href="../apps_md/prime"><strong>prime</strong></a></td>
+      <td>Miscellaneous</td>
+      <td>GILBRETH</td>
+    </tr>
+    <tr>
       <td><a href="../apps_md/proj"><strong>proj</strong></a></td>
       <td>Geoscience</td>
       <td>ANVIL, BELL, NEGISHI</td>
@@ -1153,7 +1163,7 @@ As of **July 09, 2026**, there have been a total of **276** applications with **
     <tr>
       <td><a href="../apps_md/sentaurus"><strong>sentaurus</strong></a></td>
       <td>Engineering</td>
-      <td>BELL, GAUTSCHI, NEGISHI</td>
+      <td>BELL, GAUTSCHI, GILBRETH, NEGISHI</td>
     </tr>
     <tr>
       <td><a href="../apps_md/setuptools"><strong>setuptools</strong></a></td>

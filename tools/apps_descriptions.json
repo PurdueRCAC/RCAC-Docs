@@ -2326,5 +2326,22 @@
     "topic": [
       "Miscellaneous"
     ]
+  },
+  "fusioncompiler": {
+    "description": "TODO: add description",
+    "homepage": null,
+    "source": "none",
+    "topic": [
+      "Compilers",
+      "Geoscience"
+    ]
+  },
+  "prime": {
+    "description": "Prime Intellect CLI + SDK",
+    "homepage": null,
+    "source": "pypi",
+    "topic": [
+      "Miscellaneous"
+    ]
   }
 }
