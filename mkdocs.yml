@@ -154,6 +154,17 @@ nav:
       - Gateway (Open OnDemand): userguides/gilbreth/gateway.md
       - Compiling Source Code: userguides/gilbreth/compile.md
       - Frequently Asked Questions: userguides/gilbreth/faqs.md
+    - Negishi:
+      - userguides/negishi/index.md
+      - Negishi Overview: userguides/negishi/overview.md
+      - Biography of Negishi: userguides/negishi/biography.md
+      - Accounts: userguides/negishi/accounts.md
+      - Software: userguides/negishi/software.md
+      - Running Jobs: userguides/negishi/run_jobs/index.md
+      - File Storage and Transfer: userguides/negishi/storage.md
+      - Gateway (Open OnDemand): userguides/negishi/gateway.md
+      - Compiling Source Code: userguides/negishi/compile.md
+      - Frequently Asked Questions: userguides/negishi/faqs.md
     - Scholar: 
       - userguides/scholar/index.md
       - Scholar Overview: userguides/scholar/overview.md

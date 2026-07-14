@@ -1,0 +1,25 @@
+---
+tags:
+  - Negishi
+authors:
+  - hkashgar
+resource: Negishi
+search:
+  boost: 2
+---
+
+# Negishi User Guide
+
+Negishi is a Community Cluster optimized for communities running traditional, tightly-coupled science and engineering applications.
+
+- [**Negishi Overview**](overview.md)
+- [**Biography of Negishi**](biography.md)
+- [**Accounts**](accounts.md)
+- [**Software**](software.md)
+- [**Running Jobs**](run_jobs/index.md)
+- [**File Storage and Transfer**](storage.md)
+- [**Gateway (Open OnDemand)**](gateway.md)
+- [**Compiling Source Code**](compile.md)
+- [**Frequently Asked Questions**](faqs.md)
+
+
