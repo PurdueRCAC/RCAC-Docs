@@ -72,6 +72,14 @@ Check off the `[ ]` items in the body; advance state via
 (regenerate — never hand-edit YAML). Update `--hill` when the honesty signal changes. When all phases
 are done, also `--top-status in_review`.
 
+**Meta-note (self-improvement; usually skip).** If *this phase* hit a problem in the *skillset
+itself* — the bar is **"instructions' fault, not mine or the task's"** (a wrong/ambiguous
+instruction, a `verify:` recipe you had to hand-fix, an allowed-tools gap, a gate that mis-fired) —
+append one terse finding to `spec/{slug}/META.md` (from `.agents/factory/templates/META.md` if
+absent), `origin=docs-draft:{id}`. It rides Step 6's `git add -A`. Silence by default; ≤1–2 per phase;
+add "· seen again" rather than duplicating; a fix that would weaken a `hammerable:false` gate is
+`severity=high`. **Recording only** — `/docs-harness` applies fixes later, human-reviewed.
+
 ## Step 6 — Commit (atomic content + state)
 
 `git add -A` → `git commit -m "[{kind}] Draft {slug} {id}: {phase name}"` (no `WIP:` prefix, no

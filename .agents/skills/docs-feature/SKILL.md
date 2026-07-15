@@ -97,3 +97,17 @@ human. Recommend `/docs-plan` once the GOAL is approved.
 `/docs-plan`, or after review feedback) **only with explicit human direction**, recorded in a dated
 Clarifications sub-block with the affected R-IDs re-confirmed. It must never drift *silently* during
 drafting.
+
+## Step 8 — Meta-note (self-improvement; usually a no-op)
+
+**Silence is the default.** Append a finding to `spec/{slug}/META.md` (create it from
+`.agents/factory/templates/META.md` if absent) **only** when a concrete problem in the *skillset
+itself* cost you something this run. **The bar:** *was this the instructions' fault — not mine, not
+the task's?* Qualifies: you hand-fixed a command the skill gave (wrong flag/path, unquoted YAML); a
+genuinely ambiguous instruction; a `[NEEDS CLARIFICATION]` better guidance could have pre-empted; an
+allowed-tools/step mismatch; a gate that passed/failed misleadingly. Stay silent for a merely hard
+task, an error you made against clear guidance, a one-off *content* issue (→ GOAL), or a vague
+preference. Cap ≤3, terse; add "· seen again" to an existing finding rather than duplicating; a fix
+that would weaken a `hammerable:false` gate is `severity=high`. **This step only records** — fixes
+are applied later by `/docs-harness`, human-reviewed. If you wrote one, commit it:
+`git add spec/{slug}/META.md && git commit -m "[harness] Meta-note: {slug} (docs-feature)"`.

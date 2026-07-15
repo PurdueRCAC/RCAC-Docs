@@ -36,7 +36,8 @@ Spawn a fresh `Agent` (general-purpose) given **inline, ONLY**:
 - instructions to work in the runnable repo (project env active) and **verify by executing**:
   `.venv/bin/mkdocs build --strict 2>&1 | python3 .agents/factory/bin/strict_check.py`, `mkdocs serve`
   + view changed pages, nav/front-matter/a11y checks;
-- an explicit instruction to **NOT read `PLAN.md`, `TECH.md`, or `research/`**.
+- an explicit instruction to **NOT read `PLAN.md`, `TECH.md`, `research/`, or `META.md`** (the last
+  can leak author intent and would break blindness).
 
 Required return: structured findings — each with severity, **CONFIRMED** (reproduced by
 command/render/diff) vs **PLAUSIBLE** (HPC accuracy or prose a11y that isn't machine-checkable →
@@ -66,6 +67,16 @@ manufacture findings.
 
 A separate fresh subagent that *may* read `TECH.md`: did every planned phase ship? did scope balloon
 past appetite? Append its notes to `REVIEW.md`.
+
+## Step 6 — Meta-note (process only; usually a no-op)
+
+**You (the orchestrator), not the blind reviewer, write this — after `REVIEW.md` exists.** Append a
+finding to `spec/{slug}/META.md` **only** if the *rubric or the review skill itself* was unclear or
+mis-steered the pass (e.g. an invariant that was ambiguous to apply, a verify step that didn't catch
+what it should). **Content findings do NOT go here — they go in `REVIEW.md`.** The bar is the same:
+*the instructions' fault, not the task's.* `origin=docs-review`, terse, ≤2, silence by default; a
+fix that would weaken a `hammerable:false` gate is `severity=high`. Commit it with the review. This
+records only — `/docs-harness` applies fixes later.
 
 ## Final report
 

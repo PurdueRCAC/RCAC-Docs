@@ -8,7 +8,7 @@ description: >-
   this is the one irreversible, outward step. Final step of the documentation factory.
 disable-model-invocation: true
 argument-hint: "[pr (default) | local] [merge]"
-allowed-tools: Read, Grep, Glob, AskUserQuestion, Bash(git status *), Bash(git branch *), Bash(git log *), Bash(git diff *), Bash(git rev-parse *), Bash(git fetch *), Bash(git push *), Bash(git switch *), Bash(git checkout *), Bash(git merge *), Bash(git add *), Bash(git commit *), Bash(gh pr *), Bash(gh repo *)
+allowed-tools: Read, Grep, Glob, AskUserQuestion, Bash(git status *), Bash(git branch *), Bash(git log *), Bash(git diff *), Bash(git rev-parse *), Bash(git fetch *), Bash(git push *), Bash(git switch *), Bash(git checkout *), Bash(git merge *), Bash(git add *), Bash(git commit *), Bash(gh pr *), Bash(gh repo *), Bash(python3 .agents/factory/bin/meta_status.py *)
 ---
 
 # docs-publish — ship the branch to main
@@ -39,6 +39,12 @@ Report the review verdict, commits vs `main`, and any existing PR (`gh pr status
   - **Research** → `spec/{slug}/research/*.md` (if present)
   - **Phases completed** → from the `TECH.md` FSM (id · name · satisfies R-IDs)
   - **Verification** → from `spec/{slug}/REVIEW.md` (build/render/link/nav/a11y results, verdict)
+  - **🔧 Harness feedback** *(only if
+    `python3 .agents/factory/bin/meta_status.py spec/{slug}/META.md --status open` reports `open > 0`)*
+    → a short, collapsed section listing each open finding (`id · severity · title`), then label the
+    PR: `gh pr edit --add-label harness-feedback`. Keep it terse (link to `META.md` for detail) so it
+    doesn't dominate the PR; route them later with `/docs-harness`. Do **not** write or resolve
+    findings here.
   - `Closes #NN` (this auto-closes the issue — `main` is the default branch)
   - trailing line: `🤖 Generated with [Claude Code](https://claude.com/claude-code)`
 
