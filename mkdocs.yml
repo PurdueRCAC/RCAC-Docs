@@ -363,6 +363,9 @@ nav:
     - Acceptable Use & Etiquette: agentic-ai/acceptable_use.md
     - Best Practices & Limitations: agentic-ai/best_practices.md
     - MCP Servers: agentic-ai/mcp_servers.md
+    - Running Agents:
+      - agentic-ai/running_agents/index.md
+      - On the Cluster (Login Nodes): agentic-ai/running_agents/on_cluster.md
   # - Tags: tags.md
   - Contact us: contact.md
   - FAQs: faqs.md

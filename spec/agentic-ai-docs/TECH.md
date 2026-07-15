@@ -6,7 +6,7 @@ appetite: big
 status: in_progress
 branch: feature/agentic-ai-docs
 base: main
-current_phase: P5
+current_phase: P6
 last_updated: '2026-07-15'
 phases:
 - id: P1
@@ -61,7 +61,7 @@ phases:
     && grep -q 'mcp_servers.md' mkdocs.yml
 - id: P5
   name: 'Running Agents: overview + on-cluster (login nodes)'
-  status: pending
+  status: done
   satisfies:
   - R4
   - R5
@@ -271,10 +271,10 @@ commands; the `/etc/agents.d` injection), presenting the tooling as prototype/ev
 **Goal:** the `Running Agents` area exists (mode overview) plus the on-cluster (login-node) page
 covering all five harnesses with the login-node constraints.
 
-- [ ] Create `docs/agentic-ai/running_agents/index.md` (subdir hub): explain the two deployment
+- [x] Create `docs/agentic-ai/running_agents/index.md` (subdir hub): explain the two deployment
       modes (on-cluster vs local MCP+SSH); card/links to the two mode pages (local link deferred to
       P10 if `local.md` not yet created — or ordered so on_cluster exists here and local added P6).
-- [ ] Create `docs/agentic-ai/running_agents/on_cluster.md`: install/run each of Claude Code, Codex,
+- [x] Create `docs/agentic-ai/running_agents/on_cluster.md`: install/run each of Claude Code, Codex,
       Gemini CLI, opencode on a login node (Linux); the login-node compute constraint (mirror the
       Gautschi Running-Jobs rule); point writable work at `$RCAC_SCRATCH`; note OS sandboxes are
       often unavailable on shared nodes (RCAC uses **Apptainer**, which auto bind-mounts
@@ -282,7 +282,7 @@ covering all five harnesses with the login-node constraints.
       desktop GUI and **cannot** run on a login node — but it is **RCAC's recommended harness for most
       users**; run it on your workstation and SSH in (point to the local page for the recommended
       workflow).
-- [ ] Add the `Running Agents` nav sub-section (index + On the Cluster); back-links to hub.
+- [x] Add the `Running Agents` nav sub-section (index + On the Cluster); back-links to hub.
 - **Verify:** `… strict_check.py && grep -q 'running_agents/on_cluster.md' mkdocs.yml`
 - **Touches:** `docs/agentic-ai/running_agents/{index,on_cluster}.md`, `mkdocs.yml`.
 
