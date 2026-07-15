@@ -1,110 +1,164 @@
 ---
 slug: agentic-ai-docs
-title: "Agentic AI on RCAC: guidance, MCP tooling, and shared context"
+title: 'Agentic AI on RCAC: guidance, MCP tooling, and shared context'
 kind: feature
 appetite: big
 status: in_progress
 branch: feature/agentic-ai-docs
 base: main
-current_phase: P1
-last_updated: "2026-07-15"
+current_phase: P2
+last_updated: '2026-07-15'
 phases:
-  - id: P1
-    name: "Scaffold: section hub + top-level nav anchor"
-    status: pending
-    satisfies: [R1]
-    depends_on: []
-    parallel: false
-    hammerable: false
-    hill: uphill
-    verify: ".venv/bin/mkdocs build --strict 2>&1 | python3 .agents/factory/bin/strict_check.py && grep -q 'agentic-ai/index.md' mkdocs.yml"
-  - id: P2
-    name: "Acceptable Use & Etiquette page"
-    status: pending
-    satisfies: [R2]
-    depends_on: [P1]
-    parallel: false
-    hammerable: false
-    hill: uphill
-    verify: ".venv/bin/mkdocs build --strict 2>&1 | python3 .agents/factory/bin/strict_check.py && grep -q 'acceptable_use.md' mkdocs.yml"
-  - id: P3
-    name: "Best Practices & Limitations page"
-    status: pending
-    satisfies: [R3]
-    depends_on: [P1]
-    parallel: false
-    hammerable: true
-    hill: uphill
-    verify: ".venv/bin/mkdocs build --strict 2>&1 | python3 .agents/factory/bin/strict_check.py && grep -q 'best_practices.md' mkdocs.yml"
-  - id: P4
-    name: "MCP Servers page (rcac-mcp / globus-mcp / rcac-docs-mcp)"
-    status: pending
-    satisfies: [R7, R8, R9, R16]
-    depends_on: [P1]
-    parallel: false
-    hammerable: false
-    hill: uphill
-    verify: ".venv/bin/mkdocs build --strict 2>&1 | python3 .agents/factory/bin/strict_check.py && grep -q 'mcp_servers.md' mkdocs.yml"
-  - id: P5
-    name: "Running Agents: overview + on-cluster (login nodes)"
-    status: pending
-    satisfies: [R4, R5]
-    depends_on: [P1]
-    parallel: false
-    hammerable: false
-    hill: uphill
-    verify: ".venv/bin/mkdocs build --strict 2>&1 | python3 .agents/factory/bin/strict_check.py && grep -q 'running_agents/on_cluster.md' mkdocs.yml"
-  - id: P6
-    name: "Running Agents: local, targeting the cluster (MCP + SSH)"
-    status: pending
-    satisfies: [R4, R6]
-    depends_on: [P1, P5]
-    parallel: false
-    hammerable: false
-    hill: uphill
-    verify: ".venv/bin/mkdocs build --strict 2>&1 | python3 .agents/factory/bin/strict_check.py && grep -q 'running_agents/local.md' mkdocs.yml"
-  - id: P7
-    name: "Shared context: hub + build/publish the 5 /etc/agents.d files"
-    status: pending
-    satisfies: [R10, R12, R16]
-    depends_on: [P1]
-    parallel: false
-    hammerable: false
-    hill: uphill
-    verify: ".venv/bin/mkdocs build --strict 2>&1 | python3 .agents/factory/bin/strict_check.py && grep -q 'shared_context/context_files.md' mkdocs.yml && grep -rq RCAC_SCRATCH site/agentic-ai/shared_context/"
-  - id: P8
-    name: "Build/publish per-harness settings & permissions (all five)"
-    status: pending
-    satisfies: [R11, R12]
-    depends_on: [P1, P7]
-    parallel: false
-    hammerable: false
-    hill: uphill
-    verify: ".venv/bin/mkdocs build --strict 2>&1 | python3 .agents/factory/bin/strict_check.py && grep -q 'shared_context/settings.md' mkdocs.yml && grep -rq mcpServers site/agentic-ai/shared_context/"
-  - id: P9
-    name: "Gautschi 'Using AI Agents' chapter"
-    status: pending
-    satisfies: [R13, R16]
-    depends_on: [P1, P4, P5, P6, P7]
-    parallel: false
-    hammerable: false
-    hill: uphill
-    verify: ".venv/bin/mkdocs build --strict 2>&1 | python3 .agents/factory/bin/strict_check.py && grep -q 'using_ai_agents.md' mkdocs.yml"
-  - id: P10
-    name: "Integration: hub cards, cross-links, breadcrumbs, a11y + accuracy sweep"
-    status: pending
-    satisfies: [R14, R15, R16]
-    depends_on: [P1, P2, P3, P4, P5, P6, P7, P8, P9]
-    parallel: false
-    hammerable: false
-    hill: uphill
-    verify: ".venv/bin/mkdocs build --strict 2>&1 | python3 .agents/factory/bin/strict_check.py && .venv/bin/python tools/generate_breadcrumbs.py && grep -q 'Agentic AI' mkdocs.yml"
+- id: P1
+  name: 'Scaffold: section hub + top-level nav anchor'
+  status: done
+  satisfies:
+  - R1
+  depends_on: []
+  parallel: false
+  hammerable: false
+  hill: uphill
+  verify: .venv/bin/mkdocs build --strict 2>&1 | python3 .agents/factory/bin/strict_check.py
+    && grep -q 'agentic-ai/index.md' mkdocs.yml
+- id: P2
+  name: Acceptable Use & Etiquette page
+  status: pending
+  satisfies:
+  - R2
+  depends_on:
+  - P1
+  parallel: false
+  hammerable: false
+  hill: uphill
+  verify: .venv/bin/mkdocs build --strict 2>&1 | python3 .agents/factory/bin/strict_check.py
+    && grep -q 'acceptable_use.md' mkdocs.yml
+- id: P3
+  name: Best Practices & Limitations page
+  status: pending
+  satisfies:
+  - R3
+  depends_on:
+  - P1
+  parallel: false
+  hammerable: true
+  hill: uphill
+  verify: .venv/bin/mkdocs build --strict 2>&1 | python3 .agents/factory/bin/strict_check.py
+    && grep -q 'best_practices.md' mkdocs.yml
+- id: P4
+  name: MCP Servers page (rcac-mcp / globus-mcp / rcac-docs-mcp)
+  status: pending
+  satisfies:
+  - R7
+  - R8
+  - R9
+  - R16
+  depends_on:
+  - P1
+  parallel: false
+  hammerable: false
+  hill: uphill
+  verify: .venv/bin/mkdocs build --strict 2>&1 | python3 .agents/factory/bin/strict_check.py
+    && grep -q 'mcp_servers.md' mkdocs.yml
+- id: P5
+  name: 'Running Agents: overview + on-cluster (login nodes)'
+  status: pending
+  satisfies:
+  - R4
+  - R5
+  depends_on:
+  - P1
+  parallel: false
+  hammerable: false
+  hill: uphill
+  verify: .venv/bin/mkdocs build --strict 2>&1 | python3 .agents/factory/bin/strict_check.py
+    && grep -q 'running_agents/on_cluster.md' mkdocs.yml
+- id: P6
+  name: 'Running Agents: local, targeting the cluster (MCP + SSH)'
+  status: pending
+  satisfies:
+  - R4
+  - R6
+  depends_on:
+  - P1
+  - P5
+  parallel: false
+  hammerable: false
+  hill: uphill
+  verify: .venv/bin/mkdocs build --strict 2>&1 | python3 .agents/factory/bin/strict_check.py
+    && grep -q 'running_agents/local.md' mkdocs.yml
+- id: P7
+  name: 'Shared context: hub + build/publish the 5 /etc/agents.d files'
+  status: pending
+  satisfies:
+  - R10
+  - R12
+  - R16
+  depends_on:
+  - P1
+  parallel: false
+  hammerable: false
+  hill: uphill
+  verify: .venv/bin/mkdocs build --strict 2>&1 | python3 .agents/factory/bin/strict_check.py
+    && grep -q 'shared_context/context_files.md' mkdocs.yml && grep -rq RCAC_SCRATCH
+    site/agentic-ai/shared_context/
+- id: P8
+  name: Build/publish per-harness settings & permissions (all five)
+  status: pending
+  satisfies:
+  - R11
+  - R12
+  depends_on:
+  - P1
+  - P7
+  parallel: false
+  hammerable: false
+  hill: uphill
+  verify: .venv/bin/mkdocs build --strict 2>&1 | python3 .agents/factory/bin/strict_check.py
+    && grep -q 'shared_context/settings.md' mkdocs.yml && grep -rq mcpServers site/agentic-ai/shared_context/
+- id: P9
+  name: Gautschi 'Using AI Agents' chapter
+  status: pending
+  satisfies:
+  - R13
+  - R16
+  depends_on:
+  - P1
+  - P4
+  - P5
+  - P6
+  - P7
+  parallel: false
+  hammerable: false
+  hill: uphill
+  verify: .venv/bin/mkdocs build --strict 2>&1 | python3 .agents/factory/bin/strict_check.py
+    && grep -q 'using_ai_agents.md' mkdocs.yml
+- id: P10
+  name: 'Integration: hub cards, cross-links, breadcrumbs, a11y + accuracy sweep'
+  status: pending
+  satisfies:
+  - R14
+  - R15
+  - R16
+  depends_on:
+  - P1
+  - P2
+  - P3
+  - P4
+  - P5
+  - P6
+  - P7
+  - P8
+  - P9
+  parallel: false
+  hammerable: false
+  hill: uphill
+  verify: .venv/bin/mkdocs build --strict 2>&1 | python3 .agents/factory/bin/strict_check.py
+    && .venv/bin/python tools/generate_breadcrumbs.py && grep -q 'Agentic AI' mkdocs.yml
 review:
-  last_reviewed_commit: ""
+  last_reviewed_commit: ''
   verdict: none
-  blocked_reason: ""
+  blocked_reason: ''
 ---
-
 # TECH.md — Agentic AI on RCAC
 
 The **context engine and finite-state machine** for authoring this job. The YAML frontmatter above
@@ -147,12 +201,12 @@ project env active.
 **Goal:** the top-level `Agentic AI` section exists with a hub `index.md` stating RCAC's stance, is
 wired into nav, and builds clean.
 
-- [ ] Create `docs/agentic-ai/index.md` (hub archetype, mirror `docs/lifesciences/index.md`):
+- [x] Create `docs/agentic-ai/index.md` (hub archetype, mirror `docs/lifesciences/index.md`):
       `title: Agentic AI`, `tags: [Agentic AI]`; one H1; a stance intro (proactive engagement, not
       prohibition; "mostly harmless"; verify, don't forbid — from GOAL/paper). Grid-card links are
       **deferred to P10** (children don't exist yet) — for now a short "in this section" prose list
       with **no dead links**, or cards pointing only to pages that exist.
-- [ ] Insert the top-level `Agentic AI` nav block after Life Sciences (`mkdocs.yml:361`), initially
+- [x] Insert the top-level `Agentic AI` nav block after Life Sciences (`mkdocs.yml:361`), initially
       containing only `- agentic-ai/index.md`.
 - **Verify:** `.venv/bin/mkdocs build --strict 2>&1 | python3 .agents/factory/bin/strict_check.py && grep -q 'agentic-ai/index.md' mkdocs.yml`
 - **Touches:** `docs/agentic-ai/index.md`, `mkdocs.yml`.

@@ -358,6 +358,8 @@ nav:
         - Mitochondrial Genomes (MitoHiFi): lifesciences/tutorials/mitohifi.md
       - Hi-C Analysis:
         - Juicer: lifesciences/tutorials/juicer.md
+  - Agentic AI:
+    - agentic-ai/index.md
   # - Tags: tags.md
   - Contact us: contact.md
   - FAQs: faqs.md
