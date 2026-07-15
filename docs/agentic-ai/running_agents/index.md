@@ -17,9 +17,9 @@ on your harness and how you like to work.
   you are.
 - **Locally, targeting the cluster (MCP + SSH).** The harness runs in your own
   environment — your laptop or workstation — and reaches the cluster through the RCAC
-  MCP servers over your existing SSH access. Nothing new is installed on the cluster,
-  and no new credentials are created. This is the mode that works with **Warp**, which
-  is a desktop application and cannot run on a login node.
+  [MCP servers](../mcp_servers.md) over your existing SSH access. Nothing new is
+  installed on the cluster, and no new credentials are created. This is the mode that
+  works with **Warp**, which is a desktop application and cannot run on a login node.
 
 <div class="grid cards" markdown>
 

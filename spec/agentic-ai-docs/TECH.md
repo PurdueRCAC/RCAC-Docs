@@ -3,10 +3,10 @@ slug: agentic-ai-docs
 title: 'Agentic AI on RCAC: guidance, MCP tooling, and shared context'
 kind: feature
 appetite: big
-status: in_progress
+status: in_review
 branch: feature/agentic-ai-docs
 base: main
-current_phase: P10
+current_phase: done
 last_updated: '2026-07-15'
 phases:
 - id: P1
@@ -134,7 +134,7 @@ phases:
     && grep -q 'using_ai_agents.md' mkdocs.yml
 - id: P10
   name: 'Integration: hub cards, cross-links, breadcrumbs, a11y + accuracy sweep'
-  status: pending
+  status: done
   satisfies:
   - R14
   - R15
@@ -378,15 +378,15 @@ top-level section.
 **Goal:** the section reads as one coherent whole; every internal link resolves; breadcrumbs are
 current; a11y and HPC accuracy pass a final review.
 
-- [ ] Populate the hub grid-cards (`agentic-ai/index.md`) linking every subpage; add the
+- [x] Populate the hub grid-cards (`agentic-ai/index.md`) linking every subpage; add the
       Running-Agents index card to `local.md`; add sibling cross-links (running-agents ↔ mcp_servers
       ↔ shared_context ↔ Gautschi chapter).
-- [ ] `.venv/bin/python tools/generate_breadcrumbs.py` (nav changed).
-- [ ] a11y sweep: one H1/page, descending headings, header rows on tables, descriptive link text,
+- [x] `.venv/bin/python tools/generate_breadcrumbs.py` (nav changed).
+- [x] a11y sweep: one H1/page, descending headings, header rows on tables, descriptive link text,
       alt text on any image.
-- [ ] HPC-accuracy final pass against research 03/04: partitions, QOS, paths, commands, MCP connect
+- [x] HPC-accuracy final pass against research 03/04: partitions, QOS, paths, commands, MCP connect
       strings; confirm **no `--partition=a10` / `-A standby`** anywhere in the new pages/snippets.
-- [ ] Full `mkdocs serve` eyeball of the whole section.
+- [x] Full `mkdocs serve` eyeball of the whole section.
 - **Verify:** `… strict_check.py && .venv/bin/python tools/generate_breadcrumbs.py && grep -q 'Agentic AI' mkdocs.yml`
 - **Touches:** `docs/agentic-ai/**`, `docs/userguides/gautschi/using_ai_agents.md`, `docs/assets/data/breadcrumbs.json`, `mkdocs.yml`.
 

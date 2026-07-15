@@ -8,8 +8,9 @@ authors:
 # Local, Targeting the Cluster (MCP + SSH)
 
 In this mode the agent runs where *you* are — on your laptop or workstation — and
-reaches Gautschi through the RCAC MCP servers over the SSH access you already have.
-It is the recommended setup for most users, and the only way to use **Warp**.
+reaches Gautschi through the RCAC [MCP servers](../mcp_servers.md) over the SSH access
+you already have. It is the recommended setup for most users, and the only way to use
+**Warp**.
 
 ## The local-first architecture
 
@@ -98,9 +99,9 @@ to your harness in that harness's native format:
     ```
 
 `uvx` fetches and runs the server on demand, so there is no separate install step. The
-full settings and permission files for each harness — including the shared context and
-starting-point deny/allow policy — are published in the Shared Context & Settings pages
-of this section.
+full [settings and permission files](../shared_context/settings.md) for each harness —
+including the shared context and starting-point deny/allow policy — are published in the
+Shared Context & Settings pages of this section.
 
 ### The other two servers
 

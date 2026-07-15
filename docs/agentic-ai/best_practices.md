@@ -29,8 +29,9 @@ Draw a line between the two very different jobs you might ask an agent to do:
   it runs, and keep destructive operations behind an explicit confirmation.
 
 The same agent is trustworthy for the first and needs a short leash for the second.
-Configure your harness accordingly — the per-harness settings we publish in this
-section deny the most dangerous operations by default as a starting point.
+Configure your harness accordingly — the
+[per-harness settings](shared_context/settings.md) we publish deny the most dangerous
+operations by default as a starting point.
 
 ## Engineer the context ("Tea, Earl Grey, hot")
 
@@ -42,10 +43,10 @@ specificity to your prompts:
 - Name the cluster, the partition, the account, and the software versions you
   actually intend to use, rather than letting the agent guess.
 - Point the agent at the authoritative source. RCAC injects cluster-specific
-  context into agents automatically (see the MCP Servers and shared context pages in
-  this section), so an agent connected to our tooling already knows Gautschi runs
-  Slurm, uses Lmod, and has partitions named `cpu`/`ai`/`highmem` — it does not have
-  to infer it from general knowledge.
+  context into agents automatically (see [MCP Servers](mcp_servers.md) and the shared
+  [context files](shared_context/context_files.md)), so an agent connected to our
+  tooling already knows Gautschi runs Slurm, uses Lmod, and has partitions named
+  `cpu`/`ai`/`highmem` — it does not have to infer it from general knowledge.
 - Give the agent the error message, the job ID, the exact file — not a paraphrase.
 
 Good context supplied up front prevents the single most common failure mode on HPC:
@@ -81,8 +82,9 @@ an assumption:
 - `module avail` / `module list` — what software exists and what is currently
   loaded.
 
-The per-harness settings we publish allow-list these commands so the agent runs them
-without stopping to ask. An agent that checks `slist` before writing
+The per-harness [settings we publish](shared_context/settings.md) allow-list these
+commands so the agent runs them without stopping to ask. An agent that checks `slist`
+before writing
 `--account=` will not invent an account name; one that runs `module avail` before a
 `module load` will not hallucinate a version.
 

@@ -64,8 +64,8 @@ pointing `--ssh-host` at your cluster login node:
 
 `uvx` fetches, builds, and runs the server in one step, so there is no separate
 install. (You may instead set `RCAC_SSH_HOST` in the environment and omit
-`--ssh-host`.) Per-harness registration details are on the Running Agents pages in
-this section.
+`--ssh-host`.) Per-harness registration details are on the
+[Running Agents](running_agents/local.md) pages.
 
 ### Tools it exposes
 
@@ -86,9 +86,10 @@ agent. Over the same SSH connection, it collects the markdown files in
 `/etc/agents.d/` on the host (a configurable location), concatenates them, and
 exposes the result to the agent as a read-only resource named `rcac://context`.
 
-This is how the context files RCAC publishes reach a locally-run agent without you
-installing anything: the cluster maintains them, and the server injects them at
-connect time. See the Shared Context & Settings pages for what those files contain.
+This is how the [context files](shared_context/context_files.md) RCAC publishes reach a
+locally-run agent without you installing anything: the cluster maintains them, and the
+server injects them at connect time. See
+[Shared Context & Settings](shared_context/index.md) for what those files contain.
 
 !!! info "A planned direction, not a shipped fact"
 

@@ -7,8 +7,8 @@ authors:
 
 # Harness Settings & Permissions
 
-Alongside the shared context files, RCAC publishes a starting-point **settings file for
-each of the five harnesses**. Every one does two
+Alongside the shared [context files](context_files.md), RCAC publishes a starting-point
+**settings file for each of the five harnesses**. Every one does two
 things: it **allow-lists the read-only sanity commands** (`myquota`, `slist`,
 `sfeatures`, `module list`, `module avail`) so the agent runs them eagerly without
 stopping to ask, and it **denies the most dangerous operations** (`rm -rf`, `sudo`).
@@ -35,7 +35,8 @@ stopping to ask, and it **denies the most dangerous operations** (`rm -rf`, `sud
 Claude Code evaluates `permissions` in the order **deny → ask → allow**, so the denied
 operations win. Deploy this as the managed `/etc/claude-code/managed-settings.json` for
 cluster-wide enforcement, or as `~/.claude/settings.json` per user. Register
-`rcac-mcp` separately in `.mcp.json` (see the Local page), and bridge the shared
+`rcac-mcp` separately in `.mcp.json` (see the
+[Local page](../running_agents/local.md)), and bridge the shared
 context by importing `@AGENTS.md` from `CLAUDE.md` (or symlinking `CLAUDE.md` →
 `AGENTS.md`), since Claude Code does not read `AGENTS.md` natively.
 

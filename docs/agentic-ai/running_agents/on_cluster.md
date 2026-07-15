@@ -30,8 +30,9 @@ must go through Slurm**, exactly as if you were doing it by hand.
 In practice: instruct your agent to compile modestly, test on tiny inputs, and submit
 real runs with `sbatch` or `sinteractive` — with a correct account (`-A`, discovered
 via `slist`), partition (`-p`), QOS (`-q`), and an explicit `--time` limit. The shared
-context files RCAC publishes already tell an agent this, and the per-harness settings
-deny the most dangerous operations, but the responsibility is ultimately yours.
+[context files](../shared_context/context_files.md) RCAC publishes already tell an agent
+this, and the [per-harness settings](../shared_context/settings.md) deny the most
+dangerous operations, but the responsibility is ultimately yours.
 
 ## Where agents may write
 
@@ -97,8 +98,9 @@ needed. Run these on a Gautschi login node after you SSH in.
     opencode run "…"       # non-interactive
     ```
 
-To connect these harnesses to the RCAC MCP servers and wire in the shared context and
-permission policy, see the Shared Context & Settings pages in this section.
+To connect these harnesses to the RCAC [MCP servers](../mcp_servers.md) and wire in the
+shared context and permission policy, see
+[Shared Context & Settings](../shared_context/index.md).
 
 ## Warp
 
@@ -108,8 +110,8 @@ is no login-node path for Warp, and you should not try to fabricate one.
 
 Instead, run Warp on your own workstation and SSH into Gautschi from there; Warp's
 Agent Mode operates within the remote session while the app stays local. This is the
-local, MCP + SSH workflow, and it is the recommended setup for Warp — covered on the
-next page, Local (MCP + SSH).
+local, MCP + SSH workflow, and it is the recommended setup for Warp — see
+[Local (MCP + SSH)](local.md).
 
 ---
 

@@ -32,20 +32,55 @@ outsourcing it** — ask *why*, not just *what*.
 
 ## In this section
 
-- **Acceptable Use & Etiquette** — the rules for running agents on RCAC systems,
-  consistent with Purdue's Acceptable Use Policy.
-- **Best Practices & Limitations** — using an agent *for research* versus *for
-  operations*; context engineering; verifying output ("augmented, not
-  outsourced"); and the caution/blast-radius risks to keep in mind.
-- **MCP Servers** — RCAC's Model Context Protocol servers (`rcac-mcp`,
-  `globus-mcp`, `rcac-docs-mcp`), why they matter, and how they give an agent
-  context that knows our clusters.
-- **Running Agents** — how to set up your chosen harness in whichever mode you
-  work: running the agent *on the cluster* (login nodes), or *locally, targeting
-  the cluster* over MCP + SSH.
-- **Shared Context & Settings** — the actual Gautschi `/etc/agents.d` context
-  files and per-harness settings we give agents, published verbatim as the
-  canonical source of truth, plus how to contribute feedback and corrections.
+<div class="grid cards" markdown>
 
-For Gautschi-specific setup pointers, see the **Using AI Agents** chapter in the
-Gautschi user guide.
+-   :material-scale-balance:{ .lg .middle } __Acceptable Use & Etiquette__
+
+    ---
+
+    The rules for running agents on RCAC systems, consistent with Purdue's
+    Acceptable Use Policy.
+
+    [:octicons-arrow-right-24: Acceptable Use & Etiquette](acceptable_use.md)
+
+-   :material-lightbulb-on:{ .lg .middle } __Best Practices & Limitations__
+
+    ---
+
+    Using an agent *for research* versus *for operations*; context engineering;
+    verifying output; and the caution/blast-radius risks.
+
+    [:octicons-arrow-right-24: Best Practices & Limitations](best_practices.md)
+
+-   :material-connection:{ .lg .middle } __MCP Servers__
+
+    ---
+
+    RCAC's MCP servers (`rcac-mcp`, `globus-mcp`, `rcac-docs-mcp`) and how they give
+    an agent context that knows our clusters.
+
+    [:octicons-arrow-right-24: MCP Servers](mcp_servers.md)
+
+-   :material-robot:{ .lg .middle } __Running Agents__
+
+    ---
+
+    Set up your harness on the cluster (login nodes) or locally, targeting the
+    cluster over MCP + SSH — for all five harnesses.
+
+    [:octicons-arrow-right-24: Running Agents](running_agents/index.md)
+
+-   :material-file-cog:{ .lg .middle } __Shared Context & Settings__
+
+    ---
+
+    The actual Gautschi context files and per-harness settings, published verbatim
+    as the canonical source of truth — plus how to send feedback.
+
+    [:octicons-arrow-right-24: Shared Context & Settings](shared_context/index.md)
+
+</div>
+
+For Gautschi-specific setup pointers, see the
+[Using AI Agents](../userguides/gautschi/using_ai_agents.md) chapter in the Gautschi
+user guide.

@@ -65,9 +65,9 @@ keep secrets out of it.
 Require your agent to pause for your confirmation before any destructive or
 hard-to-undo operation — deleting files (`rm`), overwriting data, cancelling
 other users' jobs, or changing permissions on shared paths. Configure your
-harness so these actions prompt rather than run automatically; the per-harness
-settings we publish in this section deny the most dangerous operations outright
-as a starting point.
+harness so these actions prompt rather than run automatically; the
+[per-harness settings](shared_context/settings.md) we publish deny the most dangerous
+operations outright as a starting point.
 
 ## Be a good citizen
 
