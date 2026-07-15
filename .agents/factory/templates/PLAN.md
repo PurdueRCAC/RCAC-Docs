@@ -74,7 +74,7 @@ How we will *prove* the pages are correct — this seeds each phase's `verify:` 
 - **Silent-failure guard:** a mistyped `--8<--` include renders an **empty** block with no
   `--strict` warning (`check_paths: false`). For any page that embeds a verbatim file, add a
   `grep -rq <sentinel-token> site/<path>/` to the phase `verify:` and eyeball the render.
-- **Render:** `mkdocs serve` and view the page(s) — layout, tabs, admonitions, macros expand.
+- **Render:** `.venv/bin/mkdocs serve` and view the page(s) — layout, tabs, admonitions, macros expand.
 - **Front-matter:** matches the archetype (blog `<!-- more -->` + allowed category + known author, etc.).
 - **Accessibility:** images have alt text; headings descend logically.
 - **HPC accuracy:** which authoritative source or gold-standard page each factual claim was checked against.

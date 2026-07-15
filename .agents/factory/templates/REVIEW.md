@@ -14,7 +14,7 @@
 Commands actually executed / pages actually rendered, and their outcomes (the spine of the review):
 
 - `.venv/bin/mkdocs build --strict 2>&1 | python3 .agents/factory/bin/strict_check.py` → <result>
-- `mkdocs serve` + viewed <page(s)> → <what rendered: tabs, admonitions, macros, layout>
+- `.venv/bin/mkdocs serve` + viewed <page(s)> → <what rendered: tabs, admonitions, macros, layout>
 - nav check: <new page(s) present in `mkdocs.yml` / resolve without "not in nav" warning>
 - front-matter / a11y spot-check → <observed>
 

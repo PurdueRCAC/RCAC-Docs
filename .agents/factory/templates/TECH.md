@@ -64,7 +64,7 @@ content+state commit. Run from the repo root with the project env active.
 - `hill`: `uphill` (still figuring it out) → `crest` (unknowns resolved) → `downhill` (just
   writing). A phase stuck `uphill` across drafts is a raised hand → escalate to the human.
 - `verify`: the exact command that proves the phase — prefer the `--strict` gate plus a nav/
-  front-matter check; add a `mkdocs serve` render check in the phase steps when layout matters.
+  front-matter check; add a `.venv/bin/mkdocs serve` render check in the phase steps when layout matters.
   The gate (`strict_check.py`) fails on new warnings **and** build ERRORs/tracebacks. `--strict`
   does **not** catch a mistyped `--8<--` include (silent empty block), so for pages that embed a
   verbatim file, chain a `grep -rq <sentinel> site/<path>/`. **Quote the whole `verify:` string**
