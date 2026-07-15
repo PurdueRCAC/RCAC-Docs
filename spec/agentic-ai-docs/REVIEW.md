@@ -132,3 +132,28 @@ by a *defect*. Two advisory triggers apply:
 - **Non-goal leakage:** none on the content side.
 - **Completeness verdict:** content **COMPLETE**; overall **SCOPE-CONCERN** due to the bundled
   harness commits.
+
+## Post-rebase integration & re-verification (2026-07-15)
+
+The review (cycle 1) was conducted while local `main` was fast-forwarded to the unmerged PR #273
+factory branch. After PR #273 was merged to `origin/main` (merge commit `74ff3f54`, preserving the
+8 factory SHAs), this branch was reintegrated onto the true trunk:
+
+- **Rebase:** `git rebase origin/main` replayed our **26** commits and **auto-dropped** the 8 PR #273
+  factory commits (now ancestors of `origin/main`). **Zero conflicts** — the only two overlap files,
+  `mkdocs.yml` (Agentic AI nav vs origin's Negishi nav edits) and the generated `breadcrumbs.json`,
+  merged cleanly. `tools/generate_breadcrumbs.py` re-run afterward produced **no diff**, confirming
+  the merged breadcrumbs match the final nav. The reviewed content is byte-identical post-rebase; the
+  cycle-1 findings all still hold. Pre-rebase HEAD preserved at branch `backup/agentic-ai-docs-prerebase`.
+- **Build re-verified on the true base:** `.venv/bin/mkdocs build --strict | strict_check.py` →
+  **PASS, 0 warnings present.** Origin's `4f3e3574 "Fix warnings for --strict building"` fixed all 7
+  pre-existing baseline warnings, so `.agents/factory/strict-baseline.txt` was trimmed to **empty**
+  (commit `b8c6a6c3`) — a gate-*strengthening* change (any warning now fails), per the file's own
+  MAINTENANCE note. This resolves the "unmapped `.agents/**` changes" note above by one more entry
+  and does not weaken any `hammerable:false` gate.
+- **`last_reviewed_commit`** advanced to `b8c6a6c3` (the last content/harness commit; this REVIEW/TECH
+  bookkeeping commit sits on top as the tip, matching the factory's established pattern).
+- **Scope note still stands for `/docs-publish`:** the branch is now cleanly our 26 commits on
+  `origin/main`, but it still bundles the 9 in-feature `[harness]` improvements with the content — the
+  squash-vs-merge-commit decision (preserve `[harness]`/`[content]`/`[feature]` categories, or fold)
+  remains a human call at publish. The 8 PR #273 factory commits are no longer part of this diff.
