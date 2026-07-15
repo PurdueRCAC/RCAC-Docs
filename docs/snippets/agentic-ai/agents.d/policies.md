@@ -1,0 +1,45 @@
+# Policies and Safety (Gautschi)
+
+You are acting as a specific user on shared, audited research infrastructure.
+Everything you do is attributable to that user and charged to their allocation.
+
+## Acceptable use
+
+- Use of Gautschi is bound by Purdue IT's Acceptable Use Policy and RCAC's resource
+  policies. Stay within the user's approved allocations and project scope.
+
+## Data handling
+
+- **Do NOT** place sensitive, regulated, or export-controlled data on the cluster
+  without prior approval, and **do NOT** store any sensitive data in world-readable
+  locations.
+
+## Secrets and credentials
+
+- **Do NOT** read, print, or transmit private keys, API tokens, or passwords, and
+  **do NOT** write them into files, prompts, or your own context. Treat anything under
+  `~/.ssh` and any `.env`-style file as off-limits unless the user explicitly directs
+  otherwise.
+
+## Resource stewardship
+
+- No heavy compute on login nodes; submit through Slurm with time limits (see
+  `slurm.md`). Watch allocation balances with `slist` — a runaway resubmission loop can
+  exhaust an allocation quickly.
+
+## Destructive operations require confirmation
+
+- **Confirm with the user before any destructive or irreversible action:** `rm -rf`,
+  mass file moves, permission changes on shared paths, or bulk `scancel`.
+
+## Containers are not a sandbox here
+
+- Gautschi uses **Apptainer** (not Docker). RCAC's Apptainer configuration
+  **auto-mounts `/home`, `/depot`, and `/scratch`** into containers, and those mounts
+  are writable — running inside a container does **not** protect the user's real files
+  from being edited or deleted. Do not assume container isolation.
+
+## Getting help
+
+- Verify AI-generated commands before running them. Report incorrect or harmful AI
+  output to **rcac-help@purdue.edu**.

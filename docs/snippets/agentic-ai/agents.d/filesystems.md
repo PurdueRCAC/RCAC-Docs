@@ -1,0 +1,50 @@
+# Filesystems (Gautschi)
+
+Gautschi mounts several filesystems, each with a different purpose, technology, and
+durability. Put data in the right place, and never assume a path is durable without
+checking.
+
+## Home — `/home/$USER` (`$HOME`)
+
+- **Technology:** ZFS, with automatic snapshots (recoverable).
+- **Use for:** source code, scripts, configuration, small files. It is
+  medium-performance and space-limited.
+- **Do NOT** stage large datasets or run heavy parallel job I/O here.
+
+## Scratch — `/scratch/gautschi/$USER` (`$RCAC_SCRATCH`)
+
+- **Technology:** Lustre, a high-performance parallel filesystem.
+- **Use for:** active job input/output and large working data. Point writable working
+  files here (`$RCAC_SCRATCH`), not at home. Find the path with `findscratch`.
+- **Not backed up, and purged after 60 days of inactivity** (by last access and
+  content-modification time; touching metadata does not protect a file). Use
+  `purgelist` to see files scheduled for purge.
+- **Do NOT** treat scratch as durable storage — move anything you want to keep to Data
+  Depot or Fortress.
+
+## Node-local — `/tmp`
+
+- Ephemeral, per-node storage that exists only while your job runs on that node; not
+  backed up, not recoverable.
+
+## Long-term — Data Depot and Fortress
+
+- **Data Depot** is group project space on **GPFS** (typically under `/depot`), for
+  active research data you need to keep.
+- **Fortress** is the HPSS archive for long-term/cold storage; move data with `hsi`
+  and `htar`.
+
+## Check before you write
+
+- Run **`myquota`** to read home and scratch usage and limits before writing large
+  amounts of data. **Do NOT assume specific quota numbers** — they differ per user and
+  change over time; read them from `myquota`.
+- Reference paths with environment variables (`$HOME`, `$RCAC_SCRATCH`), not
+  hard-coded strings, since paths can change.
+
+## Prohibitions
+
+- **Do NOT** store secrets, credentials, or sensitive/regulated data in world-readable
+  paths.
+- **Do NOT** perform bulk or recursive deletes (`rm -rf`) without confirming with the
+  user first.

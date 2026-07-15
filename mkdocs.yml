@@ -367,6 +367,9 @@ nav:
       - agentic-ai/running_agents/index.md
       - On the Cluster (Login Nodes): agentic-ai/running_agents/on_cluster.md
       - Local (MCP + SSH): agentic-ai/running_agents/local.md
+    - Shared Context & Settings:
+      - agentic-ai/shared_context/index.md
+      - Context Files (/etc/agents.d): agentic-ai/shared_context/context_files.md
   # - Tags: tags.md
   - Contact us: contact.md
   - FAQs: faqs.md

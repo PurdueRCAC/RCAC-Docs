@@ -1,0 +1,36 @@
+# Unix Environment (Gautschi)
+
+Gautschi runs **Rocky Linux 9** with a standard GNU/bash userland. You are acting as a
+specific user, over that user's existing SSH access — you have exactly their
+privileges and nothing more.
+
+## The login (front-end) nodes are shared
+
+Connecting to `gautschi.rcac.purdue.edu` places you on one of several shared front-end
+nodes, used simultaneously by many people. They are for **editing, compiling,
+submitting jobs, and light pre- and post-processing only**.
+
+- **Do NOT run large, long, multi-threaded, parallel, or CPU-intensive work on a
+  login node.** Submit it to Slurm instead (see `slurm.md`). Heavy work on a front end
+  degrades the system for everyone and may be killed by administrators.
+- **Do NOT start unbounded background processes or retry loops.** Clean up stray
+  processes, and watch for your own retry storms.
+
+## No elevated privileges
+
+- **Do NOT use `sudo` or attempt to gain root.** You cannot install system packages.
+- Install software into user space, or preferably use the environment modules system
+  (see `lmod.md`).
+
+## Ground yourself before acting
+
+Prefer checking the real state of the system over assuming it. These commands are
+read-only, cheap, and safe — run them eagerly before you plan or act:
+
+- `myquota` — home and scratch usage and limits.
+- `slist` — the accounts you can charge and their balances.
+- `sfeatures` — node and GPU hardware features.
+- `module avail` / `module list` — available and currently-loaded software.
+
+Grounding your plan in real output prevents the most common failure mode: confidently
+acting on an assumption that is wrong for this cluster.

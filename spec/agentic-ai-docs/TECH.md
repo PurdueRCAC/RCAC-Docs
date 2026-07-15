@@ -6,7 +6,7 @@ appetite: big
 status: in_progress
 branch: feature/agentic-ai-docs
 base: main
-current_phase: P7
+current_phase: P8
 last_updated: '2026-07-15'
 phases:
 - id: P1
@@ -88,7 +88,7 @@ phases:
     && grep -q 'running_agents/local.md' mkdocs.yml
 - id: P7
   name: 'Shared context: hub + build/publish the 5 /etc/agents.d files'
-  status: pending
+  status: done
   satisfies:
   - R10
   - R12
@@ -308,7 +308,7 @@ existing SSH via the MCP servers.
 **Goal:** author the five Gautschi `/etc/agents.d` context files (byte-exact, HPC-accurate) and
 publish them verbatim; the shared-context hub explains the model + how to give feedback.
 
-- [ ] Author canonical files under `docs/snippets/agentic-ai/agents.d/`: `unix.md`, `filesystems.md`,
+- [x] Author canonical files under `docs/snippets/agentic-ai/agents.d/`: `unix.md`, `filesystems.md`,
       `lmod.md`, `slurm.md`, `policies.md` — each *fact → correct command/path → "do not…" →
       rationale* (outlines in research 06), grounded in verified Gautschi facts (research 03). Also
       write `agents.d/AGENTS.md` (the concatenated canonical context harnesses read). Instruct the
@@ -319,14 +319,14 @@ publish them verbatim; the shared-context hub explains the model + how to give f
       60-day purge**, `myquota`/`findscratch`; GCC 14.1.0 + OpenMPI; **Apptainer (not Docker), config
       auto bind-mounts `/home`/`/depot`/`/scratch` → limited protection**; **no `--partition=a10`,
       no `-A standby`**; defer quota numbers to `myquota`.
-- [ ] Create `docs/agentic-ai/shared_context/index.md` (subdir hub): what `/etc/agents.d` is, that
+- [x] Create `docs/agentic-ai/shared_context/index.md` (subdir hub): what `/etc/agents.d` is, that
       these files are the **canonical single source of truth** copied into cluster config management
       (Puppet) and injected by the MCP server over SSH, and **how to contribute feedback/corrections**
       (RCAC-Docs GitHub issues + rcac-help@purdue.edu + Discord).
-- [ ] Create `docs/agentic-ai/shared_context/context_files.md`: publish each context file verbatim
+- [x] Create `docs/agentic-ai/shared_context/context_files.md`: publish each context file verbatim
       via `--8<--` fenced `markdown` blocks with `title=` labels.
-- [ ] Add the `Shared Context & Settings` nav sub-section (index + Context Files); back-links to hub.
-- [ ] `mkdocs serve` — confirm the included blocks render non-empty (check_paths footgun).
+- [x] Add the `Shared Context & Settings` nav sub-section (index + Context Files); back-links to hub.
+- [x] `mkdocs serve` — confirm the included blocks render non-empty (check_paths footgun).
 - **Verify:** `… strict_check.py && grep -q 'shared_context/context_files.md' mkdocs.yml && grep -rq RCAC_SCRATCH site/agentic-ai/shared_context/`
 - **Touches:** `docs/snippets/agentic-ai/agents.d/*.md`, `docs/agentic-ai/shared_context/{index,context_files}.md`, `mkdocs.yml`.
 
