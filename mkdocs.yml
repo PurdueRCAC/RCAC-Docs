@@ -366,6 +366,7 @@ nav:
     - Running Agents:
       - agentic-ai/running_agents/index.md
       - On the Cluster (Login Nodes): agentic-ai/running_agents/on_cluster.md
+      - Local (MCP + SSH): agentic-ai/running_agents/local.md
   # - Tags: tags.md
   - Contact us: contact.md
   - FAQs: faqs.md

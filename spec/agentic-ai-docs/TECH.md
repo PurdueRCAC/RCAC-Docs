@@ -6,7 +6,7 @@ appetite: big
 status: in_progress
 branch: feature/agentic-ai-docs
 base: main
-current_phase: P6
+current_phase: P7
 last_updated: '2026-07-15'
 phases:
 - id: P1
@@ -74,7 +74,7 @@ phases:
     && grep -q 'running_agents/on_cluster.md' mkdocs.yml
 - id: P6
   name: 'Running Agents: local, targeting the cluster (MCP + SSH)'
-  status: pending
+  status: done
   satisfies:
   - R4
   - R6
@@ -291,7 +291,7 @@ covering all five harnesses with the login-node constraints.
 **Goal:** the local-mode page — agent runs in the user's own environment, executes remotely over
 existing SSH via the MCP servers.
 
-- [ ] Create `docs/agentic-ai/running_agents/local.md`: the local-first architecture (no new
+- [x] Create `docs/agentic-ai/running_agents/local.md`: the local-first architecture (no new
       credentials, no hosted infra — "if you can SSH to the cluster, your agent can too"); how to
       register `rcac-mcp` (and globus-mcp / rcac-docs-mcp) in each harness (reference research 05
       MCP-config forms); cite `docs/lifesciences/guides/vscode.md` as prior art for external-tool →
@@ -299,7 +299,7 @@ existing SSH via the MCP servers.
       for most users: tell the story of using it *well* locally (Agent Mode on the workstation,
       targeting Gautschi over SSH, with `rcac-mcp` connected).** Back-link to hub; forward links to
       `mcp_servers.md` deferred to P10.
-- [ ] Add the `Local (MCP + SSH)` nav line under Running Agents.
+- [x] Add the `Local (MCP + SSH)` nav line under Running Agents.
 - **Verify:** `… strict_check.py && grep -q 'running_agents/local.md' mkdocs.yml`
 - **Touches:** `docs/agentic-ai/running_agents/local.md`, `mkdocs.yml`.
 

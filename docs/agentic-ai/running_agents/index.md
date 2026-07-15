@@ -32,10 +32,17 @@ on your harness and how you like to work.
 
     [:octicons-arrow-right-24: On the Cluster](on_cluster.md)
 
-</div>
+-   :material-laptop:{ .lg .middle } __Local (MCP + SSH)__
 
-The local, MCP + SSH workflow — including the recommended setup for Warp — is covered
-on the next page.
+    ---
+
+    Run the harness on your own machine and reach the cluster over SSH — no new
+    credentials, no hosted infrastructure. The recommended setup, and the only way to
+    use Warp.
+
+    [:octicons-arrow-right-24: Local (MCP + SSH)](local.md)
+
+</div>
 
 ---
 
