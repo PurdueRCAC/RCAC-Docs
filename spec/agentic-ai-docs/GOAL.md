@@ -93,8 +93,9 @@ Reader-facing, observable outcomes. Stable IDs survive squash-merge.
   its public GitHub repository: the HPC operations server (`rcac-mcp`, generalizing toward a
   plugin architecture, e.g. `cluster-mcp[slurm,lmod,…]`); the docs-search server
   (`rcac-docs-mcp`, hosted at `docs.rcac.purdue.edu/mcp`); and `globus-mcp` (data transfers). It
-  SHALL explain *why* MCP matters (context that knows our clusters) and present the tooling as
-  evolving/prototype.
+  SHALL explain *why* MCP matters (context that knows our clusters), present all three as **working
+  prototypes under active development**, and explicitly **call out the planned rename /
+  re-architecture of `rcac-mcp`** toward the HPC-only plugin model.
 - **R8** — The MCP page SHALL explain that the HPC MCP server reads the host's `/etc/agents.d`
   markdown context (a configurable location) over SSH and injects it into the agent's context.
 - **R9** — Any install/connection commands or tool names shown for the MCP servers SHALL be
@@ -104,12 +105,16 @@ Reader-facing, observable outcomes. Stable IDs survive squash-merge.
 
 - **R10** — The section SHALL publish the actual Gautschi shared-context files verbatim
   (`unix.md`, `filesystems.md`, `lmod.md`, `slurm.md`, `policies.md`); their content SHALL be
-  HPC-accurate for Gautschi (Rocky Linux 9; Lmod; partitions `cpu`/`ai`/`highmem`; QOS
-  `normal`/`standby`/`preemptible`; correct filesystem paths and quotas).
+  HPC-accurate for Gautschi (Rocky Linux 9; Lmod; partitions `cpu`/`ai`/`highmem`/`smallgpu`/
+  `profiling`; QOS `normal`/`standby`/`preemptible`; correct filesystem paths and technologies —
+  `/home` ZFS, `/depot` GPFS, `/scratch` Lustre — deferring volatile quota numbers to
+  `myquota`/`slist` rather than hardcoding them).
 - **R11** — The section SHALL publish per-harness settings/permission files for all five harnesses
   (Claude Code, Codex, Gemini CLI, opencode, Warp), each in that harness's native settings
-  format, wiring in the shared context and encoding a starting-point set of enforced permissions
-  (e.g. deny destructive operations and login-node heavy compute).
+  format, wiring in the shared context and encoding a starting-point permission policy that both
+  (a) **denies** destructive/dangerous operations (e.g. `rm -rf`, `sudo`) and login-node heavy
+  compute, and (b) **allow-lists common read-only sanity commands** (`myquota`, `slist`,
+  `sfeatures`, `module list`, `module avail`, …) so the agent runs them eagerly without prompting.
 - **R12** — A page SHALL explain how `/etc/agents.d` context and the harness settings fit together
   (context injected; permissions enforced), state that these files are the canonical source of
   truth copied into cluster config management, and tell readers how to contribute feedback and
@@ -180,6 +185,32 @@ Resolved with the human during shaping on 2026-07-14.
 - **Voice/stance (adopted from the paper, recorded):** proactive engagement not prohibition;
   "mostly harmless"; verify don't forbid; augmented not outsourced; "don't cross the streams"
   caution. Professional, instructional, second person (house style).
+
+### Resolved during planning review (2026-07-15)
+
+Refinements from the human after reviewing `PLAN.md`/`TECH.md`:
+
+- **MCP framing (confirmed).** All three servers (`rcac-mcp`, `globus-mcp`, `rcac-docs-mcp`) are
+  **working prototypes under active development**. Docs SHALL explicitly **call out the planned
+  rename / re-architecture of `rcac-mcp`** toward the HPC-only plugin model (`cluster-mcp[slurm,
+  lmod,…]`) — as a stated direction, not a shipped fact. (Refines R7.)
+- **Warp is first-class and recommended.** Warp is the **recommended harness for most users**; the
+  docs SHALL tell the story of using it *well* — run locally on the user's workstation, targeting the
+  cluster over SSH (Warp is a desktop app and does not run on login nodes). Give it prominent,
+  first-class treatment in the local (MCP + SSH) guidance, not a footnote.
+- **Container model is Apptainer, not Docker.** These clusters use **Apptainer**. RCAC's Apptainer
+  configuration **auto bind-mounts `/home`, `/depot`, and `/scratch`** into containers for
+  convenience, so containers offer **limited protection** — the most likely failure mode is an agent
+  *editing files* on those (still-writable) mounts; users can disable the bind-mounts by invoking
+  Apptainer explicitly. Best-practices/caution and the context files SHALL reflect this (do not imply
+  Docker or strong container sandboxing on the nodes).
+- **Filesystem technologies (authoritative, human-corrected).** `/home` is **ZFS**, `/depot` is
+  **GPFS**, `/scratch` is **Lustre** — this corrects the generic snippet that implied `/home` on
+  GPFS. `filesystems.md` SHALL state these correctly. (Refines R10.)
+- **Eager read-only sanity checks + allow-list.** Guidance and context SHALL instruct agents to
+  **eagerly run read-only sanity commands** — `myquota`, `slist`, `sfeatures`, `module list`,
+  `module avail`, and similar — and the per-harness settings SHALL **allow-list** them so the agent
+  does not stop to ask. (Refines R11.)
 
 *No unresolved `[NEEDS CLARIFICATION]` markers remain; the GOAL is ready for `docs-plan`.*
 

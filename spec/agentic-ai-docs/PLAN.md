@@ -42,13 +42,13 @@ context/settings artifacts — see *Reuse* below.
 | `index.md` | *Agentic AI at RCAC* — stance (proactive engagement, not prohibition; verify, don't forbid), grid-card nav to subpages | R1 |
 | `acceptable_use.md` | *Acceptable Use & Etiquette* — rules for agents on RCAC systems; reuse `{{ resource_use(resource) }}`; link Purdue IT AUP | R2 |
 | `best_practices.md` | *Best Practices & Limitations* — agent *for research* vs *for operations*; context engineering; verification ("augmented, not outsourced"); caution/blast-radius | R3 |
-| `mcp_servers.md` | *RCAC MCP Servers* — why MCP; the three servers with verified connect commands; `/etc/agents.d` injection | R7, R8, R9, R16 |
+| `mcp_servers.md` | *RCAC MCP Servers* — why MCP; the three **actively-developed prototypes** with verified connect commands; `/etc/agents.d` injection; **call out the `rcac-mcp` rename/re-architecture** | R7, R8, R9, R16 |
 | `running_agents/index.md` | *Running Agents* — the two deployment modes explained; card links | R4 |
 | `running_agents/on_cluster.md` | *On the Cluster (Login Nodes)* — five harnesses on login nodes; login-node constraints; Warp = local-only note | R4, R5, R16 |
-| `running_agents/local.md` | *Local, Targeting the Cluster (MCP + SSH)* — local-first architecture; connect each harness to the MCP servers | R4, R6 |
+| `running_agents/local.md` | *Local, Targeting the Cluster (MCP + SSH)* — local-first architecture; connect each harness to the MCP servers; **feature Warp prominently (RCAC's recommended harness)** | R4, R6 |
 | `shared_context/index.md` | *Shared Context & Settings* — how `/etc/agents.d` + settings fit; canonical source-of-truth → Puppet + MCP injection; **how to contribute feedback** | R12 |
 | `shared_context/context_files.md` | *Context Files (`/etc/agents.d`)* — the five Gautschi context files, published verbatim | R10, R16 |
-| `shared_context/settings.md` | *Harness Settings & Permissions* — the five per-harness settings, published verbatim | R11 |
+| `shared_context/settings.md` | *Harness Settings & Permissions* — the five per-harness settings, published verbatim; **deny destructive ops + allow-list read-only sanity commands** | R11 |
 
 **New Gautschi chapter:** `docs/userguides/gautschi/using_ai_agents.md` (R13, R16).
 
@@ -153,8 +153,8 @@ meaningful alt text. Code blocks carry a `title=` label. This is content-level a
 | R7 | `mcp_servers.md` — three servers, focus + repo links, "why MCP" |
 | R8 | `mcp_servers.md` — HPC server reads `/etc/agents.d` over SSH, injects as context |
 | R9 | `mcp_servers.md` — install/connect commands verified against the live repos (research 04) |
-| R10 | `docs/snippets/agentic-ai/agents.d/*.md` (Gautschi-accurate) + `shared_context/context_files.md` |
-| R11 | `docs/snippets/agentic-ai/{claude,codex,gemini,opencode,warp}/…` + `shared_context/settings.md` |
+| R10 | `docs/snippets/agentic-ai/agents.d/*.md` (Gautschi-accurate; `/home` ZFS · `/depot` GPFS · `/scratch` Lustre; quotas via `myquota`) + `shared_context/context_files.md` |
+| R11 | `docs/snippets/agentic-ai/{claude,codex,gemini,opencode,warp}/…` (deny destructive ops + **allow-list read-only sanity commands**) + `shared_context/settings.md` |
 | R12 | `shared_context/index.md` — how it fits, source-of-truth → Puppet + MCP, feedback channels |
 | R13 | `docs/userguides/gautschi/using_ai_agents.md` + Gautschi nav entry + cross-links |
 | R14 | Every phase adds its nav line; every `verify:` runs `mkdocs build --strict` |
@@ -221,24 +221,32 @@ after this design. Touched sections and how the design honors each:
 
 ## 5. Risks & open questions
 
-- **⚠ `cluster-mcp` / HPC-only refocus is [UNVERIFIED] publicly** (research 04): the public
+- **`cluster-mcp` / HPC-only refocus is [UNVERIFIED] publicly** (research 04): the public
   `rcac-mcp` is a prototype that still bundles docs tools; the plugin architecture
-  (`cluster-mcp[slurm,lmod,…]`) has no public trace. **Mitigation:** document `rcac-mcp` as the
-  current prototype with its real tools; present the plugin/refocus direction as *planned/evolving*,
-  clearly labeled. **Human check before publish** that this framing is acceptable.
+  (`cluster-mcp[slurm,lmod,…]`) has no public trace. **Human confirmed the framing (2026-07-15):**
+  treat all three servers as **actively-developed working prototypes** and **explicitly call out the
+  planned rename/re-architecture of `rcac-mcp`** — as a stated direction, not shipped fact. No longer
+  a blocker; keep the "planned/evolving" labeling.
 - **Gautschi `[UNCONFIRMED]` facts** — exact home/scratch quotas (illustrative only), Depot mount
   path, OpenMPI version, default shell, availability of `sinfo`/`sacct`/`jobinfo`, a Purdue AUP
   direct URL. **Mitigation:** context files tell the agent to run `myquota`/`findscratch`/`slist`
   instead of hardcoding; state only verified facts; use the AUP block from `resource_use` / link
-  Purdue IT Policy V.4.1 (from `resourceuse.md`).
+  Purdue IT Policy V.4.1 (from `resourceuse.md`). **Filesystem tech now confirmed** (human): `/home`
+  ZFS · `/depot` GPFS · `/scratch` Lustre.
 - **Warp is a local desktop GUI, not a headless CLI** — cannot be installed on a login node
-  (research 05). **Mitigation:** on-cluster coverage for Warp = "run on your workstation, SSH in";
-  no server-side Warp settings file — represent Warp's "settings" as `AGENTS.md` + a documented
-  Agent-Profile denylist, and note the Run-until-completion denylist bypass.
+  (research 05) — **but it is RCAC's *recommended* harness for most users** (human, 2026-07-15).
+  **Mitigation:** give Warp **first-class, prominent** treatment in the **local (MCP + SSH)** guidance
+  — tell the story of using it well ("run on your workstation, SSH in"); represent its "settings" as
+  `AGENTS.md` + a documented Agent-Profile denylist, and note the Run-until-completion denylist bypass.
 - **Enforced-permissions policy is a v0 starting point** (GOAL clarification) — label it as such and
-  invite feedback. OS sandboxes (bwrap/Docker) are often disabled on shared nodes → lean on the
-  permission/approval layer; the real config-management enforcement points are Claude
-  `/etc/claude-code/managed-settings.json` and Gemini `/etc/gemini-cli/settings.json`.
+  invite feedback. It must both **deny** destructive ops (`rm -rf`, `sudo`) **and allow-list common
+  read-only sanity commands** (`myquota`, `slist`, `sfeatures`, `module list`, `module avail`, …) so
+  agents run them eagerly without prompting (human, 2026-07-15). **Container model is Apptainer, not
+  Docker:** RCAC's Apptainer config **auto bind-mounts `/home`, `/depot`, `/scratch`** → limited
+  protection (editing files is the real risk; bind-mounts disable-able on explicit invocation) — the
+  caution/best-practices content must reflect this, not imply Docker sandboxing. The real
+  config-management enforcement points are Claude `/etc/claude-code/managed-settings.json` and Gemini
+  `/etc/gemini-cli/settings.json`.
 - **`check_paths:false`** — a mistyped `--8<--` path fails **silently** (empty block, no `--strict`
   error). **Mitigation:** each context/settings phase greps the built `site/` for a sentinel token.
 - **Feedback channel** for context corrections — default to the RCAC-Docs GitHub issues +

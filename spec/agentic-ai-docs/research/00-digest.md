@@ -99,11 +99,13 @@ clearly labeled — not as shipped fact. Confirm with the human before publish.*
   `standby` (idle, free, 4h max), `preemptible` (ai only, 0.25 GPU-hr, killable). List accounts with
   **`slist`**. Verified commands: `sbatch`, `squeue -u`, `scontrol show/hold/release`, `scancel`,
   `sinteractive`, `srun`, `slist`, `sfeatures`, `myquota`, `findscratch`, `purgelist`.
-- **Filesystems:** home `/home/$USER` (`$HOME`, GPFS, snapshots); scratch `/scratch/gautschi/$USER`
-  via **`$RCAC_SCRATCH`** (NOT `$CLUSTER_SCRATCH`), **60-day** purge, not backed up; Depot/Fortress
-  for long-term; check with **`myquota`** / `findscratch`. **Quotas (25 GB home / 100 TB scratch)
-  are illustrative `myquota` output, not official — context files should tell the agent to RUN
-  `myquota`, not hardcode numbers.**
+- **Filesystems (tech corrected by the human, authoritative 2026-07-15):** home `/home/$USER`
+  (`$HOME`) is **ZFS** (snapshotted); **`/depot` is GPFS**; scratch `/scratch/gautschi/$USER` via
+  **`$RCAC_SCRATCH`** (NOT `$CLUSTER_SCRATCH`) is **Lustre**, **60-day** purge, not backed up;
+  Fortress (HPSS) for archive; check with **`myquota`** / `findscratch`. *(This corrects research 03,
+  which read `/home` as GPFS from a generic snippet.)* **Quotas (25 GB home / 100 TB scratch) are
+  illustrative `myquota` output, not official — context files must tell the agent to RUN `myquota`,
+  not hardcode numbers.**
 - **Modules:** environment modules (Lmod — implied by `module spider`); `module avail/spider/load`;
   recommended GCC 14.1.0 + OpenMPI (exact OpenMPI version unstated).
 - **Login-node rule (quote):** "Do NOT run large, long, multi-threaded, parallel, or CPU-intensive
@@ -125,13 +127,20 @@ clearly labeled — not as shipped fact. Confirm with the human before publish.*
 | **opencode** | `~/.config/opencode/opencode.json`; project `opencode.json`; `/etc/opencode/` | JSON | `permission` per-bash-pattern map (**last-match-wins → catch-all first**); no OS sandbox | `mcp` `type:"local"`/`"remote"` | `AGENTS.md` (native) + `instructions` |
 | **Warp** | **Desktop-app UI** (Settings > Agents); MCP JSON; Warp Drive rules | UI/JSON | Agent-Profile autonomy + regex allow/deny (Run-until-completion **ignores denylist**) | Settings > Agents > MCP (stdio+remote) | `AGENTS.md` (ALL-CAPS; `WARP.md` legacy) |
 
-**Cross-cutting HPC realities:** OS sandboxes (bwrap/Docker/namespaces) are frequently **disabled on
-shared login nodes** → treat the **permission/approval layer as primary**, point writable roots at
-`/scratch/$USER`, deny `rm -rf`/`sudo`. The **enforcement points** for config management are the
-*system/managed* files: Claude `/etc/claude-code/managed-settings.json`, Gemini
-`/etc/gemini-cli/settings.json`. **Warp is the outlier — a local desktop GUI, cannot be installed on
-a login node**; on-cluster coverage for Warp = "run it on your workstation and SSH in" (document
-honestly, don't fabricate a login-node path).
+**Cross-cutting HPC realities:** the harnesses' own OS sandboxes (Codex `bubblewrap`, Gemini
+Docker/Podman, Linux namespaces) are frequently **unavailable on shared nodes** → treat the
+**permission/approval layer as primary**, point writable roots at `$RCAC_SCRATCH`, deny
+`rm -rf`/`sudo`. **Container model on these clusters is Apptainer, not Docker** (human, 2026-07-15):
+RCAC's Apptainer config **auto bind-mounts `/home`, `/depot`, `/scratch`** into containers for
+convenience, so containers give **limited protection** — the likeliest failure mode is an agent
+*editing files* on those still-writable mounts (bind-mounts can be disabled if the user invokes
+Apptainer explicitly). The **enforcement points** for config management are the *system/managed*
+files: Claude `/etc/claude-code/managed-settings.json`, Gemini `/etc/gemini-cli/settings.json`.
+**Read-only sanity commands should be *allow-listed*** so the agent runs `myquota`, `slist`,
+`sfeatures`, `module list`, `module avail`, … eagerly without prompting (human, 2026-07-15).
+**Warp is a local desktop GUI, cannot be installed on a login node — but it is RCAC's *recommended*
+harness for most users**, so give it first-class treatment in the **local (MCP + SSH)** guidance:
+"run it on your workstation and SSH in" (don't fabricate a login-node path).
 
 ## 6. Context-file design + mapping + prior art
 
@@ -166,9 +175,15 @@ honestly, don't fabricate a login-node path).
    subdir) + one Gautschi chapter; canonical artifacts under `docs/snippets/agentic-ai/`.
 2. Publish verbatim via `--8<--` fenced includes; verify by grepping built `site/` (check_paths
    footgun).
-3. Author context files from verified Gautschi facts; instruct agents to run `myquota`/`slist`
-   rather than hardcoding volatile numbers; never emit the two doc-errors.
-4. Present MCP `rcac-mcp` as prototype; the `cluster-mcp` plugin direction is planned/evolving and
-   needs human confirmation before publish.
-5. Warp is local-only; be honest about the on-cluster gap. Enforcement lives in the system/managed
+3. Author context files from verified Gautschi facts (incl. `/home` ZFS · `/depot` GPFS ·
+   `/scratch` Lustre); instruct agents to run `myquota`/`slist`/`sfeatures`/`module list` rather than
+   hardcoding volatile numbers; never emit the two doc-errors.
+4. Present all three MCP servers as **actively-developed working prototypes** (human-confirmed
+   framing); **explicitly call out the planned rename/re-architecture of `rcac-mcp`** toward the
+   plugin model — stated direction, not shipped fact.
+5. **Warp is first-class and RCAC's recommended harness for most users** — tell the story of using it
+   *well* locally over SSH (it can't run on a login node). Enforcement lives in the system/managed
    settings files (Claude `/etc/claude-code/`, Gemini `/etc/gemini-cli/`).
+6. Settings **allow-list read-only sanity commands** (run eagerly, no prompt) and **deny**
+   destructive ops; caution content reflects the **Apptainer** model (auto bind-mounts /home,/depot,
+   /scratch → limited protection; editing files is the real risk), not Docker sandboxing.

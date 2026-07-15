@@ -181,9 +181,13 @@ engineering, verification, and caution/blast-radius.
 
 - [ ] Create `docs/agentic-ai/best_practices.md`: research-vs-operations distinction; context
       engineering ("Tea, Earl Grey, hot" — specificity); verification ("augmented, not outsourced";
-      ask *why* not just *what*; the expertise paradox); caution/blast-radius (destructive commands,
-      allocation exhaustion, credential/secret leakage; existing HPC confinement contains blast
-      radius). Frame from the paper's Discussion; professional/instructional voice.
+      ask *why* not just *what*; the expertise paradox); **let agents run read-only sanity checks
+      eagerly** (`myquota`, `slist`, `sfeatures`, `module list`, `module avail`) to ground themselves
+      before acting; caution/blast-radius (destructive commands, allocation exhaustion,
+      credential/secret leakage; existing HPC confinement contains blast radius). **Container note:
+      RCAC uses Apptainer (not Docker), and its config auto bind-mounts `/home`, `/depot`, `/scratch`
+      — so containers give limited protection and the likeliest failure is an agent *editing files*;
+      don't imply Docker-style sandboxing.** Frame from the paper's Discussion; professional voice.
 - [ ] Add nav line; back-link to hub.
 - **Verify:** `… strict_check.py && grep -q 'best_practices.md' mkdocs.yml`
 - **Touches:** `docs/agentic-ai/best_practices.md`, `mkdocs.yml`.
@@ -193,17 +197,17 @@ engineering, verification, and caution/blast-radius.
 **Goal:** document the three RCAC MCP servers accurately (why MCP; current focus; verified connect
 commands; the `/etc/agents.d` injection), presenting the tooling as prototype/evolving.
 
-- [ ] Create `docs/agentic-ai/mcp_servers.md`: "why MCP" (context that knows our clusters); a
-      per-server section for **rcac-mcp** (HPC ops, prototype, stdio via `uvx`, runs over the user's
-      existing SSH, tool list, `rcac://context`), **globus-mcp** (transfers, beta, user's Globus
-      OAuth), **rcac-docs-mcp** (hosted HTTP at `docs.rcac.purdue.edu/mcp`, `doc_search`/`doc_load`).
-      Link each public repo. Use the **verified** connect blocks from research 04 (inline fenced
-      JSON/TOML — short, no Jinja triggers).
+- [ ] Create `docs/agentic-ai/mcp_servers.md`: "why MCP" (context that knows our clusters); present
+      **all three as actively-developed working prototypes**; a per-server section for **rcac-mcp**
+      (HPC ops, stdio via `uvx`, runs over the user's existing SSH, tool list, `rcac://context`),
+      **globus-mcp** (transfers, beta, user's Globus OAuth), **rcac-docs-mcp** (hosted HTTP at
+      `docs.rcac.purdue.edu/mcp`, `doc_search`/`doc_load`). Link each public repo. Use the
+      **verified** connect blocks from research 04 (inline fenced JSON/TOML — short, no Jinja triggers).
 - [ ] State that the HPC server reads the host's `/etc/agents.d` markdown over SSH and injects it as
       context (R8).
-- [ ] Frame the `cluster-mcp[slurm,lmod,…]` plugin/HPC-refocus direction as **planned/evolving**,
-      clearly labeled — NOT as shipped fact (research 04 marks it `[UNVERIFIED]`). ⚠ Surface to the
-      human at review/publish.
+- [ ] **Explicitly call out the planned rename / re-architecture of `rcac-mcp`** toward the HPC-only
+      plugin model (`cluster-mcp[slurm,lmod,…]`) — framed as a **stated direction / planned&evolving**,
+      NOT shipped fact (human-confirmed framing 2026-07-15; research 04 marks it `[UNVERIFIED]`).
 - [ ] Add nav line; back-link to hub.
 - **Verify:** `… strict_check.py && grep -q 'mcp_servers.md' mkdocs.yml`
 - **Touches:** `docs/agentic-ai/mcp_servers.md`, `mkdocs.yml`.
@@ -219,8 +223,11 @@ covering all five harnesses with the login-node constraints.
 - [ ] Create `docs/agentic-ai/running_agents/on_cluster.md`: install/run each of Claude Code, Codex,
       Gemini CLI, opencode on a login node (Linux); the login-node compute constraint (mirror the
       Gautschi Running-Jobs rule); point writable work at `$RCAC_SCRATCH`; note OS sandboxes are
-      often unavailable on shared nodes. **Warp:** state honestly it is a local desktop GUI and
-      **cannot** run on a login node — run it on your workstation and SSH in (see local page).
+      often unavailable on shared nodes (RCAC uses **Apptainer**, which auto bind-mounts
+      `/home`/`/depot`/`/scratch` → limited protection). **Warp:** state honestly it is a local
+      desktop GUI and **cannot** run on a login node — but it is **RCAC's recommended harness for most
+      users**; run it on your workstation and SSH in (point to the local page for the recommended
+      workflow).
 - [ ] Add the `Running Agents` nav sub-section (index + On the Cluster); back-links to hub.
 - **Verify:** `… strict_check.py && grep -q 'running_agents/on_cluster.md' mkdocs.yml`
 - **Touches:** `docs/agentic-ai/running_agents/{index,on_cluster}.md`, `mkdocs.yml`.
@@ -234,7 +241,10 @@ existing SSH via the MCP servers.
       credentials, no hosted infra — "if you can SSH to the cluster, your agent can too"); how to
       register `rcac-mcp` (and globus-mcp / rcac-docs-mcp) in each harness (reference research 05
       MCP-config forms); cite `docs/lifesciences/guides/vscode.md` as prior art for external-tool →
-      cluster tunneling. Back-link to hub; forward links to `mcp_servers.md` deferred to P10.
+      cluster tunneling. **Feature Warp first-class and up front — it is RCAC's recommended harness
+      for most users: tell the story of using it *well* locally (Agent Mode on the workstation,
+      targeting Gautschi over SSH, with `rcac-mcp` connected).** Back-link to hub; forward links to
+      `mcp_servers.md` deferred to P10.
 - [ ] Add the `Local (MCP + SSH)` nav line under Running Agents.
 - **Verify:** `… strict_check.py && grep -q 'running_agents/local.md' mkdocs.yml`
 - **Touches:** `docs/agentic-ai/running_agents/local.md`, `mkdocs.yml`.
@@ -247,11 +257,14 @@ publish them verbatim; the shared-context hub explains the model + how to give f
 - [ ] Author canonical files under `docs/snippets/agentic-ai/agents.d/`: `unix.md`, `filesystems.md`,
       `lmod.md`, `slurm.md`, `policies.md` — each *fact → correct command/path → "do not…" →
       rationale* (outlines in research 06), grounded in verified Gautschi facts (research 03). Also
-      write `agents.d/AGENTS.md` (the concatenated canonical context harnesses read). **Accuracy
-      gate:** partitions cpu/ai/highmem/smallgpu/profiling; QOS normal/standby/preemptible; `-A`
-      (via `slist`) + `-q` + `-p` mandatory; `$RCAC_SCRATCH`, 60-day purge, `myquota`/`findscratch`;
-      GCC 14.1.0 + OpenMPI; **no `--partition=a10`, no `-A standby`**; defer quota numbers to
-      `myquota`.
+      write `agents.d/AGENTS.md` (the concatenated canonical context harnesses read). Instruct the
+      agent to **eagerly run read-only sanity checks** (`myquota`, `slist`, `sfeatures`,
+      `module list`, `module avail`) before acting. **Accuracy gate:** partitions
+      cpu/ai/highmem/smallgpu/profiling; QOS normal/standby/preemptible; `-A` (via `slist`) + `-q` +
+      `-p` mandatory; filesystems **`/home` ZFS · `/depot` GPFS · `/scratch` (`$RCAC_SCRATCH`) Lustre,
+      60-day purge**, `myquota`/`findscratch`; GCC 14.1.0 + OpenMPI; **Apptainer (not Docker), config
+      auto bind-mounts `/home`/`/depot`/`/scratch` → limited protection**; **no `--partition=a10`,
+      no `-A standby`**; defer quota numbers to `myquota`.
 - [ ] Create `docs/agentic-ai/shared_context/index.md` (subdir hub): what `/etc/agents.d` is, that
       these files are the **canonical single source of truth** copied into cluster config management
       (Puppet) and injected by the MCP server over SSH, and **how to contribute feedback/corrections**
@@ -268,16 +281,21 @@ publish them verbatim; the shared-context hub explains the model + how to give f
 **Goal:** author and publish verbatim the per-harness settings/permission files for all five
 harnesses, wiring in the shared context and encoding a starting-point enforced-permission policy.
 
-- [ ] Author canonical files under `docs/snippets/agentic-ai/`: `claude/settings.json`
-      (`permissions.deny` for `rm -rf`/`sudo`; note managed `/etc/claude-code/managed-settings.json`
-      as the enforcement point; `mcpServers` for rcac-mcp; CLAUDE.md→AGENTS.md bridge),
-      `codex/config.toml` (`approval_policy`/`sandbox_mode`; `[mcp_servers.rcac]`; AGENTS.md native),
-      `gemini/settings.json` (`tools.exclude` `run_shell_command(rm)`/`(sudo)`; note system
-      `/etc/gemini-cli/settings.json` as the enforcement point; `mcpServers`), `opencode/opencode.json`
-      (`permission` bash-pattern map, catch-all first; `mcp` local), `warp/AGENTS.md` (Warp has no
-      server-side settings file — represent it as the repo AGENTS.md + a documented Agent-Profile
-      denylist; note Run-until-completion bypasses the denylist). Use research 05 for exact schema;
-      mark any `[UNVERIFIED]` key honestly.
+- [ ] Author canonical files under `docs/snippets/agentic-ai/`. Every file must both **allow-list
+      read-only sanity commands** (`myquota`, `slist`, `sfeatures`, `module list`, `module avail`) so
+      they run without prompting, **and deny** destructive/dangerous ops (`rm -rf`, `sudo`):
+      `claude/settings.json` (`permissions.allow` for the sanity commands + `permissions.deny` for
+      `rm -rf`/`sudo`; note managed `/etc/claude-code/managed-settings.json` as the enforcement point;
+      `mcpServers` for rcac-mcp; CLAUDE.md→AGENTS.md bridge), `codex/config.toml`
+      (`approval_policy`/`sandbox_mode`; `[mcp_servers.rcac]`; AGENTS.md native — note Codex has no
+      per-command allowlist, so rely on approval/sandbox mode), `gemini/settings.json` (`tools.core`
+      allow-list `run_shell_command(myquota)`/`(slist)`/`(module)`… + `tools.exclude`
+      `run_shell_command(rm)`/`(sudo)`; note system `/etc/gemini-cli/settings.json` as the enforcement
+      point; `mcpServers`), `opencode/opencode.json` (`permission` bash-pattern map — allow the sanity
+      commands, deny `rm -rf *`/`sudo *`, **catch-all first**; `mcp` local), `warp/AGENTS.md` (Warp has
+      no server-side settings file — represent it as the repo AGENTS.md + a documented Agent-Profile
+      allow/deny list; note Run-until-completion bypasses the denylist). Use research 05 for exact
+      schema; mark any `[UNVERIFIED]` key honestly.
 - [ ] Create `docs/agentic-ai/shared_context/settings.md`: publish each settings file verbatim via
       `--8<--` fenced blocks (json/toml/markdown); explain each harness's permission model briefly,
       that this is a **v0 starting point** inviting feedback, and where config-management enforcement
