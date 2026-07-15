@@ -213,6 +213,11 @@ remediation pass — the acceptance criteria (R-IDs) are unchanged:
    system-managed enforcement paths (Claude/Gemini/opencode), with honest caveats for Codex (no
    managed path — recommended default) and Warp (no file — inline team-managed Agent Profile); the
    `warp/AGENTS.md` snippet was deleted.
+5. **Cluster-side settings carry the docs MCP, not `rcac-mcp`** (P8 `settings.md` + the codex/gemini/
+   opencode snippets; follow-up 2026-07-15): the cluster-side files no longer register the local-side
+   `rcac-mcp` SSH bridge (needs `uvx`, absent on the nodes; pointless on-cluster). They wire in the
+   hosted no-auth **docs** MCP `https://docs.rcac.purdue.edu/mcp` over HTTP instead; `settings.md`
+   states the cluster-side/local-side split, and `rcac-mcp` stays on `running_agents/local.md`.
 
 Verified: `--strict` clean, no "mostly harmless", exactly one Star Trek reference, `mcpServers`
 sentinel intact, no dangling `--8<--` includes, HPC accuracy preserved.

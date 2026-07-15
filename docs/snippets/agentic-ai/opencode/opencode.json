@@ -13,9 +13,9 @@
     }
   },
   "mcp": {
-    "rcac": {
-      "type": "local",
-      "command": ["uvx", "git+https://github.com/purduercac/rcac-mcp", "--ssh-host", "gautschi.rcac.purdue.edu"],
+    "rcac-docs": {
+      "type": "remote",
+      "url": "https://docs.rcac.purdue.edu/mcp",
       "enabled": true
     }
   }

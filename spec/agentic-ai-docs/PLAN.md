@@ -159,7 +159,7 @@ meaningful alt text. Code blocks carry a `title=` label. This is content-level a
 | R8 | `mcp_servers.md` — HPC server reads `/etc/agents.d` over SSH, injects as context |
 | R9 | `mcp_servers.md` — install/connect commands verified against the live repos (research 04) |
 | R10 | `docs/snippets/agentic-ai/agents.d/*.md` (Gautschi-accurate; `/home` ZFS · `/depot` GPFS · `/scratch` Lustre; quotas via `myquota`) + `shared_context/context_files.md` |
-| R11 | `docs/snippets/agentic-ai/{claude,codex,gemini,opencode}/…` (deny destructive ops + **allow-list read-only sanity commands**) + `shared_context/settings.md`; Warp = inline Agent-Profile policy (no file). Presented as **RCAC-deployed/enforced** at the system-managed paths (transparency), not user-installed — see §5 amendment |
+| R11 | `docs/snippets/agentic-ai/{claude,codex,gemini,opencode}/…` (deny destructive ops + **allow-list read-only sanity commands**) + `shared_context/settings.md`; Warp = inline Agent-Profile policy (no file). Presented as **cluster-side, RCAC-deployed/enforced** at the system-managed paths (transparency), not user-installed. Cluster-side settings wire in the **docs HTTP MCP** (`docs.rcac.purdue.edu/mcp`), **not** `rcac-mcp` (which is local-side, on the Local page) — see §5 amendments 4–5 |
 | R12 | `shared_context/index.md` — how it fits, source-of-truth → Puppet + MCP, feedback channels |
 | R13 | `docs/userguides/gautschi/using_ai_agents.md` + Gautschi nav entry + cross-links |
 | R14 | Every phase adds its nav line; every `verify:` runs `mkdocs build --strict` |
@@ -284,6 +284,14 @@ human review"). Acceptance criteria unchanged; these adjust *how* the design is 
    caveats: **Codex** has no managed path (recommended user default), **Warp** has no
    settings file (inline team-managed Agent Profile). The `warp/AGENTS.md` snippet was
    deleted.
+5. **Cluster-side settings ≠ local-side MCP (follow-up, 2026-07-15).** The published
+   settings are **cluster-side** and no longer register `rcac-mcp` (a local-side SSH
+   bridge needing `uvx`, which is not on the nodes' PATH, and pointless for an agent
+   already on the cluster). They instead wire in the hosted, no-auth **documentation**
+   MCP `https://docs.rcac.purdue.edu/mcp` over HTTP (Gemini `httpUrl`, Codex `url`,
+   opencode `type:"remote"`, Claude via `.mcp.json` `type:"http"`). `rcac-mcp` stays on
+   the Local page as the local-side registration. `settings.md` now states the
+   cluster-side/local-side split explicitly.
 
 ## 6. Verification strategy
 

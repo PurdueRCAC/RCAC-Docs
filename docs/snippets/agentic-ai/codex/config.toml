@@ -1,9 +1,14 @@
-# ~/.codex/config.toml
+# ~/.codex/config.toml — recommended cluster-side config for Codex on Gautschi.
 #
 # Codex has no per-command allow/deny list; safety comes from the approval policy and
 # the sandbox mode. On shared login nodes where bubblewrap is unavailable, prefer
 # approval_policy = "untrusted" and sandbox_mode = "read-only" so nothing runs without
 # an explicit approval. Codex reads AGENTS.md natively for the shared context.
+#
+# The only MCP server configured here is the hosted documentation server over plain
+# HTTP (no local tooling / no uvx). An agent running on the cluster already has direct
+# shell and Slurm access, so it does NOT need the rcac-mcp SSH bridge — that server is
+# for running an agent locally (see the Local page).
 
 approval_policy = "on-request"
 sandbox_mode    = "workspace-write"
@@ -12,6 +17,5 @@ sandbox_mode    = "workspace-write"
 writable_roots = ["/scratch/gautschi"]
 network_access = false
 
-[mcp_servers.rcac]
-command = "uvx"
-args    = ["git+https://github.com/purduercac/rcac-mcp", "--ssh-host", "gautschi.rcac.purdue.edu"]
+[mcp_servers.rcac_docs]
+url = "https://docs.rcac.purdue.edu/mcp"

@@ -248,6 +248,14 @@ unchanged.
   opencode `/etc/opencode/`) this SHALL be stated as the enforced location; **Codex** has
   no managed path (a recommended user default — stated honestly); **Warp** has no settings
   file (a team-managed **Agent Profile**, documented inline — no `AGENTS.md`-style file).
+- **Cluster-side settings carry the docs MCP, not `rcac-mcp` (follow-up, 2026-07-15).**
+  The published settings are **cluster-side** (for an agent running *on the nodes*) and
+  SHALL NOT register `rcac-mcp` — that is a **local-side** SSH bridge that launches via
+  `uvx` (absent from the nodes' default PATH), and an on-cluster agent already has direct
+  shell/Slurm access. The cluster-side settings SHALL instead wire in the hosted, no-auth
+  **documentation** MCP (`https://docs.rcac.purdue.edu/mcp`, `doc_search`/`doc_load`) over
+  plain HTTP, so the agent consults authoritative docs on top of `/etc/agents.d`.
+  `rcac-mcp` remains the **local-side** registration on the Running Agents → Local page.
 
 ## Related materials
 

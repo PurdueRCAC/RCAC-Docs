@@ -18,9 +18,8 @@
     "fileName": ["AGENTS.md", "GEMINI.md"]
   },
   "mcpServers": {
-    "rcac": {
-      "command": "uvx",
-      "args": ["git+https://github.com/purduercac/rcac-mcp", "--ssh-host", "gautschi.rcac.purdue.edu"]
+    "rcac-docs": {
+      "httpUrl": "https://docs.rcac.purdue.edu/mcp"
     }
   }
 }
