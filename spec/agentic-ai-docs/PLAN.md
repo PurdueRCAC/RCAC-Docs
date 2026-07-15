@@ -45,7 +45,7 @@ context/settings artifacts — see *Reuse* below.
 | `mcp_servers.md` | *RCAC MCP Servers* — why MCP; the three **actively-developed prototypes** with verified connect commands; `/etc/agents.d` injection; **call out the `rcac-mcp` rename/re-architecture** | R7, R8, R9, R16 |
 | `running_agents/index.md` | *Running Agents* — the two deployment modes explained; card links | R4 |
 | `running_agents/on_cluster.md` | *On the Cluster (Login Nodes)* — five harnesses on login nodes; login-node constraints; Warp = local-only note | R4, R5, R16 |
-| `running_agents/local.md` | *Local, Targeting the Cluster (MCP + SSH)* — local-first architecture; connect each harness to the MCP servers; **feature Warp prominently (RCAC's recommended harness)** | R4, R6 |
+| `running_agents/local.md` | *Local, Targeting the Cluster* — two local mechanisms (the `rcac-mcp` SSH bridge for CLI harnesses; Warp's interactive terminal session); **feature Warp prominently (RCAC's recommended harness)** | R4, R6 |
 | `shared_context/index.md` | *Shared Context & Settings* — how `/etc/agents.d` + settings fit; canonical source-of-truth → Puppet + MCP injection; **how to contribute feedback** | R12 |
 | `shared_context/context_files.md` | *Context Files (`/etc/agents.d`)* — the five Gautschi context files, published verbatim | R10, R16 |
 | `shared_context/settings.md` | *Harness Settings & Permissions* — the five per-harness settings, published verbatim; **deny destructive ops + allow-list read-only sanity commands** | R11 |
@@ -61,8 +61,12 @@ docs/snippets/agentic-ai/
   agents.d/slurm.md         agents.d/policies.md
   agents.d/AGENTS.md        # concatenated canonical context (the assembled file harnesses read)
   claude/settings.json      codex/config.toml         gemini/settings.json
-  opencode/opencode.json    warp/AGENTS.md            # + warp profile-denylist note in prose
+  opencode/opencode.json
 ```
+
+> **Human-review amendment (2026-07-15):** Warp has **no settings file** — its policy is
+> a team-managed **Agent Profile** documented *inline* on the settings page (the earlier
+> `warp/AGENTS.md` artifact was removed as misleading). See the amendments note in §5.
 
 ### Navigation placement (exact)
 
@@ -77,7 +81,7 @@ Insert a **top-level section after Life Sciences** (`mkdocs.yml:361`, before the
     - Running Agents:
       - agentic-ai/running_agents/index.md
       - On the Cluster (Login Nodes): agentic-ai/running_agents/on_cluster.md
-      - Local (MCP + SSH): agentic-ai/running_agents/local.md
+      - Local (over SSH): agentic-ai/running_agents/local.md
     - Shared Context & Settings:
       - agentic-ai/shared_context/index.md
       - Context Files (/etc/agents.d): agentic-ai/shared_context/context_files.md
@@ -105,7 +109,8 @@ regenerate at the integration phase (`.venv/bin/python tools/generate_breadcrumb
   ````
   `--8<--` content is spliced **after** the Jinja pass, so literal `{{`/`{%` never breaks the build.
   Single source of truth, syntax-highlighted. Fence languages: `json` (Claude/Gemini/opencode),
-  `toml` (Codex), `markdown` (agents.d/*, Warp AGENTS.md).
+  `toml` (Codex), `markdown` (agents.d/*). *(Warp has no published settings file — see §5
+  amendment; its policy is an inline Agent Profile.)*
 - **Macros for background prose** (call, don't hardcode): `{{ resource_use(resource) }}` (AUP block,
   acceptable-use page), `{{ module_system(resource) }}`, `{{ slurm_general_overview(resource) }}`,
   `{{ ssh_keys_snippet(resource) }}`, `{{ storage_quota(resource) }}`, `{{ scratch_purge(resource) }}`
@@ -154,7 +159,7 @@ meaningful alt text. Code blocks carry a `title=` label. This is content-level a
 | R8 | `mcp_servers.md` — HPC server reads `/etc/agents.d` over SSH, injects as context |
 | R9 | `mcp_servers.md` — install/connect commands verified against the live repos (research 04) |
 | R10 | `docs/snippets/agentic-ai/agents.d/*.md` (Gautschi-accurate; `/home` ZFS · `/depot` GPFS · `/scratch` Lustre; quotas via `myquota`) + `shared_context/context_files.md` |
-| R11 | `docs/snippets/agentic-ai/{claude,codex,gemini,opencode,warp}/…` (deny destructive ops + **allow-list read-only sanity commands**) + `shared_context/settings.md` |
+| R11 | `docs/snippets/agentic-ai/{claude,codex,gemini,opencode}/…` (deny destructive ops + **allow-list read-only sanity commands**) + `shared_context/settings.md`; Warp = inline Agent-Profile policy (no file). Presented as **RCAC-deployed/enforced** at the system-managed paths (transparency), not user-installed — see §5 amendment |
 | R12 | `shared_context/index.md` — how it fits, source-of-truth → Puppet + MCP, feedback channels |
 | R13 | `docs/userguides/gautschi/using_ai_agents.md` + Gautschi nav entry + cross-links |
 | R14 | Every phase adds its nav line; every `verify:` runs `mkdocs build --strict` |
@@ -235,9 +240,12 @@ after this design. Touched sections and how the design honors each:
   ZFS · `/depot` GPFS · `/scratch` Lustre.
 - **Warp is a local desktop GUI, not a headless CLI** — cannot be installed on a login node
   (research 05) — **but it is RCAC's *recommended* harness for most users** (human, 2026-07-15).
-  **Mitigation:** give Warp **first-class, prominent** treatment in the **local (MCP + SSH)** guidance
-  — tell the story of using it well ("run on your workstation, SSH in"); represent its "settings" as
-  `AGENTS.md` + a documented Agent-Profile denylist, and note the Run-until-completion denylist bypass.
+  **Mitigation:** give Warp **first-class, prominent** treatment in the **local (over-SSH)** guidance
+  — tell the story of using it well ("run on your workstation, SSH in"). **Superseded by the §5
+  human-review amendment (2026-07-15):** Warp does **not** use the cluster MCP and has **no settings
+  file** — represent its policy as an **inline, team-managed Agent Profile** (the `warp/AGENTS.md`
+  artifact was removed), with shared context wired in from `/etc/agents.d` once SSH'd; still note the
+  Run-until-completion denylist bypass.
 - **Enforced-permissions policy is a v0 starting point** (GOAL clarification) — label it as such and
   invite feedback. It must both **deny** destructive ops (`rm -rf`, `sudo`) **and allow-list common
   read-only sanity commands** (`myquota`, `slist`, `sfeatures`, `module list`, `module avail`, …) so
@@ -251,6 +259,31 @@ after this design. Touched sections and how the design honors each:
   error). **Mitigation:** each context/settings phase greps the built `site/` for a sentinel token.
 - **Feedback channel** for context corrections — default to the RCAC-Docs GitHub issues +
   rcac-help@purdue.edu + Discord (from AGENTS.md contact); confirm at draft.
+
+### Human-review amendments (2026-07-15)
+
+Applied after the human read the fully-drafted section (see GOAL.md → "Resolved during
+human review"). Acceptance criteria unchanged; these adjust *how* the design is realized:
+
+1. **Paper as reference, not lead.** The hub no longer opens with the paper / "mostly
+   harmless"; the paper is a measured **footer reference** linking the GitHub replication
+   package. DOI deferred until the paper is on the ACM DL.
+2. **Measured tone.** "mostly harmless" and other pop-culture framings removed
+   throughout; the single **"Tea, Earl Grey, hot"** prompting illustration is retained.
+3. **Warp ≠ MCP bridge (refines R6).** The *local* mode has **two mechanisms**: (a)
+   `rcac-mcp` as a background SSH bridge with pure tool-calling (Claude Code, Codex,
+   Gemini CLI, opencode); (b) **Warp**, a desktop terminal where the user SSHs in and the
+   agent rides the live session. Warp does **not** register `rcac-mcp`; shared context is
+   wired in from `/etc/agents.d` once SSH'd. `mcp_servers.md`, `running_agents/index.md`,
+   `running_agents/on_cluster.md`, and `running_agents/local.md` all reworked to reflect
+   this.
+4. **Settings framed as enforced, not user-installed (refines R11/R12).**
+   `shared_context/settings.md` now presents the policy as **RCAC-deployed to the
+   system-managed path and enforced** (Claude `/etc/claude-code/managed-settings.json`,
+   Gemini `/etc/gemini-cli/settings.json`, opencode `/etc/opencode/`), with honest
+   caveats: **Codex** has no managed path (recommended user default), **Warp** has no
+   settings file (inline team-managed Agent Profile). The `warp/AGENTS.md` snippet was
+   deleted.
 
 ## 6. Verification strategy
 

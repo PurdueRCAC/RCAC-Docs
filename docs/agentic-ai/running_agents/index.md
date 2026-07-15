@@ -15,11 +15,14 @@ on your harness and how you like to work.
   agent lives on the front end alongside your shell, so it sees the real filesystem,
   modules, and scheduler directly — but it is bound by the same login-node etiquette
   you are.
-- **Locally, targeting the cluster (MCP + SSH).** The harness runs in your own
-  environment — your laptop or workstation — and reaches the cluster through the RCAC
-  [MCP servers](../mcp_servers.md) over your existing SSH access. Nothing new is
-  installed on the cluster, and no new credentials are created. This is the mode that
-  works with **Warp**, which is a desktop application and cannot run on a login node.
+- **Locally, targeting the cluster.** The harness runs in your own environment — your
+  laptop or workstation — and reaches the cluster over your existing SSH access. Two
+  mechanisms fit here: most harnesses (Claude Code, Codex, Gemini CLI,
+  opencode) connect through the RCAC [MCP servers](../mcp_servers.md), which bridge to
+  the cluster over SSH so the agent works through *tool calls*; **Warp** is a desktop
+  terminal in which you SSH into the cluster yourself and its Agent Mode rides your live
+  session. Either way, nothing new is installed on the cluster and no new credentials
+  are created.
 
 <div class="grid cards" markdown>
 
@@ -32,7 +35,7 @@ on your harness and how you like to work.
 
     [:octicons-arrow-right-24: On the Cluster](on_cluster.md)
 
--   :material-laptop:{ .lg .middle } __Local (MCP + SSH)__
+-   :material-laptop:{ .lg .middle } __Local (over SSH)__
 
     ---
 
@@ -40,7 +43,7 @@ on your harness and how you like to work.
     credentials, no hosted infrastructure. The recommended setup, and the only way to
     use Warp.
 
-    [:octicons-arrow-right-24: Local (MCP + SSH)](local.md)
+    [:octicons-arrow-right-24: Local, Targeting the Cluster](local.md)
 
 </div>
 

@@ -48,6 +48,12 @@ and keys. It introduces **no new service and no new credential** — the securit
 boundary is the SSH connection you already have. If you can SSH to the cluster, your
 agent can too, and only with the access you already hold.
 
+The agent works entirely through **tool calls** — it asks the server to run a command,
+submit a job, or read a file, and the server carries that out over the SSH connection,
+which stays a background transport. The agent is not driving an interactive terminal.
+(This differs from a terminal-based harness like Warp, where you open the SSH session
+yourself and the agent rides along in it — see [Running Agents](running_agents/local.md).)
+
 Add it to an MCP-capable harness with the server's canonical configuration block,
 pointing `--ssh-host` at your cluster login node:
 

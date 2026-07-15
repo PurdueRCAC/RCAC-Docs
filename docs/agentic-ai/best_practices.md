@@ -9,10 +9,9 @@ authors:
 
 Agentic coding tools are genuinely useful on HPC — they draft submission scripts,
 untangle build errors, and automate the tedious parts of managing a workflow. They
-are also, in the words of our PEARC'26 paper, **"mostly harmless"**: powerful, but
-prone to confident mistakes. Getting good results is less about the model and more
-about *how you use it*. This page collects the practices that separate a productive
-session from a frustrating — or costly — one.
+are also prone to confident, plausible mistakes, and getting good results is less
+about the model than about *how you use it*. This page collects the practices that
+separate a productive session from a frustrating — or costly — one.
 
 ## Know when you're doing research versus operations
 
@@ -33,12 +32,12 @@ Configure your harness accordingly — the
 [per-harness settings](shared_context/settings.md) we publish deny the most dangerous
 operations by default as a starting point.
 
-## Engineer the context ("Tea, Earl Grey, hot")
+## Engineer the context
 
 An agent is only as good as the context it operates in. Vague requests get vague —
-often wrong — answers; specific ones get useful results. Captain Picard doesn't ask
-the replicator for "a drink," he asks for "Tea, Earl Grey, hot." Bring the same
-specificity to your prompts:
+often wrong — answers; specific ones get useful results. The canonical illustration
+is Picard ordering from the replicator: not "a drink," but "Tea, Earl Grey, hot."
+Bring the same specificity to your prompts:
 
 - Name the cluster, the partition, the account, and the software versions you
   actually intend to use, rather than letting the agent guess.

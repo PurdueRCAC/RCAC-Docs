@@ -1217,7 +1217,7 @@
     "Home",
     "Agentic AI",
     "Running Agents",
-    "Local (MCP + SSH)"
+    "Local (over SSH)"
   ],
   "/agentic-ai/shared_context/": [
     "Home",

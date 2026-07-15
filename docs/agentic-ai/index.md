@@ -14,14 +14,13 @@ we shape the context in which you use them so their output is more likely to be
 correct for *our* systems, and we give you what you need to **verify** that
 output rather than simply trust it.
 
-These agents are, in the framing of our PEARC'26 paper *Hello Computer: HPC in
-the Agentic Era*, **"mostly harmless"** — genuinely useful, but perfectly
-capable of producing confident, plausible, and wrong answers: a Slurm script for
-a scheduler we don't run, a module name that doesn't exist, a path on the wrong
-filesystem. The aim of this section is to make the tools work *well* on RCAC by
-giving them accurate, cluster-specific context, and to give you the judgment to
-check what they produce. Treat an agent as **augmenting your expertise, not
-outsourcing it** — ask *why*, not just *what*.
+These tools are genuinely useful, but they are also capable of producing
+confident, plausible, and wrong answers: a Slurm script for a scheduler we don't
+run, a module name that doesn't exist, a path on the wrong filesystem. The aim of
+this section is to make the tools work *well* on RCAC by giving them accurate,
+cluster-specific context, and to give you the judgment to check what they produce.
+Treat an agent as **augmenting your expertise, not outsourcing it** — ask *why*,
+not just *what*.
 
 !!! note "Early and evolving"
 
@@ -66,7 +65,7 @@ outsourcing it** — ask *why*, not just *what*.
     ---
 
     Set up your harness on the cluster (login nodes) or locally, targeting the
-    cluster over MCP + SSH — for all five harnesses.
+    cluster over SSH — for all five harnesses.
 
     [:octicons-arrow-right-24: Running Agents](running_agents/index.md)
 
@@ -84,3 +83,9 @@ outsourcing it** — ask *why*, not just *what*.
 For Gautschi-specific setup pointers, see the
 [Using AI Agents](../userguides/gautschi/using_ai_agents.md) chapter in the Gautschi
 user guide.
+
+---
+
+*RCAC's approach to agentic computing is described in the PEARC'26 paper "Hello
+Computer: HPC in the Agentic Era" (Lentner & Ashish, 2026) — see the
+[replication package](https://github.com/glentner/pearc26-hello-computer).*

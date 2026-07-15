@@ -214,6 +214,41 @@ Refinements from the human after reviewing `PLAN.md`/`TECH.md`:
 
 *No unresolved `[NEEDS CLARIFICATION]` markers remain; the GOAL is ready for `docs-plan`.*
 
+### Resolved during human review (2026-07-15)
+
+Refinements from the human after reading the fully-drafted section on a local build.
+These **refine the recorded voice/interpretation**; the acceptance criteria (R-IDs) are
+unchanged.
+
+- **Paper reference, not front-and-center (refines the voice note & R3).** The PEARC'26
+  paper *Hello Computer: HPC in the Agentic Era* SHALL be cited as a **reference (a
+  footer note)** linking its GitHub replication package
+  (<https://github.com/glentner/pearc26-hello-computer>), **not** as the lead content of
+  the hub. (A DOI will be added once the paper is on the ACM Digital Library — deferred.)
+- **Measured tone; drop the pop-culture framing (supersedes the earlier voice note).**
+  The published docs SHALL use a **direct, measured, professional tone**. The literal
+  phrase **"mostly harmless" SHALL NOT appear**, and other pop-culture references
+  (e.g. "don't cross the streams", "I Know Kung Fu") SHALL be dropped. **One exception:**
+  the **"Tea, Earl Grey, hot"** illustration may appear **once** — it is conceptually
+  load-bearing for the point about prompt specificity. (The stance itself — proactive
+  engagement, verify-don't-forbid, augmented-not-outsourced — is unchanged and correct.)
+- **Warp is distinct from the MCP bridge (refines R4/R6).** Two different local
+  mechanisms SHALL be distinguished: (a) the cluster MCP (`rcac-mcp`) uses SSH as a
+  **background bridge** so the agent works through **pure tool calls** — this is the model
+  for the CLI harnesses (Claude Code, Codex, Gemini CLI, opencode); (b) **Warp** is a
+  desktop terminal in which the **user SSHs into the cluster directly** and the agent
+  **rides that live SSH session**. Warp SHALL NOT be documented as using the cluster MCP;
+  instead the docs SHALL explain how a user can **wire in the `/etc/agents.d` shared
+  context once they have SSH'd to the cluster**.
+- **Settings are RCAC-deployed & enforced, not user-installed (refines R11/R12).** The
+  per-harness settings SHALL be presented as **what RCAC deploys to the system-managed
+  location and enforces** (published for transparency), not as files the user must copy
+  in. Where a harness has a system-managed path (Claude Code
+  `/etc/claude-code/managed-settings.json`, Gemini `/etc/gemini-cli/settings.json`,
+  opencode `/etc/opencode/`) this SHALL be stated as the enforced location; **Codex** has
+  no managed path (a recommended user default — stated honestly); **Warp** has no settings
+  file (a team-managed **Agent Profile**, documented inline — no `AGENTS.md`-style file).
+
 ## Related materials
 
 - **PEARC'26 paper** (the motivating source, three pillars, and Discussion framing to mirror for

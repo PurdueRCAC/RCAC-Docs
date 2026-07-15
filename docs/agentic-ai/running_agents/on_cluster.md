@@ -108,10 +108,10 @@ Warp is **RCAC's recommended harness for most users** — but it is a **desktop
 application**, not a headless CLI, and **cannot be installed on a login node**. There
 is no login-node path for Warp, and you should not try to fabricate one.
 
-Instead, run Warp on your own workstation and SSH into Gautschi from there; Warp's
-Agent Mode operates within the remote session while the app stays local. This is the
-local, MCP + SSH workflow, and it is the recommended setup for Warp — see
-[Local (MCP + SSH)](local.md).
+Instead, run Warp on your own workstation and SSH into Gautschi from there; its Agent
+Mode then rides your live SSH session — reading output and issuing commands in the
+session you opened — while the app stays local. That is the recommended setup for Warp;
+see [Local, Targeting the Cluster](local.md).
 
 ---
 

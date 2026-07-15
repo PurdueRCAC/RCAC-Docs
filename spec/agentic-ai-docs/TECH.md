@@ -194,6 +194,29 @@ project env active.
 - Each content page ends with a back-link to its hub; **sibling cross-links are deferred to P10** so
   intermediate builds stay `--strict`-clean.
 
+## Human-review amendments (2026-07-15)
+
+After all ten phases were drafted, the human reviewed the rendered section and requested four
+refinements (recorded in [`GOAL.md`](GOAL.md) → "Resolved during human review" and
+[`PLAN.md`](PLAN.md) §5). These were applied across the already-`done` phases as a single
+remediation pass — the acceptance criteria (R-IDs) are unchanged:
+
+1. **Paper as a footer reference, not the hub lead** (P1 `index.md`; also P3): removed the
+   paper-forward opening; added a measured footer citation linking the GitHub replication package.
+2. **Measured tone — no "mostly harmless" / pop-culture** (P1, P3): struck the phrase everywhere;
+   kept the single load-bearing "Tea, Earl Grey, hot" prompting illustration.
+3. **Warp ≠ the MCP bridge** (P4 `mcp_servers.md`, P5 `on_cluster.md`, P6 `running_agents/index.md`
+   + `local.md`): distinguished `rcac-mcp` (background SSH bridge, pure tool-calling; CLI harnesses)
+   from Warp (desktop terminal, user SSHs in, agent rides the live session; **does not use the
+   cluster MCP**; wire in `/etc/agents.d` context once SSH'd).
+4. **Settings are RCAC-deployed & enforced, not user-installed** (P8 `settings.md`): reframed to the
+   system-managed enforcement paths (Claude/Gemini/opencode), with honest caveats for Codex (no
+   managed path — recommended default) and Warp (no file — inline team-managed Agent Profile); the
+   `warp/AGENTS.md` snippet was deleted.
+
+Verified: `--strict` clean, no "mostly harmless", exactly one Star Trek reference, `mcpServers`
+sentinel intact, no dangling `--8<--` includes, HPC accuracy preserved.
+
 ---
 
 ## Phase P1 — Scaffold: section hub + nav anchor
