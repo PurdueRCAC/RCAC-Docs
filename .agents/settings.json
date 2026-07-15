@@ -1,0 +1,19 @@
+{
+  "$comment": "Shared, version-controlled permission allowlist for the RCAC-Docs documentation factory. These are safe, read-only-or-idempotent commands the docs-* skills run repeatedly; pre-approving them reduces interactive prompts. Personal overrides go in .agents/settings.local.json (gitignored). Keep this least-privilege — do not add broad wildcards.",
+  "permissions": {
+    "allow": [
+      "Bash(mkdocs build:*)",
+      "Bash(.venv/bin/mkdocs build:*)",
+      "Bash(python3 .agents/factory/bin/next_phase.py:*)",
+      "Bash(python3 .agents/factory/bin/strict_check.py:*)",
+      "Bash(python3 -c \"import yaml, mkdocs\":*)",
+      "Bash(python tools/generate_breadcrumbs.py:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git branch:*)",
+      "Bash(git rev-parse:*)",
+      "Bash(grep:*)"
+    ]
+  }
+}

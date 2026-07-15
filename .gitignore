@@ -46,7 +46,9 @@ htmlcov/
 .env.local
 
 # Assistant / tooling scratch
-.claude/
+#   `.claude` is a tracked symlink -> `.agents` (the documentation factory), so it is NOT
+#   ignored. Only genuinely personal Claude Code settings are ignored:
+.agents/settings.local.json
 .warp/
 
 # Project-local drafts not for publication
