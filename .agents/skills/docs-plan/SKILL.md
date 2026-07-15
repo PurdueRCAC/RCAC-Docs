@@ -8,7 +8,7 @@ description: >-
   (see .agents/factory/methodology.md).
 disable-model-invocation: true
 argument-hint: "[appetite small|big] [skip research] [status]"
-allowed-tools: Read, Write, Edit, Grep, Glob, Agent, AskUserQuestion, WebSearch, WebFetch, Bash(git status *), Bash(git branch *), Bash(git rev-parse *), Bash(git log *), Bash(git add *), Bash(git commit *), Bash(python3 .agents/factory/bin/*), Bash(python3 -c *)
+allowed-tools: Read, Write, Edit, Grep, Glob, Agent, AskUserQuestion, WebSearch, WebFetch, Bash(git status *), Bash(git branch *), Bash(git rev-parse *), Bash(git log *), Bash(git add *), Bash(git commit *), Bash(uv *), Bash(.venv/bin/python *), Bash(.venv/bin/mkdocs *), Bash(python3 .agents/factory/bin/*), Bash(python3 -c *)
 ---
 
 # docs-plan — research → PLAN → TECH
@@ -19,7 +19,16 @@ bracket the design so it can't drift from the constitution.
 ## Step 1 — Pre-flight & load
 
 - Confirm a `feature/`|`fix/`|`refactor/` branch with a clean tree; resolve `{slug}` from the branch.
-- Assert the environment: `python3 -c "import yaml, mkdocs"` (activate `.venv`/conda if it fails).
+  ("Clean" = no uncommitted changes; being ahead of / diverged from `origin` is fine and is **not**
+  a blocker — never `reset`/rebase onto `origin` to "fix" it.)
+- **Ensure the toolchain env** — a `uv`-synced `.venv` (see AGENTS.md "Setup"), then run everything
+  via `.venv/bin/…` (never system Python, which lacks the pinned deps). Idempotent bootstrap:
+  ```bash
+  [ -x .venv/bin/python ] || uv venv
+  uv pip install -q -r requirements.txt --python .venv/bin/python
+  # fallback without uv: [ -x .venv/bin/python ] || python3 -m venv .venv; .venv/bin/python -m pip install -q -r requirements.txt
+  ```
+  Confirm it works: `.venv/bin/python -c "import yaml, mkdocs"`.
 - Read `spec/{slug}/GOAL.md`, `.agents/factory/invariants.md`, `.agents/factory/style-guide.md`,
   and `AGENTS.md`. GOAL.md must be committed with **no unresolved `[NEEDS CLARIFICATION]`** — if any
   remain, STOP and return to `/docs-feature`.

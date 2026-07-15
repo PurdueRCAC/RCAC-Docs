@@ -27,16 +27,23 @@ blog articles, and workshop/training material for RCAC's HPC clusters and storag
 
 ## Environment & working rules
 
-- **Setup:** create a Python environment and install pinned deps.
+- **Setup — one supported way: a `uv`-managed virtualenv synced from `requirements.txt`.** Do
+  **not** run `mkdocs` or the factory scripts against the system Python (it lacks the pinned deps).
+  This bootstrap is idempotent — safe to re-run to resync:
   ```bash
-  python -m venv .venv && source .venv/bin/activate   # or: conda create -n rcac-docs python && conda activate rcac-docs
-  python -m pip install -r requirements.txt
+  # uv-first (recommended):
+  [ -x .venv/bin/python ] || uv venv                       # create ./.venv if missing
+  uv pip install -r requirements.txt --python .venv/bin/python   # sync pinned deps into it
+  # fallback if uv is unavailable:
+  #   [ -x .venv/bin/python ] || python3 -m venv .venv
+  #   .venv/bin/python -m pip install -r requirements.txt
   ```
-  (The local `.venv` may be uv-created and lacks `pip`; `uv pip install -r requirements.txt`
-  syncs it. The project itself is pip/`requirements.txt`-managed — there is no `pyproject.toml`
-  and no `uv.lock`.)
-- **Always run tooling from the repo root.** The macros module (`main.py`) and the factory
-  scripts resolve paths relative to the current directory.
+  Then **invoke every tool through `.venv/bin/…` — no `activate` needed** (this explicit form is
+  unambiguous and is what the factory scripts and `verify:` gates assume): `.venv/bin/mkdocs …`,
+  `.venv/bin/python …`. The project is `requirements.txt`-managed — there is no `pyproject.toml`
+  and no `uv.lock`.
+- **Always run tooling from the repo root** (and via `.venv/bin/`). The macros module (`main.py`)
+  and the factory scripts resolve paths relative to the current directory.
 - **Commit only when explicitly asked.** When you do: branch off **`main`** (never commit
   straight to `main`; never touch `dev` outside an a11y rollout — see Branch & deploy model).
   Commit subjects follow `[category] Imperative summary` — categories include `feature`, `fix`,
@@ -50,13 +57,14 @@ blog articles, and workshop/training material for RCAC's HPC clusters and storag
 ## Commands
 
 ```bash
-mkdocs serve                       # local preview at http://localhost:8000
-mkdocs serve -a localhost:8080     # custom port
-mkdocs build                       # build the static site into ./site (gitignored)
-mkdocs build --strict              # promote link/nav warnings to errors — USE THIS to verify (CI does not)
+# All tooling runs through the uv-synced .venv (see Setup) — no activation needed.
+.venv/bin/mkdocs serve                     # local preview at http://localhost:8000
+.venv/bin/mkdocs serve -a localhost:8080   # custom port
+.venv/bin/mkdocs build                     # build the static site into ./site (gitignored)
+.venv/bin/mkdocs build --strict            # promote link/nav warnings to errors — USE THIS to verify (CI does not)
 
-cd tools && make                   # regenerate the software & dataset catalogs (see Automation)
-python tools/generate_breadcrumbs.py   # regenerate docs/assets/data/breadcrumbs.json after a nav change
+cd tools && make                           # regenerate the software & dataset catalogs (see Automation)
+.venv/bin/python tools/generate_breadcrumbs.py   # regenerate docs/assets/data/breadcrumbs.json after a nav change
 
 # Optional: build the production image locally
 docker build -f Dockerfile.geddes-prod -t rcac-docs-prod:local . && docker run --rm -p 8080:80 rcac-docs-prod:local
@@ -184,9 +192,9 @@ review). The headlines:
   `.agents/factory/methodology.md` is the *why*; `getting-started.html` is the onboarding.
   **Ceremony scales to appetite** — a one-sentence fix may skip the lifecycle entirely.
 - **Verify by rendering, not asserting.** After a change, run
-  `mkdocs build --strict 2>&1 | python3 .agents/factory/bin/strict_check.py` (no new warnings),
-  confirm the page is in `nav:`, and `mkdocs serve` to eyeball the render — the concurrency and
-  link/nav behavior are where documentation bugs hide.
+  `.venv/bin/mkdocs build --strict 2>&1 | python3 .agents/factory/bin/strict_check.py` (no new
+  warnings **and no build errors**), confirm the page is in `nav:`, and `.venv/bin/mkdocs serve` to
+  eyeball the render — the concurrency and link/nav behavior are where documentation bugs hide.
 - **Put content where it belongs:** new pages under `docs/…` + a `nav:` entry; cluster-variable
   content via `main.py` macros (extend the macro, don't fork the prose); generated catalogs via
   `tools/`, never by hand.

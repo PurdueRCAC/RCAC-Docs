@@ -94,7 +94,7 @@ content+state commit. Run from the repo root with the project env active.
 
 - [ ] Create `docs/userguides/<cluster>/index.md` and `overview.md` from the userguide archetype.
 - [ ] Add the section + pages to `mkdocs.yml` `nav:`.
-- [ ] `python tools/generate_breadcrumbs.py`.
+- [ ] `.venv/bin/python tools/generate_breadcrumbs.py`.
 - **Verify:** `.venv/bin/mkdocs build --strict 2>&1 | python3 .agents/factory/bin/strict_check.py`
 - **Touches:** `docs/userguides/<cluster>/index.md`, `overview.md`, `mkdocs.yml`.
 
@@ -104,7 +104,7 @@ content+state commit. Run from the repo root with the project env active.
 
 - [ ] Write `run_jobs/index.md` (prose + `bash` batch example + admonitions + macros/snippets).
 - [ ] Add it to `nav:`; add cross-links and a back-link to the hub.
-- [ ] `mkdocs serve` and eyeball the rendered page (tabs, admonitions, macro expansion).
+- [ ] `.venv/bin/mkdocs serve` and eyeball the rendered page (tabs, admonitions, macro expansion).
 - **Verify:** `.venv/bin/mkdocs build --strict 2>&1 | python3 .agents/factory/bin/strict_check.py && grep -q 'run_jobs' mkdocs.yml`
 - **Touches:** `docs/userguides/<cluster>/run_jobs/index.md`, `mkdocs.yml`.
 
@@ -114,8 +114,8 @@ content+state commit. Run from the repo root with the project env active.
 
 1. `next_phase.py` prints the next actionable phase (statuses are authoritative; the
    `current_phase` pointer is reconciled against them).
-2. Pre-flight: clean tree, on `branch`, `base` (`main`) reachable, project env active
-   (`python3 -c "import yaml, mkdocs"`).
+2. Pre-flight: clean tree, on `branch`, `base` (`main`) reachable, the uv-synced `.venv` present
+   (`.venv/bin/python -c "import yaml, mkdocs"`; bootstrap per AGENTS.md "Setup" if not).
 3. Execute every `[ ]` in the phase (consult `PLAN.md` / `research/` / `style-guide.md` for detail).
 4. Run the phase's `verify:` command — never advance on a checkbox alone.
 5. Amend this file freely if reality diverges (regenerate frontmatter with `set_phase.py`; note the

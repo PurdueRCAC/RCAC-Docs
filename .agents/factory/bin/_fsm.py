@@ -8,11 +8,14 @@ YAML editing is the primary FSM-corruption risk (see
 ``.agents/factory/methodology.md``).
 
 Requires PyYAML, which is a declared project dependency (``requirements.txt``)
-and lives in the project virtual environment — NOT the system interpreter. Run
-these scripts with the project env active, e.g. from the repo root::
+and lives in the uv-synced project virtualenv (``.venv``) — NOT the system
+interpreter. Run these scripts via the venv Python from the repo root::
 
-    source .venv/bin/activate        # or: conda activate rcac-docs
-    python3 .agents/factory/bin/<script>.py ...
+    .venv/bin/python .agents/factory/bin/<script>.py ...
+
+Bootstrap the env first if it is missing (see AGENTS.md "Setup")::
+
+    uv venv && uv pip install -r requirements.txt --python .venv/bin/python
 
 Adapted from the HyperShell software factory (`.agents/factory/bin`).
 """
@@ -27,9 +30,10 @@ try:
     import yaml
 except ModuleNotFoundError as exc:  # pragma: no cover - environment guard
     raise SystemExit(
-        "PyYAML is required but was not found. Activate the project environment "
-        "first (e.g. `source .venv/bin/activate` or `conda activate rcac-docs`), "
-        "then run `python3 .agents/factory/bin/<script>.py` from the repo root."
+        "PyYAML is required but was not found. Run this via the uv-synced venv from "
+        "the repo root: `.venv/bin/python .agents/factory/bin/<script>.py`. Bootstrap "
+        "it first if missing: `uv venv && uv pip install -r requirements.txt "
+        "--python .venv/bin/python`."
     ) from exc
 
 
