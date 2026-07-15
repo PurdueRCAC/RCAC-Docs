@@ -6,7 +6,7 @@ appetite: big
 status: in_progress
 branch: feature/agentic-ai-docs
 base: main
-current_phase: P4
+current_phase: P5
 last_updated: '2026-07-15'
 phases:
 - id: P1
@@ -46,7 +46,7 @@ phases:
     && grep -q 'best_practices.md' mkdocs.yml
 - id: P4
   name: MCP Servers page (rcac-mcp / globus-mcp / rcac-docs-mcp)
-  status: pending
+  status: done
   satisfies:
   - R7
   - R8
@@ -251,18 +251,18 @@ engineering, verification, and caution/blast-radius.
 **Goal:** document the three RCAC MCP servers accurately (why MCP; current focus; verified connect
 commands; the `/etc/agents.d` injection), presenting the tooling as prototype/evolving.
 
-- [ ] Create `docs/agentic-ai/mcp_servers.md`: "why MCP" (context that knows our clusters); present
+- [x] Create `docs/agentic-ai/mcp_servers.md`: "why MCP" (context that knows our clusters); present
       **all three as actively-developed working prototypes**; a per-server section for **rcac-mcp**
       (HPC ops, stdio via `uvx`, runs over the user's existing SSH, tool list, `rcac://context`),
       **globus-mcp** (transfers, beta, user's Globus OAuth), **rcac-docs-mcp** (hosted HTTP at
       `docs.rcac.purdue.edu/mcp`, `doc_search`/`doc_load`). Link each public repo. Use the
       **verified** connect blocks from research 04 (inline fenced JSON/TOML — short, no Jinja triggers).
-- [ ] State that the HPC server reads the host's `/etc/agents.d` markdown over SSH and injects it as
+- [x] State that the HPC server reads the host's `/etc/agents.d` markdown over SSH and injects it as
       context (R8).
-- [ ] **Explicitly call out the planned rename / re-architecture of `rcac-mcp`** toward the HPC-only
+- [x] **Explicitly call out the planned rename / re-architecture of `rcac-mcp`** toward the HPC-only
       plugin model (`cluster-mcp[slurm,lmod,…]`) — framed as a **stated direction / planned&evolving**,
       NOT shipped fact (human-confirmed framing 2026-07-15; research 04 marks it `[UNVERIFIED]`).
-- [ ] Add nav line; back-link to hub.
+- [x] Add nav line; back-link to hub.
 - **Verify:** `… strict_check.py && grep -q 'mcp_servers.md' mkdocs.yml`
 - **Touches:** `docs/agentic-ai/mcp_servers.md`, `mkdocs.yml`.
 
