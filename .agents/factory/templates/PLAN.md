@@ -69,8 +69,11 @@ name / Slurm flag / module?) or "how does the existing site handle X".
 How we will *prove* the pages are correct — this seeds each phase's `verify:` in `TECH.md`:
 
 - **Build integrity:** `.venv/bin/mkdocs build --strict 2>&1 | python3 .agents/factory/bin/strict_check.py`
-  (no new warnings vs baseline).
+  (no new warnings **and no build ERRORs/tracebacks** vs baseline).
 - **Nav:** the new page(s) appear in `mkdocs.yml` and resolve (no "not in nav" warning).
+- **Silent-failure guard:** a mistyped `--8<--` include renders an **empty** block with no
+  `--strict` warning (`check_paths: false`). For any page that embeds a verbatim file, add a
+  `grep -rq <sentinel-token> site/<path>/` to the phase `verify:` and eyeball the render.
 - **Render:** `mkdocs serve` and view the page(s) — layout, tabs, admonitions, macros expand.
 - **Front-matter:** matches the archetype (blog `<!-- more -->` + allowed category + known author, etc.).
 - **Accessibility:** images have alt text; headings descend logically.

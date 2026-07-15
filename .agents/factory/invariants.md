@@ -93,11 +93,19 @@ the build breaks.
 
 ## §8 — Build integrity (hammerable: false)
 
-`mkdocs build --strict` must introduce **no new warnings** versus `strict-baseline.txt`.
-CI builds with `--verbose`, not `--strict`, so broken links and nav orphans would
-otherwise ship silently. Gate with:
-`.venv/bin/mkdocs build --strict 2>&1 | python3 .agents/factory/bin/strict_check.py`.
-This is a correctness gate, not a nicety — do not scope-hammer it.
+`mkdocs build --strict` must introduce **no new warnings** versus `strict-baseline.txt`,
+**and must not fail** (no build `ERROR`s or tracebacks). CI builds with `--verbose`, not
+`--strict`, so broken links and nav orphans would otherwise ship silently. Gate with:
+`.venv/bin/mkdocs build --strict 2>&1 | python3 .agents/factory/bin/strict_check.py`
+— the checker fails on new warnings **and** on any `ERROR`/traceback (e.g. an unescaped
+`{{`/`{%` in published content hitting the macros pass). Do **not** add `pipefail`: under
+`--strict` mkdocs aborts non-zero on *any* warning, including the tolerated baseline ones, so
+`strict_check.py` — not the exit code — is the arbiter.
+
+**`--strict` does not catch everything.** A mistyped `pymdownx.snippets` include
+(`--8<-- "…"`) fails **silently** (`check_paths: false` → an empty block, no warning). When a
+page embeds a verbatim file, also **eyeball the render** or grep the built `site/` for a known
+token. This is a correctness gate, not a nicety — do not scope-hammer it.
 
 ## §9 — Content-level accessibility, WCAG 2.1 (hammerable: false)
 

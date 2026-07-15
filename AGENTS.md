@@ -121,8 +121,8 @@ review). The headlines:
 5. **Links relative, assets absolute.**
 6. **Front-matter per archetype** (blog `categories` from the allowed set; `<!-- more -->`).
 7. **Macros/snippets + Jinja escaping.**
-8. **Build integrity** — `mkdocs build --strict` introduces no new warnings vs the baseline
-   (`hammerable: false`).
+8. **Build integrity** — `mkdocs build --strict` introduces no new warnings **and no build
+   errors** vs the baseline (`hammerable: false`).
 9. **Content-level WCAG 2.1 accessibility** (`hammerable: false`).
 10. **Per-cluster parallelism** — keep the shared chapter set/order.
 11. **HPC technical accuracy** — commands, flags, partitions, paths, specs must be correct

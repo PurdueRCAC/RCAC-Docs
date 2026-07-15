@@ -16,9 +16,16 @@ Usage (run from the repo root, with the project env active):
 Options:
     --baseline PATH   baseline file (default: .agents/factory/strict-baseline.txt)
 
+A `mkdocs build --strict` can also fail *hard* — a macro/Jinja `UndefinedError`, a config
+error, a plugin crash — which surfaces as an `ERROR` line and/or a Python traceback, NOT a
+`WARNING`. Those are never acceptable debt, so this gate fails on any `ERROR`/traceback
+regardless of the baseline. (We deliberately do NOT rely on the pipeline exit code / `pipefail`:
+under `--strict` mkdocs aborts non-zero on *any* warning, including the tolerated baseline ones,
+so this script — not the exit code — must be the arbiter.)
+
 Exit codes:
-    0  no new warnings beyond the baseline (PASS)
-    1  new warning(s) attributable to this change (STOP)
+    0  no ERRORs and no new warnings beyond the baseline (PASS)
+    1  a build ERROR/traceback, or new warning(s) attributable to this change (STOP)
     2  usage / I/O error (e.g. missing baseline file)
 """
 from __future__ import annotations
@@ -30,10 +37,12 @@ import sys
 from pathlib import Path
 
 # Public interface
-__all__ = ["main", "extract_warnings", "load_baseline"]
+__all__ = ["main", "extract_warnings", "extract_errors", "load_baseline"]
 
 # A mkdocs strict warning line looks like: "WARNING -  <message>".
 _WARNING_RE = re.compile(r"^WARNING\s*-\s*(?P<msg>.*\S)\s*$")
+# A hard failure looks like "ERROR    -  <message>" (macros/Jinja error, config error, …).
+_ERROR_RE = re.compile(r"^ERROR\s*-\s*(?P<msg>.*\S)\s*$")
 
 
 def extract_warnings(text: str) -> set[str]:
@@ -43,6 +52,22 @@ def extract_warnings(text: str) -> set[str]:
         m = _WARNING_RE.match(line)
         if m:
             out.add(m.group("msg").strip())
+    return out
+
+
+def extract_errors(text: str) -> set[str]:
+    """Return hard-failure signals (ERROR lines + a crash traceback) in a build log.
+
+    These indicate the build did not succeed (e.g. an unescaped ``{{ }}`` in published
+    config raising a macros ``UndefinedError``). They are never baseline debt.
+    """
+    out: set[str] = set()
+    for line in text.splitlines():
+        m = _ERROR_RE.match(line)
+        if m:
+            out.add(m.group("msg").strip())
+    if "Traceback (most recent call last):" in text:
+        out.add("Python traceback in build output (the build crashed)")
     return out
 
 
@@ -78,8 +103,21 @@ def main(argv: list[str]) -> int:
         return 2
 
     found = extract_warnings(text)
+    errors = sorted(extract_errors(text))
     new = sorted(found - baseline)
     fixed = sorted(baseline - found)
+
+    if errors:
+        print(f"FAIL: {len(errors)} build ERROR(s) — the build did not succeed cleanly:")
+        for msg in errors:
+            print(f"  ! {msg}")
+        print(
+            "\nERRORs are never baseline debt. Fix the build — a common cause here is an "
+            "unescaped '{{' / '{%' in published content hitting the macros/Jinja pass "
+            "(publish verbatim config via a '--8<--' include instead), a bad config, or a "
+            "plugin crash."
+        )
+        return 1
 
     if new:
         print(f"FAIL: {len(new)} new mkdocs --strict warning(s) introduced by this change:")
