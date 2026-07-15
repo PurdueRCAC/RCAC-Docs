@@ -6,7 +6,7 @@ appetite: big
 status: in_progress
 branch: feature/agentic-ai-docs
 base: main
-current_phase: P9
+current_phase: P10
 last_updated: '2026-07-15'
 phases:
 - id: P1
@@ -117,7 +117,7 @@ phases:
     && grep -q 'shared_context/settings.md' mkdocs.yml && grep -rq mcpServers site/agentic-ai/shared_context/
 - id: P9
   name: Gautschi 'Using AI Agents' chapter
-  status: pending
+  status: done
   satisfies:
   - R13
   - R16
@@ -364,12 +364,12 @@ harnesses, wiring in the shared context and encoding a starting-point enforced-p
 **Goal:** a Gautschi user-guide chapter giving cluster-specific setup pointers, cross-linked with the
 top-level section.
 
-- [ ] Create `docs/userguides/gautschi/using_ai_agents.md` (userguide archetype): `tags: [Gautschi]`,
+- [x] Create `docs/userguides/gautschi/using_ai_agents.md` (userguide archetype): `tags: [Gautschi]`,
       `authors`, `{% set resource = "gautschi" %}`; Gautschi-specific quick-start (login host
       `gautschi.rcac.purdue.edu`, `slist`/`myquota`, partitions/QOS reminders), and links into the
       top-level Agentic AI pages (MCP servers, running-agents, shared context). Reuse macros for
       SSH/module/Slurm background where helpful.
-- [ ] Insert the `Using AI Agents` nav line between Compiling Source Code (`mkdocs.yml:144`) and FAQs.
+- [x] Insert the `Using AI Agents` nav line between Compiling Source Code (`mkdocs.yml:144`) and FAQs.
 - **Verify:** `… strict_check.py && grep -q 'using_ai_agents.md' mkdocs.yml`
 - **Touches:** `docs/userguides/gautschi/using_ai_agents.md`, `mkdocs.yml`.
 
