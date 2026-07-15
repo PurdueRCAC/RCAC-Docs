@@ -95,8 +95,8 @@ the prod image · pinned in `requirements.txt`. Plugins: `search`, `blog`, `tags
 | `hooks/` | MkDocs hooks (`socialmedia.py`, currently disabled in `mkdocs.yml`). |
 | `Dockerfile.geddes-prod`, `k8s/geddes-prod/` | Production image (builder → nginx) and Kubernetes manifests. |
 | `.github/workflows/` | CI/CD (deploy, catalog rebuild, breadcrumbs, branch sync/guard). |
-| **`.agents/`** | The spec-driven **documentation factory** (`docs-*` skills + `factory/` methodology, invariants, style guide, EARS, review rubric, templates, and `bin/` FSM scripts). `.claude` symlinks here. |
-| **`spec/{slug}/`** | The committed, dated per-job design records (`GOAL/PLAN/TECH/REVIEW.md`) the factory produces and retains on merge. Outside `docs/`, so not published. |
+| **`.agents/`** | The spec-driven **documentation factory** (`docs-*` lifecycle skills + the `docs-harness` self-improvement skill + `factory/` methodology, invariants, style guide, EARS, review rubric, templates, `harness-log.md`, and `bin/` FSM scripts). `.claude` symlinks here. |
+| **`spec/{slug}/`** | The committed, dated per-job records the factory produces and retains on merge: `GOAL/PLAN/TECH/REVIEW.md` (the content spine) plus `META.md` (orthogonal harness-retrospective findings). Outside `docs/`, so not published. |
 
 ## Content conventions & archetypes
 
@@ -191,6 +191,13 @@ review). The headlines:
   `feature/`|`fix/`|`refactor/` branch with artifacts committed under `spec/{slug}/`.
   `.agents/factory/methodology.md` is the *why*; `getting-started.html` is the onboarding.
   **Ceremony scales to appetite** — a one-sentence fix may skip the lifecycle entirely.
+- **The factory improves itself (self-improvement loop).** Each lifecycle skill ends with a
+  silence-by-default **meta-note** step that logs skillset friction — only when *the instructions'
+  fault, not the task's* — to `spec/{slug}/META.md` (`F#` findings, orthogonal to the content spine,
+  kept out of the blind reviewer's context). `/docs-publish` surfaces open findings in the PR body;
+  the human-gated **`/docs-harness`** skill then applies the recommended fixes to `.agents/` (atomic
+  `[harness]` commits, logged in `factory/harness-log.md`). It never auto-weakens a `hammerable:false`
+  gate and never writes findings itself. See methodology.md → "The self-improvement loop".
 - **Verify by rendering, not asserting.** After a change, run
   `.venv/bin/mkdocs build --strict 2>&1 | python3 .agents/factory/bin/strict_check.py` (no new
   warnings **and no build errors**), confirm the page is in `nav:`, and `.venv/bin/mkdocs serve` to
