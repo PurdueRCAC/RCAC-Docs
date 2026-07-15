@@ -370,6 +370,7 @@ nav:
     - Shared Context & Settings:
       - agentic-ai/shared_context/index.md
       - Context Files (/etc/agents.d): agentic-ai/shared_context/context_files.md
+      - Harness Settings & Permissions: agentic-ai/shared_context/settings.md
   # - Tags: tags.md
   - Contact us: contact.md
   - FAQs: faqs.md

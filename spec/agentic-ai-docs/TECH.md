@@ -6,7 +6,7 @@ appetite: big
 status: in_progress
 branch: feature/agentic-ai-docs
 base: main
-current_phase: P8
+current_phase: P9
 last_updated: '2026-07-15'
 phases:
 - id: P1
@@ -103,7 +103,7 @@ phases:
     site/agentic-ai/shared_context/
 - id: P8
   name: Build/publish per-harness settings & permissions (all five)
-  status: pending
+  status: done
   satisfies:
   - R11
   - R12
@@ -335,7 +335,7 @@ publish them verbatim; the shared-context hub explains the model + how to give f
 **Goal:** author and publish verbatim the per-harness settings/permission files for all five
 harnesses, wiring in the shared context and encoding a starting-point enforced-permission policy.
 
-- [ ] Author canonical files under `docs/snippets/agentic-ai/`. Every file must both **allow-list
+- [x] Author canonical files under `docs/snippets/agentic-ai/`. Every file must both **allow-list
       read-only sanity commands** (`myquota`, `slist`, `sfeatures`, `module list`, `module avail`) so
       they run without prompting, **and deny** destructive/dangerous ops (`rm -rf`, `sudo`):
       `claude/settings.json` (`permissions.allow` for the sanity commands + `permissions.deny` for
@@ -350,12 +350,12 @@ harnesses, wiring in the shared context and encoding a starting-point enforced-p
       no server-side settings file — represent it as the repo AGENTS.md + a documented Agent-Profile
       allow/deny list; note Run-until-completion bypasses the denylist). Use research 05 for exact
       schema; mark any `[UNVERIFIED]` key honestly.
-- [ ] Create `docs/agentic-ai/shared_context/settings.md`: publish each settings file verbatim via
+- [x] Create `docs/agentic-ai/shared_context/settings.md`: publish each settings file verbatim via
       `--8<--` fenced blocks (json/toml/markdown); explain each harness's permission model briefly,
       that this is a **v0 starting point** inviting feedback, and where config-management enforcement
       lives (managed/system files). Note OS-sandbox weakness on shared nodes.
-- [ ] Add the `Harness Settings & Permissions` nav line; back-link to hub.
-- [ ] `mkdocs serve` — confirm blocks render non-empty.
+- [x] Add the `Harness Settings & Permissions` nav line; back-link to hub.
+- [x] `mkdocs serve` — confirm blocks render non-empty.
 - **Verify:** `… strict_check.py && grep -q 'shared_context/settings.md' mkdocs.yml && grep -rq mcpServers site/agentic-ai/shared_context/`
 - **Touches:** `docs/snippets/agentic-ai/{claude,codex,gemini,opencode,warp}/…`, `docs/agentic-ai/shared_context/settings.md`, `mkdocs.yml`.
 

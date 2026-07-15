@@ -1,0 +1,17 @@
+# ~/.codex/config.toml
+#
+# Codex has no per-command allow/deny list; safety comes from the approval policy and
+# the sandbox mode. On shared login nodes where bubblewrap is unavailable, prefer
+# approval_policy = "untrusted" and sandbox_mode = "read-only" so nothing runs without
+# an explicit approval. Codex reads AGENTS.md natively for the shared context.
+
+approval_policy = "on-request"
+sandbox_mode    = "workspace-write"
+
+[sandbox_workspace_write]
+writable_roots = ["/scratch/gautschi"]
+network_access = false
+
+[mcp_servers.rcac]
+command = "uvx"
+args    = ["git+https://github.com/purduercac/rcac-mcp", "--ssh-host", "gautschi.rcac.purdue.edu"]

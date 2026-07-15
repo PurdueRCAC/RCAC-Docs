@@ -1,0 +1,22 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "permission": {
+    "bash": {
+      "*": "ask",
+      "myquota": "allow",
+      "slist": "allow",
+      "sfeatures": "allow",
+      "module list": "allow",
+      "module avail *": "allow",
+      "rm -rf *": "deny",
+      "sudo *": "deny"
+    }
+  },
+  "mcp": {
+    "rcac": {
+      "type": "local",
+      "command": ["uvx", "git+https://github.com/purduercac/rcac-mcp", "--ssh-host", "gautschi.rcac.purdue.edu"],
+      "enabled": true
+    }
+  }
+}

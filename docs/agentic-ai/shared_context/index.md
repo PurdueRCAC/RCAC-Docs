@@ -62,10 +62,16 @@ is too strict or too loose:
 
     [:octicons-arrow-right-24: Context Files](context_files.md)
 
-</div>
+-   :material-cog:{ .lg .middle } __Harness Settings & Permissions__
 
-The per-harness settings and permission files are published on the Harness Settings &
-Permissions page.
+    ---
+
+    A starting-point settings file for each of the five harnesses: allow-list the
+    sanity commands, deny destructive operations.
+
+    [:octicons-arrow-right-24: Harness Settings & Permissions](settings.md)
+
+</div>
 
 ---
 
