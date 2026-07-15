@@ -6,7 +6,7 @@ appetite: big
 status: in_progress
 branch: feature/agentic-ai-docs
 base: main
-current_phase: P2
+current_phase: P3
 last_updated: '2026-07-15'
 phases:
 - id: P1
@@ -22,7 +22,7 @@ phases:
     && grep -q 'agentic-ai/index.md' mkdocs.yml
 - id: P2
   name: Acceptable Use & Etiquette page
-  status: pending
+  status: done
   satisfies:
   - R2
   depends_on:
@@ -216,15 +216,15 @@ wired into nav, and builds clean.
 **Goal:** a page stating the rules for running agents on RCAC systems, consistent with the existing
 AUP, with a link to the Purdue IT policy of record.
 
-- [ ] Create `docs/agentic-ai/acceptable_use.md` (policy archetype, mirror
+- [x] Create `docs/agentic-ai/acceptable_use.md` (policy archetype, mirror
       `docs/userguides/anvil/policies.md`): `tags`+`authors`; one H1; hand-written sections — no
       heavy compute on login nodes (quote/echo the Gautschi Running-Jobs rule), jobs via Slurm with
       `--time`, no sensitive data in world-readable paths, no secrets/credentials in context,
       destructive actions require confirmation, agent output is the user's responsibility.
-- [ ] Reuse the canonical AUP block: `{% set resource = "gautschi" %}` then
+- [x] Reuse the canonical AUP block: `{% set resource = "gautschi" %}` then
       `{{ resource_use(resource) }}` (or link Purdue IT Acceptable Use Policy V.4.1 directly if a
       single-cluster `resource` reads oddly for cross-cluster policy — see research 02).
-- [ ] Add nav line under the section; back-link to the hub.
+- [x] Add nav line under the section; back-link to the hub.
 - **Verify:** `… strict_check.py && grep -q 'acceptable_use.md' mkdocs.yml`
 - **Touches:** `docs/agentic-ai/acceptable_use.md`, `mkdocs.yml`.
 

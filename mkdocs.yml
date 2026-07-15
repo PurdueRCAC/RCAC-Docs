@@ -360,6 +360,7 @@ nav:
         - Juicer: lifesciences/tutorials/juicer.md
   - Agentic AI:
     - agentic-ai/index.md
+    - Acceptable Use & Etiquette: agentic-ai/acceptable_use.md
   # - Tags: tags.md
   - Contact us: contact.md
   - FAQs: faqs.md
