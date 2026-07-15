@@ -107,6 +107,25 @@ content. Available macros live in `main.py` (`ssh_keys_snippet`, `ssh_x11_snippe
 `scratch_space`, `compile_gpu_snippet`, `htar_snippet`, `hsi_snippet`, … — read `main.py`
 for the current list and signatures).
 
+**Publishing a file verbatim (config, rules, `agents.d/*`) — the Jinja-safe pattern.** To show a
+real file byte-exact (a `settings.json`, a `config.toml`, a context `*.md`), keep it as an actual
+file under `docs/snippets/…` and `--8<--` it **inside a fenced code block** — do *not* paste the body
+into the page:
+
+````markdown
+```json title="~/.claude/settings.json"
+--8<-- "docs/snippets/agentic-ai/claude/settings.json"
+```
+````
+
+The macros/Jinja pass runs on the page's own source **before** Markdown parsing; `--8<--` splices the
+file in **after** — so literal `{{ … }}` / `{% … %}` in the included file is **never** evaluated and
+cannot break the build (pasting the same body directly would need `{% raw %}…{% endraw %}` and
+duplicates the content). One on-disk file = one source of truth, syntax-highlighted, copyable.
+**Footgun:** `pymdownx.snippets` runs with `check_paths: false`, so a **mistyped include path fails
+silently** — an empty code block, and `--strict` does *not* warn. Always eyeball the render (or grep
+the built `site/` for a known token) after adding one.
+
 **Code blocks** — always tag the language; show interactive prompts with `$`. Extras:
 ` ```python title="test.py" `, line highlight ` ```py hl_lines="2 3" `, `linenums="1"`,
 inline `` `#!python range()` ``. Job scripts conventionally open with `# FILENAME: myjob.sub`.
