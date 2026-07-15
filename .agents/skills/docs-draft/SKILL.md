@@ -9,7 +9,7 @@ description: >-
   documentation factory (see .agents/factory/methodology.md).
 disable-model-invocation: true
 argument-hint: "[status | dry run | phase P3 | through P5 | next 2 | skip review]"
-allowed-tools: Read, Write, Edit, Grep, Glob, Bash(git status *), Bash(git branch *), Bash(git rev-parse *), Bash(git log *), Bash(git diff *), Bash(git add *), Bash(git commit *), Bash(uv *), Bash(.venv/bin/python *), Bash(.venv/bin/mkdocs *), Bash(python3 .agents/factory/bin/*), Bash(python3 -c *), Bash(grep *)
+allowed-tools: Read, Write, Edit, Grep, Glob, Bash(git status *), Bash(git branch *), Bash(git rev-parse *), Bash(git log *), Bash(git diff *), Bash(git add *), Bash(git commit *), Bash(uv *), Bash(.venv/bin/python *), Bash(.venv/bin/mkdocs *), Bash(.venv/bin/python .agents/factory/bin/*), Bash(python3 -c *), Bash(grep *)
 ---
 
 # docs-draft — execute the roadmap
@@ -60,7 +60,7 @@ Execute every `[ ]` step to the archetype conventions (`style-guide.md`) and the
 ## Step 4 — Verify gate
 
 Run the phase's `verify:` command — at minimum
-`.venv/bin/mkdocs build --strict 2>&1 | python3 .agents/factory/bin/strict_check.py`
+`.venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py`
 plus any nav/front-matter check. When layout matters, also `.venv/bin/mkdocs serve` and eyeball the
 rendered page. **A non-zero verify (a new `--strict` warning, a build ERROR, or a failed check) is a
 STOP condition — do not advance the phase.**

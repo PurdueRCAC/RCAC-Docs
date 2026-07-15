@@ -8,7 +8,7 @@ description: >-
   (see .agents/factory/methodology.md).
 disable-model-invocation: true
 argument-hint: "[appetite small|big] [skip research] [status]"
-allowed-tools: Read, Write, Edit, Grep, Glob, Agent, AskUserQuestion, WebSearch, WebFetch, Bash(git status *), Bash(git branch *), Bash(git rev-parse *), Bash(git log *), Bash(git add *), Bash(git commit *), Bash(uv *), Bash(.venv/bin/python *), Bash(.venv/bin/mkdocs *), Bash(python3 .agents/factory/bin/*), Bash(python3 -c *)
+allowed-tools: Read, Write, Edit, Grep, Glob, Agent, AskUserQuestion, WebSearch, WebFetch, Bash(git status *), Bash(git branch *), Bash(git rev-parse *), Bash(git log *), Bash(git add *), Bash(git commit *), Bash(uv *), Bash(.venv/bin/python *), Bash(.venv/bin/mkdocs *), Bash(.venv/bin/python .agents/factory/bin/*), Bash(python3 -c *)
 ---
 
 # docs-plan — research → PLAN → TECH
@@ -104,7 +104,7 @@ cross-cutting section has no single `resource`), then dependent pages, then a fi
   `true` for genuinely independent sibling pages that touch no shared surface. When unsure, `false`.
 - **`verify:` is hand-written YAML — the #1 FSM-corruption risk.** Quote the whole value and keep
   single-quotes *inside* it (it contains pipes/colons). Vetted recipe:
-  `".venv/bin/mkdocs build --strict 2>&1 | python3 .agents/factory/bin/strict_check.py && grep -q '<page>.md' mkdocs.yml"`
+  `".venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py && grep -q '<page>.md' mkdocs.yml"`
   — for a page embedding a verbatim `--8<--` file, append `&& grep -rq '<sentinel>' site/<path>/`
   (the gate cannot see a silently-empty include).
 - **Phase-count circuit-breaker:** more than ~8 phases usually means the GOAL is too big — flag it to

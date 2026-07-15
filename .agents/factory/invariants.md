@@ -96,7 +96,7 @@ the build breaks.
 `mkdocs build --strict` must introduce **no new warnings** versus `strict-baseline.txt`,
 **and must not fail** (no build `ERROR`s or tracebacks). CI builds with `--verbose`, not
 `--strict`, so broken links and nav orphans would otherwise ship silently. Gate with:
-`.venv/bin/mkdocs build --strict 2>&1 | python3 .agents/factory/bin/strict_check.py`
+`.venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py`
 — the checker fails on new warnings **and** on any `ERROR`/traceback (e.g. an unescaped
 `{{`/`{%` in published content hitting the macros pass). Do **not** add `pipefail`: under
 `--strict` mkdocs aborts non-zero on *any* warning, including the tolerated baseline ones, so

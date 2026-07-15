@@ -40,7 +40,7 @@ clean diff is a valid, valuable result.**
 
 1. **Reproduce it.** Run the command or render the page that would reveal it:
    - build/nav/link/front-matter/`--strict` →
-     `.venv/bin/mkdocs build --strict 2>&1 | python3 .agents/factory/bin/strict_check.py`
+     `.venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py`
      and inspect the log for the specific file;
    - rendering/a11y-structure → `mkdocs serve` and view the page (or inspect the built
      HTML under `site/`);

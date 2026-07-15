@@ -9,17 +9,18 @@ META.md is the per-job harness-retrospective log (see
     - **What happened:** ...
     - **Recommended fix:** ...
 
-This reader is stdlib-only (no PyYAML, no mkdocs) so it runs under a bare
-``python3`` — `/docs-harness` and `/docs-publish` use it to enumerate/count
-findings instead of hand-parsing markdown (the same "scripts own the fragile
-parsing" principle as ``next_phase.py``). It never mutates the file.
+This reader is stdlib-only (no PyYAML, no mkdocs), so it cannot break on a missing
+dependency — but invoke it via ``.venv/bin/python`` like every other factory script
+(the project convention; see AGENTS.md "Setup"). `/docs-harness` and `/docs-publish`
+use it to enumerate/count findings instead of hand-parsing markdown (the same "scripts
+own the fragile parsing" principle as ``next_phase.py``). It never mutates the file.
 
 Usage (from the repo root)::
 
-    python3 .agents/factory/bin/meta_status.py spec/<slug>/META.md
-    python3 .agents/factory/bin/meta_status.py spec/<slug>/META.md --status open
-    python3 .agents/factory/bin/meta_status.py spec/<slug>/META.md --status open --severity high
-    python3 .agents/factory/bin/meta_status.py spec/<slug>/META.md F1 F3   # only these ids
+    .venv/bin/python .agents/factory/bin/meta_status.py spec/<slug>/META.md
+    .venv/bin/python .agents/factory/bin/meta_status.py spec/<slug>/META.md --status open
+    .venv/bin/python .agents/factory/bin/meta_status.py spec/<slug>/META.md --status open --severity high
+    .venv/bin/python .agents/factory/bin/meta_status.py spec/<slug>/META.md F1 F3   # only these ids
 
 Exit codes: 0 ok (even with zero findings) · 2 usage / I/O error.
 A missing META.md is NOT an error — it means "no findings" (prints an empty set).

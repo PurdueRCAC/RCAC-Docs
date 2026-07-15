@@ -9,9 +9,9 @@ NOT already recorded in the baseline, i.e. regressions the current change
 introduced. Pre-existing warnings are known debt tracked in the baseline file.
 
 Usage (run from the repo root, with the project env active):
-    .venv/bin/mkdocs build --strict 2>&1 | python3 .agents/factory/bin/strict_check.py
+    .venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py
     # or from a captured log:
-    python3 .agents/factory/bin/strict_check.py build.log
+    .venv/bin/python .agents/factory/bin/strict_check.py build.log
 
 Options:
     --baseline PATH   baseline file (default: .agents/factory/strict-baseline.txt)

@@ -9,7 +9,7 @@
 #   change introduced. Pre-existing warnings (below) are known debt.
 #
 # HOW IT IS USED
-#   .venv/bin/mkdocs build --strict 2>&1 | python3 .agents/factory/bin/strict_check.py
+#   .venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py
 #   Exit 0 = you introduced no new warnings (PASS).
 #   Exit 1 = new warning(s) attributable to your change (STOP; fix or justify).
 #   Lines starting with '#' and blank lines are ignored by the checker.

@@ -9,19 +9,19 @@ verbatim.
 
 Usage examples (run from the repo root, with the project env active):
     # mark a phase done and advance the pointer, stamping today's date
-    python3 .agents/factory/bin/set_phase.py spec/<slug>/TECH.md \
+    .venv/bin/python .agents/factory/bin/set_phase.py spec/<slug>/TECH.md \
         --phase P2 --phase-status done --current P3 --touch
 
     # set an in_progress phase, update the hill honesty signal
-    python3 .agents/factory/bin/set_phase.py spec/<slug>/TECH.md \
+    .venv/bin/python .agents/factory/bin/set_phase.py spec/<slug>/TECH.md \
         --phase P3 --phase-status in_progress --hill uphill --touch
 
     # record a blocked state from a failed review
-    python3 .agents/factory/bin/set_phase.py spec/<slug>/TECH.md \
+    .venv/bin/python .agents/factory/bin/set_phase.py spec/<slug>/TECH.md \
         --top-status blocked --blocked-reason "review: R2 gap" --touch
 
     # record a review verdict
-    python3 .agents/factory/bin/set_phase.py spec/<slug>/TECH.md \
+    .venv/bin/python .agents/factory/bin/set_phase.py spec/<slug>/TECH.md \
         --verdict approved --reviewed-commit abc1234 --touch
 
 Exit codes: 0 ok · 2 parse/validation error · 3 unknown --phase id.

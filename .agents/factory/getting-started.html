@@ -569,7 +569,7 @@ you   ❯ <span class="c"># you paste it, the build</span>
     <span class="v">hammerable</span>: <span class="n">false</span>          <span class="c"># HPC accuracy — review may not cut this</span>
     <span class="v">hill</span>: downhill            <span class="c"># uphill=figuring out · downhill=writing</span>
     <span class="v">status</span>: done
-    <span class="v">verify</span>: <span class="s">".venv/bin/mkdocs build --strict 2>&amp;1 | python3 .agents/factory/bin/strict_check.py"</span></code></pre>
+    <span class="v">verify</span>: <span class="s">".venv/bin/mkdocs build --strict 2>&amp;1 | .venv/bin/python .agents/factory/bin/strict_check.py"</span></code></pre>
   <p>A pair of small helper scripts (<code><a href="bin/next_phase.py">next_phase.py</a></code> /
     <code><a href="bin/set_phase.py">set_phase.py</a></code>) read and update this block, so the agent
     never hand-edits fragile YAML.</p>

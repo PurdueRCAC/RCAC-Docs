@@ -9,7 +9,7 @@ description: >-
   documentation. Not part of the content lifecycle; it never writes META.md (no meta-on-meta).
 disable-model-invocation: true
 argument-hint: "<slug | spec/<slug>/META.md | --all> [F1 F3 …] [--severity high] [--dry-run]"
-allowed-tools: Read, Write, Edit, Grep, Glob, AskUserQuestion, Bash(git status *), Bash(git branch *), Bash(git switch *), Bash(git checkout *), Bash(git rev-parse *), Bash(git log *), Bash(git diff *), Bash(git add *), Bash(git commit *), Bash(git push *), Bash(gh pr *), Bash(uv *), Bash(.venv/bin/python *), Bash(python3 .agents/factory/bin/*), Bash(grep *)
+allowed-tools: Read, Write, Edit, Grep, Glob, AskUserQuestion, Bash(git status *), Bash(git branch *), Bash(git switch *), Bash(git checkout *), Bash(git rev-parse *), Bash(git log *), Bash(git diff *), Bash(git add *), Bash(git commit *), Bash(git push *), Bash(gh pr *), Bash(uv *), Bash(.venv/bin/python *), Bash(.venv/bin/python .agents/factory/bin/*), Bash(grep *)
 ---
 
 # docs-harness — apply the factory's self-improvement findings
@@ -25,7 +25,7 @@ edits the `.agents/` factory to fix them. It touches the toolchain only — neve
 > path filter skips factory bookkeeping), so this is low-blast-radius — but review the diffs anyway.
 
 > **Harness portability.** Uses `AskUserQuestion` if available, else asks in plain text and STOPs.
-> Everything else is `git` + stdlib `python3` (`meta_status.py`) and is portable.
+> Everything else is `git` + the stdlib `meta_status.py` (run via `.venv/bin/python`) and is portable.
 
 ## Step 1 — Resolve target & working branch
 
@@ -40,7 +40,7 @@ edits the `.agents/` factory to fix them. It touches the toolchain only — neve
 
 ## Step 2 — Enumerate the findings
 
-- `python3 .agents/factory/bin/meta_status.py spec/{slug}/META.md --status open` → the open findings
+- `.venv/bin/python .agents/factory/bin/meta_status.py spec/{slug}/META.md --status open` → the open findings
   (id · severity · category · target · title). Zero findings → nothing to do; report and stop.
 - **Scope from the args:** positional ids (`F1 F3`) restrict to those; `--severity high` filters;
   `--dry-run` = preview only, make no edits/commits.

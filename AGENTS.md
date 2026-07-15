@@ -199,7 +199,7 @@ review). The headlines:
   `[harness]` commits, logged in `factory/harness-log.md`). It never auto-weakens a `hammerable:false`
   gate and never writes findings itself. See methodology.md → "The self-improvement loop".
 - **Verify by rendering, not asserting.** After a change, run
-  `.venv/bin/mkdocs build --strict 2>&1 | python3 .agents/factory/bin/strict_check.py` (no new
+  `.venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py` (no new
   warnings **and no build errors**), confirm the page is in `nav:`, and `.venv/bin/mkdocs serve` to
   eyeball the render — the concurrency and link/nav behavior are where documentation bugs hide.
 - **Put content where it belongs:** new pages under `docs/…` + a `nav:` entry; cluster-variable
