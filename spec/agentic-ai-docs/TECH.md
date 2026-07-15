@@ -98,7 +98,7 @@ phases:
     parallel: false
     hammerable: false
     hill: uphill
-    verify: ".venv/bin/mkdocs build --strict 2>&1 | python3 .agents/factory/bin/strict_check.py && python tools/generate_breadcrumbs.py && grep -q 'Agentic AI' mkdocs.yml"
+    verify: ".venv/bin/mkdocs build --strict 2>&1 | python3 .agents/factory/bin/strict_check.py && .venv/bin/python tools/generate_breadcrumbs.py && grep -q 'Agentic AI' mkdocs.yml"
 review:
   last_reviewed_commit: ""
   verdict: none
@@ -127,7 +127,7 @@ project env active.
   state change. Subjects: `[feature] Draft agentic-ai-docs P<n>: …`. **No `Co-Authored-By`.**
 - **Adding a page updates `mkdocs.yml` `nav:` in the same commit** (else orphaned / missing-file
   `--strict` failure). Add nav lines in reading order (see PLAN §2). Regenerate breadcrumbs at P10
-  (`python tools/generate_breadcrumbs.py`).
+  (`.venv/bin/python tools/generate_breadcrumbs.py`).
 - **Verbatim artifacts** (`docs/agentic-ai` pages that show config) use the proven pattern: a real
   file under `docs/snippets/agentic-ai/…` embedded in a fenced block via `--8<--` (post-Jinja, so
   literal `{{`/`{%` is safe). `check_paths:false` fails silently → each such phase greps the built
@@ -327,13 +327,13 @@ current; a11y and HPC accuracy pass a final review.
 - [ ] Populate the hub grid-cards (`agentic-ai/index.md`) linking every subpage; add the
       Running-Agents index card to `local.md`; add sibling cross-links (running-agents ↔ mcp_servers
       ↔ shared_context ↔ Gautschi chapter).
-- [ ] `python tools/generate_breadcrumbs.py` (nav changed).
+- [ ] `.venv/bin/python tools/generate_breadcrumbs.py` (nav changed).
 - [ ] a11y sweep: one H1/page, descending headings, header rows on tables, descriptive link text,
       alt text on any image.
 - [ ] HPC-accuracy final pass against research 03/04: partitions, QOS, paths, commands, MCP connect
       strings; confirm **no `--partition=a10` / `-A standby`** anywhere in the new pages/snippets.
 - [ ] Full `mkdocs serve` eyeball of the whole section.
-- **Verify:** `… strict_check.py && python tools/generate_breadcrumbs.py && grep -q 'Agentic AI' mkdocs.yml`
+- **Verify:** `… strict_check.py && .venv/bin/python tools/generate_breadcrumbs.py && grep -q 'Agentic AI' mkdocs.yml`
 - **Touches:** `docs/agentic-ai/**`, `docs/userguides/gautschi/using_ai_agents.md`, `docs/assets/data/breadcrumbs.json`, `mkdocs.yml`.
 
 ---
@@ -343,7 +343,7 @@ current; a11y and HPC accuracy pass a final review.
 1. `next_phase.py spec/agentic-ai-docs/TECH.md` prints the next actionable phase (statuses are
    authoritative).
 2. Pre-flight: clean tree, on `feature/agentic-ai-docs`, `main` reachable, env active
-   (`python3 -c "import yaml, mkdocs"`).
+   (`.venv/bin/python -c "import yaml, mkdocs"`).
 3. Execute every `[ ]` in the phase (consult `PLAN.md` / `research/` / `style-guide.md`).
 4. Run the phase's `verify:` — never advance on a checkbox alone.
 5. Amend this file if reality diverges (`set_phase.py`; note in the commit body). STOP and escalate

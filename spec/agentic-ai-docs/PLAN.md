@@ -92,7 +92,7 @@ Insert the Gautschi chapter **between Compiling Source Code (`mkdocs.yml:144`) a
 
 **Nav is added incrementally, in lockstep with page creation** (a nav line pointing at a missing
 file, or a page absent from nav, both fail `--strict`). Reading/nav order == phase order. Breadcrumbs
-regenerate at the integration phase (`python tools/generate_breadcrumbs.py`).
+regenerate at the integration phase (`.venv/bin/python tools/generate_breadcrumbs.py`).
 
 ### Reuse (macros, snippets, gold-standard pages)
 
