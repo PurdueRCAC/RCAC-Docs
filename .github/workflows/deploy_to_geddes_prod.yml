@@ -8,11 +8,6 @@ on:
       - 'modulefiles/**'
       - 'tools/**'
       - 'wcag_audit/**'
-      # Documentation-factory bookkeeping never affects the built site (all outside docs/).
-      - 'spec/**'
-      - '.agents/**'
-      - 'AGENTS.md'
-      - 'CLAUDE.md'
   workflow_dispatch:
 
 permissions:
