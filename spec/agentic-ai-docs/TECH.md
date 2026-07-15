@@ -6,7 +6,7 @@ appetite: big
 status: in_progress
 branch: feature/agentic-ai-docs
 base: main
-current_phase: P3
+current_phase: P4
 last_updated: '2026-07-15'
 phases:
 - id: P1
@@ -34,7 +34,7 @@ phases:
     && grep -q 'acceptable_use.md' mkdocs.yml
 - id: P3
   name: Best Practices & Limitations page
-  status: pending
+  status: done
   satisfies:
   - R3
   depends_on:
@@ -233,7 +233,7 @@ AUP, with a link to the Purdue IT policy of record.
 **Goal:** a page distinguishing agents *for research* vs *for operations*, covering context
 engineering, verification, and caution/blast-radius.
 
-- [ ] Create `docs/agentic-ai/best_practices.md`: research-vs-operations distinction; context
+- [x] Create `docs/agentic-ai/best_practices.md`: research-vs-operations distinction; context
       engineering ("Tea, Earl Grey, hot" — specificity); verification ("augmented, not outsourced";
       ask *why* not just *what*; the expertise paradox); **let agents run read-only sanity checks
       eagerly** (`myquota`, `slist`, `sfeatures`, `module list`, `module avail`) to ground themselves
@@ -242,7 +242,7 @@ engineering, verification, and caution/blast-radius.
       RCAC uses Apptainer (not Docker), and its config auto bind-mounts `/home`, `/depot`, `/scratch`
       — so containers give limited protection and the likeliest failure is an agent *editing files*;
       don't imply Docker-style sandboxing.** Frame from the paper's Discussion; professional voice.
-- [ ] Add nav line; back-link to hub.
+- [x] Add nav line; back-link to hub.
 - **Verify:** `… strict_check.py && grep -q 'best_practices.md' mkdocs.yml`
 - **Touches:** `docs/agentic-ai/best_practices.md`, `mkdocs.yml`.
 

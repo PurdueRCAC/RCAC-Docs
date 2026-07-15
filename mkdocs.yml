@@ -361,6 +361,7 @@ nav:
   - Agentic AI:
     - agentic-ai/index.md
     - Acceptable Use & Etiquette: agentic-ai/acceptable_use.md
+    - Best Practices & Limitations: agentic-ai/best_practices.md
   # - Tags: tags.md
   - Contact us: contact.md
   - FAQs: faqs.md
