@@ -277,7 +277,10 @@
     <em>Shape Up</em>) map cleanly onto agent work. This site packages that method as a small,
     transparent toolkit in <code><a href="../">.agents/</a></code>: five skills and a set of reference
     documents that carry a change from a shaped goal, through a researched plan, through authoring,
-    through an adversarial review, to a pull request — with a durable, committed record at every step.</p>
+    through an adversarial review, to a pull request — with a durable, committed record at every step.
+    The same toolkit also watches <em>itself</em>: it records where its own instructions cause friction
+    and lets a human feed those lessons back in — a <a href="#factory">self-improvement loop</a> that
+    sharpens the factory over time without ever loosening its guardrails.</p>
 
   <h3>What changes for the docs team <a class="anchor" href="#exec">#</a></h3>
   <p>The level of abstraction rises. People spend less time on boilerplate scaffolding, nav wiring, and
@@ -588,6 +591,38 @@ you   ❯ <span class="c"># you paste it, the build</span>
     to the repository. The methodology is not a hidden prompt; it is version-controlled, reviewable, and
     improvable like any other part of the site. The full rationale lives in
     <code><a href="methodology.md">methodology.md</a></code>.</p>
+
+  <h3>The factory improves itself <a class="anchor" href="#factory">#</a></h3>
+  <p>The five lifecycle skills don't just run the process — they <em>watch it for friction</em>. Each
+    skill ends with a silent-by-default <strong>meta-note</strong> step: when a concrete problem in the
+    <em>skillset itself</em> — a misleading instruction, a wrong command, a gap in guidance — costs
+    something during a job, the skill records a terse finding in that job's
+    <code>spec/&lt;slug&gt;/META.md</code>, gated by a single test: <em>"was this the instructions'
+    fault, not mine or the task's?"</em> A merely hard task is not a finding. These <code>F#</code>
+    findings run <em>orthogonal</em> to the <code>GOAL → REVIEW</code> content spine, and are
+    deliberately <strong>hidden from the blind reviewer</strong> (they can leak author intent).</p>
+
+  <p>The loop is <strong>asymmetric by design — cheap to observe, deliberate to act</strong> — so it can
+    never become a token-sink or quietly loosen a guardrail:</p>
+
+  <div class="flow" aria-label="The self-improvement loop">
+    <div class="step"><div class="n">observe</div><div class="t">meta-note</div><div class="d">skills log friction to META.md (F#)</div></div>
+    <div class="arrow">→</div>
+    <div class="step"><div class="n">surface</div><div class="t">/docs-publish</div><div class="d">open findings → a PR "🔧 Harness feedback" block</div></div>
+    <div class="arrow">→</div>
+    <div class="step"><div class="n">act</div><div class="t">/docs-harness</div><div class="d">human-gated fix to .agents/</div></div>
+  </div>
+
+  <p>A sixth skill, <code>/docs-harness</code>, stands <em>outside</em> the lifecycle and is the only one
+    that edits the factory itself. Pointed at a finished job's <code>META.md</code>, it previews the
+    recommended fix for each finding and — <strong>only with human approval</strong> — applies them to
+    <code>.agents/</code> as atomic <code>[harness]</code> commits, recording every decision in a
+    cross-job ledger, <code><a href="harness-log.md">harness-log.md</a></code>. It is bound by four rules
+    it cannot break: the observer is never the fixer; it <strong>never auto-weakens a
+    <code>hammerable:false</code> gate</strong>; fixes must generalize (no overfitting to one job); and
+    it writes no findings of its own (no meta-on-meta). Because edits to <code>.agents/**</code> are
+    excluded from the production deploy, the blast radius is the <em>next</em> job's authoring — never
+    the live site.</p>
 </section>
 
 <!-- =================== 5. SKILLS =================== -->
@@ -647,6 +682,18 @@ you   ❯ <span class="c"># you paste it, the build</span>
       so it always confirms with you first and never targets <code>dev</code>.</p>
     <div class="io"><b>reads</b> all artifacts + git log · <b>writes</b> a PR (or a local merge) ·
       <b>skill</b> <a href="../skills/docs-publish/SKILL.md">docs-publish/SKILL.md</a></div>
+  </div>
+
+  <div class="skill" style="border-left-color:var(--muted)">
+    <div class="cmd" style="color:var(--text-2)">/docs-harness <span style="color:var(--muted);font-weight:400">— the self-improvement skill (not part of the lifecycle)</span></div>
+    <p>Stands apart from the five above: it changes the <strong>factory</strong>, not any page. Pointed at
+      a finished job's <code>META.md</code>, it previews and — <strong>only with your approval</strong> —
+      applies each recorded process fix to <code>.agents/</code> as an atomic <code>[harness]</code>
+      commit, logging every decision. It never fires on its own
+      (<code>disable-model-invocation</code>), never auto-weakens a safety gate, and writes no findings
+      itself. See <a href="#factory">The factory improves itself</a> for the loop it closes.</p>
+    <div class="io"><b>reads</b> spec/&lt;slug&gt;/META.md + harness-log.md · <b>writes</b> .agents/ fixes, harness-log.md ·
+      <b>skill</b> <a href="../skills/docs-harness/SKILL.md">docs-harness/SKILL.md</a></div>
   </div>
 
   <h3>A day in the life <a class="anchor" href="#skills">#</a></h3>
@@ -735,6 +782,29 @@ you   ❯ <span class="c"># you paste it, the build</span>
   <p>These are exactly the skills experienced writers and RSEs already have. The change is that they
     spend more of their day exercising them and less on boilerplate. It is a force multiplier for a
     small docs team, not a substitute for one.</p>
+
+  <h3>A factory that improves itself <a class="anchor" href="#leadership">#</a></h3>
+  <p>The factory is instrumented to get <em>better with use</em> — without ever putting its own
+    guardrails up for negotiation. As each job runs, the skills quietly record process friction (a
+    misleading instruction, a wrong command, a gap in guidance) as findings in that job's
+    <code>META.md</code>; a human then decides, through the <code>/docs-harness</code> skill, which of
+    those fixes to fold back into the toolchain. Three properties make this safe to leave running:</p>
+  <ul>
+    <li><strong>Human-gated and non-self-weakening.</strong> No fix is ever auto-applied, and the skill
+      is constitutionally forbidden from loosening a <code>hammerable:false</code> gate (HPC accuracy,
+      accessibility, build integrity) without an explicit human override. The mechanism that sharpens
+      the process cannot be turned against its own quality bar.</li>
+    <li><strong>Isolated blast radius.</strong> These changes touch only the <code>.agents/</code>
+      toolchain, which is excluded from the production deploy — so a factory tweak can never itself reach
+      the live site. It changes how the <em>next</em> page is authored, not any published page.</li>
+    <li><strong>Fully audited.</strong> Every applied or rejected fix is logged, with its rationale, in a
+      cross-job ledger (<code>harness-log.md</code>) — the same "answer it from the repository alone"
+      standard the content trail meets, and an anti-thrash memory so rejected ideas don't keep
+      returning.</li>
+  </ul>
+  <p>The takeaway for leadership is <strong>compounding return</strong>: the team's accumulated lessons
+    about <em>how</em> to author well become durable, reviewable changes to the shared toolchain rather
+    than living only in one person's head — and every one of those changes passes through a human hand.</p>
 </section>
 
 <!-- =================== 6. REFERENCE =================== -->
@@ -757,7 +827,7 @@ you   ❯ <span class="c"># you paste it, the build</span>
   </table>
   </div>
 
-  <h3>The five skills <a class="anchor" href="#reference">#</a></h3>
+  <h3>The skills — five lifecycle, one meta <a class="anchor" href="#reference">#</a></h3>
   <div class="tablewrap">
   <table>
     <thead><tr><th>Skill</th><th>Role</th></tr></thead>
@@ -767,6 +837,9 @@ you   ❯ <span class="c"># you paste it, the build</span>
       <tr><td><code><a href="../skills/docs-draft/SKILL.md">docs-draft</a></code></td><td>Author the roadmap, one verified phase at a time.</td></tr>
       <tr><td><code><a href="../skills/docs-review/SKILL.md">docs-review</a></code></td><td>Independent, blind, evidence-based QA.</td></tr>
       <tr><td><code><a href="../skills/docs-publish/SKILL.md">docs-publish</a></code></td><td>Open the pull request to <code>main</code> (or merge locally).</td></tr>
+      <tr><td><code><a href="../skills/docs-harness/SKILL.md">docs-harness</a></code> <span style="color:var(--muted)">(meta)</span></td>
+          <td>Apply a job's <code>META.md</code> self-improvement findings to the factory, human-gated.
+              <em>Not part of the content lifecycle</em> — it changes the toolchain, not any page.</td></tr>
     </tbody>
   </table>
   </div>
@@ -777,8 +850,8 @@ you   ❯ <span class="c"># you paste it, the build</span>
     <thead><tr><th>Document</th><th>What it is / how it's used</th></tr></thead>
     <tbody>
       <tr><td><code><a href="methodology.md">methodology.md</a></code></td>
-          <td>The full lifecycle rationale — the "why" behind the skills, and the Shape Up mapping.
-              Read this to understand the flow.</td></tr>
+          <td>The full lifecycle rationale — the "why" behind the skills, the Shape Up mapping, and the
+              self-improvement loop. Read this to understand the flow.</td></tr>
       <tr><td><code><a href="invariants.md">invariants.md</a></code></td>
           <td>The curated checklist of load-bearing rules, drawn from <code>AGENTS.md</code>. Used as
               the planning gate and the review footgun list.</td></tr>
@@ -804,11 +877,14 @@ you   ❯ <span class="c"># you paste it, the build</span>
       <tr><td><code><a href="templates/PLAN.md">templates/PLAN.md</a></code></td><td>Skeleton for the design.</td></tr>
       <tr><td><code><a href="templates/TECH.md">templates/TECH.md</a></code></td><td>Skeleton for the phased FSM roadmap (with the field reference).</td></tr>
       <tr><td><code><a href="templates/REVIEW.md">templates/REVIEW.md</a></code></td><td>Skeleton for the review report.</td></tr>
+      <tr><td><code><a href="templates/META.md">templates/META.md</a></code></td><td>Skeleton for the per-job harness-retrospective log — the <code>F#</code> finding format and the bar for recording one.</td></tr>
       <tr><td><code><a href="bin/next_phase.py">bin/next_phase.py</a></code></td><td>Reads &amp; validates a TECH.md; prints the next actionable phase as JSON.</td></tr>
       <tr><td><code><a href="bin/set_phase.py">bin/set_phase.py</a></code></td><td>Advances FSM state by regenerating the front-matter (no fragile hand-edits).</td></tr>
       <tr><td><code><a href="bin/strict_check.py">bin/strict_check.py</a></code></td><td>Gates a <code>mkdocs --strict</code> log against the warning baseline (fails only on regressions).</td></tr>
+      <tr><td><code><a href="bin/meta_status.py">bin/meta_status.py</a></code></td><td>Enumerates a <code>META.md</code>'s findings as JSON (by status / severity / id), so <code>/docs-publish</code> and <code>/docs-harness</code> never hand-parse the log.</td></tr>
       <tr><td><code><a href="bin/_fsm.py">bin/_fsm.py</a></code></td><td>Shared parse / validate / serialize helpers for the scripts above.</td></tr>
       <tr><td><code><a href="strict-baseline.txt">strict-baseline.txt</a></code></td><td>The known pre-existing <code>--strict</code> warnings the build gate ignores.</td></tr>
+      <tr><td><code><a href="harness-log.md">harness-log.md</a></code></td><td>The cross-job ledger of applied / rejected self-improvement fixes — anti-thrash memory, read before applying a finding.</td></tr>
     </tbody>
   </table>
   </div>
