@@ -16,7 +16,7 @@ Frequently asked questions about Data Depot.
 
 ### Can you remove me from the Data Depot mailing list?
 
-Your subscription in the Data Depot mailing list is tied to your account on Data Depot. If you are no longer using your account on Data Depot, your account can be deleted from the [My Accounts](https://www.rcac.purdue.edu/account/myinfo) page. Hover over the resource you wish to remove yourself from and click the red 'X' button. Your account and mailing list subscription will be removed overnight. Be sure to make a copy of any data you wish to keep first.
+Your subscription in the Data Depot mailing list is tied to your account associated with your group(s) on Data Depot. If you are no longer using Data Depot, you can fist find your associated group(s) that have active Data Depot access from your [Storage Quotas](https://www.rcac.purdue.edu/account/quotas) page. Then you could contact the group PI or managers or [rcac-help](mailto:rcac-help@purdue.edu) to remove you from the group(s) Data Depot. Your account and mailing list subscription will be removed overnight. Be sure to make a copy of any data you wish to keep first.
 
 ### What sort of performance should I expect to and from the Data Depot?
 
