@@ -80,3 +80,7 @@ Users who have access to **Gautschi** can use **ThinLinc** to launch an interac
 ### Jupyter:  database is locked / can not load notebook format
 
 --8<-- "docs/snippets/jupyter_lock.md"
+
+### RStudio Server Timeout
+
+--8<-- "docs/snippets/rstudio_timeout.md"

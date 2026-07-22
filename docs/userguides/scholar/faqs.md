@@ -74,3 +74,7 @@ Users who have access to **Scholar** can use **ThinLinc** to launch an interact
 ### Jupyter:  database is locked / can not load notebook format
 
 --8<-- "docs/snippets/jupyter_lock.md"
+
+### RStudio Server Timeout
+
+--8<-- "docs/snippets/rstudio_timeout.md"
