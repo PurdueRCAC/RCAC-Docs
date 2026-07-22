@@ -224,3 +224,8 @@ You can search all modules using `$ module spider`. Some modules require you to 
 ### Jupyter:  database is locked / can not load notebook format
 
 --8<-- "docs/snippets/jupyter_lock.md"
+
+### RStudio Server Timeout
+
+--8<-- "docs/snippets/rstudio_timeout.md"
+

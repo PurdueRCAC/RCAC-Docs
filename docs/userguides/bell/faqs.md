@@ -438,6 +438,10 @@ $ export JULIA_DEPOT_PATH=$HOME/.julia
 $ julia -e 'using Pkg; Pkg.add("PackageName")'
 ```
 
+### RStudio Server Timeout
+
+--8<-- "docs/snippets/rstudio_timeout.md"
+
 ## About Research Computing
 
 ### Can I get a private server from RCAC?
