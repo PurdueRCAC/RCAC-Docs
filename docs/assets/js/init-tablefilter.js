@@ -50,12 +50,12 @@ document.addEventListener("DOMContentLoaded", function () {
     on_after_filter: updateCounter  // fires after every filter operation
   };
   if (isContainerTable) {
-    tfConfig.watermark = ['Start typing...', 'Avalable cluster...'];
+    tfConfig.watermark = ['Start typing...', 'Available cluster...'];
   } else {
     tfConfig.col_2 = 'input';    // Available at/Discipline → text input
     tfConfig.watermark = isDatasetTable
       ? ['Start typing...', 'Category...', 'Discipline...']
-      : ['Start typing...', 'Topic...', 'Avalable cluster...'];
+      : ['Start typing...', 'Topic...', 'Available cluster...'];
   }
 
   var tf = new TableFilter(tableId, tfConfig);
