@@ -49,7 +49,7 @@ Every RCAC cluster has its own dedicated guide organized into consistent chapter
 | [Anvil](/userguides/anvil/) | 128 cores/node, A100 (40GB) and H100 (80GB) GPUs |
 | [Gautschi](/userguides/gautschi) | 192 cores/node, L40S (48GB) and H100 (80GB) GPUs |
 | [Bell](/userguides/bell)  | 128 cores/node, AMD MI50 (32GB) GPUs |
-| [Negishi (Under Migration)](https://www.rcac.purdue.edu/knowledge/negishi) | 128 cores/node, AMD MI210 (64GB) GPUs |
+| [Negishi](/userguides/negishi/) | 128 cores/node, AMD MI210 (64GB) GPUs |
 | [Gilbreth](/userguides/gilbreth) | Various Nvida GPUs |
 | [Scholar](/userguides/scholar) | 168 cores/node, Various Nvida GPUs |
 
