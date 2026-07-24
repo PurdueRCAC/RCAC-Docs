@@ -18,7 +18,7 @@ One important aspect of the shell is the prompt, which shows you
 information about your shell session. A typical shell could look
 like this:
 
-```
+``` linenums="0"
 username@login03.negishi:[~] $
 ```
 

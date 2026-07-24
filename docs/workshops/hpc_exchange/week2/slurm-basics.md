@@ -51,7 +51,7 @@ echo "Script is finished! Exiting..."
 ### Submission
 Once you are ready, submit it to the scheduler with the `sbatch` program:
 
-```bash
+```bash linenums="0"
 $ ls
 example.py  myjob.sh  ...
 
@@ -64,7 +64,7 @@ Submitted batch job 32209880
     The output of your job will, by default, be saved in files with this ID (e.g. `slurm-32209880.out`).
 
     Once our job is done, we can see the output with:
-    ```bash
+    ```bash linenums="0"
     $ ls slurm-32209880.out
     slurm-32209880.out
 
@@ -92,7 +92,7 @@ Let's take a closer look at the individual pieces of information we need to prov
 
     Use the `slist` program to show which Slurm accounts are available for you to submit to, and what their current usage is. 
 
-    ```
+    ``` linenums="0"
     $ slist
                             Current Negishi Accounts                                
     ==============================================================================    
@@ -122,7 +122,7 @@ Let's take a closer look at the individual pieces of information we need to prov
     available on the cluster, run the `showpartitions`
     program:
 
-    ```
+    ``` linenums="0"
     $ showpartitions
     Partition statistics for cluster negishi at Thu Jul 17 16:12:58 EDT 2025
     Partition       #Nodes     #CPU_cores  Cores_pending   Job_Nodes MaxJobTime Cores Mem/Node
@@ -201,7 +201,7 @@ Let's take a closer look at the individual pieces of information we need to prov
 To get an interactive job (or essentially a shell on a compute node), use the `sinteractive` program (which is RCAC specific). You will need to specify the same parameters as with `sbatch` (e.g. account, partition, QoS, cores, nodes, time).
 
 
-``` hl_lines="1 8"
+``` hl_lines="1 8" linenums="0"
 username@login03.negishi:[~] $ sinteractive -A hpcexc -p cpu -q normal -n 1 -t 00:10:00
 salloc: Pending job allocation 19809515
 salloc: job 19809515 queued and waiting for resources
@@ -233,7 +233,7 @@ Most notably, we have an "Open OnDemand Desktop" application, which will give yo
 
 You can use the `squeue` program to list currently scheduled (pending and running) jobs. By default it will show all jobs from all users on the cluster, which leads to a lot of output. You can limit this to just your jobs with the `--me` flag:
 
-```bash
+```bash linenums="0"
 $ squeue --me
 JOBID      USER     ACCOUNT      PART QOS     NAME       NODES TRES_PER_NODE   CPUS  TIME_LIMIT ST TIME
 32541229   username hpcexc       cpu  normal  interactiv     1 N/A                8       30:00  R 0:09
@@ -244,7 +244,7 @@ This can give you important information such as the status of your job (`R` for 
 
 To learn more about the parameters of a single job, you can use the `jobinfo` program. To use `jobinfo`, the command would be `jobinfo JOB_ID`, where the `JOB_ID` is replaced with the job ID mentioned above (which you can also check with the `squeue` program).
 
-```bash
+```bash linenums="0"
 $ jobinfo 32209880
 Name : myjob.sh
 User : username
@@ -259,7 +259,7 @@ There are also `jobenv`, `jobcmd`, and `jobscript` programs that tell you more i
 
 To cancel a job, use the `scancel` program. It used by running `scancel JOB_ID`, where `JOB_ID` is replaced with the job ID mentioned before.
 
-```bash
+```bash linenums="0"
 $ scancel 32209880
 ```
 

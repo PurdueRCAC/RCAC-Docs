@@ -11,14 +11,14 @@ In Bash, **commands return an exit code**:
 * `0` → success (true)
 *  non-zero → failure (false)
 
-```bash
+```bash linenums="0"
 ls /tmp        # success → exit code 0
 ls /nope       # failure → exit code != 0
 ```
 
 You can check the last exit code with:
 
-```bash
+```bash linenums="0"
 echo $?
 ```
 This is the foundation for conditionals in shell scripts.
@@ -28,7 +28,7 @@ This is the foundation for conditionals in shell scripts.
 
 ### Basic `if`/`else` statements
 
-```bash
+```bash linenums="0"
 if command; then
   echo "Command succeeded"
 else
@@ -50,7 +50,7 @@ fi
 | `-x file` | Executable |
 
 
-```bash
+```bash linenums="0"
 if [[ -d "$SCRATCH" ]]; then
   echo "Scratch directory exists"
 fi
@@ -65,7 +65,7 @@ fi
 | `str1 == str2` | Equal |
 | `str1 != str2` | Not equal |
 
-```bash
+```bash linenums="0"
 if [[ -z "$1" ]]; then
   echo "Usage: $0 <filename>"
   exit 1
@@ -83,7 +83,7 @@ fi
 | `-gt` | greater than |
 | `-ge` | greater or equal |
 
-```bash
+```bash linenums="0"
 if [[ "$N" -gt 10 ]]; then
   echo "Large job"
 fi
@@ -97,7 +97,7 @@ fi
 | `||` | OR |
 | `!`  | NOT |
 
-```bash
+```bash linenums="0"
 if [[ -f input.dat && -d /path/to/data ]]; then
   echo "Input file and Data directory present!"
 fi
@@ -108,7 +108,7 @@ fi
 
 ### Basic For loop
 
-```bash
+```bash linenums="0"
 for x in a b c; do
   echo "$x"
 done
@@ -116,7 +116,7 @@ done
 
 ### Loop Over Files
 
-```bash
+```bash linenums="0"
 for f in *.py; do
   echo "Processing $f"
   python $f
@@ -125,7 +125,7 @@ done
 
 ### Numeric Loop
 
-```bash
+```bash linenums="0"
 for i in {1..5}; do
   echo "Iteration $i"
 done
@@ -133,7 +133,7 @@ done
 
 Alternatively,
 
-```bash
+```bash linenums="0"
 for ((i=1; i<=5; i++)); do
   echo "$i"
 done
@@ -145,7 +145,7 @@ done
 
 While loops are also available in bash. Note that this example uses an expression to increment `count`.
 
-```bash
+```bash linenums="0"
 count=0
 while [ "$count" -lt 5 ]; do
   echo "$count"
@@ -157,7 +157,7 @@ done
 
 One of the most common uses of a while loop is using a file. Note that this example uses a `<` to read input from a file. We'll talk more about this in the [pipes](./pipes.md) section!
 
-```bash
+```bash linenums="0"
 while read -r line; do
   echo "$line"
 done < input.txt
@@ -166,7 +166,7 @@ done < input.txt
 
 ## Examples
 
-```bash
+```bash linenums="0"
 #!/bin/bash
 
 if [[ -z "$SLURM_JOB_ID" ]]; then
