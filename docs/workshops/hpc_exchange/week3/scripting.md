@@ -61,14 +61,14 @@ There are two ways to execute shell scripts:
 
 1) Invoking it with the appropriate shell
 
-```bash
+```bash linenums="0"
 $ bash hello.sh
 Hello, World!
 ```
 
 2) Refer to it as a program directly by its path
 
-```bash
+```bash linenums="0"
 $ ./hello.sh
 -bash: ./hello.sh: Permission denied
 ```
@@ -76,7 +76,7 @@ $ ./hello.sh
 !!! failure "Execution Permissions"
     Why did this happen? What can we do to check the permissions? Use the command `ls -l hello.sh` to see the permissions:
 
-    ```
+    ``` linenums="0"
     $ ls -l hello.sh
     -rw-r--r-- 1 username student 22 Oct 11 01:44 hello.sh
     ```
@@ -85,11 +85,11 @@ The file `hello.sh` doesn't have the **execute** bit set, so we can't run it as 
 
 The `chmod` program allows you to add and remove read(`r`)/write(`w`)/execute(`x`) permissions for the <span class="perm-user">user</span> (`u`), <span class="perm-group">group</span> (`g`), and <span class="perm-other">others</span> (`o`) with the following syntax:
 
-```bash
+```bash linenums="0"
 chmod [ugo][-+][rwx] file
 ```
 To add execute permissions to our file, we can simply run the command:
-```bash
+```bash linenums="0"
 $ chmod +x hello.sh
 ```
 
@@ -106,13 +106,13 @@ which allows us to "execute" it as a program. For a quick refresher on what perm
 
 Now, we can run `hello.sh` directly as a program!
 
-```bash
+```bash linenums="0"
 $ ./hello.sh
 Hello, World!
 ```
 
 ??? question "How would we remove read permissions on a file for both the file *group* and *others*?"
-     ```
+     ``` linenums="0"
      chmod go-r file.sh
      ```
 
@@ -121,29 +121,34 @@ Hello, World!
 
 You may have noticed that we needed to execute our file relative to our current directory (i.e `./hello.sh` instead of just `hello.sh`). If we try to run just  `hello.sh`, we will get a "command not found" error:
 
-```bash
+```bash linenums="0"
 $ hello.sh
 hello.sh: command not found
 ```
 
 In order for a shell to be able to find this little program and use it as a command, we need to add the directory it is located in to be part of our `PATH` variable. (We'll talk more on shell variables in a bit).
 
-Essentially,the `PATH` variable controls where the shell looks for executable programs to run as commands. You can see all the directories that are searched for commands with the following command:
+Essentially, the `PATH` variable controls where the shell looks for executable programs to run as commands. You can see all the directories that are searched for commands with the following command:
 
-```bash
+```bash linenums="0"
 echo $PATH
 /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:
 ```
-Every command that we run is located in one of these directories! For example, we can see that the program that is executed by the `ls` command is located in  `/usr/bin/`, which is listed in our `PATH` variable!
+Every command that we run is located in one of these directories! When you type a command, your shell will look through all of the directories on your `PATH` variable until it finds a matching executable file!
 
-```bash
+![Image of a shell searching through folders on the path variable until it finds a matching command](../../../assets/images/workshops/hpc_exchange/path_search.png)
+
+For example, we can see that the program that is executed by the `ls` command is located in  `/usr/bin/`, which is listed in our `PATH` variable!
+
+
+```bash linenums="0"
 $ which ls
 /usr/bin/ls
 ```
 
 It's common to make a `bin` directory in your home directory, and store any executable files you want to run as commands there. Let's make a `bin` directory, move our program there, and add the `bin` directory to our `PATH` variable!
 
-```bash 
+```bash  linenums="0"
 $ mkdir ~/bin
 $ mv hello.sh ~/bin/hello
 $ export PATH=$PATH:~/bin
@@ -184,14 +189,14 @@ by environment variables.
 They are like other programming languages, and you can define them yourself! There are no types (mostly everything is text).
 
 Simple assignment:
-```bash
+```bash linenums="0"
 x=1
 y=foo
 ```
 
 You can access the variable with with the `$var` or `${var}`:
 
-```bash
+```bash linenums="0"
 echo $x
 1
 echo ${y}
@@ -201,20 +206,20 @@ foo
 Variables are *conventionally* uppercase, but
 it's not necessary.
 
-```bash
+```bash linenums="0"
 NAME="some data"
 ```
 
 There is also a weird thing where 0 is true
 and 1 is false, which we will discuss later.
 
-```bash
+```bash linenums="0"
 COND=1
 ```
 
 Lastly, you can use **Command substitution** to set a variable to the output of a command:
 
-```bash
+```bash linenums="0"
 HOST=$(hostname -f)
 ```
 
@@ -224,7 +229,7 @@ Variables also have a scope. If you define
 a variable, it is only visible in local
 scope (current script) by default.
 
-```bash
+```bash linenums="0"
 X=true
 ```
 
@@ -232,20 +237,20 @@ X=true
 To propagate the variable down to child
 processes, you need to `export` it.
 
-```bash
+```bash linenums="0"
 export X
 ```
 
 You can also declare the variable and export
 it on the same line.
 
-```bash
+```bash linenums="0"
 export THING=0
 ```
 You can also declare multiple variables on
 one line.
 
-```bash
+```bash linenums="0"
 export THING=0 DATASET=foo.in
 ```
 
@@ -255,14 +260,14 @@ export THING=0 DATASET=foo.in
 There are a couple of "magic" variables which
 are not like other programming languages.
 
-```bash
+```bash linenums="0"
 echo $RANDOM
 ```
 Will always give you a random value, even if
 you set it to be something else.
 
 
-```bash
+```bash linenums="0"
 echo $SECONDS
 ```
 Will print the number of seconds that have passed since the shell has been opened. 
@@ -297,7 +302,7 @@ done
 ```
 
 We can now provide this script arguments, and use them in our script!
-```bash 
+```bash  linenums="0"
 $ bash hellonames.sh jake josh jenny
 You gave me 3 names!
 The first name is jake
@@ -308,15 +313,14 @@ Hello jenny!
 
 
 ### System Variables
-There are also special software/shell environment
-variables that change the behavior of different
-things.
+There are also special software/shell environment variables that change the behavior of different things.
 
 | Variable | Meaning |
 |---|---|
 | `PATH` | Directories containing programs |
 | `MANPATH` | Directories containing manual pages |
 | `LD_LIBRARY_PATH` | Directories containing shared libraries |
+| `HOME` | Location of your home directory |
 <!-- | `PKG_CONFIG_PATH` | Directories containing package configuration | -->
 
 
@@ -345,7 +349,7 @@ alias Negishi='ssh username@negishi.rcac.purdue.edu'
 
 Let's go ahead and make that now:
 
-```bash
+```bash linenums="0"
 cd ~
 vim .bashrc
 #or
@@ -365,7 +369,7 @@ the two that we are going to talk about are:
 You can also add variables (like `PATH`) to your
 login profile.
 
-```bash
+```bash linenums="0"
 export PATH=$PATH:$HOME/bin
 ```
 This will add the newly created `bin` folder in your
@@ -383,7 +387,7 @@ home directory. Which would be bad.
 An alias is a verbatim command substitution that
 happens on the command line when invoked like a program.
 Here's one example:
-```bash
+```bash linenums="0"
 alias Negishi='ssh username@negishi.rcac.purdue.edu'
 ```
 Instead of typing the command `ssh username@negishi.rcac.purdue.edu` every time you want to log into Negishi, This alias will allow you to instead just type `Negishi`.
@@ -401,7 +405,7 @@ an error condition. Often, programs will document
 the meaning of their different exit status values
 in their manual page.
 
-```bash hl_lines="4"
+```bash hl_lines="4" linenums="0"
 $ hello
 Hello, world!
 
@@ -420,7 +424,7 @@ shell. This is opposite of almost everywhere
 else.
 
 
-```bash
+```bash linenums="0"
 if command; then
   echo "Command Succeeded"
 else
@@ -430,13 +434,13 @@ fi
 
 As shorthand, you may also see conditionals formatted like this:
 
-```bash
+```bash linenums="0"
 command && echo "Command Succeeded" || echo "Command Failed"
 ```
 
 Bash also allows us to run several tests against files and variables with true/false outcomes:
 
-```bash
+```bash linenums="0"
 if [[ -d "$SCRATCH" ]]; then
   echo "Scratch directory exists"
 fi
@@ -485,7 +489,7 @@ Numeric comparisons can be useful when you want to compare values such as counts
 | Operator | Meaning | Example |
 |----------|---------|---------|
 | `&&` | AND | `[[ -f in.txt && -w out.txt ]] && ./process.sh` |
-| `||` | OR | `[[ -d "$SCRATCH" ]] || mkdir -p "$SCRATCH"` |
+| `||` | OR | `[[ -d "$SCRATCH" || -d "$CLUSTER_SCRATCH"]] && mkdir -p "$SCRATCH"` |
 | `!`  | NOT | `[[ ! -f config.yaml ]] && echo "Missing config"` |
 
 ## Loops
@@ -493,7 +497,7 @@ Numeric comparisons can be useful when you want to compare values such as counts
 Lastly, loops are implemented in `bash`, and can be particularly useful for looping over files or arguments. 
 
 You can use command substitution to loop through files:
-```bash
+```bash linenums="0"
 for f in $(ls *.py); do
   echo "Processing $f"
   python $f
@@ -505,7 +509,7 @@ Processing file3.py
 ```
 
 You can loop through file arguments with the `$@` variable:
-```bash
+```bash linenums="0"
 for name in $@; do
     echo "Hello $name!"
 done
@@ -517,7 +521,7 @@ Hello jenny!
 
 Lastly, you can loop through an array of integers:
 
-```bash
+```bash linenums="0"
 for number in {1..10}; do
     echo "On $number!"
 done
@@ -534,6 +538,6 @@ On 9!
 On 10!
 ```
 
-There's many more aspects of `bash` that we're not going to talk about here like while loops, functions, and variable substitution. Before we move on, it's important to note that if a command fails, bash will just continue on by default.
+There's many more aspects of `bash` that we're not going to talk about here like while loops, functions, and variable substitution.
 
 Next section: [Pipes](./pipes.md)

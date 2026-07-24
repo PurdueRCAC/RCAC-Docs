@@ -8,7 +8,7 @@ Now that we can check our job history, let's learn how we can check that we are 
 
 You can use the `jobinfo` program with the ID to see which node your job is on and `ssh` directly there. Let's run our job again 
 
-```bash
+```bash linenums="0"
 $ sbatch --exclusive myjob.sh
 Submitted batch job 19823415
 
@@ -22,12 +22,12 @@ JOBID     USER       ACCOUNT  NAME        NODES  CPUS  TIME_LIMIT  ST  TIME
 
 Once you've done `jobinfo` to determine which node your job has landed on, you can `ssh` directly to the node. This is something you can do only if you have a Slurm job on the node. Once on the node, use a tool like `htop` to inspect CPU and memory activity (press `q` to quit).
 
-```bash
+```bash linenums="0"
 username@login03.negishi:[~] $ jobinfo 19823415
 ...
 Nodes               : a200
 ```
-```bash
+```bash linenums="0"
 username@login03.negishi:[~] $ ssh a200
 
 username@a200.negishi:[~] $ top -u username # Or htop
@@ -45,7 +45,7 @@ username@a200.negishi:[~] $ top -u username # Or htop
 
 However, just `ssh`ing onto the node isn't *real* telemetry. We want to collect and store the data. To do this, we can use the `monitor` utility (which is RCAC specific) to gather data on CPU and GPU metrics.
 
-```bash
+```bash linenums="0"
 $ module load monitor
 $ monitor cpu memory
 DATE TIME HOSTNAME monitor.cpu.memory 15.7
@@ -98,13 +98,13 @@ Be sure to ask for all the  (with `--exclusive`) on the node so you don't collec
      The `&` puts the process into the background! If we didn't, the node would be stuck on the monitor command until the walltime ran out. Check out [Managing Processes](../week3/processes.md) from Week 3 if you need a refresher.
 
 Now, let's run the new monitored submission file:
-```bash
+```bash linenums="0"
 $ sbatch --exclusive example.sh
 Submitted batch job 2095586
 ```
 
 Once it's done, let's look at the output of the files:
-```bash
+```bash linenums="0"
 $ cd $SCRATCH/example
 $ cat cpu_mem.csv
 DATE, TIME, HOSTNAME, monitor.cpu.memory, 15.7

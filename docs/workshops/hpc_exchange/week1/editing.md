@@ -11,7 +11,7 @@ whitespace as delineating the arguments of a program.
 So, if you had a folder named `example data`, and ran
 this command:
 
-```bash
+```bash linenums="0"
 $ ls example data
 ```
 It would try to list everything in the `example` and
@@ -22,11 +22,11 @@ you can escape it by using the escape character (`\`)
 to tell the command line to take that character as
 is and not try to interpret it. So you could do:
 
-```bash
+```bash linenums="0"
 $ ls example\ data
 ```
 or 
-```bash
+```bash linenums="0"
 $ ls "example data"
 ```
 
@@ -60,11 +60,11 @@ friendly.
 To start `nano` you can do one of two ways:
 
 Simply type `nano` to start it in a new file:
-```
+``` linenums="0"
 $ nano
 ```
 Or provide a file name to start editing that file:
-```
+``` linenums="0"
 $ nano document.txt
 ```
 Nano looks similar to this:
@@ -97,7 +97,7 @@ specify and `Exit` quits out of the editor.
 ### vim:
 Starting vim is similar to nano, you can either specify a file you want to edit or make, or simply type `vim`:
 
-```bash
+```bash linenums="0"
 $ vim document.txt
 ```
 
@@ -126,13 +126,13 @@ the name of the file you want to change it to, or if it's
 a directory, it's the place you want to put the file.
 
 Changing the name of the file:
-```bash
+```bash linenums="0"
 $ mv document.txt paper.txt
 ```
 Which will change the name of the file to be `paper.txt`
 
 Changing the location of the file:
-```bash
+```bash linenums="0"
 $ mv paper.txt ~/Desktop/
 ```
 Which will move the file into the `Desktop`
@@ -141,7 +141,7 @@ directory, but keep the same name.
 !!! note "Moving Multiple Files"
    If you provide more than 2 arguments, `mv` will require the last argument to be a destination directory. Like:
 
-   ```bash
+   ```bash linenums="0"
    mv file1.png file2.png *.txt Desktop
    ```
 
@@ -151,7 +151,7 @@ The `cp` or `copy` program is similar to the `mv` program
 except that it leaves the original copy intact. This is
 useful if you want to create a backup or a fork of
 something. The command:
-```bash
+```bash linenums="0"
 $ cp ~/example-data/paper.txt ~/thesis.txt
 ```
 
@@ -166,14 +166,14 @@ directory, but still keep the original file around.
 
 
 Let's try backing up a directory:
-```bash
+```bash linenums="0"
 $ cp example-data/ data.bak
 cp: example-data/ is a directory (not copied).
 ```
 Oops, what happened here?
 
 We can't copy directories without recursively copying its contents, which `cp` does not do by default. You can copy directories with the `-r` (recursive) option:
-```bash
+```bash linenums="0"
 $ cp -r example-data/ data.bak
 ```
 
@@ -186,7 +186,7 @@ there is no concept of a trash bin, **if you remove a file,
 it's gone forever, no way to get it back**. So make sure
 you know what you're deleting before you run `rm`.
 
-```bash
+```bash linenums="0"
 $ rm thesis.txt
 ```
 
@@ -194,7 +194,7 @@ To delete directories, you need to use the `-r` or
 recursive option. This will delete the directory and
 everything inside of it. Again, this is permanent, so
 be very careful to know exactly what you're deleting.
-```bash
+```bash linenums="0"
 $ rm -r data.bak
 ```
 

@@ -12,7 +12,7 @@ As a user, you can picture a filesystem as a series of nested files and folders(
 
 `pwd` is a program that is occasionally helpful, but is a good way to get your feet wet in trying out different UNIX commands. All it does is print out what directory (folder) you are currently in. Usually you will already know where you're at from the prompt, but it can be helpful to know the full path. `pwd` stands for *print working directory*:
 
-```bash
+```bash linenums="0"
 $ pwd
 /home/username
 ```
@@ -21,7 +21,7 @@ $ pwd
 
     Most shells start in your home directory!
 
-    ```bash
+    ```bash linenums="0"
     $ pwd
     /home/username
     ```
@@ -30,7 +30,7 @@ $ pwd
 
 `ls` is one of the most common UNIX programs that you may use while on UNIX systems. By default, it lists the contents of your current working directory:
 
-```bash
+```bash linenums="0"
 $ ls
 data.csv		Documents       bin      Desktop
 ```
@@ -55,12 +55,12 @@ argument to list contents of that directory.
 
     You can substitute these in to match specific patterns like so:
 
-    ```bash
+    ```bash linenums="0"
     $ ls *.txt
     file1.txt file2.txt file3.txt
     ```
 
-    ```bash
+    ```bash linenums="0"
     $ ls data?.[ct]sv
     data1.csv data2.tsv data3.csv
     ```
@@ -69,7 +69,7 @@ argument to list contents of that directory.
 
     Check with `$ ls --all`! These will vary depending on what you have installed, but most will be configuration files for programs you have installed. Common ones are:
 
-    ```
+    ``` linenums="0"
     .bashrc     - bash startup customization file
     .conda      - Conda python environments
     .cache      - Cached data (like photo thumbnails)
@@ -87,7 +87,7 @@ is `cd`, which stands for *change directory*, but should be
 thought of as *change working directory*. This will change
 which directory you are currently working in.
 
-```
+``` linenums="0"
 $ pwd
 /home/username
 $ cd Desktop/data
@@ -120,13 +120,13 @@ $ pwd
 
 The last program we'll go over in this section is the `mkdir` or *make directory* command. This does what it sounds like and will create the directory noted in the argument if it doesn't already exist.
 
-```
+``` linenums="0"
 $ mkdir example-data
 ```
 You can also put multiple arguments and `mkdir` will
 create all of them. A helpful option to pass to the `mkdir`
 program is `-p`, which will create parent directories as needed.
-```
+``` linenums="0"
 $ mkdir -p another_one/test1
 ```
 Which will create the `another_one` directory in your current
@@ -137,14 +137,14 @@ directory.
 
     There are several ways! We could first `cd` to the Desktop, and run `mkdir`:
 
-    ```bash 
+    ```bash  linenums="0"
     cd /home/user/Desktop
     mkdir myfolder
     ```
 
     Or we could make it from our home directory by specifying the path:
 
-    ```bash
+    ```bash linenums="0"
     mkdir Desktop/myfolder
     ```
 
@@ -159,12 +159,12 @@ a slash (`/`). Relative paths are relative to your current working
 directory and do not start with a slash.
 
 ### Absolute path
-```
+``` linenums="0"
 $ ls /home/username/Desktop
 output_of_ls
 ```
 ### Relative path
-```   
+```    linenums="0"
 $ ls Desktop
 output_of_ls
 ```
@@ -180,7 +180,7 @@ UNIX file systems:
 * The `-` represents the previous working directory (the directory you were in before your current one)
 * You can run `cd -` to navigate to the previous directory you were in.
 
-```bash
+```bash linenums="0"
 $ cd Desktop/data
 $ cd -
 $ pwd
@@ -203,7 +203,7 @@ $ pwd
 * The `..` represents the parent directory of the directory you are currently in. For example, if you are in `/home/username/Documents/mydata`, the command `cd ..` will change your directory to `/home/username/Documents`
 * You can also stack these! For example, to move "up" two directories, you could use the command `cd ../../`
 
-```bash
+```bash linenums="0"
 $ cd Desktop/data
 $ cd ..
 $ pwd
@@ -213,7 +213,7 @@ $ pwd
 ![cd dot dot ](/assets/images/workshops/hpc_exchange/cd_dotdot.png)
 
 ??? question "How would we move from the `data` directory to the Downloads directory with one command?"
-     ```bash 
+     ```bash  linenums="0"
      cd ../../Downloads
      ```
 
@@ -225,8 +225,8 @@ the command `ls -l` which runs the `ls` program with the `l` option
 which tells `ls` to print out more information about the files.
 
 The following code block shows an example of what you might see from
-the longer `ls` output:
-```bash
+the longer `ls` output of your `.ssh` directory:
+```bash linenums="0"
 $ ls -a -l -h ~/.ssh
 total 6.0K
 drwxr-xr-x  2 username student    4 Jul 17 11:19 .
@@ -235,9 +235,11 @@ drwx------ 14 username student   28 Jul 16 22:26 ..
 -rw-r--r--  1 username student    0 Jul 17 11:19 config
 ```
 
-The three program options used here are: `a`, which displays all files/folders,
-even hidden ones; `l` which lists out more information about each listing;
-and `h` which shows the size of items in a human-readable format. 
+The three program options used here are: 
+
+* `a`, which displays all files/folders,even hidden ones
+* `l` which lists out more information about each listing
+* `h` which shows the size of items in a human-readable format
 
 In the first ten columns of the output are the permissions of that item, details of which will be discussed in the next paragraph. The next number is the number of hardlinks to the file, which for most use cases isn't important. 
 
@@ -304,7 +306,7 @@ hear the term *man page* which is just short for *manual page*, or
 running the program `man` with the argument being the program you
 want more information about.
 
-```
+``` linenums="0"
 $ man ls
 ```
 The `man` program pulls up a page that you can scroll up and down
@@ -313,13 +315,5 @@ pressing the `q` key. It is up to each program to provide its
 own `man` page, so not all programs have them, but when they do
 it can be helpful.
 
-<!-- As a quiz, who can find (using the `ls` `man` page) what are the
-options necessary to list items by reverse chronological order
-(older items listed first).
-
-.. admonition:: Answer
-   :collapsible: closed
-
-   The command would be `$ ls -t -r` -->
 
 Next section: [Editing Files](./editing.md)

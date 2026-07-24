@@ -7,7 +7,7 @@ When dealing with processes, the output of those processes is important. In this
 ### Standard file descriptors
 
 When a program  often write output to the console,
-this is called *standard output*, or `stdout`. The shell defines `stdin`, `stdout`, and `stderr` for every program.
+this is called *standard output*, or `stdout`. The shell defines `stdin`, `stdout`, and `stderr` for every program, often denoted with a by a 0, 1, and 2. 
 
 | # | Common name | Description |
 |---|---|---|
@@ -34,13 +34,13 @@ You can also redirect these file descriptors to attach to files other than the c
 
 The following example redirects the `stdout` from our program (the "Hello, world!" text it prints) from the console into the file `message.txt`.
 
-```bash
+```bash linenums="0"
 $ hello > message.txt
 ```   
 You can concatenate (print) the contents of
 files with the `cat` program:
 
-```bash
+```bash linenums="0"
 $ cat message.txt
 Hello, world!
 ```
@@ -51,7 +51,7 @@ Hello, world!
 
 We can also use the output (`stdout`) of the `cat` program (again, the "Hello, World!" text) to the input (`stdin`) of another program with a pipe(`|`). We'll pass the output to the `wc` "word count" program which can count the words, lines, chars, etc of the provided input.
 
-```
+``` linenums="0"
 $ cat message.txt | wc --chars
 14
 ```
@@ -66,8 +66,8 @@ $ cat message.txt | wc --chars
 ??? question "How might we see how many files we have in our current directory?"
     We could get a list of our files with `ls`, and  pass the output to `wc` to count the number of lines.
 
-    ```bash
-    ls | wc --lines
+    ```bash linenums="0"
+    ls -1 | wc --lines
     55
     ```
 

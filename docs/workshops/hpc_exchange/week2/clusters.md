@@ -49,7 +49,7 @@ Gilbreth is a GPU-focused community cluster supporting a wide range of NVIDIA GP
 * GPU-accelerated simulation  
 * Data analytics and visualization  
 
-Gilbreth supports a diverse set of GPU node types, enabling flexibility for different performance and memory requirements. Importantly, jobs submitted to Gautschi **MUST** request and use GPUs. 
+Gilbreth supports a diverse set of GPU node types, enabling flexibility for different performance and memory requirements. Importantly, jobs submitted to Gilbreth **MUST** request and use GPUs. 
 
 
 ## Scholar (Teaching Resource)

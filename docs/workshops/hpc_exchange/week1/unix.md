@@ -59,17 +59,7 @@ system for servers (both in HPC and Cloud scenarios).
     As apposed to operating systems like Windows, UNIX systems offer a strong, text-based workflow that is ideal for remote access, scripting, and automation. We'll cover more of scripting and automation in [Week 3](../week3/index.md).
 
 
-## Unix components
-
-UNIX systems are typically made up of three main components
-that we will discuss in the following text. The three
-components are:
-
-* The File system hierarchy standard
-* The Executable and library format
-* The shell
-
-### File system hierarchy
+## Unix File system hierarchy
 
 In UNIX systems, there is a conventional layout of the file system directories. There are **standard structures, names and purposes for different directories.**
 Some names exist only at the root of the file system and others are repeated in layers for a similar purpose or function. Some common directories you may see are:
@@ -83,7 +73,7 @@ Some names exist only at the root of the file system and others are repeated in 
 
 There's lots of other top-level directories that you might come across like `/boot`, `/sys`, `/mnt`, `/tmp`, and others. Luckily, as a user you rarely will have to deal with these. Almost all of your day to day work is done in `/home`.
 
-### Everything is a file
+## Everything is a file
 
 A core UNIX design principle is that **everything is treated as a file**.
 
@@ -97,7 +87,7 @@ This means:
 
 ---
 
-### Metadata & Permissions
+## Metadata & Permissions
 
 Every file has **metadata** that describes:
 
@@ -110,18 +100,7 @@ These properties form the basis of UNIX security and access control.
 
 ---
 
-### Executables and libraries
-
-Programs in UNIX are just files.
-
-* **Executables** are files that can be run as programs.  
-* **Libraries** are shared code files that executables depend on at runtime.
-
-The operating system uses file metadata and standardized binary formats to determine **how programs are loaded, linked, and executed**.
-
----
-
-### The Shell
+## The Shell
 
 The **shell** is the primary interface for interacting with a UNIX system.
 
