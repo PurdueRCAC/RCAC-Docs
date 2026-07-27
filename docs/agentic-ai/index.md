@@ -2,6 +2,8 @@
 title: Agentic AI
 tags:
   - Agentic AI
+authors:
+  - glentner
 ---
 
 # Agentic AI at RCAC

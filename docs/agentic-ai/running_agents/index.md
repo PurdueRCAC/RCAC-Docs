@@ -2,6 +2,8 @@
 title: Running Agents
 tags:
   - Agentic AI
+authors:
+  - glentner
 ---
 
 # Running Agents

@@ -2,6 +2,8 @@
 title: Shared Context & Settings
 tags:
   - Agentic AI
+authors:
+  - glentner
 ---
 
 # Shared Context & Settings
