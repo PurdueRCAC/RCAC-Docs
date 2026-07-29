@@ -142,6 +142,7 @@ nav:
       - File Storage and Transfer: userguides/gautschi/storage.md
       - Gateway (Open OnDemand): userguides/gautschi/gateway.md
       - Compiling Source Code: userguides/gautschi/compile.md
+      - Using AI Agents: userguides/gautschi/using_ai_agents.md
       - Frequently Asked Questions: userguides/gautschi/faqs.md
     - Gilbreth:
       - userguides/gilbreth/index.md
@@ -153,6 +154,7 @@ nav:
       - File Storage and Transfer: userguides/gilbreth/storage.md
       - Gateway (Open OnDemand): userguides/gilbreth/gateway.md
       - Compiling Source Code: userguides/gilbreth/compile.md
+      - Using AI Agents: userguides/gilbreth/using_ai_agents.md
       - Frequently Asked Questions: userguides/gilbreth/faqs.md
     - Negishi:
       - userguides/negishi/index.md
@@ -164,6 +166,7 @@ nav:
       - File Storage and Transfer: userguides/negishi/storage.md
       - Gateway (Open OnDemand): userguides/negishi/gateway.md
       - Compiling Source Code: userguides/negishi/compile.md
+      - Using AI Agents: userguides/negishi/using_ai_agents.md
       - Frequently Asked Questions: userguides/negishi/faqs.md
     - Scholar: 
       - userguides/scholar/index.md
@@ -358,6 +361,19 @@ nav:
         - Mitochondrial Genomes (MitoHiFi): lifesciences/tutorials/mitohifi.md
       - Hi-C Analysis:
         - Juicer: lifesciences/tutorials/juicer.md
+  - Agentic AI:
+    - agentic-ai/index.md
+    - Acceptable Use & Etiquette: agentic-ai/acceptable_use.md
+    - Best Practices & Limitations: agentic-ai/best_practices.md
+    - MCP Servers: agentic-ai/mcp_servers.md
+    - Running Agents:
+      - agentic-ai/running_agents/index.md
+      - On the Cluster (Login Nodes): agentic-ai/running_agents/on_cluster.md
+      - Local (over SSH): agentic-ai/running_agents/local.md
+    - Shared Context & Settings:
+      - agentic-ai/shared_context/index.md
+      - Context Files (/etc/agents.d): agentic-ai/shared_context/context_files.md
+      - Harness Settings & Permissions: agentic-ai/shared_context/settings.md
   # - Tags: tags.md
   - Contact us: contact.md
   - FAQs: faqs.md

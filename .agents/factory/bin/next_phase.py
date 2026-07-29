@@ -6,7 +6,7 @@ parsing the YAML frontmatter itself. The emitted JSON is the ground truth for
 "what do I do next"; the model executes, the script computes the transition.
 
 Usage (run from the repo root, with the project env active):
-    python3 .agents/factory/bin/next_phase.py spec/<slug>/TECH.md
+    .venv/bin/python .agents/factory/bin/next_phase.py spec/<slug>/TECH.md
 
 Exit codes: 0 ok · 2 parse/validation error (message on stderr).
 """

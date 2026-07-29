@@ -1,0 +1,55 @@
+# Agentic-AI context data model for Gilbreth.
+# Edit this file (not docs/snippets/agentic-ai/gilbreth/**) and re-run
+# tools/generate_agent_context.py. Facts verified against docs/userguides/gilbreth/.
+cluster: gilbreth
+title: Gilbreth
+login_host: gilbreth.rcac.purdue.edu
+os: Rocky 9
+scratch_path: /scratch/gilbreth
+
+filesystems:
+  home:
+    tech: GPFS
+    snapshots: nightly snapshots kept for 7 days, weekly for 4 weeks, and monthly for 3 months (recoverable)
+  scratch:
+    tech: null
+    purge_days: 60
+  depot: true
+  fortress: true
+
+# The default toolchain is contradictory in the Gilbreth docs (overview says Intel
+# 17.0.1.132 + Intel MPI; the shared module macro says GCC + OpenMPI). Leave null so the
+# template tells the agent to discover it with `module avail` / `module load rcac`
+# rather than pinning a possibly-stale version.
+toolchain: null
+
+scheduler:
+  standby_max_hours: 4
+
+qos:
+  - normal
+  - standby
+  - training
+
+# GPU-purchase partitions from run_jobs/queues.md (Gilbreth is GPU-focused; GPU type is
+# selected by partition). Per-partition node/GPU specs are the confirmed queues.md values.
+partitions:
+  - name: a10
+    use: "A10 GPU jobs (3× A10 24 GB per node)"
+    notes: "QOS `normal` or `standby`; up to 2 weeks (`standby` max 4 h)"
+  - name: a30
+    use: "A30 GPU jobs (3× A30 24 GB per node)"
+    notes: "QOS `normal` or `standby`; up to 2 weeks (`standby` max 4 h)"
+  - name: a100-40gb
+    use: "A100-40GB GPU jobs (2–4× A100 40 GB per node)"
+    notes: "QOS `normal` or `standby`; up to 2 weeks; NVLink nodes need `--constraint=nvlink`"
+  - name: a100-80gb
+    use: "A100-80GB GPU jobs (2× A100 80 GB per node)"
+    notes: "QOS `normal` or `standby`; up to 2 weeks (`standby` max 4 h)"
+  - name: training
+    use: "Shared multi-GPU training pool (4 GPUs/node; V100/A100/H100)"
+    notes: "QOS `training` only; up to 24 h; for demonstrated >2-GPU workflows"
+
+anti_patterns:
+  - "**Do NOT** assume a `preemptible` QOS — Gilbreth has none; the low-priority QOS is `standby`, and the shared multi-GPU pool uses `-q training`."
+  - "**Do NOT** pick a GPU type with a `--gres` type string — on Gilbreth the GPU type is chosen by **partition** (`a10`/`a30`/`a100-40gb`/`a100-80gb`); request a count with `--gpus-per-node=N`."

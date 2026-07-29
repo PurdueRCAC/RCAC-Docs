@@ -17,7 +17,7 @@ phases:
     parallel: false
     hammerable: false
     hill: uphill
-    verify: ".venv/bin/mkdocs build --strict 2>&1 | python3 .agents/factory/bin/strict_check.py"
+    verify: ".venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py"
   - id: P2
     name: "Draft the Running Jobs article"
     status: pending
@@ -26,7 +26,7 @@ phases:
     parallel: true
     hammerable: false
     hill: uphill
-    verify: ".venv/bin/mkdocs build --strict 2>&1 | python3 .agents/factory/bin/strict_check.py && grep -q 'run_jobs' mkdocs.yml"
+    verify: ".venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py && grep -q 'run_jobs' mkdocs.yml"
 review:
   last_reviewed_commit: ""
   verdict: none
@@ -37,9 +37,9 @@ review:
 
 The **context engine and finite-state machine** for authoring this job. The YAML frontmatter
 above is the resume ground-truth (read it with
-`python3 .agents/factory/bin/next_phase.py spec/{slug}/TECH.md`); the per-phase checklists
+`.venv/bin/python .agents/factory/bin/next_phase.py spec/{slug}/TECH.md`); the per-phase checklists
 below are the work. `docs-draft` executes the next actionable phase, runs its `verify:`
-command, updates state via `python3 .agents/factory/bin/set_phase.py …`, and makes one atomic
+command, updates state via `.venv/bin/python .agents/factory/bin/set_phase.py …`, and makes one atomic
 content+state commit. Run from the repo root with the project env active.
 
 - **Vision / requirements (locked):** [`GOAL.md`](GOAL.md) — R-IDs are the contract.
@@ -64,7 +64,12 @@ content+state commit. Run from the repo root with the project env active.
 - `hill`: `uphill` (still figuring it out) → `crest` (unknowns resolved) → `downhill` (just
   writing). A phase stuck `uphill` across drafts is a raised hand → escalate to the human.
 - `verify`: the exact command that proves the phase — prefer the `--strict` gate plus a nav/
-  front-matter check; add a `mkdocs serve` render check in the phase steps when layout matters.
+  front-matter check; add a `.venv/bin/mkdocs serve` render check in the phase steps when layout matters.
+  The gate (`strict_check.py`) fails on new warnings **and** build ERRORs/tracebacks. `--strict`
+  does **not** catch a mistyped `--8<--` include (silent empty block), so for pages that embed a
+  verbatim file, chain a `grep -rq <sentinel> site/<path>/`. **Quote the whole `verify:` string**
+  (it contains pipes/colons); keep single-quotes *inside* it. Example gate + include check:
+  `.venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py && grep -q '<page>.md' mkdocs.yml && grep -rq '<sentinel>' site/<path>/`
 
 ## Conventions (apply to every phase)
 
@@ -89,8 +94,8 @@ content+state commit. Run from the repo root with the project env active.
 
 - [ ] Create `docs/userguides/<cluster>/index.md` and `overview.md` from the userguide archetype.
 - [ ] Add the section + pages to `mkdocs.yml` `nav:`.
-- [ ] `python tools/generate_breadcrumbs.py`.
-- **Verify:** `.venv/bin/mkdocs build --strict 2>&1 | python3 .agents/factory/bin/strict_check.py`
+- [ ] `.venv/bin/python tools/generate_breadcrumbs.py`.
+- **Verify:** `.venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py`
 - **Touches:** `docs/userguides/<cluster>/index.md`, `overview.md`, `mkdocs.yml`.
 
 ## Phase P2 — Draft the Running Jobs article
@@ -99,8 +104,8 @@ content+state commit. Run from the repo root with the project env active.
 
 - [ ] Write `run_jobs/index.md` (prose + `bash` batch example + admonitions + macros/snippets).
 - [ ] Add it to `nav:`; add cross-links and a back-link to the hub.
-- [ ] `mkdocs serve` and eyeball the rendered page (tabs, admonitions, macro expansion).
-- **Verify:** `.venv/bin/mkdocs build --strict 2>&1 | python3 .agents/factory/bin/strict_check.py && grep -q 'run_jobs' mkdocs.yml`
+- [ ] `.venv/bin/mkdocs serve` and eyeball the rendered page (tabs, admonitions, macro expansion).
+- **Verify:** `.venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py && grep -q 'run_jobs' mkdocs.yml`
 - **Touches:** `docs/userguides/<cluster>/run_jobs/index.md`, `mkdocs.yml`.
 
 ---
@@ -109,8 +114,8 @@ content+state commit. Run from the repo root with the project env active.
 
 1. `next_phase.py` prints the next actionable phase (statuses are authoritative; the
    `current_phase` pointer is reconciled against them).
-2. Pre-flight: clean tree, on `branch`, `base` (`main`) reachable, project env active
-   (`python3 -c "import yaml, mkdocs"`).
+2. Pre-flight: clean tree, on `branch`, `base` (`main`) reachable, the uv-synced `.venv` present
+   (`.venv/bin/python -c "import yaml, mkdocs"`; bootstrap per AGENTS.md "Setup" if not).
 3. Execute every `[ ]` in the phase (consult `PLAN.md` / `research/` / `style-guide.md` for detail).
 4. Run the phase's `verify:` command — never advance on a checkbox alone.
 5. Amend this file freely if reality diverges (regenerate frontmatter with `set_phase.py`; note the

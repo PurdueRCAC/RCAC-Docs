@@ -135,13 +135,17 @@ links resolve, that front-matter matches the archetype, and that images have alt
 ```
 .agents/
   skills/docs-{feature,plan,draft,review,publish}/SKILL.md   # the five lifecycle skills
+  skills/docs-harness/SKILL.md      # meta/maintenance: applies META.md findings to the factory
   factory/
     methodology.md   invariants.md   ears.md   style-guide.md   review-rubric.md
     getting-started.html            # human onboarding
     strict-baseline.txt             # known pre-existing --strict warnings
-    templates/                      # GOAL.md PLAN.md TECH.md REVIEW.md skeletons
-    bin/                            # next_phase.py, set_phase.py, strict_check.py, _fsm.py
+    harness-log.md                  # cross-job ledger of applied/rejected self-improvement fixes
+    templates/                      # GOAL.md PLAN.md TECH.md REVIEW.md META.md skeletons
+    bin/                            # next_phase.py, set_phase.py, strict_check.py, meta_status.py, _fsm.py
 spec/{slug}/                        # per-job artifacts (committed, retained on merge)
+  GOAL/PLAN/TECH/REVIEW.md          # the content spine (R-IDs)
+  META.md                           # orthogonal: harness-retrospective findings (F-IDs) — the toolmaker's notes
 AGENTS.md                           # the constitution (CLAUDE.md is a symlink to it)
 ```
 
@@ -154,3 +158,30 @@ commits → `REVIEW.md` requirement→evidence matrix → PR body. Because a mer
 per-commit history, the committed `spec/{slug}/` folder *is* the retained trace.
 Provenance lives in that chain and in the commit/PR — **never** embed feature-scoped
 `R#`/`P#` IDs in page content (they restart per job and collide across branches).
+
+## The self-improvement loop (META.md + `/docs-harness`)
+
+The factory watches its own friction and — human-gated — fixes itself. The loop is deliberately
+**asymmetric: cheap to observe, deliberate to act**, so it can't become a token-sink or quietly
+loosen its own guardrails.
+
+- **Observe (every lifecycle skill, silence by default).** Each `docs-*` skill ends with a
+  **meta-note step** that appends a finding to `spec/{slug}/META.md` **only** when a concrete problem
+  in the *skillset itself* cost something — gated by one test: *"the instructions' fault, not mine or
+  the task's?"* A merely hard task, a self-inflicted error, or a one-off content issue is **not** a
+  finding. `META.md` is orthogonal to the `GOAL→…→REVIEW` content spine: it uses `F#` ids, is about
+  the *toolchain*, and is **kept out of the blind reviewer's context** (it can leak author intent).
+- **Surface.** `/docs-publish` reads open findings (`meta_status.py`) and adds a terse, labelled
+  "🔧 Harness feedback" block to the PR body, so a human sees process friction alongside the content.
+- **Act (`/docs-harness`, human-gated).** Points at a job's `META.md`, previews the recommended fix
+  for each finding, and — defaulting to all but scopable to specific ids (`F1 F3`) — applies them to
+  `.agents/` as atomic `[harness]` commits, recording each in the cross-job `harness-log.md`.
+
+The safety of the loop rests on four rules, enforced in `/docs-harness`: **observer ≠ fixer**
+(recording is cheap and low-stakes; the fix is authored later with fresh eyes + human review);
+**never auto-weaken a `hammerable:false` gate** without an explicit human override; **fixes must
+generalize** (reject overfit-to-one-job); and **no meta-on-meta** (`/docs-harness` writes no
+findings). `harness-log.md` is the anti-thrash memory: a proposed fix that reverts a recent change or
+repeats a rejected one is flagged, not silently re-applied. `.agents/**` edits don't trigger the prod
+deploy (CI path filter), so the blast radius is the *next* job's authoring, not the live site — which
+is exactly why the human gate matters.

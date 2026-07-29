@@ -209,6 +209,11 @@
     "Gautschi User Guide",
     "Compiling Source Code"
   ],
+  "/userguides/gautschi/using_ai_agents/": [
+    "Home",
+    "Gautschi User Guide",
+    "Using AI Agents"
+  ],
   "/userguides/gautschi/faqs/": [
     "Home",
     "Gautschi User Guide",
@@ -258,6 +263,11 @@
     "Gilbreth User Guide",
     "Compiling Source Code"
   ],
+  "/userguides/gilbreth/using_ai_agents/": [
+    "Home",
+    "Gilbreth User Guide",
+    "Using AI Agents"
+  ],
   "/userguides/gilbreth/faqs/": [
     "Home",
     "Gilbreth User Guide",
@@ -306,6 +316,11 @@
     "Home",
     "Negishi User Guide",
     "Compiling Source Code"
+  ],
+  "/userguides/negishi/using_ai_agents/": [
+    "Home",
+    "Negishi User Guide",
+    "Using AI Agents"
   ],
   "/userguides/negishi/faqs/": [
     "Home",
@@ -1177,6 +1192,59 @@
     "Home",
     "Life Sciences",
     "Juicer"
+  ],
+  "/agentic-ai/": [
+    "Home",
+    "Agentic AI"
+  ],
+  "/agentic-ai/acceptable_use/": [
+    "Home",
+    "Agentic AI",
+    "Acceptable Use & Etiquette"
+  ],
+  "/agentic-ai/best_practices/": [
+    "Home",
+    "Agentic AI",
+    "Best Practices & Limitations"
+  ],
+  "/agentic-ai/mcp_servers/": [
+    "Home",
+    "Agentic AI",
+    "MCP Servers"
+  ],
+  "/agentic-ai/running_agents/": [
+    "Home",
+    "Agentic AI",
+    "Running Agents"
+  ],
+  "/agentic-ai/running_agents/on_cluster/": [
+    "Home",
+    "Agentic AI",
+    "Running Agents",
+    "On the Cluster (Login Nodes)"
+  ],
+  "/agentic-ai/running_agents/local/": [
+    "Home",
+    "Agentic AI",
+    "Running Agents",
+    "Local (over SSH)"
+  ],
+  "/agentic-ai/shared_context/": [
+    "Home",
+    "Agentic AI",
+    "Shared Context & Settings"
+  ],
+  "/agentic-ai/shared_context/context_files/": [
+    "Home",
+    "Agentic AI",
+    "Shared Context & Settings",
+    "Context Files (/etc/agents.d)"
+  ],
+  "/agentic-ai/shared_context/settings/": [
+    "Home",
+    "Agentic AI",
+    "Shared Context & Settings",
+    "Harness Settings & Permissions"
   ],
   "/contact/": [
     "Home",

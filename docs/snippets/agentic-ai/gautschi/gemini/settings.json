@@ -1,0 +1,25 @@
+{
+  "tools": {
+    "core": [
+      "run_shell_command(myquota)",
+      "run_shell_command(slist)",
+      "run_shell_command(sfeatures)",
+      "run_shell_command(module)"
+    ],
+    "exclude": [
+      "run_shell_command(rm)",
+      "run_shell_command(sudo)"
+    ]
+  },
+  "security": {
+    "disableYoloMode": true
+  },
+  "context": {
+    "fileName": ["AGENTS.md", "GEMINI.md"]
+  },
+  "mcpServers": {
+    "rcac-docs": {
+      "httpUrl": "https://docs.rcac.purdue.edu/mcp"
+    }
+  }
+}

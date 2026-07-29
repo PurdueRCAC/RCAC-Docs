@@ -10,7 +10,7 @@ description: >-
   documentation factory (see .agents/factory/review-rubric.md).
 disable-model-invocation: true
 argument-hint: "[debate] [completeness] [status]"
-allowed-tools: Read, Grep, Glob, Write, Agent, ReportFindings, AskUserQuestion, Bash(git status *), Bash(git branch *), Bash(git log *), Bash(git diff *), Bash(git rev-parse *), Bash(git add *), Bash(git commit *), Bash(python3 .agents/factory/bin/set_phase.py *)
+allowed-tools: Read, Grep, Glob, Write, Agent, ReportFindings, AskUserQuestion, Bash(git status *), Bash(git branch *), Bash(git log *), Bash(git diff *), Bash(git rev-parse *), Bash(git add *), Bash(git commit *), Bash(.venv/bin/python .agents/factory/bin/set_phase.py *)
 ---
 
 # docs-review — blind adversarial QA
@@ -34,9 +34,10 @@ Spawn a fresh `Agent` (general-purpose) given **inline, ONLY**:
 - the full text of `.agents/factory/invariants.md`, `.agents/factory/review-rubric.md`,
   `.agents/factory/style-guide.md`, and `.agents/factory/strict-baseline.txt`;
 - instructions to work in the runnable repo (project env active) and **verify by executing**:
-  `.venv/bin/mkdocs build --strict 2>&1 | python3 .agents/factory/bin/strict_check.py`, `mkdocs serve`
+  `.venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py`, `mkdocs serve`
   + view changed pages, nav/front-matter/a11y checks;
-- an explicit instruction to **NOT read `PLAN.md`, `TECH.md`, or `research/`**.
+- an explicit instruction to **NOT read `PLAN.md`, `TECH.md`, `research/`, or `META.md`** (the last
+  can leak author intent and would break blindness).
 
 Required return: structured findings — each with severity, **CONFIRMED** (reproduced by
 command/render/diff) vs **PLAUSIBLE** (HPC accuracy or prose a11y that isn't machine-checkable →
@@ -53,9 +54,9 @@ manufacture findings.
 
 ## Step 4 — Set verdict & route
 
-- **Clean pass:** `set_phase.py spec/{slug}/TECH.md --verdict approved --reviewed-commit {sha} --touch`
+- **Clean pass:** `.venv/bin/python .agents/factory/bin/set_phase.py spec/{slug}/TECH.md --verdict approved --reviewed-commit {sha} --touch`
   → recommend `/docs-publish`.
-- **CONFIRMED findings:** `set_phase.py … --top-status blocked --verdict changes-requested
+- **CONFIRMED findings:** `.venv/bin/python .agents/factory/bin/set_phase.py … --top-status blocked --verdict changes-requested
   --reviewed-commit {sha} --blocked-reason "<short>" --touch` → recommend `/docs-draft`. If any
   CONFIRMED finding touches a **high-impact file** (see review-rubric) → STOP and require human sign-off.
 - **PLAUSIBLE only:** surface to the human for triage; do not auto-block.
@@ -66,6 +67,16 @@ manufacture findings.
 
 A separate fresh subagent that *may* read `TECH.md`: did every planned phase ship? did scope balloon
 past appetite? Append its notes to `REVIEW.md`.
+
+## Step 6 — Meta-note (process only; usually a no-op)
+
+**You (the orchestrator), not the blind reviewer, write this — after `REVIEW.md` exists.** Append a
+finding to `spec/{slug}/META.md` **only** if the *rubric or the review skill itself* was unclear or
+mis-steered the pass (e.g. an invariant that was ambiguous to apply, a verify step that didn't catch
+what it should). **Content findings do NOT go here — they go in `REVIEW.md`.** The bar is the same:
+*the instructions' fault, not the task's.* `origin=docs-review`, terse, ≤2, silence by default; a
+fix that would weaken a `hammerable:false` gate is `severity=high`. Commit it with the review. This
+records only — `/docs-harness` applies fixes later.
 
 ## Final report
 
