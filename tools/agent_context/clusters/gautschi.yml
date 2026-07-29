@@ -1,0 +1,52 @@
+# Agentic-AI context data model for Gautschi.
+# Edit this file (not docs/snippets/agentic-ai/gautschi/**) and re-run
+# tools/generate_agent_context.py. Encode only facts the cluster's own user guide
+# confirms; leave uncertain values null so the templates emit a "verify live" note
+# rather than a guess. A literal [NEEDS CLARIFICATION] anywhere makes the generator fail.
+cluster: gautschi
+title: Gautschi
+login_host: gautschi.rcac.purdue.edu
+os: Rocky Linux 9
+scratch_path: /scratch/gautschi
+
+filesystems:
+  home:
+    tech: ZFS
+    snapshots: automatic snapshots (recoverable)
+  scratch:
+    tech: Lustre
+    purge_days: 60
+  depot: true
+  fortress: true
+
+toolchain:
+  compiler: GCC 14.1.0
+  mpi: OpenMPI
+
+scheduler:
+  standby_max_hours: 4
+
+qos:
+  - normal
+  - standby
+  - preemptible
+
+partitions:
+  - name: cpu
+    use: "CPU jobs (192-core nodes)"
+    notes: "QOS `normal` or `standby`; up to 2 weeks (`standby` max 4 h)"
+  - name: ai
+    use: "GPU jobs (8× H100 per node)"
+    notes: "QOS `normal` or `preemptible`; up to 2 weeks"
+  - name: smallgpu
+    use: "Small GPU jobs (2× L40S per node)"
+    notes: "up to 24 h"
+  - name: highmem
+    use: "Large-memory jobs (1.5 TB nodes)"
+    notes: "up to 24 h; job must use more than 48 cores"
+  - name: profiling
+    use: "Hardware performance profiling"
+    notes: "whole-node; up to 24 h"
+
+anti_patterns:
+  - "**Do NOT** use `--partition=a10` — it is not a Gautschi partition. The valid GPU partitions are `ai` and `smallgpu`."

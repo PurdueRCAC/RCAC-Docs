@@ -1,0 +1,49 @@
+# Agentic-AI context data model for Negishi.
+# Edit this file (not docs/snippets/agentic-ai/negishi/**) and re-run
+# tools/generate_agent_context.py. Facts verified against docs/userguides/negishi/.
+cluster: negishi
+title: Negishi
+login_host: negishi.rcac.purdue.edu
+os: Rocky Linux 8
+scratch_path: /scratch/negishi
+
+filesystems:
+  home:
+    tech: GPFS
+    snapshots: nightly snapshots kept for 7 days, weekly for 4 weeks, and monthly for 3 months (recoverable)
+  scratch:
+    # Negishi docs describe scratch only as a "high-performance, large-capacity
+    # parallel filesystem" — the specific technology is not stated, so leave it null.
+    tech: null
+    purge_days: 60
+  depot: true
+  fortress: true
+
+toolchain:
+  compiler: GCC 12.2.0
+  mpi: OpenMPI
+
+scheduler:
+  standby_max_hours: 4
+
+qos:
+  - normal
+  - standby
+
+# Batch partitions from run_jobs/queues.md. The interactive `login` partition is
+# omitted here (its canonical name is ambiguous in the docs and interactive sessions
+# use `sinteractive`); the agent context stays focused on batch submission.
+partitions:
+  - name: cpu
+    use: "CPU jobs (128-core nodes, 256 GB)"
+    notes: "QOS `normal` or `standby`; up to 2 weeks (`standby` max 4 h)"
+  - name: highmem
+    use: "Large-memory jobs (1 TB nodes)"
+    notes: "QOS `normal`; up to 24 h; job must use more than 64 of 128 cores"
+  - name: gpu
+    use: "GPU jobs (3× AMD MI210 per node)"
+    notes: "QOS `normal`; up to 24 h; request cores proportional to GPUs used"
+
+anti_patterns:
+  - "**Do NOT** assume `ai`/`smallgpu` partitions or a `preemptible` QOS — those are from other RCAC clusters. Negishi's GPU partition is `gpu` (AMD MI210), and the low-priority QOS is `standby`."
+  - "**Do NOT** request unlimited memory with `--mem=0`; set an explicit value (use `--exclusive` for a whole node)."

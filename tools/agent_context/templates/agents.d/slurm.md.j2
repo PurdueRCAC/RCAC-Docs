@@ -1,0 +1,60 @@
+# Slurm Scheduler ({{ title }})
+
+All real computation on {{ title }} runs as **Slurm** jobs. Never run compute on a login
+node (see `unix.md`) — submit it here.
+
+## Every {{ title }} job needs four things
+
+A job request must specify **resources**, an **account**, a **QOS**, and a
+**partition**. On {{ title }} you MUST explicitly set **both the account
+(`-A`/`--account=`) and the partition (`-p`/`--partition=`)**; also set the QOS
+(`-q`/`--qos=`) and always a time limit (`--time`).
+
+- Discover the accounts you can charge (and their balances) with **`slist`** — do not
+  guess an account name.
+- Set a realistic `--time`; memory is allocated in proportion to the cores you request.
+
+## Partitions
+
+| Partition | For | Notes |
+|-----------|-----|-------|
+{% for p in partitions %}
+| `{{ p.name }}` | {{ p.use }} | {{ p.notes }} |
+{% endfor %}
+
+## QOS and charging
+
+{% if 'normal' in qos %}
+- **`normal`** — the default; normal priority, charged against your account.
+{% endif %}
+{% if 'standby' in qos %}
+- **`standby`** — access to idle resources at low priority, **not charged**, max {{ scheduler.standby_max_hours }}
+  hours. Request it with **`-q standby`** (it is a QOS, **not** an account).
+{% endif %}
+{% if 'preemptible' in qos %}
+- **`preemptible`** — `ai` partition only; cheaper GPU-hours, but jobs can be preempted
+  (killed) to make room for `normal` jobs — checkpoint your work.
+{% endif %}
+{% if 'training' in qos %}
+- **`training`** — required for the `training` partition (`-q training`); low priority,
+  **not charged**, max 24 hours.
+{% endif %}
+
+## Common commands
+
+`sbatch` (submit a batch script), `squeue -u $USER` (your jobs), `scontrol show job
+<id>` (job detail), `scontrol hold`/`release`, `scancel <id>` (cancel), `sinteractive`
+(interactive job), `srun` (launch tasks).
+
+## Prohibitions
+
+{% for ap in anti_patterns %}
+- {{ ap }}
+{% endfor %}
+- **Do NOT** write `-A standby` or `#SBATCH -A standby` — `standby` is a QOS
+  (`-q standby`), not an account.
+- **Do NOT** emit flags for other schedulers (PBS/Torque `#PBS`, LSF `#BSUB`) — this is
+  Slurm.
+- **Do NOT** invent partition or QOS names; the valid sets are listed above.
+- **Do NOT** submit jobs without a `--time` limit, and **do NOT** `scancel` jobs you do
+  not own or run bulk cancellations without confirming with the user.

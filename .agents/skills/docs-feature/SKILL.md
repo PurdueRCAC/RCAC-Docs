@@ -19,14 +19,25 @@ first step of the factory (see `.agents/factory/methodology.md`). Produce exactl
 and stop for the human's sign-off before the more expensive `/docs-plan`.
 
 **Never guess.** Where intent is ambiguous — which cluster, which audience, an HPC spec you can't
-confirm — emit a literal `[NEEDS CLARIFICATION: …]` marker and ask (`AskUserQuestion`). Wrong or
-invented documentation harms real users.
+confirm — emit a literal `[NEEDS CLARIFICATION: …]` marker and ask the human. Wrong or invented
+documentation harms real users. **Shaping is not research:** answer from a quick local
+`Read`/`Grep` (the prompt, the files it references, the nav) or from the human — do **not** open a
+research rabbit hole here. Anything needing external verification (an HPC spec, a repo, a vendor
+doc) is marked `[NEEDS CLARIFICATION]` and deferred to `/docs-plan`.
+
+> **Harness portability (smaller models / non-Claude harnesses).** Degrade gracefully, don't fail:
+> gather clarifications with `AskUserQuestion` **if your harness has it, otherwise ask the questions
+> in plain text and STOP** for the human. The `allowed-tools` / `disable-model-invocation`
+> front-matter keys are Claude-Code-specific and are harmlessly ignored elsewhere.
 
 ## Step 1 — Pre-flight
 
-- Confirm you are on `main` with an otherwise-clean tree. The only permitted pending change is an
-  untracked `spec/{slug}/GOAL.md` you are about to adopt. If not on `main`, STOP and tell the human.
-- `git fetch origin || true` (best-effort freshness).
+- Confirm you are on `main`. **"Clean" tree = no *uncommitted* changes** (an untracked
+  `spec/{slug}/GOAL.md` you are about to adopt is fine). **Being ahead of / diverged from
+  `origin/main` is normal and is NOT a blocker** — the `.agents/` factory may exist only on local
+  `main`. If not on `main`, STOP and tell the human.
+- `git fetch origin || true` (best-effort freshness). **Do not** `reset`/rebase onto `origin` to
+  reconcile divergence — you branch off **local** `main` (HEAD) in Step 3.
 
 ## Step 2 — Resolve slug / kind / appetite
 
@@ -39,9 +50,14 @@ invented documentation harms real users.
 - **Collision check:** `git rev-parse --verify {branch}` must fail (branch absent) and
   `spec/{slug}/` must not already be tracked. If either exists, pick a new slug or STOP.
 
+> **Substitute the placeholders — never emit a literal `{slug}`/`{branch}`.** Worked example: slug
+> `gautschi-python-guide` → branch `feature/gautschi-python-guide` → artifact
+> `spec/gautschi-python-guide/GOAL.md`.
+
 ## Step 3 — Create the branch
 
-`git switch -c {branch} main`
+`git switch -c {branch} main`  — off **local** `main` (HEAD), never `origin/main` (which may lack
+the `.agents/` factory).
 
 ## Step 4 — Write / refine GOAL.md
 
@@ -62,6 +78,11 @@ If adopting a hand-written untracked `GOAL.md`, refine it in place rather than o
 Bounded to the appetite · no unresolved `[NEEDS CLARIFICATION]` left silently · every criterion is
 testable (renderable/checkable) · the archetype is implied or stated.
 
+**Size circuit-breaker.** If the job needs more than ~8–10 acceptance criteria, or spans several
+distinct deliverable types / "pillars," it is probably too big for one job. Surface this to the
+human and offer to split into a **pilot + follow-ups** (record the deferrals in Non-goals) rather
+than shaping a mega-GOAL that a downstream draft can't land cleanly.
+
 ## Step 6 — Commit
 
 `git add spec/{slug}/GOAL.md` → `git commit -m "[{kind}] Shape {slug} goal"`
@@ -71,3 +92,22 @@ testable (renderable/checkable) · the archetype is implied or stated.
 
 Summarize the slug, kind, appetite, and the R-IDs; note any `[NEEDS CLARIFICATION]` awaiting the
 human. Recommend `/docs-plan` once the GOAL is approved.
+
+**GOAL is the locked contract — but not frozen forever.** It MAY be amended later (during
+`/docs-plan`, or after review feedback) **only with explicit human direction**, recorded in a dated
+Clarifications sub-block with the affected R-IDs re-confirmed. It must never drift *silently* during
+drafting.
+
+## Step 8 — Meta-note (self-improvement; usually a no-op)
+
+**Silence is the default.** Append a finding to `spec/{slug}/META.md` (create it from
+`.agents/factory/templates/META.md` if absent) **only** when a concrete problem in the *skillset
+itself* cost you something this run. **The bar:** *was this the instructions' fault — not mine, not
+the task's?* Qualifies: you hand-fixed a command the skill gave (wrong flag/path, unquoted YAML); a
+genuinely ambiguous instruction; a `[NEEDS CLARIFICATION]` better guidance could have pre-empted; an
+allowed-tools/step mismatch; a gate that passed/failed misleadingly. Stay silent for a merely hard
+task, an error you made against clear guidance, a one-off *content* issue (→ GOAL), or a vague
+preference. Cap ≤3, terse; add "· seen again" to an existing finding rather than duplicating; a fix
+that would weaken a `hammerable:false` gate is `severity=high`. **This step only records** — fixes
+are applied later by `/docs-harness`, human-reviewed. If you wrote one, commit it:
+`git add spec/{slug}/META.md && git commit -m "[harness] Meta-note: {slug} (docs-feature)"`.
