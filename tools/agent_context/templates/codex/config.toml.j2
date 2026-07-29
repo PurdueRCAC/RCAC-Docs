@@ -1,4 +1,4 @@
-# ~/.codex/config.toml — recommended cluster-side config for Codex on Gautschi.
+# ~/.codex/config.toml — recommended cluster-side config for Codex on {{ title }}.
 #
 # Codex has no per-command allow/deny list; safety comes from the approval policy and
 # the sandbox mode. On shared login nodes where bubblewrap is unavailable, prefer
@@ -14,7 +14,7 @@ approval_policy = "on-request"
 sandbox_mode    = "workspace-write"
 
 [sandbox_workspace_write]
-writable_roots = ["/scratch/gautschi"]
+writable_roots = ["{{ scratch_path }}"]
 network_access = false
 
 [mcp_servers.rcac_docs]

@@ -75,16 +75,18 @@ not just *what*.
 
     ---
 
-    The actual Gautschi context files and per-harness settings, published verbatim
-    as the canonical source of truth — plus how to send feedback.
+    The actual context files and per-harness settings each cluster deploys, published
+    verbatim as the canonical source of truth — plus how to send feedback.
 
     [:octicons-arrow-right-24: Shared Context & Settings](shared_context/index.md)
 
 </div>
 
-For Gautschi-specific setup pointers, see the
-[Using AI Agents](../userguides/gautschi/using_ai_agents.md) chapter in the Gautschi
-user guide.
+For cluster-specific setup pointers, see the **Using AI Agents** chapter in each
+cluster's user guide — for example
+[Gautschi](../userguides/gautschi/using_ai_agents.md),
+[Negishi](../userguides/negishi/using_ai_agents.md), or
+[Gilbreth](../userguides/gilbreth/using_ai_agents.md).
 
 ---
 

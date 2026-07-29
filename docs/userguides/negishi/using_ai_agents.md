@@ -1,9 +1,9 @@
 ---
 tags:
-  - Gautschi
+  - Negishi
 authors:
   - glentner
-resource: Gautschi
+resource: Negishi
 search:
   boost: 2
 ---
@@ -41,8 +41,9 @@ deployment modes for all five harnesses:
 RCAC deploys a set of context files to `/etc/agents.d/` on {{ resource }} — the
 partitions, GPUs, filesystems, and toolchain that general-purpose models most often get
 wrong — and `rcac-mcp` injects them into an agent. They are **generated from
-{{ resource }}'s verified facts**, so an agent that reads them targets the right
-partitions and writes to the right filesystems. See
+{{ resource }}'s verified facts** (its `cpu`/`highmem`/`gpu` partitions, AMD MI210 GPUs,
+and GPFS home), so an agent that reads them targets the right partitions and writes to
+the right filesystems. See
 [Context Files](../../agentic-ai/shared_context/context_files.md) for how the files are
 structured and [Harness Settings & Permissions](../../agentic-ai/shared_context/settings.md)
 for the per-harness permission policy.
@@ -52,14 +53,14 @@ This is the exact assembled context an on-cluster agent reads on {{ resource }}:
 ??? note "Show {{ resource }}'s assembled `AGENTS.md`"
 
     ```markdown title="AGENTS.md ({{ resource }})"
-    --8<-- "docs/snippets/agentic-ai/gautschi/agents.d/AGENTS.md"
+    --8<-- "docs/snippets/agentic-ai/negishi/agents.d/AGENTS.md"
     ```
 
 The cluster-side permission policy for Claude Code allow-lists `slist`/`myquota`, denies
 `rm -rf`/`sudo`, and points writable scope at {{ resource }}'s scratch:
 
 ```json title="/etc/claude-code/managed-settings.json"
---8<-- "docs/snippets/agentic-ai/gautschi/claude/settings.json"
+--8<-- "docs/snippets/agentic-ai/negishi/claude/settings.json"
 ```
 
 !!! important
@@ -70,4 +71,4 @@ The cluster-side permission policy for Claude Code allow-lists `slist`/`myquota`
 
 ---
 
-Back to the [Gautschi User Guide](index.md).
+Back to the [Negishi User Guide](index.md).

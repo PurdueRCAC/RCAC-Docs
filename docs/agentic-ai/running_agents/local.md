@@ -8,7 +8,7 @@ authors:
 # Local, Targeting the Cluster
 
 In this mode the agent runs where *you* are — on your laptop or workstation — and
-reaches Gautschi over the SSH access you already have. It is the recommended setup for
+reaches the cluster over the SSH access you already have. It is the recommended setup for
 most users. Two mechanisms fit here, and they work differently:
 
 - **Through the MCP servers** (Claude Code, Codex, Gemini CLI, opencode). The RCAC
@@ -36,12 +36,13 @@ on your own machine and executes commands on the cluster over your existing
   can too**, within the same permissions.
 
 The agent also gets cluster-aware context automatically: `rcac-mcp` reads the host's
-`/etc/agents.d/` files over SSH and injects them, so the agent knows Gautschi's
+`/etc/agents.d/` files over SSH and injects them, so the agent knows the cluster's
 partitions, filesystems, and policies without you installing anything.
 
 ### Connect `rcac-mcp` to your harness
 
-The canonical `rcac-mcp` configuration points `--ssh-host` at your login node. Add it
+The canonical `rcac-mcp` configuration points `--ssh-host` at your login node (the
+examples below use `gautschi.rcac.purdue.edu` — substitute your cluster's host). Add it
 to your harness in that harness's native format:
 
 === "Claude Code / Gemini CLI"
@@ -103,7 +104,7 @@ Shared Context & Settings pages of this section.
 ## Warp: the recommended workflow
 
 Warp is RCAC's recommended harness for most users. It is a desktop terminal
-application, so you run it on your workstation and SSH into Gautschi *inside it*; its
+application, so you run it on your workstation and SSH into the cluster *inside it*; its
 Agent Mode then rides your live SSH session — reading `stdout`/`stderr` and issuing
 commands in the session you opened. Because you are already SSH'd into the cluster,
 Warp does **not** use the `rcac-mcp` bridge; the two are alternative ways to reach the
@@ -112,7 +113,7 @@ same cluster, not layers you combine.
 Recommended workflow:
 
 1. **Install Warp** on your workstation (macOS, Windows, or Linux) and sign in.
-2. **SSH into Gautschi** in a Warp terminal.
+2. **SSH into the cluster** in a Warp terminal.
 3. **Wire in the shared context.** Once you are on the cluster, RCAC's context lives at
    `/etc/agents.d/` (concatenated into an `AGENTS.md`). You can give it to Warp's agent
    by having the agent read those files at the start of a session, or by keeping the

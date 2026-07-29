@@ -24,7 +24,7 @@ Login (front-end) nodes are shared by every user for editing, compiling, and
 submitting work — not for running it. An agent that compiles a large project,
 launches a parallel run, or spins up a long-lived process on a login node
 degrades the system for everyone. Keep agent activity on the front ends light,
-and push real work to the scheduler. This mirrors the Gautschi Running Jobs
+and push real work to the scheduler. This mirrors RCAC's Running Jobs
 guidance:
 
 !!! important

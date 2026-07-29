@@ -44,8 +44,8 @@ Bring the same specificity to your prompts:
 - Point the agent at the authoritative source. RCAC injects cluster-specific
   context into agents automatically (see [MCP Servers](mcp_servers.md) and the shared
   [context files](shared_context/context_files.md)), so an agent connected to our
-  tooling already knows Gautschi runs Slurm, uses Lmod, and has partitions named
-  `cpu`/`ai`/`highmem` — it does not have to infer it from general knowledge.
+  tooling already knows the cluster runs Slurm, uses Lmod, and which partitions it
+  has — it does not have to infer it from general knowledge.
 - Give the agent the error message, the job ID, the exact file — not a paraphrase.
 
 Good context supplied up front prevents the single most common failure mode on HPC:

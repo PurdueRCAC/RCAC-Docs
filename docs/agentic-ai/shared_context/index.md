@@ -16,7 +16,7 @@ constrained, and so you can help improve it.
 
 ## What `/etc/agents.d` is
 
-`/etc/agents.d/` is a directory of Markdown files on the cluster that describe Gautschi
+`/etc/agents.d/` is a directory of Markdown files on each cluster that describe that cluster
 *to an agent*: the operating environment, the filesystems, the module system, the
 scheduler, and the policies. Agentic tools already look for context files in
 well-known locations; `/etc/agents.d` is how RCAC supplies cluster-specific facts and
@@ -32,7 +32,7 @@ The files published here are the **single source of truth**. They reach a runnin
 two ways, depending on how you work:
 
 - **On the cluster.** Cluster configuration management (Puppet) copies these files out
-  to `/etc/agents.d/` on the Gautschi hosts, where they are concatenated into a single
+  to `/etc/agents.d/` on the cluster's hosts, where they are concatenated into a single
   `AGENTS.md` and symlinked to the other well-known context filenames (`CLAUDE.md`,
   `GEMINI.md`, …) that each harness reads.
 - **Locally.** The `rcac-mcp` server reads `/etc/agents.d/` over your SSH connection
@@ -59,8 +59,8 @@ is too strict or too loose:
 
     ---
 
-    The five Gautschi context files — `unix`, `filesystems`, `lmod`, `slurm`, and
-    `policies` — published verbatim.
+    The five context files — `unix`, `filesystems`, `lmod`, `slurm`, and
+    `policies` — published verbatim (Gautschi shown as the example).
 
     [:octicons-arrow-right-24: Context Files](context_files.md)
 

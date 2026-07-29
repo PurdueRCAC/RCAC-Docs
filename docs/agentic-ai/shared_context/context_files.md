@@ -7,10 +7,17 @@ authors:
 
 # Context Files (`/etc/agents.d`)
 
-These are the actual Gautschi shared-context files, published **verbatim** — the same
-Markdown that is deployed to `/etc/agents.d/` on the cluster and injected into agents
-by `rcac-mcp`. Each is written to the agent, in the shape *fact → correct
-command/path → "do not…" → rationale*.
+Every RCAC cluster ships a small set of **shared-context files** under `/etc/agents.d/` —
+plain Markdown deployed to the cluster and injected into agents by `rcac-mcp`. Each is
+written for the agent, in the shape *fact → correct command/path → "do not…" →
+rationale*. They are **generated per cluster** from a single data model, so the
+partitions, GPUs, filesystems, and toolchain are correct for the machine the agent is
+on.
+
+The files below are **Gautschi's**, shown as the worked example. Each cluster publishes
+its own set under *Using AI Agents* in its user guide — for example
+[Negishi](../../userguides/negishi/using_ai_agents.md) and
+[Gilbreth](../../userguides/gilbreth/using_ai_agents.md).
 
 Volatile numbers (quotas, balances) are deliberately **not hardcoded**: the files tell
 the agent to run `myquota` and `slist` and read the real values instead.
@@ -18,31 +25,31 @@ the agent to run `myquota` and `slist` and read the real values instead.
 ## `unix.md`
 
 ```markdown title="/etc/agents.d/unix.md"
---8<-- "docs/snippets/agentic-ai/agents.d/unix.md"
+--8<-- "docs/snippets/agentic-ai/gautschi/agents.d/unix.md"
 ```
 
 ## `filesystems.md`
 
 ```markdown title="/etc/agents.d/filesystems.md"
---8<-- "docs/snippets/agentic-ai/agents.d/filesystems.md"
+--8<-- "docs/snippets/agentic-ai/gautschi/agents.d/filesystems.md"
 ```
 
 ## `lmod.md`
 
 ```markdown title="/etc/agents.d/lmod.md"
---8<-- "docs/snippets/agentic-ai/agents.d/lmod.md"
+--8<-- "docs/snippets/agentic-ai/gautschi/agents.d/lmod.md"
 ```
 
 ## `slurm.md`
 
 ```markdown title="/etc/agents.d/slurm.md"
---8<-- "docs/snippets/agentic-ai/agents.d/slurm.md"
+--8<-- "docs/snippets/agentic-ai/gautschi/agents.d/slurm.md"
 ```
 
 ## `policies.md`
 
 ```markdown title="/etc/agents.d/policies.md"
---8<-- "docs/snippets/agentic-ai/agents.d/policies.md"
+--8<-- "docs/snippets/agentic-ai/gautschi/agents.d/policies.md"
 ```
 
 ## The assembled `AGENTS.md`
@@ -54,7 +61,7 @@ on-cluster agent reads:
 ??? note "Show the concatenated `AGENTS.md`"
 
     ```markdown title="AGENTS.md (assembled)"
-    --8<-- "docs/snippets/agentic-ai/agents.d/AGENTS.md"
+    --8<-- "docs/snippets/agentic-ai/gautschi/agents.d/AGENTS.md"
     ```
 
 ---

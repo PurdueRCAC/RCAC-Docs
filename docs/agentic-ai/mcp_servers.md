@@ -55,7 +55,8 @@ which stays a background transport. The agent is not driving an interactive term
 yourself and the agent rides along in it — see [Running Agents](running_agents/local.md).)
 
 Add it to an MCP-capable harness with the server's canonical configuration block,
-pointing `--ssh-host` at your cluster login node:
+pointing `--ssh-host` at your cluster login node (the example below uses
+`gautschi.rcac.purdue.edu` — use your cluster's host):
 
 ```json
 {

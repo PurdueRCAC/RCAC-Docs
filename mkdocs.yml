@@ -154,6 +154,7 @@ nav:
       - File Storage and Transfer: userguides/gilbreth/storage.md
       - Gateway (Open OnDemand): userguides/gilbreth/gateway.md
       - Compiling Source Code: userguides/gilbreth/compile.md
+      - Using AI Agents: userguides/gilbreth/using_ai_agents.md
       - Frequently Asked Questions: userguides/gilbreth/faqs.md
     - Negishi:
       - userguides/negishi/index.md
@@ -165,6 +166,7 @@ nav:
       - File Storage and Transfer: userguides/negishi/storage.md
       - Gateway (Open OnDemand): userguides/negishi/gateway.md
       - Compiling Source Code: userguides/negishi/compile.md
+      - Using AI Agents: userguides/negishi/using_ai_agents.md
       - Frequently Asked Questions: userguides/negishi/faqs.md
     - Scholar: 
       - userguides/scholar/index.md

@@ -9,11 +9,16 @@ authors:
 
 Alongside the shared [context files](context_files.md), RCAC configures a
 starting-point permission policy for each of the five harnesses. **These are the
-cluster-side settings** — what RCAC applies for an agent running **on the Gautschi
+cluster-side settings** — what RCAC applies for an agent running **on the cluster
 nodes**. Wherever a harness supports it, RCAC deploys them to the system-managed
 location and **enforces** them; they are already in effect, and you do not install them
 yourself. We publish them here for **transparency**: so you can see exactly what your
 agent is and is not allowed to do.
+
+These files are **generated per cluster** and differ only in the cluster-specific
+scratch path; the examples below are **Gautschi's**. See each cluster's *Using AI
+Agents* chapter (for example [Negishi](../../userguides/negishi/using_ai_agents.md) or
+[Gilbreth](../../userguides/gilbreth/using_ai_agents.md)) for its own.
 
 Every policy does two things: it **allow-lists the read-only sanity commands**
 (`myquota`, `slist`, `sfeatures`, `module list`, `module avail`) so the agent runs them
@@ -63,7 +68,7 @@ importing `@AGENTS.md` from a managed `CLAUDE.md` (Claude Code does not read `AG
 natively).
 
 ```json title="/etc/claude-code/managed-settings.json"
---8<-- "docs/snippets/agentic-ai/claude/settings.json"
+--8<-- "docs/snippets/agentic-ai/gautschi/claude/settings.json"
 ```
 
 Claude Code keeps MCP servers in `.mcp.json` rather than `settings.json`. The cluster-
@@ -92,7 +97,7 @@ nodes without `bubblewrap`, the OS sandbox will not engage — fall back to
 endpoint over HTTP.
 
 ```toml title="~/.codex/config.toml (recommended)"
---8<-- "docs/snippets/agentic-ai/codex/config.toml"
+--8<-- "docs/snippets/agentic-ai/gautschi/codex/config.toml"
 ```
 
 ## Gemini CLI
@@ -105,7 +110,7 @@ wins, and chained commands are split so any disallowed part blocks the whole lin
 endpoint over HTTP (`httpUrl`).
 
 ```json title="/etc/gemini-cli/settings.json"
---8<-- "docs/snippets/agentic-ai/gemini/settings.json"
+--8<-- "docs/snippets/agentic-ai/gautschi/gemini/settings.json"
 ```
 
 ## opencode
@@ -116,7 +121,7 @@ followed by the specific allow and deny rules. opencode reads `AGENTS.md` native
 its `mcp` block registers the docs endpoint as a remote HTTP server.
 
 ```json title="/etc/opencode/opencode.json"
---8<-- "docs/snippets/agentic-ai/opencode/opencode.json"
+--8<-- "docs/snippets/agentic-ai/gautschi/opencode/opencode.json"
 ```
 
 ## Warp

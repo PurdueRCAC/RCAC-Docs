@@ -12,7 +12,7 @@ There are two ways to run an agentic coding tool against an RCAC cluster, and th
 section is organized around that choice. Both are legitimate; which one fits depends
 on your harness and how you like to work.
 
-- **On the cluster (login nodes).** You SSH into a Gautschi login node and run a
+- **On the cluster (login nodes).** You SSH into a cluster login node and run a
   command-line harness (Claude Code, Codex, Gemini CLI, or opencode) *there*. The
   agent lives on the front end alongside your shell, so it sees the real filesystem,
   modules, and scheduler directly — but it is bound by the same login-node etiquette
@@ -32,7 +32,7 @@ on your harness and how you like to work.
 
     ---
 
-    Run a CLI harness directly on a Gautschi front end. Covers install, the
+    Run a CLI harness directly on a cluster front end. Covers install, the
     login-node compute rules, and where agents may write.
 
     [:octicons-arrow-right-24: On the Cluster](on_cluster.md)

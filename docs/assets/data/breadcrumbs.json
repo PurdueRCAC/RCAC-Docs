@@ -263,6 +263,11 @@
     "Gilbreth User Guide",
     "Compiling Source Code"
   ],
+  "/userguides/gilbreth/using_ai_agents/": [
+    "Home",
+    "Gilbreth User Guide",
+    "Using AI Agents"
+  ],
   "/userguides/gilbreth/faqs/": [
     "Home",
     "Gilbreth User Guide",
@@ -311,6 +316,11 @@
     "Home",
     "Negishi User Guide",
     "Compiling Source Code"
+  ],
+  "/userguides/negishi/using_ai_agents/": [
+    "Home",
+    "Negishi User Guide",
+    "Using AI Agents"
   ],
   "/userguides/negishi/faqs/": [
     "Home",
