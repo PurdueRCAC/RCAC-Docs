@@ -14,7 +14,7 @@ mpi4py is a Python package providing bindings for the Message Passing Interface 
 
 |Cluster|Versions|
 |---|---|
-**ANVIL**|3.0.3
+**ANVIL**|3.0.3, 3.1.6
 **GAUTSCHI**|3.1.6
 
 ## Module

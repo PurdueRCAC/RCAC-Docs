@@ -11,7 +11,7 @@ search:
 # All software and versions on RCAC clusters
 
 ## Overview
-As of **July 29, 2026**, there have been a total of **278** applications with **2550** available versions deployed across **6** RCAC HPC clusters: **ANVIL, BELL, GAUTSCHI, GILBRETH, NEGISHI, SCHOLAR**.
+As of **August 06, 2026**, there have been a total of **287** applications with **2627** available versions deployed across **6** RCAC HPC clusters: **ANVIL, BELL, GAUTSCHI, GILBRETH, NEGISHI, SCHOLAR**.
 
 ## Applications Catalog
 
@@ -1016,9 +1016,14 @@ As of **July 29, 2026**, there have been a total of **278** applications with **
       <td>ANVIL, BELL, GILBRETH, NEGISHI</td>
     </tr>
     <tr>
+      <td><a href="../apps_md/py-cython"><strong>py-cython</strong></a></td>
+      <td>Library</td>
+      <td>ANVIL</td>
+    </tr>
+    <tr>
       <td><a href="../apps_md/py-matplotlib"><strong>py-matplotlib</strong></a></td>
       <td>Library, Math/Stat</td>
-      <td>GAUTSCHI</td>
+      <td>ANVIL, GAUTSCHI</td>
     </tr>
     <tr>
       <td><a href="../apps_md/py-mpi4py"><strong>py-mpi4py</strong></a></td>
@@ -1026,14 +1031,54 @@ As of **July 29, 2026**, there have been a total of **278** applications with **
       <td>ANVIL, GAUTSCHI</td>
     </tr>
     <tr>
+      <td><a href="../apps_md/py-numba"><strong>py-numba</strong></a></td>
+      <td>Library, Math/Stat</td>
+      <td>ANVIL</td>
+    </tr>
+    <tr>
       <td><a href="../apps_md/py-numpy"><strong>py-numpy</strong></a></td>
       <td>Library, Math/Stat</td>
-      <td>GAUTSCHI</td>
+      <td>ANVIL, GAUTSCHI</td>
     </tr>
     <tr>
       <td><a href="../apps_md/py-pandas"><strong>py-pandas</strong></a></td>
       <td>Library, Math/Stat</td>
-      <td>GAUTSCHI</td>
+      <td>ANVIL, GAUTSCHI</td>
+    </tr>
+    <tr>
+      <td><a href="../apps_md/py-pip"><strong>py-pip</strong></a></td>
+      <td>Programming, Utilities</td>
+      <td>ANVIL</td>
+    </tr>
+    <tr>
+      <td><a href="../apps_md/py-scikit-learn"><strong>py-scikit-learn</strong></a></td>
+      <td>Library, Math/Stat</td>
+      <td>ANVIL</td>
+    </tr>
+    <tr>
+      <td><a href="../apps_md/py-scipy"><strong>py-scipy</strong></a></td>
+      <td>Library, Math/Stat</td>
+      <td>ANVIL</td>
+    </tr>
+    <tr>
+      <td><a href="../apps_md/py-seaborn"><strong>py-seaborn</strong></a></td>
+      <td>Library</td>
+      <td>ANVIL</td>
+    </tr>
+    <tr>
+      <td><a href="../apps_md/py-setuptools"><strong>py-setuptools</strong></a></td>
+      <td>Library</td>
+      <td>ANVIL</td>
+    </tr>
+    <tr>
+      <td><a href="../apps_md/py-virtualenv"><strong>py-virtualenv</strong></a></td>
+      <td>Programming, Utilities</td>
+      <td>ANVIL</td>
+    </tr>
+    <tr>
+      <td><a href="../apps_md/py-wheel"><strong>py-wheel</strong></a></td>
+      <td>Library</td>
+      <td>ANVIL</td>
     </tr>
     <tr>
       <td><a href="../apps_md/python"><strong>python</strong></a></td>

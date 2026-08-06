@@ -14,7 +14,7 @@ The Python programming language.
 
 |Cluster|Versions|
 |---|---|
-**ANVIL**|3.9.5
+**ANVIL**|3.9.5, 3.11.9
 **GAUTSCHI**|3.11.9
 
 ## Module

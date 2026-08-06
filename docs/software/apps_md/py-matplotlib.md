@@ -14,6 +14,7 @@ Matplotlib is a comprehensive library for creating static, animated, and interac
 
 |Cluster|Versions|
 |---|---|
+**ANVIL**|3.9.0
 **GAUTSCHI**|3.9.0
 
 ## Module
