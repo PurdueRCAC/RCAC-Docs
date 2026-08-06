@@ -14,7 +14,7 @@ Mvapich2 is a High-Performance MPI Library for clusters with diverse networks (I
 
 |Cluster|Versions|
 |---|---|
-**ANVIL**|2.3.6
+**ANVIL**|2.3.7-1, 2.3.6
 **BELL**|2.3.7-1
 **GAUTSCHI**|2.3.7-1
 **GILBRETH**|2.3.7-1
