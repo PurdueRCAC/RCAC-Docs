@@ -72,7 +72,7 @@ Available QOSes: "normal", "standby"
 
 ### AI Partition
 
-This partition contains the resources a group purchases access to when they purcahse GPU resources on Gautschi and is made up of 20 Gautschi-H nodes. Each of these nodes contains two Intel Xeon Platinum 8480+ 56-core processors and 8-way NVLinked H100s for a total of 160 H100s in the partition. CPU memory in this partition is allocated proportional to your core request such that each core is given about 9 GB of memory per core requested. Submission to this partition can be accomplished by using the option: "-p ai" or "--partition=ai".
+This partition contains the resources a group purchases access to when they purchase GPU resources on Gautschi and is made up of 20 Gautschi-H nodes. Each of these nodes contains two Intel Xeon Platinum 8480+ 56-core processors and 8-way NVLinked H100s for a total of 160 H100s in the partition. CPU memory in this partition is allocated proportional to your core request such that each core is given about 9 GB of memory per core requested. Submission to this partition can be accomplished by using the option: "-p ai" or "--partition=ai".
 
 The purchasing model for this cluster allows groups to purchase access to GPUs. When a group purchases access to a GPU for a year, they are given 365*24 hours of GPU time on the partition. The advantage to tracking resources this way is that if a group needs access to more than one GPU for a project, they can use multiple GPUs at once since instead of having to purchase additional GPUs, they just consume those GPU hours faster. When an account uses resources in this partition, the balance of GPU hours in their account is charged at a rate of at least one GPU hour for each GPU their job uses per hour (this is tracked by the minute), however the usage of some QOSes described below will charge usage at a slower rate. 
 
@@ -86,7 +86,7 @@ When using the AI partition, jobs are tagged by the "normal" QOS by default, but
 
 **Jobs tagged with the "preemptible" QOS subject to the following policies:**
 
-- **Jobs have a low priority and there is no expectation of job start time.** If the partition is very busy with jobs using the "normal" QOS or if you are requesting a very large job, then jobs using the "standby" QOS may take hours or days to start.
+- **Jobs have a low priority and there is no expectation of job start time.** If the partition is very busy with jobs using the "normal" QOS or if you are requesting a very large job, then jobs using the "preemptible" QOS may take hours or days to start.
 - The account the job is submitted to will be charged 0.25 GPU hour for each GPU this job uses per hour (this is tracked by the minute) which effectively allows jobs to use 4x as many resources as a job tagged with the "normal" qos for the same cost.
 - These jobs can run for up to two weeks at a time.
 - If there are not enough idle resources in this partition for a job tagged with the "normal" QOS to start, then this job may be cancelled to make room for that job. **This means it is imperative to use checkpointing if using this QOS.**
