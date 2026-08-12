@@ -172,6 +172,24 @@
       "discipline": "AI / Machine Learning",
       "dataset_size": "71G (compressed)",
       "public": true
+    },
+    "oxfordrobotcar": {
+      "folder": "oxfordrobotcar",
+      "doi": "10.1177/0278364916679498",
+      "link": "https://robotcar-dataset.robots.ox.ac.uk/",
+      "publication_date": "2016",
+      "title": "oxfordrobotcar",
+      "description": "The Oxford RobotCar Dataset is a large-scale autonomous driving dataset collected by the University of Oxford. It contains repeated traversals of a route through Oxford, providing data from cameras, LiDAR, GPS/INS, and other vehicle sensors.",
+      "data_type": "Extracted Images, LiDAR point clouds, GPS/INS measurements, sensor timestamps on Ceph",
+      "usage_policy": "This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License and is intended for research and academic use.",
+      "bibtex": "@article{maddern2017oxford,\n  author={Maddern, Will and Pascoe, Geoffrey and Linegar, Chris and Newman, Paul},\n  title={1 Year, 1000km: The Oxford RobotCar Dataset},\n  journal={The International Journal of Robotics Research},\n  volume={36},\n  number={1},\n  pages={3--15},\n  year={2017},\n  publisher={SAGE Publications},\n  doi={10.1177/0278364916679498}\n}\n\n@article{maddern2020real_time,\n  author={Maddern, Will and Pascoe, Geoffrey and Gadd, Matthew and Barnes, Dan and Yeomans, Ben and Newman, Paul},\n  title={Real-time Kinematic Ground Truth for the Oxford RobotCar Dataset},\n  journal={arXiv preprint arXiv:2002.10152},\n  year={2020},\n  url={https://arxiv.org/abs/2002.10152}\n}",
+      "cite": "Maddern, W., Pascoe, G., Linegar, C., Newman, P. (2017). 1 Year, 1000km: The Oxford RobotCar Dataset. The International Journal of Robotics Research.",
+      "downloaded": "2026-07-10",
+      "usage_policy_link": "https://robotcar-dataset.robots.ox.ac.uk/terms/",
+      "file_number": "34.332M (extracted)",
+      "discipline": "AI / Robotics / PhysicalAI",
+      "dataset_size": "Approx. 10TB",
+      "public": true
     }
   }
 }

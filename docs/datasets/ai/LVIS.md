@@ -20,3 +20,15 @@
 | **Usage Policy** | The LVIS annotations along with this website are licensed under a Creative Commons Attribution 4.0 License. All LVIS dataset images come from the COCO dataset which those are licensed under Creative Commons Attribution 4.0 License. |
 | **Citation** | Gupta, A., Dollar, P., & Girshick, R. (2019). LVIS: A dataset for large vocabulary instance segmentation. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (pp. 5356–5364). |
 | **BibTeX** | <details><summary>📜 View BibTeX citation</summary><pre>@inproceedings{gupta2019lvis,<br>  title={LVIS: A Dataset for Large Vocabulary Instance Segmentation},<br>  author={Gupta, Agrim and Dollar, Piotr and Girshick, Ross},<br>  booktitle={Proceedings of the {IEEE} Conference on Computer Vision and Pattern Recognition},<br>  year={2019}<br>}</pre></details> |
+
+## Ceph access
+
+This dataset is also available in raw/extracted form on RCAC Ceph/S3-compatible object storage.
+
+| Parameter | Value |
+|-----------|-------|
+| **Endpoint** | `https://s3.anvil.rcac.purdue.edu` |
+| **Bucket** | `ai-datasets` |
+| **Access** | Public read-only |
+
+For detailed instructions, see the [AI datasets overview](../ai.md).
