@@ -20,3 +20,15 @@
 | **Usage Policy** |  |
 | **Citation** | Lin, T.-Y., Maire, M., Belongie, S., Bourdev, L., Girshick, R., Hays, J., Perona, P., Ramanan, D., Zitnick, C. L., & Dollár, P. (2015). Microsoft COCO: Common objects in context. arXiv preprint arXiv:1405.0312. https://arxiv.org/abs/1405.0312 |
 | **BibTeX** | <details><summary>📜 View BibTeX citation</summary><pre>@misc{lin2015microsoftcococommonobjects,<br>      title={Microsoft COCO: Common Objects in Context}, <br>      author={Tsung-Yi Lin and Michael Maire and Serge Belongie and Lubomir Bourdev and Ross Girshick and James Hays and Pietro Perona and Deva Ramanan and C. Lawrence Zitnick and Piotr Dollár},<br>      year={2015},<br>      eprint={1405.0312},<br>      archivePrefix={arXiv},<br>      primaryClass={cs.CV},<br>      url={https://arxiv.org/abs/1405.0312}, <br>}</pre></details> |
+
+## Ceph access
+
+This dataset is also available in raw/extracted form on RCAC Ceph/S3-compatible object storage.
+
+| Parameter | Value |
+|-----------|-------|
+| **Endpoint** | `https://s3.anvil.rcac.purdue.edu` |
+| **Bucket** | `ai-datasets` |
+| **Access** | Public read-only |
+
+For detailed instructions, see the [AI datasets overview](../ai.md).
