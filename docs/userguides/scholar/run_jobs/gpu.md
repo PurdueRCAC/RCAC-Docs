@@ -35,15 +35,15 @@ echo $CUDA_VISIBLE_DEVICES
 Submit the job:
 
 ```bash
-sbatch -A gpu --nodes=1 --gres=gpu:1 -t 00:01:00 gpu_hello.sub 
+sbatch --partition=gpu --nodes=1 --gres=gpu:1 -t 00:01:00 gpu_hello.sub 
 ```
 
 **Requesting a GPU from the scheduler is required.** You can specify total number of GPUs, or number of GPUs per node, or even number of GPUs per task:
 
 ```bash
-sbatch -A gpu --nodes=1 --gres=gpu:1 -t 00:01:00 gpu_hello.sub
-sbatch -A gpu --nodes=1 --gpus-per-node=1 -t 00:01:00 gpu_hello.sub
-sbatch -A gpu --nodes=1 --gpus-per-task=1 -t 00:01:00 gpu_hello.sub
+sbatch --partition=gpu --nodes=1 --gres=gpu:1 -t 00:01:00 gpu_hello.sub
+sbatch --partition=gpu --nodes=1 --gpus-per-node=1 -t 00:01:00 gpu_hello.sub
+sbatch --partition=gpu --nodes=1 --gpus-per-task=1 -t 00:01:00 gpu_hello.sub
 ```
 
 After job completion, view the new output file in your directory:

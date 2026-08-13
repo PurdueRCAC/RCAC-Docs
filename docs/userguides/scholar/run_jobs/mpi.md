@@ -26,7 +26,7 @@ Create a job submission file:
 #SBATCH  --nodes=2
 #SBATCH  --ntasks-per-node=20
 #SBATCH  --time=00:01:00
-#SBATCH  -A scholar
+#SBATCH  --partition=cpu
 
 srun -n 40 ./mpi_hello
 ```
@@ -63,10 +63,10 @@ Submit the job with double the number of compute nodes and modify the resource r
 #!/bin/bash
 # FILENAME:  mpi_hello.sub
 
-#SBATCH --nodes=4                                                                                                                                        
-#SBATCH --ntasks-per-node=10                                                                                                        
+#SBATCH --nodes=4
+#SBATCH --ntasks-per-node=10  
 #SBATCH -t 00:01:00 
-#SBATCH -A scholar
+#SBATCH --partition=cpu
 
 srun -n 40 ./mpi_hello
 

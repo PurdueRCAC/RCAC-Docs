@@ -16,20 +16,14 @@ Once you have a [job submission file](creating_the_submission_script.md), you ma
 
 To submit your job to one compute node:
 
-```bash
-$ sbatch --nodes=1 myjobsubmissionfile 
-```
-
-Slurm uses the word 'Account' and the option '-A' to specify different batch queues. To submit your job to a specific queue:
-
-```bash
-$ sbatch --nodes=1 -A scholar myjobsubmissionfile 
+```bash linenums="0"
+$ sbatch --nodes=1 --partition=cpu myjobsubmissionfile 
 ```
 
 By default, each job receives 30 minutes of wall time, or clock time. If you know that your job will not need more than a certain amount of time to run, request less than the maximum wall time, as this may allow your job to run sooner. To request the 1 hour and 30 minutes of wall time:
 
-```bash
-$ sbatch -t 1:30:00 --nodes=1 -A scholar myjobsubmissionfile 
+```bash linenums="0"
+$ sbatch -t 1:30:00 -nodes=1 --partition=cpu myjobsubmissionfile
 ```
 
 The ```--nodes``` value indicates how many compute nodes you would like for your job.
@@ -40,25 +34,27 @@ In some cases, you may want to request multiple nodes. To utilize multiple nodes
 
 To request 2 compute nodes:
 
-```bash
-$ sbatch --nodes=2 myjobsubmissionfile 
+```bash linenums="0"
+$ sbatch --nodes=2 --partition=cpu  myjobsubmissionfile 
 ```
 
 By default, jobs on Scholar will share nodes with other jobs.
 
 To submit a job using 1 compute node with 4 tasks, each using the default 1 core and 1 GPU per node:
 
-```bash
-$ sbatch --nodes=1 --ntasks=4 --gpus-per-node=1 myjobsubmissionfile
+```bash linenums="0"
+$ sbatch --partition=gpu --nodes=1 --ntasks=4 --gpus-per-node=1 myjobsubmissionfile
 ```
+
+Please note that you must instead submit your jobs to the `gpu` partition, and list how many GPUs your job will require. 
+
+--- 
 
 If more convenient, you may also specify any command line options to ```sbatch``` from within your job submission file, using a special form of comment:
 
-```bash
+```bash title="myjobsubmissionfile"
 #!/bin/sh -l
-# FILENAME:  myjobsubmissionfile
-
-#SBATCH -A myqueuename
+#SBATCH --partition=cpu
 #SBATCH --nodes=1 
 #SBATCH --time=1:30:00
 #SBATCH --job-name myjobname

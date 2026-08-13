@@ -10,17 +10,14 @@ resource: Scholar
 host: scholar.rcac.purdue.edu
 search:
   boost: 2
-  exclude: true
+  exclude: false
 ---
 
 # Scholar Spark Nodes
 
-!!! info "You are viewing an unlisted demo page for early users of the Spark partitions"
-     This page is unlisted and contains information that might not represent the current state of Scholar Spark nodes. 
+<!-- !!! info "You are viewing an unlisted demo page for early users of the Spark partitions"
+     This page is unlisted and contains information that might not represent the current state of Scholar Spark nodes.  -->
 
-     In particular, the `scholar` account cannot yet access Spark nodes, and the `spark-interactive` and `spark-batch` partitions do not yet exist. 
-     
-     **Early users should instead use the `testpbs` account and the `scholar-l` or `scholar-k` partitions.**
 
 
 ## Overview
@@ -117,11 +114,11 @@ Once logged in, you can submit resource requests to the Slurm scheduler to reque
 To request resources on Spark nodes specifically, you need use a Spark specific **Account** and **Partition**:
 
 
-!!! info "Different Accounts and Partitions Necessary for Early Users"
+<!-- !!! info "Different Accounts and Partitions Necessary for Early Users"
      Early users of Spark nodes should instead use the following accounts and partitions:
 
-     * `--account=testpbs`
-     * `--partition=scholar-l` or `--partition=scholar-k`
+     * `--account=scholar`
+     * `--partition=spark-interactive` or `--partition=spark-batch` -->
 
 === "Account"
 
