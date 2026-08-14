@@ -4,6 +4,7 @@ tags:
 authors:
   - jin456
   - remender
+  - verburgt
 resource: Scholar
 host: scholar.rcac.purdue.edu
 search:
@@ -19,7 +20,7 @@ To submit an interactive job, use ```sinteractive``` to run a login shell on all
 ```sinteractive``` accepts most of the same resource requests as ```sbatch```, so to request a login shell on the cpu account while allocating 2 nodes and 40 total cores, you might do:
 
 ```bash
-sinteractive -A cpu -N2 -n40
+sinteractive --partition=cpu -N2 -n40
 ```
 
 To quit your interactive job:

@@ -4,6 +4,7 @@ tags:
 authors:
   - jin456
   - remender
+  - verburgt
 resource: Scholar
 host: scholar.rcac.purdue.edu
 search:
@@ -21,7 +22,7 @@ This example shows a request for multiple compute nodes. The job submission file
 #!/bin/bash
 echo "$SLURM_JOB_NODELIST"
 
-sbatch --nodes=2 --ntasks=40 --time=00:10:00 -A scholar myjobsubmissionfile.sub
+sbatch --nodes=2 --ntasks=40 --time=00:10:00 --partition=cpu myjobsubmissionfile.sub
 ```
 
 Compute nodes allocated:
