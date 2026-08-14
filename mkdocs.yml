@@ -174,6 +174,7 @@ nav:
       - Accounts: userguides/scholar/accounts.md
       - Software: userguides/scholar/software.md
       - Running Jobs: userguides/scholar/run_jobs/index.md
+      - Scholar Spark Nodes: userguides/scholar/scholar-spark.md
       - File Storage and Transfer: userguides/scholar/storage.md
       - Gateway (Open OnDemand): userguides/scholar/gateway.md
       - Compiling Source Code: userguides/scholar/compile.md

@@ -14,9 +14,8 @@ search:
 
 To submit work to a SLURM queue, you must first create a job submission file. This job submission file is essentially a simple shell script. It will set any required environment variables, load any necessary modules, create or modify files and directories, and run any applications that you need:
 
-```bash
+```bash title="myjobsubmissionfile"
 #!/bin/bash
-# FILENAME:  myjobsubmissionfile
 
 # Loads Matlab and sets the application up
 module load matlab

@@ -43,6 +43,7 @@ Create a job submissionfile:
 #SBATCH --nodes=1
 #SBATCH --ntasks=20
 #SBATCH --time=00:01:00
+#SBATCH --partition=cpu
 
 export OMP_NUM_THREADS=20
 ./omp_hello 

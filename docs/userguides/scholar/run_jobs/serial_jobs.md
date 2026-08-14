@@ -4,6 +4,7 @@ tags:
 authors:
   - jin456
   - remender
+  - verburgt
 resource: Scholar
 host: scholar.rcac.purdue.edu
 search:
@@ -26,7 +27,7 @@ Create a job submission file:
 Submit the job:
 
 ```bash
-sbatch --nodes=1 --ntasks=1 --time=00:01:00 serial_hello.sub
+sbatch --partition=cpu --nodes=1 --ntasks=1 --time=00:01:00 serial_hello.sub
 ```
 
 After the job completes, view results in the output file:
