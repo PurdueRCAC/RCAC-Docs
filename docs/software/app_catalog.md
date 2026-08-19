@@ -11,7 +11,7 @@ search:
 # All software and versions on RCAC clusters
 
 ## Overview
-As of **August 12, 2026**, there have been a total of **287** applications with **2627** available versions deployed across **6** RCAC HPC clusters: **ANVIL, BELL, GAUTSCHI, GILBRETH, NEGISHI, SCHOLAR**.
+As of **August 19, 2026**, there have been a total of **287** applications with **2628** available versions deployed across **6** RCAC HPC clusters: **ANVIL, BELL, GAUTSCHI, GILBRETH, NEGISHI, SCHOLAR**.
 
 ## Applications Catalog
 
@@ -1398,7 +1398,7 @@ As of **August 12, 2026**, there have been a total of **287** applications with 
     <tr>
       <td><a href="../apps_md/xcb-util-cursor"><strong>xcb-util-cursor</strong></a></td>
       <td>Math/Stat, Programming</td>
-      <td>BELL, GAUTSCHI, GILBRETH</td>
+      <td>BELL, GAUTSCHI, GILBRETH, SCHOLAR</td>
     </tr>
     <tr>
       <td><a href="../apps_md/xcb-util-image"><strong>xcb-util-image</strong></a></td>
