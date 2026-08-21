@@ -5,7 +5,7 @@
 | Field | Value |
 |--------|-------|
 | **Description** | Comprehensive, annotated dataset for multi-camera tracking and 2D/3D object detection. This dataset is synthetically generated with Omniverse.<br><br>This dataset consists of over 250 hours of video from across nearly 1,500 cameras from indoor scenes in warehouses, hospitals, retail, and more. The dataset is time synchronized for tracking humans across multiple cameras using feature representation and no personal data.<br><br>Dataset Description<br>Dataset Owner(s)<br>NVIDIA<br><br>Dataset Creation Date<br>We started to create this dataset in December, 2023. First version was completed and released as part of 8th AI City Challenge in conjunction with CVPR 2024.<br><br>Dataset Characterization<br>Data Collection Method: Synthetic<br>Labeling Method: Automatic with IsaacSim<br>Video Format<br>Video Standard: MP4 (H.264)<br>Video Resolution: 1080p<br>Video Frame rate: 30 FPS |
-| **Folder** | `/datasets/ai/huggingface/nvidia/PhysicalAI-SmartSpaces` |
+| **Folder** | `/datasets/ai/PhysicalAI-SmartSpaces` |
 | **Discipline** | AI / Computer Vision / PhysicalAI |
 | **DOI** | [10.48550/arXiv.2412.00692](https://doi.org/10.48550/arXiv.2412.00692) |
 | **Link** | [Access Data](https://huggingface.co/datasets/nvidia/PhysicalAI-SmartSpaces) |
@@ -15,7 +15,7 @@
 | **Data Type** | LMDB, SquashFS<br>Extracted MP4 files on Ceph |
 | **Dataset Size** | 6.7M (extracted) |
 | **Number of Files** | 3192 (extracted) |
-| **Usage** | <pre>&#36; module avail<br>&#36; module load datasets<br>&#36; module load ai/huggingface/nvidia/PhysicalAI-SmartSpaces/2024</pre> |
+| **Usage** | <pre>&#36; module avail<br>&#36; module load datasets<br>&#36; module load ai/PhysicalAI-SmartSpaces/2024</pre> |
 | **Usage Policy Link** | https://choosealicense.com/licenses/cc-by-4.0/ |
 | **Usage Policy** |  |
 | **Citation** | Tang, Z., Wang, S., Anastasiu, D. C., Chang, M.-C., Sharma, A., Kong, Q., Kobori, N., Gochoo, M., Batnasan, G., Otgonbold, M.-E., Alnajjar, F., Hsieh, J.-W., Kornuta, T., Li, X., Zhao, Y., Zhang, H., Radhakrishnan, S., Jain, A., Kumar, R., Murali, V. N., Wang, Y., Pusegaonkar, S. S., Wang, Y., Biswas, S., Wu, X., Zheng, Z., Chakraborty, P., & Chellappa, R. (2025). The 9th AI City Challenge. In Proceedings of the IEEE/CVF International Conference on Computer Vision Workshops (ICCVW) (pp. 5467–5476). Honolulu, HI, USA.<br><br>Wang, S., Anastasiu, D. C., Tang, Z., Chang, M.-C., Yao, Y., Zheng, L., Rahman, M. S., Arya, M. S., Sharma, A., Chakraborty, P., Prajapati, S., Kong, Q., Kobori, N., Gochoo, M., Otgonbold, M.-E., Batnasan, G., Alnajjar, F., Chen, P.-Y., Hsieh, J.-W., Wu, X., Pusegaonkar, S. S., Wang, Y., Biswas, S., & Chellappa, R. (2024). The 8th AI City Challenge. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW) (pp. 7261–7272). Seattle, WA, USA.<br><br>Wang, Y., Meinhardt, T., Cetintas, O., Yang, C.-Y., Pusegaonkar, S. S., Missaoui, B., Biswas, S., Tang, Z., & Leal-Taixé, L. (2024). MCBLT: Multi-camera multi-object 3D tracking in long videos. arXiv preprint arXiv:2412.00692. |

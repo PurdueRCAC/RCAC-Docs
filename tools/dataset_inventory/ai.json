@@ -21,7 +21,7 @@
       "public": true
     },
     "PhysicalAI-SmartSpaces": {
-      "folder": "huggingface/nvidia/PhysicalAI-SmartSpaces",
+      "folder": "PhysicalAI-SmartSpaces",
       "time_resolution": "",
       "spatial_resolution": "",
       "doi": "10.48550/arXiv.2412.00692",
@@ -41,7 +41,7 @@
       "usage_policy": ""
     },
     "PhysicalAI-Robotics-GR00T-X-Embodiment-Sim": {
-      "folder": "huggingface/nvidia/PhysicalAI-Robotics-GR00T-X-Embodiment-Sim",
+      "folder": "PhysicalAI-Robotics-GR00T-X-Embodiment-Sim",
       "time_resolution": "",
       "spatial_resolution": "",
       "doi": "10.48550/arXiv.2503.14734",
@@ -61,7 +61,7 @@
       "public": true
     },
     "PhysicalAI-Robotics-Manipulation-SingleArm": {
-      "folder": "huggingface/nvidia/PhysicalAI-Robotics-Manipulation-SingleArm",
+      "folder": "PhysicalAI-Robotics-Manipulation-SingleArm",
       "time_resolution": "",
       "spatial_resolution": "",
       "doi": "",
@@ -81,7 +81,7 @@
       "public": true
     },
     "PhysicalAI-Robotics-GR00T-Teleop-Sim": {
-      "folder": "huggingface/nvidia/PhysicalAI-Robotics-GR00T-Teleop-Sim",
+      "folder": "PhysicalAI-Robotics-GR00T-Teleop-Sim",
       "time_resolution": "",
       "spatial_resolution": "",
       "doi": "10.48550/arXiv.2503.14734",
