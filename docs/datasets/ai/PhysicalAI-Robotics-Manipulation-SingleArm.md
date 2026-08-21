@@ -5,7 +5,7 @@
 | Field | Value |
 |--------|-------|
 | **Description** | PhysicalAI-Robotics-Manipulation-SingeArm is a collection of datasets of automatic generated motions of a Franka Panda robot performing operations such as block stacking, opening cabinets and drawers. The dataset was generated in IsaacSim leveraging task and motion planning algorithms to find solutions to the tasks automatically [1, 3]. The environments are table-top scenes where the object layouts and asset textures are procedurally generated [2]. This dataset is available for commercial use. |
-| **Folder** | `/datasets/ai/huggingface/nvidia/PhysicalAI-Robotics-Manipulation-SingleArm` |
+| **Folder** | `/datasets/ai/PhysicalAI-Robotics-Manipulation-SingleArm` |
 | **Discipline** | AI / PhysicalAI / Robotics |
 | **DOI** |  |
 | **Link** | [Access Data](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-Manipulation-SingleArm) |
@@ -15,7 +15,7 @@
 | **Data Type** | LMDB, SquashFS<br>Extracted LeRobot files on Ceph |
 | **Dataset Size** | 112M (extracted) |
 | **Number of Files** | 136217 (extracted) |
-| **Usage** | <pre>&#36; module avail<br>&#36; module load datasets<br>&#36; module load ai/huggingface/nvidia/PhysicalAI-Robotics-Manipulation-SingleArm/2025-03-18</pre> |
+| **Usage** | <pre>&#36; module avail<br>&#36; module load datasets<br>&#36; module load ai/PhysicalAI-Robotics-Manipulation-SingleArm/2025-03-18</pre> |
 | **Usage Policy Link** | https://choosealicense.com/licenses/cc-by-4.0/ |
 | **Usage Policy** |  |
 | **Citation** | Garrett, C. R., Lozano-Pérez, T., & Kaelbling, L. P. (2020). PDDLStream: Integrating symbolic planners and blackbox samplers via optimistic adaptive planning. Proceedings of the International Conference on Automated Planning and Scheduling, 30, 440–448.<br><br>Eppner, C., Murali, A., Garrett, C., O'Flaherty, R., Hermans, T., Yang, W., & Fox, D. (2024). scene_synthesizer: A Python library for procedural scene generation in robot manipulation. Journal of Open Source Software. The Open Journal. https://scene-synthesizer.github.io/<br><br>Sundaralingam, B., Hari, S. K. S., Fishman, A., Garrett, C., Van Wyk, K., Blukis, V., Millane, A., Oleynikova, H., Handa, A., Ramos, F., Ratliff, N., & Fox, D. (2023). CuRobo: Parallelized collision-free robot motion generation. In 2023 IEEE International Conference on Robotics and Automation (ICRA) (pp. 8112–8119). IEEE. https://doi.org/10.1109/ICRA48891.2023.10160765<br><br>NVIDIA. (2025, March 18). PhysicalAI-Robotics-Manipulation-SingleArm [Dataset]. Hugging Face. https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-Manipulation-SingleArm |

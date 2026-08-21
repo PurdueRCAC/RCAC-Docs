@@ -5,7 +5,7 @@
 | Field | Value |
 |--------|-------|
 | **Description** | A set of datasets used for post-training of GR00T N1. Each dataset is a collection of trajectories from different robot embodiments and tasks. |
-| **Folder** | `/datasets/ai/huggingface/nvidia/PhysicalAI-Robotics-GR00T-X-Embodiment-Sim` |
+| **Folder** | `/datasets/ai/PhysicalAI-Robotics-GR00T-X-Embodiment-Sim` |
 | **Discipline** | AI / PhysicalAI / Robotics |
 | **DOI** | [10.48550/arXiv.2503.14734](https://doi.org/10.48550/arXiv.2503.14734) |
 | **Link** | [Access Data](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-GR00T-X-Embodiment-Sim) |
@@ -15,7 +15,7 @@
 | **Data Type** | LMDB, SquashFS<br>Extracted LeRobot files on Ceph |
 | **Dataset Size** | 686M (extracted) |
 | **Number of Files** | 843233 (extracted) |
-| **Usage** | <pre>&#36; module avail<br>&#36; module load datasets<br>&#36; module load ai/huggingface/nvidia/PhysicalAI-Robotics-GR00T-X-Embodiment-Sim/2025-03-18</pre> |
+| **Usage** | <pre>&#36; module avail<br>&#36; module load datasets<br>&#36; module load ai/PhysicalAI-Robotics-GR00T-X-Embodiment-Sim/2025-03-18</pre> |
 | **Usage Policy Link** | https://choosealicense.com/licenses/cc-by-4.0/ |
 | **Usage Policy** |  |
 | **Citation** | NVIDIA, Bjorck, J., Castañeda, F., Cherniadev, N., Da, X., Ding, R., Fan, L., Fang, Y., Fox, D., Hu, F., Huang, S., Jang, J., Jiang, Z., Kautz, J., Kundalia, K., Lao, L., Li, Z., Lin, Z., Lin, K., … Zhu, Y. (2025, March). GR00T N1: An open foundation model for generalist humanoid robots [Preprint]. arXiv. https://arxiv.org/abs/2503.14734 |
