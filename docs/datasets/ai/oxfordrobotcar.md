@@ -12,7 +12,7 @@
 | **Public** | `True` |
 | **Publication Date** | 2016 |
 | **Downloaded** | 2026-07-10 |
-| **Data Type** | Compressed as LMDB of Anvil FileSystem; Extracted Images, LiDAR point clouds, GPS/INS measurements, sensor timestamps on Ceph |
+| **Data Type** | Compressed LMDB format on Anvil FileSystem; Extracted Images, LiDAR point clouds, GPS/INS measurements, sensor timestamps on Ceph |
 | **Dataset Size** | Approx. 10TB |
 | **Number of Files** | 34.332M (extracted) |
 | **Usage** | <pre>&#36; module avail<br>&#36; module load datasets<br>&#36; module load ai/oxfordrobotcar/2016</pre> |
