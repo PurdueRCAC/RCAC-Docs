@@ -262,7 +262,7 @@ busco \
 We can compare the results with the previously generated Helixer and B73.v5 annotations and whole genome assembly BUSCO results.
 
 
-![Busco-results](../../assets/images/lifesciences/gemoma_busco_figure.png)
+![A horizontal stacked bar chart titled "BUSCO Assessment Results" compares three assemblies (B73_gemoma_v1, helixer_busco, and Zm_B73v5_primary-only_busco) along a 0–100 %BUSCOs axis, with each bar segmented into complete single-copy, complete duplicated, fragmented, and missing categories and annotated with their counts (B73_gemoma_v1: C:4789 [S:3940, D:849], F:37, M:70, n:4896; helixer_busco: C:4808 [S:4053, D:755], F:34, M:54, n:4896; Zm_B73v5_primary-only_busco: C:4663 [S:3950, D:713], F:75, M:158, n:4896).](../../assets/images/lifesciences/gemoma_busco_figure.png)
 
 **Figure 1: BUSCO results for Helixer, B73.v5 (MaizeGDB) and merged (GeMoMa) annotations.**
 
@@ -361,19 +361,19 @@ The plots were generated using the following R script: [`cds_assesment.R`](../..
 
 === "CDS length"
 
-    ![cds-length](../../assets/images/lifesciences/gemoma_cds-length.png)
+    ![A set of four box-and-violin plots comparing CDS length distributions on a logarithmic scale (100 to 10000) across the categories B73.v5 (reference), B73.v5 primary only (reference), Helixer, and GeMoMa (merged).](../../assets/images/lifesciences/gemoma_cds-length.png)
 
     Figure 8: Distribution of CDS length for GeMoMa, Helixer and NAM.v5 predictions.
 
 === "GC content"
 
-    ![GC-content](../../assets/images/lifesciences/gemoma_gc-content.png)
+    ![Four density plots compare the distribution of GC content (x-axis in percent, marked at 25%, 50%, and 75%) for the B73.v5 reference, B73.v5 primary only reference, Helixer, and GeMoMa merged predictions, each curve showing a bimodal shape.](../../assets/images/lifesciences/gemoma_gc-content.png)
 
     Figure 9: Distribution of GC content for GeMoMa, Helixer and NAM.v5 predictions.
 
 === "Codon type"
 
-    ![codon-type](../../assets/images/lifesciences/gemoma_codon-type.png)
+    ![A two-panel bar chart comparing Helixer (left, against B73.v5 reference) and GeMoMa merged (right, against B73.v5 primary-only reference) across four codon-validity categories—Both valid, None valid, Start valid, and Stop valid—where the Both valid bar is dominant at roughly 90% and the other three categories each account for only a few percent.](../../assets/images/lifesciences/gemoma_codon-type.png)
 
     Figure 10: Distribution of start and stop codons for GeMoMa, Helixer and NAM.v5 predictions.
 
