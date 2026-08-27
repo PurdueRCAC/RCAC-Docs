@@ -262,9 +262,19 @@ busco \
 We can compare the results with the previously generated Helixer and B73.v5 annotations and whole genome assembly BUSCO results.
 
 
-![A horizontal stacked bar chart titled "BUSCO Assessment Results" compares three assemblies (B73_gemoma_v1, helixer_busco, and Zm_B73v5_primary-only_busco) along a 0–100 %BUSCOs axis, with each bar segmented into complete single-copy, complete duplicated, fragmented, and missing categories and annotated with their counts (B73_gemoma_v1: C:4789 [S:3940, D:849], F:37, M:70, n:4896; helixer_busco: C:4808 [S:4053, D:755], F:34, M:54, n:4896; Zm_B73v5_primary-only_busco: C:4663 [S:3950, D:713], F:75, M:158, n:4896).](../../assets/images/lifesciences/gemoma_busco_figure.png)
+![Horizontal stacked bar chart comparing BUSCO completeness for the GeMoMa merged, Helixer, and B73.v5 primary-only annotations. Counts are tabulated below.](../../assets/images/lifesciences/gemoma_busco_figure.png)
 
 **Figure 1: BUSCO results for Helixer, B73.v5 (MaizeGDB) and merged (GeMoMa) annotations.**
+
+| Annotation | Complete (C) | Single-copy (S) | Duplicated (D) | Fragmented (F) | Missing (M) | Total (n) |
+| --- | --- | --- | --- | --- | --- | --- |
+| `B73_gemoma_v1` (merged) | 4789 | 3940 | 849 | 37 | 70 | 4896 |
+| `helixer_busco` | 4808 | 4053 | 755 | 34 | 54 | 4896 |
+| `Zm_B73v5_primary-only_busco` | 4663 | 3950 | 713 | 75 | 158 | 4896 |
+
+Both predicted annotations recover more complete BUSCOs than the B73.v5
+primary-only reference, and the merged GeMoMa annotation more than halves the
+number of missing BUSCOs relative to that reference (70 versus 158).
 
 
 #### B. Comparing annotations
@@ -373,7 +383,7 @@ The plots were generated using the following R script: [`cds_assesment.R`](../..
 
 === "Codon type"
 
-    ![A two-panel bar chart comparing Helixer (left, against B73.v5 reference) and GeMoMa merged (right, against B73.v5 primary-only reference) across four codon-validity categories—Both valid, None valid, Start valid, and Stop valid—where the Both valid bar is dominant at roughly 90% and the other three categories each account for only a few percent.](../../assets/images/lifesciences/gemoma_codon-type.png)
+    ![Four bar-chart panels of transcripts with valid start/stop codons, for the two B73.v5 references and the Helixer and GeMoMa merged predictions. Both predictions are near 100% Both valid, versus roughly 90% for the references.](../../assets/images/lifesciences/gemoma_codon-type.png)
 
     Figure 10: Distribution of start and stop codons for GeMoMa, Helixer and NAM.v5 predictions.
 
