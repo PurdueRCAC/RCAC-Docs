@@ -3,6 +3,8 @@ title: Juicer on Negishi cluster
 tags:
   - Life Sciences
   - Tutorials
+search:
+  boost: 1
 ---
 
 # Juicer on Negishi cluster
@@ -259,3 +261,5 @@ aligned/
 ├── merged30.txt
 └── merged_dedup.bam
 ```
+
+[Back to Life Sciences](../index.md){ .md-button }

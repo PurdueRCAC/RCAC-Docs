@@ -4,6 +4,8 @@ tags:
   - Life Sciences
   - Assembly
   - Tutorials
+search:
+  boost: 1
 ---
 
 # Assemble Mitochondrial Genomes from Long Reads
@@ -162,3 +164,5 @@ Here are the plots for the maize B73 mitochondrial genome:
 ## 4. References
 
 Uliano-Silva, M., Ferreira, J.G.R.N., Krasheninnikova, K. et al. MitoHiFi: a python pipeline for mitochondrial genome assembly from PacBio high fidelity reads. BMC Bioinformatics 24, 288 (2023). DOI: [10.1186/s12859-023-05385-y](https://doi.org/10.1186/s12859-023-05385-y)
+
+[Back to Life Sciences](../index.md){ .md-button }

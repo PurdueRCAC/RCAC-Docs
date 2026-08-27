@@ -4,6 +4,8 @@ tags:
   - Life Sciences
   - Annotation
   - Tutorials
+search:
+  boost: 1
 ---
 
 # Gene prediction using Helixer
@@ -555,3 +557,5 @@ bioRxiv. 2023 Feb 06: 2023.02.06.527280.  Preprint. (not been certified by peer 
 - Stiehler F, Steinborn M, Scholz S, Dey D, Weber APM, Denton AK
 Helixer: cross-species gene annotation of large eukaryotic genomes using deep learning.
 Bioinformatics. 2020 Dec, 36(22-23): 5291-5298.
+
+[Back to Life Sciences](../index.md){ .md-button }

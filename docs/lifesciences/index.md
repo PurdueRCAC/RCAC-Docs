@@ -2,6 +2,8 @@
 title: Life Sciences
 tags:
   - Life Sciences
+search:
+  boost: 1
 ---
 
 # Life Sciences
