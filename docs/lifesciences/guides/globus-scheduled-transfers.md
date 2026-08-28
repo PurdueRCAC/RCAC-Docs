@@ -150,7 +150,7 @@ Globus decides per file whether to re-transfer it. The choice that matters here 
 transferring only files that **do not exist** at the destination, and transferring files whose
 **modification time** is newer at the source.
 
-**Use the modification-time level** (`--sync-level mtime` on the CLI). With exists-only, a file that
+**Use the modification-time level** (`--sync-level mtime` on the CLI, `L2 - modification time is newer (or L0 or L1)` option through the webpage). With exists-only, a file that
 already exists on Depot is never looked at again, so every result your pipeline *revises* after the
 first backup, every log that grows, every table you regenerate, silently stays at its first-week
 version on Depot. That failure is invisible until you need the data.
