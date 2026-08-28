@@ -5,6 +5,8 @@ tags:
   - HPC
   - Genomics Exchange
   - Guides
+search:
+  boost: 1
 ---
 
 <div class="grid cards" markdown>
@@ -590,3 +592,5 @@ Now that you can connect, run software, submit jobs, and transfer data, explore 
     [Read the guide](productivity-tips.md)
 
 </div>
+
+[Back to Life Sciences](../index.md){ .md-button }

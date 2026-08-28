@@ -4,6 +4,8 @@ tags:
   - Life Sciences
   - R
   - Guides
+search:
+  boost: 1
 ---
 
 On RCAC clusters, you can load any R modules (`r-bioconductor`, `r-rnaseq`, etc.) and install packages using `BiocManager` or `install.packages`. However, since you don't have write access to the system library, you will need to install the packages in your custom location. Here is how you can do it:
@@ -76,3 +78,5 @@ R_LIBS_USER=~/local/r_packages
 ```
 
 save and restart RStudio. You can test `.libPaths()` in RStudio to see if the path is set correctly.
+
+[Back to Life Sciences](../index.md){ .md-button }

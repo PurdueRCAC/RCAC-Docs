@@ -3,6 +3,8 @@ title: Install perl libraries
 tags:
   - Life Sciences
   - Guides
+search:
+  boost: 1
 ---
 
 This guide explains how to install Perl modules in a non-system location (e.g., project or group directory) using `cpanm` and `local::lib`.
@@ -115,3 +117,5 @@ If you see the message "Local Perl modules are working!", your installation is s
     ```bash
     find /depot/gcore/localperl/lib/perl5 -name '*.pm'
     ```
+
+[Back to Life Sciences](../index.md){ .md-button }

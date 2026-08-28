@@ -5,6 +5,8 @@ tags:
   - HPC
   - Genomics Exchange
   - Guides
+search:
+  boost: 1
 ---
 
 <div class="grid cards" markdown>
@@ -613,3 +615,5 @@ auto_activate_base: false
 **Session 6: QC for Genomics** -- April 7, 2026, 11:00 AM -- 12:00 PM ET
 
 Topics: FastQC interpretation, fastp trimming, MultiQC aggregation, quality control strategies for different sequencing platforms.
+
+[Back to Life Sciences](../index.md){ .md-button }

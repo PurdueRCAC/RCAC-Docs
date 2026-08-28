@@ -5,6 +5,8 @@ tags:
   - R
   - Genomics Exchange
   - Guides
+search:
+  boost: 1
 ---
 
 # R Skills for Biological Data
@@ -725,3 +727,5 @@ deseq %>% mutate(padj = replace_na(padj, 1))
 - [dplyr cheat sheet (PDF)](https://rstudio.github.io/cheatsheets/data-transformation.pdf) -- print this and keep it next to your keyboard
 - [tidyr cheat sheet (PDF)](https://rstudio.github.io/cheatsheets/tidyr.pdf) -- pivot, reshape, and tidy data reference
 - [Genomics Exchange Discord](https://discord.gg/zEF2nzhXdC) -- ask questions between sessions
+
+[Back to Life Sciences](../index.md){ .md-button }

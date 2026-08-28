@@ -4,6 +4,8 @@ tags:
   - Life Sciences
   - Assembly
   - Tutorials
+search:
+  boost: 1
 ---
 
 # Genome assembly using HiFi reads
@@ -365,3 +367,5 @@ In this tutorial, we have assembled the maize B73 genome using PacBio HiFi reads
 ??? note "5. I've more questions! Where can I find more information?"
 
     See the [hifiasm FAQs](https://hifiasm.readthedocs.io/en/latest/faq.html/) for more information. If you have specific questions, you can ask the developers directly (via GitHub issues) or ask us for help!
+
+[Back to Life Sciences](../index.md){ .md-button }

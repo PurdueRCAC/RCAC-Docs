@@ -4,6 +4,8 @@ tags:
   - Life Sciences
   - Annotation
   - Tutorials
+search:
+  boost: 1
 ---
 
 # Gene prediction using BRAKER3
@@ -506,3 +508,5 @@ workdir=${PWD}/$(basename ${genome%.*})_braker
 
 
 ## References
+
+[Back to Life Sciences](../index.md){ .md-button }

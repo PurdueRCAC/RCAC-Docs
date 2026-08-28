@@ -4,6 +4,8 @@ tags:
   - Life Sciences
   - HPC
   - Guides
+search:
+  boost: 1
 ---
 
 When running `trinity` on RCAC clusters, you will mostly likely hit the file limit if you are running Trinity on `/scratch` on Bell/Negishi cluster. Here are few recommendations to improve performance of your runs:
@@ -129,3 +131,5 @@ Trinity \
     ```bash
     find /path/to/directory -type f | wc -l
     ```
+
+[Back to Life Sciences](../index.md){ .md-button }
