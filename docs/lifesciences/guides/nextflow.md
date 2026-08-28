@@ -4,6 +4,8 @@ tags:
   - Life Sciences
   - Nextflow
   - Guides
+search:
+  boost: 1
 ---
 
 # Nextflow and nf-core on Negishi
@@ -473,3 +475,5 @@ Open `multiqc_report.html` in a browser to confirm the run produced real output.
 
     Then rerun with `-resume` to continue from where it failed without losing
     completed tasks.
+
+[Back to Life Sciences](../index.md){ .md-button }

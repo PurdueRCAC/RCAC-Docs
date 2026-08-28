@@ -4,6 +4,8 @@ tags:
   - Life Sciences
   - Genomics Exchange
   - Guides
+search:
+  boost: 1
 ---
 
 A well-organized project is the difference between finishing a paper in a week and spending a week just finding your files.
@@ -448,3 +450,5 @@ Copy this checklist and run through it at the start of every new project.
     ```
 
 That is the entire setup. It takes five minutes at the start of a project and saves days of confusion later. The key principle is simple: **keep your raw data safe, keep your scripts under version control, and keep your results organized**; so anyone, including future you, can understand and reproduce your work.
+
+[Back to Life Sciences](../index.md){ .md-button }

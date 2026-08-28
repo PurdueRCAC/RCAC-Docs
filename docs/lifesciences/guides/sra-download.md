@@ -3,6 +3,8 @@ title: Downloading SRA Data
 tags:
   - Life Sciences
   - Guides
+search:
+  boost: 1
 ---
 
 The NCBI Sequence Read Archive (SRA) is the largest publicly available repository of high-throughput sequencing data.
@@ -408,3 +410,5 @@ fastq_files/
 - [NCBI SRA Toolkit Documentation](https://github.com/ncbi/sra-tools/wiki)
 - [SRA Run Selector](https://www.ncbi.nlm.nih.gov/Traces/study/) - Find and download accession lists
 - [ENA Browser](https://www.ebi.ac.uk/ena/browser/) - Alternative download source
+
+[Back to Life Sciences](../index.md){ .md-button }

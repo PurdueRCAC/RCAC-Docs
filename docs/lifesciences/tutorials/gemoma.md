@@ -4,6 +4,8 @@ tags:
   - Life Sciences
   - Annotation
   - Tutorials
+search:
+  boost: 1
 ---
 
 # GeMoMa to merge annotations
@@ -389,3 +391,5 @@ The plots were generated using the following R script: [`cds_assesment.R`](../..
 
 
 ### Conclusions
+
+[Back to Life Sciences](../index.md){ .md-button }
