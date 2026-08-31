@@ -341,6 +341,16 @@ nav:
       - Hi-C Analysis:
         - Juicer: lifesciences/tutorials/juicer.md
   # - Tags: tags.md
+  - Services:
+    - services/index.md
+    - Purdue GenAI Studio:
+      - services/genai/index.md
+      - Chat Interface: services/genai/chat-interface.md
+      - Workspace: services/genai/workspace.md
+      - API: services/genai/api.md
+      - Groups and Sharing: services/genai/groups.md
+      - Tool Calling: services/genai/tool-calling.md
+      - MCP Integration: services/genai/mcp-integration.md
   - Contact us: contact.md
   - FAQs: faqs.md
 

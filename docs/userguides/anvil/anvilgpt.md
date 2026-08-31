@@ -26,15 +26,11 @@ There are two ways to interact with AnvilGPT: the UI and the API. Additional fun
 !!! warning "AnvilGPT Access"
     AnvilGPT is only available for **Anvil users with an active account and project**. Once your project expires, your access to AnvilGPT gets revoked.
 
-Access is currently granted on a per-request basis. Navigate to [https://anvilgpt.rcac.purdue.edu/](https://anvilgpt.rcac.purdue.edu/) and log in using CILogon. Select ACCESS as the identity provider. This will create a pending account.
-
 1. Navigate to [https://anvilgpt.rcac.purdue.edu/](https://anvilgpt.rcac.purdue.edu/) and log in using CILogon.
 2. Select ACCESS as the identity provider. **This will create a pending account**:
-
-<p style="text-align: center;">
-  <img src="/assets/images/userguides/anvil/anvilgpt/login.png" alt="AnvilGPT ACCESS login selection" width="60%">
-</p>
-
+  <p style="text-align: center;">
+    <img src="/assets/images/userguides/anvil/anvilgpt/login.png" alt="AnvilGPT ACCESS login selection" width="60%">
+  </p>
 3. Reach out to the [help desk](https://support.access-ci.org/open-a-ticket) with:
     1. Subject/summary line: “AnvilGPT Access Request”
     2. Description: Provide a brief description of how you intend to use the service, your allocation number, and whether you would like access to the UI, the API, or both.
