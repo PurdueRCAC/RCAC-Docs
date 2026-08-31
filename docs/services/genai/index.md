@@ -40,6 +40,4 @@ For more detailed GenAI Studio documentation, see the following pages:
 * [Groups and Sharing](groups.md)
 * [Tool Calling](tool-calling.md)
 * [MCP Integration](mcp-integration.md)
-<!-- * [Hosted Models Reference](models.md)
-ADD STT TTS api examples
--->
+* [Hosted Models Reference](models.md)
