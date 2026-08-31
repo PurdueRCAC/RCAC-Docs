@@ -126,6 +126,70 @@ body = {
 }
 ```
 
+## Speech-to-Text and Text-to-Speech
+
+GenAI Studio supports speech input and output through Faster-Whisper for speech-to-text (STT) and Microsoft SpeechT5 for text-to-speech (TTS). These services are primarily intended for voice interaction in the GenAI Studio chat interface, but you can also access them through the API.
+
+!!! note
+    The audio endpoints process complete requests rather than streaming audio. They are not a low-latency voice-agent stack and do not provide the native audio-to-audio capabilities available in models such as GPT Realtime, Gemini Live, or Qwen Omni.
+
+### Transcribe Audio
+
+Send an audio file as multipart form data to:
+
+`https://genai.rcac.purdue.edu/api/v1/audio/transcriptions`
+
+The following example transcribes a WAV file. The optional `language` field uses a language code such as `en` to specify the expected language; omit it to use automatic language detection.
+
+```python
+import requests
+
+url = "https://genai.rcac.purdue.edu/api/v1/audio/transcriptions"
+headers = {
+    "Authorization": f"Bearer {your_api_key}"
+}
+
+with open("recording.wav", "rb") as audio_file:
+    response = requests.post(
+        url,
+        headers=headers,
+        files={"file": ("recording.wav", audio_file, "audio/wav")},
+        data={"language": "en"},
+    )
+
+response.raise_for_status()
+print(response.json()["text"])
+```
+
+Specify the correct media type for the file you upload. A successful request returns a JSON response containing the transcription in the `text` field.
+
+### Generate Speech
+
+Send text as JSON to:
+
+`https://genai.rcac.purdue.edu/api/v1/audio/speech`
+
+The response contains the generated audio as binary data. The following example saves it to a file:
+
+```python
+import requests
+
+url = "https://genai.rcac.purdue.edu/api/v1/audio/speech"
+headers = {
+    "Authorization": f"Bearer {your_api_key}",
+    "Content-Type": "application/json",
+}
+body = {
+    "input": "Welcome to Purdue GenAI Studio."
+}
+
+response = requests.post(url, headers=headers, json=body)
+response.raise_for_status()
+
+with open("speech.mp3", "wb") as audio_file:
+    audio_file.write(response.content)
+```
+
 ## RAG via API
 
 To use a custom model through the API, specify the name of your custom model in the `model` field of the request body exactly as it appears in the UI. Any Knowledge Base attached to that custom model when it was defined will automatically be included as context in API responses. No additional parameters are needed to activate knowledge retrieval.
