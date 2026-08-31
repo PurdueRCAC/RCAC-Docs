@@ -15,7 +15,7 @@ search:
 So far these examples have shown submitting jobs with the resource requests on the ```sbatch``` command line such as:
 
 ```bash
-sbatch -A scholar --nodes=1 --time=00:01:00 hello.sub
+sbatch --partition=cpu --nodes=1 --time=00:01:00 hello.sub
 ```
 
 The resource requests can also be put into job submission file itself. Documenting the resource requests in the job submission is desirable because the job can be easily reproduced later. Details left in your command history are quickly lost. Arguments are specified with the ```#SBATCH``` syntax:
@@ -25,8 +25,7 @@ The resource requests can also be put into job submission file itself. Documenti
 
 # FILENAME: hello.sub
 
-#SBATCH -A scholar 
-
+#SBATCH --partition=cpu
 #SBATCH --nodes=1 --time=00:01:00 
 
 # Show this ran on a compute node by running the hostname command.

@@ -42,7 +42,7 @@ This script creates two random matrices, of size five thousand by five thousand 
 
 Next, let's try running it:
 
-```
+``` linenums="0"
 $ python example.py
 -bash: python: command not found
 ```
@@ -56,7 +56,7 @@ There are too many versions and conflicting software to have every version of ev
 
 As an example, run the command `module list` to list all currently loaded modules:
 
-```
+``` linenums="0"
 $ module list
 
 Currently Loaded Modules:
@@ -82,7 +82,7 @@ There are many different `module` commands that we can use to learn about what's
 
 
 If we want to run a python script, we'll need to load a module that provides the `python` command. On RCAC clusters, we provide python through the `conda` environment manager, which is available as a module.
-```   
+```   linenums="0"
 $ module avail conda
 
 ---- Core Applications ----
@@ -90,7 +90,7 @@ conda/2024.09
 ```
 
 Now let's load conda to get our python loaded in!
-```
+``` linenums="0"
 $ module load conda
 
 $ which python
@@ -100,7 +100,7 @@ $ which python
      * `which` is a nice program that will tell us where the specified program is coming from. Remember that everything is a file! `which` tells you what file starts the program when you run a command.
 
 Now that we have python ready and our script is written, let's run it:
-```
+``` linenums="0"
 $ python example.py
 2499.9118
 ```
@@ -109,7 +109,7 @@ $ python example.py
 !!! bug  "Numpy error"
      On some RCAC systems, the `numpy` library isn't available in the "base" conda environment, and you may need to make your own python environment, and you may see errors like this:
 
-    ```
+    ``` linenums="0"
     Traceback (most recent call last):
     File "/home/username/example.py", line 1, in <module>
     import numpy as np
@@ -118,7 +118,7 @@ $ python example.py
 
 We're going to make our own conda environment to install `numpy` for ourselves. Run these three lines of code to create the environment, activate it, and then run our example:
 
-```bash
+```bash linenums="0"
 $ conda create -y -n example_env numpy
 $ conda activate example_env
 (example_env) $ python example.py
@@ -127,25 +127,26 @@ $ conda activate example_env
 
 The first line creates a new conda environment named `example_env`, and automatically installs the `numpy` package in it. The second line changes your shell behavior so that it is using your new conda environment. You can tell that the environment is activated as conda will alter your prompt to contain the environment name. If you check which python you are using after you run `conda activate example`, you'll see that now your using a `python` that's installed in your home directory!
 
-```bash
+```bash linenums="0"
 $ conda activate example_env
 (example_env) $ which python
 ~/.conda/envs/example/bin/python
 ```
 
-`conda` environments like this are often an easy way to install packages and libraries without the need for `sudo` (admin) privileges. 
+!!! tip 
+      `conda` environments like this are often an easy way to install packages and libraries without the need for `sudo` (admin) privileges. 
 
 ## Putting it into a Script
 Notice that it took several shell commands to run this python program. If we don't want to type out all the commands every time we want to run, we can put them into a script! We'll talk about scripting more in [week 3](../week3/index.md), but for now we can think of a script as a series of commands that we put into a file, that are all ran when we run the script. For example, if we put our commands in a file titled `run_example.sh`:
 
-```bash title="run_example.sh" linenums="1"
+```bash title="run_example.sh" linenums="1" 
 #!/bin/bash
 module load conda
 conda activate example_env
 python example.py
 ```
 We can run the whole script on the command line:
-```bash
+```bash linenums="0"
 $ bash run_example.sh
 2499.9118
 ```

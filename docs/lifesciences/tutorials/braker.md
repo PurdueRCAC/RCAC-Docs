@@ -4,6 +4,8 @@ tags:
   - Life Sciences
   - Annotation
   - Tutorials
+search:
+  boost: 1
 ---
 
 # Gene prediction using BRAKER3
@@ -403,7 +405,7 @@ workdir=${PWD}/$(basename ${genome%.*})_braker
 
 ### A. BUSCO profiling
 
-![Busco results](../../assets/images/lifesciences/braker_busco_figure.png)
+![Horizontal stacked bar chart of BUSCO percentages (single-copy, duplicated, fragmented, missing) across multiple gene prediction methods and reference assemblies.](../../assets/images/lifesciences/braker_busco_figure.png)
 
 
 ### B. Reference comparison
@@ -412,90 +414,90 @@ workdir=${PWD}/$(basename ${genome%.*})_braker
 
 === "Sn/Pr"
 
-    ![Assigned features](../../assets/images/lifesciences/braker_mikado_compare_with_isoforms.png)
+    ![Horizontal dumbbell plot comparing gene prediction results across twelve annotation methods, with two reference entries at 100.](../../assets/images/lifesciences/braker_mikado_compare_with_isoforms.png)
 
 === "Missed/Novel"
 
-    ![Unassigned features](../../assets/images/lifesciences/braker_mikado_compare_with_isoforms_counts.png)
+    ![Horizontal grouped bar chart comparing counts across multiple BRAKER and reference gene-prediction methods.](../../assets/images/lifesciences/braker_mikado_compare_with_isoforms_counts.png)
 
 #### Without Isoforms
 
 === "Sn/Pr"
 
-    ![Assigned features](../../assets/images/lifesciences/braker_mikado_compare_without_isoforms.png)
+    ![Horizontal dot-and-range plot comparing two values per method across twelve gene annotation methods, including BRAKER variants, Helixer, and two B73.v5 references, on a 25–100 scale.](../../assets/images/lifesciences/braker_mikado_compare_without_isoforms.png)
 
 === "Missed/Novel"
 
-    ![Unassigned features](../../assets/images/lifesciences/braker_mikado_compare_without_isoforms_counts.png)
+    ![Horizontal bar chart of gene counts across Helixer and several BRAKER annotation configurations, compared with two B73.v5 reference sets.](../../assets/images/lifesciences/braker_mikado_compare_without_isoforms_counts.png)
 
 
 ### C. Feature assignment
 
 === "Assigned features"
 
-    ![Assigned features](../../assets/images/lifesciences/braker_assigned.png)
+    ![A grid of bar charts comparing a 0–80 feature-assignment score across eleven BRAKER and Helixer configurations, each shown per developmental stage with a dashed reference line.](../../assets/images/lifesciences/braker_assigned.png)
 
 === "Unassigned features"
 
-    ![Unassigned features](../../assets/images/lifesciences/braker_unassigned.png)
+    ![Twelve bar charts compare values across ten developmental stages for each gene-prediction method, with a dashed reference line in every panel.](../../assets/images/lifesciences/braker_unassigned.png)
 
 ### D. Functional annotation
 
 === "Pfam domains"
 
-    ![Pfam Domains](../../assets/images/lifesciences/braker_pfam-domain.png)
+    ![Grouped bar charts comparing the number of genes in each annotation-completeness category across twelve gene-prediction methods.](../../assets/images/lifesciences/braker_pfam-domain.png)
 
 === "Functional annotation"
 
-    ![Functional Annotation](../../assets/images/lifesciences/braker_gene-function.png)
+    ![Stacked bar charts comparing gene-completeness counts (0–50K) across five completeness categories for each of twelve gene-prediction methods.](../../assets/images/lifesciences/braker_gene-function.png)
 
 === "Percent Identity"
 
-    ![Percent identity](../../assets/images/lifesciences/braker_pid.png)
+    ![A grid of density plots comparing distributions across twelve gene prediction methods, including BRAKER variants and reference sets.](../../assets/images/lifesciences/braker_pid.png)
 
 
 ### E. Phylostrata analysis
 
 === "Phylostrata counts"
 
-    ![Assigned features](../../assets/images/lifesciences/braker_ps_counts.png)
+    ![Grouped bar chart comparing values across nine taxonomic lineages from Cellular Organisms to Species Specific, with the Species Specific group showing the highest values.](../../assets/images/lifesciences/braker_ps_counts.png)
 
 === "Phylostrata percentages"
 
-    ![Unassigned features](../../assets/images/lifesciences/braker_ps_percent.png)
+    ![Grouped bar chart showing percentages across nine taxonomic ranks from Cellular Organisms to Species Specific, with multiple unlabeled series per rank.](../../assets/images/lifesciences/braker_ps_percent.png)
 
 ### F. GFF3 stats
 
 
-![GFF3 stats](../../assets/images/lifesciences/braker_summary_stats.png)
+![A grid of bar charts comparing gene, mRNA, CDS, and exon counts and lengths across multiple BRAKER annotation methods.](../../assets/images/lifesciences/braker_summary_stats.png)
 
 ### G. OMArk assessment
 
 === "Conserved Genes"
 
-    ![braker consistency](../../assets/images/lifesciences/braker_consistency.png)
+    ![Stacked horizontal bar chart showing the percentage of genes in accepted, incorrect, and unplaced categories across twelve gene-annotation methods, including a B73 reference, Helixer, and multiple BRAKER configurations.](../../assets/images/lifesciences/braker_consistency.png)
 
 === "Conserved HOGs"
 
-    ![braker_conservedHOGs](../../assets/images/lifesciences/braker_conservedHOGs.png)
+    ![Stacked horizontal bar chart showing the percentage composition of conserved HOG categories across eleven gene annotation methods.](../../assets/images/lifesciences/braker_conservedHOGs.png)
 
 ### H. CDS assessments
 
 === "GC distribution"
 
-    ![braker_cds-gc](../../assets/images/lifesciences/braker_cds-gc.png)
+    ![Violin and box plots of GC content percentage across twelve gene annotation methods, including reference and BRAKER variants.](../../assets/images/lifesciences/braker_cds-gc.png)
 
 === "Length distribution"
 
-    ![braker_cds-length](../../assets/images/lifesciences/braker_cds-length.png)
+    ![Violin and box plots of CDS length on a logarithmic scale across twelve gene annotation methods, including reference and BRAKER variants.](../../assets/images/lifesciences/braker_cds-length.png)
 
 === "GC content"
 
-    ![braker_gc-content](../../assets/images/lifesciences/braker_gc-content.png)
+    ![Distribution plots comparing GC content across twelve gene annotation methods, including reference B73.v5, Helixer, and multiple BRAKER configurations.](../../assets/images/lifesciences/braker_gc-content.png)
 
 === "Codon type"
 
-    ![braker_codon-type](../../assets/images/lifesciences/braker_codon-type.png)
+    ![Bar charts showing the percentage of genes in each validity category across twelve gene prediction methods and configurations.](../../assets/images/lifesciences/braker_codon-type.png)
 
 
 
@@ -506,3 +508,5 @@ workdir=${PWD}/$(basename ${genome%.*})_braker
 
 
 ## References
+
+[Back to Life Sciences](../index.md){ .md-button }

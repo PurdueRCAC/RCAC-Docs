@@ -16,7 +16,7 @@ In many cases, researchers need to run the same task multiple times with differe
 
 If we want to submit many separate jobs, we could simply run `sbatch` on many different job scripts:
 
-```bash
+```bash linenums="0"
 sbatch job1.sh
 sbatch job2.sh
 sbatch job3.sh
@@ -25,7 +25,7 @@ sbatch job3.sh
 
 Alternatively, if our job script is able to take arguments as input, we could reuse the same job submission script, and just change the input:
 
-```bash
+```bash linenums="0"
 
 sbatch job.sh input_1
 sbatch job.sh input_2
@@ -88,7 +88,7 @@ Notice that we create and work in a different directory in our scratch based on 
 
 We don't have to submit this one, but to submit it, we would run the `submit.sh` file as a program:
 
-```bash
+```bash linenums="0"
 $ bash ./submit.sh
 Submitted batch job 209526
 Submitted batch job 209527

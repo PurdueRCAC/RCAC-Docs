@@ -27,6 +27,7 @@ Scholar is a small computer cluster, suitable for classroom learning about high 
 - [**Accounts**](accounts.md)
 - [**Software**](software.md)
 - [**Running Jobs**](run_jobs/index.md)
+- [**Scholar Spark Nodes**](./scholar-spark.md)
 - [**File Storage and Transfer**](storage.md)
 - [**Gateway (Open OnDemand)**](gateway.md)
 - [**Compiling Source Code**](compile.md)

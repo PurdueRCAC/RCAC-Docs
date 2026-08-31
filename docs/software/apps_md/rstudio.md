@@ -14,7 +14,7 @@ RStudio is an integrated development environment (IDE) for R.
 
 |Cluster|Versions|
 |---|---|
-**ANVIL**|2021.09.0 (D), 2024.04.2
+**ANVIL**|2021.09.0 (D), 2024.04.2, 2024.09
 **BELL**|2024.12
 **GAUTSCHI**|2024.09
 **GILBRETH**|2024.12

@@ -4,6 +4,8 @@ tags:
   - Life Sciences
   - Annotation
   - Tutorials
+search:
+  boost: 1
 ---
 
 # GeMoMa to merge annotations
@@ -262,9 +264,19 @@ busco \
 We can compare the results with the previously generated Helixer and B73.v5 annotations and whole genome assembly BUSCO results.
 
 
-![Busco-results](../../assets/images/lifesciences/gemoma_busco_figure.png)
+![Horizontal stacked bar chart comparing BUSCO completeness for the GeMoMa merged, Helixer, and B73.v5 primary-only annotations. Counts are tabulated below.](../../assets/images/lifesciences/gemoma_busco_figure.png)
 
 **Figure 1: BUSCO results for Helixer, B73.v5 (MaizeGDB) and merged (GeMoMa) annotations.**
+
+| Annotation | Complete (C) | Single-copy (S) | Duplicated (D) | Fragmented (F) | Missing (M) | Total (n) |
+| --- | --- | --- | --- | --- | --- | --- |
+| `B73_gemoma_v1` (merged) | 4789 | 3940 | 849 | 37 | 70 | 4896 |
+| `helixer_busco` | 4808 | 4053 | 755 | 34 | 54 | 4896 |
+| `Zm_B73v5_primary-only_busco` | 4663 | 3950 | 713 | 75 | 158 | 4896 |
+
+Both predicted annotations recover more complete BUSCOs than the B73.v5
+primary-only reference, and the merged GeMoMa annotation more than halves the
+number of missing BUSCOs relative to that reference (70 versus 158).
 
 
 #### B. Comparing annotations
@@ -361,21 +373,23 @@ The plots were generated using the following R script: [`cds_assesment.R`](../..
 
 === "CDS length"
 
-    ![cds-length](../../assets/images/lifesciences/gemoma_cds-length.png)
+    ![A set of four box-and-violin plots comparing CDS length distributions on a logarithmic scale (100 to 10000) across the categories B73.v5 (reference), B73.v5 primary only (reference), Helixer, and GeMoMa (merged).](../../assets/images/lifesciences/gemoma_cds-length.png)
 
     Figure 8: Distribution of CDS length for GeMoMa, Helixer and NAM.v5 predictions.
 
 === "GC content"
 
-    ![GC-content](../../assets/images/lifesciences/gemoma_gc-content.png)
+    ![Four density plots compare the distribution of GC content (x-axis in percent, marked at 25%, 50%, and 75%) for the B73.v5 reference, B73.v5 primary only reference, Helixer, and GeMoMa merged predictions, each curve showing a bimodal shape.](../../assets/images/lifesciences/gemoma_gc-content.png)
 
     Figure 9: Distribution of GC content for GeMoMa, Helixer and NAM.v5 predictions.
 
 === "Codon type"
 
-    ![codon-type](../../assets/images/lifesciences/gemoma_codon-type.png)
+    ![Four bar-chart panels of transcripts with valid start/stop codons, for the two B73.v5 references and the Helixer and GeMoMa merged predictions. Both predictions are near 100% Both valid, versus roughly 90% for the references.](../../assets/images/lifesciences/gemoma_codon-type.png)
 
     Figure 10: Distribution of start and stop codons for GeMoMa, Helixer and NAM.v5 predictions.
 
 
 ### Conclusions
+
+[Back to Life Sciences](../index.md){ .md-button }

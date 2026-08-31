@@ -79,7 +79,7 @@ start menu.
     ![Git Bash Window](/assets/images/workshops/hpc_exchange/git_bash.png)
 * Microsoft has also Developed the "Windows Subsystem for Linux" (WSL) which allows you to run Ubuntu Linux within Windows. 
     * Installation Instructions can be found [here](https://learn.microsoft.com/en-us/windows/wsl/install).
-        ```powershell
+        ```powershell linenums="0"
         wsl --install ubuntu
         ``` 
 

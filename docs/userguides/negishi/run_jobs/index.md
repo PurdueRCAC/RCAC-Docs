@@ -1,0 +1,52 @@
+---
+tags:
+  - Negishi
+authors:
+  - hkashgar
+resource: Negishi
+search:
+  boost: 2
+---
+
+# Running Jobs
+
+Jobs are submitted on {{ resource }} via the SLURM (Simple Linux Utility for Resource Management) scheduler, which is responsible for allocating resources and scheduling the start time of a job. You may use either the batch or interactive mode to run your jobs. The batch mode is ideal for finished programs, and the interactive mode is useful for debugging your job.
+
+!!! important
+    Do NOT run large, long, multi-threaded, parallel, or CPU-intensive jobs on a front-end login host. All users share the front-end hosts, and running anything but the smallest test job will negatively impact everyone's ability to use Negishi. Always use SLURM to submit your work as a job.
+
+Before creating your submission script, learn more about how to use Slurm accounts, partitions, and QOS options:
+
+- [**Basics of using Slurm accounts, partitions, and QOS options**](queues.md)
+    - [**Job Submission Matrix**](job_submission_matrix.md)
+
+Batch jobs submitted via SLURM have four main steps:
+
+- [**Creating the submission script**](creating_the_submission_script.md)
+- [**Submitting the script as a job**](submit_script.md)
+- [**Monitoring the job**](monitoring_job.md)
+- [**Checking the job output**](checking_output.md)
+
+### Other useful topics
+
+- [**Holding a job**](holding_job.md)
+- [**Job Dependencies**](job_dependencies.md)
+- [**Cancelling a job**](cancelling_job.md)
+
+
+### Example jobs
+
+- [**Generic SLURM jobs**](generic_slurm_jobs.md)
+- [**Python**](python.md)
+- [**R**](r.md)
+- [**Apptainer**](apptainer.md)
+- [**Biocontainers**](biocontainers.md)
+- [**Matlab**](matlab.md)
+- [**Ansys**](ansysfluent.md)
+- [**Gaussian**](gaussian.md)
+- [**VASP**](vasp.md)
+- [**Windows**](windows.md)
+- [**MPI**](mpi_jobs.md)
+- [**OpenMP**](openmp_jobs.md)
+
+[**Back to Negishi User Guide**](../index.md)

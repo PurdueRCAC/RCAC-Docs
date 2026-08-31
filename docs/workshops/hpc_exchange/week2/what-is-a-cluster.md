@@ -36,12 +36,12 @@ When you log into the cluster, you are put onto a login node, which is limited i
 ![Overview of cluster](/assets/images/workshops/hpc_exchange/cluster_overview.png)
 
 You can typically tell what node (and node type) you are on by looking at your command prompt:
-```
+``` linenums="0"
 user@login00 ~ $ 
 ```
 
 or by using the `hostname` command:
-```bash
+```bash linenums="0"
 $ hostname
 login00.cluster.rcac.purdue.edu
 ```

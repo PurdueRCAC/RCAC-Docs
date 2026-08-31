@@ -1,0 +1,933 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>The Documentation Factory — a getting-started guide · RCAC Docs</title>
+<meta name="description" content="An onboarding guide to agentic documentation authoring and the RCAC-Docs .agents/factory: what agents are, how a harness turns context into action, and how a lightweight, auditable methodology makes documentation authoring repeatable, reviewable, and safe.">
+<!-- No-flash theme init -->
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem('rcac-docs-theme');
+      if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+      else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches)
+        document.documentElement.setAttribute('data-theme', 'light');
+    } catch (e) {}
+  })();
+</script>
+<style>
+  /* ---- Purdue brand tokens (Boilermaker Gold / Black) ---------------------- */
+  :root {
+    --brand: #CEB888;                /* Boilermaker Gold — display use on dark */
+    --accent: #DAAA00;               /* AA-safe functional gold on dark (~8:1) */
+    --accent-hover: #f0c33c;
+    --bg: #161B23;
+    --bg-deep: #11151b;
+    --surface: #1b2029;
+    --surface-2: #20262f;
+    --border: #2b323d;
+    --text: #e6edf3;
+    --text-2: #c9d1d9;
+    --muted: #8b949e;
+    --link: #DAAA00;
+    --code-bg: #282a36; --code-fg: #f8f8f2; --code-comment: #6272a4;
+    --code-pink: #ff79c6; --code-purple: #bd93f9; --code-green: #50fa7b;
+    --code-cyan: #8be9fd; --code-orange: #ffb86c; --code-yellow: #f1fa8c;
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.28);
+    --radius: 12px;
+    --maxw: 880px;
+    --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+    --mono: ui-monospace, "JetBrains Mono", "SFMono-Regular", "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  }
+  html[data-theme="light"] {
+    --brand: #8E6F3E;                /* Aged gold — AA-safe on white (4.8:1) */
+    --accent: #8E6F3E;
+    --accent-hover: #6f5630;
+    --bg: #ffffff;
+    --bg-deep: #f6f8fa;
+    --surface: #ffffff;
+    --surface-2: #f6f8fa;
+    --border: #d8dee4;
+    --text: #1c2128;
+    --text-2: #3d444d;
+    --muted: #57606a;
+    --link: #8E6F3E;
+    --shadow: 0 1px 2px rgba(140,149,159,.15), 0 8px 24px rgba(140,149,159,.18);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: var(--sans); font-size: 17px; line-height: 1.65;
+    -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { animation: none !important; } }
+
+  a { color: var(--link); text-decoration: none; }
+  a:hover { color: var(--accent-hover); text-decoration: underline; text-underline-offset: 3px; }
+
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+  .skip { position: absolute; left: -999px; top: 0; background: var(--accent); color: #000; padding: 8px 14px; border-radius: 6px; z-index: 100; }
+  .skip:focus { left: 12px; top: 12px; }
+
+  .topbar {
+    position: sticky; top: 0; z-index: 50; backdrop-filter: saturate(140%) blur(8px);
+    background: color-mix(in srgb, var(--bg) 86%, transparent);
+    border-bottom: 1px solid var(--border);
+  }
+  .topbar .wrap { display: flex; align-items: center; gap: 16px; height: 56px; }
+  .brandmark { font-family: var(--mono); font-weight: 700; letter-spacing: -.02em; color: var(--brand); font-size: 16px; }
+  .topnav { margin-left: auto; display: flex; gap: 18px; align-items: center; font-size: 14px; }
+  .topnav a { color: var(--muted); }
+  .topnav a:hover { color: var(--accent); text-decoration: none; }
+  @media (max-width: 720px) { .topnav .hide-sm { display: none; } }
+  .toggle {
+    font: inherit; font-size: 13px; cursor: pointer; color: var(--text-2);
+    background: var(--surface-2); border: 1px solid var(--border); border-radius: 999px;
+    padding: 6px 12px; display: inline-flex; align-items: center; gap: 6px;
+  }
+  .toggle:hover { border-color: var(--accent); color: var(--accent); }
+
+  .hero { padding: 72px 0 40px; border-bottom: 1px solid var(--border);
+    background:
+      radial-gradient(1100px 380px at 12% -8%, color-mix(in srgb, var(--brand) 16%, transparent), transparent 60%),
+      radial-gradient(900px 320px at 96% 4%, color-mix(in srgb, var(--accent) 12%, transparent), transparent 55%);
+  }
+  .eyebrow { font-family: var(--mono); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin: 0 0 14px; }
+  h1.title { font-size: clamp(30px, 5vw, 46px); line-height: 1.08; letter-spacing: -.02em; margin: 0 0 16px; }
+  h1.title .accent { color: var(--brand); }
+  .lede { font-size: clamp(18px, 2.4vw, 21px); color: var(--text-2); max-width: 62ch; margin: 0 0 22px; }
+  .meta-row { display: flex; flex-wrap: wrap; gap: 10px; font-size: 13px; color: var(--muted); font-family: var(--mono); }
+  .chip { border: 1px solid var(--border); border-radius: 999px; padding: 4px 11px; background: var(--surface-2); }
+
+  main { padding: 8px 0 40px; }
+  section { padding: 40px 0; border-bottom: 1px solid var(--border); }
+  section:last-of-type { border-bottom: 0; }
+  .kicker { font-family: var(--mono); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin: 0 0 6px; }
+  h2 { font-size: clamp(23px, 3.4vw, 30px); letter-spacing: -.015em; margin: 4px 0 12px; scroll-margin-top: 72px; }
+  h3 { font-size: 20px; margin: 30px 0 8px; letter-spacing: -.01em; scroll-margin-top: 72px; }
+  h4 { font-size: 16px; margin: 22px 0 6px; color: var(--text); }
+  p { margin: 0 0 16px; }
+  ul, ol { margin: 0 0 16px; padding-left: 1.3em; }
+  li { margin: 6px 0; }
+  strong { color: var(--text); font-weight: 650; }
+  .lead { font-size: 19px; color: var(--text-2); }
+
+  .note, .warn, .tip {
+    border: 1px solid var(--border); border-left: 4px solid var(--brand);
+    background: color-mix(in srgb, var(--brand) 7%, var(--surface));
+    border-radius: 10px; padding: 14px 18px; margin: 20px 0; font-size: 15.5px;
+  }
+  .note .h, .warn .h, .tip .h { font-family: var(--mono); font-size: 12px; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--brand); margin: 0 0 6px; font-weight: 700; }
+  .tip { border-left-color: var(--accent); background: color-mix(in srgb, var(--accent) 8%, var(--surface)); }
+  .tip .h { color: var(--accent); }
+  .warn { border-left-color: var(--code-orange); background: color-mix(in srgb, var(--code-orange) 9%, var(--surface)); }
+  .warn .h { color: var(--code-orange); }
+  .note p:last-child, .tip p:last-child, .warn p:last-child { margin-bottom: 0; }
+
+  code { font-family: var(--mono); font-size: .9em; background: color-mix(in srgb, var(--accent) 12%, transparent);
+    color: var(--text); padding: .12em .38em; border-radius: 5px; }
+  html[data-theme="light"] code { background: color-mix(in srgb, var(--accent) 10%, var(--surface-2)); }
+  pre { background: var(--code-bg); color: var(--code-fg); border: 1px solid var(--border);
+    border-radius: 10px; padding: 16px 18px; overflow-x: auto; font-family: var(--mono);
+    font-size: 14px; line-height: 1.55; margin: 16px 0; box-shadow: var(--shadow); }
+  pre code { background: none; color: inherit; padding: 0; font-size: inherit; }
+  pre .c { color: var(--code-comment); }
+  pre .k { color: var(--code-pink); }
+  pre .s { color: var(--code-yellow); }
+  pre .n { color: var(--code-purple); }
+  pre .f { color: var(--code-green); }
+  pre .v { color: var(--code-cyan); }
+  .term-title { font-family: var(--mono); font-size: 12px; color: var(--muted); margin: 16px 0 -8px; }
+
+  .tablewrap { overflow-x: auto; margin: 18px 0; }
+  table { border-collapse: collapse; width: 100%; font-size: 15px; }
+  th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  th { color: var(--muted); font-size: 12.5px; letter-spacing: .04em; text-transform: uppercase; font-weight: 650; }
+  tbody tr:hover { background: var(--surface-2); }
+  td code { white-space: nowrap; }
+
+  .grid { display: grid; gap: 16px; margin: 20px 0; }
+  .grid.two { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 640px) { .grid.two { grid-template-columns: 1fr; } }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 18px 20px; box-shadow: var(--shadow); }
+  .card h4 { margin-top: 0; }
+  .card .tag { font-family: var(--mono); font-size: 11px; color: var(--accent); letter-spacing: .08em; text-transform: uppercase; }
+
+  .skill { background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--accent);
+    border-radius: var(--radius); padding: 18px 20px; margin: 16px 0; box-shadow: var(--shadow); }
+  .skill .cmd { font-family: var(--mono); font-size: 15px; color: var(--brand); font-weight: 700; }
+  .skill .io { font-size: 14px; color: var(--muted); font-family: var(--mono); margin-top: 8px; }
+  .skill .io b { color: var(--text-2); font-weight: 600; }
+
+  .flow { display: flex; flex-wrap: wrap; align-items: stretch; gap: 10px; margin: 22px 0; }
+  .flow .step { flex: 1 1 130px; background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 12px 12px; text-align: center; position: relative; min-width: 120px; }
+  .flow .step .n { font-family: var(--mono); font-size: 11px; color: var(--accent); letter-spacing: .1em; }
+  .flow .step .t { font-weight: 650; font-size: 14.5px; margin-top: 2px; }
+  .flow .step .d { font-size: 12.5px; color: var(--muted); margin-top: 3px; }
+  .flow .arrow { align-self: center; color: var(--accent); font-size: 20px; flex: 0 0 auto; }
+  @media (max-width: 640px) { .flow .arrow { transform: rotate(90deg); } .flow .step { flex-basis: 100%; } }
+
+  .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
+  @media (max-width: 640px) { .compare { grid-template-columns: 1fr; } }
+  .compare .col { border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 18px; background: var(--surface); }
+  .compare .col.bad { border-top: 3px solid var(--muted); }
+  .compare .col.good { border-top: 3px solid var(--accent); }
+  .compare h4 { margin-top: 0; }
+
+  .tiles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin: 20px 0; }
+  @media (max-width: 640px) { .tiles { grid-template-columns: 1fr; } }
+  .tile { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 18px; }
+  .tile .h { display: flex; align-items: center; gap: 8px; font-weight: 700; margin-bottom: 6px; }
+  .tile .h .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent); flex: 0 0 auto; }
+  .tile p { font-size: 14.5px; margin: 0; color: var(--text-2); }
+
+  .toc { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin: 8px 0 0; }
+  .toc h4 { margin: 0 0 8px; font-family: var(--mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+  .toc ol { columns: 2; column-gap: 28px; margin: 0; padding-left: 1.1em; font-size: 14.5px; }
+  @media (max-width: 640px) { .toc ol { columns: 1; } }
+
+  footer { padding: 34px 0 60px; color: var(--muted); font-size: 14px; }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; justify-content: space-between; }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--accent); }
+
+  .anchor { color: var(--muted); text-decoration: none; font-weight: 400; opacity: 0; margin-left: 8px; }
+  h2:hover .anchor, h3:hover .anchor { opacity: 1; }
+
+  hr.rule { border: 0; border-top: 1px solid var(--border); margin: 28px 0; }
+
+  @media print {
+    .topbar, .toggle, .toc, footer .toggle { display: none; }
+    body { font-size: 12pt; color: #000; background: #fff; }
+    a { color: #000; text-decoration: underline; }
+    pre { box-shadow: none; }
+    section { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#exec">Skip to content</a>
+
+<div class="topbar">
+  <div class="wrap">
+    <span class="brandmark">RCAC docs · factory</span>
+    <nav class="topnav" aria-label="Section">
+      <a class="hide-sm" href="#exec">Overview</a>
+      <a class="hide-sm" href="#agents">Agents</a>
+      <a class="hide-sm" href="#harness">Harness</a>
+      <a class="hide-sm" href="#factory">Factory</a>
+      <a class="hide-sm" href="#skills">Skills</a>
+      <a class="hide-sm" href="#leadership">Leadership</a>
+      <a href="#reference">Reference</a>
+      <button class="toggle" id="themeBtn" type="button" aria-label="Toggle light/dark theme">
+        <span id="themeIcon">◐</span><span id="themeLbl">Theme</span>
+      </button>
+    </nav>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">RCAC Docs · Agentic Authoring · Getting Started</p>
+    <h1 class="title">From chatbots to a <span class="accent">documentation factory</span></h1>
+    <p class="lede">A guide to agentic documentation authoring for the RCAC docs team — what an
+      agent really is, how a <em>harness</em> turns context into action, and how a lightweight,
+      auditable methodology (the <code>.agents/factory</code>) makes authoring and maintaining this
+      site repeatable, reviewable, and safe.</p>
+    <div class="meta-row">
+      <span class="chip">~20 min read</span>
+      <span class="chip">Executive orientation ~5 min</span>
+      <span class="chip">Audience: contributors &amp; leadership</span>
+      <span class="chip">Self-contained · works offline</span>
+    </div>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+
+<!-- =================== EXECUTIVE ORIENTATION =================== -->
+<section id="exec">
+  <p class="kicker">Executive orientation</p>
+  <h2>Why this, why now <a class="anchor" href="#exec">#</a></h2>
+  <p class="lead">For a decade our tools have <em>answered questions</em>. In the last two years they
+    began to <em>do work</em>. That is the whole story — and it changes how technical documentation
+    gets written and maintained.</p>
+
+  <p>A chatbot produces text. An <strong>agent</strong> is given a goal, a set of tools, and the
+    latitude to use them in a loop: it reads the existing pages, builds the site, checks that links
+    resolve and pages render, edits Markdown, and inspects the result — narrating and course-correcting
+    as it goes. The thing that made this leap possible is not a bigger model alone; it is the
+    <strong>harness</strong> — the software (Claude&nbsp;Code and peers) that assembles a critical mass
+    of <em>context</em> and grants the model the ability to <em>act</em>. Context plus action, in a
+    loop, is where the wellspring of productivity comes from.</p>
+
+  <p>That power needs a channel. Left unstructured, an agent will happily write the wrong page quickly,
+    or the right page in a way you cannot review — or, worse for a user guide, document a
+    <code>#SBATCH</code> flag that does not exist. The discipline that channels it is
+    <strong>method</strong> — and the good parts of agile practice (especially 37signals'
+    <em>Shape Up</em>) map cleanly onto agent work. This site packages that method as a small,
+    transparent toolkit in <code><a href="../">.agents/</a></code>: five skills and a set of reference
+    documents that carry a change from a shaped goal, through a researched plan, through authoring,
+    through an adversarial review, to a pull request — with a durable, committed record at every step.
+    The same toolkit also watches <em>itself</em>: it records where its own instructions cause friction
+    and lets a human feed those lessons back in — a <a href="#factory">self-improvement loop</a> that
+    sharpens the factory over time without ever loosening its guardrails.</p>
+
+  <h3>What changes for the docs team <a class="anchor" href="#exec">#</a></h3>
+  <p>The level of abstraction rises. People spend less time on boilerplate scaffolding, nav wiring, and
+    consistency chores, and more time doing the things only people can do well: <strong>shaping</strong>
+    what is worth documenting, <strong>judging</strong> whether what came back is accurate and clear,
+    and <strong>owning</strong> the result. The agent executes; the human sets direction and holds the
+    bar — and for HPC instructions people run on real clusters, that bar is high.</p>
+
+  <div class="compare">
+    <div class="col good">
+      <h4>What the factory <em>is</em></h4>
+      <ul>
+        <li>A repeatable lifecycle: shape → plan → draft → review → ship.</li>
+        <li>Plain Markdown + git + skills — no new platform, no lock-in.</li>
+        <li>An <strong>auditable trail</strong>: intent, design, and content, committed together.</li>
+        <li>Human judgement at every gate that matters — and review before production.</li>
+      </ul>
+    </div>
+    <div class="col bad">
+      <h4>What it is <em>not</em></h4>
+      <ul>
+        <li>Not "the AI writes everything and we hope." Every step is reviewable.</li>
+        <li>Not a replacement for writers or RSEs — it raises what they work on.</li>
+        <li>Not a heavyweight process forced onto a typo fix (it scales down).</li>
+        <li>Not a frozen spec: the plan is a living artifact, the goal is the contract.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>For institutional leadership, at a glance <a class="anchor" href="#exec">#</a></h3>
+  <p>The four questions leaders ask most, answered in one line each — with a fuller treatment in
+    <a href="#leadership">Notes for institutional leadership</a>.</p>
+  <div class="tiles">
+    <div class="tile">
+      <div class="h"><span class="dot"></span>Governance &amp; guardrails</div>
+      <p>Human sign-off gates, high-impact-file controls, and an independent adversarial review step are
+        engineered into the lifecycle — critical because a merge to <code>main</code> deploys straight
+        to production.</p>
+    </div>
+    <div class="tile">
+      <div class="h"><span class="dot"></span>Cost &amp; effort economics</div>
+      <p>Ceremony scales to the size of the change (an <em>appetite</em>), so a typo fix does not pay
+        for a new user guide's process. You spend rigor where it earns its keep.</p>
+    </div>
+    <div class="tile">
+      <div class="h"><span class="dot"></span>Reproducibility &amp; auditability</div>
+      <p>Every job leaves a committed record — goal, design, and content, traceable requirement →
+        commit. A paper trail for why a page says what it says.</p>
+    </div>
+    <div class="tile">
+      <div class="h"><span class="dot"></span>Workforce</div>
+      <p>This augments the docs team. Humans shape, judge, and own; agents execute. The scarce skill
+        becomes <em>good judgement about accuracy and clarity</em>, which your people already have.</p>
+    </div>
+  </div>
+
+  <div class="toc" role="navigation" aria-label="On this page">
+    <h4>The practitioner guide</h4>
+    <ol>
+      <li><a href="#agents">Agents, not chatbots</a></li>
+      <li><a href="#harness">The harness: context + action</a></li>
+      <li><a href="#methodology">Method: Shape Up meets agents</a></li>
+      <li><a href="#factory">The <code>.agents/factory</code> lifecycle</a></li>
+      <li><a href="#skills">Hands-on: the five skills</a></li>
+      <li><a href="#reference">Reference: every material, linked</a></li>
+    </ol>
+  </div>
+</section>
+
+<!-- =================== 1. AGENTS =================== -->
+<section id="agents">
+  <p class="kicker">Practitioner guide · 1</p>
+  <h2>Agents, not chatbots <a class="anchor" href="#agents">#</a></h2>
+  <p>A chatbot is a function from prompt to text. You ask; it answers; the transaction ends. Useful,
+    but it does nothing — <em>you</em> still paste the Markdown, build the site, find the broken link,
+    and come back.</p>
+
+  <p>An <strong>agent</strong> closes that loop itself. Given a goal and a set of <em>tools</em>, it
+    runs a cycle:</p>
+
+  <div class="flow" aria-label="The agent loop">
+    <div class="step"><div class="n">01</div><div class="t">Perceive</div><div class="d">read pages, build the site, inspect state</div></div>
+    <div class="arrow">→</div>
+    <div class="step"><div class="n">02</div><div class="t">Reason</div><div class="d">decide the next concrete action</div></div>
+    <div class="arrow">→</div>
+    <div class="step"><div class="n">03</div><div class="t">Act</div><div class="d">edit Markdown, update nav, run mkdocs</div></div>
+    <div class="arrow">→</div>
+    <div class="step"><div class="n">04</div><div class="t">Observe</div><div class="d">read the result, then loop</div></div>
+  </div>
+
+  <p>The difference is not eloquence; it is <strong>agency</strong>. Because it observes the outcome of
+    each action, an agent can recover from a broken build, chase down a bad link, or notice that the
+    page it just wrote never made it into the nav. This is why "it drafted some text" (2022) and "it
+    shipped a reviewed page" (2026) are different eras.</p>
+
+  <div class="compare">
+    <div class="col bad">
+      <h4>Chatbot</h4>
+      <pre style="margin:0"><code><span class="c"># one shot, no hands</span>
+you   ❯ write a Running Jobs page
+bot   ❯ here's some Markdown…
+you   ❯ <span class="c"># you paste it, the build</span>
+        <span class="c"># warns, the link 404s…</span></code></pre>
+    </div>
+    <div class="col good">
+      <h4>Agent</h4>
+      <pre style="margin:0"><code><span class="k">agent</span> ❯ read userguides/gautschi/run_jobs
+<span class="k">agent</span> ❯ edit: add a <span class="v">#SBATCH</span> example
+<span class="k">agent</span> ❯ run: <span class="f">mkdocs build --strict</span>
+<span class="k">agent</span> ❯ <span class="c"># warn → fix link → clean → commit</span></code></pre>
+    </div>
+  </div>
+
+  <div class="note">
+    <div class="h">The catch</div>
+    <p>Agency cuts both ways. An agent can write the wrong thing, or an inaccurate thing, just as fast
+      as the right thing well. Everything after this section is about <em>channelling</em> that agency —
+      giving it the right context, the right method, and the right gates.</p>
+  </div>
+</section>
+
+<!-- =================== 2. HARNESS =================== -->
+<section id="harness">
+  <p class="kicker">Practitioner guide · 2</p>
+  <h2>The harness: where context becomes action <a class="anchor" href="#harness">#</a></h2>
+  <p>The model is the engine; the <strong>harness</strong> is the vehicle. A coding/authoring harness
+    (Claude&nbsp;Code and peers) does two jobs at once, and their combination is the productivity
+    unlock:</p>
+
+  <div class="grid two">
+    <div class="card">
+      <span class="tag">Context in</span>
+      <h4>A critical mass of context</h4>
+      <p>The harness feeds the model far more than your prompt:</p>
+      <ul>
+        <li><strong>The repository</strong> — every page, read on demand, searched, navigated.</li>
+        <li><strong>Project memory</strong> — an <code><a href="../../AGENTS.md">AGENTS.md</a></code>
+          that states the conventions and invariants of <em>this</em> site.</li>
+        <li><strong>Tools</strong> — the shell, <code>mkdocs</code>, git, the web.</li>
+        <li><strong>Skills</strong> — packaged procedures the agent can invoke by name.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <span class="tag">Action out</span>
+      <h4>The ability to act</h4>
+      <p>And it lets the model <em>do things</em>, under permission control:</p>
+      <ul>
+        <li>Edit and create pages across the site; wire up the nav.</li>
+        <li>Run commands — build the site, check links, regenerate breadcrumbs.</li>
+        <li>Use git; open pull requests.</li>
+        <li>Spawn <strong>sub-agents</strong> to research in parallel.</li>
+      </ul>
+    </div>
+  </div>
+
+  <p>Put a loop around those two and you have the whole machine: <em>gather context → decide → act →
+    observe → repeat</em>. The art — "context engineering" — is getting the <em>right</em> context in
+    front of the model at the right moment, because a model's attention is finite and its session
+    memory is not durable across restarts.</p>
+
+  <div class="tip">
+    <div class="h">The load-bearing idea</div>
+    <p>Because a fresh session starts blank, <strong>durable state must live in files and git, not in
+      the chat.</strong> That single fact is why the factory writes everything down — the goal, the
+      plan, the roadmap, the review — and reads it back fresh each time. It is what lets a draft resume
+      next week on another machine, and lets a reviewer start with no memory of how the page was
+      written.</p>
+  </div>
+
+  <h3>Skills: procedures the agent can run <a class="anchor" href="#harness">#</a></h3>
+  <p>A <strong>skill</strong> is a Markdown file (<code>SKILL.md</code>) with a little front-matter and
+    a body of instructions. When you type its name as a slash command — say <code>/docs-draft</code> —
+    the harness loads those instructions, injects live facts (the current branch, the git status), and
+    the agent follows the procedure. Skills are how you capture "the way we author here" once, so nobody
+    re-explains it every time. The five skills in this guide are exactly that: the RCAC-Docs way to take
+    a change from idea to merge.</p>
+</section>
+
+<!-- =================== 3. METHODOLOGY =================== -->
+<section id="methodology">
+  <p class="kicker">Practitioner guide · 3</p>
+  <h2>Method: Shape Up meets agents <a class="anchor" href="#methodology">#</a></h2>
+  <p>Give a capable agent no method and you get motion without direction. The good news: much of what
+    teams already learned about <em>directing</em> work applies — you just keep the thinking tools and
+    drop the calendar rituals.</p>
+
+  <p>The sharpest fit is <strong>Shape Up</strong> (Ryan Singer / 37signals). Its core ideas translate
+    almost directly to a solo-author-plus-agent pipeline:</p>
+
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>Shape Up idea</th><th>In the factory</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Appetite</strong> — fix the time, vary the scope.</td>
+          <td>An <code>appetite: small|big</code> field sizes how much research and how many phases a job gets. The plan fits the appetite, not the reverse.</td></tr>
+      <tr><td><strong>Shaping</strong> — rough, solved, and bounded, at the right altitude.</td>
+          <td>The <code>GOAL.md</code> is shaped: concrete enough to de-risk, abstract enough to leave design freedom.</td></tr>
+      <tr><td><strong>No-gos</strong> — say what you will <em>not</em> do.</td>
+          <td>An explicit non-goals list keeps scope from creeping ("not documenting cluster X").</td></tr>
+      <tr><td><strong>Rabbit holes</strong> — name the scary unknowns and settle them first.</td>
+          <td>Each research brief investigates one unknown — often an HPC spec to verify against an authoritative source.</td></tr>
+      <tr><td><strong>Hill</strong> — uphill (figuring out) vs downhill (just writing).</td>
+          <td>Each phase carries a <code>hill</code> signal; a phase stuck "uphill" is a raised hand.</td></tr>
+      <tr><td><strong>Circuit breaker</strong> — don't extend indefinitely; stop and re-shape.</td>
+          <td>Draft iterations and review bounce-backs are capped; on trip, stop and re-plan.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p>What we deliberately <strong>discard</strong>: the betting table, six-week cycles, cool-down, and
+    separate shaper/builder/QA roles — those exist to synchronize a human <em>team</em> and dissolve
+    for a serial solo-plus-agent flow.</p>
+
+  <div class="warn">
+    <div class="h">One place Shape Up must not be followed</div>
+    <p>Shape Up assumes scope is always cuttable and most defects can wait. That is
+      <strong>false</strong> for documentation people run on real clusters: a wrong <code>#SBATCH</code>
+      flag, a partition that doesn't exist, an inaccessible table, or a broken link that silently ships
+      to production is not a deferrable defect. The factory marks HPC technical accuracy, WCAG
+      accessibility, and build integrity as <code>hammerable: false</code> — the reviewer may never trim
+      them to "fit the appetite."</p>
+  </div>
+
+  <p class="lead">The broader movement this belongs to — committing a <em>specification</em> alongside
+    the content and letting the spec drive the work — is often called <strong>spec-driven
+    development</strong>. Tools like GitHub Spec Kit and AWS Kiro converge on the same
+    <em>what/why → how → ordered-work</em> spine the factory uses. Our version is deliberately
+    lightweight: Markdown, git, and skills, anchored on the site's own <code>AGENTS.md</code>.</p>
+</section>
+
+<!-- =================== 4. FACTORY =================== -->
+<section id="factory">
+  <p class="kicker">Practitioner guide · 4</p>
+  <h2>The <code>.agents/factory</code> lifecycle <a class="anchor" href="#factory">#</a></h2>
+  <p>One documentation job flows through five skills, on its own git branch, leaving a committed trail
+    under <code>spec/&lt;slug&gt;/</code>. The whole pipeline:</p>
+
+  <div class="flow" aria-label="The factory lifecycle">
+    <div class="step"><div class="n">/docs-feature</div><div class="t">Shape</div><div class="d">GOAL.md — what &amp; why</div></div>
+    <div class="arrow">→</div>
+    <div class="step"><div class="n">/docs-plan</div><div class="t">Design</div><div class="d">research → PLAN → TECH</div></div>
+    <div class="arrow">→</div>
+    <div class="step"><div class="n">/docs-draft</div><div class="t">Author</div><div class="d">one phase at a time ⟲</div></div>
+    <div class="arrow">→</div>
+    <div class="step"><div class="n">/docs-review</div><div class="t">Judge</div><div class="d">blind QA ⟲</div></div>
+    <div class="arrow">→</div>
+    <div class="step"><div class="n">/docs-publish</div><div class="t">Ship</div><div class="d">PR → main</div></div>
+  </div>
+  <p style="font-size:14px;color:var(--muted);margin-top:-6px">The ⟲ steps loop: review sends confirmed
+    problems back to draft until the change is clean, then publish opens the pull request. Merging to
+    <code>main</code> auto-deploys to production within ~5 minutes.</p>
+
+  <h3>The artifact spine <a class="anchor" href="#factory">#</a></h3>
+  <p>Each stage reads the previous stage's committed files and writes its own. This is the durable
+    substrate from §2 in practice:</p>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>File</th><th>Written by</th><th>What it is</th></tr></thead>
+    <tbody>
+      <tr><td><code><a href="templates/GOAL.md">GOAL.md</a></code></td><td>/docs-feature</td>
+          <td>The <strong>locked contract</strong>: problem, appetite, non-goals, and testable
+              acceptance criteria with stable IDs (<code>R1</code>, <code>R2</code>…).</td></tr>
+      <tr><td><code><a href="templates/PLAN.md">PLAN.md</a></code></td><td>/docs-plan</td>
+          <td>The authoritative <strong>design</strong>: archetype, page structure, nav placement,
+              macros/snippets, mapped back to each requirement ID.</td></tr>
+      <tr><td><code>research/*.md</code></td><td>/docs-plan</td>
+          <td>Briefs from parallel read-only sub-agents — one per rabbit hole (big appetite only).</td></tr>
+      <tr><td><code><a href="templates/TECH.md">TECH.md</a></code></td><td>/docs-plan</td>
+          <td>The <strong>phased roadmap</strong> — a small state machine (see below) the draft resumes from.</td></tr>
+      <tr><td><code><a href="templates/REVIEW.md">REVIEW.md</a></code></td><td>/docs-review</td>
+          <td>Severity-ranked findings + a requirement→evidence matrix.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>TECH.md is a finite-state machine <a class="anchor" href="#factory">#</a></h3>
+  <p>The roadmap's YAML front-matter <em>is</em> the resume point. It lists phases (publishable units of
+    work — a page or a coherent section), each with the requirements it satisfies, a verify command, and
+    honesty signals. The draft skill reads it fresh every time, does the next actionable phase, and
+    writes the state back — so authoring is fully resumable and git history becomes the checkpoint log.</p>
+  <div class="term-title">spec/&lt;slug&gt;/TECH.md — front-matter (excerpt)</div>
+  <pre><code><span class="v">appetite</span>: big              <span class="c"># small|big → caps phases &amp; iterations</span>
+<span class="v">status</span>: in_progress
+<span class="v">current_phase</span>: P2
+<span class="v">phases</span>:
+  - <span class="v">id</span>: P1
+    <span class="v">name</span>: <span class="s">"Scaffold: index + overview"</span>
+    <span class="v">satisfies</span>: [R1]             <span class="c"># traces back to GOAL requirement IDs</span>
+    <span class="v">hammerable</span>: <span class="n">false</span>          <span class="c"># HPC accuracy — review may not cut this</span>
+    <span class="v">hill</span>: downhill            <span class="c"># uphill=figuring out · downhill=writing</span>
+    <span class="v">status</span>: done
+    <span class="v">verify</span>: <span class="s">".venv/bin/mkdocs build --strict 2>&amp;1 | .venv/bin/python .agents/factory/bin/strict_check.py"</span></code></pre>
+  <p>A pair of small helper scripts (<code><a href="bin/next_phase.py">next_phase.py</a></code> /
+    <code><a href="bin/set_phase.py">set_phase.py</a></code>) read and update this block, so the agent
+    never hand-edits fragile YAML.</p>
+
+  <div class="tip">
+    <div class="h">Why <code>--strict</code></div>
+    <p>Production CI builds with <code>mkdocs build --verbose</code>, so a broken internal link or a
+      page missing from the nav ships silently. The factory's verify gate runs
+      <code>mkdocs build --strict</code> and blocks only on warnings not already in
+      <code><a href="strict-baseline.txt">strict-baseline.txt</a></code> — catching regressions before
+      they reach readers.</p>
+  </div>
+
+  <h3>Build in the open <a class="anchor" href="#factory">#</a></h3>
+  <p>All of this — the skills, the reference docs, the per-job <code>spec/</code> folders — is committed
+    to the repository. The methodology is not a hidden prompt; it is version-controlled, reviewable, and
+    improvable like any other part of the site. The full rationale lives in
+    <code><a href="methodology.md">methodology.md</a></code>.</p>
+
+  <h3>The factory improves itself <a class="anchor" href="#factory">#</a></h3>
+  <p>The five lifecycle skills don't just run the process — they <em>watch it for friction</em>. Each
+    skill ends with a silent-by-default <strong>meta-note</strong> step: when a concrete problem in the
+    <em>skillset itself</em> — a misleading instruction, a wrong command, a gap in guidance — costs
+    something during a job, the skill records a terse finding in that job's
+    <code>spec/&lt;slug&gt;/META.md</code>, gated by a single test: <em>"was this the instructions'
+    fault, not mine or the task's?"</em> A merely hard task is not a finding. These <code>F#</code>
+    findings run <em>orthogonal</em> to the <code>GOAL → REVIEW</code> content spine, and are
+    deliberately <strong>hidden from the blind reviewer</strong> (they can leak author intent).</p>
+
+  <p>The loop is <strong>asymmetric by design — cheap to observe, deliberate to act</strong> — so it can
+    never become a token-sink or quietly loosen a guardrail:</p>
+
+  <div class="flow" aria-label="The self-improvement loop">
+    <div class="step"><div class="n">observe</div><div class="t">meta-note</div><div class="d">skills log friction to META.md (F#)</div></div>
+    <div class="arrow">→</div>
+    <div class="step"><div class="n">surface</div><div class="t">/docs-publish</div><div class="d">open findings → a PR "🔧 Harness feedback" block</div></div>
+    <div class="arrow">→</div>
+    <div class="step"><div class="n">act</div><div class="t">/docs-harness</div><div class="d">human-gated fix to .agents/</div></div>
+  </div>
+
+  <p>A sixth skill, <code>/docs-harness</code>, stands <em>outside</em> the lifecycle and is the only one
+    that edits the factory itself. Pointed at a finished job's <code>META.md</code>, it previews the
+    recommended fix for each finding and — <strong>only with human approval</strong> — applies them to
+    <code>.agents/</code> as atomic <code>[harness]</code> commits, recording every decision in a
+    cross-job ledger, <code><a href="harness-log.md">harness-log.md</a></code>. It is bound by four rules
+    it cannot break: the observer is never the fixer; it <strong>never auto-weakens a
+    <code>hammerable:false</code> gate</strong>; fixes must generalize (no overfitting to one job); and
+    it writes no findings of its own (no meta-on-meta). Because edits to <code>.agents/**</code> are
+    excluded from the production deploy, the blast radius is the <em>next</em> job's authoring — never
+    the live site.</p>
+</section>
+
+<!-- =================== 5. SKILLS =================== -->
+<section id="skills">
+  <p class="kicker">Practitioner guide · 5</p>
+  <h2>Hands-on: the five skills <a class="anchor" href="#skills">#</a></h2>
+  <p>Each is a slash command you invoke deliberately (none fire on their own). They guard their own
+    preconditions — a wrong branch or a dirty tree stops them cold — so the process is hard to run out
+    of order.</p>
+
+  <div class="skill">
+    <div class="cmd">/docs-feature <span style="color:var(--muted);font-weight:400">— shape the goal</span></div>
+    <p>From a clean <code>main</code>, creates a <code>feature/&lt;slug&gt;</code>,
+      <code>fix/&lt;slug&gt;</code>, or <code>refactor/&lt;slug&gt;</code> branch and refines your idea
+      (or a hand-written GOAL) into a shaped <code>GOAL.md</code>: appetite, non-goals, and testable
+      criteria. Shaping only — no research, no drafting. Asks you when something is ambiguous rather
+      than guessing.</p>
+    <div class="io"><b>reads</b> your prompt / an untracked GOAL.md · <b>writes</b> spec/&lt;slug&gt;/GOAL.md ·
+      <b>skill</b> <a href="../skills/docs-feature/SKILL.md">docs-feature/SKILL.md</a></div>
+  </div>
+
+  <div class="skill">
+    <div class="cmd">/docs-plan <span style="color:var(--muted);font-weight:400">— research &amp; design</span></div>
+    <p>Checks the idea against the site's invariants, fans out read-only research sub-agents (scaled to
+      appetite; existing-site-first), then writes the <code>PLAN.md</code> design and the
+      <code>TECH.md</code> phased roadmap. A small fix can skip the research entirely.</p>
+    <div class="io"><b>reads</b> GOAL.md, AGENTS.md, the site · <b>writes</b> research/, PLAN.md, TECH.md ·
+      <b>skill</b> <a href="../skills/docs-plan/SKILL.md">docs-plan/SKILL.md</a></div>
+  </div>
+
+  <div class="skill">
+    <div class="cmd">/docs-draft <span style="color:var(--muted);font-weight:400">— author the roadmap</span></div>
+    <p>The resume-and-write driver. Reads the FSM, authors the next phase, runs that phase's verify
+      command (it proves the work by <em>building and rendering the site</em>, not by ticking a box),
+      and makes one atomic commit of content + state. It may revise the plan as reality demands, but a
+      contradiction with the locked GOAL stops it for you.</p>
+    <div class="io"><b>reads</b> TECH.md, PLAN.md, the pages · <b>writes</b> docs/, nav, TECH.md state ·
+      <b>skill</b> <a href="../skills/docs-draft/SKILL.md">docs-draft/SKILL.md</a></div>
+  </div>
+
+  <div class="skill">
+    <div class="cmd">/docs-review <span style="color:var(--muted);font-weight:400">— adversarial QA</span></div>
+    <p>Independent quality assurance. It delegates to a <strong>fresh reviewer with no memory of how the
+      page was written</strong>, who sees only the goal, the diff, and the invariants — <em>not</em> the
+      author's own plan. It verifies by building and rendering the site, and separates what it can prove
+      by command (broken links, nav, front-matter) from what needs a human (HPC accuracy, prose
+      accessibility). Confirmed issues loop back to draft; high-impact files always require a human
+      sign-off.</p>
+    <div class="io"><b>reads</b> GOAL.md + diff + invariants (blind to PLAN/TECH) · <b>writes</b> REVIEW.md, findings ·
+      <b>skill</b> <a href="../skills/docs-review/SKILL.md">docs-review/SKILL.md</a></div>
+  </div>
+
+  <div class="skill">
+    <div class="cmd">/docs-publish <span style="color:var(--muted);font-weight:400">— ship it</span></div>
+    <p>Opens a pull request to <code>main</code> with a rich, artifact-linked description (or does a
+      local squash-merge). This is the one irreversible, outward step — a merge deploys to production —
+      so it always confirms with you first and never targets <code>dev</code>.</p>
+    <div class="io"><b>reads</b> all artifacts + git log · <b>writes</b> a PR (or a local merge) ·
+      <b>skill</b> <a href="../skills/docs-publish/SKILL.md">docs-publish/SKILL.md</a></div>
+  </div>
+
+  <div class="skill" style="border-left-color:var(--muted)">
+    <div class="cmd" style="color:var(--text-2)">/docs-harness <span style="color:var(--muted);font-weight:400">— the self-improvement skill (not part of the lifecycle)</span></div>
+    <p>Stands apart from the five above: it changes the <strong>factory</strong>, not any page. Pointed at
+      a finished job's <code>META.md</code>, it previews and — <strong>only with your approval</strong> —
+      applies each recorded process fix to <code>.agents/</code> as an atomic <code>[harness]</code>
+      commit, logging every decision. It never fires on its own
+      (<code>disable-model-invocation</code>), never auto-weakens a safety gate, and writes no findings
+      itself. See <a href="#factory">The factory improves itself</a> for the loop it closes.</p>
+    <div class="io"><b>reads</b> spec/&lt;slug&gt;/META.md + harness-log.md · <b>writes</b> .agents/ fixes, harness-log.md ·
+      <b>skill</b> <a href="../skills/docs-harness/SKILL.md">docs-harness/SKILL.md</a></div>
+  </div>
+
+  <h3>A day in the life <a class="anchor" href="#skills">#</a></h3>
+  <div class="term-title">a new user-guide page, start to finish</div>
+  <pre><code><span class="k">/docs-feature</span> add a Python examples page to the Gautschi user guide
+<span class="c"># → branch feature/gautschi-python, spec/gautschi-python/GOAL.md — you review it</span>
+
+<span class="k">/docs-plan</span>
+<span class="c"># → research/, PLAN.md, TECH.md — you approve the design (archetype, nav spot, macros)</span>
+
+<span class="k">/docs-draft</span>          <span class="c"># phase P1: scaffold + nav … commit</span>
+<span class="k">/docs-draft</span>          <span class="c"># phase P2: draft the page … commit  (repeat until done)</span>
+
+<span class="k">/docs-review</span>         <span class="c"># fresh, blind QA → REVIEW.md (approved / changes-requested)</span>
+
+<span class="k">/docs-publish</span>        <span class="c"># opens the PR to main, links every artifact</span></code></pre>
+  <div class="tip">
+    <div class="h">Scales down</div>
+    <p>A typo fix or a one-line correction does not need all of this. Set <code>appetite: small</code>
+      (the default for <code>fix/</code> branches) and <code>/docs-plan</code> collapses to a lean plan
+      with no research fan-out. A truly trivial change can skip the lifecycle altogether. Rigor is a
+      dial, not a toll.</p>
+  </div>
+</section>
+
+<!-- =================== LEADERSHIP =================== -->
+<section id="leadership">
+  <p class="kicker">For institutional leadership</p>
+  <h2>Notes for institutional leadership <a class="anchor" href="#leadership">#</a></h2>
+  <p class="lead">The at-a-glance panel above, expanded. These are the concerns that decide whether the
+    docs team can adopt agentic authoring responsibly.</p>
+
+  <h3>Governance &amp; guardrails <a class="anchor" href="#leadership">#</a></h3>
+  <p>Autonomy is bounded by design, not by hope:</p>
+  <ul>
+    <li><strong>Human gates at the decisions that matter.</strong> A human approves the goal before
+      the planning, the design before pages are written, and the review before anything ships.</li>
+    <li><strong>Independent review.</strong> The QA step runs in a fresh context, blind to the author's
+      reasoning, and verifies by building and rendering the site — a direct countermeasure to a model
+      rubber-stamping its own work. Because there is no staging environment, this review is the last
+      line of defense before production.</li>
+    <li><strong>High-impact-file controls.</strong> Any confirmed problem touching a shared surface
+      (<code>mkdocs.yml</code>, the macros in <code>main.py</code>, the catalog generators, the theme
+      overrides, CI) forces a mandatory human sign-off.</li>
+    <li><strong>Encoded invariants.</strong> The site's non-negotiable rules — branch/deploy model,
+      the generated-content firewall, HPC accuracy, WCAG accessibility — live in
+      <code><a href="invariants.md">invariants.md</a></code> and are checked at both planning and
+      review; violating one is an automatic top-severity finding.</li>
+  </ul>
+
+  <h3>Cost &amp; effort economics <a class="anchor" href="#leadership">#</a></h3>
+  <p>Agent work consumes tokens (and therefore money and time), most of all during broad research
+    fan-out. The factory treats spend as a dial:</p>
+  <ul>
+    <li><strong>Appetite scaling.</strong> Small changes skip research and collapse the paperwork; only
+      genuinely large jobs (a new cluster guide, a tutorial series) pay for parallel investigation.</li>
+    <li><strong>Parallel where it pays, serial where it must.</strong> Research fans out (large,
+      well-understood gains); authoring stays single-threaded (parallel authors make conflicting
+      decisions about voice, structure, and nav).</li>
+    <li><strong>Circuit breakers.</strong> A stuck phase or a review that keeps bouncing trips a stop,
+      rather than burning budget in a loop — a spend ceiling with a human off-ramp.</li>
+  </ul>
+
+  <h3>Reproducibility &amp; auditability <a class="anchor" href="#leadership">#</a></h3>
+  <p>Every job leaves a committed, dated record:</p>
+  <ul>
+    <li><strong>A traceable chain</strong> from requirement ID → design element → implementing commit →
+      review evidence. You can answer "why does this page say this, and who decided?" from the
+      repository alone.</li>
+    <li><strong>An ADR-style trail.</strong> The <code>spec/&lt;slug&gt;/</code> folder is retained on
+      merge as a point-in-time record of intent and design — not a living doc to maintain forever.</li>
+    <li><strong>The site remains ground truth.</strong> Specs record intent; the rendered site and
+      <code>AGENTS.md</code> are authoritative. This avoids the classic trap of stale documentation
+      pretending to be the source of truth.</li>
+  </ul>
+
+  <h3>Workforce <a class="anchor" href="#leadership">#</a></h3>
+  <p>The honest framing: this <strong>raises the level of abstraction</strong> at which the docs team
+    works. The routine scaffolding is increasingly automated; the durable, human contributions become
+    more valuable, not less:</p>
+  <ul>
+    <li><strong>Shaping</strong> — deciding what is worth documenting and bounding it well.</li>
+    <li><strong>Judgement</strong> — knowing whether a page is accurate, clear, and accessible.</li>
+    <li><strong>Ownership</strong> — standing behind what ships to users.</li>
+  </ul>
+  <p>These are exactly the skills experienced writers and RSEs already have. The change is that they
+    spend more of their day exercising them and less on boilerplate. It is a force multiplier for a
+    small docs team, not a substitute for one.</p>
+
+  <h3>A factory that improves itself <a class="anchor" href="#leadership">#</a></h3>
+  <p>The factory is instrumented to get <em>better with use</em> — without ever putting its own
+    guardrails up for negotiation. As each job runs, the skills quietly record process friction (a
+    misleading instruction, a wrong command, a gap in guidance) as findings in that job's
+    <code>META.md</code>; a human then decides, through the <code>/docs-harness</code> skill, which of
+    those fixes to fold back into the toolchain. Three properties make this safe to leave running:</p>
+  <ul>
+    <li><strong>Human-gated and non-self-weakening.</strong> No fix is ever auto-applied, and the skill
+      is constitutionally forbidden from loosening a <code>hammerable:false</code> gate (HPC accuracy,
+      accessibility, build integrity) without an explicit human override. The mechanism that sharpens
+      the process cannot be turned against its own quality bar.</li>
+    <li><strong>Isolated blast radius.</strong> These changes touch only the <code>.agents/</code>
+      toolchain, which is excluded from the production deploy — so a factory tweak can never itself reach
+      the live site. It changes how the <em>next</em> page is authored, not any published page.</li>
+    <li><strong>Fully audited.</strong> Every applied or rejected fix is logged, with its rationale, in a
+      cross-job ledger (<code>harness-log.md</code>) — the same "answer it from the repository alone"
+      standard the content trail meets, and an anti-thrash memory so rejected ideas don't keep
+      returning.</li>
+  </ul>
+  <p>The takeaway for leadership is <strong>compounding return</strong>: the team's accumulated lessons
+    about <em>how</em> to author well become durable, reviewable changes to the shared toolchain rather
+    than living only in one person's head — and every one of those changes passes through a human hand.</p>
+</section>
+
+<!-- =================== 6. REFERENCE =================== -->
+<section id="reference">
+  <p class="kicker">Practitioner guide · 6</p>
+  <h2>Reference: every material, linked <a class="anchor" href="#reference">#</a></h2>
+  <p>Everything the factory is made of, with what it is and how it is used. All paths are relative to
+    <code>.agents/factory/</code> (this file's home).</p>
+
+  <h3>The constitution <a class="anchor" href="#reference">#</a></h3>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>Material</th><th>What it is / how it's used</th></tr></thead>
+    <tbody>
+      <tr><td><code><a href="../../AGENTS.md">AGENTS.md</a></code> <span style="color:var(--muted)">(repo root)</span></td>
+          <td>The site's operating manual and the factory's <strong>constitution</strong>: architecture,
+              content conventions, the branch/deploy model, the invariants. Skills reference it; they
+              never duplicate it. (<code>CLAUDE.md</code> is a symlink to it.)</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>The skills — five lifecycle, one meta <a class="anchor" href="#reference">#</a></h3>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>Skill</th><th>Role</th></tr></thead>
+    <tbody>
+      <tr><td><code><a href="../skills/docs-feature/SKILL.md">docs-feature</a></code></td><td>Shape a goal on a fresh branch.</td></tr>
+      <tr><td><code><a href="../skills/docs-plan/SKILL.md">docs-plan</a></code></td><td>Research, design, and lay out the phased roadmap.</td></tr>
+      <tr><td><code><a href="../skills/docs-draft/SKILL.md">docs-draft</a></code></td><td>Author the roadmap, one verified phase at a time.</td></tr>
+      <tr><td><code><a href="../skills/docs-review/SKILL.md">docs-review</a></code></td><td>Independent, blind, evidence-based QA.</td></tr>
+      <tr><td><code><a href="../skills/docs-publish/SKILL.md">docs-publish</a></code></td><td>Open the pull request to <code>main</code> (or merge locally).</td></tr>
+      <tr><td><code><a href="../skills/docs-harness/SKILL.md">docs-harness</a></code> <span style="color:var(--muted)">(meta)</span></td>
+          <td>Apply a job's <code>META.md</code> self-improvement findings to the factory, human-gated.
+              <em>Not part of the content lifecycle</em> — it changes the toolchain, not any page.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>Reference documents <a class="anchor" href="#reference">#</a></h3>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>Document</th><th>What it is / how it's used</th></tr></thead>
+    <tbody>
+      <tr><td><code><a href="methodology.md">methodology.md</a></code></td>
+          <td>The full lifecycle rationale — the "why" behind the skills, the Shape Up mapping, and the
+              self-improvement loop. Read this to understand the flow.</td></tr>
+      <tr><td><code><a href="invariants.md">invariants.md</a></code></td>
+          <td>The curated checklist of load-bearing rules, drawn from <code>AGENTS.md</code>. Used as
+              the planning gate and the review footgun list.</td></tr>
+      <tr><td><code><a href="ears.md">ears.md</a></code></td>
+          <td>Templates for writing testable acceptance criteria (the EARS convention), recast for
+              documentation outcomes. Used by <code>/docs-feature</code>.</td></tr>
+      <tr><td><code><a href="style-guide.md">style-guide.md</a></code></td>
+          <td>The house style and per-archetype conventions (front-matter, macros/snippets, admonitions,
+              links, assets, nav). Used by <code>/docs-plan</code> and <code>/docs-draft</code>.</td></tr>
+      <tr><td><code><a href="review-rubric.md">review-rubric.md</a></code></td>
+          <td>The reviewer's operating manual — what it may see, severity levels, the CONFIRMED vs
+              PLAUSIBLE split, and when a human must sign off.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>Templates &amp; state scripts <a class="anchor" href="#reference">#</a></h3>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>File</th><th>What it is / how it's used</th></tr></thead>
+    <tbody>
+      <tr><td><code><a href="templates/GOAL.md">templates/GOAL.md</a></code></td><td>Skeleton for the shaped goal.</td></tr>
+      <tr><td><code><a href="templates/PLAN.md">templates/PLAN.md</a></code></td><td>Skeleton for the design.</td></tr>
+      <tr><td><code><a href="templates/TECH.md">templates/TECH.md</a></code></td><td>Skeleton for the phased FSM roadmap (with the field reference).</td></tr>
+      <tr><td><code><a href="templates/REVIEW.md">templates/REVIEW.md</a></code></td><td>Skeleton for the review report.</td></tr>
+      <tr><td><code><a href="templates/META.md">templates/META.md</a></code></td><td>Skeleton for the per-job harness-retrospective log — the <code>F#</code> finding format and the bar for recording one.</td></tr>
+      <tr><td><code><a href="bin/next_phase.py">bin/next_phase.py</a></code></td><td>Reads &amp; validates a TECH.md; prints the next actionable phase as JSON.</td></tr>
+      <tr><td><code><a href="bin/set_phase.py">bin/set_phase.py</a></code></td><td>Advances FSM state by regenerating the front-matter (no fragile hand-edits).</td></tr>
+      <tr><td><code><a href="bin/strict_check.py">bin/strict_check.py</a></code></td><td>Gates a <code>mkdocs --strict</code> log against the warning baseline (fails only on regressions).</td></tr>
+      <tr><td><code><a href="bin/meta_status.py">bin/meta_status.py</a></code></td><td>Enumerates a <code>META.md</code>'s findings as JSON (by status / severity / id), so <code>/docs-publish</code> and <code>/docs-harness</code> never hand-parse the log.</td></tr>
+      <tr><td><code><a href="bin/_fsm.py">bin/_fsm.py</a></code></td><td>Shared parse / validate / serialize helpers for the scripts above.</td></tr>
+      <tr><td><code><a href="strict-baseline.txt">strict-baseline.txt</a></code></td><td>The known pre-existing <code>--strict</code> warnings the build gate ignores.</td></tr>
+      <tr><td><code><a href="harness-log.md">harness-log.md</a></code></td><td>The cross-job ledger of applied / rejected self-improvement fixes — anti-thrash memory, read before applying a finding.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>Further reading <a class="anchor" href="#reference">#</a></h3>
+  <ul>
+    <li><a href="https://basecamp.com/shapeup" rel="noopener">Shape Up</a> — Ryan Singer / 37signals (the methodology this borrows from).</li>
+    <li><a href="https://www.anthropic.com/engineering/claude-code-best-practices" rel="noopener">Claude Code best practices</a> — the Explore → Plan → Code → Commit loop.</li>
+    <li><a href="https://github.com/github/spec-kit" rel="noopener">GitHub Spec Kit</a> and <a href="https://kiro.dev" rel="noopener">AWS Kiro</a> — other spec-driven toolchains, for comparison.</li>
+    <li><a href="https://alistairmavin.com/ears/" rel="noopener">EARS</a> — the requirements-syntax convention used in <code>GOAL.md</code>.</li>
+  </ul>
+</section>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span><span class="brandmark">RCAC docs</span> · the documentation factory ·
+      built in the open under <code style="background:none;color:inherit">.agents/</code></span>
+    <span><a href="methodology.md">methodology.md</a> · <a href="../../AGENTS.md">AGENTS.md</a> ·
+      <a href="https://github.com/PurdueRCAC/RCAC-Docs" rel="noopener">github</a></span>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var btn = document.getElementById('themeBtn');
+    var icon = document.getElementById('themeIcon');
+    var lbl = document.getElementById('themeLbl');
+    function sync() {
+      var dark = document.documentElement.getAttribute('data-theme') !== 'light';
+      icon.textContent = dark ? '☀' : '☾';
+      lbl.textContent = dark ? 'Light' : 'Dark';
+    }
+    btn.addEventListener('click', function () {
+      var next = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('rcac-docs-theme', next); } catch (e) {}
+      sync();
+    });
+    sync();
+  })();
+</script>
+</body>
+</html>

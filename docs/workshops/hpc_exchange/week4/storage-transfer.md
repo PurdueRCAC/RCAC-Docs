@@ -79,7 +79,7 @@ It is good for node-local caching of data and files. It is **NOT** for valuable 
 ### Checking Access
 
 Reminder that you can use the `myquota` command to check your current usage on local storage locations!
-```bash
+```bash linenums="0"
 $ myquota
 Type       Location             Size    Limit    Use   Files   Limit    Use
 ===========================================================================
@@ -114,7 +114,7 @@ Fortress is good for backing up (archiving) critical research data. It is good a
 To access Fortress and move files to/from it,
 use the `hsi/htar` programs.
 
-```bash
+```bash linenums="0"
 $ hsi
 ***************************************************************************
 **  No Fortress keytab found in your home directory.  Creating one now.  **
@@ -129,7 +129,7 @@ $ hsi
 
 We can use `hsi` to navigate the tape archive system. We can create, remove, rename, and directories "like normal". While in the `hsi` interface, use the `help` program for a listing of commands and what they do. Outside of the `hsi` interface, you can run `hsi help` to get the same information.
 
-```bash
+```bash linenums="0"
 [Fortress HSI]/home/username->ls
 
 [Fortress HSI]/home/username->mkdir example
@@ -141,7 +141,7 @@ mkdir: /home/username/example
 
 Use `put` and `get` to copy data to and from the tape archive. Let's add our directory to the archive and try to get it back.
 
-```bash
+```bash linenums="0"
 [Fortress HSI]/home/username->put -R example-data
 put 'example-data/paper.txt' : paper.txt
 ```
@@ -151,14 +151,14 @@ put 'example-data/paper.txt' : paper.txt
 
 To exit the `hsi` interface, use the `exit` command.
 
-```bash
+```bash linenums="0"
 [Fortress HSI]/home/username-> exit
 username@loginXX.CLUSTER:[~] $
 ```
 
 You can also use `hsi` commands in one shot without logging in first. Try removing the `example-data` directory from the cluster and then bringing it back with `hsi get`. To be extra safe, we will rename it here instead of actually deleting the directory and its contents.
 
-```bash
+```bash linenums="0"
 $ mv example-data backup
 
 $ hsi get -R example-data
@@ -175,7 +175,7 @@ Instead of using `hsi` command to get and put files, we shouldn't store all thes
 ### Transferring data to and from Fortress
 You can bundle and send the whole directory in one stream with the `htar` program.:
 
-```bash
+```bash linenums="0"
 $ htar -cvf example-data.tar example-data/
 HTAR: a  example-data/
 HTAR: a  example-data/paper.txt
@@ -223,7 +223,7 @@ echo "Backed up data to Fortress at $(date)!"
 
 Once this runs we can check to see the status of the job with `squeue --me`. Once it finishes running, we can check the output file (`example.out`) to make sure it does what we expect. Remember that All the text that would normally print to the terminal (`stdout` and `stderr`) will instead go into the slurm log!
 
-```bash
+```bash linenums="0"
 $ sbatch myjob.sh
 Submitted batch job 2095574
 
@@ -245,14 +245,14 @@ Backed up data to Fortress at Wed Jan 28 12:45:49 EST 2026!
 
 Notice that this script doesn't contain our python output, because we redirected that output to a file (`> results.out`) and then archived the file with `htar`. There's two places we need to check for the output of our job. First is the `scratch` directory that the python output file was created in:
 
-```bash
+```bash linenums="0"
 $ cat $SCRATCH/example/results.out
 2499.9118
 ```
 
 Then, we also need to check that our `example.tar` file was created on Fortress:
 
-```bash
+```bash linenums="0"
 $ hsi ls
 /home/username:
 example-data/   example-data.tar   example.tar

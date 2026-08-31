@@ -4,7 +4,7 @@
 
 Let's submit a job again with `sbatch` and check on it with `squeue`.
 
-```bash
+```bash  linenums="0"
 $ sbatch example.sh
 Submitted batch job 19823415
 
@@ -18,7 +18,7 @@ JOBID     USER      ACCOUNT    NAME       NODES  CPUS   TIME_LIMIT  ST  TIME
 
 Notice that the job disappeared from the output of `squeue` after completion. How can we check on jobs after they've disappeared here? If you know the job ID, you can always run `jobinfo`:
 
-```bash
+```bash linenums="0"
 $ jobinfo 19823415
 Name       : example.sh
 User       : username
@@ -36,7 +36,7 @@ But how do we query the full job history?
 
 We can use the `sacct` program to search deeper into our job history:
 
-```bash
+```bash linenums="0"
 $ sacct -u username
 JobID           Jobname  Partition    Account  AllocCPUS      State ExitCode
 ------------ ---------- ---------- ---------- ---------- ---------- --------
@@ -69,7 +69,7 @@ The `sacct` program is highly malleable, with many options for data filtering an
 
 An example of a job search that is only for a specific username with a specific submission account over the past 15 days would be:
 
-```bash
+```bash linenums="0"
 $ sacct -X -u username -A hpcexc --starttime=now-15days -o JobID,JobName,User,State,Elapsed,NodeList
 
 JobID           JobName      User      State    Elapsed        NodeList 

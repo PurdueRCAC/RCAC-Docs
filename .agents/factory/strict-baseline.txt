@@ -1,0 +1,29 @@
+# mkdocs --strict warning baseline for the RCAC-Docs documentation factory.
+#
+# WHAT THIS IS
+#   `mkdocs build --strict` promotes build WARNINGs (broken internal links,
+#   missing targets, nav orphans) to hard errors. CI builds with `--verbose`,
+#   NOT `--strict`, so such warnings would otherwise ship to production silently.
+#   The factory's build-integrity gate runs `--strict` and blocks on any warning
+#   that is NOT already listed below — i.e. a regression your change introduced.
+#
+# HOW IT IS USED
+#   .venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py
+#   Exit 0 = you introduced no new warnings (PASS).
+#   Exit 1 = new warning(s) attributable to your change (STOP; fix or justify).
+#   Lines starting with '#' and blank lines are ignored by the checker.
+#
+# CURRENT STATE: EMPTY (zero tolerated warnings — the gate is at its strictest).
+#   The seven pre-existing broken-link warnings captured on 2026-07-14 were all
+#   fixed upstream on `main` (commit 4f3e3574, "Fix warnings for --strict
+#   building") and deleted here on 2026-07-15 in the same spirit the MAINTENANCE
+#   note prescribes — a clean `--strict` build now emits no warnings at all.
+#   With an empty baseline, ANY warning fails the gate.
+#
+# MAINTENANCE
+#   Keep the debt count shrinking. If a build legitimately surfaces a
+#   pre-existing warning you cannot fix within your change, add its exact message
+#   on its own line below with a comment justifying it; when a listed warning is
+#   genuinely fixed, delete its line in the same change. Tool-generated catalog
+#   files (software/*_catalog.md) must be fixed at the generator (tools/), never
+#   by hand.

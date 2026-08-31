@@ -88,5 +88,8 @@ gilbreth-a003:~$ lstopo-no-graphics --physical --whole-io
 
 --8<-- "docs/snippets/jupyter_lock.md"
 
+### RStudio Server Timeout
+
+--8<-- "docs/snippets/rstudio_timeout.md"
 
 [**Back to Gilbreth User Guide**](./index.md)

@@ -2326,5 +2326,99 @@
     "topic": [
       "Miscellaneous"
     ]
+  },
+  "fusioncompiler": {
+    "description": "TODO: add description",
+    "homepage": null,
+    "source": "none",
+    "topic": [
+      "Compilers",
+      "Geoscience"
+    ]
+  },
+  "prime": {
+    "description": "Prime Intellect CLI + SDK",
+    "homepage": null,
+    "source": "pypi",
+    "topic": [
+      "Miscellaneous"
+    ]
+  },
+  "py-cython": {
+    "description": "TODO: add description",
+    "homepage": null,
+    "source": "none",
+    "topic": [
+      "Library"
+    ]
+  },
+  "py-numba": {
+    "description": "TODO: add description",
+    "homepage": null,
+    "source": "none",
+    "topic": [
+      "Library",
+      "Math/Stat"
+    ]
+  },
+  "py-pip": {
+    "description": "a PIP wrapper to install PyPI packages from inside Python",
+    "homepage": null,
+    "source": "pypi",
+    "topic": [
+      "Programming",
+      "Utilities"
+    ]
+  },
+  "py-scikit-learn": {
+    "description": "TODO: add description",
+    "homepage": null,
+    "source": "none",
+    "topic": [
+      "Library",
+      "Math/Stat"
+    ]
+  },
+  "py-scipy": {
+    "description": "TODO: add description",
+    "homepage": null,
+    "source": "none",
+    "topic": [
+      "Library",
+      "Math/Stat"
+    ]
+  },
+  "py-seaborn": {
+    "description": "TODO: add description",
+    "homepage": null,
+    "source": "none",
+    "topic": [
+      "Library"
+    ]
+  },
+  "py-setuptools": {
+    "description": "TODO: add description",
+    "homepage": null,
+    "source": "none",
+    "topic": [
+      "Library"
+    ]
+  },
+  "py-virtualenv": {
+    "description": "TODO: add description",
+    "homepage": null,
+    "source": "none",
+    "topic": [
+      "Programming",
+      "Utilities"
+    ]
+  },
+  "py-wheel": {
+    "description": "TODO: add description",
+    "homepage": null,
+    "source": "none",
+    "topic": [
+      "Library"
+    ]
   }
 }

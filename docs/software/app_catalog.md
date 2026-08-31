@@ -11,7 +11,7 @@ search:
 # All software and versions on RCAC clusters
 
 ## Overview
-As of **June 24, 2026**, there have been a total of **276** applications with **2543** available versions deployed across **6** RCAC HPC clusters: **ANVIL, BELL, GAUTSCHI, GILBRETH, NEGISHI, SCHOLAR**.
+As of **August 28, 2026**, there have been a total of **287** applications with **2632** available versions deployed across **6** RCAC HPC clusters: **ANVIL, BELL, GAUTSCHI, GILBRETH, NEGISHI, SCHOLAR**.
 
 ## Applications Catalog
 
@@ -314,6 +314,11 @@ As of **June 24, 2026**, there have been a total of **276** applications with **
       <td><a href="../apps_md/freetype"><strong>freetype</strong></a></td>
       <td>Library</td>
       <td>ANVIL, NEGISHI</td>
+    </tr>
+    <tr>
+      <td><a href="../apps_md/fusioncompiler"><strong>fusioncompiler</strong></a></td>
+      <td>Compilers, Geoscience</td>
+      <td>GILBRETH</td>
     </tr>
     <tr>
       <td><a href="../apps_md/gatk"><strong>gatk</strong></a></td>
@@ -996,6 +1001,11 @@ As of **June 24, 2026**, there have been a total of **276** applications with **
       <td>ANVIL, GILBRETH</td>
     </tr>
     <tr>
+      <td><a href="../apps_md/prime"><strong>prime</strong></a></td>
+      <td>Miscellaneous</td>
+      <td>GILBRETH</td>
+    </tr>
+    <tr>
       <td><a href="../apps_md/proj"><strong>proj</strong></a></td>
       <td>Geoscience</td>
       <td>ANVIL, BELL, NEGISHI</td>
@@ -1006,9 +1016,14 @@ As of **June 24, 2026**, there have been a total of **276** applications with **
       <td>ANVIL, BELL, GILBRETH, NEGISHI</td>
     </tr>
     <tr>
+      <td><a href="../apps_md/py-cython"><strong>py-cython</strong></a></td>
+      <td>Library</td>
+      <td>ANVIL</td>
+    </tr>
+    <tr>
       <td><a href="../apps_md/py-matplotlib"><strong>py-matplotlib</strong></a></td>
       <td>Library, Math/Stat</td>
-      <td>GAUTSCHI</td>
+      <td>ANVIL, GAUTSCHI</td>
     </tr>
     <tr>
       <td><a href="../apps_md/py-mpi4py"><strong>py-mpi4py</strong></a></td>
@@ -1016,14 +1031,54 @@ As of **June 24, 2026**, there have been a total of **276** applications with **
       <td>ANVIL, GAUTSCHI</td>
     </tr>
     <tr>
+      <td><a href="../apps_md/py-numba"><strong>py-numba</strong></a></td>
+      <td>Library, Math/Stat</td>
+      <td>ANVIL</td>
+    </tr>
+    <tr>
       <td><a href="../apps_md/py-numpy"><strong>py-numpy</strong></a></td>
       <td>Library, Math/Stat</td>
-      <td>GAUTSCHI</td>
+      <td>ANVIL, GAUTSCHI</td>
     </tr>
     <tr>
       <td><a href="../apps_md/py-pandas"><strong>py-pandas</strong></a></td>
       <td>Library, Math/Stat</td>
-      <td>GAUTSCHI</td>
+      <td>ANVIL, GAUTSCHI</td>
+    </tr>
+    <tr>
+      <td><a href="../apps_md/py-pip"><strong>py-pip</strong></a></td>
+      <td>Programming, Utilities</td>
+      <td>ANVIL</td>
+    </tr>
+    <tr>
+      <td><a href="../apps_md/py-scikit-learn"><strong>py-scikit-learn</strong></a></td>
+      <td>Library, Math/Stat</td>
+      <td>ANVIL</td>
+    </tr>
+    <tr>
+      <td><a href="../apps_md/py-scipy"><strong>py-scipy</strong></a></td>
+      <td>Library, Math/Stat</td>
+      <td>ANVIL</td>
+    </tr>
+    <tr>
+      <td><a href="../apps_md/py-seaborn"><strong>py-seaborn</strong></a></td>
+      <td>Library</td>
+      <td>ANVIL</td>
+    </tr>
+    <tr>
+      <td><a href="../apps_md/py-setuptools"><strong>py-setuptools</strong></a></td>
+      <td>Library</td>
+      <td>ANVIL</td>
+    </tr>
+    <tr>
+      <td><a href="../apps_md/py-virtualenv"><strong>py-virtualenv</strong></a></td>
+      <td>Programming, Utilities</td>
+      <td>ANVIL</td>
+    </tr>
+    <tr>
+      <td><a href="../apps_md/py-wheel"><strong>py-wheel</strong></a></td>
+      <td>Library</td>
+      <td>ANVIL</td>
     </tr>
     <tr>
       <td><a href="../apps_md/python"><strong>python</strong></a></td>
@@ -1153,7 +1208,7 @@ As of **June 24, 2026**, there have been a total of **276** applications with **
     <tr>
       <td><a href="../apps_md/sentaurus"><strong>sentaurus</strong></a></td>
       <td>Engineering</td>
-      <td>BELL, NEGISHI</td>
+      <td>BELL, GAUTSCHI, GILBRETH, NEGISHI</td>
     </tr>
     <tr>
       <td><a href="../apps_md/setuptools"><strong>setuptools</strong></a></td>
@@ -1343,7 +1398,7 @@ As of **June 24, 2026**, there have been a total of **276** applications with **
     <tr>
       <td><a href="../apps_md/xcb-util-cursor"><strong>xcb-util-cursor</strong></a></td>
       <td>Math/Stat, Programming</td>
-      <td>BELL, GAUTSCHI, GILBRETH</td>
+      <td>BELL, GAUTSCHI, GILBRETH, SCHOLAR</td>
     </tr>
     <tr>
       <td><a href="../apps_md/xcb-util-image"><strong>xcb-util-image</strong></a></td>

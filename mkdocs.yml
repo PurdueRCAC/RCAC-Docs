@@ -142,6 +142,7 @@ nav:
       - File Storage and Transfer: userguides/gautschi/storage.md
       - Gateway (Open OnDemand): userguides/gautschi/gateway.md
       - Compiling Source Code: userguides/gautschi/compile.md
+      - Using AI Agents: userguides/gautschi/using_ai_agents.md
       - Frequently Asked Questions: userguides/gautschi/faqs.md
     - Gilbreth:
       - userguides/gilbreth/index.md
@@ -153,13 +154,27 @@ nav:
       - File Storage and Transfer: userguides/gilbreth/storage.md
       - Gateway (Open OnDemand): userguides/gilbreth/gateway.md
       - Compiling Source Code: userguides/gilbreth/compile.md
+      - Using AI Agents: userguides/gilbreth/using_ai_agents.md
       - Frequently Asked Questions: userguides/gilbreth/faqs.md
+    - Negishi:
+      - userguides/negishi/index.md
+      - Negishi Overview: userguides/negishi/overview.md
+      - Biography of Negishi: userguides/negishi/biography.md
+      - Accounts: userguides/negishi/accounts.md
+      - Software: userguides/negishi/software.md
+      - Running Jobs: userguides/negishi/run_jobs/index.md
+      - File Storage and Transfer: userguides/negishi/storage.md
+      - Gateway (Open OnDemand): userguides/negishi/gateway.md
+      - Compiling Source Code: userguides/negishi/compile.md
+      - Using AI Agents: userguides/negishi/using_ai_agents.md
+      - Frequently Asked Questions: userguides/negishi/faqs.md
     - Scholar: 
       - userguides/scholar/index.md
       - Scholar Overview: userguides/scholar/overview.md
       - Accounts: userguides/scholar/accounts.md
       - Software: userguides/scholar/software.md
       - Running Jobs: userguides/scholar/run_jobs/index.md
+      - Scholar Spark Nodes: userguides/scholar/scholar-spark.md
       - File Storage and Transfer: userguides/scholar/storage.md
       - Gateway (Open OnDemand): userguides/scholar/gateway.md
       - Compiling Source Code: userguides/scholar/compile.md
@@ -180,8 +195,15 @@ nav:
         - Web Server: userguides/geddes/examples/webserver.md
         - R Shiny: userguides/geddes/examples/r-shiny.md
       - Troubleshooting: userguides/geddes/troubleshooting.md
-    - Negishi: https://www.rcac.purdue.edu/knowledge/negishi
-    - Hammer: https://www.rcac.purdue.edu/knowledge/hammer
+    - Hammer:
+      - userguides/hammer/index.md
+      - Hammer Overview: userguides/hammer/overview.md
+      - Accounts: userguides/hammer/accounts.md
+      - File Storage and Transfer: userguides/hammer/storage.md
+      - Software: userguides/hammer/software.md
+      - Compiling Source Code: userguides/hammer/compile.md
+      - Running Jobs: userguides/hammer/run_jobs/index.md
+      - Frequently Asked Questions: userguides/hammer/faqs.md
     - Rossmann: https://www.rcac.purdue.edu/knowledge/rossmann
     - Weber: https://www.rcac.purdue.edu/knowledge/weber
   - Storage User Guides:
@@ -340,6 +362,19 @@ nav:
         - Mitochondrial Genomes (MitoHiFi): lifesciences/tutorials/mitohifi.md
       - Hi-C Analysis:
         - Juicer: lifesciences/tutorials/juicer.md
+  - Agentic AI:
+    - agentic-ai/index.md
+    - Acceptable Use & Etiquette: agentic-ai/acceptable_use.md
+    - Best Practices & Limitations: agentic-ai/best_practices.md
+    - MCP Servers: agentic-ai/mcp_servers.md
+    - Running Agents:
+      - agentic-ai/running_agents/index.md
+      - On the Cluster (Login Nodes): agentic-ai/running_agents/on_cluster.md
+      - Local (over SSH): agentic-ai/running_agents/local.md
+    - Shared Context & Settings:
+      - agentic-ai/shared_context/index.md
+      - Context Files (/etc/agents.d): agentic-ai/shared_context/context_files.md
+      - Harness Settings & Permissions: agentic-ai/shared_context/settings.md
   # - Tags: tags.md
   - Services:
     - services/index.md

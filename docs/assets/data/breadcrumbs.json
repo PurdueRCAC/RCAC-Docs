@@ -209,6 +209,11 @@
     "Gautschi User Guide",
     "Compiling Source Code"
   ],
+  "/userguides/gautschi/using_ai_agents/": [
+    "Home",
+    "Gautschi User Guide",
+    "Using AI Agents"
+  ],
   "/userguides/gautschi/faqs/": [
     "Home",
     "Gautschi User Guide",
@@ -258,9 +263,68 @@
     "Gilbreth User Guide",
     "Compiling Source Code"
   ],
+  "/userguides/gilbreth/using_ai_agents/": [
+    "Home",
+    "Gilbreth User Guide",
+    "Using AI Agents"
+  ],
   "/userguides/gilbreth/faqs/": [
     "Home",
     "Gilbreth User Guide",
+    "Frequently Asked Questions"
+  ],
+  "/userguides/negishi/": [
+    "Home",
+    "Negishi User Guide"
+  ],
+  "/userguides/negishi/overview/": [
+    "Home",
+    "Negishi User Guide",
+    "Negishi Overview"
+  ],
+  "/userguides/negishi/biography/": [
+    "Home",
+    "Negishi User Guide",
+    "Biography of Negishi"
+  ],
+  "/userguides/negishi/accounts/": [
+    "Home",
+    "Negishi User Guide",
+    "Accounts"
+  ],
+  "/userguides/negishi/software/": [
+    "Home",
+    "Negishi User Guide",
+    "Software"
+  ],
+  "/userguides/negishi/run_jobs/": [
+    "Home",
+    "Negishi User Guide",
+    "Running Jobs"
+  ],
+  "/userguides/negishi/storage/": [
+    "Home",
+    "Negishi User Guide",
+    "File Storage and Transfer"
+  ],
+  "/userguides/negishi/gateway/": [
+    "Home",
+    "Negishi User Guide",
+    "Gateway (Open OnDemand)"
+  ],
+  "/userguides/negishi/compile/": [
+    "Home",
+    "Negishi User Guide",
+    "Compiling Source Code"
+  ],
+  "/userguides/negishi/using_ai_agents/": [
+    "Home",
+    "Negishi User Guide",
+    "Using AI Agents"
+  ],
+  "/userguides/negishi/faqs/": [
+    "Home",
+    "Negishi User Guide",
     "Frequently Asked Questions"
   ],
   "/userguides/scholar/": [
@@ -286,6 +350,11 @@
     "Home",
     "Scholar User Guide",
     "Running Jobs"
+  ],
+  "/userguides/scholar/scholar-spark/": [
+    "Home",
+    "Scholar User Guide",
+    "Scholar Spark Nodes"
   ],
   "/userguides/scholar/storage/": [
     "Home",
@@ -379,13 +448,44 @@
     "Geddes User Guide",
     "Troubleshooting"
   ],
-  "/https://www.rcac.purdue.edu/knowledge/negishi": [
-    "Home",
-    "Negishi User Guide"
-  ],
-  "/https://www.rcac.purdue.edu/knowledge/hammer": [
+  "/userguides/hammer/": [
     "Home",
     "Hammer User Guide"
+  ],
+  "/userguides/hammer/overview/": [
+    "Home",
+    "Hammer User Guide",
+    "Hammer Overview"
+  ],
+  "/userguides/hammer/accounts/": [
+    "Home",
+    "Hammer User Guide",
+    "Accounts"
+  ],
+  "/userguides/hammer/storage/": [
+    "Home",
+    "Hammer User Guide",
+    "File Storage and Transfer"
+  ],
+  "/userguides/hammer/software/": [
+    "Home",
+    "Hammer User Guide",
+    "Software"
+  ],
+  "/userguides/hammer/compile/": [
+    "Home",
+    "Hammer User Guide",
+    "Compiling Source Code"
+  ],
+  "/userguides/hammer/run_jobs/": [
+    "Home",
+    "Hammer User Guide",
+    "Running Jobs"
+  ],
+  "/userguides/hammer/faqs/": [
+    "Home",
+    "Hammer User Guide",
+    "Frequently Asked Questions"
   ],
   "/https://www.rcac.purdue.edu/knowledge/rossmann": [
     "Home",
@@ -1097,6 +1197,59 @@
     "Home",
     "Life Sciences",
     "Juicer"
+  ],
+  "/agentic-ai/": [
+    "Home",
+    "Agentic AI"
+  ],
+  "/agentic-ai/acceptable_use/": [
+    "Home",
+    "Agentic AI",
+    "Acceptable Use & Etiquette"
+  ],
+  "/agentic-ai/best_practices/": [
+    "Home",
+    "Agentic AI",
+    "Best Practices & Limitations"
+  ],
+  "/agentic-ai/mcp_servers/": [
+    "Home",
+    "Agentic AI",
+    "MCP Servers"
+  ],
+  "/agentic-ai/running_agents/": [
+    "Home",
+    "Agentic AI",
+    "Running Agents"
+  ],
+  "/agentic-ai/running_agents/on_cluster/": [
+    "Home",
+    "Agentic AI",
+    "Running Agents",
+    "On the Cluster (Login Nodes)"
+  ],
+  "/agentic-ai/running_agents/local/": [
+    "Home",
+    "Agentic AI",
+    "Running Agents",
+    "Local (over SSH)"
+  ],
+  "/agentic-ai/shared_context/": [
+    "Home",
+    "Agentic AI",
+    "Shared Context & Settings"
+  ],
+  "/agentic-ai/shared_context/context_files/": [
+    "Home",
+    "Agentic AI",
+    "Shared Context & Settings",
+    "Context Files (/etc/agents.d)"
+  ],
+  "/agentic-ai/shared_context/settings/": [
+    "Home",
+    "Agentic AI",
+    "Shared Context & Settings",
+    "Harness Settings & Permissions"
   ],
   "/contact/": [
     "Home",

@@ -6,8 +6,8 @@
 In jobs, you can also request jobs that span over two or more nodes, these are called **multinode** jobs and have special things to consider when running them.
 
 You can request jobs that have different "shapes", such as the layout of the following command:
-```bash
-sbatch --nodes=2 --ntasks-per-node=2 --cpus-per-task=64...
+```bash linenums="0"
+sbatch --nodes=2 --ntasks-per-node=2 --cpus-per-task=64 ...
 ```
 Here, the job encompasses two nodes, with two tasks on each node, and 64 cores assigned to each task. The layout looks like this:
 
@@ -33,12 +33,12 @@ srun hostname
 Distributed workflows rely on application *instances* working together between nodes.
 
 Submit your job to the scheduler using the `sbatch` program:
-```bash
+```bash linenums="0"
 $ sbatch hostname.sh
 Submitted batch job 19804935
 ```
 You can check on the job status using the command `squeue --me`:
-```bash
+```bash linenums="0"
 $ squeue --me
 JOBID      USER         ACCOUNT     NAME          NODES   CPUS  TIME_LIMIT ST TIME
 19804935   username   lab_queue     hostname.sh       2    256    00:10:00 PD 00:00
@@ -46,7 +46,7 @@ JOBID      USER         ACCOUNT     NAME          NODES   CPUS  TIME_LIMIT ST TI
 If you don't see anything in the output of `squeue --me`, that's because your job already finished. If this happens, use the job ID that was put out by the `sbatch` command.
 
 Remember that the job ID will be used for the output filename (e.g. `slurm-19804935.out`). You can use the `cat` program to show the output stored in the file:
-```bash
+```bash linenums="0"
 $ cat slurm-19804935.out
 a200.negishi.rcac.purdue.edu
 a200.negishi.rcac.purdue.edu

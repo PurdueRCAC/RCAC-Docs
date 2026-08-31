@@ -23,7 +23,7 @@ comes with the `ssh` program already there as
 well. To use `ssh`, open a Terminal (in any system).
 And use the command:
 
-```sh
+```sh linenums="0"
 $ ssh USERNAME@CLUSTER.rcac.purdue.edu
 ```
 Where `USERNAME` is replaced with your Purdue username
@@ -32,7 +32,7 @@ trying to access.
 
 You should see something that looks like this:
 
-```
+``` linenums="0"
 ************************************************************
 
 ***** Use of Purdue BoilerKey or SSH keys is Required ******
@@ -54,7 +54,7 @@ to the cluster you are trying to get into).
 When you're logged in, you prompt should change to be of
 the form of:
 
-```
+``` linenums="0"
 USERNAME@loginXX.CLUSTER:[~] $
 ```
 

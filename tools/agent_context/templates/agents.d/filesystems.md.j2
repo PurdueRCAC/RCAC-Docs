@@ -1,0 +1,62 @@
+{% set longterm_label = "Data Depot and Fortress" if (filesystems.depot and filesystems.fortress) else ("Data Depot" if filesystems.depot else "Fortress") %}
+# Filesystems ({{ title }})
+
+{{ title }} mounts several filesystems, each with a different purpose, technology, and
+durability. Put data in the right place, and never assume a path is durable without
+checking.
+
+## Home — `/home/$USER` (`$HOME`)
+
+- **Technology:** {{ filesystems.home.tech }}, with {{ filesystems.home.snapshots }}.
+- **Use for:** source code, scripts, configuration, small files. It is
+  medium-performance and space-limited.
+- **Do NOT** stage large datasets or run heavy parallel job I/O here.
+
+## Scratch — `{{ scratch_path }}/$USER` (`$RCAC_SCRATCH`)
+
+- **Technology:** {% if filesystems.scratch.tech %}{{ filesystems.scratch.tech }}, a high-performance parallel filesystem{% else %}a high-performance, large-capacity parallel filesystem{% endif %}.
+- **Use for:** active job input/output and large working data. Point writable working
+  files here (`$RCAC_SCRATCH`), not at home. Find the path with `findscratch`.
+- **Not backed up, and purged after {{ filesystems.scratch.purge_days }} days of inactivity** (by last access and
+  content-modification time; touching metadata does not protect a file). Use
+  `purgelist` to see files scheduled for purge.
+{% if filesystems.depot or filesystems.fortress %}
+- **Do NOT** treat scratch as durable storage — move anything you want to keep to {% if filesystems.depot and filesystems.fortress %}Data
+  Depot or Fortress{% elif filesystems.depot %}Data Depot{% else %}Fortress{% endif %}.
+{% else %}
+- **Do NOT** treat scratch as durable storage — move anything you want to keep to
+  durable project or archive storage.
+{% endif %}
+
+## Node-local — `/tmp`
+
+- Ephemeral, per-node storage that exists only while your job runs on that node; not
+  backed up, not recoverable.
+{% if filesystems.depot or filesystems.fortress %}
+
+## Long-term — {{ longterm_label }}
+
+{% if filesystems.depot %}
+- **Data Depot** is group project space on **GPFS** (typically under `/depot`), for
+  active research data you need to keep.
+{% endif %}
+{% if filesystems.fortress %}
+- **Fortress** is the HPSS archive for long-term/cold storage; move data with `hsi`
+  and `htar`.
+{% endif %}
+{% endif %}
+
+## Check before you write
+
+- Run **`myquota`** to read home and scratch usage and limits before writing large
+  amounts of data. **Do NOT assume specific quota numbers** — they differ per user and
+  change over time; read them from `myquota`.
+- Reference paths with environment variables (`$HOME`, `$RCAC_SCRATCH`), not
+  hard-coded strings, since paths can change.
+
+## Prohibitions
+
+- **Do NOT** store secrets, credentials, or sensitive/regulated data in world-readable
+  paths.
+- **Do NOT** perform bulk or recursive deletes (`rm -rf`) without confirming with the
+  user first.

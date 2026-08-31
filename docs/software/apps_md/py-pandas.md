@@ -14,6 +14,7 @@ Pandas is a Python library for data manipulation, analysis, and table-like data 
 
 |Cluster|Versions|
 |---|---|
+**ANVIL**|2.2.2
 **GAUTSCHI**|2.2.2
 
 ## Module

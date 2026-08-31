@@ -13,7 +13,7 @@ To run programs in the background, add
 a single trailing ampersand (`&`) to the
 command.
 
-```bash
+```bash linenums="0"
 $ sleep 600 &
 [1] 1298141
 
@@ -28,23 +28,23 @@ are going.
 
 After the program is put in the
 background, the shell tells you
-two numbers. The first number is
-the relative job ID,
-relative to the number of child
-processes. The second number is
-the system process ID (PID).
+two numbers.
+
+* The relative job ID,(relative to the number of child processes) 
+
+* The system process ID (PID).
 
 You can check on your shell's
 child processes with the `jobs`
 program.
-```
+``` linenums="0"
 $ jobs
 [1]+  Running      sleep 600 &
 ```
 You can also check on ALL
 running processes with the `ps`
 command.
-```
+``` linenums="0"
 $ ps -u username
 PID     TTY     TIME   CMD
 221965 ?      00:00:00 systemd
@@ -54,23 +54,20 @@ PID     TTY     TIME   CMD
 222170 pts/10 00:00:00 sleep
 222182 pts/10 00:00:00 ps
 ```
-<!-- Quiz: What does the `-u` option
-do?
 
-.. admonition:: Answer
-   :collapsible: closed
 
-   It restricts the output to only
-   show jobs from that one user. -->
+## Waiting
 
-You can wait nicely for all jobs
-in the background to complete with
-the `wait` program. 
+If you want your shell (or script) to wait for all background processes to finish before continuing:
 
-```bash
+```bash linenums="0"
 $ wait
 ```
 
+After using the `wait` command, you'll notice that you no longer have control of your shell. That's because it's waiting for all backrounded processes to finish before completing.
+
+
+## Re-Attaching
 You can also
 re-attach to background processes
 with the `fg` program. This code will bring the `sleep 600`
@@ -79,7 +76,7 @@ will wait for it to finish before
 giving you back control of the
 command line.
 
-```bash
+```bash linenums="0"
 $ sleep 600 &
 [1] 1240872
 $ fg
@@ -88,7 +85,7 @@ sleep 600
 
 You can also use `ctrl+z` to pause a job actively running in the shell, and then `bg` to resume it in the background:
 
-```bash
+```bash linenums="0"
 $ sleep 600
 [ctrl+z]
 [1]+  Stopped                 sleep 600
@@ -97,6 +94,8 @@ $ bg
 $ jobs
 [1]+  Running                 sleep 600 &
 ```
+
+## Interrupting Processes
 
 Lastly, you
 can interrupt processes with the
@@ -113,14 +112,16 @@ $ kill -s int %1
 The `kill` program can technically
 send *any* signal to a program (despite
 its ominous name). In the example above,
-we have sent the `int` signal to the
+we have sent the interrupt (`int`) signal to the
 first child process. This interrupts
 the process and tries to stop it.
 
+<!-- 
 !!! tip "Signals"
     The UNIX *signal interrupt* mechanism is an important concept to understand in software programming. You should know about the **SIGINT**, **SIGTERM**, and **SIGKILL** signals, which are all interrupt signals with increasing amounts of force to the program.
 
-    Slurm understands signals and can send desired signals to your job script or steps at predefined times (e.g. 10 minutes before the walltime limit).
+    Slurm understands signals and can send desired signals to your job script or steps at predefined times (e.g. 10 minutes before the walltime limit). 
+-->
 
 ### Program reference
 

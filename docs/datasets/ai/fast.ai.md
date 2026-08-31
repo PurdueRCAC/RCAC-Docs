@@ -20,3 +20,15 @@
 | **Usage Policy** |  |
 | **Citation** | To cite fast.ai datasets, you should cite the original dataset creator (e.g., ImageNet, Oxford-IIIT) and acknowledge the fast.ai/AWS collection. https://docs.fast.ai/data.external.html |
 | **BibTeX** | <details><summary>📜 View BibTeX citation</summary><pre>@article{howard2020fastai,<br>  title={fastai: A Layered API for Deep Learning},<br>  author={Howard, Jeremy and Gugger, Sylvain},<br>  journal={Information},<br>  volume={11},<br>  number={2},<br>  pages={108},<br>  year={2020},<br>  publisher={MDPI},<br>  doi={10.3390/info11020108}<br>}</pre></details> |
+
+## Ceph access
+
+This dataset is also available in raw/extracted form on RCAC Ceph/S3-compatible object storage.
+
+| Parameter | Value |
+|-----------|-------|
+| **Endpoint** | `https://s3.anvil.rcac.purdue.edu` |
+| **Bucket** | `ai-datasets` |
+| **Access** | Public read-only |
+
+For detailed instructions, see the [AI datasets overview](../ai.md).

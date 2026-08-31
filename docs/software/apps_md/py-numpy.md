@@ -14,6 +14,7 @@ NumPy is a fundamental package for scientific computing with Python, providing a
 
 |Cluster|Versions|
 |---|---|
+**ANVIL**|1.26.4
 **GAUTSCHI**|1.26.4
 
 ## Module

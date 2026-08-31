@@ -21,7 +21,7 @@ every time. There are three parts to a command:
 3) The argument(s)
 
 Here is an example of a copy command
-```bash
+```bash linenums="0"
 $ cp --verbose -r example-data data.bak
 ```
 !!! note
@@ -40,14 +40,14 @@ As the last part of the command, we have the argument(s). These tell the program
      
      Some options are unsupported for different programs. Some programs will be helpful and tell you that the option is invalid. Others will silently fail and you will be left wondering why
 
-     ```bash
+     ```bash linenums="0"
      $ cp -z example-data data.bak
      cp: invalid option -- 'z'
      Try 'cp --help' for more information.
      ```
      Another problem you may run into is a `command not found` error. This happens when the computer doesn't know where to find the program you are trying to run:
 
-     ```bash
+     ```bash linenums="0"
      $ blah
      -bash: blah: command not found
      ```

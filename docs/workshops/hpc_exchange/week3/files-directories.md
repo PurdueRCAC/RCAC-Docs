@@ -40,7 +40,7 @@ big file instead of many, smaller files. We will learn more on how to archive da
 
 To package a directory into a single, compressed file, you would use the following command:
 
-```bash
+```bash linenums="0"
 $ tar -cvzf example-data.tar.gz example-data/
 ```
 In the example above, we supplied four options
@@ -58,7 +58,7 @@ To undo the archiving, simply swap the `c`
 option for the `x` option (which stands for
 extract):
 
-```bash
+```bash linenums="0"
 $ tar -xvzf example-data.tar.gz
 ```
 
@@ -67,7 +67,7 @@ $ tar -xvzf example-data.tar.gz
 The `zip` program is simpler to use, but
 often people prefer `tar` over `zip`.
 
-```bash
+```bash linenums="0"
 $ zip -r archive-name.zip example-data/
 $ unzip archive-name.zip
 ```
@@ -94,21 +94,21 @@ usage and behavior. The three are:
 
 #### `gzip` (`.gz`)
 
-```bash
+```bash linenums="0"
 $ gzip *.txt
 $ cat *.gz | gunzip
 ```
 
 #### `bzip2` (`.bz2`)
 
-```bash
+```bash linenums="0"
 bzip2 file.txt
 bunzip2 file.txt.bz2
 ```
 
 #### `xz` (`.xz`)
 
-```bash
+```bash linenums="0"
 xz file.txt
 unxz file.txt.xz
 ```
@@ -123,7 +123,7 @@ When you have a lot of files, it can be useful
 to have a program to find files that match a
 pattern. To do this, use the `find` program.
 
-```bash
+```bash linenums="0"
 $ find ~ -type f -name "*.txt" | grep "example-data"
 ~/example-data/paper.txt
 ```
@@ -136,7 +136,7 @@ what kind of listing the command will find.
 Putting `f` here narrows the search to just
 find regular files.
 
- The `-name` option filters the search to only list the files
+The `-name` option filters the search to only list the files
 and such that follow the pattern given, in
 this case, everything that ends in `.txt` (Remember that `*` is a wildcard that matches any number of any characters!).
 

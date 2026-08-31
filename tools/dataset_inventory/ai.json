@@ -21,7 +21,7 @@
       "public": true
     },
     "PhysicalAI-SmartSpaces": {
-      "folder": "huggingface/nvidia/PhysicalAI-SmartSpaces",
+      "folder": "PhysicalAI-SmartSpaces",
       "time_resolution": "",
       "spatial_resolution": "",
       "doi": "10.48550/arXiv.2412.00692",
@@ -41,7 +41,7 @@
       "usage_policy": ""
     },
     "PhysicalAI-Robotics-GR00T-X-Embodiment-Sim": {
-      "folder": "huggingface/nvidia/PhysicalAI-Robotics-GR00T-X-Embodiment-Sim",
+      "folder": "PhysicalAI-Robotics-GR00T-X-Embodiment-Sim",
       "time_resolution": "",
       "spatial_resolution": "",
       "doi": "10.48550/arXiv.2503.14734",
@@ -61,7 +61,7 @@
       "public": true
     },
     "PhysicalAI-Robotics-Manipulation-SingleArm": {
-      "folder": "huggingface/nvidia/PhysicalAI-Robotics-Manipulation-SingleArm",
+      "folder": "PhysicalAI-Robotics-Manipulation-SingleArm",
       "time_resolution": "",
       "spatial_resolution": "",
       "doi": "",
@@ -81,7 +81,7 @@
       "public": true
     },
     "PhysicalAI-Robotics-GR00T-Teleop-Sim": {
-      "folder": "huggingface/nvidia/PhysicalAI-Robotics-GR00T-Teleop-Sim",
+      "folder": "PhysicalAI-Robotics-GR00T-Teleop-Sim",
       "time_resolution": "",
       "spatial_resolution": "",
       "doi": "10.48550/arXiv.2503.14734",
@@ -171,6 +171,24 @@
       "file_number": " - caltech_101.tgz: 9248 <br>- cifar100.tgz: 60243 <br>- CUB_200_2011.tgz: 12005 <br>- food-101.tgz: 101121 <br>- mnist_png.tgz: 70023 <br>- oxford-102-flowers.tgz: 8194 <br>- oxford-iiit-pet.tgz: 25869 <br>- stanford-cars.tgz: 16189 <br>- bedroom.tgz: 307494 <br>- biwi_head_pose.tgz: 31455 <br>- camvid.tgz: 1408 <br>- camvid_tiny.tgz: 204 <br>- pascal_2007.tgz: 10398 <br>- pascal_2012.tgz: 25451 <br>- dogscats.tgz: 37541 <br>- adult_sample.tgz: 5 <br>- biwi_sample.tgz: 203 <br>- cifar10.tgz: 60024 <br>- coco_sample.tgz: 21841 <br>- coco_tiny.tgz: 203 <br>- human_numbers.tgz: 3 <br>- imagenette2-160.tgz: 13420 <br>- imagenette2-320.tgz: 13418 <br>- imagenette2.tgz: 13418 <br>- imagewang-160.tgz: 26382 <br>- imagewang-320.tgz: 26382 <br>- imagewang.tgz: 26382 <br>- imagewoof2-160.tgz: 12978 <br>- imagewoof2-320.tgz: 12978 <br>- imagewoof2.tgz: 12978 <br>- imdb_sample.tgz: 2 <br>- imdb.tgz: 100027 <br>- mnist_sample.tgz: 14442 <br>- mnist_tiny.tgz: 1439 <br>- mnist_var_size_tiny.tgz: 1440 <br>- movie_lens_sample.tgz: 2 <br>- planet_sample.tgz: 1003 <br>- planet_tiny.tgz: 203 <br>- ag_news_csv.tgz: 5 <br>- amazon_review_full_csv.tgz: 4 <br>- amazon_review_polarity_csv.tgz: 4 <br>- dbpedia_csv.tgz: 5 <br>- giga-fren.tgz: 3 <br>- sogou_news_csv.tgz: 5 <br>- wikitext-103.tgz: 3 <br>- wikitext-2.tgz: 3 <br>- yahoo_answers_csv.tgz: 5 <br>- yelp_review_full_csv.tgz: 4 <br>- yelp_review_polarity_csv.tgz: 4 <br>- transformer.tgz: 3 <br>- wt103-bwd.tgz: 3 <br>- wt103-fwd.tgz: 3 <br>- siim_small.tgz: 255 <br>- tcga_small.tgz: 120",
       "discipline": "AI / Machine Learning",
       "dataset_size": "71G (compressed)",
+      "public": true
+    },
+    "oxfordrobotcar": {
+      "folder": "oxfordrobotcar",
+      "doi": "10.1177/0278364916679498",
+      "link": "https://robotcar-dataset.robots.ox.ac.uk/",
+      "publication_date": "2016",
+      "title": "oxfordrobotcar",
+      "description": "The Oxford RobotCar Dataset is a large-scale autonomous driving dataset collected by the University of Oxford. It contains repeated traversals of a route through Oxford, providing data from cameras, LiDAR, GPS/INS, and other vehicle sensors.",
+      "data_type": "Extracted Images, LiDAR point clouds, GPS/INS measurements, sensor timestamps on Ceph",
+      "usage_policy": "This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License and is intended for research and academic use.",
+      "bibtex": "@article{maddern2017oxford,\n  author={Maddern, Will and Pascoe, Geoffrey and Linegar, Chris and Newman, Paul},\n  title={1 Year, 1000km: The Oxford RobotCar Dataset},\n  journal={The International Journal of Robotics Research},\n  volume={36},\n  number={1},\n  pages={3--15},\n  year={2017},\n  publisher={SAGE Publications},\n  doi={10.1177/0278364916679498}\n}\n\n@article{maddern2020real_time,\n  author={Maddern, Will and Pascoe, Geoffrey and Gadd, Matthew and Barnes, Dan and Yeomans, Ben and Newman, Paul},\n  title={Real-time Kinematic Ground Truth for the Oxford RobotCar Dataset},\n  journal={arXiv preprint arXiv:2002.10152},\n  year={2020},\n  url={https://arxiv.org/abs/2002.10152}\n}",
+      "cite": "Maddern, W., Pascoe, G., Linegar, C., Newman, P. (2017). 1 Year, 1000km: The Oxford RobotCar Dataset. The International Journal of Robotics Research.",
+      "downloaded": "2026-07-10",
+      "usage_policy_link": "https://robotcar-dataset.robots.ox.ac.uk/terms/",
+      "file_number": "34.332M (extracted)",
+      "discipline": "AI / Robotics / PhysicalAI",
+      "dataset_size": "Approx. 10TB",
       "public": true
     }
   }

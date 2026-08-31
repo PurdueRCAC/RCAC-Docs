@@ -3,6 +3,8 @@ title: VISPR visualization
 tags:
   - Life Sciences
   - Guides
+search:
+  boost: 1
 ---
 
 <div class="grid cards" markdown>
@@ -157,3 +159,5 @@ You should now see the **interactive VISPR dashboard** rendered locally!
 ![VISPR-interface](../../assets/images/lifesciences/vispr_vispr-interface.png)
 
 Figure 2: VISPR interface loaded in a web browser
+
+[Back to Life Sciences](../index.md){ .md-button }

@@ -4,6 +4,8 @@ tags:
   - Life Sciences
   - HPC
   - Guides
+search:
+  boost: 1
 ---
 
 # Using VS Code on RCAC Community Clusters
@@ -438,3 +440,5 @@ Host *
     ServerAliveInterval 300
     ServerAliveCountMax 2
 ```
+
+[Back to Life Sciences](../index.md){ .md-button }

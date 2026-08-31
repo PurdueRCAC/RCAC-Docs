@@ -72,37 +72,38 @@ the clusters:
     `scp` stands for `secure copy protocol` and is the server version of the `cp` we saw last week. It needs a source and a destination, but one of them may be a server.
 
     Copying to a cluster:
-    ```bash
+    ```bash linenums="0"
     $ scp ./source_file USERNAME@CLUSTER.rcac.purdue.edu:~/some_dir/cluster_file_name
     ```
     Copying from a cluster:
-    ```bash 
+    ```bash  linenums="0"
     $ scp USERNAME@CLUSTER.rcac.purdue.edu:~/some_dir/cluster_file_name ./destination_file
     ```
-    When copying from a cluster, the destination file will go into the directory you are currently in. You can also specify a path you want the destination file to go to. This path can be either relative, or absolute.
+    
+    Notice that in either the source or the destination, you can specify the server you plan on copying to/from. For example `USERNAME@negishi.rcac.purdue.edu:~/` is referring to your home directory on Negishi, which you can copy to or from.
 
 === "rsync"
 
     `rsync` is similar to `scp`, but much more fully-featured. It is especially useful for transferring directories, syncing changed files, and resuming interrupted transfers.
 
     Copying a file to a cluster:
-    ```bash
+    ```bash linenums="0"
     $ rsync ./source_file USERNAME@CLUSTER.rcac.purdue.edu:~/some_dir/cluster_file_name
     ```
 
     Copying a file from a cluster:
-    ```bash
+    ```bash linenums="0"
     $ rsync USERNAME@CLUSTER.rcac.purdue.edu:~/some_dir/cluster_file_name ./destination_file
     ```
 
     Copying a directory to a cluster:
-    ```bash
-    $ rsync -av ./my_directory/ USERNAME@CLUSTER.rcac.purdue.edu:~/some_dir/
+    ```bash linenums="0"
+    $ rsync -a ./my_directory/ USERNAME@CLUSTER.rcac.purdue.edu:~/some_dir/
     ```
 
     Copying a directory from a cluster:
-    ```bash
-    $ rsync -av USERNAME@CLUSTER.rcac.purdue.edu:~/some_dir/my_directory/ ./my_directory/
+    ```bash linenums="0"
+    $ rsync -a USERNAME@CLUSTER.rcac.purdue.edu:~/some_dir/my_directory/ ./my_directory/
     ```
 
     A few common options are:
@@ -125,7 +126,7 @@ the clusters:
     use the `get` and `put` programs to transfer to and from
     the cluster you are connected to:
 
-    ```bash
+    ```bash linenums="0"
     $ sftp USERNAME@CLUSTER.rcac.purdue.edu
 
         (transfer TO CLUSTER)
@@ -142,15 +143,6 @@ the clusters:
 
 ---
 
-<!-- ### SMB
-
-`SMB`, also known as `Samba` is a way to connect a
-remote drive to your computer to transfer files
-back and forth to the clusters in a graphical way.
-
-To learn more about this option, please visit this
-site: [SMB drives](https://www.rcac.purdue.edu/knowledge/negishi/storage/transfer/cifs) -->
-
 
 ## Helpful RCAC programs for file management 
 
@@ -166,7 +158,7 @@ where you have access to read and write files. It also
 tells you what the space quotas are for each of those
 spaces and how much you have used already. We'll talk more about filesystems in [Week 4](../week4/storage-transfer.md#file-storage-and-transfers)
 
-```bash
+```bash linenums="0"
 $ myquota
 Type     Location   Size    Limit    Use   Files   Limit    Use
 ===============================================================
@@ -179,7 +171,7 @@ depot    group    92.0MB    1.0TB     1%       -       -      -
 
 RCAC regularly backs up data in home and depot spaces, so that if something is accidentally deleted or overwritten, it can be recovered (if it's been there sufficiently long). We have daily, weekly, and monthly snapshots for varying amounts of time. If you lost something in your scratch space, we don't have backups of those, so you're out of luck.
 
-```
+``` linenums="0"
 $ flost
 This script will help you try to recover lost home or group directory contents.
 NB: Scratch directories are not backed up and cannot be recovered.
