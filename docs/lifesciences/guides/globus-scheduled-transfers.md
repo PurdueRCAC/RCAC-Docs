@@ -101,16 +101,7 @@ The timer is **one-way: scratch → Depot.** It is a backup, not a two-way sync.
 Pick a start time when the cluster is quiet and you are not mid-job. A weekend night is a
 reasonable default for a weekly backup.
 
-[NEEDS CLARIFICATION: exact Purdue collection names. `docs/snippets/globus.md` gives *"{Cluster}
-Cluster Collection"* for a cluster's home and scratch, and *"Purdue Research Computing - Data
-Depot"* for Depot. But `docs/userguides/depot/storage/transfer.md` lists
-*"Purdue Research Computing - Home Directories"* for home, and names no scratch collection.
-Rose, what is the correct scratch collection name per cluster (Negishi, Gautschi, Bell, Anvil,
-Scholar), and is the Depot name above current?]
-
-[NEEDS CLARIFICATION: does anything in the Purdue web-app flow differ from generic Globus
-documentation: different label wording, the timer options in a different place, or an RCAC-specific
-step between selecting collections and starting the timer?]
+![Example timer options for a Globus transfer](../../assets/images/lifesciences/timer_options_globus.png)
 
 ### The CLI equivalent
 
@@ -187,6 +178,9 @@ the individual task the timer created, and specifically:
 Check this after the first run, and again after the second. Then check occasionally (monthly is
 reasonable) for as long as the project lasts.
 
+![Example of an established Globus Timer](../../assets/images/lifesciences/established_timer.png)
+Above is an example of an established Globus timer. You can check the overview of the timer in the "Overview" tab and check the timer runs, state, and logs using the "Timer Runs" tab.
+
 !!! tip
 
     Globus emails you on task failure. Make sure the address on your Globus account is one you
@@ -210,10 +204,22 @@ for how to purchase additional capacity or request a trial space.
 
 Usually the credential or consent that authorises unattended access has expired. Globus timers run
 as you, using a stored consent; when that lapses the timer keeps its schedule but its runs fail
-authentication.
+authentication. 
 
 Open the timer in the web app and look for a prompt to re-authenticate or re-grant consent. On the
-CLI, `globus session show` and `globus login` will re-establish credentials.
+CLI, `globus session show` and `globus login` will re-establish credentials. 
+
+You can set up proper email notifications in the case of a failed transfer or inactive transfer. Receiving emails for every state (active, inactive, failure) is the default when creating the timer through the webpage. Via the CLI, it looks like this:
+
+```
+globus timer create transfer \
+  <source-endpoint-id>:<source-path> \
+  <dest-endpoint-id>:<dest-path> \
+  --interval <interval-time> \
+  --notify failed,inactive
+```
+
+Globus will email the person who has created the timer.
 
 [NEEDS CLARIFICATION: this is the section that most needs Rose's input. Are the Purdue scratch and
 Depot collections GCSv5 with persistent consent? That determines whether a timer survives an
