@@ -1251,6 +1251,57 @@
     "Shared Context & Settings",
     "Harness Settings & Permissions"
   ],
+  "/services/": [
+    "Home",
+    "Services"
+  ],
+  "/services/genai/": [
+    "Home",
+    "Services",
+    "Purdue GenAI Studio"
+  ],
+  "/services/genai/chat-interface/": [
+    "Home",
+    "Services",
+    "Purdue GenAI Studio",
+    "Chat Interface"
+  ],
+  "/services/genai/workspace/": [
+    "Home",
+    "Services",
+    "Purdue GenAI Studio",
+    "Workspace"
+  ],
+  "/services/genai/api/": [
+    "Home",
+    "Services",
+    "Purdue GenAI Studio",
+    "API"
+  ],
+  "/services/genai/groups/": [
+    "Home",
+    "Services",
+    "Purdue GenAI Studio",
+    "Groups and Sharing"
+  ],
+  "/services/genai/tool-calling/": [
+    "Home",
+    "Services",
+    "Purdue GenAI Studio",
+    "Tool Calling"
+  ],
+  "/services/genai/mcp-integration/": [
+    "Home",
+    "Services",
+    "Purdue GenAI Studio",
+    "MCP Integration"
+  ],
+  "/services/genai/models/": [
+    "Home",
+    "Services",
+    "Purdue GenAI Studio",
+    "Hosted Models"
+  ],
   "/contact/": [
     "Home",
     "Contact us"

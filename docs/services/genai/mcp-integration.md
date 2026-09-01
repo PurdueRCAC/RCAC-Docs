@@ -117,4 +117,5 @@ For an OAuth server, the API-key owner must authorize the connection once in the
 If you send an OpenAI-style `tools` array instead of `tool_ids`, GenAI Studio treats those as client-provided function definitions. Your application must execute the returned calls as described in [Tool Calling Through the API](tool-calling.md#tool-calling-through-the-api).
 
 MCP is an evolving standard, and server capabilities differ.
+
 [Back to Purdue GenAI Studio](index.md)

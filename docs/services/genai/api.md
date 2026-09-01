@@ -206,7 +206,7 @@ For workloads that require parallel requests, up to approximately 10 concurrent 
 
 ## Structured Output
 
-GenAI Studio hosts models on two different serving backends: vLLM and Ollama. The format used to request structured output differs depending on which backend serves the model you are using. As of this writing, `gpt-oss:120b` and `llama4` run on vLLM, while the remaining models run on Ollama.
+GenAI Studio hosts models on two different serving backends: vLLM and Ollama. The format used to request structured output differs depending on which backend serves the model you are using. See the [Hosted Models](models.md) for the current backend used by each model.
 
 **For vLLM-backed models**, use the `response_format` key:
 

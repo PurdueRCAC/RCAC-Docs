@@ -386,6 +386,7 @@ nav:
       - Groups and Sharing: services/genai/groups.md
       - Tool Calling: services/genai/tool-calling.md
       - MCP Integration: services/genai/mcp-integration.md
+      - Hosted Models: services/genai/models.md
   - Contact us: contact.md
   - FAQs: faqs.md
 

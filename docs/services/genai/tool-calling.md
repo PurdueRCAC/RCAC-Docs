@@ -101,12 +101,23 @@ You can enable a tool temporarily in a chat or make it part of a reusable custom
 
 ### Attach a Tool to a Custom Model
 
+The function-calling mode must match the base model's serving backend:
+
+| Base model | Function-calling mode | Guidance |
+|---|---|---|
+| vLLM-backed model | **Native** | Recommended for the most reliable tool selection and argument generation. |
+| Ollama-backed model | **Default** | Leave this setting at **Default**. Native mode may not work reliably with the current Ollama deployments. |
+
+See the [Hosted Models](models.md) to identify which backend serves a model.
+
 1. Open **Workspace > Models**.
 2. Create a model or edit one you own.
-3. Select a base model with native tool-calling support.
-4. In the model's **Tools** section, select the tools that should be available by default.
-5. Under **Advanced Parameters**, set function calling to **Native** when that option is available.
-6. Save the model and select it in a new chat.
+3. Select the base model.
+4. Under **Advanced Parameters**, set function calling to **Native** for a vLLM-backed model or
+   leave it at **Default** for an Ollama-backed model.
+5. In the model's **Tools** section, select the tools that should be available by default.
+6. Review **Capabilities** and disable any built-in tools that the model does not need.
+7. Save the model and select it in a new chat.
 
 <p style="text-align: center;">
   <img src="/assets/images/services/genai/model-attach-tool.png" alt="GenAI Studio custom model Tools selector with Calculator selected" width="60%">
@@ -116,6 +127,28 @@ Attaching a tool does not override its access controls. If you share a custom mo
 
 !!! tip "Give the model a clear policy"
     Use the custom model's system prompt to explain when a tool should be used and any required confirmation. For a tool that changes data, instruct the model to summarize the proposed action and ask the user to confirm before making the call.
+
+### Reduce Tool-Definition Token Use
+
+Native function calling can make several GenAI Studio built-in tools available to the model.
+The definition of every available tool is included in the model's context, even when the model
+does not call that tool. A large tool list therefore increases input-token usage, leaves less
+context for your conversation and documents, and may increase response time.
+
+The hosted base models use their centrally managed capability settings. To remove built-in tools,
+create a custom model from the desired base model and clear each unneeded option under
+**Capabilities**. Keep only the capabilities and attached Workspace or MCP tools required for the
+model's purpose.
+
+This is especially useful when:
+
+* You want to preserve more of the context window for prompts, documents, or responses.
+* The model selects a built-in tool instead of your custom tool.
+* Several tools have overlapping names or descriptions and the model chooses inconsistently.
+
+After reducing the tool list, test prompts that should call each remaining tool and prompts that
+should not call a tool. Use distinct tool names and descriptions, and state the selection policy
+in the custom model's system prompt.
 
 ## Tool Calling Through the API
 
