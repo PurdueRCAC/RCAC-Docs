@@ -129,4 +129,4 @@ account can use the server in a new web chat. Then submit an
 [ACCESS Help Desk ticket](https://support.access-ci.org/help-ticket) with the server name and error
 message. Do not include tokens or other credentials.
 
-[Back to AnvilGPT on Anvil](../anvilgpt.md)
+[Back to AnvilGPT on Anvil](index.md)

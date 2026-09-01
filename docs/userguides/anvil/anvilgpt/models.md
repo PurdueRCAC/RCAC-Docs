@@ -108,4 +108,4 @@ and current demand. A larger model is not always better for a particular task. E
 with representative prompts before selecting one for a research or production workflow, and see
 [API Rate Limits](api.md#rate-limits) before running concurrent workloads.
 
-[Back to AnvilGPT on Anvil](../anvilgpt.md)
+[Back to AnvilGPT on Anvil](index.md)

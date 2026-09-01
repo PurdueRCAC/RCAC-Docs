@@ -119,7 +119,7 @@ nav:
         - User Tools: userguides/anvil/objectstorage/usertools.md
         - Security and Access Control: userguides/anvil/objectstorage/acl.md
       - AnvilGPT (LLM):
-        - userguides/anvil/anvilgpt.md
+        - userguides/anvil/anvilgpt/index.md
         - Chat Interface: userguides/anvil/anvilgpt/chat-interface.md
         - Workspace: userguides/anvil/anvilgpt/workspace.md
         - Hosted Models: userguides/anvil/anvilgpt/models.md

@@ -41,4 +41,4 @@ To add or remove members later, submit an
 a resource, reopen the resource's access controls, remove the group, and save. Review group
 membership and resource access before using shared materials in a new project.
 
-[Back to AnvilGPT on Anvil](../anvilgpt.md)
+[Back to AnvilGPT on Anvil](index.md)

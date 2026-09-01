@@ -344,4 +344,4 @@ body = {
 | Request times out | Shorten the prompt or requested output, try a smaller model, and allow a longer client timeout. Shared-service demand can affect response time. |
 | Structured output is ignored | Confirm the model's serving backend on [Hosted Models](models.md) and use `response_format` for vLLM or `format` for Ollama. |
 
-[Back to AnvilGPT on Anvil](../anvilgpt.md)
+[Back to AnvilGPT on Anvil](index.md)

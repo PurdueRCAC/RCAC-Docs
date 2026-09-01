@@ -84,4 +84,4 @@ Note that the default link shown in your browser address bar is not shareable. Y
 To revoke access, reopen the chat's share dialog and remove the grant or return the link to
 **Private**.
 
-[Back to AnvilGPT on Anvil](../anvilgpt.md)
+[Back to AnvilGPT on Anvil](index.md)

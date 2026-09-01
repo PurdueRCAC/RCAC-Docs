@@ -72,7 +72,7 @@ attempt and the error message, but do not include passwords or API keys.
 
     Select and compare models, attach a document, use voice features, and manage chat history.
 
-    [:octicons-arrow-right-24: Use the chat interface](anvilgpt/chat-interface.md)
+    [:octicons-arrow-right-24: Use the chat interface](chat-interface.md)
 
 -   :material-bookshelf:{ .lg .middle } __Work with Documents__
 
@@ -80,7 +80,7 @@ attempt and the error message, but do not include passwords or API keys.
 
     Create a reusable Knowledge Base or a custom model with persistent instructions.
 
-    [:octicons-arrow-right-24: Use the Workspace](anvilgpt/workspace.md)
+    [:octicons-arrow-right-24: Use the Workspace](workspace.md)
 
 -   :material-tune-variant:{ .lg .middle } __Choose a Model__
 
@@ -88,7 +88,7 @@ attempt and the error message, but do not include passwords or API keys.
 
     Compare model inputs, strengths, context limits, and tool-calling support.
 
-    [:octicons-arrow-right-24: View hosted models](anvilgpt/models.md)
+    [:octicons-arrow-right-24: View hosted models](models.md)
 
 -   :material-api:{ .lg .middle } __Build with the API__
 
@@ -96,7 +96,7 @@ attempt and the error message, but do not include passwords or API keys.
 
     Create an API key and send chat, image, audio, or structured-output requests.
 
-    [:octicons-arrow-right-24: Use the API](anvilgpt/api.md)
+    [:octicons-arrow-right-24: Use the API](api.md)
 
 -   :material-account-group-outline:{ .lg .middle } __Share Resources__
 
@@ -104,7 +104,7 @@ attempt and the error message, but do not include passwords or API keys.
 
     Request a group and share Knowledge Bases, custom models, or tools with collaborators.
 
-    [:octicons-arrow-right-24: Manage groups and sharing](anvilgpt/groups.md)
+    [:octicons-arrow-right-24: Manage groups and sharing](groups.md)
 
 -   :material-tools:{ .lg .middle } __Extend a Model__
 
@@ -112,7 +112,7 @@ attempt and the error message, but do not include passwords or API keys.
 
     Let a model call a Workspace Tool or an RCAC-approved MCP server.
 
-    [:octicons-arrow-right-24: Use tools](anvilgpt/tool-calling.md)
-    [:octicons-arrow-right-24: Use MCP integrations](anvilgpt/mcp-integration.md)
+    [:octicons-arrow-right-24: Use tools](tool-calling.md)
+    [:octicons-arrow-right-24: Use MCP integrations](mcp-integration.md)
 
 </div>

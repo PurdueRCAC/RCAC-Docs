@@ -63,4 +63,4 @@ knowledge are applied automatically in both the UI and the API. If you share the
 the intended group access to every attached Knowledge Base and tool; sharing the model does not
 automatically share those dependencies.
 
-[Back to AnvilGPT on Anvil](../anvilgpt.md)
+[Back to AnvilGPT on Anvil](index.md)

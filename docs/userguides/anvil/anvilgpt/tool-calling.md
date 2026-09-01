@@ -271,4 +271,4 @@ When executing calls in your own application:
 
 For tools hosted by an MCP server, see [MCP Integration](mcp-integration.md#use-mcp-tools-through-the-api).
 
-[Back to AnvilGPT on Anvil](../anvilgpt.md)
+[Back to AnvilGPT on Anvil](index.md)
