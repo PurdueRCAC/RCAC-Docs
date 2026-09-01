@@ -6,7 +6,7 @@ August 31, 2026. Model availability may change as deployments are added, upgrade
 
 Use the model ID exactly as shown when sending an [API request](api.md). To retrieve the models
 available to your account at any time, query the authenticated
-`https://genai.rcac.purdue.edu/api/v1/models` endpoint or open the **All** section of the model
+`https://genai.rcac.purdue.edu/api/models` endpoint or open the **All** section of the model
 selector in the web interface.
 
 This page lists the base models hosted by RCAC. Custom models that you create or that another
@@ -23,12 +23,12 @@ behavior depend on their Workspace configuration.
 These models run on vLLM with automatic tool selection enabled. The context limit is the
 deployed limit, not the larger native limit that some upstream model cards advertise.
 
-| Model ID | Inputs | Good for | Deployed context | Deployment |
-|---|---|---|---:|---|
-| `gpt-oss:120b` | Text | General-purpose and high-effort reasoning, coding, and agentic tasks | 65,536 tokens | [GPT-OSS 120B](https://huggingface.co/openai/gpt-oss-120b), MXFP4 |
-| `llama4:latest` | Text, image | Multimodal reasoning, image understanding, coding, and general chat | 16,384 tokens | [Llama 4 Scout](https://huggingface.co/RedHatAI/Llama-4-Scout-17B-16E-Instruct-quantized.w4a16), W4A16 INT4 |
-| `gemma4:26b-a4b` | Text, image | Multimodal reasoning, coding, structured output, and tool-based workflows | 65,536 tokens | [Gemma 4 26B-A4B](https://huggingface.co/RedHatAI/gemma-4-26B-A4B-it-FP8-dynamic), FP8 |
-| `qwen3.6:27b` | Text, image | Reasoning, software development, tool use, and agentic workflows | 65,536 tokens | [Qwen 3.6 27B](https://huggingface.co/Qwen/Qwen3.6-27B-FP8), FP8 |
+| Model ID | Inputs | Good for | Deployed context |
+|---|---|---|---:|
+| [`gpt-oss:120b`](https://huggingface.co/openai/gpt-oss-120b) | Text | General-purpose and high-effort reasoning, coding, and agentic tasks | 65,536 tokens |
+| [`llama4:latest`](https://huggingface.co/RedHatAI/Llama-4-Scout-17B-16E-Instruct-quantized.w4a16) | Text, image | Multimodal reasoning, image understanding, coding, and general chat | 16,384 tokens |
+| [`gemma4:26b-a4b`](https://huggingface.co/RedHatAI/gemma-4-26B-A4B-it-FP8-dynamic) | Text, image | Multimodal reasoning, coding, structured output, and tool-based workflows | 65,536 tokens |
+| [`qwen3.6:27b`](https://huggingface.co/Qwen/Qwen3.6-27B-FP8) | Text, image | Reasoning, software development, tool use, and agentic workflows | 65,536 tokens |
 
 All four vLLM deployments support automatic tool calling and model-specific reasoning output.
 For structured output through the API, vLLM models use `response_format`; Ollama models use
@@ -40,10 +40,9 @@ The following models run on Ollama with a maximum configured context length of 6
 A model with a smaller native context window may have a lower effective limit; setting a larger
 server limit does not extend what the model was trained to use reliably.
 
-The deployments use the standard tags and quantizations published in the
-[Ollama model library](https://ollama.com/library). Most default tags use Q4 quantization. Two
-IDs make their quantization explicit: `llama3.1:70b-instruct-q4_K_M` uses Q4_K_M and
-`qwq:32b-fp16` uses FP16.
+The model IDs follow the tags published in the [Ollama model library](https://ollama.com/library).
+Use the complete ID shown below; IDs that include a quantization suffix select that specific
+variant.
 
 | Model family | Available model IDs | Inputs | Good for |
 |---|---|---|---|
@@ -93,9 +92,6 @@ interface.
 The context window includes the system prompt, conversation history, uploaded or retrieved
 document excerpts, tool definitions and results, image tokens, and the model's response. Leave
 room for the response instead of filling the entire deployed limit with input.
-
-Quantization reduces GPU memory use and generally improves serving capacity, but it can cause a
-small quality difference from the full-precision upstream model.
 
 Model IDs ending in `:latest` are aliases rather than fixed versions. RCAC may update the model
 behind an alias without changing its ID. For reproducible work, record the model ID, request

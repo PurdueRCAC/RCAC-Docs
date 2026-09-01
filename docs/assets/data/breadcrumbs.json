@@ -1272,17 +1272,23 @@
     "Purdue GenAI Studio",
     "Workspace"
   ],
-  "/services/genai/api/": [
+  "/services/genai/models/": [
     "Home",
     "Services",
     "Purdue GenAI Studio",
-    "API"
+    "Hosted Models"
   ],
   "/services/genai/groups/": [
     "Home",
     "Services",
     "Purdue GenAI Studio",
     "Groups and Sharing"
+  ],
+  "/services/genai/api/": [
+    "Home",
+    "Services",
+    "Purdue GenAI Studio",
+    "API"
   ],
   "/services/genai/tool-calling/": [
     "Home",
@@ -1295,12 +1301,6 @@
     "Services",
     "Purdue GenAI Studio",
     "MCP Integration"
-  ],
-  "/services/genai/models/": [
-    "Home",
-    "Services",
-    "Purdue GenAI Studio",
-    "Hosted Models"
   ],
   "/contact/": [
     "Home",

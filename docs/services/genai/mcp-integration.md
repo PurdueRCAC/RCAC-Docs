@@ -5,16 +5,18 @@ The [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) is a standa
 Examples include tools that search a curated database, interact with a laboratory service, retrieve project metadata, or perform an operation in another application.
 
 !!! important "Who can add an MCP endpoint?"
-    Native MCP server registration in the version of OpenWebUI used by GenAI Studio is restricted to administrators. Users can enable MCP servers that RCAC has registered and shared with them, but cannot register a personal MCP endpoint. This is expected even if your account can add an OpenAPI tool server under personal settings.
+    Only RCAC administrators can register an MCP endpoint. You can enable servers that RCAC has
+    registered and shared with you, but you cannot add a personal MCP endpoint directly.
 
     To request an integration, send the server details described below to [RCAC support](../../contact.md). Do not send credentials by email.
 
 !!! warning "Only connect trusted servers"
     An MCP server receives tool arguments generated from your conversation and may return untrusted content or perform external actions. Use only servers maintained by an organization you trust. Do not send regulated, sensitive, or proprietary data through an MCP tool.
 
-## MCP Server Requirements
+## Request an MCP Integration
 
-GenAI Studio connects to remote MCP servers using the **Streamable HTTP** transport. The server must:
+If you own or use an MCP server that should be available in GenAI Studio, contact RCAC support.
+GenAI Studio can connect to remote MCP servers that meet these requirements:
 
 * Provide a complete, remotely reachable `https://` endpoint, commonly ending in `/mcp`.
 * Support MCP over Streamable HTTP. A local `stdio` command or desktop `mcpServers` JSON configuration cannot be entered directly.
@@ -24,7 +26,7 @@ GenAI Studio connects to remote MCP servers using the **Streamable HTTP** transp
 
 `localhost` and private addresses on your computer are not reachable from the hosted GenAI Studio application. For a `stdio`-only or legacy SSE server, contact RCAC to discuss hosting or an approved MCP-to-OpenAPI proxy.
 
-When requesting an MCP integration, provide:
+In the request, provide:
 
 * A short server name and description.
 * The full Streamable HTTP endpoint URL.
@@ -66,7 +68,8 @@ Being explicit about the server, desired operation, and limits helps the model s
 
 A model owner may attach an accessible MCP tool under **Workspace > Models > Tools**, using the same process as a [Workspace Tool](tool-calling.md#attach-a-tool-to-a-custom-model). The custom model and MCP connection must both be shared with the intended users.
 
-Do not make an OAuth-protected MCP server a default tool. Users should enable it from the chat Integrations menu so OpenWebUI can start the interactive authorization flow before the first tool call.
+Do not make an OAuth-protected MCP server a default tool. Users should enable it from the chat
+**Integrations** menu so the interactive authorization flow can begin before the first tool call.
 
 ## Use MCP Tools Through the API
 
@@ -110,12 +113,15 @@ response.raise_for_status()
 print(response.json()["choices"][0]["message"]["content"])
 ```
 
-This request uses OpenWebUI's single-request tool handler: it selects and runs tools once before producing the answer. Workflows in which the model must call several tools sequentially require the chat-managed, streaming API flow used by the web interface.
+This non-streaming request supports one round of tool selection and execution before the model
+produces its answer. Use the web chat for workflows that require several sequential tool calls.
 
 For an OAuth server, the API-key owner must authorize the connection once in the GenAI Studio web interface before calling it through the API. API requests cannot open an interactive OAuth page. See [API Authentication](api.md#authentication) for API-key setup.
 
 If you send an OpenAI-style `tools` array instead of `tool_ids`, GenAI Studio treats those as client-provided function definitions. Your application must execute the returned calls as described in [Tool Calling Through the API](tool-calling.md#tool-calling-through-the-api).
 
-MCP is an evolving standard, and server capabilities differ.
+If an enabled server does not appear or an OAuth connection fails, first confirm that the same
+account can use the server in a new web chat. Then contact [RCAC support](../../contact.md) with the
+server name and error message. Do not include tokens or other credentials.
 
 [Back to Purdue GenAI Studio](index.md)

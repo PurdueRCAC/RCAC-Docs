@@ -7,6 +7,10 @@ GenAI Studio supports two common tool-calling workflows:
 * **Workspace Tools** are Python toolkits stored and run by GenAI Studio. They can be enabled for one chat or attached to a custom model.
 * **API-defined tools** are OpenAI-compatible function definitions sent with an API request. Your application is responsible for executing the requested function and returning its result to the model.
 
+Use a Workspace Tool when GenAI Studio should host and execute a reusable Python function. Use an
+API-defined tool when your own application should control execution, authorization, and error
+handling. To use a remote tool server registered by RCAC, see [MCP Integration](mcp-integration.md).
+
 !!! warning "Tools can perform actions"
     Only use tools whose code and behavior you trust. A tool may call external services, change data, or expose information included in a conversation. Do not place passwords, API keys, regulated data, or other sensitive information in tool code, prompts, or arguments.
 
@@ -21,7 +25,9 @@ If the Tools tab or create button is not visible, your account has not been gran
 </p>
 
 !!! danger "Python tools run on the Studio server"
-    Workspace Tools are not sandboxed. Their Python code runs inside the GenAI Studio application and can access server resources available to that process. Never import unreviewed code. Tool creation may be limited to trusted users for this reason.
+    Workspace Tools run on shared GenAI Studio infrastructure and are not isolated in a sandbox.
+    Never import unreviewed code or write a tool that inspects the host, local files, environment
+    variables, or network services. Tool creation is limited to approved users for this reason.
 
 A toolkit is a Python file containing a class named `Tools`. Each public method in that class becomes a function the model can call. Type hints define the function's input schema, and the method docstring tells the model when and how to use it.
 
@@ -135,10 +141,9 @@ The definition of every available tool is included in the model's context, even 
 does not call that tool. A large tool list therefore increases input-token usage, leaves less
 context for your conversation and documents, and may increase response time.
 
-The hosted base models use their centrally managed capability settings. To remove built-in tools,
-create a custom model from the desired base model and clear each unneeded option under
-**Capabilities**. Keep only the capabilities and attached Workspace or MCP tools required for the
-model's purpose.
+You cannot change the built-in tool set on a hosted base model. To use a smaller tool set, create a
+custom model from the desired base model and clear each unneeded option under **Capabilities**.
+Keep only the capabilities and attached Workspace or MCP tools required for the model's purpose.
 
 This is especially useful when:
 
