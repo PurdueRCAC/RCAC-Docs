@@ -14,6 +14,8 @@ The Workspace is accessible from the left sidebar and includes several sections,
 
 Navigate to the Knowledge tab in the Workspace and click the `+` button to create a new Knowledge Base. Once it is created, use the upload functionality to add documents to it. Different Knowledge Bases can serve different purposes, such as maintaining separate collections for different research topics or courses.
 
+When you upload a document, GenAI Studio automatically uses [EmbeddingGemma 300M](models.md#document-embedding-model) to prepare it for semantic search and retrieval. You do not need to select or configure the embedding model, and it is not exposed as a callable API model.
+
 Set the visibility to private if you do not want other GenAI Studio users to see your documents. Do not upload documents that contain sensitive information or are subject to regulatory restrictions.
 
 <p style="text-align: center;">

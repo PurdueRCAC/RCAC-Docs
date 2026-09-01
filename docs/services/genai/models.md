@@ -76,6 +76,18 @@ configured tool parser. See [Tool Calling](tool-calling.md) for the supported UI
     advice and must not be used as a substitute for review by a qualified professional. Do not
     submit protected health information or other regulated data to GenAI Studio.
 
+## Document Embedding Model
+
+GenAI Studio uses [EmbeddingGemma 300M](https://huggingface.co/google/embeddinggemma-300m)
+internally to create text embeddings for Knowledge Base search and retrieval. Embeddings allow
+the service to find document passages that are semantically related to a prompt before sending
+the relevant passages to the selected chat model.
+
+EmbeddingGemma is not a generative chat model and does not appear in the model selector. RCAC
+does not expose it as a callable model or through a standalone embeddings API. GenAI Studio
+applies it automatically when processing documents uploaded through the Knowledge Base
+interface.
+
 ## Practical Limitations
 
 The context window includes the system prompt, conversation history, uploaded or retrieved
