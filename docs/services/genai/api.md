@@ -20,7 +20,7 @@ Select your user avatar in the top-right corner, open **Settings > Account**, an
 Keys** to create and copy a key.
 
 <p style="text-align: center;">
-  <img src="/assets/images/userguides/anvil/anvilgpt/image-20241115131909-1.png" alt="GenAI Studio API key settings page" width="80%">
+  <img src="/assets/images/services/genai/api-settings.png" alt="GenAI Studio API key settings page" width="80%">
 </p>
 
 Store the key in an environment variable instead of placing it in source code:

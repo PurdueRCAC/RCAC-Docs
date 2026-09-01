@@ -40,7 +40,7 @@ content to train the hosted models.
 3. Select **Log On** and complete Purdue SSO.
 
 <p style="text-align: center;">
-  <img src="/assets/images/userguides/anvil/anvilgpt/login-genai.png" alt="CILogon identity provider selection with Purdue University Main Campus selected" width="60%">
+  <img src="/assets/images/services/genai/login-genai.png" alt="CILogon identity provider selection with Purdue University Main Campus selected" width="60%">
 </p>
 
 If you are eligible but cannot sign in, contact [RCAC support](../../contact.md). Include the time

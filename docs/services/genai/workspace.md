@@ -4,11 +4,11 @@ The Workspace is where you create reusable resources for chats and API requests.
 left sidebar.
 
 <p style="text-align: center;">
-  <img src="/assets/images/userguides/anvil/anvilgpt/genai-workspace-item.png" alt="GenAI Studio workspace sidebar item" width="40%">
+  <img src="/assets/images/services/genai/workspace-item.png" alt="GenAI Studio workspace sidebar item" width="40%">
 </p>
 
 <p style="text-align: center;">
-  <img src="/assets/images/userguides/anvil/anvilgpt/genai-workspace.png" alt="GenAI Studio workspace overview" width="40%">
+  <img src="/assets/images/services/genai/workspace.png" alt="GenAI Studio workspace overview" width="40%">
 </p>
 
 Choose the resource that matches how long you need the context or instructions:
@@ -38,7 +38,7 @@ When you upload a document, GenAI Studio automatically uses [EmbeddingGemma 300M
     access to collaborators.
 
 <p style="text-align: center;">
-  <img src="/assets/images/userguides/anvil/anvilgpt/genai-knowledge-create.png" alt="GenAI Studio knowledge base creation screen" width="60%">
+  <img src="/assets/images/services/genai/knowledge-create.png" alt="GenAI Studio knowledge base creation screen" width="60%">
 </p>
 
 ## Custom Models
@@ -55,7 +55,7 @@ options here. Keep the custom model private while you test its system prompt, re
 and model parameters. Once saved, it appears in the model selector in the chat interface.
 
 <p style="text-align: center;">
-  <img src="/assets/images/userguides/anvil/anvilgpt/genai-model-create.png" alt="GenAI Studio custom model creation screen" width="60%">
+  <img src="/assets/images/services/genai/model-create.png" alt="GenAI Studio custom model creation screen" width="60%">
 </p>
 
 A custom model behaves like any other model in the chat interface. Its system prompt and attached

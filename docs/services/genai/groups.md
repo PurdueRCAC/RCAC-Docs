@@ -22,10 +22,10 @@ After RCAC confirms that the group exists:
 4. Save the resource and ask a group member to confirm that it appears in their account.
 
 <p style="text-align: center;">
-  <img src="/assets/images/userguides/anvil/anvilgpt/genai-access-button.png" alt="GenAI Studio access settings button" width="15%">
+  <img src="/assets/images/services/genai/access-button.png" alt="GenAI Studio access settings button" width="15%">
 </p>
 <p style="text-align: center;">
-  <img src="/assets/images/userguides/anvil/anvilgpt/genai-access-control.png" alt="GenAI Studio group access control settings" width="60%">
+  <img src="/assets/images/services/genai/access-control.png" alt="GenAI Studio group access control settings" width="60%">
 </p>
 
 !!! important "Share dependencies separately"
