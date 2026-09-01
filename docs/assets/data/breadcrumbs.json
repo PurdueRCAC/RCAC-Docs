@@ -104,7 +104,42 @@
   "/userguides/anvil/anvilgpt/": [
     "Home",
     "Anvil User Guide",
-    "AnvilGPT (LLM)"
+    "Anvilgpt"
+  ],
+  "/userguides/anvil/anvilgpt/chat-interface/": [
+    "Home",
+    "Anvil User Guide",
+    "Chat Interface"
+  ],
+  "/userguides/anvil/anvilgpt/workspace/": [
+    "Home",
+    "Anvil User Guide",
+    "Workspace"
+  ],
+  "/userguides/anvil/anvilgpt/models/": [
+    "Home",
+    "Anvil User Guide",
+    "Hosted Models"
+  ],
+  "/userguides/anvil/anvilgpt/groups/": [
+    "Home",
+    "Anvil User Guide",
+    "Groups and Sharing"
+  ],
+  "/userguides/anvil/anvilgpt/api/": [
+    "Home",
+    "Anvil User Guide",
+    "API"
+  ],
+  "/userguides/anvil/anvilgpt/tool-calling/": [
+    "Home",
+    "Anvil User Guide",
+    "Tool Calling"
+  ],
+  "/userguides/anvil/anvilgpt/mcp-integration/": [
+    "Home",
+    "Anvil User Guide",
+    "MCP Integration"
   ],
   "/userguides/anvil/notebook/": [
     "Home",

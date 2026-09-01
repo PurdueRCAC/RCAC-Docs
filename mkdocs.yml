@@ -118,7 +118,15 @@ nav:
         - Access: userguides/anvil/objectstorage/access.md
         - User Tools: userguides/anvil/objectstorage/usertools.md
         - Security and Access Control: userguides/anvil/objectstorage/acl.md
-      - AnvilGPT (LLM): userguides/anvil/anvilgpt.md
+      - AnvilGPT (LLM):
+        - userguides/anvil/anvilgpt.md
+        - Chat Interface: userguides/anvil/anvilgpt/chat-interface.md
+        - Workspace: userguides/anvil/anvilgpt/workspace.md
+        - Hosted Models: userguides/anvil/anvilgpt/models.md
+        - Groups and Sharing: userguides/anvil/anvilgpt/groups.md
+        - API: userguides/anvil/anvilgpt/api.md
+        - Tool Calling: userguides/anvil/anvilgpt/tool-calling.md
+        - MCP Integration: userguides/anvil/anvilgpt/mcp-integration.md
       - Anvil Notebook: userguides/anvil/notebook.md
       - Key Policies: userguides/anvil/policies.md
     - Bell:

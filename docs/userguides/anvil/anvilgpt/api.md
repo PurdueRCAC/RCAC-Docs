@@ -1,60 +1,93 @@
 # API
 
+Use the AnvilGPT API when you need a repeatable script or application workflow. The API uses
+an OpenAI-compatible chat-completions request format, but AnvilGPT has its own base URL,
+hosted model IDs, limits, and feature behavior.
+
+## Before You Begin
+
+You need:
+
+* An active AnvilGPT account.
+* An API key from your account settings.
+* The ID of a model available to your account. See [Hosted Models](models.md) or list models
+  through the API.
+* An HTTP client. The Python examples below use the `requests` package.
+
 ## Authentication
 
-Your API key is available from the Settings page. Click your user avatar in the top-right corner, navigate to Settings, then Account. Expand the API Keys section to create and copy keys. Treat your API key as a credential, and do not share it or commit it to version control.
+Select your user avatar in the top-right corner, open **Settings > Account**, and expand **API
+Keys** to create and copy a key.
 
 <p style="text-align: center;">
-  <img src="/assets/images/userguides/anvil/anvilgpt/image-20241115131909-1.png" alt="AnvilGPT API key settings page" width="80%">
+  <img src="/assets/images/services/genai/api-settings.png" alt="AnvilGPT API key settings page" width="80%">
 </p>
+
+Store the key in an environment variable instead of placing it in source code:
+
+```bash
+export ANVILGPT_API_KEY="paste-your-key-here"
+```
+
+!!! warning "Protect API keys"
+    An API key acts with your AnvilGPT identity and access. Do not share it, email it, commit it
+    to version control, or include it in a notebook that other people can read. Revoke a key from
+    **Settings > Account** if it may have been exposed.
 
 ## Endpoints
 
-##### Primary Endpoint
+### Chat Completions
 
 The primary endpoint for completions is:
 
 `https://anvilgpt.rcac.purdue.edu/api/chat/completions`
 
-This endpoint is compatible with the OpenAI API format, which means most libraries and tools designed for OpenAI can be pointed to this URL with minimal changes.
+This endpoint accepts an OpenAI-compatible chat-completions request. Some AnvilGPT features,
+including server-managed Workspace and MCP tools, use additional fields documented in this guide.
 
-##### Listing Available Models
+### List Available Models
 
 To retrieve the full list of available models programmatically, make a GET request to:
 
 `https://anvilgpt.rcac.purdue.edu/api/models`
 
-This returns all models in the system, including those listed under the "All" section in the UI. You can also verify available models through the UI by checking the "All" section in the model dropdown.
+This returns the models accessible to the API-key owner, including those shown under **All** in
+that user's model selector.
 
 ## Making a Request
 
-The following example sends a basic chat completion request using Python:
+Install `requests` if it is not already available:
 
+```bash
+python -m pip install requests
 ```
+
+The following example sends a basic non-streaming chat request and prints the model's reply:
+
+```python
+import os
+
 import requests
 
 url = "https://anvilgpt.rcac.purdue.edu/api/chat/completions"
 headers = {
-    "Authorization": f"Bearer {your_api_key}",
-    "Content-Type": "application/json"
+    "Authorization": f"Bearer {os.environ['ANVILGPT_API_KEY']}",
+    "Content-Type": "application/json",
 }
 body = {
-    "model": "llama3.1:latest",
+    "model": "gpt-oss:120b",
     "messages": [
         {
             "role": "user",
-            "content": "What is your name?"
+            "content": "Explain what a context window is in two sentences.",
         }
     ],
-    "stream": False
+    "stream": False,
 }
 
-response = requests.post(url, headers=headers, json=body)
-
-if response.status_code == 200:
-    print(response.json())
-else:
-    raise Exception(f"Error: {response.status_code}, {response.text}")
+response = requests.post(url, headers=headers, json=body, timeout=120)
+response.raise_for_status()
+print(response.json()["choices"][0]["message"]["content"])
 ```
 
 ## Streaming vs Non-Streaming
@@ -63,17 +96,17 @@ The API supports both streaming and non-streaming responses. Set `"stream": true
 
 **Streaming response format** (one chunk per line, Server-Sent Events style):
 
-```
-data: {"id": "llama3.1:latest-dd3f8a12-a36f-4fcc-9537-02a9e7c1d9c8", "created": 1749755137, "model": "llama3.1:latest", "choices": [{"index": 0, "logprobs": null, "finish_reason": null, "delta": {"content": "I"}}], "object": "chat.completion.chunk"}
+```text
+data: {"id": "llama3.2:latest-dd3f8a12-a36f-4fcc-9537-02a9e7c1d9c8", "created": 1749755137, "model": "llama3.2:latest", "choices": [{"index": 0, "logprobs": null, "finish_reason": null, "delta": {"content": "I"}}], "object": "chat.completion.chunk"}
 ```
 
 **Non-streaming response format** (full response in a single JSON object):
 
 ```json
 {
-  "id": "llama3.1:latest-703c01b4-c58d-4f78-b7e3-f0df34a91ede",
+  "id": "llama3.2:latest-703c01b4-c58d-4f78-b7e3-f0df34a91ede",
   "created": 1749755251,
-  "model": "llama3.1:latest",
+  "model": "llama3.2:latest",
   "choices": [
     {
       "index": 0,
@@ -98,14 +131,23 @@ data: {"id": "llama3.1:latest-dd3f8a12-a36f-4fcc-9537-02a9e7c1d9c8", "created": 
 
 Several models hosted on AnvilGPT support image inputs. To send an image, encode it as base64 and include it in the message content as an `image_url` block alongside your text prompt.
 
-```
+```python
 import base64
+import os
+
 import requests
 
-image = base64.b64encode(open("image.jpg", "rb").read()).decode("utf-8")
+url = "https://anvilgpt.rcac.purdue.edu/api/chat/completions"
+headers = {
+    "Authorization": f"Bearer {os.environ['ANVILGPT_API_KEY']}",
+    "Content-Type": "application/json",
+}
+
+with open("image.jpg", "rb") as image_file:
+    image = base64.b64encode(image_file.read()).decode("utf-8")
 
 body = {
-    "model": "llava:latest",
+    "model": "gemma4:26b-a4b",
     "messages": [
         {
             "role": "user",
@@ -122,13 +164,88 @@ body = {
                 }
             ]
         }
-    ]
+    ],
 }
+
+response = requests.post(url, headers=headers, json=body, timeout=120)
+response.raise_for_status()
+print(response.json()["choices"][0]["message"]["content"])
+```
+
+## Speech-to-Text and Text-to-Speech
+
+AnvilGPT supports speech input and output through Faster-Whisper for speech-to-text (STT) and Microsoft SpeechT5 for text-to-speech (TTS). These services are primarily intended for voice interaction in the AnvilGPT chat interface, but you can also access them through the API.
+
+!!! note
+    The audio endpoints process complete requests rather than streaming audio. They are not a low-latency voice-agent stack and do not provide the native audio-to-audio capabilities available in models such as GPT Realtime, Gemini Live, or Qwen Omni.
+
+### Transcribe Audio
+
+Send an audio file as multipart form data to:
+
+`https://anvilgpt.rcac.purdue.edu/api/v1/audio/transcriptions`
+
+The following example transcribes a WAV file. The optional `language` field uses a language code such as `en` to specify the expected language; omit it to use automatic language detection.
+
+```python
+import os
+
+import requests
+
+url = "https://anvilgpt.rcac.purdue.edu/api/v1/audio/transcriptions"
+headers = {
+    "Authorization": f"Bearer {os.environ['ANVILGPT_API_KEY']}",
+}
+
+with open("recording.wav", "rb") as audio_file:
+    response = requests.post(
+        url,
+        headers=headers,
+        files={"file": ("recording.wav", audio_file, "audio/wav")},
+        data={"language": "en"},
+    )
+
+response.raise_for_status()
+print(response.json()["text"])
+```
+
+Specify the correct media type for the file you upload. A successful request returns a JSON response containing the transcription in the `text` field.
+
+### Generate Speech
+
+Send text as JSON to:
+
+`https://anvilgpt.rcac.purdue.edu/api/v1/audio/speech`
+
+The response contains the generated audio as binary data. The following example saves it to a file:
+
+```python
+import os
+
+import requests
+
+url = "https://anvilgpt.rcac.purdue.edu/api/v1/audio/speech"
+headers = {
+    "Authorization": f"Bearer {os.environ['ANVILGPT_API_KEY']}",
+    "Content-Type": "application/json",
+}
+body = {
+    "input": "Welcome to AnvilGPT on Anvil."
+}
+
+response = requests.post(url, headers=headers, json=body)
+response.raise_for_status()
+
+with open("speech.mp3", "wb") as audio_file:
+    audio_file.write(response.content)
 ```
 
 ## RAG via API
 
-To use a custom model through the API, specify the name of your custom model in the `model` field of the request body exactly as it appears in the UI. Any Knowledge Base attached to that custom model when it was defined will automatically be included as context in API responses. No additional parameters are needed to activate knowledge retrieval.
+To use a custom model through the API, set the request's `model` field to the custom model ID
+returned by `GET /api/models`. Do not assume its display name is also its API ID. Any Knowledge
+Base attached when you defined the custom model is automatically included as context; you do not
+need an additional request parameter to enable retrieval.
 
 This means you do not need to implement your own retrieval logic if you are working within the AnvilGPT ecosystem. Define the knowledge attachment once in the Workspace, and it will remain consistent across both UI and API interactions.
 
@@ -136,67 +253,95 @@ This means you do not need to implement your own retrieval logic if you are work
 
 The API enforces a rate limit of 60 requests per minute per user. Both concurrent and sequential requests count toward this limit, so if you are parallelizing calls, you should account for this when setting concurrency levels.
 
-If the rate limit is exceeded, the API will not return an HTTP error. Instead, it returns a null value in the response. You should handle this in your code by checking for null responses before processing the output.
+If the rate limit is exceeded, the API may return a JSON `null` value instead of an HTTP error.
+Check the decoded response before accessing `choices`, wait, and retry with backoff. Do not retry
+immediately in a tight loop.
 
 For workloads that require parallel requests, up to approximately 10 concurrent calls to the same model are well supported. It is preferable to direct parallel requests to a single model rather than spreading them across multiple models simultaneously, as this helps maintain stability on the shared system.
 
 ## Structured Output
 
-AnvilGPT hosts models on two different serving backends: vLLM and Ollama. The format used to request structured output differs depending on which backend serves the model you are using. As of this writing, `gpt-oss:120b` and `llama4` run on vLLM, while the remaining models run on Ollama.
+AnvilGPT hosts models on two different serving backends: vLLM and Ollama. The format used to request structured output differs depending on which backend serves the model you are using. See the [Hosted Models](models.md) for the current backend used by each model.
 
-**For vLLM-backed models**, use the `response_format` key:
+**For vLLM-backed models**, add a `response_format` object to the request body:
 
 ```json
-"response_format": {
-  "type": "json_schema",
-  "json_schema": {
-    "name": "country-description",
-    "schema": {
-      "type": "object",
-      "properties": {
-        "country": { "type": "string" },
-        "capital": { "type": "string" },
-        "languages": {
-          "type": "array",
-          "items": { "type": "string" }
-        }
-      },
-      "required": ["country", "capital", "languages"]
+{
+  "response_format": {
+    "type": "json_schema",
+    "json_schema": {
+      "name": "country-description",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "country": { "type": "string" },
+          "capital": { "type": "string" },
+          "languages": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "required": ["country", "capital", "languages"]
+      }
     }
   }
 }
 ```
 
-**For Ollama-backed models**, use the `format` key directly in the request body:
+**For Ollama-backed models**, add a `format` object to the request body:
 
 ```json
-"format": {
-  "type": "object",
-  "properties": {
-    "country": { "type": "string" },
-    "capital": { "type": "string" },
-    "languages": {
-      "type": "array",
-      "items": { "type": "string" }
-    }
-  },
-  "required": ["country", "capital", "languages"]
+{
+  "format": {
+    "type": "object",
+    "properties": {
+      "country": { "type": "string" },
+      "capital": { "type": "string" },
+      "languages": {
+        "type": "array",
+        "items": { "type": "string" }
+      }
+    },
+    "required": ["country", "capital", "languages"]
+  }
 }
 ```
 
-If you are using Pydantic models to define your schema, you can generate the schema programmatically:
+If you use Pydantic, generate the schema and attach it to the same request body:
 
-```
+```python
 from pydantic import BaseModel
-from typing import List
 
 class CountryDescription(BaseModel):
     country: str
     capital: str
-    languages: List[str]
+    languages: list[str]
 
-# For vLLM:
 schema = CountryDescription.model_json_schema()
+body = {
+    "model": "gpt-oss:120b",
+    "messages": [
+        {"role": "user", "content": "Describe France using the required schema."}
+    ],
+    "response_format": {
+        "type": "json_schema",
+        "json_schema": {
+            "name": "country-description",
+            "schema": schema,
+        },
+    },
+    "stream": False,
+}
 ```
+
+## Troubleshooting
+
+| Symptom | What to check |
+|---|---|
+| `401 Not authenticated` | Confirm that the `Authorization` header uses `Bearer` followed by a current AnvilGPT API key. |
+| Model not found or unavailable | Call `GET /api/models` with the same API key and copy an ID from the response. Access can differ by user. |
+| JSON `null` response | Reduce request frequency or concurrency, wait, and retry with backoff. |
+| Request times out | Shorten the prompt or requested output, try a smaller model, and allow a longer client timeout. Shared-service demand can affect response time. |
+| Structured output is ignored | Confirm the model's serving backend on [Hosted Models](models.md) and use `response_format` for vLLM or `format` for Ollama. |
 
 [Back to AnvilGPT on Anvil](../anvilgpt.md)
