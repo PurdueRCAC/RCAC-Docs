@@ -785,6 +785,35 @@
     "Datasets",
     "Meteorological"
   ],
+  "/profilers/": [
+    "Home",
+    "Profilers"
+  ],
+  "/profilers/nvidia_nsight_tools_overview/": [
+    "Home",
+    "Profilers",
+    "NVIDIA Nsight Tools Overview"
+  ],
+  "/profilers/nvidia_nsight_tools_on_rcac_clusters/": [
+    "Home",
+    "Profilers",
+    "NVIDIA Nsight Tools on RCAC Clusters"
+  ],
+  "/profilers/nvidia_nsight_systems/": [
+    "Home",
+    "Profilers",
+    "NVIDIA Nsight Systems"
+  ],
+  "/profilers/amduprof/": [
+    "Home",
+    "Profilers",
+    "AMD uProf"
+  ],
+  "/profilers/vtune/": [
+    "Home",
+    "Profilers",
+    "Intel VTune"
+  ],
   "/workshops/": [
     "Home",
     "RCAC Workshops"
