@@ -1,3 +1,14 @@
+---
+tags:
+  - Anvil
+  - AnvilGPT
+authors:
+  - jin456
+  - mahlawat
+search:
+  boost: 1
+---
+
 # Workspace
 
 The Workspace is where you create reusable resources for chats and API requests. Open it from the

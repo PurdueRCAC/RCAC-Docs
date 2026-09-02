@@ -1,3 +1,13 @@
+---
+tags:
+  - Geddes
+  - Purdue GenAI Studio
+authors:
+  - mahlawat
+search:
+  boost: 1
+---
+
 # Workspace
 
 The Workspace is where you create reusable resources for chats and API requests. Open it from the

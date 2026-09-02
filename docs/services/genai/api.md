@@ -1,3 +1,13 @@
+---
+tags:
+  - Geddes
+  - Purdue GenAI Studio
+authors:
+  - mahlawat
+search:
+  boost: 1
+---
+
 # API
 
 Use the GenAI Studio API when you need a repeatable script or application workflow. The API uses

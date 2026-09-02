@@ -1,3 +1,13 @@
+---
+tags:
+  - Geddes
+  - Purdue GenAI Studio
+authors:
+  - mahlawat
+search:
+  boost: 1
+---
+
 # Chat Interface
 
 Use the chat interface for interactive work: compare model responses, attach one-time context,

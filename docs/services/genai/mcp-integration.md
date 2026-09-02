@@ -1,3 +1,13 @@
+---
+tags:
+  - Geddes
+  - Purdue GenAI Studio
+authors:
+  - mahlawat
+search:
+  boost: 1
+---
+
 # MCP Integration
 
 The [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) is a standard for making external tools and data sources available to language models. An MCP server advertises the tools it provides; GenAI Studio passes those tool definitions to a compatible model and invokes the selected tool when needed.

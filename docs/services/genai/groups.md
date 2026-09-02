@@ -1,3 +1,13 @@
+---
+tags:
+  - Geddes
+  - Purdue GenAI Studio
+authors:
+  - mahlawat
+search:
+  boost: 1
+---
+
 # Groups and Sharing
 
 GenAI Studio uses groups to share reusable resources with a defined set of collaborators. You can

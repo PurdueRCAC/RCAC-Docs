@@ -1,3 +1,13 @@
+---
+tags:
+  - Geddes
+  - Purdue GenAI Studio
+authors:
+  - mahlawat
+search:
+  boost: 1
+---
+
 # Tool Calling
 
 Tools let a model perform a defined operation instead of only generating text. For example, a tool can query a research service, look up a record, run a calculation, or submit a job. The model selects a tool and supplies its arguments; the tool runs; and the result is returned to the model so it can answer the user.

@@ -1,3 +1,14 @@
+---
+tags:
+  - Anvil
+  - AnvilGPT
+authors:
+  - jin456
+  - mahlawat
+search:
+  boost: 1
+---
+
 # Hosted Models
 
 AnvilGPT provides open-weight models for general chat, reasoning, coding, tool use, and image

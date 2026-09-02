@@ -1,3 +1,14 @@
+---
+tags:
+  - Anvil
+  - AnvilGPT
+authors:
+  - jin456
+  - mahlawat
+search:
+  boost: 1
+---
+
 # API
 
 Use the AnvilGPT API when you need a repeatable script or application workflow. The API uses

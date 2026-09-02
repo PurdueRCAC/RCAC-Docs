@@ -1,3 +1,13 @@
+---
+tags:
+  - Geddes
+  - Purdue GenAI Studio
+authors:
+  - mahlawat
+search:
+  boost: 1
+---
+
 # Hosted Models
 
 GenAI Studio provides open-weight models for general chat, reasoning, coding, tool use, and

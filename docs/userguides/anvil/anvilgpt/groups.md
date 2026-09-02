@@ -1,3 +1,14 @@
+---
+tags:
+  - Anvil
+  - AnvilGPT
+authors:
+  - jin456
+  - mahlawat
+search:
+  boost: 1
+---
+
 # Groups and Sharing
 
 AnvilGPT uses groups to share reusable resources with a defined set of collaborators. You can

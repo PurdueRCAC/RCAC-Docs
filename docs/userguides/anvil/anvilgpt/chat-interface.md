@@ -1,3 +1,14 @@
+---
+tags:
+  - Anvil
+  - AnvilGPT
+authors:
+  - jin456
+  - mahlawat
+search:
+  boost: 1
+---
+
 # Chat Interface
 
 Use the chat interface for interactive work: compare model responses, attach one-time context,
