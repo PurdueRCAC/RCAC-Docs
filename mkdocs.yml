@@ -359,6 +359,7 @@ nav:
       - VS Code on RCAC: lifesciences/guides/vscode.md
       - VISPR Visualization: lifesciences/guides/vispr.md
       - Productivity Tips: lifesciences/guides/productivity-tips.md
+      - Scheduled Globus Transfers: lifesciences/guides/globus-scheduled-transfers.md
     - Tutorials:
       - Gene Prediction:
         - BRAKER3: lifesciences/tutorials/braker.md
