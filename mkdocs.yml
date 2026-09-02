@@ -347,52 +347,50 @@ nav:
         - Colormaps: workshops/matplotlib/colormaps.md
         - Animations: workshops/matplotlib/animations.md
         - Envision Center: workshops/matplotlib/env_cent.md
-  - Life Sciences:
-    - lifesciences/index.md
-    - Getting Started:
-      - HPC Orientation for Biologists: lifesciences/guides/hpc-orientation.md
-      - Running Bioinformatics on RCAC: lifesciences/guides/running-bioinformatics.md
-      - Project Organization: lifesciences/guides/project-organization.md
-    - Guides:
-      - Nextflow and nf-core: lifesciences/guides/nextflow.md
-      - Nextflow on Gautschi: lifesciences/guides/nextflow-gautschi.md
-      - Downloading SRA Data: lifesciences/guides/sra-download.md
-      - Installing R Packages: lifesciences/guides/r-packages.md
-      - R Skills for Biological Data: lifesciences/guides/r-data-wrangling.md
-      - Publication-Quality Plots: lifesciences/guides/publication-quality-plots.md
-      - QC for Genomics: lifesciences/guides/qc-for-genomics.md
-      - Installing Perl Libraries: lifesciences/guides/perllib.md
-      - Optimizing Trinity: lifesciences/guides/trinity.md
-      - Transfer Data with iRODS: lifesciences/guides/icommands.md
-      - VS Code on RCAC: lifesciences/guides/vscode.md
-      - VISPR Visualization: lifesciences/guides/vispr.md
-      - Productivity Tips: lifesciences/guides/productivity-tips.md
-    - Tutorials:
-      - Gene Prediction:
-        - BRAKER3: lifesciences/tutorials/braker.md
-        - GeMoMa: lifesciences/tutorials/gemoma.md
-        - Helixer: lifesciences/tutorials/helixer.md
-      - Genome Assembly:
-        - HiFiasm (HiFi reads): lifesciences/tutorials/hifi-assembly.md
-        - Mitochondrial Genomes (MitoHiFi): lifesciences/tutorials/mitohifi.md
-      - Hi-C Analysis:
-        - Juicer: lifesciences/tutorials/juicer.md
-  - Agentic AI:
-    - agentic-ai/index.md
-    - Acceptable Use & Etiquette: agentic-ai/acceptable_use.md
-    - Best Practices & Limitations: agentic-ai/best_practices.md
-    - MCP Servers: agentic-ai/mcp_servers.md
-    - Running Agents:
-      - agentic-ai/running_agents/index.md
-      - On the Cluster (Login Nodes): agentic-ai/running_agents/on_cluster.md
-      - Local (over SSH): agentic-ai/running_agents/local.md
-    - Shared Context & Settings:
-      - agentic-ai/shared_context/index.md
-      - Context Files (/etc/agents.d): agentic-ai/shared_context/context_files.md
-      - Harness Settings & Permissions: agentic-ai/shared_context/settings.md
-  # - Tags: tags.md
-  - Services:
-    - services/index.md
+  - RCAC Services:
+    - Life Sciences:
+      - lifesciences/index.md
+      - Getting Started:
+        - HPC Orientation for Biologists: lifesciences/guides/hpc-orientation.md
+        - Running Bioinformatics on RCAC: lifesciences/guides/running-bioinformatics.md
+        - Project Organization: lifesciences/guides/project-organization.md
+      - Guides:
+        - Nextflow and nf-core: lifesciences/guides/nextflow.md
+        - Nextflow on Gautschi: lifesciences/guides/nextflow-gautschi.md
+        - Downloading SRA Data: lifesciences/guides/sra-download.md
+        - Installing R Packages: lifesciences/guides/r-packages.md
+        - R Skills for Biological Data: lifesciences/guides/r-data-wrangling.md
+        - Publication-Quality Plots: lifesciences/guides/publication-quality-plots.md
+        - QC for Genomics: lifesciences/guides/qc-for-genomics.md
+        - Installing Perl Libraries: lifesciences/guides/perllib.md
+        - Optimizing Trinity: lifesciences/guides/trinity.md
+        - Transfer Data with iRODS: lifesciences/guides/icommands.md
+        - VS Code on RCAC: lifesciences/guides/vscode.md
+        - VISPR Visualization: lifesciences/guides/vispr.md
+        - Productivity Tips: lifesciences/guides/productivity-tips.md
+      - Tutorials:
+        - Gene Prediction:
+          - BRAKER3: lifesciences/tutorials/braker.md
+          - GeMoMa: lifesciences/tutorials/gemoma.md
+          - Helixer: lifesciences/tutorials/helixer.md
+        - Genome Assembly:
+          - HiFiasm (HiFi reads): lifesciences/tutorials/hifi-assembly.md
+          - Mitochondrial Genomes (MitoHiFi): lifesciences/tutorials/mitohifi.md
+        - Hi-C Analysis:
+          - Juicer: lifesciences/tutorials/juicer.md
+    - Agentic AI:
+      - agentic-ai/index.md
+      - Acceptable Use & Etiquette: agentic-ai/acceptable_use.md
+      - Best Practices & Limitations: agentic-ai/best_practices.md
+      - MCP Servers: agentic-ai/mcp_servers.md
+      - Running Agents:
+        - agentic-ai/running_agents/index.md
+        - On the Cluster (Login Nodes): agentic-ai/running_agents/on_cluster.md
+        - Local (over SSH): agentic-ai/running_agents/local.md
+      - Shared Context & Settings:
+        - agentic-ai/shared_context/index.md
+        - Context Files (/etc/agents.d): agentic-ai/shared_context/context_files.md
+        - Harness Settings & Permissions: agentic-ai/shared_context/settings.md
     - Purdue GenAI Studio:
       - services/genai/index.md
       - Chat Interface: services/genai/chat-interface.md
