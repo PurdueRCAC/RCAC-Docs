@@ -63,15 +63,18 @@ Your previous chats are accessible from the left sidebar. By default, chat links
 
 Before copying the link, review its access setting in the share dialog:
 
-* **Private** or named access limits the link to the selected users or groups.
-* **Public** allows any signed-in AnvilGPT user with the link to view the conversation.
-* **Open**, if available to your account, allows anyone with the link to view it without signing
-  in.
+* **Private** grants access to selected AnvilGPT users or groups. They are not notified, so send
+  them the generated link separately.
+* **Public** grants access to any AnvilGPT user who has the generated link.
+
+Both modes require an active AnvilGPT account and ACCESS authentication through CILogon;
+unauthenticated sharing is not available.
 
 !!! warning "Review the audience before sharing"
     A share link is not a substitute for access control. Review the complete conversation, remove
     sensitive or unpublished information, and select the narrowest audience that meets your need.
-    Anyone in that audience can forward the link.
+    The link can be forwarded, but only users permitted by the selected access mode can view the
+    conversation.
 
 The resulting link has this form:
 
