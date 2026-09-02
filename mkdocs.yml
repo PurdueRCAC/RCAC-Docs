@@ -276,6 +276,13 @@ nav:
       - Geospatial: datasets/geospatial.md
       - Hydrological: datasets/hydrological.md
       - Meteorological: datasets/meteorological.md
+    - Profilers:
+      - profilers/index.md
+      - NVIDIA Nsight Tools Overview: profilers/nvidia_nsight_tools_overview.md
+      - NVIDIA Nsight Tools on RCAC Clusters: profilers/nvidia_nsight_tools_on_rcac_clusters.md
+      - NVIDIA Nsight Systems: profilers/nvidia_nsight_systems.md
+      - AMD uProf: profilers/amduprof.md
+      - Intel VTune: profilers/vtune.md
     - RCAC Workshops:
       - workshops/index.md
       - HPC Exchange:
