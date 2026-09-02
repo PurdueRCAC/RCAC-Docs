@@ -106,6 +106,48 @@
     "Anvil User Guide",
     "AnvilGPT (LLM)"
   ],
+  "/userguides/anvil/anvilgpt/chat-interface/": [
+    "Home",
+    "Anvil User Guide",
+    "AnvilGPT (LLM)",
+    "Chat Interface"
+  ],
+  "/userguides/anvil/anvilgpt/workspace/": [
+    "Home",
+    "Anvil User Guide",
+    "AnvilGPT (LLM)",
+    "Workspace"
+  ],
+  "/userguides/anvil/anvilgpt/models/": [
+    "Home",
+    "Anvil User Guide",
+    "AnvilGPT (LLM)",
+    "Hosted Models"
+  ],
+  "/userguides/anvil/anvilgpt/groups/": [
+    "Home",
+    "Anvil User Guide",
+    "AnvilGPT (LLM)",
+    "Groups and Sharing"
+  ],
+  "/userguides/anvil/anvilgpt/api/": [
+    "Home",
+    "Anvil User Guide",
+    "AnvilGPT (LLM)",
+    "API"
+  ],
+  "/userguides/anvil/anvilgpt/tool-calling/": [
+    "Home",
+    "Anvil User Guide",
+    "AnvilGPT (LLM)",
+    "Tool Calling"
+  ],
+  "/userguides/anvil/anvilgpt/mcp-integration/": [
+    "Home",
+    "Anvil User Guide",
+    "AnvilGPT (LLM)",
+    "MCP Integration"
+  ],
   "/userguides/anvil/notebook/": [
     "Home",
     "Anvil User Guide",
@@ -1279,6 +1321,45 @@
     "Agentic AI",
     "Shared Context & Settings",
     "Harness Settings & Permissions"
+  ],
+  "/services/genai/": [
+    "Home",
+    "Purdue GenAI Studio"
+  ],
+  "/services/genai/chat-interface/": [
+    "Home",
+    "Purdue GenAI Studio",
+    "Chat Interface"
+  ],
+  "/services/genai/workspace/": [
+    "Home",
+    "Purdue GenAI Studio",
+    "Workspace"
+  ],
+  "/services/genai/models/": [
+    "Home",
+    "Purdue GenAI Studio",
+    "Hosted Models"
+  ],
+  "/services/genai/groups/": [
+    "Home",
+    "Purdue GenAI Studio",
+    "Groups and Sharing"
+  ],
+  "/services/genai/api/": [
+    "Home",
+    "Purdue GenAI Studio",
+    "API"
+  ],
+  "/services/genai/tool-calling/": [
+    "Home",
+    "Purdue GenAI Studio",
+    "Tool Calling"
+  ],
+  "/services/genai/mcp-integration/": [
+    "Home",
+    "Purdue GenAI Studio",
+    "MCP Integration"
   ],
   "/contact/": [
     "Home",
