@@ -14,7 +14,7 @@ Found a bug, want more features on this website or want to connect with us? Conn
 !!! tip "Did you know?"
     RCAC offers live help with our [Coffee Hour Consultations](https://www.rcac.purdue.edu/coffee) and [Anvil Support Hour](https://www.rcac.purdue.edu/anvil/anvil-support-hour). Reserve one of the available time slots that works best for you! For more in-depth problems or group training, One-on-One Consultations are also available. [Contact us](mailto:rcac-help@purdue.edu) to schedule a one-on-one consultation for you or your lab.
 
-### Online
+### Online materials
 
 - [User Guides](https://docs.rcac.purdue.edu) contain numerous examples for running jobs and common applications.
 - [Training Materials](https://www.rcac.purdue.edu/training) for our regularly offered training sessions are posted here.
@@ -50,7 +50,7 @@ Found a bug, want more features on this website or want to connect with us? Conn
 - Copy and paste or screenshot of any error messages
 - Job IDs (if applicable)
 
-### In-Person
+### In-Person/Online meeting
 
 - [Coffee Hour Consultations](https://www.rcac.purdue.edu/coffee) offer a regular place to drop in for quick questions and help. No appointment needed!
 - [Anvil Support Hour](https://www.rcac.purdue.edu/anvil/anvil-support-hour) offers the opportunity to discuss Anvil related questions with the Anvil support team. NAIRR users are also welcome to register!
