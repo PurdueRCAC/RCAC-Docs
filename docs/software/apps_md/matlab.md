@@ -16,10 +16,10 @@ MATLAB (MATrix LABoratory) is a multi-paradigm numerical computing environment a
 |---|---|
 **ANVIL**|R2020b (D), R2021b, R2022a, R2023a, R2026a
 **BELL**|R2024a (D)
-**GAUTSCHI**|R2024a
-**GILBRETH**|R2024a
-**NEGISHI**|R2021b, R2022a (D), R2023a, R2024b
-**SCHOLAR**|R2024a (D)
+**GAUTSCHI**|R2024a, R2026a
+**GILBRETH**|R2024a, R2026a
+**NEGISHI**|R2021b, R2022a (D), R2023a, R2024b, R2026a
+**SCHOLAR**|R2024a (D), R2026a
 
 (D): Default Module
 
