@@ -1172,6 +1172,28 @@
     "Spring 2026 (archive)",
     "Session 7:Reproducible Bioinformatics with Nextflow"
   ],
+  "/workshops/hands_on_workshops/": [
+    "Home",
+    "RCAC Workshops",
+    "Hands-On Bioinformatics Workshops"
+  ],
+  "/workshops/hands_on_workshops/single-cell-rnaseq/": [
+    "Home",
+    "RCAC Workshops",
+    "Hands-On Bioinformatics Workshops",
+    "Single-Cell RNA-seq"
+  ],
+  "/workshops/hands_on_workshops/rnaseq/": [
+    "Home",
+    "RCAC Workshops",
+    "Hands-On Bioinformatics Workshops",
+    "RNA-seq"
+  ],
+  "/workshops/hpc_orientation/": [
+    "Home",
+    "RCAC Workshops",
+    "HPC Orientation"
+  ],
   "/workshops/kubernetes-tutorial/": [
     "Home",
     "RCAC Workshops",

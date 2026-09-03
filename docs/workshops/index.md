@@ -13,3 +13,5 @@ We will also regularly upload RCAC workshop and tutorial materials to this websi
 - [**Anvil Kubernetes**](kubernetes-tutorial.md)
 - [**Scientific Visualization with MatPlotLib**](matplotlib/index.md)
 - [**Genomics Exchange**](genomics_exchange/index.md)
+- [**Hands-On Bioinformatics Workshops**](hands_on_workshops/index.md)
+- [**HPC Orientation**](hpc_orientation/index.md)

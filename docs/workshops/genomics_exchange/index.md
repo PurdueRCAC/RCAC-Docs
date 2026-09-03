@@ -26,6 +26,8 @@ Sessions meet online twice a month on Tuesdays at 11:00 AM ET / 10:00 AM CT. See
 | 7 | Dec 1, 2026 | [R/RStudio and r-bioconductor on RCAC clusters](fall2026/session7/index.md) |
 | 8 | Dec 8, 2026 | [AI for biologists](fall2026/session8/index.md) |
 
+Looking for longer, immersive training? See the [RCAC Hands-On Bioinformatics Workshops](../hands_on_workshops/index.md) (half- and full-day working sessions on real datasets) and the in-person [HPC orientation for new faculty and graduate students](../hpc_orientation/index.md).
+
 ## Past seasons
 
 - [Spring 2026](spring2026/index.md) — seven sessions, January–April 2026 (concluded).

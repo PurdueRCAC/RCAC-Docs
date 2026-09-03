@@ -348,6 +348,11 @@ nav:
             - Session 5:Running Bioinformatics on RCAC: workshops/genomics_exchange/spring2026/session5/index.md
             - Session 6:QC for Genomics: workshops/genomics_exchange/spring2026/session6/index.md
             - Session 7:Reproducible Bioinformatics with Nextflow: workshops/genomics_exchange/spring2026/session7/index.md
+      - Hands-On Bioinformatics Workshops:
+        - workshops/hands_on_workshops/index.md
+        - Single-Cell RNA-seq: workshops/hands_on_workshops/single-cell-rnaseq/index.md
+        - RNA-seq: workshops/hands_on_workshops/rnaseq/index.md
+      - HPC Orientation: workshops/hpc_orientation/index.md
       - Anvil Kubernetes: workshops/kubernetes-tutorial.md
       - Scientific Visualization with MatPlotLib:
         - workshops/matplotlib/index.md
