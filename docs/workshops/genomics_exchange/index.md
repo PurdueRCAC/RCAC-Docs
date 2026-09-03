@@ -7,22 +7,31 @@ tags:
 
 # Genomics Exchange
 
-The **Genomics Exchange** is a biweekly workshop series covering practical HPC skills for genomics researchers. Organized by Arun Seetharam, the series runs on alternating Tuesday's 10 AM (ET) during the Spring 2026 semester.
+The **Genomics Exchange** is a biweekly workshop series covering practical HPC skills for genomics researchers. Organized by Arun Seetharam, sessions run online, alternating Tuesdays during the semester, and each lasts 60 minutes.
 
-Each session pairs a short lecture with a hands-on walkthrough. The full guide for each topic lives in the [Life Sciences](../../lifesciences/index.md) section; the session pages below link to the guide, provide the recording and slides, and host any session-specific data bundles.
+Each session pairs a short lecture with a hands-on walkthrough. The full guide for each topic lives in the [Life Sciences](../../lifesciences/index.md) section; the session pages link to the guide, provide the recording and slides, and host any session-specific data bundles.
 
-## Schedule
+## Current season — Fall 2026
 
-| Session | Date | Topic | Guide |
-|---|---|---|---|
-| 1 | Jan 20, 2026| Introduction & HPC Orientation | [HPC Orientation for Biologists](../../lifesciences/guides/hpc-orientation.md) |
-| 2 | Feb 10, 2026 | Project Organization | [Project Organization](../../lifesciences/guides/project-organization.md) |
-| 3 | Feb 24, 2026 | R Data Wrangling | [R Skills for Biological Data](../../lifesciences/guides/r-data-wrangling.md) |
-| 4 | Mar 10, 2026 | Publication-Quality Plots | [Publication-Quality Plots](../../lifesciences/guides/publication-quality-plots.md) |
-| 5 | Mar 24, 2026 | Running Bioinformatics on RCAC | [Running Bioinformatics on RCAC](../../lifesciences/guides/running-bioinformatics.md) |
-| 6 | Apr 7, 2026 | QC for Genomics | [QC for Genomics](../../lifesciences/guides/qc-for-genomics.md) |
-| 7 | Apr 21, 2026 | Reproducible Bioinformatics with Nextflow | [Nextflow on Gautschi](../../lifesciences/guides/nextflow-gautschi.md) |
+Sessions meet online on alternating Tuesdays at 11:00 AM ET / 10:00 AM CT. See the [Fall 2026 season page](fall2026/index.md) for the full schedule and session pages.
+
+| Session | Date | Topic |
+|---|---|---|
+| 1 | Sep 15, 2026 | [Reproducible genomics on RCAC, kickoff](fall2026/session1/index.md) |
+| 2 | Sep 22, 2026 | [R/RStudio and r-bioconductor on Scholar](fall2026/session2/index.md) |
+| 3 | Oct 6, 2026 | [Nextflow fundamentals](fall2026/session3/index.md) |
+| 4 | Oct 20, 2026 | [Running nf-core pipelines on clusters](fall2026/session4/index.md) |
+| 5 | Nov 3, 2026 | [Script to pipeline: custom Nextflow workflow introduction](fall2026/session5/index.md) |
+| 6 | Nov 17, 2026 | [nf-core on Open OnDemand](fall2026/session6/index.md) |
+| 7 | Dec 1, 2026 | [Data management for biologists](fall2026/session7/index.md) |
+| 8 | Dec 15, 2026 | [AI for biologists](fall2026/session8/index.md) |
+
+## Past seasons
+
+- [Spring 2026](spring2026/index.md) — seven sessions, January–April 2026 (concluded).
 
 ## Discussion
 
 Questions welcome on the [Genomics Exchange Discord](https://discord.gg/zEF2nzhXdC).
+
+[Back to Workshops](../index.md)
