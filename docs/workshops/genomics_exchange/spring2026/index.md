@@ -10,7 +10,7 @@ tags:
 !!! info "This season has concluded"
     The Spring 2026 season ran January–April 2026. The session pages below remain available, with links to the guides, recordings, slides, and data bundles. For the current season, see the [Genomics Exchange hub](../index.md).
 
-The Spring 2026 season of the **Genomics Exchange** ran on alternating Tuesdays at 10 AM (ET) during the Spring 2026 semester. Each session paired a short lecture with a hands-on walkthrough; the full guide for each topic lives in the [Life Sciences](../../../lifesciences/index.md) section.
+The Spring 2026 season of the **Genomics Exchange** ran twice a month on Tuesdays at 10 AM (ET) during the Spring 2026 semester. Each session paired a short lecture with a hands-on walkthrough; the full guide for each topic lives in the [Life Sciences](../../../lifesciences/index.md) section.
 
 ## Schedule
 

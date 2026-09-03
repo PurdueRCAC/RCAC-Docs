@@ -1,12 +1,12 @@
 ---
-title: "Genomics Exchange Fall 2026 Session 7 — Data management for biologists (Fortress, Depot, Globus, DMP text) (Dec 1, 2026)"
+title: "Genomics Exchange Fall 2026 Session 7 — R/RStudio and r-bioconductor on RCAC clusters (Dec 1, 2026)"
 tags:
   - Genomics Exchange
-  - Data Management
+  - R
   - Life Sciences
 ---
 
-# Session 7 — Data management for biologists (Fortress, Depot, Globus, DMP text) (Dec 1, 2026)
+# Session 7 — R/RStudio and r-bioconductor on RCAC clusters (Dec 1, 2026)
 
 !!! info "Session details"
     - **Date:** Tuesday, December 1, 2026

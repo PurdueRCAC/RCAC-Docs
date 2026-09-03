@@ -332,12 +332,12 @@ nav:
         - Fall 2026:
             - workshops/genomics_exchange/fall2026/index.md
             - Session 1:Reproducible Genomics Kickoff: workshops/genomics_exchange/fall2026/session1/index.md
-            - Session 2:R & Bioconductor on Scholar: workshops/genomics_exchange/fall2026/session2/index.md
+            - Session 2:Data Management for Biologists: workshops/genomics_exchange/fall2026/session2/index.md
             - Session 3:Nextflow Fundamentals: workshops/genomics_exchange/fall2026/session3/index.md
             - Session 4:Running nf-core Pipelines: workshops/genomics_exchange/fall2026/session4/index.md
             - Session 5:Custom Nextflow Workflows: workshops/genomics_exchange/fall2026/session5/index.md
             - Session 6:nf-core on Open OnDemand: workshops/genomics_exchange/fall2026/session6/index.md
-            - Session 7:Data Management for Biologists: workshops/genomics_exchange/fall2026/session7/index.md
+            - Session 7:R & Bioconductor on RCAC Clusters: workshops/genomics_exchange/fall2026/session7/index.md
             - Session 8:AI for Biologists: workshops/genomics_exchange/fall2026/session8/index.md
         - Spring 2026 (archive):
             - workshops/genomics_exchange/spring2026/index.md

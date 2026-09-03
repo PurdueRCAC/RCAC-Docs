@@ -1,15 +1,15 @@
 ---
-title: "Genomics Exchange Fall 2026 Session 6 — nf-core on Open OnDemand (Nov 17, 2026)"
+title: "Genomics Exchange Fall 2026 Session 6 — nf-core on Open OnDemand (Nov 10, 2026)"
 tags:
   - Genomics Exchange
   - Nextflow
   - Life Sciences
 ---
 
-# Session 6 — nf-core on Open OnDemand (Nov 17, 2026)
+# Session 6 — nf-core on Open OnDemand (Nov 10, 2026)
 
 !!! info "Session details"
-    - **Date:** Tuesday, November 17, 2026
+    - **Date:** Tuesday, November 10, 2026
     - **Time:** 11:00 AM ET / 10:00 AM CT
     - **Format:** 60 min interactive workshop, online
     - **Join:** TBD <!-- TODO(arun): meeting link -->

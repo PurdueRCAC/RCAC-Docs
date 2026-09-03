@@ -1,12 +1,12 @@
 ---
-title: "Genomics Exchange Fall 2026 Session 2 — R/RStudio and r-bioconductor on Scholar (Sep 22, 2026)"
+title: "Genomics Exchange Fall 2026 Session 2 — Data management for biologists (Sep 22, 2026)"
 tags:
   - Genomics Exchange
-  - R
+  - Data Management
   - Life Sciences
 ---
 
-# Session 2 — R/RStudio and r-bioconductor on Scholar (Sep 22, 2026)
+# Session 2 — Data management for biologists (Fortress, Depot, Globus, DMP text) (Sep 22, 2026)
 
 !!! info "Session details"
     - **Date:** Tuesday, September 22, 2026
