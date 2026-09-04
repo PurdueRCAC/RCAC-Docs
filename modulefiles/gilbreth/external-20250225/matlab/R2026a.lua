@@ -18,7 +18,11 @@ add this file to a mirror so that Spack can find it. For instructions on
 how to set up a mirror, see
 http://spack.readthedocs.io/en/latest/mirrors.html]])
 
-
+if isloaded('xalt')
+then
+	unload('xalt')
+	LmodMessage('lmod: xalt was automatically unloaded')
+end
 
 local modroot="/apps/external/matlab/R2026a"
 setenv("MATLAB_HOME", modroot)
