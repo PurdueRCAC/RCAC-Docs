@@ -1,12 +1,12 @@
 ---
-title: "Genomics Exchange Fall 2026 Session 5: Script to pipeline: custom Nextflow workflow introduction (Nov 10, 2026)"
+title: "Genomics Exchange Fall 2026 Session 5: Script to pipeline (Nov 10, 2026)"
 tags:
   - Genomics Exchange
   - Nextflow
   - Life Sciences
 ---
 
-# Session 5: Script to pipeline: custom Nextflow workflow introduction (Nov 10, 2026)
+# Session 5: Script to pipeline (Nov 10, 2026)
 
 !!! info "Session details"
     - **Date:** Tuesday, November 10, 2026
