@@ -17,8 +17,8 @@ Posting deadline is three weeks before the event. Files with a `DRAFT-` prefix a
 | `2026-11-17-ge-session-6.md` | Genomics Exchange (Session 6): nf-core on Open OnDemand | Tue 2026-11-17 | EST | Tue 2026-10-27 |
 | `2026-12-01-ge-session-7.md` | Genomics Exchange (Session 7): R/RStudio and r-bioconductor on RCAC clusters | Tue 2026-12-01 | EST | Tue 2026-11-10 |
 | `2026-12-08-ge-session-8.md` | Genomics Exchange (Session 8): AI for biologists | Tue 2026-12-08 | EST | Tue 2026-11-17 |
-| `DRAFT-2026-11-12-hands-on-single-cell-rnaseq-repeat.md` | Single-cell RNA-seq analysis (repeat) — TENTATIVE, do not post | Thu 2026-11-12 | EST | Thu 2026-10-22 (if confirmed) |
-| `DRAFT-2026-11-13-getting-started-biologists-repeat.md` | Getting started at RCAC for biologists (repeat) — TENTATIVE, do not post | Fri 2026-11-13 | EST | Fri 2026-10-23 (if confirmed) |
+| `DRAFT-2026-11-12-hands-on-single-cell-rnaseq-repeat.md` | Single-cell RNA-seq analysis (repeat). TENTATIVE, do not post | Thu 2026-11-12 | EST | Thu 2026-10-22 (if confirmed) |
+| `DRAFT-2026-11-13-getting-started-biologists-repeat.md` | Getting started at RCAC for biologists (repeat). TENTATIVE, do not post | Fri 2026-11-13 | EST | Fri 2026-10-23 (if confirmed) |
 
 ## Before posting
 

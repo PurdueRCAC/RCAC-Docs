@@ -9,7 +9,7 @@ tags:
 
 The **RCAC Hands-On Bioinformatics Workshops** are instructor-led, full-day, in-person working sessions in West Lafayette where you analyze real datasets on RCAC clusters, start to finish. Every workshop is built around doing the analysis yourself rather than watching it done.
 
-They complement the [Genomics Exchange](../genomics_exchange/index.md): the Exchange runs 60-minute online sessions that introduce a topic and walk through a guide, while these workshops go deeper — a full day on a single analysis, hands-on at every step. Start with an Exchange session if a topic is new to you; come to a workshop when you want to work through a complete analysis with help in the room.
+They complement the [Genomics Exchange](../genomics_exchange/index.md): the Exchange runs 60-minute online sessions that introduce a topic and walk through a guide, while these workshops go deeper: a full day on a single analysis, hands-on at every step. Start with an Exchange session if a topic is new to you; come to a workshop when you want to work through a complete analysis with help in the room.
 
 Biologists new to Purdue or to research computing may also want the in-person [Getting started with bioinformatics and computing at RCAC: a guide for biologists](../hpc_orientation/index.md) session.
 

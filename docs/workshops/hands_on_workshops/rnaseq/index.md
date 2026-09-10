@@ -13,7 +13,7 @@ A full-day, in-person, hands-on RNA-seq workshop: you will take real sequencing 
 !!! info "Workshop details"
     - **Date:** Tuesday, October 6, 2026
     - **Format:** Full day, hands-on
-    - **Location:** In person, West Lafayette — room details provided upon registration
+    - **Location:** In person, West Lafayette (room details provided upon registration)
     - **Time:** 8:30 AM – 4:00 PM EDT
     - **Registration:** [Register on luma](https://luma.com/shubuo8h)
     - **Instructor:** Arun Seetharam

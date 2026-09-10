@@ -1,4 +1,4 @@
-DRAFT — TENTATIVE, UNCONFIRMED EVENT. Do not post. No registration link, docs page, or nav entry exists for this date; confirm the date and time, create the registration event, then remove this line and the DRAFT- prefix.
+DRAFT: TENTATIVE, UNCONFIRMED EVENT. Do not post. No registration link, docs page, or nav entry exists for this date; confirm the date and time, create the registration event, then remove this line and the DRAFT- prefix.
 
 [RCAC Workshop] RCAC Hands-On Bioinformatics: Single-cell RNA-seq analysis
 

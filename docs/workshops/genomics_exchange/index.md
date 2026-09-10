@@ -11,7 +11,7 @@ The **Genomics Exchange** is a workshop series covering practical HPC skills for
 
 Each session pairs a short lecture with a hands-on walkthrough. The full guide for each topic lives in the [Life Sciences](../../lifesciences/index.md) section; the session pages link to the guide, provide the recording and slides, and host any session-specific data bundles.
 
-## Current season — Fall 2026
+## Current season: Fall 2026
 
 Eight sessions, Tuesdays at 11:00 AM Eastern (EDT through October, EST from November), September 15 through December 8, 2026. Session dates are not evenly spaced, so check the list. See the [Fall 2026 season page](fall2026/index.md) for registration links, instructors, and session pages.
 
@@ -30,7 +30,7 @@ Looking for longer, immersive training? See the [RCAC Hands-On Bioinformatics Wo
 
 ## Past seasons
 
-- [Spring 2026](spring2026/index.md) — seven sessions, January–April 2026 (concluded).
+- [Spring 2026](spring2026/index.md): seven sessions, January–April 2026 (concluded).
 
 ## Discussion
 

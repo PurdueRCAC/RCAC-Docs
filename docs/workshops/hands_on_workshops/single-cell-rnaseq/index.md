@@ -13,7 +13,7 @@ A full-day, in-person, hands-on workshop: you will work through a single-cell RN
 !!! info "Workshop details"
     - **Date:** Thursday, October 29, 2026
     - **Format:** Full day, hands-on
-    - **Location:** In person, West Lafayette — room details provided upon registration
+    - **Location:** In person, West Lafayette (room details provided upon registration)
     - **Time:** 8:30 AM – 4:30 PM EDT, with lunch 12:00 – 1:00 PM
     - **Registration:** [Register on luma](https://luma.com/um41amrt)
     - **Instructor:** Arun Seetharam
