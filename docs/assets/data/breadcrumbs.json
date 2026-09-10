@@ -1055,47 +1055,144 @@
     "RCAC Workshops",
     "Genomics Exchange"
   ],
-  "/workshops/genomics_exchange/session1/": [
+  "/workshops/genomics_exchange/fall2026/": [
     "Home",
     "RCAC Workshops",
     "Genomics Exchange",
-    "Session 1:Introduction & HPC Orientation"
+    "Fall 2026"
   ],
-  "/workshops/genomics_exchange/session2/": [
+  "/workshops/genomics_exchange/fall2026/session1/": [
     "Home",
     "RCAC Workshops",
     "Genomics Exchange",
-    "Session 2:Project Organization"
+    "Fall 2026",
+    "Session 1: Reproducible Genomics Kickoff"
   ],
-  "/workshops/genomics_exchange/session3/": [
+  "/workshops/genomics_exchange/fall2026/session2/": [
     "Home",
     "RCAC Workshops",
     "Genomics Exchange",
-    "Session 3:R Data Wrangling"
+    "Fall 2026",
+    "Session 2: Data Management for Biologists"
   ],
-  "/workshops/genomics_exchange/session4/": [
+  "/workshops/genomics_exchange/fall2026/session3/": [
     "Home",
     "RCAC Workshops",
     "Genomics Exchange",
-    "Session 4:Publication-Quality Plots"
+    "Fall 2026",
+    "Session 3: Nextflow Fundamentals"
   ],
-  "/workshops/genomics_exchange/session5/": [
+  "/workshops/genomics_exchange/fall2026/session4/": [
     "Home",
     "RCAC Workshops",
     "Genomics Exchange",
-    "Session 5:Running Bioinformatics on RCAC"
+    "Fall 2026",
+    "Session 4: Running nf-core Pipelines"
   ],
-  "/workshops/genomics_exchange/session6/": [
+  "/workshops/genomics_exchange/fall2026/session5/": [
     "Home",
     "RCAC Workshops",
     "Genomics Exchange",
-    "Session 6:QC for Genomics"
+    "Fall 2026",
+    "Session 5: Script to pipeline"
   ],
-  "/workshops/genomics_exchange/session7/": [
+  "/workshops/genomics_exchange/fall2026/session6/": [
     "Home",
     "RCAC Workshops",
     "Genomics Exchange",
-    "Session 7:Reproducible Bioinformatics with Nextflow"
+    "Fall 2026",
+    "Session 6: nf-core on Open OnDemand"
+  ],
+  "/workshops/genomics_exchange/fall2026/session7/": [
+    "Home",
+    "RCAC Workshops",
+    "Genomics Exchange",
+    "Fall 2026",
+    "Session 7: R & Bioconductor on RCAC Clusters"
+  ],
+  "/workshops/genomics_exchange/fall2026/session8/": [
+    "Home",
+    "RCAC Workshops",
+    "Genomics Exchange",
+    "Fall 2026",
+    "Session 8: AI for Biologists"
+  ],
+  "/workshops/genomics_exchange/spring2026/": [
+    "Home",
+    "RCAC Workshops",
+    "Genomics Exchange",
+    "Spring 2026 (archive)"
+  ],
+  "/workshops/genomics_exchange/spring2026/session1/": [
+    "Home",
+    "RCAC Workshops",
+    "Genomics Exchange",
+    "Spring 2026 (archive)",
+    "Session 1: Introduction & HPC Orientation"
+  ],
+  "/workshops/genomics_exchange/spring2026/session2/": [
+    "Home",
+    "RCAC Workshops",
+    "Genomics Exchange",
+    "Spring 2026 (archive)",
+    "Session 2: Project Organization"
+  ],
+  "/workshops/genomics_exchange/spring2026/session3/": [
+    "Home",
+    "RCAC Workshops",
+    "Genomics Exchange",
+    "Spring 2026 (archive)",
+    "Session 3: R Data Wrangling"
+  ],
+  "/workshops/genomics_exchange/spring2026/session4/": [
+    "Home",
+    "RCAC Workshops",
+    "Genomics Exchange",
+    "Spring 2026 (archive)",
+    "Session 4: Publication-Quality Plots"
+  ],
+  "/workshops/genomics_exchange/spring2026/session5/": [
+    "Home",
+    "RCAC Workshops",
+    "Genomics Exchange",
+    "Spring 2026 (archive)",
+    "Session 5: Running Bioinformatics on RCAC"
+  ],
+  "/workshops/genomics_exchange/spring2026/session6/": [
+    "Home",
+    "RCAC Workshops",
+    "Genomics Exchange",
+    "Spring 2026 (archive)",
+    "Session 6: QC for Genomics"
+  ],
+  "/workshops/genomics_exchange/spring2026/session7/": [
+    "Home",
+    "RCAC Workshops",
+    "Genomics Exchange",
+    "Spring 2026 (archive)",
+    "Session 7: Reproducible Bioinformatics with Nextflow"
+  ],
+  "/workshops/hands_on_workshops/": [
+    "Home",
+    "RCAC Workshops",
+    "Hands-On Bioinformatics Workshops"
+  ],
+  "/workshops/hands_on_workshops/rnaseq/": [
+    "Home",
+    "RCAC Workshops",
+    "Hands-On Bioinformatics Workshops",
+    "RNA-seq"
+  ],
+  "/workshops/hands_on_workshops/single-cell-rnaseq/": [
+    "Home",
+    "RCAC Workshops",
+    "Hands-On Bioinformatics Workshops",
+    "Single-Cell RNA-seq"
+  ],
+  "/workshops/hpc_orientation/": [
+    "Home",
+    "RCAC Workshops",
+    "Getting Started with Bioinformatics and Computing at RCAC"
   ],
   "/workshops/kubernetes-tutorial/": [
     "Home",
