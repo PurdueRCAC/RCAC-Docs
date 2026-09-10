@@ -37,6 +37,11 @@ Choose the resource that matches how long you need the context or instructions:
 3. Save it, and then upload the documents you want it to search.
 4. Wait for each document to finish processing before testing retrieval in a chat.
 
+!!! warning "Document upload limit"
+    Each document must be 100 MB or smaller. Complex documents, such as PDFs with many scanned
+    pages, images, or tables, may still time out during processing. Split files larger than 100 MB,
+    or files that repeatedly fail, into smaller parts before uploading them.
+
 Use separate Knowledge Bases for unrelated projects, research topics, or courses. This makes
 retrieval results easier to interpret and lets you share each collection independently.
 
