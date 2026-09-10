@@ -13,7 +13,7 @@ An in-person, full-day orientation to RCAC's clusters and services for biologist
     - **Date:** Friday, October 30, 2026
     - **Format:** Full day, in person
     - **Location:** West Lafayette — room details provided upon registration
-    - **Time:** TBD (EDT) <!-- TODO(arun): start/end times -->
+    - **Time:** TBD (EDT)
     - **Registration:** [Register on luma](https://luma.com/rxt8nytv)
     - **Instructors:** Arun Seetharam and Michael Carlson
 

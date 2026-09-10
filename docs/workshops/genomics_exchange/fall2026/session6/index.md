@@ -14,8 +14,8 @@ tags:
     - **Format:** 60 min interactive workshop, online (Microsoft Teams)
     - **Instructor:** Arun Seetharam
     - **Register:** [Register for Session 6 on Microsoft Teams](https://events.teams.microsoft.com/event/08b0b31b-8f2c-48b0-9174-df305a1c3640@4130bd39-7c53-419c-b1e5-8758d6d63f21) — the Teams join link is sent to registrants
-    - **Recording:** TBD <!-- TODO(arun): recording link -->
-    - **Materials:** TBD <!-- TODO(arun): materials links (slides, guide, data bundles) -->
+    - **Recording:** TBD
+    - **Materials:** TBD
 
 <!-- TODO(arun): session description -->
 

@@ -14,8 +14,8 @@ tags:
     - **Format:** 60 min interactive workshop, online (Microsoft Teams)
     - **Instructor:** Yucheng Zhang, Tufts University (to be confirmed)
     - **Register:** [Register for Session 3 on Microsoft Teams](https://events.teams.microsoft.com/event/46244839-e339-4751-aa98-7ec633a06b1f@4130bd39-7c53-419c-b1e5-8758d6d63f21) — the Teams join link is sent to registrants
-    - **Recording:** TBD <!-- TODO(arun): recording link -->
-    - **Materials:** TBD <!-- TODO(arun): materials links (slides, guide, data bundles) -->
+    - **Recording:** TBD
+    - **Materials:** TBD
 
 <!-- TODO(arun): session description -->
 
