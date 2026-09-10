@@ -8,8 +8,6 @@ on:
       - 'modulefiles/**'
       - 'tools/**'
       - 'wcag_audit/**'
-      # Events-calendar announcement copy lives outside docs/ and never affects the built site.
-      - 'announcements/**'
       # Documentation-factory bookkeeping never affects the built site (all outside docs/).
       - 'spec/**'
       - '.agents/**'
