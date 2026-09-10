@@ -1,13 +1,13 @@
 [RCAC Workshop] Getting started with bioinformatics and computing at RCAC: a guide for biologists
 
-**📅 Date:** Friday, October 30, 2026<br>
+**Date:** Friday, October 30, 2026<br>
 **⏰ Time:** TODO(arun): start and end times (EDT)<br>
-**💻 Location:** West Lafayette (room details provided upon registration)<br>
-**🏫 Instructor:** Arun Seetharam and Michael Carlson
+**Location:** West Lafayette (room details provided upon registration)<br>
+**Instructor:** Arun Seetharam and Michael Carlson
 
 ---
 <span style="color: red; font-weight: bold;">
-Please register using the link below to receive email reminders and room details and location information; the “I’m interested” button does not provide access.
+Please register using the link below to receive email reminders and room details; the “I’m interested” button does not provide access.
 </span>
 
 ### Who Should Attend
@@ -32,6 +32,6 @@ Faculty, postdocs, and graduate students in the life sciences who are new to Pur
 
 ---
 
-🔗 **Register now:** [Click here to register](https://luma.com/rxt8nytv)
+**Register now:** [Click here to register](https://luma.com/rxt8nytv)
 
 ---

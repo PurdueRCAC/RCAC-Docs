@@ -1,13 +1,13 @@
 [RCAC Workshop] RCAC Hands-On Bioinformatics: Single-cell RNA-seq analysis
 
-**📅 Date:** Thursday, October 29, 2026<br>
+**Date:** Thursday, October 29, 2026<br>
 **⏰ Time:** 8:30 AM – 4:30 PM (EDT); lunch 12:00 – 1:00 PM<br>
-**💻 Location:** West Lafayette (room details provided upon registration)<br>
-**🏫 Instructor:** Arun Seetharam
+**Location:** West Lafayette (room details provided upon registration)<br>
+**Instructor:** Arun Seetharam
 
 ---
 <span style="color: red; font-weight: bold;">
-Please register using the link below to receive email reminders and room details and location information; the “I’m interested” button does not provide access.
+Please register using the link below to receive email reminders and room details; the “I’m interested” button does not provide access.
 </span>
 
 ### Who Should Attend
@@ -34,6 +34,6 @@ Researchers who have, or plan to generate, single-cell RNA-seq data and want to 
 
 ---
 
-🔗 **Register now:** [Click here to register](https://luma.com/um41amrt)
+**Register now:** [Click here to register](https://luma.com/um41amrt)
 
 ---

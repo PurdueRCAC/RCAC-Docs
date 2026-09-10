@@ -23,7 +23,7 @@ Posting deadline is three weeks before the event. Files with a `DRAFT-` prefix a
 ## Before posting
 
 - Sessions 3 and 4 carry a `TODO(arun): confirm instructor` line at the top (Yucheng Zhang, Tufts University, not yet confirmed). Do not post until confirmed; delete the line when posting.
-- The RNA-seq workshop (Oct 6) and the getting-started session (Oct 30) have `TODO(arun)` placeholders on the Time line.
+- The getting-started session (Oct 30) has a `TODO(arun)` placeholder on the Time line.
 - The two `DRAFT-` files have `TODO(arun)` placeholders for time and registration link and must not be posted until the dates are confirmed.
 - US daylight time ends Sunday, November 1, 2026: September and October announcements say EDT, November and December say EST.
 

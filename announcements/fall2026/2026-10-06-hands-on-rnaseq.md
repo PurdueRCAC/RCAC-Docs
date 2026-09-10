@@ -1,13 +1,13 @@
 [RCAC Workshop] RCAC Hands-On Bioinformatics: RNA-seq analysis
 
-**📅 Date:** Tuesday, October 6, 2026<br>
-**⏰ Time:** TODO(arun): start and end times (EDT)<br>
-**💻 Location:** West Lafayette (room details provided upon registration)<br>
-**🏫 Instructor:** Arun Seetharam
+**Date:** Tuesday, October 6, 2026<br>
+**⏰ Time:** 8:30 AM – 4:00 PM (EDT)<br>
+**Location:** West Lafayette (room details provided upon registration)<br>
+**Instructor:** Arun Seetharam
 
 ---
 <span style="color: red; font-weight: bold;">
-Please register using the link below to receive email reminders and room details and location information; the “I’m interested” button does not provide access.
+Please register using the link below to receive email reminders and room details; the “I’m interested” button does not provide access.
 </span>
 
 ### Who Should Attend
@@ -34,6 +34,6 @@ Researchers who have, or will soon have, bulk RNA-seq data and want to run the f
 
 ---
 
-🔗 **Register now:** [Click here to register](https://luma.com/shubuo8h)
+**Register now:** [Click here to register](https://luma.com/shubuo8h)
 
 ---

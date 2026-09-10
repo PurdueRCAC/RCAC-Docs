@@ -341,13 +341,13 @@ nav:
             - "Session 8: AI for Biologists": workshops/genomics_exchange/fall2026/session8/index.md
         - Spring 2026 (archive):
             - workshops/genomics_exchange/spring2026/index.md
-            - Session 1:Introduction & HPC Orientation: workshops/genomics_exchange/spring2026/session1/index.md
-            - Session 2:Project Organization: workshops/genomics_exchange/spring2026/session2/index.md
-            - Session 3:R Data Wrangling: workshops/genomics_exchange/spring2026/session3/index.md
-            - Session 4:Publication-Quality Plots: workshops/genomics_exchange/spring2026/session4/index.md
-            - Session 5:Running Bioinformatics on RCAC: workshops/genomics_exchange/spring2026/session5/index.md
-            - Session 6:QC for Genomics: workshops/genomics_exchange/spring2026/session6/index.md
-            - Session 7:Reproducible Bioinformatics with Nextflow: workshops/genomics_exchange/spring2026/session7/index.md
+            - "Session 1: Introduction & HPC Orientation": workshops/genomics_exchange/spring2026/session1/index.md
+            - "Session 2: Project Organization": workshops/genomics_exchange/spring2026/session2/index.md
+            - "Session 3: R Data Wrangling": workshops/genomics_exchange/spring2026/session3/index.md
+            - "Session 4: Publication-Quality Plots": workshops/genomics_exchange/spring2026/session4/index.md
+            - "Session 5: Running Bioinformatics on RCAC": workshops/genomics_exchange/spring2026/session5/index.md
+            - "Session 6: QC for Genomics": workshops/genomics_exchange/spring2026/session6/index.md
+            - "Session 7: Reproducible Bioinformatics with Nextflow": workshops/genomics_exchange/spring2026/session7/index.md
       - Hands-On Bioinformatics Workshops:
         - workshops/hands_on_workshops/index.md
         - RNA-seq: workshops/hands_on_workshops/rnaseq/index.md
