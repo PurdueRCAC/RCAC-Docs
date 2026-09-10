@@ -1066,56 +1066,56 @@
     "RCAC Workshops",
     "Genomics Exchange",
     "Fall 2026",
-    "Session 1:Reproducible Genomics Kickoff"
+    "Session 1: Reproducible Genomics Kickoff"
   ],
   "/workshops/genomics_exchange/fall2026/session2/": [
     "Home",
     "RCAC Workshops",
     "Genomics Exchange",
     "Fall 2026",
-    "Session 2:Data Management for Biologists"
+    "Session 2: Data Management for Biologists"
   ],
   "/workshops/genomics_exchange/fall2026/session3/": [
     "Home",
     "RCAC Workshops",
     "Genomics Exchange",
     "Fall 2026",
-    "Session 3:Nextflow Fundamentals"
+    "Session 3: Nextflow Fundamentals"
   ],
   "/workshops/genomics_exchange/fall2026/session4/": [
     "Home",
     "RCAC Workshops",
     "Genomics Exchange",
     "Fall 2026",
-    "Session 4:Running nf-core Pipelines"
+    "Session 4: Running nf-core Pipelines"
   ],
   "/workshops/genomics_exchange/fall2026/session5/": [
     "Home",
     "RCAC Workshops",
     "Genomics Exchange",
     "Fall 2026",
-    "Session 5:Custom Nextflow Workflows"
+    "Session 5: Custom Nextflow Workflows"
   ],
   "/workshops/genomics_exchange/fall2026/session6/": [
     "Home",
     "RCAC Workshops",
     "Genomics Exchange",
     "Fall 2026",
-    "Session 6:nf-core on Open OnDemand"
+    "Session 6: nf-core on Open OnDemand"
   ],
   "/workshops/genomics_exchange/fall2026/session7/": [
     "Home",
     "RCAC Workshops",
     "Genomics Exchange",
     "Fall 2026",
-    "Session 7:R & Bioconductor on RCAC Clusters"
+    "Session 7: R & Bioconductor on RCAC Clusters"
   ],
   "/workshops/genomics_exchange/fall2026/session8/": [
     "Home",
     "RCAC Workshops",
     "Genomics Exchange",
     "Fall 2026",
-    "Session 8:AI for Biologists"
+    "Session 8: AI for Biologists"
   ],
   "/workshops/genomics_exchange/spring2026/": [
     "Home",
@@ -1177,22 +1177,22 @@
     "RCAC Workshops",
     "Hands-On Bioinformatics Workshops"
   ],
-  "/workshops/hands_on_workshops/single-cell-rnaseq/": [
-    "Home",
-    "RCAC Workshops",
-    "Hands-On Bioinformatics Workshops",
-    "Single-Cell RNA-seq"
-  ],
   "/workshops/hands_on_workshops/rnaseq/": [
     "Home",
     "RCAC Workshops",
     "Hands-On Bioinformatics Workshops",
     "RNA-seq"
   ],
+  "/workshops/hands_on_workshops/single-cell-rnaseq/": [
+    "Home",
+    "RCAC Workshops",
+    "Hands-On Bioinformatics Workshops",
+    "Single-Cell RNA-seq"
+  ],
   "/workshops/hpc_orientation/": [
     "Home",
     "RCAC Workshops",
-    "HPC Orientation"
+    "Getting Started with Bioinformatics and Computing at RCAC"
   ],
   "/workshops/kubernetes-tutorial/": [
     "Home",

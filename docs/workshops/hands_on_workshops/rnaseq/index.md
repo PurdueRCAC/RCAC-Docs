@@ -8,23 +8,29 @@ tags:
 
 # RNA-seq analysis
 
-A hands-on RNA-seq workshop taught online in two half-day sessions: you will take real sequencing data from raw reads through quality control, quantification, and differential expression on RCAC clusters.
+A full-day, in-person, hands-on RNA-seq workshop: you will take real sequencing data from raw reads through quality control, quantification, and differential expression on RCAC clusters, with instructors in the room.
 
 !!! info "Workshop details"
-    - **Dates:** Thursday, October 22 and Thursday, October 29, 2026
-    - **Format:** Two half-days, hands-on
-    - **Location:** Online — Teams link TBD <!-- TODO(arun): Teams link -->
-    - **Times:** TBD <!-- TODO(arun): start/end times -->
-    - **Registration:** TBD <!-- TODO(arun): registration link -->
+    - **Date:** Tuesday, October 6, 2026
+    - **Format:** Full day, hands-on
+    - **Location:** In person, West Lafayette — room details provided upon registration
+    - **Time:** TBD (EDT) <!-- TODO(arun): start/end times -->
+    - **Registration:** [Register on luma](https://luma.com/shubuo8h)
+    - **Instructor:** Arun Seetharam
 
-!!! important "One cohort, two sessions"
-    The two half-days are one workshop for a single cohort — the second session builds directly on the first. Plan to attend both.
+!!! warning "Required before the workshop"
+    Complete the lesson's [Summary and Setup](https://rcac-bioinformatics.github.io/rnaseq-analysis/) page before the workshop day. SSH access to the cluster and data staging must be done before the session starts.
+
+## Workshop materials
+
+The workshop follows the lesson site [RNA-seq in practice: Hands-on workshop on RCAC systems](https://rcac-bioinformatics.github.io/rnaseq-analysis/) (Carpentries format, CC-BY 4.0). The lesson site is the canonical material for this workshop; this page does not duplicate it.
 
 ## Prerequisites
 
 - An RCAC cluster account and the ability to log in ([HPC Orientation for Biologists](../../../lifesciences/guides/hpc-orientation.md))
 - Basic Unix shell skills ([HPC Exchange, Week 1](../../hpc_exchange/week1/index.md))
 - Comfort with basic R ([R Skills for Biological Data](../../../lifesciences/guides/r-data-wrangling.md))
+- A laptop you can bring
 
 ## What you will be able to do afterward
 
@@ -32,16 +38,14 @@ A hands-on RNA-seq workshop taught online in two half-day sessions: you will tak
 - Quantify expression and run a differential expression analysis
 - Filter, annotate, and visualize results as publication-ready tables and figures
 
-## Guides
+## Related guides
 
-The canonical how-to material lives in the [Life Sciences](../../../lifesciences/index.md) section — this page does not duplicate it:
+Background reading in the [Life Sciences](../../../lifesciences/index.md) section:
 
 - [QC for Genomics](../../../lifesciences/guides/qc-for-genomics.md)
 - [Downloading SRA Data](../../../lifesciences/guides/sra-download.md)
 - [R Skills for Biological Data](../../../lifesciences/guides/r-data-wrangling.md)
 - [Publication-Quality Plots](../../../lifesciences/guides/publication-quality-plots.md)
 - [Running Bioinformatics Programs on RCAC](../../../lifesciences/guides/running-bioinformatics.md)
-
-<!-- TODO(arun): link the dedicated RNA-seq workshop guide/materials when published -->
 
 [Back to Hands-On Bioinformatics Workshops](../index.md)

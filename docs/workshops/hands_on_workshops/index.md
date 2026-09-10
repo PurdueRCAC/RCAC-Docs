@@ -7,20 +7,30 @@ tags:
 
 # RCAC Hands-On Bioinformatics Workshops
 
-The **RCAC Hands-On Bioinformatics Workshops** are instructor-led working sessions where you analyze real datasets on RCAC clusters, start to finish. Workshops run as half-day online sessions or full-day in-person sessions in West Lafayette, and every workshop is built around doing the analysis yourself rather than watching it done.
+The **RCAC Hands-On Bioinformatics Workshops** are instructor-led, full-day, in-person working sessions in West Lafayette where you analyze real datasets on RCAC clusters, start to finish. Every workshop is built around doing the analysis yourself rather than watching it done.
 
-They complement the [Genomics Exchange](../genomics_exchange/index.md): the Exchange meets twice a month for 60-minute online sessions that introduce a topic and walk through a guide, while these workshops go deeper — a half or full day on a single analysis, hands-on at every step. Start with an Exchange session if a topic is new to you; come to a workshop when you want to work through a complete analysis with help in the room.
+They complement the [Genomics Exchange](../genomics_exchange/index.md): the Exchange runs 60-minute online sessions that introduce a topic and walk through a guide, while these workshops go deeper — a full day on a single analysis, hands-on at every step. Start with an Exchange session if a topic is new to you; come to a workshop when you want to work through a complete analysis with help in the room.
 
-New faculty and graduate students may also be interested in the in-person [HPC orientation](../hpc_orientation/index.md).
+Biologists new to Purdue or to research computing may also want the in-person [Getting started with bioinformatics and computing at RCAC: a guide for biologists](../hpc_orientation/index.md) session.
 
 ## Fall 2026 schedule
 
-| Workshop | Date | Format | Location |
+| Workshop | Date | Format | Registration |
 |---|---|---|---|
-| [Single-cell RNA-seq analysis](single-cell-rnaseq/index.md) | Wed Oct 7, 2026 | Full day | In person, West Lafayette |
-| [RNA-seq analysis](rnaseq/index.md) | Thu Oct 22 & Thu Oct 29, 2026 | Two half-days | Online |
+| [RNA-seq analysis](rnaseq/index.md) | Tue Oct 6, 2026 | Full day, in person (West Lafayette) | [Register on luma](https://luma.com/shubuo8h) |
+| [Single-cell RNA-seq analysis](single-cell-rnaseq/index.md) | Thu Oct 29, 2026 | Full day, in person (West Lafayette) | [Register on luma](https://luma.com/um41amrt) |
 
-<!-- TODO(arun): registration links for Fall 2026 workshops -->
+Room details are provided upon registration.
+
+## Workshop materials
+
+Each workshop follows a lesson site in Carpentries format, licensed CC-BY 4.0. The lesson site is the canonical workshop material; the workshop pages here link to it rather than duplicating it.
+
+- [RNA-seq in practice: Hands-on workshop on RCAC systems](https://rcac-bioinformatics.github.io/rnaseq-analysis/)
+- [Single-Cell RNA-Seq Analysis: Hands-on Training](https://rcac-bioinformatics.github.io/singlecell-rnaseq/)
+
+!!! warning "Complete the setup before the workshop"
+    Each lesson site opens with a **Summary and Setup** page. Work through it before the workshop day: SSH access to the cluster and data staging must be done before the session starts.
 
 ## Discussion
 

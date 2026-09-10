@@ -14,4 +14,4 @@ We will also regularly upload RCAC workshop and tutorial materials to this websi
 - [**Scientific Visualization with MatPlotLib**](matplotlib/index.md)
 - [**Genomics Exchange**](genomics_exchange/index.md)
 - [**Hands-On Bioinformatics Workshops**](hands_on_workshops/index.md)
-- [**HPC Orientation**](hpc_orientation/index.md)
+- [**Getting Started with Bioinformatics and Computing at RCAC**](hpc_orientation/index.md)
