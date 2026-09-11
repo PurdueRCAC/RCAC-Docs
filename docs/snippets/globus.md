@@ -13,7 +13,17 @@ Globus, previously known as Globus Online, is a powerful and easy to use file tr
 
 The RCAC collections are as follows. A search for "Purdue" will give you several suggested results you can choose from, or you can give a more specific search.
 
-- **Home directory and Scratch storage**: "{CLUSTER} Cluster Collection", however, you can start typing "{cluster}" and it will suggest appropriate matches.
+To locate home and scratch directories for **Anvil**, **Negishi**, and **Gautschi**: 
+
+- **Home directory and Scratch storage**: "{CLUSTER} Cluster Collection", however, you can start typing "{cluster}" and it will suggest appropriate matches. From there, you can use the path to navigate between your home directory and scratch directory.
+
+To locate home and scratch directories for **Bell** and **Gilbreth**, they are stored on separate collections: 
+
+- **Home directories**: "Purdue {Name} Cluster - Home Directories".
+- **Scratch directories**: "Purdue {Name} Cluster - Scratch".
+
+To access group storage space and archival storage: 
+
 - **Research Data Depot**: "Purdue Research Computing - Data Depot", a search for "Depot" should provide appropriate matches to choose from.
 - **Fortress**: "Purdue Fortress HPSS Archive", a search for "Fortress" should provide appropriate matches to choose from.
 
