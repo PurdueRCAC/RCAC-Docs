@@ -33,7 +33,7 @@ search:
 ## Other Services
 
 - [**Anvil Composable Subsystem**](composable/getting-started.md)
-- [**AnvilGPT (LLM)**](anvilgpt.md)
+- [**AnvilGPT (LLM)**](anvilgpt/index.md)
 - [**Anvil Notebook**](notebook.md)
 - [**Anvil Object Storage**](objectstorage/index.md)
 

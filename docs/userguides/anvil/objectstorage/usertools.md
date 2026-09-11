@@ -89,7 +89,13 @@ For the remaining configuration prompts, accept the default values unless otherw
 
 ### Test the connection
 
-List files in your bucket (the bucket name will be provided by the RCAC team):
+Make a bucket:
+
+```bash
+rclone mkdir anvil-s3:bucketname
+```
+
+List files in your bucket:
 
 ```bash
 rclone ls anvil-s3:bucketname
@@ -102,6 +108,11 @@ rclone ls anvil-s3:bucketname
 **Show config**
 ```bash
 rclone config show
+```
+
+**Make a bucket**
+```bash
+rclone mkdir anvil-s3:bucketname
 ```
 
 **List files in a bucket**
@@ -238,7 +249,13 @@ use_https = True
 
 ### Test the connection
 
-List files in your bucket (the bucket name will be provided by the RCAC team):
+Make a bucket:
+
+```bash
+s3cmd mb s3://bucketname
+```
+
+List files in your bucket:
 
 ```bash
 s3cmd ls s3://bucketname
@@ -247,6 +264,11 @@ s3cmd ls s3://bucketname
 ---
 
 ### Common `s3cmd` commands
+
+**Make a bucket**
+```bash
+s3cmd mb s3://bucketname
+```
 
 **List buckets**
 ```bash
@@ -369,6 +391,15 @@ s3 = boto3.client(
 
 #### 3. Test the connection
 
+
+Make a bucket:
+
+```python
+s3.create_bucket(Bucket="bucketname")
+```
+
+---
+
 List available buckets:
 
 ```python
@@ -382,7 +413,7 @@ for bucket in response["Buckets"]:
 
 #### 4. Access your bucket
 
-List files in your bucket (the bucket name will be provided by the RCAC team):
+List files in your bucket:
 
 ```python
 bucket_name = "bucketname"
@@ -397,8 +428,14 @@ for obj in response.get("Contents", []):
 
 #### Common `boto3` operations
 
-**Upload a file**
+**Make a bucket**
+```python
+s3.create_bucket(Bucket="bucketname")
+```
 
+---
+
+**Upload a file**
 ```python
 s3.upload_file("myfile.txt", "bucketname", "myfile.txt")
 ```

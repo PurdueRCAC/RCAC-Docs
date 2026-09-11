@@ -5,6 +5,8 @@ tags:
   - R
   - Genomics Exchange
   - Guides
+search:
+  boost: 1
 ---
 
 This guide accompanies **Genomics Exchange Session 4** (March 10, 2026). Building on the tidyverse data wrangling skills from [Session 3](r-data-wrangling.md), we now turn that clean data into publication-ready figures using `ggplot2`.
@@ -846,3 +848,5 @@ theme_set(theme_publication())
 - [ColorBrewer 2.0](https://colorbrewer2.org/) — interactive palette explorer with colorblind simulation
 - [Genomics Exchange Discord](https://discord.gg/zEF2nzhXdC) — ask questions between sessions
 - Questions? Email [aseethar@purdue.edu](mailto:aseethar@purdue.edu)
+
+[Back to Life Sciences](../index.md){ .md-button }

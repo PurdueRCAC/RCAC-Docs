@@ -4,6 +4,8 @@ tags:
   - Life Sciences
   - Annotation
   - Tutorials
+search:
+  boost: 1
 ---
 
 # Gene prediction using Helixer
@@ -217,7 +219,7 @@ Once the BUSCO profiling is done, the results can be compared.
 or visualized as a stacked bar plot:
 
 
-![Busco_results](../../assets/images/lifesciences/busco_figure.png)
+![Stacked horizontal bar chart of %BUSCOs across three B73v5 datasets, broken down by BUSCO completeness categories.](../../assets/images/lifesciences/busco_figure.png)
 
 **Figure 1: BUSCO results for Helixer, B73.v5 (MaizeGDB) and B73.v5 (Reference) annotations.**
 
@@ -304,13 +306,13 @@ featureCounts \
 
 === "Assigned Features"
 
-    ![assigned](../../assets/images/lifesciences/assigned.png)
+    ![Grouped bar chart comparing two values per sample across twenty-two B73 tissue and developmental-stage samples.](../../assets/images/lifesciences/assigned.png)
 
     **Figure 2: Feature assignment for B73.v5 and Helixer predictions. The reads assigned to helixer features are higher across tissues as compared to NAM.v5 annotations.**
 
 === "Unassigned Features"
 
-    ![unassigned](../../assets/images/lifesciences/unassigned.png)
+    ![Grouped bar chart with two unnamed series per category, comparing values across many B73 maize tissue samples on a numeric axis from 0 to 6.](../../assets/images/lifesciences/unassigned.png)
 
     **Figure 3: Feature assignment for B73.v5 and Helixer predictions. The unassigned reads are higher for NAM.v5 annotations across tissues.**
 
@@ -347,13 +349,13 @@ done
 
 === "Coding frame with gene function"
 
-    ![genefunction](../../assets/images/lifesciences/gene-function.png)
+    ![Stacked bar chart comparing NAM.v5 and helixer predictions across five feature assignment categories.](../../assets/images/lifesciences/gene-function.png)
 
     **Figure 5: Distribution of frame completeness with presence of gene function across predictions**
 
 === "Coding frame with pfam domain"
 
-    ![pfamdomain](../../assets/images/lifesciences/pfam-domain.png)
+    ![Two stacked bar charts comparing NAM.v5 and helixer across five gene-model completeness categories, with counts on the vertical axis.](../../assets/images/lifesciences/pfam-domain.png)
 
     **Figure 5: Distribution of frame completeness with presence of pfam domains across predictions**
 
@@ -368,13 +370,13 @@ Phylostrata analysis can be used to determine the evolutionary age of the predic
 
 === "counts"
 
-    ![ps_count](../../assets/images/lifesciences/ps_counts.png)
+    ![Grouped bar chart of two count series across nine taxonomic ranks, from Cellular Organisms to Species Specific, with a y-axis scaled to 10,000.](../../assets/images/lifesciences/ps_counts.png)
 
     **Figure 6: Genes in each strata for the predictions (count)**
 
 === "percent"
 
-    ![ps_percent](../../assets/images/lifesciences/ps_percent.png)
+    ![Grouped bar chart comparing two unlabeled series across nine taxonomic phylostrata categories, with values on a 0–25 scale.](../../assets/images/lifesciences/ps_percent.png)
 
     **Figure 7: Genes in each strata for the predictions (percent)**
 
@@ -504,19 +506,19 @@ The plots were generated using the following R script: [`cds_assesment.R`](../..
 
 === "CDS length"
 
-    ![cds-length](../../assets/images/lifesciences/cds-length.png)
+    ![Two histograms comparing CDS length distributions between Helixer and NAM.v5, both right-skewed with peaks near low lengths.](../../assets/images/lifesciences/cds-length.png)
 
     Figure 8: Distribution of CDS length for Helixer and NAM.v5 predictions. The Helixer predictions have a lower proportion of shorter CDS lengths compared to NAM.v5 annotations.
 
 === "GC content"
 
-    ![GC-content](../../assets/images/lifesciences/gc-content.png)
+    ![Density plot comparing two CDS datasets across GC content percentages from 30% to 80%, each showing a bimodal distribution.](../../assets/images/lifesciences/gc-content.png)
 
     Figure 9: Distribution of GC content for Helixer and NAM.v5 predictions. Both predictions have a classic dual GC peak typical to grasses.
 
 === "Codon type"
 
-    ![codon-type](../../assets/images/lifesciences/codon-type.png)
+    ![Grouped bar chart comparing Helixer and NAM.v5 by percentage of predictions across start/stop validity categories, with both showing high "Both valid" proportions.](../../assets/images/lifesciences/codon-type.png)
 
     Figure 10: Distribution of start and stop codons for Helixer and NAM.v5 predictions. The Helixer predictions have a higher proportion of valid start and stop codons.
 
@@ -555,3 +557,5 @@ bioRxiv. 2023 Feb 06: 2023.02.06.527280.  Preprint. (not been certified by peer 
 - Stiehler F, Steinborn M, Scholz S, Dey D, Weber APM, Denton AK
 Helixer: cross-species gene annotation of large eukaryotic genomes using deep learning.
 Bioinformatics. 2020 Dec, 36(22-23): 5291-5298.
+
+[Back to Life Sciences](../index.md){ .md-button }

@@ -5,6 +5,8 @@ tags:
   - QC
   - Genomics Exchange
   - Guides
+search:
+  boost: 1
 ---
 
 <div class="grid cards" markdown>
@@ -527,3 +529,5 @@ samtools stats aligned/sample1.sorted.bam > sample1.stats.txt
 ---
 
 **Up next**: Session 7 (April 21, 2026): Reproducible bioinformatics using Nextflow. We will learn how to wrap QC, alignment, and analysis into reproducible pipelines using Nextflow and nf-core.
+
+[Back to Life Sciences](../index.md){ .md-button }

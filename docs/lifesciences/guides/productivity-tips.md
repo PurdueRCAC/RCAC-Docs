@@ -3,6 +3,8 @@ title: Year-End Productivity Toolkit
 tags:
   - Life Sciences
   - Guides
+search:
+  boost: 1
 ---
 
 # Year-End Productivity Toolkit
@@ -839,3 +841,5 @@ When emailing `rcac-help@purdue.edu`, include these four things to skip the "bac
     > **Error:** The log file shows `Segmentation fault (core dumped)` when loading the `samtools` module.
     >
     > I have attached the slurm output file. Can you help?
+
+[Back to Life Sciences](../index.md){ .md-button }

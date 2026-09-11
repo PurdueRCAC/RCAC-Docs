@@ -3,6 +3,8 @@ title: Transfer data with iRODS
 tags:
   - Life Sciences
   - Guides
+search:
+  boost: 1
 ---
 
 CyVerse provides a cloud-based data store accessible via iRODS, allowing researchers to manage and transfer large datasets. From RCAC clusters (Negishi, Bell, Anvil), you can authenticate with your CyVerse account and use iCommands to list, upload, or download files efficiently.
@@ -151,3 +153,5 @@ Use `-r` to delete directories. These operations are permanent unless your accou
 
 - [iRODS Documentation](https://irods.org/documentation/)
 - [CyVerse iRODS Documentation](https://learning.cyverse.org/ds/icommands/)
+
+[Back to Life Sciences](../index.md){ .md-button }

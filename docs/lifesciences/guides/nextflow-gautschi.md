@@ -5,6 +5,8 @@ tags:
   - Nextflow
   - Genomics Exchange
   - Guides
+search:
+  boost: 1
 ---
 
 # Reproducible Bioinformatics Using Nextflow
@@ -427,3 +429,5 @@ To remove everything including cached images:
 ```bash
 rm -rf $RCAC_SCRATCH/nextflow-workshop
 ```
+
+[Back to Life Sciences](../index.md){ .md-button }

@@ -2,6 +2,8 @@
 title: Life Sciences
 tags:
   - Life Sciences
+search:
+  boost: 1
 ---
 
 # Life Sciences
@@ -38,7 +40,7 @@ RCAC supports life sciences researchers with guides, tutorials, and workshops co
 
     ---
 
-    A biweekly workshop series covering HPC skills for genomics researchers.
+    An online workshop series covering practical HPC skills for genomics researchers.
 
     [:octicons-arrow-right-24: Workshop schedule](../workshops/genomics_exchange/index.md)
 

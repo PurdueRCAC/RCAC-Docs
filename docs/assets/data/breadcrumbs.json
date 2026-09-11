@@ -106,6 +106,48 @@
     "Anvil User Guide",
     "AnvilGPT (LLM)"
   ],
+  "/userguides/anvil/anvilgpt/chat-interface/": [
+    "Home",
+    "Anvil User Guide",
+    "AnvilGPT (LLM)",
+    "Chat Interface"
+  ],
+  "/userguides/anvil/anvilgpt/workspace/": [
+    "Home",
+    "Anvil User Guide",
+    "AnvilGPT (LLM)",
+    "Workspace"
+  ],
+  "/userguides/anvil/anvilgpt/models/": [
+    "Home",
+    "Anvil User Guide",
+    "AnvilGPT (LLM)",
+    "Hosted Models"
+  ],
+  "/userguides/anvil/anvilgpt/groups/": [
+    "Home",
+    "Anvil User Guide",
+    "AnvilGPT (LLM)",
+    "Groups and Sharing"
+  ],
+  "/userguides/anvil/anvilgpt/api/": [
+    "Home",
+    "Anvil User Guide",
+    "AnvilGPT (LLM)",
+    "API"
+  ],
+  "/userguides/anvil/anvilgpt/tool-calling/": [
+    "Home",
+    "Anvil User Guide",
+    "AnvilGPT (LLM)",
+    "Tool Calling"
+  ],
+  "/userguides/anvil/anvilgpt/mcp-integration/": [
+    "Home",
+    "Anvil User Guide",
+    "AnvilGPT (LLM)",
+    "MCP Integration"
+  ],
   "/userguides/anvil/notebook/": [
     "Home",
     "Anvil User Guide",
@@ -785,6 +827,35 @@
     "Datasets",
     "Meteorological"
   ],
+  "/profilers/": [
+    "Home",
+    "Profilers"
+  ],
+  "/profilers/nvidia_nsight_tools_overview/": [
+    "Home",
+    "Profilers",
+    "NVIDIA Nsight Tools Overview"
+  ],
+  "/profilers/nvidia_nsight_tools_on_rcac_clusters/": [
+    "Home",
+    "Profilers",
+    "NVIDIA Nsight Tools on RCAC Clusters"
+  ],
+  "/profilers/nvidia_nsight_systems/": [
+    "Home",
+    "Profilers",
+    "NVIDIA Nsight Systems"
+  ],
+  "/profilers/amduprof/": [
+    "Home",
+    "Profilers",
+    "AMD uProf"
+  ],
+  "/profilers/vtune/": [
+    "Home",
+    "Profilers",
+    "Intel VTune"
+  ],
   "/workshops/": [
     "Home",
     "RCAC Workshops"
@@ -984,47 +1055,144 @@
     "RCAC Workshops",
     "Genomics Exchange"
   ],
-  "/workshops/genomics_exchange/session1/": [
+  "/workshops/genomics_exchange/fall2026/": [
     "Home",
     "RCAC Workshops",
     "Genomics Exchange",
-    "Session 1:Introduction & HPC Orientation"
+    "Fall 2026"
   ],
-  "/workshops/genomics_exchange/session2/": [
+  "/workshops/genomics_exchange/fall2026/session1/": [
     "Home",
     "RCAC Workshops",
     "Genomics Exchange",
-    "Session 2:Project Organization"
+    "Fall 2026",
+    "Session 1: Reproducible Genomics Kickoff"
   ],
-  "/workshops/genomics_exchange/session3/": [
+  "/workshops/genomics_exchange/fall2026/session2/": [
     "Home",
     "RCAC Workshops",
     "Genomics Exchange",
-    "Session 3:R Data Wrangling"
+    "Fall 2026",
+    "Session 2: Data Management for Biologists"
   ],
-  "/workshops/genomics_exchange/session4/": [
+  "/workshops/genomics_exchange/fall2026/session3/": [
     "Home",
     "RCAC Workshops",
     "Genomics Exchange",
-    "Session 4:Publication-Quality Plots"
+    "Fall 2026",
+    "Session 3: Nextflow Fundamentals"
   ],
-  "/workshops/genomics_exchange/session5/": [
+  "/workshops/genomics_exchange/fall2026/session4/": [
     "Home",
     "RCAC Workshops",
     "Genomics Exchange",
-    "Session 5:Running Bioinformatics on RCAC"
+    "Fall 2026",
+    "Session 4: Running nf-core Pipelines"
   ],
-  "/workshops/genomics_exchange/session6/": [
+  "/workshops/genomics_exchange/fall2026/session5/": [
     "Home",
     "RCAC Workshops",
     "Genomics Exchange",
-    "Session 6:QC for Genomics"
+    "Fall 2026",
+    "Session 5: Script to pipeline"
   ],
-  "/workshops/genomics_exchange/session7/": [
+  "/workshops/genomics_exchange/fall2026/session6/": [
     "Home",
     "RCAC Workshops",
     "Genomics Exchange",
-    "Session 7:Reproducible Bioinformatics with Nextflow"
+    "Fall 2026",
+    "Session 6: nf-core on Open OnDemand"
+  ],
+  "/workshops/genomics_exchange/fall2026/session7/": [
+    "Home",
+    "RCAC Workshops",
+    "Genomics Exchange",
+    "Fall 2026",
+    "Session 7: R & Bioconductor on RCAC Clusters"
+  ],
+  "/workshops/genomics_exchange/fall2026/session8/": [
+    "Home",
+    "RCAC Workshops",
+    "Genomics Exchange",
+    "Fall 2026",
+    "Session 8: AI for Biologists"
+  ],
+  "/workshops/genomics_exchange/spring2026/": [
+    "Home",
+    "RCAC Workshops",
+    "Genomics Exchange",
+    "Spring 2026 (archive)"
+  ],
+  "/workshops/genomics_exchange/spring2026/session1/": [
+    "Home",
+    "RCAC Workshops",
+    "Genomics Exchange",
+    "Spring 2026 (archive)",
+    "Session 1: Introduction & HPC Orientation"
+  ],
+  "/workshops/genomics_exchange/spring2026/session2/": [
+    "Home",
+    "RCAC Workshops",
+    "Genomics Exchange",
+    "Spring 2026 (archive)",
+    "Session 2: Project Organization"
+  ],
+  "/workshops/genomics_exchange/spring2026/session3/": [
+    "Home",
+    "RCAC Workshops",
+    "Genomics Exchange",
+    "Spring 2026 (archive)",
+    "Session 3: R Data Wrangling"
+  ],
+  "/workshops/genomics_exchange/spring2026/session4/": [
+    "Home",
+    "RCAC Workshops",
+    "Genomics Exchange",
+    "Spring 2026 (archive)",
+    "Session 4: Publication-Quality Plots"
+  ],
+  "/workshops/genomics_exchange/spring2026/session5/": [
+    "Home",
+    "RCAC Workshops",
+    "Genomics Exchange",
+    "Spring 2026 (archive)",
+    "Session 5: Running Bioinformatics on RCAC"
+  ],
+  "/workshops/genomics_exchange/spring2026/session6/": [
+    "Home",
+    "RCAC Workshops",
+    "Genomics Exchange",
+    "Spring 2026 (archive)",
+    "Session 6: QC for Genomics"
+  ],
+  "/workshops/genomics_exchange/spring2026/session7/": [
+    "Home",
+    "RCAC Workshops",
+    "Genomics Exchange",
+    "Spring 2026 (archive)",
+    "Session 7: Reproducible Bioinformatics with Nextflow"
+  ],
+  "/workshops/hands_on_workshops/": [
+    "Home",
+    "RCAC Workshops",
+    "Hands-On Bioinformatics Workshops"
+  ],
+  "/workshops/hands_on_workshops/rnaseq/": [
+    "Home",
+    "RCAC Workshops",
+    "Hands-On Bioinformatics Workshops",
+    "RNA-seq"
+  ],
+  "/workshops/hands_on_workshops/single-cell-rnaseq/": [
+    "Home",
+    "RCAC Workshops",
+    "Hands-On Bioinformatics Workshops",
+    "Single-Cell RNA-seq"
+  ],
+  "/workshops/hpc_orientation/": [
+    "Home",
+    "RCAC Workshops",
+    "Getting Started with Bioinformatics and Computing at RCAC"
   ],
   "/workshops/kubernetes-tutorial/": [
     "Home",
@@ -1255,6 +1423,45 @@
     "Agentic AI",
     "Shared Context & Settings",
     "Harness Settings & Permissions"
+  ],
+  "/services/genai/": [
+    "Home",
+    "Purdue GenAI Studio"
+  ],
+  "/services/genai/chat-interface/": [
+    "Home",
+    "Purdue GenAI Studio",
+    "Chat Interface"
+  ],
+  "/services/genai/workspace/": [
+    "Home",
+    "Purdue GenAI Studio",
+    "Workspace"
+  ],
+  "/services/genai/models/": [
+    "Home",
+    "Purdue GenAI Studio",
+    "Hosted Models"
+  ],
+  "/services/genai/groups/": [
+    "Home",
+    "Purdue GenAI Studio",
+    "Groups and Sharing"
+  ],
+  "/services/genai/api/": [
+    "Home",
+    "Purdue GenAI Studio",
+    "API"
+  ],
+  "/services/genai/tool-calling/": [
+    "Home",
+    "Purdue GenAI Studio",
+    "Tool Calling"
+  ],
+  "/services/genai/mcp-integration/": [
+    "Home",
+    "Purdue GenAI Studio",
+    "MCP Integration"
   ],
   "/contact/": [
     "Home",
