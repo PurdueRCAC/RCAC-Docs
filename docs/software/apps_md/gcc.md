@@ -18,7 +18,7 @@ The GNU Compiler Collection includes front ends for C, C++, Objective-C, Fortran
 **BELL**|8.5.0, 9.3.0, 11.1.0, 14.2.0
 **GAUTSCHI**|11.4.1, 14.1.0 (D)
 **GILBRETH**|11.5.0, 13.3.0
-**NEGISHI**|8.5.0, 11.2.0, 12.2.0 (D)
+**NEGISHI**|8.5.0, 11.2.0, 12.2.0 (D), 14.4.0
 **SCHOLAR**|11.4.1, 14.1.0 (D)
 
 (D): Default Module
