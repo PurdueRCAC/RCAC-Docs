@@ -1,4 +1,3 @@
-````markdown
 ---
 tags:
   - Box Research Lab Folder
@@ -166,5 +165,3 @@ command again.
 - [Contact RCAC](mailto:rcac-help@purdue.edu)
 
 [Back to Box Research Lab Folder](index.md)
-````
-
