@@ -1271,6 +1271,11 @@
     "Life Sciences",
     "Project Organization"
   ],
+  "/lifesciences/guides/reproducibility/": [
+    "Home",
+    "Life Sciences",
+    "Reproducible Genomics"
+  ],
   "/lifesciences/guides/nextflow/": [
     "Home",
     "Life Sciences",
@@ -1335,11 +1340,6 @@
     "Home",
     "Life Sciences",
     "Productivity Tips"
-  ],
-  "/lifesciences/guides/globus-scheduled-transfers/": [
-    "Home",
-    "Life Sciences",
-    "Scheduled Globus Transfers"
   ],
   "/lifesciences/tutorials/braker/": [
     "Home",
