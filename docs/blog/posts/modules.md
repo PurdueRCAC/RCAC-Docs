@@ -18,6 +18,7 @@ tags:
 authors:
   - carls113
 ---
+#The "It Works on My Laptop" Dilemma: Managing Software with Modules
 
 A supercomputer without software is like an engine without a car. It can be powerful, with nothing to do. Software is what gives supercomputers purpose and direction, without it they would be useless. Sometimes this software is already installed on the supercomputer and sometimes it is something that you install yourself. Regardless of how it got there, we need a way to manage it, especially if there are multiple versions of the same software.
 
