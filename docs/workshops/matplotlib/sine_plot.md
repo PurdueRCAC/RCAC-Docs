@@ -76,11 +76,11 @@ ax.plot(x_values,y_values,marker='*')
 
 ![An image showing a plotting frame, which contains a rather jagged version of a sine function, but now with stars at the points that are used to plot the lines.](/assets/images/workshops/matplotlib/Sin_star_plot.png "Sine Plot with Stars")
 
-What can we do to improve the smoothness of the plot? The way to do this is to increase the number of points plotted. Right now, we are just plotting the integers from 0 to 9, but we want to plot some points in between. We could manually add points to a list for the x-values, but there is a better way: using NumPy's `linspace` function. It generates a NumPy array (which is easier to manipulate with math functions than a list), with three imputs to the function. They are, in order, the starting number, the ending number, and the number of points to make up the range. Modify the `x_values` assignment to use the NumPy `linspace` function like so:
+What can we do to improve the smoothness of the plot? The way to do this is to increase the number of points plotted. Right now, we are just plotting the integers from 0 to 9, but we want to plot some points in between. We could manually add points to a list for the x-values, but there is a better way: using NumPy's `linspace` function. It generates a NumPy array (which is easier to manipulate with math functions than a list), with three inputs to the function. They are, in order, the starting number, the ending number, and the number of points to make up the range. Modify the `x_values` assignment to use the NumPy `linspace` function like so:
 ```python
 x_values = np.linspace(0,10,100)
 ```
-This makes a list between 0 and 10 with 100 points along the way. Now, we can simplify the `y_values` assignment because the x_values is now a NumPy array:
+This makes a list between 0 and 10 with 100 points along the way. Now, we can simplify the `y_values` assignment because the `x_values` is now a NumPy array:
 ```python
 y_values = np.sin(x_values)
 ```
@@ -182,4 +182,5 @@ We should get a plot that looks like this:
 Notice that now the plot is no longer square, as the aspect ratio and the plot limits have dictated that the plot is longer in the x-direction than it is in the y-direction.
 
 In the next section we will talk about some more advanced plotting topics, such as line styling and multiple lines:
+
 [Next Section](adv_plots.md){ .md-button .md-button--primary }
