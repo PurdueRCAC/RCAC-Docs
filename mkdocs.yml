@@ -371,6 +371,7 @@ nav:
         - HPC Orientation for Biologists: lifesciences/guides/hpc-orientation.md
         - Running Bioinformatics on RCAC: lifesciences/guides/running-bioinformatics.md
         - Project Organization: lifesciences/guides/project-organization.md
+        - Reproducible Genomics: lifesciences/guides/reproducibility.md
       - Guides:
         - Nextflow and nf-core: lifesciences/guides/nextflow.md
         - Nextflow on Gautschi: lifesciences/guides/nextflow-gautschi.md
