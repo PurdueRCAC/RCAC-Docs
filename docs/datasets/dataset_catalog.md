@@ -11,7 +11,7 @@ search:
 # RCAC Datasets Catalog
 
 ## Overview
-As of **August 12, 2026**, there are **60** publicly available datasets across **7** categories: **AI, Climate Model, Covariates, GeoAI, Geospatial, Hydrological, Meteorological**.
+As of **September 23, 2026**, there are **61** publicly available datasets across **7** categories: **AI, Climate Model, Covariates, GeoAI, Geospatial, Hydrological, Meteorological**.
 
 ## Dataset Catalog
 
@@ -67,6 +67,11 @@ As of **August 12, 2026**, there are **60** publicly available datasets across *
     </tr>
     <tr>
       <td><a href="../ai/oxfordrobotcar"><strong>oxfordrobotcar</strong></a></td>
+      <td>AI</td>
+      <td>AI, Robotics, PhysicalAI</td>
+    </tr>
+    <tr>
+      <td><a href="../ai/droid"><strong>DROID: A Large-Scale In-The-Wild Robot Manipulation Dataset</strong></a></td>
       <td>AI</td>
       <td>AI, Robotics, PhysicalAI</td>
     </tr>
