@@ -109,22 +109,106 @@ hsi ls -l /group/mylab
     Fortress keeps two copies of every file to protect against media failure, but if you delete or overwrite a file on Fortress, it cannot be recovered.
 
 ## Globus
+Globus is a managed file-transfer service designed for moving large research datasets reliably and efficiently. It is especially useful for transfers that involve many files, hundreds of gigabytes or more, long transfer times, or data moving between institutions. Rather than keeping a terminal session or browser download running, you can submit the transfer to Globus and let the service manage it for you.
+
+### Why use Globus for large transfers?
+
+A long-running `scp` or `sftp` command can be interrupted by a dropped network connection, a closed laptop, or an expired terminal session. The user may then need to determine what arrived and restart or resume the transfer manually. Downloading to a laptop and uploading again is even less efficient when the real goal is to move data between two remote storage systems.
+
+Globus uses a **fire-and-forget** model:
+
+1. You select the source, destination, and files, then submit one transfer request.
+2. Globus transfers the data directly between the two collections. Your browser is only the control interface and is not in the data path.
+3. You may close the browser or sign out. Globus continues to monitor the task, tunes the transfer for performance, and retries recoverable network or system failures. When possible, it resumes from the point of failure rather than starting the entire transfer again.
+4. Globus verifies file integrity with checksums and records the task in the **Activity** tab. It can email you when the transfer succeeds or when a problem needs your attention.
+
+This makes Globus especially useful for transfers measured in hundreds of gigabytes or terabytes: users can start the work and return to their research instead of keeping a terminal open and watching the connection. “Fire-and-forget” does not mean “never check”. Users should confirm that the task reports **Succeeded** before deleting the source copy. Problems such as an expired login, insufficient destination space, or missing permissions still require user action; after the problem is corrected, Globus can continue the task.
 
 ### Globus endpoints at RCAC
 
-TODO(arun): Rose to write.
+In the Globus interface, a named location you can browse is called a **collection**. RCAC provides collections for most clusters and storage systems. Each collection is a doorway to a particular storage system; it does not create a new copy of the data.
+
+To find a Purdue collection, select a collection search bar in File Manager and enter `Purdue` plus the cluster or storage-system name. Choose the collection carefully because some clusters expose home and scratch storage together, while others use separate collections.
+
+#### Cluster home and scratch storage
+
+For **Anvil**, **Negishi**, and **Gautschi**, home and scratch storage are available through one collection:
+
+- **Home and scratch:** `Purdue {Name} Cluster`, replacing `{Name}` with the cluster name. For example, search for `Purdue Anvil Cluster`. After opening the collection, use the path field and directory browser to move between the home and scratch filesystems.
+
+For **Bell** and **Gilbreth**, home and scratch storage use separate collections:
+
+- **Home directories:** `Purdue {Name} Cluster - Home Directories`
+- **Scratch directories:** `Purdue {Name} Cluster - Scratch`
+
+For example, a Gilbreth user should select `Purdue Gilbreth Cluster - Home Directories` for files in home and `Purdue Gilbreth Cluster - Scratch` for files in scratch. If the expected files are not visible, first confirm that you opened the correct collection.
+
+#### Group and archival storage
+
+These collections are independent of the cluster collections:
+
+- **Research Data Depot:** `Purdue Research Computing - Data Depot`. Search for `Purdue Data Depot`, then browse to your group's directory, such as `/depot/mylab/data/`.
+- **Fortress:** `Purdue Fortress HPSS Archive`. Search for `Purdue Fortress`, then browse to your personal or group archive space, such as `/group/mylab/`.
+
+Opening a collection does not grant additional access. Globus uses your RCAC identity and the underlying Unix permissions, so you will see only the directories and files your account is authorized to use. If a lab member cannot open a Depot group directory, verify their group membership rather than creating a new collection.
 
 ### Transferring to Depot and Fortress
 
-TODO(arun): Rose to write.
+1. Navigate to the [RCAC Globus transfer portal](https://transfer.rcac.purdue.edu/).
+2. Sign in with your Purdue account. On your first visit, approve the prompts that connect your Purdue identity to Globus. If you have not recently authorized your credentials, you will be prompted to log in with MFA.
+3. Open **File Manager** and switch to the two-panel view using the *Panels* options. Choose a collection for each panel. 
+
+![Example of the two-panel view in the Globus web application](../../../../assets/images/lifesciences/globus_two_pane_view.png)
+<div align="center">Above is an example of the two-panel view on the Globus webpage. Please note the <i>Panels</i> toggle in the upper right corner to select the two-panel view.</div>
+
+After both collections are open, to transfer data from Data Depot to Fortress:
+
+1. In one File Manager panel, select the collection search bar and search for "Purdue Data Depot". Select the `Purdue Research Computing - Data Depot` option. 
+2. After the collection loads, navigate to `/depot/{mylab}/` to access your lab Data Depot space and browse to the files or directories you want to transfer.  
+3. In the other panel, select the collection search bar and search for "Purdue Fortress". Select the `Purdue Fortress HPSS Archive` option. 
+4. This option will open you in your home directory. To access your group's Fortress space, type `/group/{mylab}/` into the path bar and hit enter to navigate.
+3. Select the items, choose the transfer direction, and start the transfer with the blue "Start" arrow on the source collection side. Globus copies the data; it does not remove the source.
+4. Open the **Activity** tab to monitor the task. Wait for a **Succeeded** status before deleting or changing the source copy. If a task fails, open its details to see which files and errors were reported.
+
+Alternatively, to transfer data from a cluster to Data Depot or Fortress, follow the above steps with your chosen cluster and storage destination.
+
+#### Additional parameters for Globus transfers
+Globus offers a series of parameters for the transfer in the **Transfer & Timer Options** drop-down menu between the two collections. Options include setting a label, applying a sync level, mirroring your directories, preserving source modification times, encrypting transfers, setting preferred notifications, and setting a recurring transfer (a Globus Timer).
+
+![Globus File Manager Transfer & Timer Options panel showing transfer settings in the Globus webpage](../../../../assets/images/lifesciences/globus_transfer_parameter_options.png)
+
+
 
 ### Sharing with external collaborators
+Globus can give an external collaborator access to selected data without requiring a Purdue or RCAC account and without exposing the rest of your storage. It does this through a **guest collection**, a named share rooted at a folder you choose.
 
-TODO(arun): Rose to write.
+Within a guest collection, you can assign permissions to individual Globus users or groups. Permissions may apply to the guest collection's top-level folder or to particular subfolders, allowing one collaborator to have read-only access to one part of the collection while another has read-write access to a different part. Globus shares folders rather than individual files; to share only one file, place it in a dedicated folder.
+
+1. Put the files in a dedicated folder so that the scope of the share is clear.
+2. In File Manager, open the RCAC collection, select the folder, and choose **Share**.
+3. Choose **Add Guest Collection**, give the collection a descriptive name, and create it.
+4. Under **Permissions**, choose the folder or subfolder to share and add the collaborator by Globus identity or email address. Grant read access for downloads; add write access only if the collaborator must upload, replace, or delete files.
+5. Send the collaborator the guest collection link. They sign in to Globus with their own institutional identity or a Globus ID and can transfer the data to a collection they can access. When creating the guest collection, there is also an option to send an email to your collaborator with a message.
+6. Review and remove the permission when the collaboration ends.
+
+![Permissions page on a guest collection](../../../../assets/images/lifesciences/globus_guest_collection_permissions.png)
+
+<div align="center">Above is an example of the <i>Permissions</i> tab on a guest collection.</div>
+
+!!! note "Permissions are additive"
+    A narrower permission cannot take away access granted by a broader permission. For example, giving someone read-write access at the top level and read-only access to a subfolder does not make that subfolder read-only for that person. Start with the narrowest access needed and avoid overlapping permissions when possible.
+
+Share the smallest practical folder, use read-only access by default, and never share credentials. Globus permissions add an access layer but do not replace the underlying filesystem permissions or make a storage system suitable for regulated data. Follow the project's approved data-handling plan before sharing human-subject or other restricted data. See the [Globus sharing guide](https://docs.globus.org/guides/tutorials/manage-files/share-files/) for the full procedure.
 
 ### Globus Connect Personal
+Install [Globus Connect Personal](https://app.globus.org/file-manager/gcp) when one side of a transfer is your Windows, macOS, or Linux computer. It turns selected folders on that computer into a Globus collection.
 
-TODO(arun): Rose to write.
+1. Download and install Globus Connect Personal, sign in, and give the new collection a recognizable name such as `Rose's laptop`.
+2. In its preferences, choose which local folders Globus may access. Do not expose your entire disk unless that access is necessary. Only select the "Shareable" option if you will need to create a guest collection on your device.
+3. Keep Globus Connect Personal running and keep the computer awake and connected to the network during a transfer.
+4. In the Globus File Manager, select your personal collection in one panel and an RCAC collection in the other, then start the transfer as usual.
+
+Globus Connect Personal is useful for moving data between a computer and RCAC resources. For a transfer between Data Depot, Fortress, a cluster, or another institution's Globus collection, use those collections directly so your computer does not sit in the data path.
 
 ## DMP text
 
