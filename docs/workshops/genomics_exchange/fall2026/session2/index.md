@@ -12,7 +12,7 @@ tags:
     - **Date:** Tuesday, September 29, 2026
     - **Time:** 11:00 AM – 12:00 PM EDT (10:00 – 11:00 AM CDT)
     - **Format:** 60 min interactive workshop, online (Microsoft Teams)
-    - **Instructors:** Arun Seetharam and Rose Wilfong (RCAC)
+    - **Instructors:** Arun Seetharam and Rosalie Wilfong, Senior Research Data Facilitator (RCAC)
     - **Register:** [Register for Session 2 on Microsoft Teams](https://events.teams.microsoft.com/event/f99c5474-7bdf-4987-9391-52e14578676b@4130bd39-7c53-419c-b1e5-8758d6d63f21). The Teams join link is sent to registrants.
     - **Recording:** [recording link coming soon]
     - **Materials:** This page.
@@ -25,17 +25,25 @@ RCAC has four storage tiers, each built for a different stage of a project. The 
 
 A typical genomics project moves through the tiers like this:
 
-1. Raw data arrives from the sequencing core. Put it on **Data Depot** and archive a copy to **Fortress** right away. For sequence data you will share, consider also submitting to NCBI (SRA or GEO) now with a release hold. NCBI keeps it private and releases it when the accession is published. Fortress remains your exact-copy backup; SRA does not return files byte-for-byte as submitted.
+1. Raw data arrives from the sequencing core. Put it on **Data Depot** and archive a copy to **Fortress** right away.
 2. Copy the inputs your jobs need into **scratch** and run the analysis there.
 3. Copy results worth keeping back to **Data Depot**.
 4. When the project ends or the paper is published, bundle the project and archive it to **Fortress**.
+
+<figure markdown="span">
+  ![Diagram of the data lifecycle on RCAC. Step 1: raw FASTQ files move from the sequencing core to Data Depot, the lab's shared, snapshotted copy, and a raw copy goes from Depot to Fortress, the tape archive that keeps two copies. Step 2: inputs are staged from Depot to scratch, the purged job workspace. Step 3: results are copied from scratch back to Depot. Step 4: the bundled project goes from Depot to Fortress at the end. A dashed optional arrow from Depot to SRA or GEO shows submitting early with a release hold, with public release on publication.](/assets/images/lifesciences/data_lifecycle_rcac.svg)
+  <figcaption>Data Depot is the hub. Scratch is temporary, Fortress is the archive, and SRA or GEO is the optional sharing copy.</figcaption>
+</figure>
+
+!!! tip "Share early with an NCBI release hold"
+    For sequence data you will share, consider submitting to NCBI (SRA or GEO) when it arrives, with a release hold. NCBI keeps it private and releases it when the accession is published. An SRA hold lasts up to 3 years at a time and can be extended as often as you need. Fortress remains your exact-copy backup, because SRA does not return files byte-for-byte as submitted.
 
 **Home** holds your scripts, configuration files, and small documents, never sequencing data.
 
 | | Home | Scratch | Data Depot | Fortress |
 |---|---|---|---|---|
 | **Purpose** | Scripts, configs, small files | Working space for running jobs | Shared, active lab data | Long-term archive (tape) |
-| **Capacity** | 25 GB per user (TODO(arun): verify) | Large per-user quota; check with `myquota` | Purchased in 1 TB increments; 100 GB free trial | No quota |
+| **Capacity** | 25 GB per user | Large per-user quota; check with `myquota` | Purchased in 1 TB increments; 100 GB free trial | No quota |
 | **Backup** | Nightly snapshots, kept up to about 3 months | None | Nightly snapshots, kept up to about 3 months; mirrored at two campus sites | Two copies on separate media; no protection against deletion |
 | **Cost** | Included | Included | See the [RCAC orders page](https://www.rcac.purdue.edu/orders/products?category=3) (sign-in required) | Free with RCAC cluster access |
 | **Purge** | Never | Files not accessed or modified in 60 days (30 days on Bell and Anvil) | Never | Never |
@@ -43,6 +51,27 @@ A typical genomics project moves through the tiers like this:
 
 !!! warning "Scratch purge"
     Scratch is not backed up, and RCAC no longer sends warning emails before a purge. Run `purgelist` on a cluster to see which of your scratch files are scheduled for removal.
+
+Check your own usage and limits for home and scratch, and which scratch files are due for removal:
+
+```bash
+myquota
+purgelist
+```
+
+??? example "Expected output (Negishi)"
+    ```text
+    Type       Location             Size    Limit    Use   Files   Limit    Use
+    ===========================================================================
+    home       username           17.7GB   25.0GB  71.0%      -       -      -
+    scratch    username            1.4TB  200.0TB   0.7%  139.9K    2.0M   7.0%
+    ```
+
+    Scratch limits differ by cluster. Scratch also limits the number of files, which small-file workflows can reach before the size limit. When nothing is scheduled for removal, `purgelist` starts with:
+
+    ```text
+    There are no files owned by username to be removed from /scratch/negishi
+    ```
 
 Snapshots let you recover from accidental deletion for a limited time, but they are not a backup. A file deleted on the day it was created cannot be recovered. See [Data Depot lost file recovery](../../../../userguides/depot/recover/index.md).
 
@@ -57,7 +86,21 @@ Snapshots let you recover from accidental deletion for a limited time, but they 
 
 ### Sharing and permissions
 
-A lab's Depot space is `/depot/mylab/`, where `mylab` is your group name. By default it has a `data/` folder for shared research data and an `apps/` folder for shared software. Unix groups control access: for example, write access to `/depot/mylab/data/` requires membership in `mylab-data`. The PI or a designee manages membership on the [RCAC group management page](https://www.rcac.purdue.edu/account/groups). New members must log out and back in before their access takes effect.
+A lab's Depot space is `/depot/mylab/`, where `mylab` is your group name. Unix groups control access to each folder. The default layout is:
+
+```text
+/depot/mylab/    top level: open to members of the mylab group
+├── data/        shared research data; read and write: mylab-data only
+├── apps/        shared software; write: mylab-apps, read: all of mylab
+└── etc/         shared shell settings (bashrc, cshrc); read: all of mylab
+```
+
+For example, to read or write `/depot/mylab/data/`, you must be in `mylab-data`. RCAC can add more folders or change this layout on request. The PI or a designee manages membership on the [RCAC group management page](https://www.rcac.purdue.edu/account/groups). Open your group, select the **Members** tab, and use **Add Member** to add someone. Each person's row has a checkbox for every queue and Unix group, so you can grant `mylab-data` access without granting cluster queue access, or the reverse. New members must log out and back in before their access takes effect.
+
+<figure markdown="span">
+  ![RCAC group management page for a research group, viewed by a group manager, with the Members tab selected. Filter users, Export, Add Member, and Import controls sit above a Managers table. Each row lists a person's name and username followed by checkboxes under two headings: Queues, one column per cluster queue, and Unix Groups, one column per storage group. Names, usernames, and group names are redacted.](/assets/images/lifesciences/rcac_group_members_tab.png)
+  <figcaption>The Members tab of a group. Checkboxes under Unix Groups control Data Depot access; checkboxes under Queues control cluster access.</figcaption>
+</figure>
 
 Depot is suitable for non-HIPAA human subjects data. It is not approved for HIPAA, ePHI, FISMA, ITAR, or other regulated data.
 
@@ -77,11 +120,25 @@ Check which lab storage groups you belong to:
 groups
 ```
 
+??? example "Expected output"
+    ```text
+    mylab mylab-apps mylab-data
+    ```
+
+    Your list may include other groups too. If `mylab-data` is missing, ask your PI to add you, then log out and back in.
+
 Count the files in a project directory before archiving (thousands of files means bundle them):
 
 ```bash
 find /depot/mylab/data/project_2026 -type f | wc -l
 ```
+
+??? example "Expected output"
+    A single number, the count of files in the directory:
+
+    ```text
+    48213
+    ```
 
 Bundle a project directory into one archive in your lab's Fortress space, with checksum verification:
 
@@ -90,17 +147,51 @@ cd /depot/mylab/data
 htar -Hverify=1 -cvf /group/mylab/project_2026.tar project_2026
 ```
 
+??? example "Expected output (shortened)"
+    `htar` prints one `HTAR: a` line per file it adds, then a summary. The last line tells you whether it worked:
+
+    ```text
+    HTAR: a   project_2026/raw/sample1_R1.fastq.gz
+    HTAR: a   project_2026/raw/sample1_R2.fastq.gz
+    ...
+    HTAR Create complete for /group/mylab/project_2026.tar. ...
+    HTAR: HTAR SUCCESSFUL
+    ```
+
 List the contents of that archive without restoring it:
 
 ```bash
 htar -tvf /group/mylab/project_2026.tar
 ```
 
+??? example "Expected output (shortened)"
+    One line per file, with permissions, owner, size in bytes, and date:
+
+    ```text
+    HTAR: -rw-r--r--  username/mylab 1843200512 2026-09-15 09:58  project_2026/raw/sample1_R1.fastq.gz
+    HTAR: -rw-r--r--  username/mylab 1851392000 2026-09-15 09:58  project_2026/raw/sample1_R2.fastq.gz
+    ...
+    HTAR: Listing complete for /group/mylab/project_2026.tar, ...
+    HTAR: HTAR SUCCESSFUL
+    ```
+
 List what is in your lab's Fortress space:
 
 ```bash
 hsi ls -l /group/mylab
 ```
+
+??? example "Expected output (shortened)"
+    The first time you use `hsi` on a cluster, it creates a Fortress keytab for you and prints a notice; that is expected. After a few header lines, `hsi` lists each file with its size in bytes:
+
+    ```text
+    Username: username  UID: 12345  Acct: 12345(12345) Copies: 1 COS: 0 Firewall: off [hsi.10.3.0.p3 ...]
+    /group/mylab:
+    -rw-------    1 username  12345      16277207552 Sep 15 10:14 project_2026.tar
+    -rw-------    1 username  12345           629024 Sep 15 10:14 project_2026.tar.idx
+    ```
+
+    Each `htar` archive has a matching `.idx` index file. Keep both; `htar` needs the index to list or extract the archive. Run `hsi ls -l` with no path to list your personal Fortress home directory instead.
 
 !!! note
     `htar` cannot archive a single file larger than 64 GB. Use `htar_large` for those files, or compress and `hsi put` them individually. Archiving a large project can take hours, so run it inside a batch job rather than on a login node.
@@ -223,7 +314,7 @@ The [NIH Data Management and Sharing Policy](https://sharing.nih.gov/data-manage
 
 - **Share in an established repository.** Use a domain repository where one exists (for example, SRA for reads, GEO for expression data, dbGaP for controlled-access human data). RCAC storage keeps your data safe but is not a public sharing repository.
 - **Share on time.** Share data no later than the associated publication or the end of the award period, whichever comes first.
-- **Submit early, release later.** Submitting raw reads to SRA or GEO at the start of a project, with a release hold, settles the repository and metadata up front. NCBI releases held data once the accession is published. TODO(arun): verify current maximum hold period and extension process. Do not use this route for human participant data; controlled-access data belongs in dbGaP.
+- **Submit early, release later.** Submitting raw reads to SRA or GEO at the start of a project, with a release hold, settles the repository and metadata up front. NCBI releases held data once the accession is published. An SRA hold lasts up to 3 years at a time and can be extended. Do not use this route for human participant data; controlled-access data belongs in dbGaP.
 
 ### Getting help writing a DMP
 
@@ -236,17 +327,17 @@ Paste this paragraph into your DMP template or facilities statement. Replace the
 
 > Data will be stored on the Purdue Research Data Depot, operated by the Rosen Center for Advanced Computing (RCAC). Data Depot is enterprise-class GPFS storage mirrored across two campus data centers to protect against hardware failure and physical disaster, with nightly snapshots retained for up to three months to recover from accidental deletion. Access is restricted to members of the [LAB NAME] group, whose membership is authorized by the PI. Analyses will be performed on RCAC community clusters, which provide high-performance scratch storage for active computation. Raw data and final results will be archived on Fortress, RCAC's tape archive with a capacity of over 200 PB, which keeps two copies of every file on separate media. Data will be retained for [NUMBER] years after the end of the award, and data underlying publications will be deposited in [REPOSITORY, for example SRA or GEO] no later than the time of publication.
 
-TODO(arun): verify this paragraph with RCAC before sharing it as approved text. For non-HIPAA human subjects data on Depot, RCAC provides [IRB-ready data security text](../../../../userguides/depot/faqs.md#what-do-i-need-to-do-in-order-to-store-non-hipaa-human-subjects-data-in-the-data-depot).
+For non-HIPAA human subjects data on Depot, RCAC provides [IRB-ready data security text](../../../../userguides/depot/faqs.md#what-do-i-need-to-do-in-order-to-store-non-hipaa-human-subjects-data-in-the-data-depot).
 
 ## Summary
 
 **Before you generate data, do these 5 things:**
 
-1. **Get Data Depot space for the lab** (purchase or trial) and agree on a folder layout.
-2. **Set up access:** decide who needs read or write access and add them to the lab's Unix groups.
-3. **Map each stage to a tier:** raw data on Depot, working files in scratch, results back on Depot, finished projects on Fortress.
-4. **Archive raw data to Fortress on arrival**, bundled with `htar` and verified.
-5. **Write the DMP now:** choose the sharing repository, the metadata standard, and the retention period. PURR can help.
+1. **Get Data Depot space for the lab** (purchase or trial) and agree on a folder layout. See [Getting Data Depot for your lab](#getting-data-depot-for-your-lab).
+2. **Set up access:** decide who needs read or write access and add them to the lab's Unix groups. See [Sharing and permissions](#sharing-and-permissions).
+3. **Map each stage to a tier:** raw data on Depot, working files in scratch, results back on Depot, finished projects on Fortress. See [The data lifecycle on RCAC](#the-data-lifecycle-on-rcac).
+4. **Archive raw data to Fortress on arrival**, bundled with `htar` and verified. See [Commands](#commands), or [Transferring to Depot and Fortress](#transferring-to-depot-and-fortress) to use Globus.
+5. **Write the DMP now:** choose the sharing repository, the metadata standard, and the retention period. See [DMP text](#dmp-text); PURR can help.
 
 **Feedback survey:** [Take the post-session survey](https://purdue.ca1.qualtrics.com/jfe/form/SV_5zozxPOpfZsjyui)
 
