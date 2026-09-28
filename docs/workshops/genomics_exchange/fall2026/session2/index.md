@@ -158,8 +158,10 @@ Opening a collection does not grant additional access. Globus uses your RCAC ide
 2. Sign in with your Purdue account. On your first visit, approve the prompts that connect your Purdue identity to Globus. If you have not recently authorized your credentials, you will be prompted to log in with MFA.
 3. Open **File Manager** and switch to the two-panel view using the *Panels* options. Choose a collection for each panel. 
 
-![Example of the two-panel view in the Globus web application](../../../../assets/images/lifesciences/globus_two_pane_view.png)
-<div align="center">Above is an example of the two-panel view on the Globus webpage. Please note the <i>Panels</i> toggle in the upper right corner to select the two-panel view.</div>
+<figure markdown="span">
+  ![Globus File Manager in two-panel mode, with collection and path fields at the top of each pane and the middle Panels button selected.](/assets/images/lifesciences/globus_two_pane_view.png)
+  <figcaption>Select the middle Panels button to display the source and destination collections side by side.</figcaption>
+</figure>
 
 After both collections are open, to transfer data from Data Depot to Fortress:
 
@@ -175,8 +177,10 @@ Alternatively, to transfer data from a cluster to Data Depot or Fortress, follow
 #### Additional parameters for Globus transfers
 Globus offers a series of parameters for the transfer in the **Transfer & Timer Options** drop-down menu between the two collections. Options include setting a label, applying a sync level, mirroring your directories, preserving source modification times, encrypting transfers, setting preferred notifications, and setting a recurring transfer (a Globus Timer).
 
-![Globus File Manager Transfer & Timer Options panel showing transfer settings in the Globus webpage](../../../../assets/images/lifesciences/globus_transfer_parameter_options.png)
-
+<figure markdown="span">
+  ![Expanded Transfer & Timer Options between the file panels, showing synchronization, file-preservation, encryption, notification, scheduling, and repeat controls.](/assets/images/lifesciences/globus_transfer_parameter_options.png)
+  <figcaption>Expand Transfer & Timer Options to configure transfer behavior, notifications, and recurring schedules.</figcaption>
+</figure>
 
 
 ### Sharing with external collaborators
@@ -191,9 +195,10 @@ Within a guest collection, you can assign permissions to individual Globus users
 5. Send the collaborator the guest collection link. They sign in to Globus with their own institutional identity or a Globus ID and can transfer the data to a collection they can access. When creating the guest collection, there is also an option to send an email to your collaborator with a message.
 6. Review and remove the permission when the collaboration ends.
 
-![Permissions page on a guest collection](../../../../assets/images/lifesciences/globus_guest_collection_permissions.png)
-
-<div align="center">Above is an example of the <i>Permissions</i> tab on a guest collection.</div>
+<figure markdown="span">
+  ![Globus guest-collection Permissions tab, with identities redacted and separate Read and Write controls for each shared path.](/assets/images/lifesciences/globus_guest_collection_permissions.png)
+  <figcaption>Guest-collection permissions assign separate read and write access for each shared path.</figcaption>
+</figure>
 
 !!! note "Permissions are additive"
     A narrower permission cannot take away access granted by a broader permission. For example, giving someone read-write access at the top level and read-only access to a subfolder does not make that subfolder read-only for that person. Start with the narrowest access needed and avoid overlapping permissions when possible.
