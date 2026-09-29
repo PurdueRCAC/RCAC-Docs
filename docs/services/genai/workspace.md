@@ -48,9 +48,9 @@ retrieval results easier to interpret and lets you share each collection indepen
 When you upload a document, GenAI Studio automatically uses [EmbeddingGemma 300M](models.md#document-embedding-model) to prepare it for semantic search and retrieval. You do not need to select or configure the embedding model, and it is not exposed as a callable API model.
 
 !!! warning "Review access before uploading"
-    Keep a Knowledge Base private unless you intend to share its documents. Do not upload
-    sensitive, proprietary, or regulated data. See [Groups and Sharing](groups.md) before granting
-    access to collaborators.
+    A Knowledge Base may contain public or sensitive data (L2), but not restricted data. Keep it
+    private unless you intend to share its documents. Before granting access to sensitive data,
+    confirm that every collaborator is authorized and review [Groups and Sharing](groups.md).
 
 <p style="text-align: center;">
   <img src="/assets/images/services/genai/knowledge-create.png" alt="GenAI Studio knowledge base creation screen" width="60%">

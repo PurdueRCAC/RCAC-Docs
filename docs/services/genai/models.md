@@ -83,7 +83,7 @@ configured tool parser. See [Tool Calling](tool-calling.md) for the supported UI
 !!! warning "Medical model limitations"
     `medgemma:27b` is provided for research and experimentation. Model output is not medical
     advice and must not be used as a substitute for review by a qualified professional. Do not
-    submit protected health information or other regulated data to GenAI Studio.
+    submit protected health information or other restricted data to GenAI Studio.
 
 ## Document Embedding Model
 

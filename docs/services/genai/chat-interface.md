@@ -79,10 +79,10 @@ Before copying the link, review its access setting in the share dialog:
 Both modes require Purdue SSO with an eligible account; unauthenticated sharing is not available.
 
 !!! warning "Review the audience before sharing"
-    A share link is not a substitute for access control. Review the complete conversation, remove
-    sensitive or unpublished information, and select the narrowest audience that meets your need.
-    The link can be forwarded, but only users permitted by the selected access mode can view the
-    conversation.
+    A share link is not a substitute for access control. Do not share restricted data. If a
+    conversation contains sensitive data (L2), use **Private** access and grant access only to
+    authorized users or groups. Review the complete conversation and select the narrowest audience
+    that meets your need.
 
 The resulting link has this form:
 
