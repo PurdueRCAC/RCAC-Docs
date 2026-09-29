@@ -180,7 +180,7 @@
       "publication_date": "2016",
       "title": "oxfordrobotcar",
       "description": "The Oxford RobotCar Dataset is a large-scale autonomous driving dataset collected by the University of Oxford. It contains repeated traversals of a route through Oxford, providing data from cameras, LiDAR, GPS/INS, and other vehicle sensors.",
-      "data_type": "Extracted Images, LiDAR point clouds, GPS/INS measurements, sensor timestamps on Ceph",
+      "data_type": "Compressed as LMDB of Anvil FileSystem; Extracted Images, LiDAR point clouds, GPS/INS measurements, sensor timestamps on Ceph",
       "usage_policy": "This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License and is intended for research and academic use.",
       "bibtex": "@article{maddern2017oxford,\n  author={Maddern, Will and Pascoe, Geoffrey and Linegar, Chris and Newman, Paul},\n  title={1 Year, 1000km: The Oxford RobotCar Dataset},\n  journal={The International Journal of Robotics Research},\n  volume={36},\n  number={1},\n  pages={3--15},\n  year={2017},\n  publisher={SAGE Publications},\n  doi={10.1177/0278364916679498}\n}\n\n@article{maddern2020real_time,\n  author={Maddern, Will and Pascoe, Geoffrey and Gadd, Matthew and Barnes, Dan and Yeomans, Ben and Newman, Paul},\n  title={Real-time Kinematic Ground Truth for the Oxford RobotCar Dataset},\n  journal={arXiv preprint arXiv:2002.10152},\n  year={2020},\n  url={https://arxiv.org/abs/2002.10152}\n}",
       "cite": "Maddern, W., Pascoe, G., Linegar, C., Newman, P. (2017). 1 Year, 1000km: The Oxford RobotCar Dataset. The International Journal of Robotics Research.",
@@ -189,6 +189,24 @@
       "file_number": "34.332M (extracted)",
       "discipline": "AI / Robotics / PhysicalAI",
       "dataset_size": "Approx. 10TB",
+      "public": true
+    },
+    "droid": {
+      "folder": "droid",
+      "doi": "10.15607/RSS.2024.XX.120",
+      "link": "https://droid-dataset.github.io/",
+      "publication_date": "2024",
+      "title": "DROID: A Large-Scale In-The-Wild Robot Manipulation Dataset",
+      "description": "DROID (Distributed Robot Interaction Dataset) is a large-scale, open-source dataset for robot manipulation collected across diverse real-world environments. It comprises 76k demonstration trajectories (~350 hours of interaction) collected over 12 months using Franka Panda arms across 564 scenes and 86 tasks, supporting generalist robot policy training.",
+      "data_type": "TFRecords",
+      "usage_policy": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+      "bibtex": "@inproceedings{Khazatsky-RSS-24,\n  author    = {Alexander Khazatsky and Karl Pertsch and Suraj Nair and Ashwin Balakrishna and Sudeep Dasari and Siddharth Singh and Sicheng Liu and Anurag Ajay and Kota Kawaharazuka and Christian Zhang and others},\n  title     = {DROID: A Large-Scale In-The-Wild Robot Manipulation Dataset},\n  booktitle = {Proceedings of Robotics: Science and Systems (RSS)},\n  year      = {2024},\n  month     = {July},\n  address   = {Delft, Netherlands},\n  doi       = {10.15607/RSS.2024.XX.120},\n  url       = {https://www.roboticsproceedings.org/rss20/p120.html}\n}",
+      "cite": "Khazatsky, A., Pertsch, K., Nair, S., Balakrishna, A., Dasari, S., Singh, S., et al. (2024). DROID: A Large-Scale In-The-Wild Robot Manipulation Dataset. In Proceedings of Robotics: Science and Systems (RSS 2024).",
+      "downloaded": "2026-07-10",
+      "usage_policy_link": "https://creativecommons.org/licenses/by/4.0/",
+      "file_number": "76k trajectories, 2050 TFRecords",
+      "discipline": "AI / Robotics / PhysicalAI",
+      "dataset_size": "Approx. 1.7TB per version (v1.0.0, v1.0.1; 3.4TB total)",
       "public": true
     }
   }

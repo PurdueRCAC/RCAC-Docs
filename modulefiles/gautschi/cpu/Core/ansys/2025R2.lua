@@ -52,3 +52,6 @@ setenv("HOOPS_PICTURE","opengl")
 setenv("ANSYSLMD_LICENSE_FILE","1726@marina.ecn.purdue.edu")
 setenv("ANSYSLI_SERVERS","2325@marina.ecn.purdue.edu")
 setenv("RCAC_ANSYS_MPI", "Open MPI Distributed Parallel")
+
+-- add this env variable to make sure that there aren't any mpi errors
+setenv("I_MPI_HYDRA_BOOTSTRAP", "ssh")

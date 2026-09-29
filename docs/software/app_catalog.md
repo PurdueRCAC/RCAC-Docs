@@ -11,7 +11,7 @@ search:
 # All software and versions on RCAC clusters
 
 ## Overview
-As of **September 04, 2026**, there have been a total of **287** applications with **2639** available versions deployed across **6** RCAC HPC clusters: **ANVIL, BELL, GAUTSCHI, GILBRETH, NEGISHI, SCHOLAR**.
+As of **September 29, 2026**, there have been a total of **288** applications with **2641** available versions deployed across **6** RCAC HPC clusters: **ANVIL, BELL, GAUTSCHI, GILBRETH, NEGISHI, SCHOLAR**.
 
 ## Applications Catalog
 
@@ -204,6 +204,11 @@ As of **September 04, 2026**, there have been a total of **287** applications wi
       <td><a href="../apps_md/conda"><strong>conda</strong></a></td>
       <td>Programming</td>
       <td>ANVIL, BELL, GAUTSCHI, GILBRETH, NEGISHI, SCHOLAR</td>
+    </tr>
+    <tr>
+      <td><a href="../apps_md/converge"><strong>converge</strong></a></td>
+      <td>Miscellaneous</td>
+      <td>SCHOLAR</td>
     </tr>
     <tr>
       <td><a href="../apps_md/cosmosscope"><strong>cosmosscope</strong></a></td>

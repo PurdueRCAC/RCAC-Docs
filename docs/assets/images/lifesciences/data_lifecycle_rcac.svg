@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 45 880 315" role="img" aria-labelledby="t d" font-family="Roboto, Helvetica, Arial, sans-serif">
+  <title id="t">Data lifecycle on RCAC</title>
+  <desc id="d">Raw data moves from the sequencing core to Data Depot. From Depot, inputs are staged to scratch for jobs and results are copied back. Depot also sends a raw copy on arrival and the bundled project at the end to Fortress, and can optionally submit sequence data to SRA or GEO with a release hold.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#333333"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="45" width="880" height="315" rx="12" fill="#ffffff"/>
+
+  <!-- Boxes -->
+  <g stroke="#333333" stroke-width="1.5">
+    <rect x="20" y="60" width="160" height="70" rx="8" fill="#f2f2f2"/>
+    <rect x="340" y="60" width="200" height="70" rx="8" fill="#f3ead8" stroke-width="2.5"/>
+    <rect x="700" y="60" width="160" height="70" rx="8" fill="#f2f2f2"/>
+    <rect x="180" y="270" width="200" height="70" rx="8" fill="#f2f2f2"/>
+    <rect x="520" y="270" width="200" height="70" rx="8" fill="#ffffff" stroke-dasharray="6 4"/>
+  </g>
+
+  <g fill="#1a1a1a" text-anchor="middle">
+    <text x="100" y="92" font-size="16" font-weight="700">Sequencing core</text>
+    <text x="100" y="113" font-size="13">raw FASTQ files</text>
+
+    <text x="440" y="92" font-size="16" font-weight="700">Data Depot</text>
+    <text x="440" y="113" font-size="13">shared lab copy, snapshotted</text>
+
+    <text x="780" y="92" font-size="16" font-weight="700">Scratch</text>
+    <text x="780" y="113" font-size="13">job workspace, purged</text>
+
+    <text x="280" y="302" font-size="16" font-weight="700">Fortress</text>
+    <text x="280" y="323" font-size="13">tape archive, two copies</text>
+
+    <text x="620" y="302" font-size="16" font-weight="700">SRA or GEO</text>
+    <text x="620" y="323" font-size="13">optional; public on publication</text>
+  </g>
+
+  <!-- Arrows -->
+  <g stroke="#333333" stroke-width="2" fill="none" marker-end="url(#arrow)">
+    <line x1="180" y1="95" x2="336" y2="95"/>
+    <line x1="540" y1="85" x2="696" y2="85"/>
+    <line x1="700" y1="108" x2="544" y2="108"/>
+    <line x1="400" y1="130" x2="302" y2="266"/>
+    <line x1="480" y1="130" x2="598" y2="266" stroke-dasharray="6 4"/>
+  </g>
+
+  <!-- Arrow labels -->
+  <g fill="#1a1a1a" font-size="14">
+    <text x="258" y="85" text-anchor="middle">1. Raw data in</text>
+    <text x="620" y="75" text-anchor="middle">2. Stage inputs</text>
+    <text x="620" y="128" text-anchor="middle">3. Copy results back</text>
+    <text x="322" y="195" text-anchor="end">1. Raw copy on arrival</text>
+    <text x="322" y="215" text-anchor="end">4. Bundled project at end</text>
+    <text x="575" y="195" text-anchor="start">Submit early with</text>
+    <text x="575" y="215" text-anchor="start">a release hold</text>
+  </g>
+</svg>

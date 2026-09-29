@@ -215,7 +215,7 @@ What if we want to plot a heat map? There are two main ways to do so:
 - Imshow
 - Pcolormesh
 
-Imshow is much faster than Pcolormesh, but it also has more limitations. Imshow treats every data point like a pixel, and each pixel is the same size; it assumes a uniform, regular grid of points as an input. In the following script, we use a new NumPy function: `np.meshgrid()`. It takes at least two 1D NumPy arrays (vectors) and creates N, N-D matrix of points that correspond to the input vectors. In this case, we want to generate two matrices that correspond to the x- and y-directions. So, if we had two vectors: `[1,2]` (x) and `[3,4]` (y), and we called `np.meshgrid(x,y)` on them, it would give us two matrices as output:
+Imshow is much faster than Pcolormesh, but it also has more limitations. Imshow treats every data point like a pixel, and each pixel is the same size; it assumes a uniform, regular grid of points as an input. In the following script, we use a new NumPy function: `np.meshgrid()`. It takes at least two 1D NumPy arrays (vectors) and creates N, N-Dimensional matrices of points that correspond to the input vectors. In this case, we want to generate two matrices that correspond to the x- and y-directions. So, if we had two vectors: `[1,2]` (x) and `[3,4]` (y), and we called `np.meshgrid(x,y)` on them, it would give us two matrices as output:
 
 <table>
   <caption>X</caption>

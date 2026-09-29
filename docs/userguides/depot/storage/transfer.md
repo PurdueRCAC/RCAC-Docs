@@ -26,7 +26,17 @@ Data Depot supports several methods for file transfer.
 
 The RCAC collections are as follows. A search for "Purdue" will give you several suggested results you can choose from, or you can give a more specific search.
 
-- Home Directory storage: *"Purdue Research Computing - Home Directories"*
+For **Bell** and **Gilbreth**, home and scratch directories have different collections:
+
+- **Home Directory storage:** *"Purdue {Name} Cluster - Home Directories"*
+- **Scratch Directory storage:** *"Purdue {Name} Cluster - Scratch"* 
+
+For **Anvil**, **Negishi**, and **Gautschi**, home and scratch are combined in one collection and users can navigate using the path: 
+
+- **Collection Home and Scratch:** *"Purdue {Name} Cluster"*
+
+To access group storage space and archival storage: 
+
 - **Research Data Depot:** *"Purdue Research Computing - Data Depot"* — a search for "Depot" should provide appropriate matches to choose from.
 - **Fortress:** *"Purdue Fortress HPSS Archive"* — a search for "Fortress" should provide appropriate matches to choose from.
 

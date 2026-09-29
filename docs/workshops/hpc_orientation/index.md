@@ -7,13 +7,13 @@ tags:
 
 # Getting started with bioinformatics and computing at RCAC: a guide for biologists
 
-An in-person, full-day orientation to RCAC's clusters and services for biologists (faculty, postdocs, and graduate students) who are new to Purdue or new to research computing. Co-delivered by Arun Seetharam and Michael Carlson.
+An in-person, orientation to RCAC's clusters and services for biologists (faculty, postdocs, and graduate students) who are new to Purdue or new to research computing. Co-delivered by Arun Seetharam and Michael Carlson.
 
 !!! info "Session details"
     - **Date:** Friday, October 30, 2026
-    - **Format:** Full day, in person
+    - **Format:** 1.5 hrs, in person
     - **Location:** West Lafayette (room details provided upon registration)
-    - **Time:** TBD (EDT)
+    - **Time:** 10:00 - 11:30 AM
     - **Registration:** [Register on luma](https://luma.com/rxt8nytv)
     - **Instructors:** Arun Seetharam and Michael Carlson
 

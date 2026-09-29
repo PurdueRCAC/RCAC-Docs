@@ -66,6 +66,7 @@ Choose your preferred access method based on your workflow needs.
 | Dataset | Description |
 |---------|-------------|
 | [**COCO**](ai/COCO.md) | Common Objects in Context - object detection, segmentation, and captioning |
+| [**DROID**](ai/droid.md) | A Large-Scale In-the-Wild Robot Manipulation Dataset |
 | [**Oxford Robot Car**](ai/oxfordrobotcar.md) | Large-scale autonomous driving dataset with camera, LiDAR, GPS/INS, and vehicle sensor data |
 | [**LVIS**](ai/LVIS.md) | Large Vocabulary Instance Segmentation |
 | [**VisualGenome**](ai/visualgenome.md) | Visual knowledge base with structured image annotations |
