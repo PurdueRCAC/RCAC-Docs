@@ -2420,5 +2420,13 @@
     "topic": [
       "Library"
     ]
+  },
+  "converge": {
+    "description": "Ultra simple settings management for (only) Python apps",
+    "homepage": null,
+    "source": "pypi",
+    "topic": [
+      "Miscellaneous"
+    ]
   }
 }
