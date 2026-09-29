@@ -14,7 +14,7 @@ tags:
     - **Format:** 60 min interactive workshop, online (Microsoft Teams)
     - **Instructors:** Arun Seetharam and Rosalie Wilfong, Senior Research Data Facilitator (RCAC)
     - **Register:** [Register for Session 2 on Microsoft Teams](https://events.teams.microsoft.com/event/f99c5474-7bdf-4987-9391-52e14578676b@4130bd39-7c53-419c-b1e5-8758d6d63f21). The Teams join link is sent to registrants.
-    - **Recording:** [recording link coming soon]
+    - **Recording:** [Teams Meeting](https://purdue0-my.sharepoint.com/:v:/g/personal/aseethar_purdue_edu/IQD3sXpQX1_uRLU_QEjT0I5cAZgXip9Jw0Kzmygk3vhSeoM?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=XqbHxb)
     - **Materials:** This page.
 
 This page is for Purdue faculty, postdocs, students, and staff in the life sciences who store or analyze research data on RCAC systems, whether or not you attended the session. It explains what each RCAC storage tier (home, scratch, Data Depot, Fortress) is for, how to share data within your lab and archive it to tape, how Globus moves data between tiers and to collaborators, and what to write in an NIH Data Management and Sharing (DMS) Plan. It ends with a five-step checklist to complete before your lab generates new data. No prior HPC experience is needed. An RCAC account and your lab's Data Depot group name help you run the commands.
