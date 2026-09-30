@@ -26,7 +26,7 @@ depend on their Workspace configuration.
 
 !!! tip "Start with a recommended model"
     The four primary vLLM-backed models are tagged **Recommended** in AnvilGPT. Use
-    `gpt-oss:120b` for general reasoning, `qwen3.6:27b` for coding and agentic workflows,
+    `gpt-oss:120b` for general reasoning, `qwen3.8:27b` for coding and agentic workflows,
     or `gemma4:26b-a4b` and `llama4:latest` when your prompt includes images.
 
 ## Recommended Models
@@ -39,14 +39,11 @@ limit, not the larger native limit that some upstream model cards advertise.
 | [`gpt-oss:120b`](https://huggingface.co/openai/gpt-oss-120b) | Text | General-purpose and high-effort reasoning, coding, and agentic tasks | 65,536 tokens |
 | [`llama4:latest`](https://huggingface.co/RedHatAI/Llama-4-Scout-17B-16E-Instruct-quantized.w4a16) | Text, image | Multimodal reasoning, image understanding, coding, and general chat | 16,384 tokens |
 | [`gemma4:26b-a4b`](https://huggingface.co/RedHatAI/gemma-4-26B-A4B-it-FP8-dynamic) | Text, image | Multimodal reasoning, coding, structured output, and tool-based workflows | 262,144 tokens |
-| [`qwen3.6:27b`](https://huggingface.co/Qwen/Qwen3.6-27B-FP8) | Text, image | Reasoning, software development, tool use, and agentic workflows | 262,144 tokens |
+| [`qwen3.8:27b`](https://huggingface.co/Qwen/Qwen3.8-27B-FP8) | Text, image | Reasoning, software development, tool use, and agentic workflows | 262,144 tokens |
 
 All four deployments support automatic tool calling. `gpt-oss:120b`, `gemma4:26b-a4b`, and
-`qwen3.6:27b` also use model-specific reasoning parsers; `llama4:latest` does not use a separate
+`qwen3.8:27b` also use model-specific reasoning parsers; `llama4:latest` does not use a separate
 reasoning parser.
-`gpt-oss:120b`, `llama4:latest`, and `gemma4:26b-a4b` use prefix caching.
-`qwen3.6:27b` does not use prefix caching because stable support is not available in the
-deployed vLLM version.
 
 ## Other vLLM Models
 

@@ -25,7 +25,7 @@ behavior depend on their Workspace configuration.
 
 !!! tip "Start with a recommended model"
     The four vLLM-backed models are tagged **Recommended** in GenAI Studio. Use
-    `gpt-oss:120b` for general reasoning, `qwen3.6:27b` for coding and agentic workflows,
+    `gpt-oss:120b` for general reasoning, `qwen3.8:27b` for coding and agentic workflows,
     or `gemma4:26b-a4b` and `llama4:latest` when your prompt includes images.
 
 ## Recommended Models
@@ -38,7 +38,7 @@ deployed limit, not the larger native limit that some upstream model cards adver
 | [`gpt-oss:120b`](https://huggingface.co/openai/gpt-oss-120b) | Text | General-purpose and high-effort reasoning, coding, and agentic tasks | 65,536 tokens |
 | [`llama4:latest`](https://huggingface.co/RedHatAI/Llama-4-Scout-17B-16E-Instruct-quantized.w4a16) | Text, image | Multimodal reasoning, image understanding, coding, and general chat | 16,384 tokens |
 | [`gemma4:26b-a4b`](https://huggingface.co/RedHatAI/gemma-4-26B-A4B-it-FP8-dynamic) | Text, image | Multimodal reasoning, coding, structured output, and tool-based workflows | 65,536 tokens |
-| [`qwen3.6:27b`](https://huggingface.co/Qwen/Qwen3.6-27B-FP8) | Text, image | Reasoning, software development, tool use, and agentic workflows | 65,536 tokens |
+| [`qwen3.8:27b`](https://huggingface.co/Qwen/Qwen3.8-27B-FP8) | Text, image | Reasoning, software development, tool use, and agentic workflows | 65,536 tokens |
 
 All four vLLM deployments support automatic tool calling and model-specific reasoning output.
 For structured output through the API, vLLM models use `response_format`; Ollama models use
@@ -83,7 +83,7 @@ configured tool parser. See [Tool Calling](tool-calling.md) for the supported UI
 !!! warning "Medical model limitations"
     `medgemma:27b` is provided for research and experimentation. Model output is not medical
     advice and must not be used as a substitute for review by a qualified professional. Do not
-    submit protected health information or other regulated data to GenAI Studio.
+    submit protected health information or other restricted data to GenAI Studio.
 
 ## Document Embedding Model
 

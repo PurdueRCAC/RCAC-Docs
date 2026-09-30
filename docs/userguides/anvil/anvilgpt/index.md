@@ -19,19 +19,21 @@ The service and its models run on Purdue-managed infrastructure. Chats, document
 models are private to your account unless you explicitly share them, and RCAC does not use your
 content to train the hosted models.
 
-!!! note "Pilot Program"
+!!! note "Pilot Program and Intended Use"
     This service is a pilot and provides only limited safety measures. Models may hallucinate or
     generate offensive content. AnvilGPT should not be used for any illegal, harmful, or violent
-    purposes.
+    purposes. It is a shared, general-purpose service and is not an approved environment for
+    systematic adversarial or jailbreak evaluation.
 
-!!! warning "Privacy"
-    Do not enter, by any method, any data into these systems that your research institution would
-    consider sensitive or proprietary. Do not enter any data that is regulated by state or federal
-    law. This includes, but is not limited to, HIPAA data, export-controlled data, personal
-    identification numbers (e.g. SSNs), or biometric data.
+!!! warning "Data classification"
+    AnvilGPT is authorized for use only with public data. It is not authorized for sensitive,
+    proprietary, or restricted data, including data regulated by state or federal law. Examples
+    include HIPAA or FERPA data, export-controlled data, personal identification numbers, and
+    biometric data.
 
-    An external Workspace Tool or MCP server may receive tool arguments or conversation context
-    outside AnvilGPT. Review an integration's owner, access, and data handling before enabling it.
+    An external service called by a Workspace Tool, or an MCP server, may receive tool arguments
+    or conversation context outside AnvilGPT. Review an integration's owner, access, and data
+    handling before enabling it.
 
 ## Get Started
 

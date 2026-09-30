@@ -37,15 +37,20 @@ Choose the resource that matches how long you need the context or instructions:
 3. Save it, and then upload the documents you want it to search.
 4. Wait for each document to finish processing before testing retrieval in a chat.
 
+!!! warning "Document upload limit"
+    Each document must be 100 MB or smaller. Complex documents, such as PDFs with many scanned
+    pages, images, or tables, may still time out during processing. Split files larger than 100 MB,
+    or files that repeatedly fail, into smaller parts before uploading them.
+
 Use separate Knowledge Bases for unrelated projects, research topics, or courses. This makes
 retrieval results easier to interpret and lets you share each collection independently.
 
 When you upload a document, GenAI Studio automatically uses [EmbeddingGemma 300M](models.md#document-embedding-model) to prepare it for semantic search and retrieval. You do not need to select or configure the embedding model, and it is not exposed as a callable API model.
 
 !!! warning "Review access before uploading"
-    Keep a Knowledge Base private unless you intend to share its documents. Do not upload
-    sensitive, proprietary, or regulated data. See [Groups and Sharing](groups.md) before granting
-    access to collaborators.
+    A Knowledge Base may contain public or sensitive data (L2), but not restricted data. Keep it
+    private unless you intend to share its documents. Before granting access to sensitive data,
+    confirm that every collaborator is authorized and review [Groups and Sharing](groups.md).
 
 <p style="text-align: center;">
   <img src="/assets/images/services/genai/knowledge-create.png" alt="GenAI Studio knowledge base creation screen" width="60%">

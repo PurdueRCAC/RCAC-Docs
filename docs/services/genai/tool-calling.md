@@ -22,7 +22,10 @@ API-defined tool when your own application should control execution, authorizati
 handling. To use a remote tool server registered by RCAC, see [MCP Integration](mcp-integration.md).
 
 !!! warning "Tools can perform actions"
-    Only use tools whose code and behavior you trust. A tool may call external services, change data, or expose information included in a conversation. Do not place passwords, API keys, regulated data, or other sensitive information in tool code, prompts, or arguments.
+    Only use tools whose code and behavior you trust. A tool may call external services, change
+    data, or expose information included in a conversation. Never place passwords, API keys, or
+    restricted data in tool code, prompts, or arguments. Do not send sensitive data (L2) to an
+    external service unless that service is separately authorized to receive it.
 
 ## Create a Workspace Tool
 
