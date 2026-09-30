@@ -21,7 +21,10 @@ Examples include tools that search a curated database, interact with a laborator
     To request an integration, send the server details described below to [RCAC support](../../contact.md). Do not send credentials by email.
 
 !!! warning "Only connect trusted servers"
-    An MCP server receives tool arguments generated from your conversation and may return untrusted content or perform external actions. Use only servers maintained by an organization you trust. Do not send regulated, sensitive, or proprietary data through an MCP tool.
+    An MCP server receives tool arguments generated from your conversation and may return
+    untrusted content or perform external actions. Use only servers maintained by an organization
+    you trust. Do not send restricted data through an MCP tool. Do not send sensitive data (L2)
+    unless the MCP server is separately authorized to receive it.
 
 ## Request an MCP Integration
 

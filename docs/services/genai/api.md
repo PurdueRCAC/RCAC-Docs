@@ -261,7 +261,7 @@ This means you do not need to implement your own retrieval logic if you are work
 
 ## Rate Limits
 
-The API enforces a rate limit of 60 requests per minute per user. Both concurrent and sequential requests count toward this limit, so if you are parallelizing calls, you should account for this when setting concurrency levels.
+The API enforces a rate limit of 20 requests per minute per user. Both concurrent and sequential requests count toward this limit, so if you are parallelizing calls, you should account for this when setting concurrency levels.
 
 If the rate limit is exceeded, the API may return a JSON `null` value instead of an HTTP error.
 Check the decoded response before accessing `choices`, wait, and retry with backoff. Do not retry

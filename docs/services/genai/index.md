@@ -20,15 +20,21 @@ The service and its models run on Purdue-managed infrastructure. Chats, document
 models are private to your account unless you explicitly share them, and RCAC does not use your
 content to train the hosted models.
 
-!!! note "Pilot Program"
-    This service is a pilot and provides only limited safety measures. Models may hallucinate or generate offensive content. GenAI Studio should not be used for any illegal, harmful, or violent purposes.
+!!! note "Pilot Program and Intended Use"
+    This service is a pilot and provides only limited safety measures. Models may hallucinate or generate offensive content. GenAI Studio should not be used for any illegal, harmful, or violent purposes. It is a shared, general-purpose service and is not an approved environment for
+    systematic adversarial or jailbreak evaluation.
 
-!!! warning "Privacy"
-    Do not enter, by any method, any data into these systems that your research institution would consider sensitive or proprietary. Do not enter any data that is regulated by state or federal law. This includes, but is not limited to, HIPAA data, export-controlled data, personal identification numbers (e.g. SSNs), or biometric data.
+!!! warning "Data classification"
+    GenAI Studio is authorized for use with public and sensitive data (L2), as defined in
+    Purdue's [Data Classification and Handling Procedures](https://www.purdue.edu/securepurdue/data-handling/).
+    It is not authorized for restricted data, including data regulated by FERPA or HIPAA. If
+    you are unsure how your data is classified, consult the appropriate Data Steward before
+    entering it into GenAI Studio.
 
-    An external Workspace Tool or MCP server may receive tool arguments or conversation context
-    outside GenAI Studio. Review an integration's owner, access, and data handling before enabling
-    it.
+    An external service called by a Workspace Tool, or an MCP server, may receive tool arguments
+    or conversation context outside GenAI Studio. GenAI Studio's authorization does not extend to
+    these external integrations. Review an integration's owner, access, and data handling before
+    enabling it.
 
 ## Get Started
 
