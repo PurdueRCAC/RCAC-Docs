@@ -49,12 +49,14 @@ theme:
 extra_css:
   - stylesheets/extra.css
   - stylesheets/outage-widget.css
+  - stylesheets/workshop-banner.css
 extra_javascript:
   - assets/js/tablefilter.js
   - assets/js/init-tablefilter.js
   - assets/js/breadcrumbs.js
   - assets/js/external-links.js
   - assets/js/outage-widget.js
+  - assets/js/workshop-banner.js
 
 plugins:
   - search
