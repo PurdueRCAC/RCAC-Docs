@@ -1,0 +1,244 @@
+/* ==========================================================================
+ * RCAC Upcoming Workshops banner — styles
+ * Homepage strip under the hero (see overrides/main.html and
+ * docs/assets/js/workshop-banner.js). Matches the retired
+ * .announcement-banner surface in extra.css so the page composition
+ * is unchanged. All ink checked >= 4.5:1 on its surface in both schemes.
+ * ========================================================================== */
+
+.workshop-banner {
+  --wb-gold: #8C6D23;
+  --wb-chip-bg: #fff;
+  --wb-chip-border: rgba(140, 109, 35, 0.18);
+  --wb-today: #2e7d32;
+  /* Material's --md-default-fg-color--light (.54) is ~4.1:1 on cream;
+     darken it slightly to clear 4.5:1. */
+  --wb-meta: rgba(0, 0, 0, 0.68);
+
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  padding: 0.75rem 1.1rem 0.75rem 1.25rem;
+  margin: -1rem 0 1.5rem;
+  background: linear-gradient(90deg, #f5efe0 0%, #faf6ee 100%);
+  border-left: 4px solid #CEB888;
+  border-radius: 0 6px 6px 0;
+  font-size: 0.72rem;
+  line-height: 1.4;
+  color: var(--md-default-fg-color);
+}
+
+[data-md-color-scheme="slate"] .workshop-banner {
+  --wb-gold: #e0c97a;
+  --wb-chip-bg: #1a1812;
+  --wb-chip-border: rgba(224, 201, 122, 0.22);
+  --wb-today: #66bb6a;
+  --wb-meta: var(--md-default-fg-color--light);
+  background: linear-gradient(90deg, #2a2518 0%, #211f16 100%);
+}
+
+.workshop-banner[hidden] {
+  display: none;
+}
+
+/* --- Icon & close -------------------------------------------------- */
+.workshop-banner .wb-icon {
+  flex-shrink: 0;
+  display: inline-flex;
+  color: var(--wb-gold);
+  margin-top: 0.05rem;
+}
+.workshop-banner .wb-icon svg {
+  width: 0.95rem;
+  height: 0.95rem;
+  fill: currentColor;
+}
+
+.workshop-banner .wb-close {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.7rem;
+  line-height: 1;
+  padding: 0.15rem 0.25rem;
+  color: var(--wb-meta);
+  border-radius: 3px;
+}
+.workshop-banner .wb-close:hover {
+  color: var(--md-default-fg-color);
+}
+
+.workshop-banner a:focus-visible,
+.workshop-banner .wb-close:focus-visible {
+  outline: 2px solid var(--wb-gold);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+/* --- Shared text roles --------------------------------------------- */
+.workshop-banner .wb-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.workshop-banner .wb-label {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--wb-gold);
+}
+
+.workshop-banner a {
+  color: var(--wb-gold);
+  text-decoration: none;
+}
+.workshop-banner a:hover {
+  text-decoration: underline;
+}
+
+.workshop-banner .wb-title {
+  font-weight: 500;
+  color: var(--md-default-fg-color);
+}
+.workshop-banner .wb-title:hover {
+  color: var(--wb-gold);
+}
+
+.workshop-banner .wb-meta {
+  font-size: 0.64rem;
+  color: var(--wb-meta);
+}
+
+.workshop-banner .wb-more,
+.workshop-banner .wb-register {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.workshop-banner .wb-today {
+  display: inline-block;
+  margin-right: 0.4rem;
+  padding: 0 0.35rem;
+  border: 1px solid currentColor;
+  border-radius: 3px;
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--wb-today);
+}
+
+/* --- List variant -------------------------------------------------- */
+.workshop-banner .wb-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.8rem;
+  margin-bottom: 0.4rem;
+}
+.workshop-banner .wb-head .wb-more {
+  font-size: 0.64rem;
+}
+
+.md-typeset .workshop-banner .wb-list,
+.workshop-banner .wb-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.md-typeset .workshop-banner .wb-row,
+.workshop-banner .wb-row {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr) auto;
+  gap: 0.3rem 0.8rem;
+  align-items: center;
+  margin: 0;
+  padding: 0.3rem 0;
+}
+.workshop-banner .wb-row + .wb-row {
+  border-top: 1px solid var(--wb-chip-border);
+}
+
+.workshop-banner .wb-chip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.15rem 0;
+  background: var(--wb-chip-bg);
+  border: 1px solid var(--wb-chip-border);
+  border-radius: 4px;
+  font-family: var(--md-code-font-family, Consolas, monospace);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+.workshop-banner .wb-chip-month {
+  font-size: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--wb-gold);
+}
+.workshop-banner .wb-chip-day {
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+.workshop-banner .is-today .wb-chip {
+  border-color: var(--wb-today);
+}
+.workshop-banner .is-today .wb-chip-month {
+  color: var(--wb-today);
+}
+
+.workshop-banner .wb-main {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.workshop-banner .wb-main .wb-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* --- Ticker / single-line states ----------------------------------- */
+.workshop-banner .wb-ticker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.2rem 0.6rem;
+}
+.workshop-banner .wb-when {
+  font-weight: 600;
+  white-space: nowrap;
+}
+.workshop-banner .wb-when.is-today {
+  color: var(--wb-today);
+}
+.workshop-banner .wb-ticker .wb-more {
+  margin-left: auto;
+}
+
+/* --- Small screens -------------------------------------------------- */
+@media (max-width: 640px) {
+  .workshop-banner {
+    padding: 0.6rem 0.8rem 0.6rem 1rem;
+    font-size: 0.7rem;
+  }
+  .md-typeset .workshop-banner .wb-row,
+  .workshop-banner .wb-row {
+    grid-template-columns: 2.5rem minmax(0, 1fr);
+    align-items: start;
+  }
+  .workshop-banner .wb-main .wb-title {
+    white-space: normal;
+  }
+  .workshop-banner .wb-register {
+    grid-column: 2;
+    font-size: 0.64rem;
+  }
+  .workshop-banner .wb-head {
+    flex-wrap: wrap;
+  }
+}
