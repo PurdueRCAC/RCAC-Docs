@@ -15,10 +15,10 @@ Mathematica: high-powered computation with thousands of Wolfram Language functio
 |Cluster|Versions|
 |---|---|
 **BELL**|14.1, 14.2 (D)
-**GAUTSCHI**|14.1, 14.2 (D)
-**GILBRETH**|14.1, 14.2 (D)
-**NEGISHI**|13.1, 14.1, 14.2 (D)
-**SCHOLAR**|14.1
+**GAUTSCHI**|14.1, 14.2 (D), 15.0
+**GILBRETH**|14.1, 14.2 (D), 15.0
+**NEGISHI**|13.1, 14.1, 14.2 (D), 15.0
+**SCHOLAR**|14.1, 15.0
 
 (D): Default Module
 

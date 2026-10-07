@@ -11,7 +11,7 @@ search:
 # All software and versions on RCAC clusters
 
 ## Overview
-As of **September 29, 2026**, there have been a total of **288** applications with **2641** available versions deployed across **6** RCAC HPC clusters: **ANVIL, BELL, GAUTSCHI, GILBRETH, NEGISHI, SCHOLAR**.
+As of **October 07, 2026**, there have been a total of **288** applications with **2648** available versions deployed across **6** RCAC HPC clusters: **ANVIL, BELL, GAUTSCHI, GILBRETH, NEGISHI, SCHOLAR**.
 
 ## Applications Catalog
 
@@ -193,7 +193,7 @@ As of **September 29, 2026**, there have been a total of **288** applications wi
     <tr>
       <td><a href="../apps_md/cmake"><strong>cmake</strong></a></td>
       <td>Utilities</td>
-      <td>ANVIL, BELL, GILBRETH, NEGISHI</td>
+      <td>ANVIL, BELL, GILBRETH, NEGISHI, SCHOLAR</td>
     </tr>
     <tr>
       <td><a href="../apps_md/comsol"><strong>comsol</strong></a></td>
@@ -438,7 +438,7 @@ As of **September 29, 2026**, there have been a total of **288** applications wi
     <tr>
       <td><a href="../apps_md/gsl"><strong>gsl</strong></a></td>
       <td>Math/Stat, Engineering</td>
-      <td>ANVIL, BELL, GILBRETH, NEGISHI</td>
+      <td>ANVIL, BELL, GILBRETH, NEGISHI, SCHOLAR</td>
     </tr>
     <tr>
       <td><a href="../apps_md/gstreamer"><strong>gstreamer</strong></a></td>
