@@ -22,3 +22,4 @@ New usage patterns have emerged in research computing that depend on the availab
 - [**Storage**](storage.md)
 - [**Examples**](examples/index.md)
 - [**Troubleshooting**](troubleshooting.md)
+- [**Migration**](migration/index.md)

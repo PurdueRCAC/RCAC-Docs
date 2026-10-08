@@ -8,7 +8,7 @@ search:
   boost: 2
 ---
 
-# Registry
+# Geddes 1 Registry
 
 ## Accessing the Geddes Harbor Registry
 
