@@ -445,7 +445,12 @@
   "/userguides/geddes/registry/": [
     "Home",
     "Geddes User Guide",
-    "Registry"
+    "Geddes 1 Registry"
+  ],
+  "/userguides/geddes/registry2/": [
+    "Home",
+    "Geddes User Guide",
+    "Geddes 2 Registry"
   ],
   "/userguides/geddes/workloads/": [
     "Home",
@@ -489,6 +494,11 @@
     "Home",
     "Geddes User Guide",
     "Troubleshooting"
+  ],
+  "/userguides/geddes/migration/": [
+    "Home",
+    "Geddes User Guide",
+    "Migration"
   ],
   "/userguides/hammer/": [
     "Home",
