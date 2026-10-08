@@ -194,7 +194,9 @@ nav:
       - Biography of Lanelle Geddes: userguides/geddes/biography.md
       - Concepts: userguides/geddes/concepts.md
       - Access: userguides/geddes/access.md
-      - Registry: userguides/geddes/registry.md
+      - Registry: 
+        - Geddes 1 Registry: userguides/geddes/registry.md
+        - Geddes 2 Registry: userguides/geddes/registry2.md
       - Workloads: userguides/geddes/workloads.md
       - Services: userguides/geddes/services.md
       - Storage: userguides/geddes/storage.md
@@ -204,6 +206,7 @@ nav:
         - Web Server: userguides/geddes/examples/webserver.md
         - R Shiny: userguides/geddes/examples/r-shiny.md
       - Troubleshooting: userguides/geddes/troubleshooting.md
+      - Migration: userguides/geddes/migration/index.md
     - Hammer:
       - userguides/hammer/index.md
       - Hammer Overview: userguides/hammer/overview.md
