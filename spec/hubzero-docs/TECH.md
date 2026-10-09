@@ -1,83 +1,128 @@
 ---
 slug: hubzero-docs
-title: "Port the HUBzero documentation into a top-level /hubzero/ section"
+title: Port the HUBzero documentation into a top-level /hubzero/ section
 kind: feature
 appetite: big
 status: in_progress
 branch: feature/hubzero-docs
 base: main
-current_phase: P1
-last_updated: "2026-10-08"
+current_phase: P2
+last_updated: '2026-10-08'
 phases:
-  - id: P1
-    name: "Importer + scaffold: landing, root pages, nav region, status hook"
-    status: pending
-    satisfies: [R1, R6, R7, R8, R9]
-    depends_on: []
-    parallel: false
-    hammerable: false
-    hill: uphill
-    verify: ".venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py && grep -q 'hubzero/index.md' mkdocs.yml && HUBZERO_CMS=$HOME/Software/github.com/hubzero/hubzero-cms .venv/bin/python tools/hubzero/import_docs.py check"
-  - id: P2
-    name: "Import the Tools book"
-    status: pending
-    satisfies: [R2, R3, R4, R6]
-    depends_on: [P1]
-    parallel: false
-    hammerable: false
-    hill: uphill
-    verify: ".venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py && grep -q 'hubzero/tools/index.md' mkdocs.yml && HUBZERO_CMS=$HOME/Software/github.com/hubzero/hubzero-cms .venv/bin/python tools/hubzero/import_docs.py check"
-  - id: P3
-    name: "Import the Hub users book"
-    status: pending
-    satisfies: [R2, R3, R4]
-    depends_on: [P2]
-    parallel: false
-    hammerable: false
-    hill: uphill
-    verify: ".venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py && grep -q 'hubzero/users/index.md' mkdocs.yml && HUBZERO_CMS=$HOME/Software/github.com/hubzero/hubzero-cms .venv/bin/python tools/hubzero/import_docs.py check"
-  - id: P4
-    name: "Import the Hub managers book"
-    status: pending
-    satisfies: [R2, R3, R4]
-    depends_on: [P3]
-    parallel: false
-    hammerable: false
-    hill: uphill
-    verify: ".venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py && grep -q 'hubzero/managers/index.md' mkdocs.yml && HUBZERO_CMS=$HOME/Software/github.com/hubzero/hubzero-cms .venv/bin/python tools/hubzero/import_docs.py check"
-  - id: P5
-    name: "Import the Developers book"
-    status: pending
-    satisfies: [R2, R3, R4]
-    depends_on: [P4]
-    parallel: false
-    hammerable: false
-    hill: uphill
-    verify: ".venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py && grep -q 'hubzero/developers/index.md' mkdocs.yml && HUBZERO_CMS=$HOME/Software/github.com/hubzero/hubzero-cms .venv/bin/python tools/hubzero/import_docs.py check"
-  - id: P6
-    name: "Import the Reference book, including the REST API"
-    status: pending
-    satisfies: [R2, R3, R5]
-    depends_on: [P5]
-    parallel: false
-    hammerable: false
-    hill: uphill
-    verify: ".venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py && grep -q 'hubzero/reference/index.md' mkdocs.yml && HUBZERO_CMS=$HOME/Software/github.com/hubzero/hubzero-cms .venv/bin/python tools/hubzero/import_docs.py check"
-  - id: P7
-    name: "Integration: final check, a11y sweep, search growth, handoff"
-    status: pending
-    satisfies: [R1, R3, R8, R10, R11]
-    depends_on: [P6]
-    parallel: false
-    hammerable: false
-    hill: uphill
-    verify: ".venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py && HUBZERO_CMS=$HOME/Software/github.com/hubzero/hubzero-cms .venv/bin/python tools/hubzero/import_docs.py check --final"
+- id: P1
+  name: 'Importer + scaffold: landing, root pages, nav region, status hook'
+  status: done
+  satisfies:
+  - R1
+  - R6
+  - R7
+  - R8
+  - R9
+  depends_on: []
+  parallel: false
+  hammerable: false
+  hill: uphill
+  verify: .venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py
+    && grep -q 'hubzero/index.md' mkdocs.yml && HUBZERO_CMS=$HOME/Software/github.com/hubzero/hubzero-cms
+    .venv/bin/python tools/hubzero/import_docs.py check
+- id: P2
+  name: Import the Tools book
+  status: pending
+  satisfies:
+  - R2
+  - R3
+  - R4
+  - R6
+  depends_on:
+  - P1
+  parallel: false
+  hammerable: false
+  hill: uphill
+  verify: .venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py
+    && grep -q 'hubzero/tools/index.md' mkdocs.yml && HUBZERO_CMS=$HOME/Software/github.com/hubzero/hubzero-cms
+    .venv/bin/python tools/hubzero/import_docs.py check
+- id: P3
+  name: Import the Hub users book
+  status: pending
+  satisfies:
+  - R2
+  - R3
+  - R4
+  depends_on:
+  - P2
+  parallel: false
+  hammerable: false
+  hill: uphill
+  verify: .venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py
+    && grep -q 'hubzero/users/index.md' mkdocs.yml && HUBZERO_CMS=$HOME/Software/github.com/hubzero/hubzero-cms
+    .venv/bin/python tools/hubzero/import_docs.py check
+- id: P4
+  name: Import the Hub managers book
+  status: pending
+  satisfies:
+  - R2
+  - R3
+  - R4
+  depends_on:
+  - P3
+  parallel: false
+  hammerable: false
+  hill: uphill
+  verify: .venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py
+    && grep -q 'hubzero/managers/index.md' mkdocs.yml && HUBZERO_CMS=$HOME/Software/github.com/hubzero/hubzero-cms
+    .venv/bin/python tools/hubzero/import_docs.py check
+- id: P5
+  name: Import the Developers book
+  status: pending
+  satisfies:
+  - R2
+  - R3
+  - R4
+  depends_on:
+  - P4
+  parallel: false
+  hammerable: false
+  hill: uphill
+  verify: .venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py
+    && grep -q 'hubzero/developers/index.md' mkdocs.yml && HUBZERO_CMS=$HOME/Software/github.com/hubzero/hubzero-cms
+    .venv/bin/python tools/hubzero/import_docs.py check
+- id: P6
+  name: Import the Reference book, including the REST API
+  status: pending
+  satisfies:
+  - R2
+  - R3
+  - R5
+  depends_on:
+  - P5
+  parallel: false
+  hammerable: false
+  hill: uphill
+  verify: .venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py
+    && grep -q 'hubzero/reference/index.md' mkdocs.yml && HUBZERO_CMS=$HOME/Software/github.com/hubzero/hubzero-cms
+    .venv/bin/python tools/hubzero/import_docs.py check
+- id: P7
+  name: 'Integration: final check, a11y sweep, search growth, handoff'
+  status: pending
+  satisfies:
+  - R1
+  - R3
+  - R8
+  - R10
+  - R11
+  depends_on:
+  - P6
+  parallel: false
+  hammerable: false
+  hill: uphill
+  verify: .venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py
+    && HUBZERO_CMS=$HOME/Software/github.com/hubzero/hubzero-cms .venv/bin/python
+    tools/hubzero/import_docs.py check --final
 review:
-  last_reviewed_commit: ""
+  last_reviewed_commit: ''
   verdict: none
-  blocked_reason: ""
+  blocked_reason: ''
 ---
-
 # TECH.md — Port the HUBzero documentation into a top-level /hubzero/ section
 
 The **context engine and finite-state machine** for authoring this job. The YAML frontmatter
@@ -133,30 +178,46 @@ makes one atomic content+state commit. Run from the repo root with the project e
 **Goal:** the importer exists and is deterministic. `/hubzero/` exists with the landing page,
 the three other root pages, a nav region, and the status hook. No book is imported yet.
 
-- [ ] `tools/hubzero/import.yml`: repo URL, pinned commit, book order and titles (from
+- [x] `tools/hubzero/import.yml`: repo URL, pinned commit, book order and titles (from
       `site.json`), `books: []` (enabled books, grown one per phase), and the explicit
       collision map (PLAN §2).
-- [ ] `tools/hubzero/import_docs.py import`: read via `git show <sha>:<path>` from
+- [x] `tools/hubzero/import_docs.py import`: read via `git show <sha>:<path>` from
       `$HUBZERO_CMS` (fail with a `git fetch --depth=1 origin <sha>` hint); header →
       front-matter; include expansion; link, image, and anchor rewrites; dialect
       normalization; deterministic output (sorted walks, LF, stable YAML key order, no
       timestamps). Mirror `gh-pages/build_site.py` rules ([`research/04`](research/04-importer-design.md)).
-- [ ] Nav: write the `HUBzero` subtree between `# >>> hubzero nav (generated by tools/hubzero/import_docs.py; do not edit)`
+- [x] Nav: write the `HUBzero` subtree between `# >>> hubzero nav (generated by tools/hubzero/import_docs.py; do not edit)`
       and `# <<< hubzero nav` markers, after `RCAC Services`, before `Contact us`.
-- [ ] Root pages: `docs/hubzero/index.md` (README + appended **About this documentation**:
+- [x] Root pages: `docs/hubzero/index.md` (README + appended **About this documentation**:
       HUBzero credit, MIT notice, link to `license.md`, pinned commit), `license.md`,
       `style.md`. Skip `plan/` and `_tools/` (upstream `SKIP_DOC_DIRS`). Links into books go
       to GitHub until each book lands.
-- [ ] `main.py`: `on_post_page_macros(env)` renders the banner and stamp from
+- [x] `main.py`: `on_post_page_macros(env)` renders the banner and stamp from
       `page.meta.hubzero` (upstream wording, `build_site.py:594–630`). Confirm the hook fires on
       `render_macros: false` pages (the PLAN §5 hypothesis). If it doesn't, stop and revise
       PLAN before baking banners into bodies.
-- [ ] `import_docs.py check`: R2 count and titles, R3 link and anchor scan of `site/hubzero/`,
+- [x] `import_docs.py check`: R2 count and titles, R3 link and anchor scan of `site/hubzero/`,
       R4 image `src` and alt, R6/R7 front-matter and no header leak, R8 re-import into a temp
       tree and byte-compare. Each failure names the page and rule.
-- [ ] `tools/hubzero/README.md`: how to run `import` and `check`, touch-up procedure,
+- [x] `tools/hubzero/README.md`: how to run `import` and `check`, touch-up procedure,
       retirement after handover.
-- [ ] `.venv/bin/python tools/generate_breadcrumbs.py`.
+- [x] `.venv/bin/python tools/generate_breadcrumbs.py`.
+- **Amended in P1 (2026-10-08, draft findings; no GOAL change):**
+  - *Hook confirmed.* `on_post_page_macros` fires on `render_macros: false` pages: throwaway
+    `imported` (all three clauses), `draft`, and `rewritten` pages rendered the banner after the
+    H1 and the stamp at the end, with `{{ … }}` left literal. The banner drops upstream's bold
+    lead ("**Not yet reviewed.**") because the admonition title already says it.
+  - *Callouts (new dialect rule, applies to every book).* `> **Note:**`/Tip/Warning/Important/
+    Caution blockquotes become `!!! note` … `!!! caution` (Material types/aliases), mirroring
+    upstream `_apply_admonitions`. 814 such blockquotes across the source; README has 2.
+  - *Includes inside code blocks are not expanded.* Upstream expands them everywhere, which in
+    STYLE.md (a ```` ```markdown ```` example of the directive) nests fences and breaks the page.
+  - *Landing provenance joins README's existing "About the documentation" section* rather than
+    adding a near-duplicate "About this documentation" H2. The appended paragraph still carries
+    all of R9: the HUBzero credit, the MIT notice linking `license.md`, and the pinned commit.
+  - *Not changed:* README's sentence that the docs are "Markdown in the hubzero-cms repository
+    and … published at hubzero.github.io" is upstream prose, ported verbatim; rewording it is
+    the HUBzero team's call after handover.
 - **Verify:** `.venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py && grep -q 'hubzero/index.md' mkdocs.yml && HUBZERO_CMS=$HOME/Software/github.com/hubzero/hubzero-cms .venv/bin/python tools/hubzero/import_docs.py check`
 - **Touches:** `tools/hubzero/**`, `docs/hubzero/{index,license,style}.md`, `mkdocs.yml`,
   `main.py`, `docs/assets/data/breadcrumbs.json`.

@@ -1473,6 +1473,20 @@
     "Purdue GenAI Studio",
     "MCP Integration"
   ],
+  "/hubzero/": [
+    "Home",
+    "HUBzero"
+  ],
+  "/hubzero/style/": [
+    "Home",
+    "HUBzero",
+    "Writing guide"
+  ],
+  "/hubzero/license/": [
+    "Home",
+    "HUBzero",
+    "License"
+  ],
   "/contact/": [
     "Home",
     "Contact us"

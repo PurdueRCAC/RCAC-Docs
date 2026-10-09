@@ -3,6 +3,77 @@
 # - `resource`: name for cluster (lower case), e.g. `gilbreth`
 # {resource.title()} will transform this to title case, e.g. `Gilbreth`
 
+import re as _re
+
+# HUBzero pages (docs/hubzero/**): the review-status banner and stamp are
+# rendered from front-matter `hubzero.status`, so maintainers change a page's
+# status by editing one field. The wording mirrors hubzero-cms
+# gh-pages/build_site.py (build_status_banner / build_review_stamp).
+# See spec/hubzero-docs/research/04-importer-design.md.
+HUBZERO_VERSION = "2.4"
+_HZ_FENCE = _re.compile(r"^\s*(`{3,}|~{3,})")
+
+
+def _hubzero_banner(hz):
+    status = str(hz.get("status", "")).strip()
+    if status in ("imported", "merged"):
+        source = str(hz.get("source", "")).strip()
+        link = source if source.startswith(("http://", "https://")) else "https://help.hubzero.org"
+        text = (f"This page was imported from [help.hubzero.org]({link}) and has not been "
+                f"checked against Hubzero {HUBZERO_VERSION}.")
+        modified = str(hz.get("modified", "")).strip()
+        if modified[:4].isdigit():
+            text += f" It was last edited there in {modified[:4]}."
+        if str(hz.get("source-state", "")).strip() == "unpublished":
+            text += " It was never published there, so read it as a draft."
+        merged_from = str(hz.get("merged-from", "")).strip()
+        if merged_from:
+            text += f" It exists only in the {merged_from} documentation and was merged in from there."
+        return f'!!! warning "Not yet reviewed"\n    {text}\n'
+    if status == "draft":
+        return '!!! warning "Draft"\n    This page is still being written.\n'
+    return ""
+
+
+def _hubzero_stamp(hz):
+    status = str(hz.get("status", "")).strip()
+    against = str(hz.get("reviewed-against", "")).strip()
+    when = str(hz.get("reviewed", "")).strip()
+    if status == "generated":
+        return f"*Generated from the source tree{f' at `{against}`' if against else ''}.*\n"
+    if status in ("reviewed", "rewritten"):
+        lead = "Reviewed" if status == "reviewed" else "Rewritten and checked"
+        text = lead + (f" against `{against}`" if against else "") + (f" on {when}" if when else "")
+        return f"*{text}.*\n"
+    return ""
+
+
+def on_post_page_macros(env):
+    """Add the HUBzero review-status banner (after the H1) and stamp (at the end)."""
+    page = getattr(env, "page", None)
+    hz = (getattr(page, "meta", None) or {}).get("hubzero")
+    if not isinstance(hz, dict):
+        return
+    banner, stamp = _hubzero_banner(hz), _hubzero_stamp(hz)
+    if not banner and not stamp:
+        return
+    lines = env.markdown.split("\n")
+    if banner:
+        at, fence = 0, None
+        for i, line in enumerate(lines):
+            m = _HZ_FENCE.match(line)
+            if m:
+                fence = None if fence and m.group(1)[0] == fence else (fence or m.group(1)[0])
+            elif fence is None and line.startswith("# "):
+                at = i + 1
+                break
+        lines[at:at] = ["", *banner.rstrip("\n").split("\n"), ""]
+    text = "\n".join(lines).rstrip("\n") + "\n"
+    if stamp:
+        text += "\n" + stamp
+    env.markdown = text
+
+
 def define_env(env):
 #     @env.macro
 #     def login_snippet(host,cluster):

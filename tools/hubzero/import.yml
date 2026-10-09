@@ -1,0 +1,35 @@
+# Configuration for tools/hubzero/import_docs.py. See tools/hubzero/README.md.
+#
+# The importer reads the HUBzero documentation from a local clone of `repo`
+# (path in $HUBZERO_CMS) at exactly `commit`, never at the clone's HEAD.
+
+repo: https://github.com/hubzero/hubzero-cms
+commit: 9c1a8c678002bdfb41860f90915a3589ab60339e
+version: "2.4"
+
+# Every book hubzero.github.io publishes, in its site.json order. All of them
+# are modelled on every run, so links into a book that is not imported yet go
+# to its GitHub copy at `commit`.
+all_books:
+  - {slug: managers, title: Hub managers, dir: docs/managers}
+  - {slug: users, title: Hub users, dir: docs/users}
+  - {slug: tools, title: Tools, dir: docs/tools}
+  - {slug: developers, title: Developers, dir: docs/developers}
+  - {slug: reference, title: Reference, dir: docs/reference}
+
+# Books imported into docs/hubzero/. Grows by one book per phase of
+# spec/hubzero-docs/TECH.md; the finished port lists all five.
+books: []
+
+# Root pages hubzero.github.io publishes (site.json `pages`). `docs/plan/` and
+# `docs/_tools/` are skipped, as upstream's SKIP_DOC_DIRS does.
+root_pages:
+  - {source: docs/README.md, output: hubzero/index.md, title: About Hubzero, landing: true}
+  - {source: docs/STYLE.md, output: hubzero/style.md, title: Writing guide}
+  - {source: docs/LICENSE.md, output: hubzero/license.md, title: License}
+
+# Two sources that would map to the same output path once numeric prefixes are
+# stripped. Upstream publishes the chapter at .../search/index/, beside the
+# section landing at .../search/. Any other collision is an error.
+collisions:
+  docs/managers/09-components/31-search/05-index.md: hubzero/managers/components/search/index/index.md
