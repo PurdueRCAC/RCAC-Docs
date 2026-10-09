@@ -3,10 +3,10 @@ slug: hubzero-docs
 title: Port the HUBzero documentation into a top-level /hubzero/ section
 kind: feature
 appetite: big
-status: in_progress
+status: in_review
 branch: feature/hubzero-docs
 base: main
-current_phase: P7
+current_phase: done
 last_updated: '2026-10-08'
 phases:
 - id: P1
@@ -103,7 +103,7 @@ phases:
     .venv/bin/python tools/hubzero/import_docs.py check
 - id: P7
   name: 'Integration: final check, a11y sweep, search growth, handoff'
-  status: pending
+  status: done
   satisfies:
   - R1
   - R3
@@ -378,17 +378,35 @@ pages shows its method, full path (with `{id}`-style parameters intact), and par
 **Goal:** the whole section passes `check --final`, reads well end to end, and is ready to hand
 over.
 
-- [ ] `check --final`: all five books enabled, 416 pages, zero remaining GitHub fallback links to
+- [x] `check --final`: all five books enabled, 416 pages, zero remaining GitHub fallback links to
       docs pages, landing links all five books relative (R1).
-- [ ] a11y sweep per the review rubric: one H1, no skips, image alt, admonition titles, table
+- [x] a11y sweep per the review rubric: one H1, no skips, image alt, admonition titles, table
       headers (source measured clean; confirm on `site/`).
-- [ ] Measure `site/search/search_index.json` and repo growth before and after; record in the
+- [x] Measure `site/search/search_index.json` and repo growth before and after; record in the
       commit body. Flag if search degrades.
-- [ ] Finalize `tools/hubzero/README.md` (touch-up, then handover, then retire).
-- [ ] Draft (don't send) the upstream-defects note for Nick Kisseberth: the lost placeholders.
-- [ ] Home-page HUBzero card (R11): fifth card in the `docs/index.md` **RCAC Resources** grid,
+- [x] Finalize `tools/hubzero/README.md` (touch-up, then handover, then retire).
+- [x] Draft (don't send) the upstream-defects note for Nick Kisseberth: the lost placeholders.
+- [x] Home-page HUBzero card (R11): fifth card in the `docs/index.md` **RCAC Resources** grid,
       after Datasets, in the existing format (icon, bold title, rule, one sentence,
       `:octicons-arrow-right-24:` link to `hubzero/index.md`).
+- **Findings in P7 (2026-10-08; no GOAL change):**
+  - `check --final` passes: 416 pages, all five books, no GitHub fallback links to docs pages,
+    the landing links all five books relatively, and the home-page card (R11) is in place.
+  - *a11y sweep of all 416 built pages:* exactly one H1 each, no heading-level skips, every
+    image has alt text, every admonition has a title, every table has header cells, no vague
+    link text. Nothing to fix.
+  - *Growth, measured against the base commit `f013840e`:* the search index grows from 3.9 MB
+    to 7.6 MB (0.96 MB to 1.90 MB gzipped), and the HTML page count from 1148 to 1564. The
+    added nav subtree is in every page, so each existing page gains about 168 KB raw (about
+    +7 KB gzipped; home page 22.0 KB to 29.6 KB gzipped), and `site/` grows from 293 MB to
+    640 MB. In the repository: `docs/hubzero/` is 4.1 MB, images 10.4 MB, `tools/hubzero/`
+    164 KB. **Flagged, not fixed.** Search results quality wasn't measured (no browser).
+    Material's `navigation.prune` would cut the nav weight but is a site-wide theme change;
+    excluding `reference/api` from search would shrink the index. Both are Geoffrey's calls,
+    outside this job's Touches.
+  - The upstream note is drafted, not sent: [`upstream-note.md`](upstream-note.md). It covers
+    the lost `<name>` placeholder (P3) and the link to a missing file (P6).
+  - Home card: `:material-hub:` icon, "HUBzero", one sentence, link to `hubzero/index.md`.
 - **Verify:** `.venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py && HUBZERO_CMS=$HOME/Software/github.com/hubzero/hubzero-cms .venv/bin/python tools/hubzero/import_docs.py check --final`
 - **Touches:** `tools/hubzero/**`, `docs/index.md`.
 

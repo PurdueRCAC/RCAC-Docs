@@ -62,14 +62,21 @@ hubzero.github.io shows:
 - `<!--include: path[:start-end]-->` becomes a fenced block from the pinned
   commit. Unlike upstream, a directive inside a code block is left as text.
 - Links to pages become relative links. Links to pages in books not yet imported,
-  and to code in the repository, go to GitHub at the pinned commit. Images go to
+  and to code in the repository, go to GitHub at the pinned commit. A link to a
+  source file that does not exist at that commit (an upstream defect) goes to its
+  nearest existing directory, with a warning. Images go to
   `/assets/images/hubzero/`.
 - Headings whose Python-Markdown id would differ from upstream's get an explicit
   `{ #id }`, so existing anchors keep working.
 - `> **Note:** …` callouts (Note, Tip, Warning, Important, Caution) become
-  Material admonitions, as upstream renders them as styled callouts.
-- List content is re-indented to 4 spaces and a blank line is added before a list
-  that follows a paragraph (Python-Markdown needs both; CommonMark does not).
+  Material admonitions, as upstream renders them as styled callouts. A callout
+  ends at the next heading, list item, fence, or rule, as a CommonMark blockquote
+  does.
+- Python-Markdown needs a few things CommonMark does not, so the importer adds
+  them: list content re-indented to 4 spaces; a blank line before a list that
+  follows a paragraph; a blank line where a heading, list, fence, quote, or HTML
+  block directly follows a table row; and a blank line before a list item that
+  follows a later paragraph of the previous item.
 - References to hubzero.github.io point here instead (GOAL R12), the one change
   to what a page says. A link becomes a relative link to the same page; a bare
   URL in prose becomes its `docs.rcac.purdue.edu/hubzero/` URL. Pages with no
@@ -79,6 +86,14 @@ hubzero.github.io shows:
 The review-status banner and stamp are **not** in the page body. `main.py`
 (`on_post_page_macros`) renders them from `hubzero.status` at build time, so a
 maintainer changes a page's status by editing that one field.
+
+## Lifecycle
+
+1. **Port** (done): all five books, 416 pages, imported at the pinned commit;
+   `check --final` passes.
+2. **Touch-up re-import** (optional, once): below.
+3. **Handover**: the HUBzero team edits the pages in this repository.
+4. **Retire** the importer: see "After the handover".
 
 ## Touch-up re-import
 
