@@ -240,4 +240,4 @@ right answer.
     Neither does **Join Group** or **Cancel Group Membership**.
 
 An administrator can also delete a group from the administrator interface;
-see [Groups](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/managers/06-users/05-groups.md#deleting-a-group).
+see [Groups](../../managers/users/groups.md#deleting-a-group).

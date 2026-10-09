@@ -51,7 +51,7 @@ each.
 
 - On the hub, `com_tools`' **Admin Group** option names a Hubzero group whose
     members get the pipeline's administrator controls. It defaults to `apps`.
-    See [Tools](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/managers/03-maintenance/02-tools.md) in the hub managers
+    See [Tools](../managers/maintenance/tools.md) in the hub managers
     book.
 - On an execution host, `apps` is the operating system account that owns
     installed tool dependencies, and the `apps` group is what lets you become
@@ -72,7 +72,7 @@ the shared `/apps` filesystem managed with the `use` command.
     code. They are kept as the written record of how hubs have done this. The
     CMS side of tool administration is the
     [directory parameter whitelist](#directory-parameter-whitelist) and the pipeline
-    described in [Tools](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/managers/03-maintenance/02-tools.md).
+    described in [Tools](../managers/maintenance/tools.md).
 
 An environment is usually shared by several tools. Anything installed here
 affects all of them, so work through the options in the order below and
@@ -272,7 +272,7 @@ before redirecting.
 For the option itself see the
 [generated `com_tools` parameter reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/components/tools.md);
 for the pipeline the tool travels through, see
-[Tools](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/managers/03-maintenance/02-tools.md) in the hub managers book.
+[Tools](../managers/maintenance/tools.md) in the hub managers book.
 
 Nothing else about Jupyter is configured in the CMS. Which Anaconda
 environments exist, which packages they carry, and which kernels a notebook
@@ -503,4 +503,4 @@ Two consequences of forwarding the original text are worth knowing:
     sessions started under the old one.
 
 For the pipeline that gets a tool to the point of being launchable, see
-[Tools](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/managers/03-maintenance/02-tools.md) in the hub managers book.
+[Tools](../managers/maintenance/tools.md) in the hub managers book.

@@ -29,7 +29,7 @@ in the invoke script, a notebook that needs a network address the hub blocks.
     so the procedure could not be checked here; it is the written record carried
     over from the platform documentation. The pipeline states it refers to are
     CMS-side and were checked: see
-    [Tools](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/managers/03-maintenance/02-tools.md) in the hub managers
+    [Tools](../../../managers/maintenance/tools.md) in the hub managers
     book.
 
 The example assumes your tool's short name is *toolname* and that you have
@@ -42,7 +42,7 @@ in it. Registration is a CMS form, and it is where you choose the **Web
 application (Jupyter, Rstudio, ...)** publishing option that makes this a
 Jupyter tool rather than a Rappture or Linux-GUI one. The form and the states
 that follow it are described in
-[Tools](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/managers/03-maintenance/02-tools.md#registering-a-tool).
+[Tools](../../../managers/maintenance/tools.md#registering-a-tool).
 
 Ask your hub's administrators which container image new tools should be built
 against. It changes over time, and a tool built against a retired image is

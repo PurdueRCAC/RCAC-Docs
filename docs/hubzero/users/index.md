@@ -92,5 +92,5 @@ things.
 - [Registration](registration.md) — the sign-up form, field by field.
 
 The [Tools](../tools/index.md) book covers running simulation tools in
-more depth. The [Hub managers](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/managers/README.md) book covers the
+more depth. The [Hub managers](../managers/index.md) book covers the
 administrator side of every setting this book says "depends on your hub".

@@ -185,5 +185,5 @@ as on a member blog. Writing to it needs a permission that ordinary
 members do not have; if your account has it, a **New entry** button appears
 there and the form works the same way.
 
-See the [Blogs](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/managers/09-components/04-blogs.md) chapter in the
+See the [Blogs](../managers/components/blogs.md) chapter in the
 managers book for how a hub administrator configures all three.

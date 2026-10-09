@@ -152,6 +152,6 @@ So get the contribution to the **Installed** state, then use the **Launch
 tool** button on the tool's status page — the same button you would use to
 test any tool before approving it. See
 [The contribution process](process.md) for the states, the
-[hub managers' walkthrough](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/managers/03-maintenance/02-tools.md) for the
+[hub managers' walkthrough](../../managers/maintenance/tools.md) for the
 administrator's side, and the lecture on
 [uploading and publishing new tools](https://help.hubzero.org/resources/173).

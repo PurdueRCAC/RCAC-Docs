@@ -1477,6 +1477,628 @@
     "Home",
     "HUBzero"
   ],
+  "/hubzero/managers/": [
+    "Home",
+    "HUBzero",
+    "Hub managers"
+  ],
+  "/hubzero/managers/installing/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Installing a hub"
+  ],
+  "/hubzero/managers/getting-started/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Getting started"
+  ],
+  "/hubzero/managers/advancedsetup/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Integrations"
+  ],
+  "/hubzero/managers/maintenance/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Daily Maintenance"
+  ],
+  "/hubzero/managers/maintenance/approvingcontent/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Daily Maintenance",
+    "Approving Content"
+  ],
+  "/hubzero/managers/maintenance/tools/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Daily Maintenance",
+    "Tools"
+  ],
+  "/hubzero/managers/maintenance/tickets/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Daily Maintenance",
+    "Support Tickets"
+  ],
+  "/hubzero/managers/maintenance/notices/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Daily Maintenance",
+    "Site Notices"
+  ],
+  "/hubzero/managers/maintenance/cron/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Daily Maintenance",
+    "Scheduled Tasks"
+  ],
+  "/hubzero/managers/faq/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Frequently asked questions"
+  ],
+  "/hubzero/managers/configuring/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Configuring"
+  ],
+  "/hubzero/managers/configuring/hub/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Configuring",
+    "Global configuration"
+  ],
+  "/hubzero/managers/configuring/registration/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Configuring",
+    "Registration"
+  ],
+  "/hubzero/managers/configuring/components/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Configuring",
+    "Components"
+  ],
+  "/hubzero/managers/configuring/modules/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Configuring",
+    "Modules"
+  ],
+  "/hubzero/managers/configuring/plugins/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Configuring",
+    "Plugins"
+  ],
+  "/hubzero/managers/configuring/authentication/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Configuring",
+    "Authentication"
+  ],
+  "/hubzero/managers/configuring/extauth/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Configuring",
+    "External authenticators"
+  ],
+  "/hubzero/managers/users/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Users"
+  ],
+  "/hubzero/managers/users/members/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Users",
+    "Members"
+  ],
+  "/hubzero/managers/users/registration/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Users",
+    "Registration"
+  ],
+  "/hubzero/managers/users/memberimport/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Users",
+    "Member import"
+  ],
+  "/hubzero/managers/users/memberimportarchive/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Users",
+    "Member import (archive)"
+  ],
+  "/hubzero/managers/users/groups/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Users",
+    "Groups"
+  ],
+  "/hubzero/managers/users/accessgroups/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Users",
+    "Access Groups"
+  ],
+  "/hubzero/managers/users/accesslevels/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Users",
+    "Access Levels"
+  ],
+  "/hubzero/managers/users/supergroups/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Users",
+    "Super Groups"
+  ],
+  "/hubzero/managers/users/user-notes/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Users",
+    "User notes"
+  ],
+  "/hubzero/managers/menus/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Menus"
+  ],
+  "/hubzero/managers/content/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Content"
+  ],
+  "/hubzero/managers/content/articlemanager/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Content",
+    "Article Manager"
+  ],
+  "/hubzero/managers/content/categories/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Content",
+    "Categories"
+  ],
+  "/hubzero/managers/content/states/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Content",
+    "States, deleting and check-out"
+  ],
+  "/hubzero/managers/content/urls/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Content",
+    "URLs"
+  ],
+  "/hubzero/managers/components/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Components"
+  ],
+  "/hubzero/managers/components/activity/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Components",
+    "Activity"
+  ],
+  "/hubzero/managers/components/answers/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Components",
+    "Answers"
+  ],
+  "/hubzero/managers/components/billboards/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Components",
+    "Billboards"
+  ],
+  "/hubzero/managers/components/blogs/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Components",
+    "Blogs"
+  ],
+  "/hubzero/managers/components/cache/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Components",
+    "Cache"
+  ],
+  "/hubzero/managers/components/cart/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Components",
+    "Cart"
+  ],
+  "/hubzero/managers/components/checkin/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Components",
+    "Check-in"
+  ],
+  "/hubzero/managers/components/citations/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Components",
+    "Citations"
+  ],
+  "/hubzero/managers/components/collections/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Components",
+    "Collections"
+  ],
+  "/hubzero/managers/components/courses/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Components",
+    "Courses"
+  ],
+  "/hubzero/managers/components/cpanel/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Components",
+    "Control Panel"
+  ],
+  "/hubzero/managers/components/cron/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Components",
+    "Cron"
+  ],
+  "/hubzero/managers/components/dataviewer/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Components",
+    "DataViewer"
+  ],
+  "/hubzero/managers/components/developer/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Components",
+    "Developer"
+  ],
+  "/hubzero/managers/components/events/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Components",
+    "Events"
+  ],
+  "/hubzero/managers/components/feedback/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Components",
+    "Feedback"
+  ],
+  "/hubzero/managers/components/forum/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Components",
+    "Forum"
+  ],
+  "/hubzero/managers/components/jobs/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Components",
+    "Jobs"
+  ],
+  "/hubzero/managers/components/kb/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Components",
+    "Knowledge base"
+  ],
+  "/hubzero/managers/components/languages/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Components",
+    "Language Manager"
+  ],
+  "/hubzero/managers/components/mailto/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Components",
+    "Mailto"
+  ],
+  "/hubzero/managers/components/messages/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Components",
+    "Messages"
+  ],
+  "/hubzero/managers/components/newsletters/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Components",
+    "Newsletters"
+  ],
+  "/hubzero/managers/components/oaipmh/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Components",
+    "OAI-PMH"
+  ],
+  "/hubzero/managers/components/poll/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Components",
+    "Poll"
+  ],
+  "/hubzero/managers/components/projects/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Components",
+    "Projects"
+  ],
+  "/hubzero/managers/components/publications/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Components",
+    "Publications"
+  ],
+  "/hubzero/managers/components/redirect/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Components",
+    "Redirect"
+  ],
+  "/hubzero/managers/components/resources/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Components",
+    "Resources"
+  ],
+  "/hubzero/managers/components/saml/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Components",
+    "SAML"
+  ],
+  "/hubzero/managers/components/search/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Components",
+    "Search"
+  ],
+  "/hubzero/managers/components/search/install/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Components",
+    "Search",
+    "Installation and first-time configuration"
+  ],
+  "/hubzero/managers/components/search/admin/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Components",
+    "Search",
+    "Administration"
+  ],
+  "/hubzero/managers/components/search/breadth/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Components",
+    "Search",
+    "Breadth"
+  ],
+  "/hubzero/managers/components/search/boosting/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Components",
+    "Search",
+    "Boosting"
+  ],
+  "/hubzero/managers/components/search/index/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Components",
+    "Search",
+    "Maintaining the index"
+  ],
+  "/hubzero/managers/components/search/plugins/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Components",
+    "Search",
+    "Plugins"
+  ],
+  "/hubzero/managers/components/search/blacklist/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Components",
+    "Search",
+    "Blacklist"
+  ],
+  "/hubzero/managers/components/services/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Components",
+    "Services"
+  ],
+  "/hubzero/managers/components/storefront/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Components",
+    "Storefront"
+  ],
+  "/hubzero/managers/components/support/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Components",
+    "Support"
+  ],
+  "/hubzero/managers/components/tags/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Components",
+    "Tags"
+  ],
+  "/hubzero/managers/components/tools/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Components",
+    "Tools"
+  ],
+  "/hubzero/managers/components/usage/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Components",
+    "Usage"
+  ],
+  "/hubzero/managers/components/whatsnew/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Components",
+    "What's New"
+  ],
+  "/hubzero/managers/components/wiki/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Components",
+    "Wiki"
+  ],
+  "/hubzero/managers/components/wishlist/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Components",
+    "Wish lists"
+  ],
+  "/hubzero/managers/extensions/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Extensions"
+  ],
+  "/hubzero/managers/extensions/modules/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Extensions",
+    "Module Manager"
+  ],
+  "/hubzero/managers/extensions/templates/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Extensions",
+    "Template Manager"
+  ],
+  "/hubzero/managers/extensions/plugins/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Extensions",
+    "Plug-in Manager"
+  ],
+  "/hubzero/managers/extensions/extension-manager/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Extensions",
+    "Extension Manager"
+  ],
+  "/hubzero/managers/spam/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Spam"
+  ],
+  "/hubzero/managers/security/": [
+    "Home",
+    "HUBzero",
+    "Hub managers",
+    "Security considerations"
+  ],
   "/hubzero/users/": [
     "Home",
     "HUBzero",

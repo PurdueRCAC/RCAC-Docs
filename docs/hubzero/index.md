@@ -37,7 +37,7 @@ and is published at https://docs.rcac.purdue.edu/hubzero/.
 
 ## Run a hub
 
-- [Hub managers](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/managers/README.md) — installing a hub, then administering
+- [Hub managers](managers/index.md) — installing a hub, then administering
     it: configuration, members and access, content, extensions, maintenance,
     and every component's administrative side.
 

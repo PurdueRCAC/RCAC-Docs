@@ -1,0 +1,226 @@
+---
+tags:
+- HUBzero
+render_macros: false
+hubzero:
+  upstream: docs/managers/09-components/19-kb.md
+  commit: 9c1a8c678002bdfb41860f90915a3589ab60339e
+  status: rewritten
+  reviewed-against: 2.4-main @ 009ec973b7
+  reviewed: '2026-09-10'
+  source: https://help.hubzero.org/documentation/240/managers/components/kb
+---
+
+# Knowledge base
+
+The knowledge base is a library of articles that explain how to use the
+hub: how-to guides, answers to common questions, policies. Articles are
+grouped into categories, can be rated and commented on by members, and
+appear on the site at `/kb`. This chapter covers the administrator's side;
+the [Hub users](../../users/knowledgebase.md) book covers reading, rating,
+and commenting.
+
+## Whether your hub needs it
+
+The knowledge base holds the answers you already know. It is the one
+discussion-adjacent component members cannot write in: articles are created
+in the administrator interface and nowhere else — there is no create or edit
+task on the site side at all — so everything in it is something a manager or
+an editor decided was true. That is the point of it. It is the hub's own
+account of itself.
+
+Almost every hub needs one, and needs less of it than it expects. Six
+articles that are correct beat sixty that were correct in 2019. The
+articles that earn their place are the ones you would otherwise retype in an
+email once a month: how to get an account, how to ask for more storage, what
+the queue limits are, who to contact when a tool will not start.
+
+The typical case: a hub opens registration to a partner institution, and
+suddenly forty people a week need to be told the same thing about which
+account gets which access. That is one knowledge base article and a link in
+the welcome email, rather than forty replies.
+
+Against its siblings:
+
+- Better than [Answers](answers.md) at anything you need to stay correct,
+    because you own it and can change it. Worse at coverage: it only ever
+    contains what somebody sat down and wrote. The two work well together —
+    watch the Questions list, and when a question comes up a third time, write
+    the article.
+- Better than the [Wiki](wiki.md) at policy and instruction, because
+    nobody else can edit it and it renders in a plain editor rather than wiki
+    markup. Worse at anything collaborative: there is no revision history
+    here, so an edit that loses a paragraph loses it for good.
+- Not a substitute for [Support](support.md). The knowledge base answers
+    the question before it is asked; support handles the one that still gets
+    asked.
+
+**What it is not:** it is not member-authored. If you want members writing
+the documentation, you want the wiki. If you find yourself pasting a
+member's forum reply into an article, that is the system working, but the
+member gets no byline unless you give them one.
+
+Open it in the administrator interface under **Components > Knowledgebase**.
+Two sub-menu links sit at the top left: **Articles**, the list below, and
+**Categories**, which opens the shared Categories component filtered to the
+knowledge base.
+
+## Articles
+
+The Articles screen lists every article with its **Title**, **Published**
+state, **Access** level, **Category**, and **Votes**. Click a column heading
+to sort by it; click again to reverse the order. Above the list, filter by
+a search term (matched against titles), a category, or an access level, and
+press **Go**.
+
+The toolbar offers:
+
+- **Options** — the component's configuration; see
+    [Options](#options) below.
+- **Publish** and **Unpublish** — change the state of the checked articles.
+- **New** — create an article.
+- **Edit** — open the checked article. Clicking a title does the same.
+- **Delete** — remove the checked articles after a confirmation. This is
+    permanent; there is no trash to recover from.
+- **Help** — the built-in help screen.
+
+Each row also shows the article's tags.
+
+## Creating or editing an article
+
+The edit screen has three parts.
+
+**Details**
+
+| Field | Notes |
+|---|---|
+| Category | Required. The category the article belongs to. Only published categories are visible on the site, and an article's URL is built from its category's alias. |
+| Title | Required. |
+| Alias | Optional. The last segment of the article's URL. Left blank, it is generated from the title: lowercased, punctuation removed, spaces replaced by hyphens. |
+| Body | Required. The article text, in the editor. |
+| Tags | Optional, comma-separated. Tags connect the article to searches and to other tagged content on the hub. |
+
+The panel beside the form shows the article's ID, when and by whom it was
+created and last modified, its **Hits** (page views) and **Votes**. Two
+checkboxes, **Reset hits** and **Reset votes**, zero those counters when
+you save.
+
+**State**
+
+| Field | Notes |
+|---|---|
+| Publish | Unpublished, Published, or Trashed. Only published articles are shown on the site; unpublished and trashed articles return a not-found page. |
+| Access level | Which access level a visitor needs to read the article: Public, Registered, or a level you have defined. |
+
+**Parameters**
+
+These override the component-wide options for this one article. An article
+that has never had a parameter set inherits the option's current value;
+once set, the article's own value wins even if the option changes later.
+
+| Parameter | Effect |
+|---|---|
+| Authors | Show or hide the author's name on the article. |
+| Comments | Allow or disallow comments. |
+| Close Comments | How long after the article was last modified comments stay open: never close, or close after a week, a month, six months, or a year. The component-wide option also offers closing immediately and after a day. |
+| Feeds | Enable or disable the article's comment feed, at `/kb/<category>/<article>/comments.rss`. |
+| Feed Entries | Whether feed items carry the full comment or a partial one. |
+| Date | Which date to show on the article: none, created, modified, or published. |
+
+Press **Save** to save and stay on the form, **Save & Close** to return to
+the list, or **Cancel** to discard changes.
+
+## Categories
+
+Knowledge base categories are managed by the Categories component, which
+the **Categories** sub-menu link opens with the knowledge base selected.
+A category has a title, an alias used in URLs, an optional description, an
+optional parent category, a published state, and an access level. Nest
+categories one level deep: a top-level category with sub-categories. An
+article always belongs to exactly one category.
+
+A category must be published for its articles to be reachable. Unpublishing
+a category hides every article in it without changing the articles.
+
+!!! note
+    Because the article's URL is built from its category's alias,
+    moving an article to a different category changes its address, and the old
+    address stops working. If the old address is in an email you sent to forty
+    people, add a redirect; see [Redirect](redirect.md).
+
+## Writing the first article
+
+Following the partner-institution example: the article that explains which
+account gets which access.
+
+1. Go to **Components > Knowledgebase > Categories** and check whether a
+    category fits. If not, press **New**, give it a **Title** and leave the
+    parent empty for a top-level category, set it Published, and save.
+    Categories are nested one level deep at most; two or three top-level
+    categories is enough for any hub.
+2. Go back to **Articles** and press **New**.
+3. Pick the **Category**, write the **Title**, and leave **Alias** blank
+    unless you want a specific URL — a generated alias is fine, and a
+    deliberate one is worth choosing when you are about to mail the link out,
+    because changing the title later changes nothing but changing the alias
+    breaks the link.
+4. Write the **Body**, and add **Tags** if the hub uses them; tags are what
+    connect the article to site search and to related content.
+5. Leave **Publish** at Unpublished for now and press **Save & Close**.
+6. Read it back in the list, open it again, set **Publish** to Published and
+    **Access level** to Public, and **Save & Close**.
+7. Visit `/kb` and confirm it appears under the right category.
+
+Steps 5 and 6 are the useful habit: an unpublished article returns a
+not-found page rather than a half-written one, and publishing is a single
+switch you can flip back the moment you spot a mistake. Nothing here is
+irreversible except **Delete**, which removes the article outright with no
+trash to recover from.
+
+## Comments and votes
+
+Members rate each article helpful or not helpful and can comment on it
+when comments are allowed. There is no administrator screen for comments:
+a member who reports a comment as abusive files a support ticket, and the
+comment is marked as reported on the site until a manager resolves the
+ticket. The vote totals appear in the Articles list and on each article's
+edit screen, where they can be reset.
+
+## Options
+
+The **Options** button opens the component-wide defaults that articles
+inherit: the date to show, whether comments are allowed and when they
+close, and whether comment feeds are enabled and how much of each comment
+they carry. Every option is listed with its values in the
+[configuration reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/components/kb.md).
+
+The shipped values suit most hubs and are worth leaving alone: the modified
+date is shown, comments are allowed, and they close a year after the article
+was last touched. The one decision is comments. An article that invites comments turns into a small
+discussion the moment anyone disagrees with it, and there is no
+administrator screen for knowledge base comments — the only way to deal with
+a bad one is through the support ticket a member files when they report it.
+On a hub with few staff, turning comments off component-wide and pointing
+readers at [Answers](answers.md) or [Support](support.md) instead is
+the quieter arrangement. **Close Comments** is the middle course, and the default already
+takes it: comments close a set time after the article was last modified, so
+an article you keep current keeps its comments open and one you have not
+touched in a year does not.
+
+!!! note
+    A setting on an individual article wins over the component
+    option, permanently. An article whose **Comments** parameter has ever been
+    set keeps its own value even after you change the option, so switching
+    comments off component-wide does not switch them off on articles where
+    somebody set the parameter by hand.
+
+The **Permissions** tab controls who may manage the component, and create,
+delete, edit, change the state of, or edit their own articles and
+categories. Permissions can be set for the whole component, for categories,
+and for articles.
+
+## API
+
+The knowledge base exposes one endpoint, `GET /api/kb/list`, which returns
+articles for the site's search indexer. It requires an administrator token;
+see the [API reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/api/kb.md).

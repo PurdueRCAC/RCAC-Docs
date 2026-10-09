@@ -42,7 +42,7 @@ Hubs have three arrangements that sound alike and do quite different jobs.
     team and decides whether anyone else ever sees it. It is about work in
     progress rather than community: there is no forum and no wiki, and nobody
     asks to join.
-- An [**access group**](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/managers/06-users/06-accessgroups.md) is one of
+- An [**access group**](../../managers/users/accessgroups.md) is one of
     the hub's permission buckets, set by administrators, which decides what you
     are allowed to do on the hub at all. You cannot see it, join it, or make
     one.
@@ -157,4 +157,4 @@ disappears from the menu. **Overview** cannot be turned off.
 - [Group forum](groupforum.md)
 
 Administrators run groups from a different screen; see
-[Groups](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/managers/06-users/05-groups.md) in the managers book.
+[Groups](../../managers/users/groups.md) in the managers book.

@@ -141,7 +141,7 @@ notifications*, *receive immediate notification*, or *receive a daily*,
     A digest is sent by a scheduled job on the hub. If the hub's
     administrators have allowed digests but not scheduled that job, nothing
     arrives however you set this. See
-    [Groups](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/managers/06-users/05-groups.md#configuring-groups) in the
+    [Groups](../../managers/users/groups.md#configuring-groups) in the
     managers book.
 
 ### Per-category subscriptions

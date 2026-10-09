@@ -53,7 +53,7 @@ from `getStatusName()` in `com_tools`.)*
 
 The administrator's half of each step — what the buttons do, what the host
 scripts are called, and how the output is reported — is in
-[Tools](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/managers/03-maintenance/02-tools.md) in the hub managers book.
+[Tools](../../managers/maintenance/tools.md) in the hub managers book.
 That page also lists every field on the registration form. Read it alongside
 this one; between them they cover both sides of the same pipeline.
 
@@ -109,7 +109,7 @@ covers the directory layout and the `middleware/invoke` script every tool
 needs.
 
 The commands for the checkout, the build, and the commit are in the
-[hub managers' walkthrough](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/managers/03-maintenance/02-tools.md), which
+[hub managers' walkthrough](../../managers/maintenance/tools.md), which
 gives the Subversion form and notes the Git equivalents. Test the tool in a
 workspace before you flip the state:
 

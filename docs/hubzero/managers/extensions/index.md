@@ -1,0 +1,139 @@
+---
+tags:
+- HUBzero
+render_macros: false
+hubzero:
+  upstream: docs/managers/10-extensions/README.md
+  commit: 9c1a8c678002bdfb41860f90915a3589ab60339e
+  status: rewritten
+  reviewed-against: 2.4-main @ 35f103b1b3
+  reviewed: '2026-09-10'
+  screenshots: none
+  source: https://help.hubzero.org/documentation/240/managers/extensions
+  source-id: '3405'
+  imported: '2026-09-09'
+---
+
+# Extensions
+
+Everything Hubzero puts on a page comes from an extension. The platform ships
+with a large set of them, and a hub can add its own. This section covers the
+four administrator screens that manage extensions, all reached from the
+**Extensions** menu in the administrator interface.
+
+| Screen | What it manages |
+|---|---|
+| [Extension Manager](extension-manager.md) | Enabling, disabling and updating every installed extension |
+| [Module Manager](modules.md) | Module instances, their positions and their page assignments |
+| [Plug-in Manager](plugins.md) | Plugin state, access level and run order |
+| [Template Manager](templates.md) | Template styles, the default template, and template source files |
+
+A fifth entry, **Language Manager**, opens `com_languages`. It has its own
+chapter, [Language Manager](../components/languages.md), among the
+[component chapters](../components/index.md).
+
+## This section, and the one it is confused with
+
+This section is about **which extensions exist and where they sit**. Creating
+a module and putting it in a template position. Turning a plugin on. Choosing
+the template the site renders in. Adding a hub's own code from a git
+repository.
+
+[Configuring](../configuring/index.md) is about **values**: the settings
+inside an extension once it exists and is switched on.
+
+Two screens carry both jobs, and that is where the confusion starts. The
+Module Manager creates a module *and* holds its parameters; the Plug-in
+Manager enables a plugin *and* holds its parameters. In this book the
+parameters are described in the Configuring chapters —
+[Modules](../configuring/modules.md) and
+[Plugins](../configuring/plugins.md) — and everything else here.
+
+!!! important
+    If a hub looks empty — no menu down the side, no login box,
+    nothing but the component in the middle of the page — the cause is almost
+    always in this section, not in the content. A module renders only if its
+    position is one the live template actually draws, and a fresh install ships
+    neither a default style that draws any nor a main menu in a position that
+    exists. [Positions](modules.md#positions) explains it.
+
+## The extension types
+
+### Components
+
+A component is an application. It has its own controllers, models, views,
+database tables, administrator screens and access rules, and it renders the
+main body of the page. Exactly one component runs per request; a menu item is
+essentially a switch that decides which one. Components live in
+[`core/components/`](https://github.com/hubzero/hubzero-cms/tree/9c1a8c678002bdfb41860f90915a3589ab60339e/core/components), and a hub's own components in
+`app/components/`. Their names begin with `com_`: `com_resources`,
+`com_groups`, `com_publications`.
+
+Components are not created or removed from the Extensions screens. They are
+enabled and disabled from the [Extension Manager](extension-manager.md),
+configured from their own **Options** button, and given menu items from the
+[menu manager](../menus.md).
+
+### Modules
+
+A module is a small block of output placed around the component, in a named
+position defined by the template: a login box, a breadcrumb trail, a site
+notice, a list of the newest resources. Modules live in
+[`core/modules/`](https://github.com/hubzero/hubzero-cms/tree/9c1a8c678002bdfb41860f90915a3589ab60339e/core/modules) and are named `mod_login`,
+`mod_breadcrumbs`, and so on. One hundred ship with the core, 78 for the site
+and 22 for the administrator interface.
+
+Unlike a component, a module is instantiated. The same `mod_custom` code can
+back a dozen separate blocks, each with its own title, position, access level
+and set of pages. That is what the [Module Manager](modules.md) edits.
+
+### Plugins
+
+A plugin answers events. Something in the platform triggers an event —
+a user logs in, a resource is saved, a page of content is about to be
+rendered — and every enabled plugin that implements a handler for it runs, in
+order. Plugins live in [`core/plugins/`](https://github.com/hubzero/hubzero-cms/tree/9c1a8c678002bdfb41860f90915a3589ab60339e/core/plugins), grouped into
+folders by the kind of event they answer: `authentication`, `content`,
+`members`, `groups`, `cron`, `system`, and about thirty more.
+
+Plugins also supply whole tabbed sections of some components. The tabs on a
+group page, on a member profile and on a project are each a plugin in the
+`groups`, `members` and `projects` folders.
+
+### Templates
+
+A template controls presentation. It supplies `index.php` (the page
+skeleton), stylesheets, scripts, the list of module positions it offers, and
+optional overrides of any component or module layout. Templates live in
+[`core/templates/`](https://github.com/hubzero/hubzero-cms/tree/9c1a8c678002bdfb41860f90915a3589ab60339e/core/templates), and a hub's own in
+`app/templates/`.
+
+A template is not the same thing as a *style*. One template can have several
+styles, each a saved set of that template's parameters, and styles are what
+you assign to the site or to individual menu items. See
+[Templates](templates.md).
+
+### Languages
+
+A language pack is a set of `.ini` files of key/value pairs, one file per
+extension, plus an XML manifest describing the language. Every string the
+interface renders comes from one of these keys, which is why this
+documentation quotes labels as the language files spell them. Language packs
+cover both the site and the administrator interface.
+
+## Where extensions live
+
+Hubzero looks for an extension in the hub's own directory first and falls back
+to the core:
+
+| Type | Hub | Core |
+|---|---|---|
+| Components | `app/components/com_name/` | `core/components/com_name/` |
+| Modules | `app/modules/mod_name/` | `core/modules/mod_name/` |
+| Plugins | `app/plugins/folder/name/` | `core/plugins/folder/name/` |
+| Templates | `app/templates/name/` | `core/templates/name/` |
+
+Nothing in `core/` should be edited on a running hub. To change core
+behaviour, put a replacement of the same name under `app/`; it wins. The
+[Extension Manager](extension-manager.md) calls those hub-side additions
+**Custom Extensions** and installs them from a git repository.

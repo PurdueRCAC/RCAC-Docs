@@ -73,7 +73,7 @@ The **Outline** tab is where the material is.
     outline, tracking your progress, and claiming a certificate or badge.
 - [Course manager features](#course-manager-features) — what an
     instructor can do from the course pages themselves.
-- The [Courses chapter](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/managers/09-components/10-courses.md) in the
+- The [Courses chapter](../managers/components/courses.md) in the
     Hub managers book covers everything an administrator does in the back end,
     including sections, coupon codes, certificates and roles.
 
@@ -356,7 +356,7 @@ material becomes available, certificates, badges, coupon codes and roles.
 | Course roles | Administrator only |
 
 The administrator side is covered in the
-[Courses chapter](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/managers/09-components/10-courses.md) of the Hub
+[Courses chapter](../managers/components/courses.md) of the Hub
 managers book.
 
 ### Creating a course

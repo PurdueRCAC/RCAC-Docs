@@ -53,5 +53,5 @@ explains what the options it sets actually do.
 
 Related reading: [Jupyter notebooks as tools](../jupyter-notebooks/index.md)
 for publishing a notebook in the first place, and
-[registering a tool](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/managers/03-maintenance/02-tools.md) for the
+[registering a tool](../../../managers/maintenance/tools.md) for the
 publishing option that marks a tool as a web application.

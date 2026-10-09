@@ -21,7 +21,7 @@ Collections are a scrapbook. You make a collection, then pin images, files
 and links into it as posts. You can follow other people's collections, collect
 their posts into your own, like them and comment on them. Administrators
 manage the same content from the
-[Collections chapter](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/managers/09-components/09-collections.md) of the Hub
+[Collections chapter](../managers/components/collections.md) of the Hub
 managers book.
 
 Collections are for keeping track of things you want to find again, and for
@@ -316,4 +316,4 @@ appears on content pages across the hub and posts that page straight into one
 of your collections. It works on blog entries, articles, courses, forum
 threads, knowledge base articles, publications, resources, wiki pages and
 wishes — the nine content types listed in the
-[managers' Collections chapter](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/managers/09-components/09-collections.md#the-collect-button).
+[managers' Collections chapter](../managers/components/collections.md#the-collect-button).

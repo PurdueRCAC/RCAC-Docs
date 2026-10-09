@@ -208,7 +208,7 @@ The **Manage Modules** tab puts blocks of content in the positions around a
 group's pages. It is present for every super group; for an ordinary group it
 appears only when the hub's administrators have switched group modules on.
 The screen is described in
-[Super Groups](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/managers/06-users/08-supergroups.md#managing-modules-from-the-site).
+[Super Groups](../../managers/users/supergroups.md#managing-modules-from-the-site).
 
 ## PHP and JavaScript in a page
 
@@ -240,7 +240,7 @@ saying the page is awaiting approval. The page shows **Pending Approval** in
     from the site. The group file browser reaches only the group's `uploads`
     folder, for every group, super or not. Super group templates are edited on
     the server. See
-    [Super Groups](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/managers/06-users/08-supergroups.md) for what the
+    [Super Groups](../../managers/users/supergroups.md) for what the
     status gives a group and
     [Super Groups](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/developers/13-supergroups/README.md) in the developer
     book for the templating itself.

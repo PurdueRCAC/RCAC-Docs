@@ -109,4 +109,4 @@ shows missing-table errors there rather than an empty report. The terms it
 uses are defined in
 [Simulation usage definitions](simusagedefinitions.md); the administrator's
 view of the same problem is in
-[Usage](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/managers/09-components/37-usage.md) in the Hub managers book.
+[Usage](../managers/components/usage.md) in the Hub managers book.

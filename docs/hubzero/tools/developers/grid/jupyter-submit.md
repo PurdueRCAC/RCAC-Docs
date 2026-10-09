@@ -33,7 +33,7 @@ new one.
     registration form offers **Web application (Jupyter, Rstudio, ...)** as a
     publishing choice, stored on the tool version as `publishType` =
     `jupyter`. See
-    [registering a tool](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/managers/03-maintenance/02-tools.md) for
+    [registering a tool](../../../managers/maintenance/tools.md) for
     that form, and
     [Jupyter notebooks as tools](../jupyter-notebooks/index.md) for
     publishing a notebook in the first place.

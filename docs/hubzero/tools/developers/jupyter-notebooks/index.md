@@ -66,7 +66,7 @@ administrators book for the administrator's side of that.
 ## Getting a notebook published
 
 A notebook tool goes through the same pipeline as any other tool, and
-[Tools](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/managers/03-maintenance/02-tools.md) in the hub managers book
+[Tools](../../../managers/maintenance/tools.md) in the hub managers book
 documents that pipeline state by state, from the CMS code. The short version,
 with the Jupyter-specific parts marked:
 

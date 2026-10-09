@@ -51,7 +51,7 @@ resource page.
 
 ## The other two sides
 
-- Hub managers run the pipeline: [Tools](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/managers/03-maintenance/02-tools.md)
+- Hub managers run the pipeline: [Tools](../../managers/maintenance/tools.md)
     walks the states from the administrator's side and lists every field on the
     registration form.
 - Hub members run the result: [Tools](../../users/tools.md) describes a

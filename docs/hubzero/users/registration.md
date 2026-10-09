@@ -38,7 +38,7 @@ built into the software; the **Personal Information** fieldset in the middle
 is entirely the hub's own, and any of the standard fields can be made
 required, optional, read-only, or hidden. Administrators set that up on the
 **Users > Members > Registration** screen, described in the
-[Registration chapter](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/managers/06-users/02-registration.md) of the Hub managers
+[Registration chapter](../managers/users/registration.md) of the Hub managers
 book.
 
 !!! note

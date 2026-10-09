@@ -160,7 +160,7 @@ change is saved immediately.
 The last remaining manager cannot be demoted or removed, so a group is never
 left without one. Demote them from the administrator interface if you really
 need to; see
-[Groups](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/managers/06-users/05-groups.md#membership).
+[Groups](../../managers/users/groups.md#membership).
 
 !!! note
     Making someone a manager gives them the power to promote and

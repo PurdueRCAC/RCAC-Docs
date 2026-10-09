@@ -6,7 +6,7 @@ appetite: big
 status: in_progress
 branch: feature/hubzero-docs
 base: main
-current_phase: P4
+current_phase: P5
 last_updated: '2026-10-08'
 phases:
 - id: P1
@@ -58,7 +58,7 @@ phases:
     .venv/bin/python tools/hubzero/import_docs.py check
 - id: P4
   name: Import the Hub managers book
-  status: pending
+  status: done
   satisfies:
   - R2
   - R3
@@ -278,11 +278,21 @@ the three other root pages, a nav region, and the status hook. No book is import
 **Satisfies:** R2, R3, R4 · **Depends on:** P3
 **Goal:** all 90 Hub managers pages render, including the one slug collision.
 
-- [ ] Enable `managers`; re-import.
-- [ ] Render check: `09-components/31-search/` (`index.md` and `index/index.md` both present and
+- [x] Enable `managers`; re-import.
+- [x] Render check: `09-components/31-search/` (`index.md` and `index/index.md` both present and
       in nav), the `draft` page, `04-blogs.md` and `23-newsletters.md` (Jinja), an include
       page, `03-maintenance/05-cron.md` (raw tag).
-- [ ] Fold fixes into the importer; re-import; breadcrumbs.
+- [x] Fold fixes into the importer; re-import; breadcrumbs.
+- **Findings in P4 (2026-10-08; no importer change, no GOAL change):**
+  - The search section's landing page (`…/search/`) and "Maintaining the index"
+    (`…/search/index/`) both build and are listed in the nav in upstream order.
+  - The draft page is `00-installing.md`: "Draft" banner, no stamp. Blogs and newsletters
+    show their `{{ … }}` literally. The include pages (`00-installing`, `03-maintenance/01-approvingcontent`)
+    render their code blocks.
+  - Cron's raw tags are intentional `<a id="editfields-…">` anchors and work. The second lost
+    placeholder (`<first>`) is not in this book.
+  - Render probe (scratch script comparing source with `site/`: lost headings, blocks swallowed
+    into tables, leaked markdown, missing images or alt) is clean on all 158 book pages so far.
 - **Verify:** `.venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py && grep -q 'hubzero/managers/index.md' mkdocs.yml && HUBZERO_CMS=$HOME/Software/github.com/hubzero/hubzero-cms .venv/bin/python tools/hubzero/import_docs.py check`
 - **Touches:** `tools/hubzero/**`, `docs/hubzero/**`, `docs/assets/images/hubzero/managers/`,
   `mkdocs.yml`, `docs/assets/data/breadcrumbs.json`.

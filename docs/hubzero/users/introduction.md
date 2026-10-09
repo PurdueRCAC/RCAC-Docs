@@ -34,7 +34,7 @@ Every hub is built from the same set of components, but each hub turns on
 only the ones it needs. If a tab, a menu entry, or a whole section described
 here is missing on your hub, it has been switched off rather than removed. The
 administrator's side of those choices is in the
-[Hub managers](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/managers/README.md) book; nothing in this book requires
+[Hub managers](../managers/index.md) book; nothing in this book requires
 access to the administrator interface.
 
 ## What an account gets you

@@ -79,7 +79,7 @@ Once you have registered a tool, the detail lives elsewhere in this book:
     Anaconda environments behind Jupyter kernels.
 
 Hub staff running the pipeline should read
-[Tools](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/managers/03-maintenance/02-tools.md) in the hub managers book.
+[Tools](../../managers/maintenance/tools.md) in the hub managers book.
 
 ## Pages that moved
 

@@ -361,8 +361,8 @@ Much of what a project offers is set hub-wide, not per project: which tabs
 exist, how much disk space a project gets, whether the setup wizard asks
 about sensitive data or grants, and which external storage providers a
 project can connect to. Those settings are described in
-[Projects](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/managers/09-components/26-projects.md) and
-[Project file connectors](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/managers/09-components/26-projects.md#project-file-connectors)
+[Projects](../managers/components/projects.md) and
+[Project file connectors](../managers/components/projects.md#project-file-connectors)
 in the managers book.
 ## Project files
 
@@ -563,7 +563,7 @@ as they do in the project's own file area.
     never see a connections view or a **New Connection** drop-down, the hub has
     not enabled it. An administrator controls that with the Projects - Files
     plugin's **Default Action** setting; see
-    [Project file connectors](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/managers/09-components/26-projects.md#project-file-connectors).
+    [Project file connectors](../managers/components/projects.md#project-file-connectors).
 
 Only a project manager can authorise a connection, and only with their own
 provider account. A hub administrator cannot do it for you: the handshake
@@ -615,7 +615,7 @@ So if your project has no **Databases** tab, one of three things is true:
 the plugin is disabled, the hub has restricted it to a list of projects that
 does not include yours, or its database accounts are not configured. All
 three are for an administrator to fix; see
-[Projects](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/managers/09-components/26-projects.md#enabling-a-project-feature)
+[Projects](../managers/components/projects.md#enabling-a-project-feature)
 in the managers book, and ask the hub's support staff.
 
 A configured tab can still fail at the last step. If the databases list

@@ -1,0 +1,117 @@
+---
+tags:
+- HUBzero
+render_macros: false
+hubzero:
+  upstream: docs/managers/05-configuring/04-modules.md
+  commit: 9c1a8c678002bdfb41860f90915a3589ab60339e
+  status: rewritten
+  reviewed-against: 2.4-main @ 35f103b1b3
+  reviewed: '2026-09-10'
+  screenshots: stale
+  source: https://help.hubzero.org/documentation/240/managers/configuring/modules
+---
+
+# Modules
+
+Most modules carry parameters: what they show, how many items, which feed to
+read. Parameters belong to one module *instance*, so the same module type
+can appear twice on a hub with different settings.
+
+That last point is the useful one. A hub can put the same list of newest
+resources in the sidebar of the front page showing three items, and in the
+footer showing ten, without touching any code — they are two instances of one
+module, each with its own parameters. If a block on the site is showing the
+wrong number of things, or the wrong kind of things, this is where you fix
+it.
+
+This chapter covers the parameters. Creating a module, choosing its position,
+deciding which pages it appears on and putting it in order are covered in
+[Module Manager](../extensions/modules.md) — the same screen, the other
+half of the job.
+
+!!! important
+    If a module is not appearing at all, its parameters are
+    almost never the reason. Check its position first: a module in a position
+    the live template does not draw renders nothing, silently, however
+    correctly it is configured. See
+    [Positions](../extensions/modules.md#positions).
+
+## Opening a module's parameters { #opening-a-module-s-parameters }
+
+1. Sign in to the administrator interface.
+2. Choose **Extensions > Module Manager**.
+3. Select the module's title in the list.
+4. Find the collapsible panels on the right of the edit screen: **Basic
+    Options**, and **Advanced Options** if the module declares any. A module
+    that declares no parameters has no panels.
+5. Change what you need and select **Save** or **Save & Close** in the
+    toolbar. Changes take effect immediately.
+
+!!! note
+    Not every module has parameters. Those that do affect only that
+    one instance.
+
+Editing parameters is about as safe as this book gets. The change lands on
+one block of one page, it is visible the moment you save, and setting the
+value back undoes it. The one field in the **Details** column worth being
+careful with is **Position**, because moving a module to a position no
+template draws makes it vanish without an error.
+
+## The list screen
+
+The list is filtered by a search box and five drop-downs: **Client** (Site
+or Administrator), **- Select Status -**, **- Select Position -**,
+**- Select Type -**, **- Select Access -**, and **- Select Language -**.
+
+Its columns are **Title**, **Status**, **Position**, **Ordering**, **Type**,
+**Pages**, **Access**, **Language**, and **ID**. Select a column heading to
+sort by it.
+
+The toolbar offers **New**, **Edit**, **Duplicate**, **Publish**,
+**Unpublish**, **Check In**, **Trash**, **Options**, and **Help**. Each
+button appears only if your account holds the matching permission.
+**New** opens a pop-up listing the module types you can add. Filtering the
+list to the trash replaces **Trash** with **Empty trash**.
+
+## The edit screen
+
+The left column holds the module's **Details**: **Title**, **Show Title**,
+**Position**, **Ordering**, **Status**, **Access**, **Start Publishing**,
+**Finish Publishing**, **Language**, and **Note**. Custom HTML modules also
+get a **Custom output** panel with a **Text** editor.
+
+Site modules get a **Menu Assignment** section below that. **Module
+Assignment** chooses between all pages, no pages, only the pages selected,
+or all except the pages selected; the tree below it is where you pick them.
+Administrator modules have no assignment section.
+
+The right column holds the parameter panels and a table of facts about the
+module — its type, whether it belongs to the site or the administrator, and
+its ID.
+
+The toolbar has **Save**, **Save & Close**, **Save & New**, **Save as
+Copy**, **Cancel**, and **Help**. **Save** keeps you on the screen; **Save
+& Close** returns to the list.
+
+Every module's parameters are listed in the generated
+[configuration reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/README.md).
+
+!!! tip
+    The Module Manager also adds and removes modules, not just
+    configures them. See [Modules manager](../extensions/modules.md).
+
+## Older screenshots
+
+!!! note
+    The screenshots below came from the imported version of this
+    page. The screens are the same but the administrator template has been
+    restyled since, and the Save button is not a star.
+
+![The Module Manager list](/assets/images/hubzero/managers/media/modules-modules-manager-01.png)
+
+![Choosing a module from the list](/assets/images/hubzero/managers/media/modules-modules-manager-02.png)
+
+![The parameter panels on the right of the module edit screen](/assets/images/hubzero/managers/media/modules-modules-manager-09.png)
+
+![Saving the module](/assets/images/hubzero/managers/media/modules-modules-manager-10.png)

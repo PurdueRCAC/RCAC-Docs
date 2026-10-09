@@ -70,7 +70,7 @@ specific to hubs that have moved to Solr.
 A hub can instead run Apache Solr alongside itself, which gives ranked
 results, counts per content type, and per-type boosting. Setting that up is an
 administrator's job — see
-[Search](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/managers/09-components/31-search/README.md) in the Hub managers book.
+[Search](../managers/components/search/index.md) in the Hub managers book.
 
 The results page has three parts:
 
