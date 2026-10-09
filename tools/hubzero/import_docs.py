@@ -441,6 +441,19 @@ REF_DEF_RE = re.compile(r"^(?P<pre> {0,3}\[[^\]]+\]:[ \t]*)(?P<dest><[^>]*>|\S+)
 HTML_ATTR_RE = re.compile(r"""(?P<attr>\b(?:href|src|srcset)\s*=\s*)(?P<q>["'])(?P<url>[^"']*)(?P=q)""")
 
 
+def pages_path(output: str) -> str:
+    """A page's URL path under /hubzero/, as hubzero.github.io lays it out ('' is the landing)."""
+    rel = output[len(PAGES_DIR) + 1:]
+    if rel == "index.md":
+        return ""
+    if rel.endswith("/index.md"):
+        return rel[: -len("index.md")]
+    return rel[: -len(".md")] + "/"
+
+
+BARE_URL_RE = re.compile(r"https?://[^\s<>()\[\]\"'`]+")
+
+
 class Resolver:
     """build_site.make_link_resolver, rewritten for RCAC-Docs (PLAN §2, transform 3-4)."""
 
@@ -456,6 +469,52 @@ class Resolver:
         self.by_source = {p.source: p for p in model.all_pages()}
         self.assets: set[str] = set()
         self.fallbacks = 0
+        # GOAL R12: references to the GitHub Pages site point here instead.
+        pages_url = model.config.get("pages_url", "").rstrip("/")
+        self.pages_re = (re.compile(r"https?://" + re.escape(pages_url.split("://", 1)[-1])
+                                    + r"(?=/|#|$)", re.I) if pages_url else None)
+        self.by_pages_path = {pages_path(p.output): p for p in model.all_pages() if p.output}
+        self.pages_rewrites = 0
+
+    def _pages_target(self, href: str) -> tuple["Page", str] | None:
+        rest = self.pages_re.sub("", href, count=1).lstrip("/")
+        path, _sep, fragment = rest.partition("#")
+        target = (self.model.config.get("pages_targets") or {}).get(path)
+        if target:
+            source, _s, default_fragment = target.partition("#")
+            page = self.by_source.get(source)
+            fragment = fragment or default_fragment
+        else:
+            page = self.by_pages_path.get(path if not path or path.endswith("/") else path + "/")
+        if page is None:
+            self.warn(f"GitHub Pages link with no page here {href!r}")
+            return None
+        self.pages_rewrites += 1
+        return page, fragment
+
+    def pages_link(self, href: str) -> str:
+        """A GitHub Pages link → a relative link to the same page here."""
+        hit = self._pages_target(href)
+        if hit is None:
+            return href
+        dest, fragment = hit
+        if dest is self.page and fragment:
+            return f"#{fragment}"
+        if dest.book is None or dest.book in self.model.enabled:
+            out = os.path.relpath(dest.output, os.path.dirname(self.page.output)).replace(os.sep, "/")
+        else:
+            self.fallbacks += 1
+            out = f"{self.blob_base}/{dest.source}"
+        return out + (f"#{fragment}" if fragment else "")
+
+    def pages_absolute(self, url: str) -> str:
+        """A bare GitHub Pages URL in prose → the same page's absolute URL here."""
+        hit = self._pages_target(url)
+        if hit is None:
+            return url
+        dest, fragment = hit
+        base = self.model.config["site_url"].rstrip("/")
+        return f"{base}/{pages_path(dest.output)}" + (f"#{fragment}" if fragment else "")
 
     def _prefix_insensitive(self, candidate: str) -> str | None:
         def norm(part: str) -> str:
@@ -470,6 +529,8 @@ class Resolver:
     def __call__(self, href: str) -> str:
         if not href or href.startswith(("#", "//")):
             return href
+        if self.pages_re and self.pages_re.match(href):
+            return self.pages_link(href)
         if re.match(r"^[a-zA-Z][a-zA-Z0-9+.-]*:", href):
             return href
         path_part, sep, fragment = href.partition("#")
@@ -545,6 +606,27 @@ def rewrite_links(lines: list[str], kinds: list[str], resolve: Resolver) -> list
             new = resolve.srcset(url) if "srcset" in m.group("attr").lower() else resolve(url)
             if new != url:
                 take(m, "url", new)
+        for start, end, new in sorted(pieces, reverse=True):
+            line = line[:start] + new + line[end:]
+        out.append(line)
+    return out
+
+
+def rewrite_pages_text(lines: list[str], kinds: list[str], resolve: Resolver) -> list[str]:
+    """Bare GitHub Pages URLs left in prose after rewrite_links → this site (GOAL R12)."""
+    if resolve.pages_re is None:
+        return lines
+    out = []
+    for line, kind in zip(lines, kinds):
+        if kind in ("fence", "code", "blank"):
+            out.append(line)
+            continue
+        masked = mask_code_spans(line)
+        pieces = []
+        for m in BARE_URL_RE.finditer(masked):
+            url = m.group(0).rstrip(".,;:!?")
+            if resolve.pages_re.match(url):
+                pieces.append((m.start(), m.start() + len(url), resolve.pages_absolute(url)))
         for start, end, new in sorted(pieces, reverse=True):
             line = line[:start] + new + line[end:]
         out.append(line)
@@ -766,8 +848,10 @@ def convert(model: Model, page: Page, warnings: list[str], stats: dict[str, int]
     kinds = line_kinds(lines)
     resolver = Resolver(model, page, warn)
     lines = rewrite_links(lines, kinds, resolver)
+    lines = rewrite_pages_text(lines, kinds, resolver)
     assets |= resolver.assets
     stats["github-fallback-links"] += resolver.fallbacks
+    stats["github-pages-refs"] += resolver.pages_rewrites
     lines, n_ids = add_heading_ids(lines, kinds)
     stats["explicit-heading-ids"] += n_ids
     lines, n_callouts = convert_callouts(lines, kinds)
@@ -816,8 +900,8 @@ def build_nav(model: Model) -> str:
 
 def run_import(model: Model) -> Result:
     warnings: list[str] = []
-    stats = {"pages": 0, "assets": 0, "github-fallback-links": 0, "explicit-heading-ids": 0,
-             "callouts": 0, "reindented": 0, "blank-before-list": 0}
+    stats = {"pages": 0, "assets": 0, "github-fallback-links": 0, "github-pages-refs": 0,
+             "explicit-heading-ids": 0, "callouts": 0, "reindented": 0, "blank-before-list": 0}
     assets: set[str] = set()
     files: dict[str, bytes] = {}
     for page in model.pages():
@@ -958,6 +1042,7 @@ def run_check(model: Model, result: Result, final: bool) -> list[str]:
 
     # R2: every published source page maps to exactly one output with the same title.
     pages = model.pages()
+    pages_host = model.config.get("pages_url", "").split("://", 1)[-1].split("/", 1)[0].lower()
     expected = len(model.roots) + sum(1 for b in model.books if b.book in model.enabled
                                       for p in b.walk() if p.source)
     if len(pages) != expected:
@@ -985,6 +1070,8 @@ def run_check(model: Model, result: Result, final: bool) -> list[str]:
             find(f"R6 docs/{page.output}: render_macros: false is missing")
         if page.header and page.header.strip() in body:
             find(f"R7 docs/{page.output}: the source metadata header leaks into the body")
+        if pages_host and pages_host in body.lower():
+            find(f"R12 docs/{page.output}: still references {pages_host}")
         if final and re.search(r"github\.com/hubzero/hubzero-cms/blob/[0-9a-f]{40}/docs/[^)\s\"'#]*\.md", body):
             find(f"R3 --final docs/{page.output}: still links a docs page on GitHub")
 
@@ -1085,7 +1172,8 @@ def main(argv: list[str] | None = None) -> int:
         print(f"  explicit heading ids: {s['explicit-heading-ids']}; callouts: {s['callouts']}; "
               f"list lines re-indented: "
               f"{s['reindented']}; blank lines before lists: {s['blank-before-list']}; "
-              f"links to not-yet-imported pages (GitHub): {s['github-fallback-links']}")
+              f"links to not-yet-imported pages (GitHub): {s['github-fallback-links']}; "
+              f"GitHub Pages references repointed: {s['github-pages-refs']}")
         if result.unreferenced:
             print(f"  {len(result.unreferenced)} unreferenced files in enabled books (not copied):")
             for path in result.unreferenced:

@@ -54,11 +54,15 @@ factory on a real, sizable migration.
 - **R10** — Every HUBzero page SHALL pass the accessibility checks `docs-review` applies to
   the rest of the site.
 - **R11** — The site home page SHALL carry a HUBzero card that links to `/hubzero/`.
+- **R12** — No HUBzero page SHALL reference hubzero.github.io. A link to it SHALL point to
+  the same page under `/hubzero/`, and a link to its status page SHALL point to the landing
+  page's "About the documentation" section.
 
 ## Non-goals (no-gos)
 
 - Not correcting or reviewing HUBzero content. Nick's book-by-book review owns accuracy;
-  this job carries his pages and their review status through unchanged.
+  this job carries his pages and their review status through unchanged. The one exception is
+  R12: references to hubzero.github.io point here instead.
 - Not auto-generating the API reference from source the way the datasets and application
   catalogs are built. That's a later effort; this job imports the current `reference/api`
   pages as they stand.
@@ -95,6 +99,10 @@ factory on a real, sizable migration.
   to "pages hubzero.github.io publishes": 416 pages (Geoffrey, resolved 2026-10-08).
 - **Q:** HUBzero card on the site home page? **A:** Yes; added as R11 (Geoffrey, resolved
   2026-10-08).
+- **Q:** Keep the source's references to hubzero.github.io? **A:** No. This is the single
+  exception to carrying content unchanged: they point to the matching `/hubzero/` page, and
+  links to its status page go to the landing page's "About the documentation" section. No
+  status page is ported, so R2 stays at 416. Added as R12 (Geoffrey, resolved 2026-10-08).
 
 ## Related materials
 

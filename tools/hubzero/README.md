@@ -70,6 +70,11 @@ hubzero.github.io shows:
   Material admonitions, as upstream renders them as styled callouts.
 - List content is re-indented to 4 spaces and a blank line is added before a list
   that follows a paragraph (Python-Markdown needs both; CommonMark does not).
+- References to hubzero.github.io point here instead (GOAL R12), the one change
+  to what a page says. A link becomes a relative link to the same page; a bare
+  URL in prose becomes its `docs.rcac.purdue.edu/hubzero/` URL. Pages with no
+  source page (upstream's generated status page) map through `pages_targets` in
+  `import.yml`. `check` flags any reference that survives.
 
 The review-status banner and stamp are **not** in the page body. `main.py`
 (`on_post_page_macros`) renders them from `hubzero.status` at build time, so a

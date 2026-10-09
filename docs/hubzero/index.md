@@ -33,7 +33,7 @@ Hubzero partners to help researchers:
 This documentation covers Hubzero 2.4. It is organized as books, each for a
 different kind of reader. Everything here is Markdown in the
 [hubzero-cms repository](https://github.com/hubzero/hubzero-cms/tree/2.4-main/docs)
-and is published at https://hubzero.github.io/hubzero-cms/.
+and is published at https://docs.rcac.purdue.edu/hubzero/.
 
 ## Run a hub
 
@@ -68,7 +68,7 @@ and is published at https://hubzero.github.io/hubzero-cms/.
 
 - [Writing guide](style.md) — how pages are written and built.
 - [License](license.md) — MIT, like the code.
-- [Status](https://hubzero.github.io/hubzero-cms/status/) — which pages have
+- [Status](#about-the-documentation) — which pages have
     been reviewed against the current code.
 
 Most of this material was imported from help.hubzero.org in September 2026

@@ -215,9 +215,13 @@ the three other root pages, a nav region, and the status hook. No book is import
   - *Landing provenance joins README's existing "About the documentation" section* rather than
     adding a near-duplicate "About this documentation" H2. The appended paragraph still carries
     all of R9: the HUBzero credit, the MIT notice linking `license.md`, and the pinned commit.
-  - *Not changed:* README's sentence that the docs are "Markdown in the hubzero-cms repository
-    and … published at hubzero.github.io" is upstream prose, ported verbatim; rewording it is
-    the HUBzero team's call after handover.
+  - *GitHub Pages references repoint here (GOAL R12, added 2026-10-08).* The resolver maps
+    `hubzero.github.io/hubzero-cms/<path>` to the page with that URL path here (paths mirror
+    upstream slugs) as a relative link; `pages_targets` in `import.yml` sends `status/` to the
+    landing page's `#about-the-documentation`. Bare URLs in prose become absolute
+    `docs.rcac.purdue.edu/hubzero/` URLs. `check` flags any survivor (R12). Three published
+    occurrences at the SHA: README :22 and :57 (done here), `developers/18-contributing.md`
+    :298 (resolves when P5 enables the book). The rest of README's sentence stays verbatim.
 - **Verify:** `.venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py && grep -q 'hubzero/index.md' mkdocs.yml && HUBZERO_CMS=$HOME/Software/github.com/hubzero/hubzero-cms .venv/bin/python tools/hubzero/import_docs.py check`
 - **Touches:** `tools/hubzero/**`, `docs/hubzero/{index,license,style}.md`, `mkdocs.yml`,
   `main.py`, `docs/assets/data/breadcrumbs.json`.

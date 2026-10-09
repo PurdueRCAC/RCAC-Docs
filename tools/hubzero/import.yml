@@ -7,6 +7,16 @@ repo: https://github.com/hubzero/hubzero-cms
 commit: 9c1a8c678002bdfb41860f90915a3589ab60339e
 version: "2.4"
 
+# The one change the port makes to page content (GOAL R12): references to the
+# GitHub Pages site point at the same page here instead. A link becomes a
+# relative link; a bare URL in prose becomes an absolute `site_url` URL.
+# `pages_targets` maps the GitHub Pages paths that have no source page here
+# (upstream generates its status page; this port does not).
+pages_url: https://hubzero.github.io/hubzero-cms
+site_url: https://docs.rcac.purdue.edu/hubzero
+pages_targets:
+  status/: docs/README.md#about-the-documentation
+
 # Every book hubzero.github.io publishes, in its site.json order. All of them
 # are modelled on every run, so links into a book that is not imported yet go
 # to its GitHub copy at `commit`.

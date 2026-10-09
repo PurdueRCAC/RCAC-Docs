@@ -62,6 +62,8 @@ writing prose.
   5. Append `{ #<upstream-id> }` to headings whose Python-Markdown id would differ, and to every
      heading ending in `}` (R3, R5).
   6. Normalize the measured dialect gaps (4-space nested lists; a blank line before a list).
+  7. Point hubzero.github.io references at the same page here: links relative, bare URLs
+     absolute; its status page → the landing's About section (R12).
 - **Status display (R6).** `main.py` gains `on_post_page_macros(env)`. For pages with
   `hubzero.status`, it prepends `!!! warning "Not yet reviewed"` (imported/merged, with
   upstream's wording and `modified`/`source-state`/`merged-from` clauses) or `!!! warning "Draft"`,
@@ -101,6 +103,7 @@ writing prose.
 | R9   | Importer-appended "About this documentation" block on the landing page, plus `license.md` |
 | R10  | Source is clean (measured); `check` asserts image alt; the review rubric's a11y pass applies |
 | R11  | HUBzero card in the home page's RCAC Resources grid, linking `hubzero/index.md` (P7) |
+| R12  | Resolver maps GitHub Pages URLs to pages here (`pages_url`, `site_url`, `pages_targets` in `import.yml`); `check` asserts no `hubzero.github.io` remains |
 
 ## 3. Invariant gate (constitution check)
 
