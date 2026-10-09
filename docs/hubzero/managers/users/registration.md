@@ -23,7 +23,7 @@ Members > Registration**, which holds the field-by-field table.
 
 !!! tip
     Every parameter on the **Options** screen is listed in the generated
-    [Members configuration reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/components/members.md).
+    [Members configuration reference](../../reference/configuration/components/members.md).
     [Configuring Registration](../configuring/registration.md) covers the
     same field table from the configuration side.
 

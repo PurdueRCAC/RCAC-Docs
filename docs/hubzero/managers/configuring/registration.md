@@ -92,7 +92,7 @@ The rows are the nine fields the Members component declares:
 The four letters are stored as one string per field, in the column order
 above: `R` required, `O` optional, `H` hidden, `U` read only. The stored
 values are listed in the
-[Members component reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/components/members.md#registration).
+[Members component reference](../../reference/configuration/components/members.md#registration).
 
 ```xml
 	<fieldset name="registration">

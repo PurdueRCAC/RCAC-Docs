@@ -149,7 +149,7 @@ Almost every authentication plugin shares four parameters:
 | **Auto approve new users** | Approve accounts created through this provider without an administrator looking at them. Defaults to **No**, and overrides the Members component's approval setting when it is **Yes**. Not every plugin has it. |
 
 Each plugin's full parameter list, with defaults, is in the
-[authentication plugin reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/plugins/authentication.md).
+[authentication plugin reference](../../reference/configuration/plugins/authentication.md).
 
 !!! warning
     **Auto approve new users** bypasses account approval for

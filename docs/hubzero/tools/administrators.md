@@ -270,7 +270,7 @@ CMS sets a `weber-auth-<hub domain>` cookie â€” secure, HttpOnly, thirty days â€
 before redirecting.
 
 For the option itself see the
-[generated `com_tools` parameter reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/components/tools.md);
+[generated `com_tools` parameter reference](../reference/configuration/components/tools.md);
 for the pipeline the tool travels through, see
 [Tools](../managers/maintenance/tools.md) in the hub managers book.
 
@@ -470,7 +470,7 @@ Any account with `core.manage` on `com_tools` can change it.
     on. The setting is per hub, not shared.
 
 The option is `params_whitelist`; see the
-[generated `com_tools` parameter reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/components/tools.md)
+[generated `com_tools` parameter reference](../reference/configuration/components/tools.md)
 for the rest of the component's settings.
 
 !!! warning

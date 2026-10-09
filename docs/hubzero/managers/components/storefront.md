@@ -244,7 +244,7 @@ private so it cannot be read directly.
 **Options** holds the download and image folders, whether login is required,
 the landing page ID, the product access control mode, and the quantity label.
 Every option is listed in the
-[configuration reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/components/storefront.md).
+[configuration reference](../../reference/configuration/components/storefront.md).
 
 !!! note
     The folder that holds collection images is not among the options.

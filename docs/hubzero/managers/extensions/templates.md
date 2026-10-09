@@ -224,4 +224,4 @@ a labelled outline, including empty ones.
 
 **Options** has one setting, `template_positions_display`
 (**Preview Module Positions**, disabled by default), plus a permissions tab.
-See [the generated reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/components/templates.md).
+See [the generated reference](../../reference/configuration/components/templates.md).

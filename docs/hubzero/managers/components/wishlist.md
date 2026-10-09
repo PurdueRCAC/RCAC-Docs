@@ -230,7 +230,7 @@ many popular tags to show, whether banking (points and bonuses) is on,
 whether to show the percentage of wishes granted, whether lists may have
 an advisory committee and how heavily its votes count, and where
 attachments are stored. Every option is listed with its values in the
-[configuration reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/components/wishlist.md).
+[configuration reference](../../reference/configuration/components/wishlist.md).
 
 ## Permissions
 

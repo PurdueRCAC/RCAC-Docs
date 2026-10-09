@@ -211,7 +211,7 @@ that was recorded.
 | Permissions | Which access groups hold each `com_projects` action |
 
 Every parameter, with its default, is in the
-[configuration reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/components/projects.md).
+[configuration reference](../../reference/configuration/components/projects.md).
 
 Most of these are safe to change on a running hub. The two that are not are
 **Files Git repo path** and **Project group prefix**: both are used to
@@ -298,7 +298,7 @@ type to `projects`.
 | Projects - HIPAA Compliant | A HIPAA compliance checkbox on the project |
 
 Their parameters are in the
-[plugin reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/plugins/projects.md).
+[plugin reference](../../reference/configuration/plugins/projects.md).
 
 ### Enabling a project feature
 
@@ -432,7 +432,7 @@ repository; it has no parameters and nothing to configure.
 
 All four work: the client libraries they need are installed with the CMS. The
 parameters are also in the generated
-[filesystem plugin reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/plugins/filesystem.md).
+[filesystem plugin reference](../../reference/configuration/plugins/filesystem.md).
 
 !!! important
     The GitHub connector is read-only, and it deliberately does

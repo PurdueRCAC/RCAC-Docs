@@ -712,6 +712,166 @@ nav:
       - "AWS": hubzero/developers/aws.md
       - "Contributing": hubzero/developers/contributing.md
       - "Conventions": hubzero/developers/conventions.md
+    - "Reference":
+      - hubzero/reference/index.md
+      - "REST API reference":
+        - hubzero/reference/api/index.md
+        - "Activity API": hubzero/reference/api/activity.md
+        - "Answers API": hubzero/reference/api/answers.md
+        - "Billboards API": hubzero/reference/api/billboards.md
+        - "Blog API": hubzero/reference/api/blog.md
+        - "Cache API": hubzero/reference/api/cache.md
+        - "Checkin API": hubzero/reference/api/checkin.md
+        - "Citations API": hubzero/reference/api/citations.md
+        - "Collections API": hubzero/reference/api/collections.md
+        - "Content API": hubzero/reference/api/content.md
+        - "Courses API": hubzero/reference/api/courses.md
+        - "Developer API": hubzero/reference/api/developer.md
+        - "Events API": hubzero/reference/api/events.md
+        - "Forum API": hubzero/reference/api/forum.md
+        - "Groups API": hubzero/reference/api/groups.md
+        - "Jobs API": hubzero/reference/api/jobs.md
+        - "Kb API": hubzero/reference/api/kb.md
+        - "Members API": hubzero/reference/api/members.md
+        - "News API": hubzero/reference/api/news.md
+        - "Newsletter API": hubzero/reference/api/newsletter.md
+        - "Plugins API": hubzero/reference/api/plugins.md
+        - "Projects API": hubzero/reference/api/projects.md
+        - "Publications API": hubzero/reference/api/publications.md
+        - "Resources API": hubzero/reference/api/resources.md
+        - "Search API": hubzero/reference/api/search.md
+        - "Support API": hubzero/reference/api/support.md
+        - "System API": hubzero/reference/api/system.md
+        - "Tags API": hubzero/reference/api/tags.md
+        - "Tools API": hubzero/reference/api/tools.md
+        - "Users API": hubzero/reference/api/users.md
+        - "Whatsnew API": hubzero/reference/api/whatsnew.md
+        - "Wiki API": hubzero/reference/api/wiki.md
+      - "Configuration reference":
+        - hubzero/reference/configuration/index.md
+        - "Component options":
+          - hubzero/reference/configuration/components/index.md
+          - "Answers (com_answers)": hubzero/reference/configuration/components/answers.md
+          - "Billboards (com_billboards)": hubzero/reference/configuration/components/billboards.md
+          - "Blog (com_blog)": hubzero/reference/configuration/components/blog.md
+          - "Cart (com_cart)": hubzero/reference/configuration/components/cart.md
+          - "Citations (com_citations)": hubzero/reference/configuration/components/citations.md
+          - "Collections (com_collections)": hubzero/reference/configuration/components/collections.md
+          - "Content (com_content)": hubzero/reference/configuration/components/content.md
+          - "Courses (com_courses)": hubzero/reference/configuration/components/courses.md
+          - "Cron (com_cron)": hubzero/reference/configuration/components/cron.md
+          - "Dataviewer (com_dataviewer)": hubzero/reference/configuration/components/dataviewer.md
+          - "Developer (com_developer)": hubzero/reference/configuration/components/developer.md
+          - "Events (com_events)": hubzero/reference/configuration/components/events.md
+          - "Feedback (com_feedback)": hubzero/reference/configuration/components/feedback.md
+          - "Forum (com_forum)": hubzero/reference/configuration/components/forum.md
+          - "Groups (com_groups)": hubzero/reference/configuration/components/groups.md
+          - "Installer (com_installer)": hubzero/reference/configuration/components/installer.md
+          - "Jobs (com_jobs)": hubzero/reference/configuration/components/jobs.md
+          - "Kb (com_kb)": hubzero/reference/configuration/components/kb.md
+          - "Media (com_media)": hubzero/reference/configuration/components/media.md
+          - "Members (com_members)": hubzero/reference/configuration/components/members.md
+          - "Menus (com_menus)": hubzero/reference/configuration/components/menus.md
+          - "Newsletter (com_newsletter)": hubzero/reference/configuration/components/newsletter.md
+          - "Oaipmh (com_oaipmh)": hubzero/reference/configuration/components/oaipmh.md
+          - "Projects (com_projects)": hubzero/reference/configuration/components/projects.md
+          - "Publications (com_publications)": hubzero/reference/configuration/components/publications.md
+          - "Redirect (com_redirect)": hubzero/reference/configuration/components/redirect.md
+          - "Resources (com_resources)": hubzero/reference/configuration/components/resources.md
+          - "Saml (com_saml)": hubzero/reference/configuration/components/saml.md
+          - "Search (com_search)": hubzero/reference/configuration/components/search.md
+          - "Services (com_services)": hubzero/reference/configuration/components/services.md
+          - "Storefront (com_storefront)": hubzero/reference/configuration/components/storefront.md
+          - "Support (com_support)": hubzero/reference/configuration/components/support.md
+          - "System (com_system)": hubzero/reference/configuration/components/system.md
+          - "Tags (com_tags)": hubzero/reference/configuration/components/tags.md
+          - "Templates (com_templates)": hubzero/reference/configuration/components/templates.md
+          - "Tools (com_tools)": hubzero/reference/configuration/components/tools.md
+          - "Usage (com_usage)": hubzero/reference/configuration/components/usage.md
+          - "Wiki (com_wiki)": hubzero/reference/configuration/components/wiki.md
+          - "Wishlist (com_wishlist)": hubzero/reference/configuration/components/wishlist.md
+        - "Plugin parameters":
+          - hubzero/reference/configuration/plugins/index.md
+          - "Answers plugins": hubzero/reference/configuration/plugins/answers.md
+          - "Antispam plugins": hubzero/reference/configuration/plugins/antispam.md
+          - "Authentication plugins": hubzero/reference/configuration/plugins/authentication.md
+          - "Authfactors plugins": hubzero/reference/configuration/plugins/authfactors.md
+          - "Blog plugins": hubzero/reference/configuration/plugins/blog.md
+          - "Captcha plugins": hubzero/reference/configuration/plugins/captcha.md
+          - "Cart plugins": hubzero/reference/configuration/plugins/cart.md
+          - "Citation plugins": hubzero/reference/configuration/plugins/citation.md
+          - "Content plugins": hubzero/reference/configuration/plugins/content.md
+          - "Courses plugins": hubzero/reference/configuration/plugins/courses.md
+          - "Cron plugins": hubzero/reference/configuration/plugins/cron.md
+          - "Editors-xtd plugins": hubzero/reference/configuration/plugins/editors-xtd.md
+          - "Editors plugins": hubzero/reference/configuration/plugins/editors.md
+          - "Filesystem plugins": hubzero/reference/configuration/plugins/filesystem.md
+          - "Geocode plugins": hubzero/reference/configuration/plugins/geocode.md
+          - "Groups plugins": hubzero/reference/configuration/plugins/groups.md
+          - "Handlers plugins": hubzero/reference/configuration/plugins/handlers.md
+          - "Hubzero plugins": hubzero/reference/configuration/plugins/hubzero.md
+          - "Members plugins": hubzero/reference/configuration/plugins/members.md
+          - "Metadata plugins": hubzero/reference/configuration/plugins/metadata.md
+          - "Newsletter plugins": hubzero/reference/configuration/plugins/newsletter.md
+          - "Oaipmh plugins": hubzero/reference/configuration/plugins/oaipmh.md
+          - "Projects plugins": hubzero/reference/configuration/plugins/projects.md
+          - "Publications plugins": hubzero/reference/configuration/plugins/publications.md
+          - "Resources plugins": hubzero/reference/configuration/plugins/resources.md
+          - "Search plugins": hubzero/reference/configuration/plugins/search.md
+          - "Support plugins": hubzero/reference/configuration/plugins/support.md
+          - "System plugins": hubzero/reference/configuration/plugins/system.md
+          - "Tags plugins": hubzero/reference/configuration/plugins/tags.md
+          - "Tools plugins": hubzero/reference/configuration/plugins/tools.md
+          - "Update plugins": hubzero/reference/configuration/plugins/update.md
+          - "Usage plugins": hubzero/reference/configuration/plugins/usage.md
+          - "User plugins": hubzero/reference/configuration/plugins/user.md
+          - "Whatsnew plugins": hubzero/reference/configuration/plugins/whatsnew.md
+          - "Wiki plugins": hubzero/reference/configuration/plugins/wiki.md
+          - "Xmessage plugins": hubzero/reference/configuration/plugins/xmessage.md
+      - "Events reference":
+        - hubzero/reference/events/index.md
+        - "Activity events": hubzero/reference/events/activity.md
+        - "Answers events": hubzero/reference/events/answers.md
+        - "Antispam events": hubzero/reference/events/antispam.md
+        - "Authentication events": hubzero/reference/events/authentication.md
+        - "Authfactors events": hubzero/reference/events/authfactors.md
+        - "Blog events": hubzero/reference/events/blog.md
+        - "Captcha events": hubzero/reference/events/captcha.md
+        - "Cart events": hubzero/reference/events/cart.md
+        - "Citation events": hubzero/reference/events/citation.md
+        - "Content events": hubzero/reference/events/content.md
+        - "Courses events": hubzero/reference/events/courses.md
+        - "Cron events": hubzero/reference/events/cron.md
+        - "Editors-xtd events": hubzero/reference/events/editors-xtd.md
+        - "Editors events": hubzero/reference/events/editors.md
+        - "Extension events": hubzero/reference/events/extension.md
+        - "Filesystem events": hubzero/reference/events/filesystem.md
+        - "Geocode events": hubzero/reference/events/geocode.md
+        - "Groups events": hubzero/reference/events/groups.md
+        - "Handlers events": hubzero/reference/events/handlers.md
+        - "Hubzero events": hubzero/reference/events/hubzero.md
+        - "Mail events": hubzero/reference/events/mail.md
+        - "Members events": hubzero/reference/events/members.md
+        - "Metadata events": hubzero/reference/events/metadata.md
+        - "Mw events": hubzero/reference/events/mw.md
+        - "Newsletter events": hubzero/reference/events/newsletter.md
+        - "Oaipmh events": hubzero/reference/events/oaipmh.md
+        - "Projects events": hubzero/reference/events/projects.md
+        - "Publications events": hubzero/reference/events/publications.md
+        - "Resources events": hubzero/reference/events/resources.md
+        - "Search events": hubzero/reference/events/search.md
+        - "Support events": hubzero/reference/events/support.md
+        - "System events": hubzero/reference/events/system.md
+        - "Tags events": hubzero/reference/events/tags.md
+        - "Tools events": hubzero/reference/events/tools.md
+        - "Update events": hubzero/reference/events/update.md
+        - "Usage events": hubzero/reference/events/usage.md
+        - "User events": hubzero/reference/events/user.md
+        - "Whatsnew events": hubzero/reference/events/whatsnew.md
+        - "Wiki events": hubzero/reference/events/wiki.md
+        - "Wishlist events": hubzero/reference/events/wishlist.md
+        - "Xmessage events": hubzero/reference/events/xmessage.md
+      - "Muse console reference": hubzero/reference/muse.md
     - "About these docs":
       - "Writing guide": hubzero/style.md
       - "License": hubzero/license.md

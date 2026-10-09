@@ -6,7 +6,7 @@ appetite: big
 status: in_progress
 branch: feature/hubzero-docs
 base: main
-current_phase: P6
+current_phase: P7
 last_updated: '2026-10-08'
 phases:
 - id: P1
@@ -88,7 +88,7 @@ phases:
     .venv/bin/python tools/hubzero/import_docs.py check
 - id: P6
   name: Import the Reference book, including the REST API
-  status: pending
+  status: done
   satisfies:
   - R2
   - R3
@@ -341,12 +341,34 @@ the three other root pages, a nav region, and the status hook. No book is import
 **Goal:** all 154 Reference pages render; every one of the 245 endpoint sections on the 30 API
 pages shows its method, full path (with `{id}`-style parameters intact), and parameters.
 
-- [ ] Enable `reference`; re-import.
-- [ ] Extend `check` with the R5 assertion: per API page, endpoint `h2` count matches source and
+- [x] Enable `reference`; re-import.
+- [x] Extend `check` with the R5 assertion: per API page, endpoint `h2` count matches source and
       each `h2` keeps its upstream id and full path text.
-- [ ] Render check: an API page with `{id}` headings and its summary table's anchor links,
+- [x] Render check: an API page with `{id}` headings and its summary table's anchor links,
       `configuration/plugins/courses.md` and `members.md` (Jinja), a `generated` stamp.
-- [ ] Fold fixes into the importer; re-import; breadcrumbs.
+- [x] Fold fixes into the importer; re-import; breadcrumbs.
+- **Amended in P6 (2026-10-08, draft findings; no GOAL change):**
+  - *R5 in `check`.* Per `reference/api` page: the rendered endpoint-`h2` count equals the
+    source's; each `## METHOD /path` renders with its full path text and the upstream id
+    (`slugify`); and its Parameter table renders the same parameter names in order (GOAL R5
+    says "with its parameters"). Coverage: 245 endpoints, 912 parameters. A negative test (one
+    id and one parameter cell broken in `site/`) produced three R5 findings.
+  - *`{id}` headings.* `PUT /tags/{id}` renders as `<h2 id="put-tags-id">PUT /tags/{id}`; the
+    summary tables' anchors resolve (R3).
+  - *Links to source files missing at the commit (new importer rule).*
+    `reference/events/user.md` links `core/components/com_cart/site/controllers/test.php#L197`,
+    which isn't in the tree at `9c1a8c67` (the generator likely saw an untracked file), and
+    `--strict` flagged it. Such a link now points to the nearest existing directory on GitHub,
+    at the commit, and the importer warns (`check` prints it as a note). This one goes in the
+    upstream note.
+  - Courses and members show their `{{ … }}` literally. The generated stamp reads "Generated
+    from the source tree.", matching upstream `build_site.py:623` for headers without
+    `against`.
+  - *Lost placeholders: one, not two.* A scan of all 416 built pages for unknown HTML elements
+    finds only `users/18-publications.md`'s `<name>`. The "`<first>`" in research/03 is
+    `developers/14-supergroups-gitlab.md`'s `` `hub-<first label …>` ``, a code span that
+    renders on both hubzero.github.io and here (checked live, 2026-10-08).
+  - The render probe and list-item parity are clean on all 154 Reference pages.
 - **Verify:** `.venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py && grep -q 'hubzero/reference/index.md' mkdocs.yml && HUBZERO_CMS=$HOME/Software/github.com/hubzero/hubzero-cms .venv/bin/python tools/hubzero/import_docs.py check`
 - **Touches:** `tools/hubzero/**`, `docs/hubzero/**`, `mkdocs.yml`,
   `docs/assets/data/breadcrumbs.json`.

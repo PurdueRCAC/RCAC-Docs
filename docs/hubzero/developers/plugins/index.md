@@ -199,7 +199,7 @@ triggered, the method is called with the event's arguments.
 ## Which events exist
 
 The authoritative list is generated from the source tree: the
-[events reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/events/README.md) covers 279 events across
+[events reference](../../reference/events/index.md) covers 279 events across
 41 groups, and for each one names the call sites that fire it, the arguments
 they pass, and the plugins that already listen. Read the page for the group
 you are extending before you invent a method name — half the time the

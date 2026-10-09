@@ -77,5 +77,5 @@ wrong thing.
 - [External authenticators](extauth.md)
 
 Every parameter that any component or plugin manifest declares is listed in
-the generated [configuration reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/README.md).
+the generated [configuration reference](../../reference/configuration/index.md).
 These chapters explain the screens; the reference is the exhaustive list.

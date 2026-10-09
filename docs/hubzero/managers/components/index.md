@@ -22,7 +22,7 @@ Every component in this book is reached from the **Components** menu in the
 administrator interface. Each has an **Options** button that opens its
 configuration and a **Permissions** tab that says which access groups may
 use it; the generated
-[configuration reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/README.md) lists
+[configuration reference](../../reference/configuration/index.md) lists
 every option of every component in one place.
 
 The extension managers themselves — modules, plugins and templates — are

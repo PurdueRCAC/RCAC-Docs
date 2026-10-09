@@ -95,7 +95,7 @@ Copy**, **Cancel**, and **Help**. **Save** keeps you on the screen; **Save
 & Close** returns to the list.
 
 Every module's parameters are listed in the generated
-[configuration reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/README.md).
+[configuration reference](../../reference/configuration/index.md).
 
 !!! tip
     The Module Manager also adds and removes modules, not just

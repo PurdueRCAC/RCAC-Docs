@@ -172,7 +172,7 @@ disabled, its feed stops existing along with its heading.
 ## API
 
 The component also answers `/api/whatsnew`, taking the same period and
-category strings. See the [API reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/api/whatsnew.md).
+category strings. See the [API reference](../../reference/api/whatsnew.md).
 
 ## Options
 

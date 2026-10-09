@@ -147,7 +147,7 @@ The `cron:jobs` command has four other tasks:
 | `unpublish` | Unpublish a job |
 
 `cron:jobs` is a component command, so it does not appear in `muse help` or in
-the [generated muse reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/muse.md), which covers
+the [generated muse reference](../../reference/muse.md), which covers
 only the commands under `core/libraries/Hubzero/Console/Command/`. Run
 `muse cron:jobs help` for its own documentation.
 
@@ -176,7 +176,7 @@ means the tick has stopped.
 
 **Options** holds one setting, the IP whitelist, which defaults to
 `127.0.0.1` — see the
-[generated parameter list](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/components/cron.md).
+[generated parameter list](../../reference/configuration/components/cron.md).
 Leave it at the default unless the tick comes from another machine. Widening
 it lets anything at that address run every due job on the hub without logging
 in.
@@ -216,7 +216,7 @@ The events on offer come from the enabled plugins in `core/plugins/cron/`:
 | `support` | `onClosePending`, `sendTicketsReminder`, `sendTicketList`, `cleanTempUploads` |
 | `users` | `cleanAuthTempAccounts` |
 
-The [cron events reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/events/cron.md) lists each event
+The [cron events reference](../../reference/events/cron.md) lists each event
 with its listeners.
 
 ### <a id="editfields-parameters"></a>Parameters

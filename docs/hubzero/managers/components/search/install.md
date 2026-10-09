@@ -85,7 +85,7 @@ context, and core — into one Solarium endpoint. Their defaults are:
 has to be a path the hub's PHP process can open. The remaining fields on the
 tab tune indexing and querying rather than the connection; they are all
 listed in the
-[configuration reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/components/search.md)
+[configuration reference](../../../reference/configuration/components/search.md)
 and described in [Maintaining the index](index/index.md).
 
 !!! warning
@@ -180,7 +180,7 @@ web server's time limit:
 muse searchmigration run --all -url='https://yourhub.org'
 ```
 
-See [`muse searchmigration`](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/muse.md#muse-searchmigration) for
+See [`muse searchmigration`](../../../reference/muse.md#muse-searchmigration) for
 its options: `-components` indexes a named list instead of `--all`, and
 `--rebuild` includes components that have already been indexed once.
 

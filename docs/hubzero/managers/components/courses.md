@@ -456,7 +456,7 @@ A role's edit form asks for an **Offering**, a **Title** and an **Alias**.
 
 Press **Options** in the toolbar of the course list. `core.admin` is
 required. The full list is in the
-[generated parameter reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/components/courses.md).
+[generated parameter reference](../../reference/configuration/components/courses.md).
 The ones worth knowing:
 
 | Option | Default | Effect |

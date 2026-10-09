@@ -101,7 +101,7 @@ Changing them changes the ranking of every result on the hub at once, with no
 preview and no way to compare before and after, so if you do change them,
 change one weight, note what it was, and search for a handful of things you
 know the right answer to. They are in the
-[configuration reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/components/search.md)
+[configuration reference](../../../reference/configuration/components/search.md)
 with the rest.
 
 !!! warning

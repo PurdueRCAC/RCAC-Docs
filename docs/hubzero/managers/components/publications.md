@@ -392,7 +392,7 @@ and holds **Auto-approve**, which ships **Yes**: read
 [DOI registration](#doi-registration). **Sections** shows or hides parts of the
 public publication page, and **AIP** points at a trusted digital repository's
 archival storage. Every option is listed with its values in the
-[configuration reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/components/publications.md).
+[configuration reference](../../reference/configuration/components/publications.md).
 
 The **Permissions** tab controls who may configure the component
 (`core.admin`), reach the administrator screens (`core.manage`), and create,
@@ -404,7 +404,7 @@ itself, so per-category and per-publication rules have no effect here.
 
 `GET /api/publications/list`, in two versions, returns the publications the
 authenticated member is an author of — see the
-[API reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/api/publications.md).
+[API reference](../../reference/api/publications.md).
 ## DOI registration
 
 Every published version can be given a DOI — a permanent identifier that

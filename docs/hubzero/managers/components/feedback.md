@@ -210,7 +210,7 @@ The component has two settings, both about pictures: **Default picture**, the
 placeholder shown for an author with no photograph, and **Upload path**, the
 directory under the hub's application root where the picture folders are
 created — `/site/quotes` by default. Both are listed in the
-[configuration reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/components/feedback.md).
+[configuration reference](../../reference/configuration/components/feedback.md).
 
 The **Permissions** tab sets, per user group, who may configure the component,
 reach its screens, and create, delete, edit or change the state of a quote.

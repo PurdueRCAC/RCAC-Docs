@@ -181,7 +181,7 @@ created automatically the first time an administrator opens the dashboard.
 ## Options
 
 Select **Options** on any of the three screens. The full parameter list is in
-the [generated reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/components/jobs.md).
+the [generated reference](../../reference/configuration/components/jobs.md).
 
 - **Enable this component?** — despite the description, this does not turn the
     job board off. `/jobs` and the administrator screens stay exactly as they
@@ -274,7 +274,7 @@ batch. Administrators and the admin group reach both without a subscription.
 ## The API
 
 `GET /api/jobs/list` returns the job list with `limit`, `start`, `search`,
-`sort` and `sort_Dir`. See the [API reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/api/jobs.md).
+`sort` and `sort_Dir`. See the [API reference](../../reference/api/jobs.md).
 
 ## What does not work
 

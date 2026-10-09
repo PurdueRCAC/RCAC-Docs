@@ -204,7 +204,7 @@ for showing authors, allowing comments, and which date to print.
 **Feeds** enables the RSS feeds and chooses whether feed items carry the
 full post or a 300-character excerpt. Every option is listed with its
 values in the
-[configuration reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/components/blog.md).
+[configuration reference](../../reference/configuration/components/blog.md).
 
 The one setting worth a decision is **Archive**: which posts the site blog
 at `/blog` pulls in. Pulling in member and group posts fills a quiet hub's
@@ -250,4 +250,4 @@ deletes a group's posts when the group is deleted.
 
 The component exposes `GET /api/blog/list`, `POST /api/blog`,
 `GET /api/blog/{id}`, `PUT /api/blog/{id}`, and `DELETE /api/blog/{id}`.
-See the [API reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/api/blog.md).
+See the [API reference](../../reference/api/blog.md).

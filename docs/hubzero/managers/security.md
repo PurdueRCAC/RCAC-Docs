@@ -58,7 +58,7 @@ Spam has its own chapter: [Spam](spam.md).
 | Upload virus scanning | The `virus_scanner` key in `configuration.php` |
 
 Every parameter behind these screens is listed in the generated
-[configuration reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/README.md).
+[configuration reference](../reference/configuration/index.md).
 
 ## Where to start
 
@@ -196,7 +196,7 @@ Referrer Policy** ships *enabled*, with a policy of `same-origin`. See
 [Security headers](#security-headers).
 
 The parameters are listed in the
-[system plugin reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/plugins/system.md).
+[system plugin reference](../reference/configuration/plugins/system.md).
 
 ### A member is stuck on a "spam detected" page. How do I release them?
 
@@ -479,7 +479,7 @@ the hub asks Fail2Ban to ban it.
 The fields, their defaults, and what the code actually counts are described
 in [CMS-controlled Fail2Ban jail](#cms-controlled-fail2ban-jail). The
 parameters themselves are listed in the
-[Members configuration reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/components/members.md#login).
+[Members configuration reference](../reference/configuration/components/members.md#login).
 
 ### Password rules
 
@@ -662,7 +662,7 @@ Settings** tab.
 | **Fail2Ban Jail** | `fail2ban-jail` | `hub-login` | Name of the jail to ban into. |
 
 The same list, generated from the manifest, is in the
-[Members configuration reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/components/members.md#login).
+[Members configuration reference](../reference/configuration/components/members.md#login).
 
 ![The Login Settings tab of the Members Configuration window](/assets/images/hubzero/managers/media/cmscontrolled-fail2ban-jail-fail2ban1.png)
 

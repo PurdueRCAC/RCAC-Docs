@@ -184,7 +184,7 @@ content is untouched.
 
 Press **Options** in the toolbar of the **Collections** screen. Two settings,
 both listed in the
-[generated parameter reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/components/collections.md):
+[generated parameter reference](../../reference/configuration/components/collections.md):
 
 - **Upload path** — where files attached to items are stored. Default
     `/site/collections`. Leave it alone unless you are moving the hub's file

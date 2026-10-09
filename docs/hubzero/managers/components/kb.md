@@ -192,7 +192,7 @@ The **Options** button opens the component-wide defaults that articles
 inherit: the date to show, whether comments are allowed and when they
 close, and whether comment feeds are enabled and how much of each comment
 they carry. Every option is listed with its values in the
-[configuration reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/components/kb.md).
+[configuration reference](../../reference/configuration/components/kb.md).
 
 The shipped values suit most hubs and are worth leaving alone: the modified
 date is shown, comments are allowed, and they close a year after the article
@@ -223,4 +223,4 @@ and for articles.
 
 The knowledge base exposes one endpoint, `GET /api/kb/list`, which returns
 articles for the site's search indexer. It requires an administrator token;
-see the [API reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/api/kb.md).
+see the [API reference](../../reference/api/kb.md).

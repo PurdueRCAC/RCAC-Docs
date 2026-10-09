@@ -59,7 +59,7 @@ and is published at https://docs.rcac.purdue.edu/hubzero/.
 
 ## Reference
 
-- [Reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/README.md) — generated references: configuration
+- [Reference](reference/index.md) — generated references: configuration
     parameters, REST endpoints, muse console commands, and events.
 - [Release notes](developers/getting-started/releasenotes.md) — how
     Hubzero is released, and where to find what changed.

@@ -155,7 +155,7 @@ is no reason to use either. Leave the record alone.
 
 Select **Options**. There is one setting, plus the usual **Permissions** tab.
 The full list is in the
-[generated reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/components/developer.md).
+[generated reference](../../reference/configuration/components/developer.md).
 
 **Documentation Cache Expiration** is how long, in seconds, the generated API
 documentation is cached before it is rebuilt. The default is 14400 — four
@@ -203,7 +203,7 @@ A logged-in reader's own active tokens are listed on those pages, so the
 examples can be tried as they are read. See
 [REST API](../../developers/api.md) in the developers book for how the
 documentation is produced and how to add to it, and the
-[API reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/api/README.md) for the same endpoint list in
+[API reference](../../reference/api/index.md) for the same endpoint list in
 these pages.
 
 ### `/developer/api/applications` { #developer-api-applications }

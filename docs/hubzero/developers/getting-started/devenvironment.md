@@ -27,7 +27,7 @@ Everything here is in the tree and you can read it:
 
 | Path | What it does |
 |---|---|
-| [`core/bin/muse`](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/core/bin/muse) | The console. `muse install` bootstraps a hub from a checkout; `muse migration` applies schema changes. See the [Muse reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/muse.md). |
+| [`core/bin/muse`](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/core/bin/muse) | The console. `muse install` bootstraps a hub from a checkout; `muse migration` applies schema changes. See the [Muse reference](../../reference/muse.md). |
 | [`core/bin/composer`](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/core/bin/composer) | A bundled Composer. Run it as `php core/bin/composer install` from `core/`. |
 | [`core/composer.json`](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/core/composer.json) | The PHP dependencies. The platform is pinned to PHP `8.2.30`; the dev requirements are PHPUnit 11, PHP_CodeSniffer 3.13, PHPStan 2, `parallel-lint`, and Mockery. |
 | [`core/bin/php_tests.sh`](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/core/bin/php_tests.sh) | Runs `phpcs --standard=PSR12` and `parallel-lint` over the files you name. |

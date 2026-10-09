@@ -144,7 +144,7 @@ text itself is not written to the log.
 ## The detectors that ship
 
 Six plugins in the `antispam` group. Their parameters are listed in the
-[antispam plugin reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/plugins/antispam.md).
+[antispam plugin reference](../reference/configuration/plugins/antispam.md).
 
 Three of them work the moment you enable them: **Black List**, **Link Rife**
 and **Baba Ji Spam Detector**. Two need something outside the hub before they

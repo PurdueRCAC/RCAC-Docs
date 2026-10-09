@@ -224,7 +224,7 @@ The **Options** button opens the component-wide settings: where uploaded
 files are stored, which forums feed the site's discussion listings, whether
 members may post anonymously, whether threads are flat or nested, and how
 deep nesting may go. Every option is listed with its values in the
-[configuration reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/components/forum.md).
+[configuration reference](../../reference/configuration/components/forum.md).
 
 !!! note
     The **Threading** option ships with a stored default of `both`,
@@ -268,4 +268,4 @@ notifications, described in
 The forum exposes endpoints for listing sections, categories, and threads,
 reading a single thread, creating threads and posts, and managing a member's
 category subscriptions. See the
-[API reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/api/forum.md).
+[API reference](../../reference/api/forum.md).

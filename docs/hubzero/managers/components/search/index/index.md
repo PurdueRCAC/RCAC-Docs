@@ -92,7 +92,7 @@ batch operation:
     [Searchable Components](../admin.md#searchable-components).
 - The **Run Full Index** event of **Cron - Search**, which does it for every
     component in the **Indexed** state.
-- [`muse searchmigration run`](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/muse.md#muse-searchmigration) on
+- [`muse searchmigration run`](../../../../reference/muse.md#muse-searchmigration) on
     the command line, with `--all` or `-components`, and `--rebuild` to include
     components already indexed.
 

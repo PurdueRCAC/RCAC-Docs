@@ -69,7 +69,7 @@ research identity rather than an institution.
 All of them are enabled the same way as any other authentication plugin —
 see [Authentication](authentication.md) — and their parameters are listed
 in the
-[authentication plugin reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/plugins/authentication.md).
+[authentication plugin reference](../../reference/configuration/plugins/authentication.md).
 
 ## CILogon
 

@@ -218,7 +218,7 @@ See [Support](support.md).
 ## Options
 
 The **Options** button opens four settings, listed with their values in the
-[configuration reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/components/answers.md):
+[configuration reference](../../reference/configuration/components/answers.md):
 
 | Option | Effect |
 |---|---|
@@ -291,5 +291,5 @@ handles abuse reports.
 
 The component exposes `/api/answers/questions` for listing, reading,
 creating, updating, and deleting questions; see the
-[API reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/api/answers.md). The site also publishes an
+[API reference](../../reference/api/answers.md). The site also publishes an
 RSS feed of the newest questions at `/answers/latest.rss`.

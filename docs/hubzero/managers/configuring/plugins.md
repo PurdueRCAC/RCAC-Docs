@@ -83,7 +83,7 @@ from its manifest.
 The toolbar has **Save**, **Save & Close**, **Close**, and **Help**.
 
 Every plugin's parameters are listed by group in the generated
-[configuration reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/README.md#plugin-groups).
+[configuration reference](../../reference/configuration/index.md#plugin-groups).
 
 ## Older screenshots
 

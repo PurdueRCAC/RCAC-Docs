@@ -399,7 +399,7 @@ The fields are **LDAP Primary Host URI** (default `ldap://localhost`),
 **LDAP Secondary Host URI**, **LDAP Base DN**, **LDAP Search DN**, **LDAP
 Search Password**, **LDAP Manager DN**, **LDAP Manager Password**, and **Use
 LDAP TLS**. They are listed with their defaults in the
-[System component reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/components/system.md).
+[System component reference](../../reference/configuration/components/system.md).
 
 !!! warning
     The export and delete buttons on the LDAP screen act on the

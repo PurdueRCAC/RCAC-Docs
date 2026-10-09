@@ -93,9 +93,9 @@ New to the codebase, read these in order:
 
 ## Reference
 
-The generated [configuration](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/README.md),
-[REST API](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/api/README.md), [muse](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/muse.md),
-and [events](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/events/README.md) references list what the code
+The generated [configuration](../reference/configuration/index.md),
+[REST API](../reference/api/index.md), [muse](../reference/muse.md),
+and [events](../reference/events/index.md) references list what the code
 declares today. They are produced from the source tree, so they say what the
 code says rather than what anyone remembers writing.
 

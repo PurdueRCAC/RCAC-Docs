@@ -336,7 +336,7 @@ whether submissions are auto-approved, who is notified when one arrives,
 whether contributors are emailed when one is published, and whether a
 license is offered; and which parts of a resource page are shown. Every
 option is listed with its values in the
-[configuration reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/components/resources.md).
+[configuration reference](../../reference/configuration/components/resources.md).
 
 !!! warning
     Two of the Files options do less than they appear to.
@@ -359,4 +359,4 @@ licenses.
 
 Read-only endpoints under `/api/resources` list resources, autocomplete
 titles, and fetch recent content; see the
-[API reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/api/resources.md).
+[API reference](../../reference/api/resources.md).

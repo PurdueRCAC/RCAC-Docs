@@ -3239,6 +3239,1153 @@
     "Developers",
     "Conventions"
   ],
+  "/hubzero/reference/": [
+    "Home",
+    "HUBzero",
+    "Reference"
+  ],
+  "/hubzero/reference/api/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "REST API reference"
+  ],
+  "/hubzero/reference/api/activity/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "REST API reference",
+    "Activity API"
+  ],
+  "/hubzero/reference/api/answers/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "REST API reference",
+    "Answers API"
+  ],
+  "/hubzero/reference/api/billboards/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "REST API reference",
+    "Billboards API"
+  ],
+  "/hubzero/reference/api/blog/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "REST API reference",
+    "Blog API"
+  ],
+  "/hubzero/reference/api/cache/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "REST API reference",
+    "Cache API"
+  ],
+  "/hubzero/reference/api/checkin/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "REST API reference",
+    "Checkin API"
+  ],
+  "/hubzero/reference/api/citations/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "REST API reference",
+    "Citations API"
+  ],
+  "/hubzero/reference/api/collections/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "REST API reference",
+    "Collections API"
+  ],
+  "/hubzero/reference/api/content/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "REST API reference",
+    "Content API"
+  ],
+  "/hubzero/reference/api/courses/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "REST API reference",
+    "Courses API"
+  ],
+  "/hubzero/reference/api/developer/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "REST API reference",
+    "Developer API"
+  ],
+  "/hubzero/reference/api/events/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "REST API reference",
+    "Events API"
+  ],
+  "/hubzero/reference/api/forum/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "REST API reference",
+    "Forum API"
+  ],
+  "/hubzero/reference/api/groups/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "REST API reference",
+    "Groups API"
+  ],
+  "/hubzero/reference/api/jobs/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "REST API reference",
+    "Jobs API"
+  ],
+  "/hubzero/reference/api/kb/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "REST API reference",
+    "Kb API"
+  ],
+  "/hubzero/reference/api/members/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "REST API reference",
+    "Members API"
+  ],
+  "/hubzero/reference/api/news/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "REST API reference",
+    "News API"
+  ],
+  "/hubzero/reference/api/newsletter/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "REST API reference",
+    "Newsletter API"
+  ],
+  "/hubzero/reference/api/plugins/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "REST API reference",
+    "Plugins API"
+  ],
+  "/hubzero/reference/api/projects/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "REST API reference",
+    "Projects API"
+  ],
+  "/hubzero/reference/api/publications/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "REST API reference",
+    "Publications API"
+  ],
+  "/hubzero/reference/api/resources/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "REST API reference",
+    "Resources API"
+  ],
+  "/hubzero/reference/api/search/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "REST API reference",
+    "Search API"
+  ],
+  "/hubzero/reference/api/support/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "REST API reference",
+    "Support API"
+  ],
+  "/hubzero/reference/api/system/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "REST API reference",
+    "System API"
+  ],
+  "/hubzero/reference/api/tags/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "REST API reference",
+    "Tags API"
+  ],
+  "/hubzero/reference/api/tools/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "REST API reference",
+    "Tools API"
+  ],
+  "/hubzero/reference/api/users/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "REST API reference",
+    "Users API"
+  ],
+  "/hubzero/reference/api/whatsnew/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "REST API reference",
+    "Whatsnew API"
+  ],
+  "/hubzero/reference/api/wiki/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "REST API reference",
+    "Wiki API"
+  ],
+  "/hubzero/reference/configuration/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference"
+  ],
+  "/hubzero/reference/configuration/components/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Component options"
+  ],
+  "/hubzero/reference/configuration/components/answers/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Component options",
+    "Answers (com_answers)"
+  ],
+  "/hubzero/reference/configuration/components/billboards/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Component options",
+    "Billboards (com_billboards)"
+  ],
+  "/hubzero/reference/configuration/components/blog/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Component options",
+    "Blog (com_blog)"
+  ],
+  "/hubzero/reference/configuration/components/cart/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Component options",
+    "Cart (com_cart)"
+  ],
+  "/hubzero/reference/configuration/components/citations/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Component options",
+    "Citations (com_citations)"
+  ],
+  "/hubzero/reference/configuration/components/collections/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Component options",
+    "Collections (com_collections)"
+  ],
+  "/hubzero/reference/configuration/components/content/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Component options",
+    "Content (com_content)"
+  ],
+  "/hubzero/reference/configuration/components/courses/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Component options",
+    "Courses (com_courses)"
+  ],
+  "/hubzero/reference/configuration/components/cron/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Component options",
+    "Cron (com_cron)"
+  ],
+  "/hubzero/reference/configuration/components/dataviewer/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Component options",
+    "Dataviewer (com_dataviewer)"
+  ],
+  "/hubzero/reference/configuration/components/developer/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Component options",
+    "Developer (com_developer)"
+  ],
+  "/hubzero/reference/configuration/components/events/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Component options",
+    "Events (com_events)"
+  ],
+  "/hubzero/reference/configuration/components/feedback/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Component options",
+    "Feedback (com_feedback)"
+  ],
+  "/hubzero/reference/configuration/components/forum/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Component options",
+    "Forum (com_forum)"
+  ],
+  "/hubzero/reference/configuration/components/groups/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Component options",
+    "Groups (com_groups)"
+  ],
+  "/hubzero/reference/configuration/components/installer/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Component options",
+    "Installer (com_installer)"
+  ],
+  "/hubzero/reference/configuration/components/jobs/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Component options",
+    "Jobs (com_jobs)"
+  ],
+  "/hubzero/reference/configuration/components/kb/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Component options",
+    "Kb (com_kb)"
+  ],
+  "/hubzero/reference/configuration/components/media/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Component options",
+    "Media (com_media)"
+  ],
+  "/hubzero/reference/configuration/components/members/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Component options",
+    "Members (com_members)"
+  ],
+  "/hubzero/reference/configuration/components/menus/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Component options",
+    "Menus (com_menus)"
+  ],
+  "/hubzero/reference/configuration/components/newsletter/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Component options",
+    "Newsletter (com_newsletter)"
+  ],
+  "/hubzero/reference/configuration/components/oaipmh/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Component options",
+    "Oaipmh (com_oaipmh)"
+  ],
+  "/hubzero/reference/configuration/components/projects/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Component options",
+    "Projects (com_projects)"
+  ],
+  "/hubzero/reference/configuration/components/publications/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Component options",
+    "Publications (com_publications)"
+  ],
+  "/hubzero/reference/configuration/components/redirect/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Component options",
+    "Redirect (com_redirect)"
+  ],
+  "/hubzero/reference/configuration/components/resources/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Component options",
+    "Resources (com_resources)"
+  ],
+  "/hubzero/reference/configuration/components/saml/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Component options",
+    "Saml (com_saml)"
+  ],
+  "/hubzero/reference/configuration/components/search/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Component options",
+    "Search (com_search)"
+  ],
+  "/hubzero/reference/configuration/components/services/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Component options",
+    "Services (com_services)"
+  ],
+  "/hubzero/reference/configuration/components/storefront/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Component options",
+    "Storefront (com_storefront)"
+  ],
+  "/hubzero/reference/configuration/components/support/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Component options",
+    "Support (com_support)"
+  ],
+  "/hubzero/reference/configuration/components/system/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Component options",
+    "System (com_system)"
+  ],
+  "/hubzero/reference/configuration/components/tags/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Component options",
+    "Tags (com_tags)"
+  ],
+  "/hubzero/reference/configuration/components/templates/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Component options",
+    "Templates (com_templates)"
+  ],
+  "/hubzero/reference/configuration/components/tools/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Component options",
+    "Tools (com_tools)"
+  ],
+  "/hubzero/reference/configuration/components/usage/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Component options",
+    "Usage (com_usage)"
+  ],
+  "/hubzero/reference/configuration/components/wiki/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Component options",
+    "Wiki (com_wiki)"
+  ],
+  "/hubzero/reference/configuration/components/wishlist/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Component options",
+    "Wishlist (com_wishlist)"
+  ],
+  "/hubzero/reference/configuration/plugins/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Plugin parameters"
+  ],
+  "/hubzero/reference/configuration/plugins/answers/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Plugin parameters",
+    "Answers plugins"
+  ],
+  "/hubzero/reference/configuration/plugins/antispam/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Plugin parameters",
+    "Antispam plugins"
+  ],
+  "/hubzero/reference/configuration/plugins/authentication/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Plugin parameters",
+    "Authentication plugins"
+  ],
+  "/hubzero/reference/configuration/plugins/authfactors/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Plugin parameters",
+    "Authfactors plugins"
+  ],
+  "/hubzero/reference/configuration/plugins/blog/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Plugin parameters",
+    "Blog plugins"
+  ],
+  "/hubzero/reference/configuration/plugins/captcha/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Plugin parameters",
+    "Captcha plugins"
+  ],
+  "/hubzero/reference/configuration/plugins/cart/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Plugin parameters",
+    "Cart plugins"
+  ],
+  "/hubzero/reference/configuration/plugins/citation/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Plugin parameters",
+    "Citation plugins"
+  ],
+  "/hubzero/reference/configuration/plugins/content/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Plugin parameters",
+    "Content plugins"
+  ],
+  "/hubzero/reference/configuration/plugins/courses/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Plugin parameters",
+    "Courses plugins"
+  ],
+  "/hubzero/reference/configuration/plugins/cron/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Plugin parameters",
+    "Cron plugins"
+  ],
+  "/hubzero/reference/configuration/plugins/editors-xtd/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Plugin parameters",
+    "Editors-xtd plugins"
+  ],
+  "/hubzero/reference/configuration/plugins/editors/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Plugin parameters",
+    "Editors plugins"
+  ],
+  "/hubzero/reference/configuration/plugins/filesystem/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Plugin parameters",
+    "Filesystem plugins"
+  ],
+  "/hubzero/reference/configuration/plugins/geocode/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Plugin parameters",
+    "Geocode plugins"
+  ],
+  "/hubzero/reference/configuration/plugins/groups/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Plugin parameters",
+    "Groups plugins"
+  ],
+  "/hubzero/reference/configuration/plugins/handlers/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Plugin parameters",
+    "Handlers plugins"
+  ],
+  "/hubzero/reference/configuration/plugins/hubzero/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Plugin parameters",
+    "Hubzero plugins"
+  ],
+  "/hubzero/reference/configuration/plugins/members/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Plugin parameters",
+    "Members plugins"
+  ],
+  "/hubzero/reference/configuration/plugins/metadata/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Plugin parameters",
+    "Metadata plugins"
+  ],
+  "/hubzero/reference/configuration/plugins/newsletter/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Plugin parameters",
+    "Newsletter plugins"
+  ],
+  "/hubzero/reference/configuration/plugins/oaipmh/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Plugin parameters",
+    "Oaipmh plugins"
+  ],
+  "/hubzero/reference/configuration/plugins/projects/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Plugin parameters",
+    "Projects plugins"
+  ],
+  "/hubzero/reference/configuration/plugins/publications/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Plugin parameters",
+    "Publications plugins"
+  ],
+  "/hubzero/reference/configuration/plugins/resources/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Plugin parameters",
+    "Resources plugins"
+  ],
+  "/hubzero/reference/configuration/plugins/search/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Plugin parameters",
+    "Search plugins"
+  ],
+  "/hubzero/reference/configuration/plugins/support/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Plugin parameters",
+    "Support plugins"
+  ],
+  "/hubzero/reference/configuration/plugins/system/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Plugin parameters",
+    "System plugins"
+  ],
+  "/hubzero/reference/configuration/plugins/tags/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Plugin parameters",
+    "Tags plugins"
+  ],
+  "/hubzero/reference/configuration/plugins/tools/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Plugin parameters",
+    "Tools plugins"
+  ],
+  "/hubzero/reference/configuration/plugins/update/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Plugin parameters",
+    "Update plugins"
+  ],
+  "/hubzero/reference/configuration/plugins/usage/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Plugin parameters",
+    "Usage plugins"
+  ],
+  "/hubzero/reference/configuration/plugins/user/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Plugin parameters",
+    "User plugins"
+  ],
+  "/hubzero/reference/configuration/plugins/whatsnew/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Plugin parameters",
+    "Whatsnew plugins"
+  ],
+  "/hubzero/reference/configuration/plugins/wiki/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Plugin parameters",
+    "Wiki plugins"
+  ],
+  "/hubzero/reference/configuration/plugins/xmessage/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Configuration reference",
+    "Plugin parameters",
+    "Xmessage plugins"
+  ],
+  "/hubzero/reference/events/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Events reference"
+  ],
+  "/hubzero/reference/events/activity/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Events reference",
+    "Activity events"
+  ],
+  "/hubzero/reference/events/answers/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Events reference",
+    "Answers events"
+  ],
+  "/hubzero/reference/events/antispam/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Events reference",
+    "Antispam events"
+  ],
+  "/hubzero/reference/events/authentication/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Events reference",
+    "Authentication events"
+  ],
+  "/hubzero/reference/events/authfactors/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Events reference",
+    "Authfactors events"
+  ],
+  "/hubzero/reference/events/blog/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Events reference",
+    "Blog events"
+  ],
+  "/hubzero/reference/events/captcha/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Events reference",
+    "Captcha events"
+  ],
+  "/hubzero/reference/events/cart/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Events reference",
+    "Cart events"
+  ],
+  "/hubzero/reference/events/citation/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Events reference",
+    "Citation events"
+  ],
+  "/hubzero/reference/events/content/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Events reference",
+    "Content events"
+  ],
+  "/hubzero/reference/events/courses/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Events reference",
+    "Courses events"
+  ],
+  "/hubzero/reference/events/cron/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Events reference",
+    "Cron events"
+  ],
+  "/hubzero/reference/events/editors-xtd/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Events reference",
+    "Editors-xtd events"
+  ],
+  "/hubzero/reference/events/editors/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Events reference",
+    "Editors events"
+  ],
+  "/hubzero/reference/events/extension/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Events reference",
+    "Extension events"
+  ],
+  "/hubzero/reference/events/filesystem/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Events reference",
+    "Filesystem events"
+  ],
+  "/hubzero/reference/events/geocode/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Events reference",
+    "Geocode events"
+  ],
+  "/hubzero/reference/events/groups/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Events reference",
+    "Groups events"
+  ],
+  "/hubzero/reference/events/handlers/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Events reference",
+    "Handlers events"
+  ],
+  "/hubzero/reference/events/hubzero/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Events reference",
+    "Hubzero events"
+  ],
+  "/hubzero/reference/events/mail/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Events reference",
+    "Mail events"
+  ],
+  "/hubzero/reference/events/members/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Events reference",
+    "Members events"
+  ],
+  "/hubzero/reference/events/metadata/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Events reference",
+    "Metadata events"
+  ],
+  "/hubzero/reference/events/mw/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Events reference",
+    "Mw events"
+  ],
+  "/hubzero/reference/events/newsletter/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Events reference",
+    "Newsletter events"
+  ],
+  "/hubzero/reference/events/oaipmh/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Events reference",
+    "Oaipmh events"
+  ],
+  "/hubzero/reference/events/projects/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Events reference",
+    "Projects events"
+  ],
+  "/hubzero/reference/events/publications/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Events reference",
+    "Publications events"
+  ],
+  "/hubzero/reference/events/resources/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Events reference",
+    "Resources events"
+  ],
+  "/hubzero/reference/events/search/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Events reference",
+    "Search events"
+  ],
+  "/hubzero/reference/events/support/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Events reference",
+    "Support events"
+  ],
+  "/hubzero/reference/events/system/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Events reference",
+    "System events"
+  ],
+  "/hubzero/reference/events/tags/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Events reference",
+    "Tags events"
+  ],
+  "/hubzero/reference/events/tools/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Events reference",
+    "Tools events"
+  ],
+  "/hubzero/reference/events/update/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Events reference",
+    "Update events"
+  ],
+  "/hubzero/reference/events/usage/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Events reference",
+    "Usage events"
+  ],
+  "/hubzero/reference/events/user/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Events reference",
+    "User events"
+  ],
+  "/hubzero/reference/events/whatsnew/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Events reference",
+    "Whatsnew events"
+  ],
+  "/hubzero/reference/events/wiki/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Events reference",
+    "Wiki events"
+  ],
+  "/hubzero/reference/events/wishlist/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Events reference",
+    "Wishlist events"
+  ],
+  "/hubzero/reference/events/xmessage/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Events reference",
+    "Xmessage events"
+  ],
+  "/hubzero/reference/muse/": [
+    "Home",
+    "HUBzero",
+    "Reference",
+    "Muse console reference"
+  ],
   "/hubzero/style/": [
     "Home",
     "HUBzero",

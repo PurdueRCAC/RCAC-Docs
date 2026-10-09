@@ -211,16 +211,16 @@ ends up using:
 | `system.onAfterRender` | After rendering, before the response is sent. |
 
 For everything else, read the
-[events reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/events/README.md). It is generated from the
+[events reference](../../reference/events/index.md). It is generated from the
 source tree and covers 279 events across 41 groups, with the call sites that
 fire each one, the arguments they pass, and the plugins that already listen —
 which is both the list of what you can answer and the set of worked examples
 for answering it. Start with the page for the group you are extending:
-[content](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/events/content.md),
-[user](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/events/user.md),
-[groups](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/events/groups.md),
-[members](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/events/members.md),
-[system](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/events/system.md).
+[content](../../reference/events/content.md),
+[user](../../reference/events/user.md),
+[groups](../../reference/events/groups.md),
+[members](../../reference/events/members.md),
+[system](../../reference/events/system.md).
 
 !!! note
     A plugin is not restricted to its group's events. All imported

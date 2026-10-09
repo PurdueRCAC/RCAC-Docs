@@ -334,7 +334,7 @@ say, because a single office writes all of them.
 defaults for article, category, blog, and list layouts, the integration
 settings, and the component-wide permissions. Every parameter is listed in
 the
-[Content configuration reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/components/content.md).
+[Content configuration reference](../../reference/configuration/components/content.md).
 
 On a single-article layout the precedence is straightforward: a setting on
 the article wins over the same setting on the menu item, which wins over the

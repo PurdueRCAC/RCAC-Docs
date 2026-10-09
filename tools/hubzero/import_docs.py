@@ -24,6 +24,7 @@ so the port shows what hubzero.github.io shows. See tools/hubzero/README.md.
 from __future__ import annotations
 
 import argparse
+import html
 import os
 import re
 import shutil
@@ -563,6 +564,14 @@ class Resolver:
             return f"{self.blob_base}/{target}" + sep + fragment
         if self.src.is_dir(target):
             return f"{self.tree_base}/{target.rstrip('/')}" + sep + fragment
+        # A source file missing at the commit (an upstream defect): link its
+        # nearest existing directory, so the link still lands somewhere real.
+        parent = PurePosixPath(target).parent
+        while str(parent) not in ("", ".") and not self.src.is_dir(str(parent)):
+            parent = parent.parent
+        if str(parent) not in ("", "."):
+            self.warn(f"link to missing file {path_part!r}; linked its directory {str(parent)!r}")
+            return f"{self.tree_base}/{parent}"
         self.warn(f"link to missing file {path_part!r}")
         return href
 
@@ -1162,13 +1171,65 @@ def run_check(model: Model, result: Result, final: bool) -> list[str]:
             if not target.is_file():
                 find(f"R4 {where}: image {src_attr!r} does not exist")
         if page.source and page.source.startswith("docs/reference/api/"):
-            want = [ln[3:].strip() for ln in page.body.splitlines()
-                    if ln.startswith("## ") and ln[3:].split(" ", 1)[0] in HTTP_METHODS]
-            have = {text: hid for hid, text in doc.h2}
-            for endpoint in want:
-                if not have.get(endpoint):
-                    find(f"R5 {where}: endpoint {endpoint!r} not rendered as an h2 with an id")
+            want = source_endpoints(page.body)
+            rendered = [(hid, text) for hid, text in doc.h2
+                        if text.split(" ", 1)[0] in HTTP_METHODS]
+            if len(rendered) != len(want):
+                find(f"R5 {where}: {len(rendered)} endpoint h2s rendered, source has {len(want)}")
+            have = {text: hid for hid, text in rendered}
+            params = site_endpoint_params(html_path.read_text(encoding="utf-8"))
+            for endpoint, names in want.items():
+                hid = have.get(endpoint)
+                if hid is None:
+                    find(f"R5 {where}: endpoint {endpoint!r} not rendered as an h2 with its full path")
+                    continue
+                if hid != slugify(endpoint):
+                    find(f"R5 {where}: endpoint {endpoint!r} has id {hid!r}, upstream {slugify(endpoint)!r}")
+                if params.get(hid, []) != names:
+                    find(f"R5 {where}: endpoint {endpoint!r} parameters {params.get(hid, [])} != source {names}")
     return findings
+
+
+ENDPOINT_PARAM_RE = re.compile(r"^\|\s*`([^`]+)`\s*\|")
+
+
+def source_endpoints(body: str) -> dict[str, list[str]]:
+    """Each `## METHOD /path` heading in a reference/api source page, with the
+    parameter names (first column of its Parameter table) in source order."""
+    endpoints: dict[str, list[str]] = {}
+    current: list[str] | None = None
+    in_params = False
+    for line in body.splitlines():
+        if line.startswith("## "):
+            text = line[3:].strip()
+            current = endpoints.setdefault(text, []) if text.split(" ", 1)[0] in HTTP_METHODS else None
+            in_params = False
+        elif current is not None and re.match(r"^\|\s*Parameter\s*\|", line):
+            in_params = True
+        elif in_params and line.startswith("|"):
+            m = ENDPOINT_PARAM_RE.match(line)
+            if m:
+                current.append(m.group(1))
+        elif in_params and not line.strip():
+            in_params = False
+    return endpoints
+
+
+def site_endpoint_params(html_text: str) -> dict[str, list[str]]:
+    """Built-page counterpart of source_endpoints: h2 id -> the <code> names in the
+    first cell of each row of the Parameter table that follows it."""
+    out: dict[str, list[str]] = {}
+    parts = re.split(r'<h2 id="([^"]*)"', html_text)
+    for hid, section in zip(parts[1::2], parts[2::2]):
+        table = re.search(r"(?s)<table>\s*<thead>\s*<tr>\s*<th[^>]*>Parameter</th>.*?</table>", section)
+        names: list[str] = []
+        if table:
+            for row in re.findall(r"(?s)<tr>(.*?)</tr>", table.group(0)):
+                m = re.match(r"\s*<td[^>]*><code>(.*?)</code>", row)
+                if m:
+                    names.append(html.unescape(m.group(1)))
+        out[hid] = names
+    return out
 
 
 # =================================================================== main

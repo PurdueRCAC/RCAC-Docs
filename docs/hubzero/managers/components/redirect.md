@@ -215,7 +215,7 @@ Links to the hub's own host are left alone, as are anchors and
 external.
 
 The parameters are in the
-[generated reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/components/redirect.md).
+[generated reference](../../reference/configuration/components/redirect.md).
 
 !!! warning
     The host lists are matched exactly, against the hostname

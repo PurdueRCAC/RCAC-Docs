@@ -120,7 +120,7 @@ contribution.
 
 **Options** in the toolbar opens the component's configuration; the full
 parameter list is in the
-[generated reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/components/tools.md).
+[generated reference](../../reference/configuration/components/tools.md).
 
 ### Versions
 

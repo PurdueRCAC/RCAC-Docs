@@ -221,7 +221,7 @@ output, how the title is linked, the "internally cited" image, and whether
 tags and badges may be attached and displayed. The **Import/Export** tab
 controls who may submit and import citations and whether single and bulk
 downloads are offered. Every option is listed with its values in the
-[configuration reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/components/citations.md).
+[configuration reference](../../reference/configuration/components/citations.md).
 
 The **Permissions** tab controls who may administer and manage the
 component and who may create, delete, edit, edit the state of, and edit
@@ -252,4 +252,4 @@ and appear here with their scope in the **Scope** column.
 ## API
 
 The component exposes `GET /api/citations/list`, in two versions, for
-listing citations. See the [API reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/api/citations.md).
+listing citations. See the [API reference](../../reference/api/citations.md).

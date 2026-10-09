@@ -62,7 +62,7 @@ Both components that queue submissions carry the setting in their **Options**
 (the **Options** button in the component's toolbar).
 
 **Resources** — see the [generated parameter
-list](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/components/resources.md):
+list](../../reference/configuration/components/resources.md):
 
 | Parameter | Label on screen | Default |
 |---|---|---|
@@ -78,7 +78,7 @@ requires an auto-approved front-end submission to actually have content before
 it is accepted.
 
 **Publications** — see the [generated parameter
-list](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/components/publications.md) — has the same
+list](../../reference/configuration/components/publications.md) — has the same
 first two: **Auto-approve** and **Auto-approved Users**.
 
 ## Resource states

@@ -219,7 +219,7 @@ comments and comment ratings are allowed, where an automatic table of
 contents is placed and how many headings trigger it, the upload paths for
 attachments, math images, and temporary files, and page caching with its
 lifetime. Every option is listed with its values in the
-[configuration reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/components/wiki.md).
+[configuration reference](../../reference/configuration/components/wiki.md).
 
 A group manager can override the automatic table-of-contents mode and
 heading threshold for that group's wiki from **Wiki Settings** in the group's
@@ -253,4 +253,4 @@ the group's membership and manager roles instead.
 ## API
 
 The wiki exposes create, read, update, delete, and list endpoints under
-`/api/wiki`; see the [API reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/api/wiki.md).
+`/api/wiki`; see the [API reference](../../reference/api/wiki.md).

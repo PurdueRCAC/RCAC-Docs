@@ -153,7 +153,7 @@ usual reason a harvester sees an empty repository.
 ## Options
 
 **Options** in the toolbar. The full parameter list is in the
-[generated reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/components/oaipmh.md);
+[generated reference](../../reference/configuration/components/oaipmh.md);
 what the settings are for:
 
 **Repository Name**, **Base URL**, and **Admin E-Mail** are what `Identify`

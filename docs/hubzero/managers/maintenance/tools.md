@@ -173,7 +173,7 @@ Everything except the tool alias can be changed later. **Register Tool**
 submits the form and puts the tool in the **Registered** state.
 
 For the full option list see the
-[generated `com_tools` parameter reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/components/tools.md).
+[generated `com_tools` parameter reference](../../reference/configuration/components/tools.md).
 
 ## Registered to Created
 

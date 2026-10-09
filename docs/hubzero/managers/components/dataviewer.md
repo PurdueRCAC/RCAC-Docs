@@ -160,7 +160,7 @@ Databases tab, not by editing files.
 ## Options
 
 Select **Options** on the DataViewer screen. The full parameter list is in the
-[generated reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/components/dataviewer.md).
+[generated reference](../../reference/configuration/components/dataviewer.md).
 
 - **Record Display Limit** — rows per page in a new data view: 5, 10, 25, 50
     or 100.

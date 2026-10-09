@@ -243,7 +243,7 @@ If nothing is wrong the tab says so.
 
 **Options** holds a cache timeout for the extension list and the name of the
 system user that runs git operations, plus a permissions tab. See
-[the generated reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/components/installer.md).
+[the generated reference](../../reference/configuration/components/installer.md).
 
 ## Composer packages
 

@@ -129,7 +129,7 @@ group because `com_bookings` says so; the loader looks for rows with
     `bookings.onReservationCreate` will also reach a `system` plugin that
     happens to define `onReservationCreate`. Prefix your event names with
     something specific to the extension that owns them, and check the
-    [events reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/events/README.md) — 279 events across 41
+    [events reference](../../reference/events/index.md) — 279 events across 41
     groups — before you settle on a name.
 
 ## Arguments and responses

@@ -317,7 +317,7 @@ The dialog has these sections:
 | **Permissions** | The `com_groups` access rules for each access group |
 
 Every parameter, its type and its default are listed in the generated
-[Groups configuration reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/components/groups.md).
+[Groups configuration reference](../../reference/configuration/components/groups.md).
 
 !!! note
     **Allow forum digest?** only permits the digest. What sends it is

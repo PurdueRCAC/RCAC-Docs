@@ -112,4 +112,4 @@ the tabs across the top:
 
 Every option, including the Solr host, port, core, batch size, and the query
 and phrase field weights, is listed in the
-[configuration reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/components/search.md).
+[configuration reference](../../../reference/configuration/components/search.md).

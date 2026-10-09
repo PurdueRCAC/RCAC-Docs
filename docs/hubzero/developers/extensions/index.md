@@ -85,7 +85,7 @@ Plugins are grouped by the kind of thing they extend, and the group is the
 directory: `plugins/authentication/`, `plugins/content/`,
 `plugins/members/`. Most of the CMS's pluggable behaviour — the tabs on a
 group page, the login methods, the cron jobs — is a plugin group. The
-[events reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/events/README.md) lists what the tree
+[events reference](../../reference/events/index.md) lists what the tree
 triggers. See [Plugins](../plugins/index.md).
 
 ### Modules

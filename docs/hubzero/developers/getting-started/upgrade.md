@@ -301,7 +301,7 @@ php core/bin/muse migration -f   # actually run them
 The dry run is the default, which is the safest thing about the command
 and the easiest to miss. `-e com_example` limits the run to one extension,
 `-d down` reverses, and the full option list is in the
-[muse migration reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/muse.md#muse-migration).
+[muse migration reference](../../reference/muse.md#muse-migration).
 
 !!! warning
     Reversing a schema change is often impossible without data

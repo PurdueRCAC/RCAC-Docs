@@ -103,7 +103,7 @@ php core/bin/muse database load <file>
 ```
 
 `dump` writes to your home directory. See the
-[muse database reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/muse.md#muse-database).
+[muse database reference](../../reference/muse.md#muse-database).
 
 ## From code
 

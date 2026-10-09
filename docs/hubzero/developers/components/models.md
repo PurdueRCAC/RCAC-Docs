@@ -299,7 +299,7 @@ whatever you name.
 A plugin answering it is one class in
 `app/plugins/bookings/notify/notify.php` with its own migration. See
 [Events](../foundation/events.md), [Plugins](../plugins/index.md) and
-the [events reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/events/README.md).
+the [events reference](../../reference/events/index.md).
 
 The failure here is quiet in the usual way: a plugin whose directory exists
 but whose `#__extensions` row does not is never loaded, so the event fires,

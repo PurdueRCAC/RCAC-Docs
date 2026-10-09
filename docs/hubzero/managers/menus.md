@@ -465,4 +465,4 @@ both are covered in [URLs](content/urls.md#redirects).
 item inherits — browser page title, whether to show the page heading, the
 page heading text, and a page class suffix — and the component permissions.
 They are listed in the
-[Menus configuration reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/components/menus.md).
+[Menus configuration reference](../reference/configuration/components/menus.md).

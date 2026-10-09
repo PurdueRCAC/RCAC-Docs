@@ -65,7 +65,7 @@ The component's submenu has two entries: **Jobs**, and a **Plugins** link that
 jumps straight to the cron plugin group in the Plugin Manager. The second
 appears only for someone who can manage plugins.
 
-The [cron events reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/events/cron.md) lists every event
+The [cron events reference](../../reference/events/cron.md) lists every event
 with the plugins that listen for it.
 
 ## The jobs

@@ -384,7 +384,7 @@ details or only a bare notification, abuse-report notifications, the
 attachment upload path, size limit and allowed extensions, and the IP
 blacklist and bad-word list used to screen submissions. Every option is
 listed with its values in the
-[configuration reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/components/support.md).
+[configuration reference](../../reference/configuration/components/support.md).
 
 Four are worth knowing about before you touch them.
 
@@ -438,4 +438,4 @@ see the queue, check the ACL first — that is nearly always the reason.
 Support exposes a full REST API — tickets, comments, categories,
 statuses, messages, stats, and a report of tickets that breach a
 service-level criterion. See the
-[API reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/api/support.md).
+[API reference](../../reference/api/support.md).

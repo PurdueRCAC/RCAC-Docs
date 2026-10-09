@@ -51,7 +51,7 @@ Configuration**, on the **Site** tab, under **SEO Settings**.
 | **Unicode Aliases** | No | Lets aliases hold non-ASCII characters instead of transliterating them. |
 
 These are also listed in the
-[global configuration reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/README.md).
+[global configuration reference](../../reference/configuration/index.md).
 
 Leave these alone. The shipped values are the ones a hub wants: friendly URLs
 on, rewriting on, everything else off.
@@ -178,7 +178,7 @@ using **Update selected links to the following new URL** sets the same
 destination on all of them at once.
 
 Its parameters are in the
-[Redirect configuration reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/components/redirect.md).
+[Redirect configuration reference](../../reference/configuration/components/redirect.md).
 
 ## Redirecting with a menu item
 

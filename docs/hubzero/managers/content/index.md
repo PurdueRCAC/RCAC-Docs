@@ -105,4 +105,4 @@ Both are explained in [URLs](urls.md), along with redirects.
     interface, and it is the most useful page in this section.
 
 Every option on the Article Manager's **Options** screen is listed in the
-[Content configuration reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/components/content.md).
+[Content configuration reference](../../reference/configuration/components/content.md).

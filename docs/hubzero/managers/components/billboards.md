@@ -118,7 +118,7 @@ There is no media browser and no separate upload step.
 The file is scanned for viruses and moved into the directory named by the
 component's **Image Location** option, which defaults to
 `/site/media/images/billboards/`. See the
-[generated parameter list](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/components/billboards.md).
+[generated parameter list](../../reference/configuration/components/billboards.md).
 Uploading a new image deletes the one it replaces.
 
 Once a billboard has an image, the edit form shows it under **Current Image**,

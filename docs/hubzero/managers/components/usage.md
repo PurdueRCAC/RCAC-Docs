@@ -64,7 +64,7 @@ screen at all needs `core.manage` on `com_usage`.
 ## Options
 
 The options fall into three groups. The complete list is in the
-[generated parameter reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/components/usage.md).
+[generated parameter reference](../../reference/configuration/components/usage.md).
 
 **The statistics database.** **Stats DB Driver**, **Host**, **Port**,
 **Username**, **Password**, **Database**, **Prefix**, and **SSL CA Path**

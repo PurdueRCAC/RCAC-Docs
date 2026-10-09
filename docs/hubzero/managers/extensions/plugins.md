@@ -110,7 +110,7 @@ Thirty-seven folders ship with the platform, holding 332 plugins.
 | `xmessage` | 3 | Delivery channels for internal messages |
 
 For the parameters each plugin exposes, see
-[the generated plugin reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/plugins/README.md).
+[the generated plugin reference](../../reference/configuration/plugins/index.md).
 
 !!! note
     A plugin also has to be enabled as an *extension* before its row

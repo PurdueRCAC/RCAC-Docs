@@ -124,7 +124,7 @@ such as `forum.thread`, `project.file` or `groups.member`.
 | The **Activity** tab on a member's own profile | `plg_members_activity` |
 | A group's activity feed | `plg_groups_activity` |
 | A project's activity feed | `com_projects`, reading the recipient rows directly |
-| `/api/activity` | See the [API reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/api/activity.md) |
+| `/api/activity` | See the [API reference](../../reference/api/activity.md) |
 
 The member tab is visible only to the member themselves; a manager cannot use
 it to read someone else's feed. It offers a keyword search, a **Category**

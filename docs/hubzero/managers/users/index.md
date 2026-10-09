@@ -121,7 +121,7 @@ switched off entirely.
 !!! tip
     See [Configuring Registration](../configuring/registration.md)
     for the registration settings, and the generated
-    [Members configuration reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/components/members.md)
+    [Members configuration reference](../../reference/configuration/components/members.md)
     for every parameter on the component's **Options** screen.
 
 [Registration](registration.md) covers the screen itself: the table of

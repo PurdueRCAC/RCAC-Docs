@@ -250,7 +250,7 @@ are stored inside the event's description text.
 
 The **Options** button on the Events list opens a second, older settings
 form built from `config.xml`. Every parameter on it is listed in the
-[configuration reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/components/events.md).
+[configuration reference](../../reference/configuration/components/events.md).
 
 !!! note
     Nothing in the component reads those parameters — the
@@ -271,4 +271,4 @@ administrator to publish it.
 
 The component exposes two read-only endpoints: a list of active events
 and a single event by ID. Both are documented in the
-[API reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/api/events.md).
+[API reference](../../reference/api/events.md).

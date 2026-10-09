@@ -154,7 +154,7 @@ will show nothing owed and offer you no way to say otherwise.
 ## Options
 
 One setting, plus the usual **Permissions** tab. Both are listed in the
-[generated reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/components/services.md).
+[generated reference](../../reference/configuration/components/services.md).
 
 **Auto-approve employer subscriptions** decides what happens when an employer
 subscribes to a service that costs nothing — a free tier, or a paid one

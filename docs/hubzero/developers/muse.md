@@ -64,7 +64,7 @@ confirm it.
 
 ## The commands
 
-The [muse reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/muse.md) lists every command and task in the
+The [muse reference](../reference/muse.md) lists every command and task in the
 framework, generated from the command classes, and [Common tasks](#common-tasks)
 walks through the ones used most.
 
@@ -156,7 +156,7 @@ in `core/components/com_bookings/commands/reminders.php`, run as
     `muse help` lists the framework commands and nothing else — it
     scans its own directory. A component command is invisible until someone
     knows its name, so document it in the component's own pages. The generated
-    [muse reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/muse.md) has the same limit.
+    [muse reference](../reference/muse.md) has the same limit.
 
 !!! note
     `muse bookings` on its own does not work. Without the second half
@@ -232,7 +232,7 @@ php core/bin/muse example hello --name="Ada"
 !!! warning
     Only `@museDescription` on a task and `@museIgnoreHelp` on a
     class change what muse prints. `@museArgument` is read by the generator
-    that builds the [muse reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/muse.md) and by nothing in the
+    that builds the [muse reference](../reference/muse.md) and by nothing in the
     framework, so an option documented only with that tag never appears in
     `muse <command> help`. `@museIgnoreHelp` on a *task* does nothing at all —
     [`Output\Help::addTasks()`](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/core/libraries/Hubzero/Console/Output/Help.php)
@@ -252,7 +252,7 @@ command name. See [Common tasks](#common-tasks).
 ## Common tasks
 
 The commands reached for most often, with the reasoning behind them. The
-[muse reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/muse.md) lists every framework command and task,
+[muse reference](../reference/muse.md) lists every framework command and task,
 generated from the source, and is the place to look for syntax and for
 anything not covered here.
 
@@ -260,8 +260,8 @@ Run everything below from the hub's root directory.
 
 ### Cache
 
-[`muse cache`](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/muse.md#muse-cache) clears the hub's cache files.
-[`muse cache:css`](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/muse.md#muse-cache-css) clears only the
+[`muse cache`](../reference/muse.md#muse-cache) clears the hub's cache files.
+[`muse cache:css`](../reference/muse.md#muse-cache-css) clears only the
 compiled CSS, which is what you want after changing a template's stylesheets
 and finding the browser still serving the old ones.
 
@@ -272,7 +272,7 @@ php core/bin/muse cache:css clear
 
 ### Configuration
 
-[`muse configuration`](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/muse.md#muse-configuration) holds settings
+[`muse configuration`](../reference/muse.md#muse-configuration) holds settings
 muse itself uses. The scaffolding generator asks for your name and email the
 first time and stores them here, so generated files carry a sensible header.
 
@@ -297,7 +297,7 @@ real command name.
 
 ### Database
 
-[`muse database`](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/muse.md#muse-database) exists for two jobs:
+[`muse database`](../reference/muse.md#muse-database) exists for two jobs:
 backups, and moving content backwards through a deployment chain.
 
 The second is the interesting one. Copying a production database over a
@@ -315,13 +315,13 @@ php core/bin/muse database load <filename>
 
 ### Environment
 
-[`muse environment`](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/muse.md#muse-environment) prints the current
+[`muse environment`](../reference/muse.md#muse-environment) prints the current
 user and database. It is a one-line sanity check before running anything
 destructive, and worth making a habit of.
 
 ### Extension
 
-[`muse extension`](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/muse.md#muse-extension) adds, deletes,
+[`muse extension`](../reference/muse.md#muse-extension) adds, deletes,
 installs, enables and disables rows in the extensions table. Run with no task
 it prompts for what it needs, so there is no syntax to remember.
 
@@ -334,13 +334,13 @@ it prompts for what it needs, so there is no syntax to remember.
 
 ### Group
 
-The [`muse group`](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/muse.md#muse-group) tasks are wrappers on
+The [`muse group`](../reference/muse.md#muse-group) tasks are wrappers on
 existing commands, run in a super group's context and against its database.
 See [Super groups](supergroups/index.md).
 
 ### Log
 
-[`muse log follow`](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/muse.md#muse-log-follow) tails and filters a
+[`muse log follow`](../reference/muse.md#muse-log-follow) tails and filters a
 log. Three log types are supported — `post`, `profile` and `sql` — and each
 has to be enabled before anything appears in it.
 
@@ -364,11 +364,11 @@ is the quickest way to find the request that runs four hundred queries.
 
 See [Migrations](database.md#migrations) in the database chapter for
 writing one, and
-[`muse migration`](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/muse.md#muse-migration) for the command.
+[`muse migration`](../reference/muse.md#muse-migration) for the command.
 
 ### Repository
 
-[`muse repository`](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/muse.md#muse-repository) wraps whatever
+[`muse repository`](../reference/muse.md#muse-repository) wraps whatever
 mechanism manages this copy of the CMS. Git is the only one currently
 supported; run it with no task to find out whether it applies to your
 environment.
@@ -383,12 +383,12 @@ As with migrations, the read-only form comes first and `-f` commits to it. A
 failed update rolls back to the state before it started, and leaves you to
 finish the update by hand.
 
-[`muse repository clean`](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/muse.md#muse-repository-clean) prunes
+[`muse repository clean`](../reference/muse.md#muse-repository-clean) prunes
 rollback points and stashes, and asks before each.
 
 ### Scaffolding
 
-[`muse scaffolding`](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/muse.md#muse-scaffolding) writes the files
+[`muse scaffolding`](../reference/muse.md#muse-scaffolding) writes the files
 you would otherwise copy from an existing extension and rename. It knows how
 to create commands, components, migrations and tests.
 
@@ -408,14 +408,14 @@ yourself; see [Writing one](database.md#writing-one).
 
 ### Test
 
-[`muse test`](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/muse.md#muse-test) is a wrapper around PHPUnit that
+[`muse test`](../reference/muse.md#muse-test) is a wrapper around PHPUnit that
 knows where each extension's tests live. `muse test show` lists the extensions
 that have tests; `muse test run <extension>` runs one extension's. See
 [Testing](testing.md).
 
 ### User
 
-[`muse user`](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/muse.md#muse-user) merges and unmerges accounts.
+[`muse user`](../reference/muse.md#muse-user) merges and unmerges accounts.
 People do create a second account by mistake and then ask for their
 contributions to be moved, which means updating a user id across every table
 that references one.
@@ -437,4 +437,4 @@ packages for a hub. `install` performs a fresh installation, step by step.
 `htmx` and `inertia` scaffold and lint front-end integrations. `resources`
 exports the resource catalogue and reports git statistics. `searchmigration`
 rebuilds the search index. Each is listed with its tasks in the
-[muse reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/muse.md).
+[muse reference](../reference/muse.md).

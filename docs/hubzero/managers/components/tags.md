@@ -229,7 +229,7 @@ Area** fields name tags used by the tool contribution workflow in
 [Tools](tools.md), and two cache settings control whether the tag clouds
 on `/tags` are cached and for how long. Every option is listed with its
 values in the
-[configuration reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/components/tags.md).
+[configuration reference](../../reference/configuration/components/tags.md).
 
 The **Permissions** tab sets, per user group, who may configure the
 component, manage it, and create, delete, edit, or change the state of
@@ -254,4 +254,4 @@ and profiles are filtered by access level.
 
 The component exposes endpoints under `/api/tags` for listing, reading,
 creating, updating and deleting tags, and for adding a tag to or removing
-it from an item. See the [API reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/api/tags.md).
+it from an item. See the [API reference](../../reference/api/tags.md).

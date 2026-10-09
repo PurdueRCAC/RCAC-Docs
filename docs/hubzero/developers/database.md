@@ -591,7 +591,7 @@ An extension that needs a table creates it in a migration, not in an
 installer, not in a `.sql` file someone is told to load, and not in code that
 runs a `CREATE TABLE IF NOT EXISTS` on every request. The reason is that a
 hub is upgraded, not reinstalled: the administrator runs
-[`muse migration -f`](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/muse.md#muse-migration), every pending
+[`muse migration -f`](../reference/muse.md#muse-migration), every pending
 migration in `core`, `app` and every extension runs once in timestamp order,
 and the run is recorded. A change made any other way is a change that some
 hubs have and others do not.
@@ -950,7 +950,7 @@ is the one that ships.
 
 ### Running migrations
 
-[`muse migration`](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/muse.md#muse-migration) is what runs them, and
+[`muse migration`](../reference/muse.md#muse-migration) is what runs them, and
 it is the command an administrator runs after every update. Run it yourself
 before you commit, both ways, on a hub that has the change and on one that
 does not.
@@ -983,10 +983,10 @@ php core/bin/muse migration -f -d=down -e=com_bookings   # and reverse it
 | `--vendor` | Also search `app/vendor` packages |
 | `--email=you@example.org` | Mail the output, if any files were affected |
 
-[`muse migration history`](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/muse.md#muse-migration-history) prints
+[`muse migration history`](../reference/muse.md#muse-migration-history) prints
 the contents of the migrations table, and `php core/bin/muse migration help`
 prints the full option list. The
-[muse reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/muse.md#muse-migration) is generated from the
+[muse reference](../reference/muse.md#muse-migration) is generated from the
 command class.
 
 ### The migrations table
@@ -1013,7 +1013,7 @@ why running `down` before an `up` is refused, and why a `skipped` or
     [deploying an extension](extensions/deployext.md) — where a
     migration fits into shipping an extension.
 - [Muse](muse.md) and the
-    [migration command reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/muse.md#muse-migration).
+    [migration command reference](../reference/muse.md#muse-migration).
 
 ## ORM
 

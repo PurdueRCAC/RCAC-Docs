@@ -89,7 +89,7 @@ and `foreach` work on it.
     rest of this request and nothing else. The administrator's Global
     Configuration screen is what writes the files back.
 
-The [configuration reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/README.md) lists
+The [configuration reference](../../reference/configuration/index.md) lists
 every option the tree declares.
 
 ## Component configuration

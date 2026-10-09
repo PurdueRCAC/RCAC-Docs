@@ -27,7 +27,7 @@ first. Where something does not work — an inert button, a dead filter, a
 setting nothing reads — it says that too, rather than describing the intention.
 
 This book is not a field-by-field reference; that is the generated
-[configuration reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/README.md). It is not
+[configuration reference](../reference/configuration/index.md). It is not
 about writing code for a hub, which is [Developers](../developers/index.md).
 
 The exception is the first step. [Installing a hub](installing.md) is
@@ -86,7 +86,7 @@ before that happens rather than during.
     CMS.
 
 Every parameter you can set is also listed in the generated
-[configuration reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/README.md).
+[configuration reference](../reference/configuration/index.md).
 
 !!! note
     Where this book gives a default, it is the value a hub installed

@@ -32,7 +32,7 @@ liability with a form field attached.
 This page is about declaring them. [Config](../basics/config.md) covers
 reading them at runtime — `Component::params()`, `$this->params`, and the
 `Registry` methods. Every parameter the shipped extensions declare is listed
-in the [configuration reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/README.md).
+in the [configuration reference](../../reference/configuration/index.md).
 
 ## Where the declaration goes
 

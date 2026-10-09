@@ -288,7 +288,7 @@ The **Options** button opens the component's settings: the default from and
 reply-to names and addresses for mailings, and the URLs used for the email
 tracking explanation and for the template guide links. Every option is listed
 in the
-[configuration reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/components/newsletter.md).
+[configuration reference](../../reference/configuration/components/newsletter.md).
 
 The **Permissions** tab sets, per user group, who may configure the component
 (`core.admin`), reach the administrator screens (`core.manage`), and create,
@@ -300,4 +300,4 @@ no per-list or per-template permissions.
 Three read-only endpoints return newsletters as JSON:
 `GET /api/newsletters/current`, `/api/newsletters/list`, and
 `/api/newsletters/archive`. See the
-[API reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/api/newsletter.md).
+[API reference](../../reference/api/newsletter.md).

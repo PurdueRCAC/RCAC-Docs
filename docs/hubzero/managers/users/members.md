@@ -104,7 +104,7 @@ The list opens on every account on the hub, newest registration first.
 
 | Button | What it does |
 |---|---|
-| **Options** | The component's configuration. See the generated [Members configuration reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/components/members.md). Super User only. |
+| **Options** | The component's configuration. See the generated [Members configuration reference](../../reference/configuration/components/members.md). Super User only. |
 | **Profile** | Opens the profile builder. See [Building the profile form](#building-the-profile-form). Super User only. |
 | **Export** | Downloads the accounts matching the current filters as CSV. Super User only. |
 | **Reset terms of use agreements for all users** | See [Resetting the terms of use](#resetting-the-terms-of-use). |

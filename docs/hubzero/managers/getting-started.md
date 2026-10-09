@@ -74,7 +74,7 @@ whenever a change made in one screen turns up somewhere you did not expect.
 
 Every setting the interface offers is also listed, component by component, in
 the generated
-[configuration reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/README.md).
+[configuration reference](../reference/configuration/index.md).
 ## The first week with a new hub
 
 What to do first with a hub that has just been installed, in the order that
@@ -452,7 +452,7 @@ Then set the options of the ones you kept:
 [Components](configuring/components.md) explains the **Options**
 pop-up and its **Permissions** tab, and every parameter of every component is
 listed in the generated
-[configuration reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/README.md). Some
+[configuration reference](../reference/configuration/index.md). Some
 components do nothing useful until their options are filled in.
 
 #### Check the default, do not trust it
@@ -460,7 +460,7 @@ components do nothing useful until their options are filled in.
 A component's default comes from two places that do not always agree. The
 manifest — the component's own `config/config.xml` — declares a default for
 every field, and that is the value the generated
-[configuration reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/README.md) prints. The
+[configuration reference](../reference/configuration/index.md) prints. The
 shipped install data, `core/bootstrap/Install/sql/mysql/data.sql`, separately
 seeds a row of stored parameters for each component. **The stored row wins**,
 both for what the hub does and for what the **Options** screen shows you: the

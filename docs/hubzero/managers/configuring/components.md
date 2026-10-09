@@ -83,7 +83,7 @@ override it for this component only.
 
 Every parameter of every component is listed, with its type and default, in
 the generated
-[configuration reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/README.md#components).
+[configuration reference](../../reference/configuration/index.md#components).
 That list is produced from the same `config.xml` files the pop-up reads, so
 it always matches the screen.
 

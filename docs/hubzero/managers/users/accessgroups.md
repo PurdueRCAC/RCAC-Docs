@@ -107,7 +107,7 @@ New accounts are placed in the group named by the **New User Registration
 Group** option of `com_members`, which is Registered by default. Visitors who
 are not logged in count as members of the **Guest Access Group**, Public by
 default. Both are on the component's **Options** screen and are listed in the
-[Members configuration reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/components/members.md).
+[Members configuration reference](../../reference/configuration/components/members.md).
 Accounts created by an administrator and accounts created by
 [import](memberimport.md) are placed in the same group; the importer falls
 back to Registered by name if the option is unset.

@@ -209,7 +209,7 @@ are listed in
 
 **Options** on any of the three screens; visible with `core.admin`. Full
 parameter list in the
-[generated reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/components/saml.md).
+[generated reference](../../reference/configuration/components/saml.md).
 
 **Enable IdP** is the master switch for all three endpoints, and it ships on.
 Turning it off is the fastest way to stop every registered service at once,

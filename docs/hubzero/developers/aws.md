@@ -37,7 +37,7 @@ connectors, alongside Dropbox, GitHub, Google Drive, and the local disk. It
 takes five parameters — **App ID**, **App Secret**, **Region**, **Bucket**,
 and **Directory** — which an administrator sets under **Extensions** →
 **Plugins**. The parameters are listed in
-[the generated reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/plugins/filesystem.md).
+[the generated reference](../reference/configuration/plugins/filesystem.md).
 
 The S3 access itself is `league/flysystem-aws-s3-v3`, a Composer dependency
 declared in [`core/composer.json`](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/core/composer.json).

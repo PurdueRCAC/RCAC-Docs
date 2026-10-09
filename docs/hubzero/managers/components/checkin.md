@@ -142,7 +142,7 @@ everything inherited — is the right setting on almost every hub.
 There is no muse command for check-in and nothing schedules one, but the
 component has a REST equivalent — `GET /api/checkin/list` and
 `DELETE /api/checkin/checkin`, the second taking one or more table names —
-documented in the [check-in API reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/api/checkin.md).
+documented in the [check-in API reference](../../reference/api/checkin.md).
 
 Failing that, the query is short enough to run by hand:
 

@@ -179,7 +179,7 @@ core/bin/muse cache clear
 
 It reports each path it removes. Use it after a template or LESS change, and
 when a hub's cache has grown large enough that walking it in the browser times
-out. The [muse reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/muse.md#muse-cache) lists the command's
+out. The [muse reference](../../reference/muse.md#muse-cache) lists the command's
 tasks.
 
 Purging can also be scheduled. The **Cron - Cache Handler** plugin offers
@@ -191,7 +191,7 @@ writes — so it finds nothing to delete.
 
 Both screens also have REST equivalents — `GET /api/cache/list`,
 `DELETE /api/cache/clean`, `DELETE /api/cache/purge` — documented in the
-[cache API reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/api/cache.md).
+[cache API reference](../../reference/api/cache.md).
 
 ## What it does not clear
 

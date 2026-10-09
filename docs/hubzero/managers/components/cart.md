@@ -160,7 +160,7 @@ same search and date filters, and its own **Download CSV** button.
 ## Options
 
 Press **Options** in the toolbar of any Cart screen. The full list is in the
-[generated parameter reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/components/cart.md);
+[generated parameter reference](../../reference/configuration/components/cart.md);
 the ones that matter day to day are:
 
 - **Send notifications to** — a comma-separated list of addresses that get an

@@ -56,7 +56,7 @@ and requests fall through to PHP pages and group pages instead — silently, so
 a component that "does not exist" on a hub where it worked yesterday is worth
 checking here first. The option is `super_components` in
 [`config/config.xml`](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/core/components/com_groups/config/config.xml);
-see the [generated reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/components/groups.md).
+see the [generated reference](../../reference/configuration/components/groups.md).
 
 ## The smallest thing that works
 
