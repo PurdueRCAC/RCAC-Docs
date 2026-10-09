@@ -72,6 +72,7 @@ boost query, so the effect is cumulative with the field weights in
     number, save, run two or three searches you know the right answer to, and
     raise it only if nothing moved. A large boost pushes that type to the top
     of every result page on the hub, including searches where it is irrelevant.
+
 6. Save the boost with the tick button in the toolbar.
 
     ![The completed new boost form before saving](/assets/images/hubzero/managers/media/boosting-finalize-new-boost.png)

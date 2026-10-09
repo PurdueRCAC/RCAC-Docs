@@ -1,0 +1,203 @@
+---
+tags:
+- HUBzero
+render_macros: false
+hubzero:
+  upstream: docs/developers/05-basics/10-dates.md
+  commit: 9c1a8c678002bdfb41860f90915a3589ab60339e
+  status: rewritten
+  reviewed-against: 2.4-main @ 348f0057c2
+  reviewed: '2026-09-10'
+  source: https://help.hubzero.org/documentation/240/webdevs/basics/dates
+---
+
+# Dates
+
+A hub has members in every time zone, so it keeps one rule:
+
+!!! important
+    **Store and compare in UTC. Convert only for display.**
+    Every `datetime` column in the schema holds UTC. Every date that reaches a
+    member's screen has been converted on the way out.
+
+[`Hubzero\Utility\Date`](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/core/libraries/Hubzero/Utility/Date.php)
+extends PHP's `DateTime` and gives you the conversions. It does not enforce
+the rule — nothing does — so the whole of this page is about which side of
+the line a given value is on.
+
+## The whole rule, as a table
+
+An instrument-booking component reads a start time from a form, stores it,
+compares it against now, and shows it back. That is five values and five
+different calls:
+
+| The value | Write |
+|---|---|
+| Read from a database column | `Date::of($row->get('starts'))` — already UTC, no zone argument |
+| Typed by a member into a form | `Date::of($input, Config::get('offset'))` — their zone, said out loud |
+| Now, on the way into a column | `Date::of('now')->toSql()` |
+| On the way to a member's screen | `->toLocal(Lang::txt('DATE_FORMAT_HZ1'))` |
+| On the way to a machine — JSON, a feed, a `<time datetime="">` | `->format('Y-m-d\TH:i:s\Z')` or `toISO8601()` |
+
+### What getting it wrong looks like
+
+Nothing throws. No warning is logged. A booking made for 9am appears at 1pm,
+or a job that should have run at midnight runs at five. The reliable tell is
+that the error is a whole number of hours and **changes by one in summer**,
+because the offset that was wrongly applied is a daylight-saving one.
+
+The second tell is that comparisons stop agreeing with the display. A row
+written in local time sorts and filters wrongly against every other row:
+`publish_up <= now` is evaluated in the database against UTC, so a booking
+stored four hours ahead of where it should be simply does not appear until
+four hours later, on a page that shows the right time all along.
+
+## Creating a date
+
+```php
+use Date;
+
+$now     = Date::of('now');
+$created = Date::of($row->get('created'));
+```
+
+`Date::of($date = 'now', $tz = null, $ignoreDst = false)` returns a new
+object each time; there is no shared instance. `Date::getRoot()` is
+`Date::of('now')`. `$ignoreDst` pins the zone to its standard offset, which
+is wanted only for a recurring wall-clock time that must not shift with
+daylight saving; leave it alone otherwise.
+
+**When `$tz` is omitted the string is read as UTC.** That is the important
+default. `Date::of('2015-06-01 09:00:00')` is nine in the morning UTC, not
+nine in the morning wherever the server is. A value that came out of the
+database is already UTC, so reading it back needs no time zone:
+
+```php
+$created = Date::of($row->get('created'));
+```
+
+A value that came from a **member typing into a form** is in their time zone,
+and has to be told so. This is the one line that matters, and the one that
+gets left out:
+
+```php
+// The member typed "2026-09-14 09:00" meaning nine in the morning where they are
+$fields['starts'] = Date::of($fields['starts'], Config::get('offset'))->toSql();
+```
+
+Leave the second argument off and the same string is stored as nine in the
+morning UTC, which is four or five in the morning for the lab. The booking
+saves, the form redisplays it correctly, and only the slot list disagrees.
+
+`Config::get('offset')` is the hub's configured zone. `$tz` accepts a
+`DateTimeZone`, an identifier string such as `America/New_York`, or a
+numeric offset resolved through the class's own table of common zones.
+
+The constructor accepts anything `strtotime()` does, and treats a purely
+numeric argument as a Unix timestamp:
+
+| Input | Example |
+|---|---|
+| MySQL datetime | `2009-10-02 15:25:00` |
+| Unix timestamp | `1254497100` |
+| RFC 2822 | `Fri, 2 Oct 2009 15:25:00 +0000` |
+| RFC 3339 / ISO 8601 | `2009-10-02T15:25:00+00:00` |
+| Plain English | `2 October 2009`, `now`, `-1 year` |
+
+Where the input carries its own offset, that offset is honoured and the
+result still represents the same instant.
+
+## Storing
+
+```php
+$row->set('modified', Date::of('now')->toSql());
+```
+
+`toSql($local = false, $dbo = null)` formats for the database using the
+driver's own date format, in UTC unless `$local` is true. Leave `$local`
+alone. Every comparison the CMS makes — `publish_up <= now`, a cron job's
+`next_run` — assumes UTC on both sides, and one row written in local time
+sorts and filters wrongly against all the others.
+
+## Displaying
+
+`toLocal($format = '')` converts to the viewing member's zone and formats:
+
+```php
+echo Date::of($booking->get('starts'))->toLocal(Lang::txt('DATE_FORMAT_LC2'));
+```
+
+It reads `User::getParam('timezone', Config::get('offset'))` — the member's
+own preference where they have set one, the hub's offset otherwise — so the
+same row renders differently for two members, which is the point.
+
+The format is a **PHP `date()` format string**, not a `strftime()` one:
+`'d M Y'`, not `'%d %b %Y'`. Put it in a language key rather than a view so
+a hub can change it:
+
+| Key | Value |
+|---|---|
+| `DATE_FORMAT_HZ1` | `d M Y` |
+| `DATE_FORMAT_LC` | `l, d F Y` |
+| `DATE_FORMAT_LC2` | `l, d F Y H:i` |
+| `DATE_FORMAT_LC3` | `d F Y` |
+| `DATE_FORMAT_LC4` | `Y-m-d` |
+| `TIME_FORMAT_HZ1` | `g:i a` |
+
+Called with no format, `toLocal()` uses `Date::$format`, which is
+`Y-m-d H:i:s`.
+
+| Method | Returns |
+|---|---|
+| `toLocal($format = '')` | Formatted in the viewer's time zone |
+| `toTimeZone($tz, $format = null)` | Formatted in a zone you name |
+| `format($format, $local = false, $translate = true)` | Formatted; **UTC unless `$local`** |
+| `toSql($local = false, $dbo = null)` | Database datetime |
+| `toISO8601($local = false)` | `2009-10-06T12:54:37+00:00` |
+| `toRFC822($local = false)` | `Tue, 06 Oct 2009 12:54:37 +0000` |
+| `toUnix()` | Seconds since the epoch |
+| `relative($unit = null, $time = null)` | `3 days ago`, `2 weeks ago` |
+
+`format()` defaults to UTC, so it is what a machine-readable attribute
+wants and `toLocal()` is what the human-readable text beside it wants:
+
+```php
+<time datetime="<?php echo Date::of($row->get('created'))->format('Y-m-d\TH:i:s\Z'); ?>">
+    <?php echo Date::of($row->get('created'))->toLocal(Lang::txt('DATE_FORMAT_HZ1')); ?>
+</time>
+```
+
+`format()` also translates day and month names by default: `D`, `l`, `M` and
+`F` are resolved through `Lang::txt()` against `MONDAY`, `MON`, `JANUARY`,
+`JANUARY_SHORT` and their siblings. Pass `false` as the third argument where
+you need the raw PHP output — `toSql()`, `toISO8601()` and `toRFC822()`
+already do.
+
+`relative()` renders an age rather than a date, using the
+`JLIB_HTML_DATE_RELATIVE_*` keys under a month and `"%d %s ago"` above it.
+`format('relative')` is a shorthand for it.
+
+## Moving a date
+
+`add($modifier)` and `subtract($modifier)` prefix the string with `+` or `-`
+and pass it to `modify()`. They are marked deprecated; use `modify()`, or
+`DateTime`'s own `add()`/`sub()` with a `DateInterval`, in new code.
+
+```php
+$cutoff = Date::of('now')->modify('-30 days')->toSql();
+```
+
+`setTimezone($tz)` accepts a string as well as a `DateTimeZone` and records
+the zone on the object, so subsequent `format($f, true)` calls use it.
+
+!!! warning
+    `toTimeZone()` and `toLocal()` change the object's own time
+    zone as a side effect, because `toTimeZone()` calls `setTimezone()`.
+    Formatting the same object first for display and then for storage gives
+    the wrong answer for the second. Build a fresh `Date::of(...)` for each
+    output, as the views in the tree do.
+
+!!! note
+    Legacy rows can hold `0000-00-00 00:00:00`. Test the column
+    before constructing a date from it; `Date::of('0000-00-00 00:00:00')` does
+    not represent a date anybody wants to show.

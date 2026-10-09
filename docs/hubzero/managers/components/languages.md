@@ -51,7 +51,7 @@ administrator interface, which is the only sensible setting on a hub with one
 language installed. Nothing on the first two screens needs your attention
 until a second language pack arrives.
 
-[Languages](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/developers/07-extensions/03-languages.md) in the developers
+[Languages](../../developers/extensions/languages.md) in the developers
 book covers the other half of the subject: where an extension's INI files
 live, how keys are named, and when they are loaded. Read it if you are about
 to write an override — you need the key, and that page explains how keys are

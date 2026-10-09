@@ -479,6 +479,7 @@ sign that the registered URI and the hub's actual address disagree.
     [Version tracking is off](#version-tracking-is-off)), so with **Default
     Action** left on **Browse (browse local files)** project managers have no
     way in and the connectors you configured are invisible to them.
+
 4. **Create the connection in a project.** This part is done by a project
     manager, on the front end, in the project's **Files** tab: pick the
     provider from the **New Connection** drop-down, give the connection a name,

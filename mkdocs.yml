@@ -600,6 +600,118 @@ nav:
         - "Simulation usage definitions": hubzero/tools/users/simusagedefinitions.md
         - "Usage": hubzero/tools/users/usage.md
         - "Getting started": hubzero/tools/users/gettingstarted.md
+    - "Developers":
+      - hubzero/developers/index.md
+      - "Getting started":
+        - hubzero/developers/getting-started/index.md
+        - "Release notes": hubzero/developers/getting-started/releasenotes.md
+        - "Accessing files": hubzero/developers/getting-started/fileaccess.md
+        - "Direct database access": hubzero/developers/getting-started/databaseaccess.md
+        - "Upgrade guide": hubzero/developers/getting-started/upgrade.md
+        - "Browser support": hubzero/developers/getting-started/browsersupport.md
+        - "Development environment": hubzero/developers/getting-started/devenvironment.md
+      - "Video tutorials": hubzero/developers/tutorials.md
+      - "Foundation":
+        - hubzero/developers/foundation/index.md
+        - "Application structure": hubzero/developers/foundation/structure.md
+        - "Constants": hubzero/developers/foundation/constants.md
+        - "Autoloading": hubzero/developers/foundation/autoloading.md
+        - "Events": hubzero/developers/foundation/events.md
+        - "Extensions": hubzero/developers/foundation/extensions.md
+        - "Facades": hubzero/developers/foundation/facades.md
+        - "Service providers": hubzero/developers/foundation/providers.md
+      - "Services":
+        - hubzero/developers/services/index.md
+        - "Cache": hubzero/developers/services/cache.md
+        - "Filesystem": hubzero/developers/services/filesystem.md
+        - "Session": hubzero/developers/services/session.md
+        - "Events": hubzero/developers/services/events.md
+        - "Server": hubzero/developers/services/server.md
+      - "The basics":
+        - hubzero/developers/basics/index.md
+        - "Requests": hubzero/developers/basics/requests.md
+        - "Responses": hubzero/developers/basics/responses.md
+        - "Config": hubzero/developers/basics/config.md
+        - "Languages": hubzero/developers/basics/languages.md
+        - "Users & profiles": hubzero/developers/basics/user.md
+        - "Tags": hubzero/developers/basics/tags.md
+        - "Debugging": hubzero/developers/basics/debugging.md
+        - "Scheduled tasks": hubzero/developers/basics/cron.md
+        - "Dates": hubzero/developers/basics/dates.md
+        - "Redirect": hubzero/developers/basics/redirect.md
+      - "Database": hubzero/developers/database.md
+      - "Extensions":
+        - hubzero/developers/extensions/index.md
+        - "Requirements": hubzero/developers/extensions/extreqs.md
+        - "Parameters": hubzero/developers/extensions/parameters.md
+        - "Languages": hubzero/developers/extensions/languages.md
+        - "Deploying extensions": hubzero/developers/extensions/deployext.md
+      - "Modules":
+        - hubzero/developers/modules/index.md
+        - "Migrations": hubzero/developers/modules/migrations.md
+        - "Structure": hubzero/developers/modules/structure.md
+        - "Controllers": hubzero/developers/modules/controllers.md
+        - "Helpers": hubzero/developers/modules/helpers.md
+        - "Languages": hubzero/developers/modules/languages.md
+        - "Views": hubzero/developers/modules/views.md
+        - "Assets": hubzero/developers/modules/assets.md
+        - "Packaging": hubzero/developers/modules/packaging.md
+        - "Loading": hubzero/developers/modules/loading.md
+      - "Components":
+        - hubzero/developers/components/index.md
+        - "Migrations": hubzero/developers/components/migrations.md
+        - "Structure": hubzero/developers/components/structure.md
+        - "Controllers": hubzero/developers/components/controllers.md
+        - "Helpers": hubzero/developers/components/helpers.md
+        - "Models": hubzero/developers/components/models.md
+        - "Languages": hubzero/developers/components/languages.md
+        - "Views": hubzero/developers/components/views.md
+        - "Assets": hubzero/developers/components/assets.md
+        - "Routing": hubzero/developers/components/routing.md
+        - "Configuration": hubzero/developers/components/configuration.md
+        - "Packaging": hubzero/developers/components/packaging.md
+      - "Plugins":
+        - hubzero/developers/plugins/index.md
+        - "Migrations": hubzero/developers/plugins/migrations.md
+        - "Structure": hubzero/developers/plugins/structure.md
+        - "Controllers": hubzero/developers/plugins/controllers.md
+        - "Languages": hubzero/developers/plugins/languages.md
+        - "Views": hubzero/developers/plugins/views.md
+        - "Assets": hubzero/developers/plugins/assets.md
+        - "Configuration": hubzero/developers/plugins/configuration.md
+        - "Packaging": hubzero/developers/plugins/packaging.md
+        - "Loading": hubzero/developers/plugins/loading.md
+      - "Templates":
+        - hubzero/developers/templates/index.md
+        - "Migrations": hubzero/developers/templates/migrations.md
+        - "Languages": hubzero/developers/templates/languages.md
+        - "Structure": hubzero/developers/templates/structure.md
+        - "Designing": hubzero/developers/templates/designing.md
+        - "Page layouts": hubzero/developers/templates/layouts.md
+        - "Cascading style sheets": hubzero/developers/templates/css.md
+        - "JavaScript": hubzero/developers/templates/javascript.md
+        - "Output overrides": hubzero/developers/templates/overrides.md
+        - "Packaging": hubzero/developers/templates/packaging.md
+        - "Socicons": hubzero/developers/templates/socicons.md
+        - "Fontcons": hubzero/developers/templates/fontcons.md
+        - "Elements and typography": hubzero/developers/templates/elements.md
+        - "Accessibility": hubzero/developers/templates/accessibility.md
+      - "Muse": hubzero/developers/muse.md
+      - "Super Groups":
+        - hubzero/developers/supergroups/index.md
+        - "Templating system": hubzero/developers/supergroups/templating-system.md
+        - "Page templates": hubzero/developers/supergroups/page-templates.md
+        - "Custom macros": hubzero/developers/supergroups/custom-macros.md
+        - "PHP pages": hubzero/developers/supergroups/php-pages.md
+        - "Databases": hubzero/developers/supergroups/databases.md
+        - "Migrations": hubzero/developers/supergroups/migrations.md
+        - "Components": hubzero/developers/supergroups/components.md
+      - "Super groups with GitLab": hubzero/developers/supergroups-gitlab.md
+      - "Testing": hubzero/developers/testing.md
+      - "REST API": hubzero/developers/api.md
+      - "AWS": hubzero/developers/aws.md
+      - "Contributing": hubzero/developers/contributing.md
+      - "Conventions": hubzero/developers/conventions.md
     - "About these docs":
       - "Writing guide": hubzero/style.md
       - "License": hubzero/license.md

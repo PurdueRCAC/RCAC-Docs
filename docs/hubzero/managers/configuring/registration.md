@@ -244,7 +244,7 @@ template rather than the active one, so they also apply to mail sent from
 cron.
 
 !!! tip
-    See [Output overrides](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/developers/11-templates/09-overrides.md)
+    See [Output overrides](../../developers/templates/overrides.md)
     for the general rules on overriding layouts and CSS.
 
 ## Older screenshots

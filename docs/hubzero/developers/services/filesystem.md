@@ -1,0 +1,251 @@
+---
+tags:
+- HUBzero
+render_macros: false
+hubzero:
+  upstream: docs/developers/04-services/02-filesystem.md
+  commit: 9c1a8c678002bdfb41860f90915a3589ab60339e
+  status: rewritten
+  reviewed-against: 2.4-main @ 348f0057c2
+  reviewed: '2026-09-10'
+  source: https://help.hubzero.org/documentation/240/webdevs/services/filesystem
+---
+
+# Filesystem
+
+[`Hubzero\Filesystem\Filesystem`](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/core/libraries/Hubzero/Filesystem/Filesystem.php)
+is the file API. It holds an adapter, delegates every operation to it, and
+adds a virus scan, path normalisation, and a macro mechanism. Because the
+adapter is chosen at boot, the same calls work whether the hub writes to
+local disk or over FTP.
+
+Use it rather than `fopen()`, `file_get_contents()` and `unlink()` for two
+reasons. A hub configured to write over FTP — because the web server does
+not own the document root — has no working `unlink()`, and PHP's own
+functions will fail there in ways that only appear on that hub. And the
+virus scan is here, not in your controller: everything a member uploads has
+to pass `isSafe()`, and code that writes the file itself skips it.
+
+## What the facade resolves to
+
+```php
+	public function register()
+	{
+		$this->app['filesystem'] = function($app)
+		{
+			if ($app['config']->get('ftp_enable'))
+			{
+				$adapter = new Ftp(array(
+					'host'     => $app['config']->get('ftp_host'),
+					'port'     => $app['config']->get('ftp_port'),
+					'username' => $app['config']->get('ftp_user'),
+					'password' => $app['config']->get('ftp_pass'),
+					'root'     => $app['config']->get('ftp_root'),
+				));
+			}
+			else
+			{
+				$adapter = new Local($app['config']->get('virus_scanner', "clamscan -i --no-summary --block-encrypted"));
+			}
+
+			$filesystem = new Filesystem($adapter);
+			$filesystem->addMacro(new EmptyDirectory)
+			           ->addMacro(new Directories)
+			           ->addMacro(new Files)
+			           ->addMacro(new DirectoryTree);
+
+			return $filesystem;
+		};
+	}
+```
+
+With `ftp_enable` set in the global configuration the adapter is
+[`Ftp`](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/core/libraries/Hubzero/Filesystem/Adapter/Ftp.php),
+configured from the `ftp_*` values; otherwise it is
+[`Local`](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/core/libraries/Hubzero/Filesystem/Adapter/Local.php),
+constructed with the shell command used for virus scanning. A third
+adapter, `None`, exists for tests. Four macros are registered on the way
+out; see below.
+
+!!! note
+    There is no filesystem manager to go through, despite the name.
+    `Hubzero\Filesystem\Manager` is an empty class left over from an earlier
+    design. The `Filesystem` facade, or `App::get('filesystem')`, is the entry
+    point.
+
+!!! note
+    Paths are real paths, not paths relative to some configured
+    root. Build them from the [constants](../foundation/constants.md) —
+    `PATH_APP . DS . 'site' . DS . 'wiki'` — and pass them whole.
+
+## Reading and writing
+
+```php
+use Filesystem;
+
+if (!Filesystem::exists($path))
+{
+    throw new Exception(Lang::txt('File not found.'));
+}
+
+$contents = Filesystem::read($path);
+```
+
+| Method | What it does |
+|---|---|
+| `exists($path)` | Whether the path exists |
+| `read($path)` | File contents as a string; throws `FileNotFoundException` if absent |
+| `write($path, $contents)` | Write, replacing what is there |
+| `prepend($path, $data)` / `append($path, $data)` | Add to the start or end |
+| `delete($path)` | Remove a file |
+| `copy($path, $target)` / `rename($path, $target)` | Copy or rename; `move()` is an alias for `rename()` |
+| `upload($path, $target)` | Move an uploaded temporary file into place |
+
+`copy()` and `rename()` call `assertPresent()` on the source first, so a
+missing source raises
+[`FileNotFoundException`](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/core/libraries/Hubzero/Filesystem/Exception/FileNotFoundException.php)
+rather than returning `false`.
+
+`delete()` asserts the same way, which is the one that surprises people:
+**deleting a file that is already gone throws rather than doing nothing.**
+Cleaning up after a failed upload, or removing an attachment a previous
+run already removed, is a stack trace on the member's screen unless you
+test `exists()` first.
+
+| Missing source | What happens |
+|---|---|
+| `read()`, `delete()`, `copy()`, `rename()`, `move()` | `FileNotFoundException` |
+| `write()`, `exists()`, `isFile()` | `false` |
+
+Check `exists()` first, as the example above does, and neither bites.
+
+## Inspecting
+
+| Method | Returns |
+|---|---|
+| `name($path)` | The filename without its extension |
+| `extension($path)` | The extension, without the dot |
+| `type($path)` | `file` or `dir` |
+| `size($path)` | Size in bytes |
+| `mimetype($path)` | The detected MIME type |
+| `lastModified($path)` | Modification time |
+| `isFile($path)` / `isDirectory($path)` / `isWritable($path)` | Booleans |
+| `isSafe($path)` | Runs the configured virus scanner over the file |
+| `find($paths, $file)` | Full path to `$file` in the first of `$paths` that has it, or `false` |
+
+`isSafe()` is the one to remember. Everything a member uploads goes through
+it, and a failure means the file is deleted rather than kept:
+
+```php
+if (!Filesystem::isSafe($path . DS . $file['name']))
+{
+    Filesystem::delete($path . DS . $file['name']);
+
+    throw new Exception(Lang::txt('COM_BOOKINGS_FILE_FAILED_SCAN'));
+}
+```
+
+Scan after the file is in place and delete it if the scan fails, in that
+order. `isSafe()` needs a path on disk, so there is no way to check before
+writing.
+
+## Directories
+
+| Method | What it does |
+|---|---|
+| `makeDirectory($path, $mode = 0755, $recursive = true, $force = false)` | Create a directory |
+| `deleteDirectory($path, $preserve = false)` | Remove it, optionally keeping the directory itself |
+| `copyDirectory($path, $target, $options = null)` | Copy a tree |
+| `setPermissions($path, $filemode = '0644', $foldermode = '0755')` | Chmod a tree |
+| `listContents($path, $filter = '.', $recursive = false, $full = false, $exclude = [...])` | Entries as arrays with `type` and `path` |
+
+## Cleaning names
+
+Never build a path out of an uploaded filename without normalising it
+first. The name arrives from the browser and can be anything —
+`../../config/app.php`, a name with a null byte, a name that is 300
+characters of Unicode:
+
+| Method | What it does |
+|---|---|
+| `clean($file)` | Strip a filename down to safe characters |
+| `cleanPath($path)` | Normalise separators and collapse `..` |
+| `cleanDirectory($directory)` | The same, for a directory name |
+
+## Macros
+
+A macro adds one method to the filesystem object. It implements
+[`MacroInterface`](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/core/libraries/Hubzero/Filesystem/MacroInterface.php)
+— usually by extending `Hubzero\Filesystem\Macro\Base`, which supplies
+`setFilesystem()` — and provides `getMethod()` and `handle()`:
+
+```php
+class Files extends Base
+{
+	/**
+	 * Get the method name.
+	 *
+	 * @return  string
+	 */
+	public function getMethod()
+	{
+		return 'files';
+	}
+
+	/**
+	 * List all files in the directory.
+	 *
+	 * @param   string   $path     The path of the folder to read.
+	 * @param   string   $filter   A filter for file names.
+	 * @param   mixed    $recurse  True to recursively search into sub-folders, or an integer to specify the maximum depth.
+	 * @param   boolean  $full     True to return the full path to the file.
+	 * @param   array    $exclude  Array with names of files which should not be shown in the result.
+	 * @return  array
+	 */
+	public function handle($path, $filter = '.', $recursive = false, $full = false, $exclude = array('.svn', '.git', 'CVS', '.DS_Store', '__MACOSX'))
+	{
+		$result = array();
+
+		$contents = $this->filesystem->listContents($path, $filter, $recursive, $full, $exclude);
+
+		foreach ($contents as $object)
+		{
+			if ($object['type'] === 'file')
+			{
+				$result[] = $object['path'];
+			}
+		}
+
+		return $result;
+	}
+```
+
+`getMethod()` names the call; `handle()` receives whatever arguments the
+call was given, with `$this->filesystem` already set. Register it and call
+it:
+
+```php
+$filesystem = App::get('filesystem');
+
+$filesystem->addMacro(new Example);
+
+$content = $filesystem->examplify($path);
+```
+
+`addMacro()` refuses a macro without a `handle()` method, `hasMacro($name)`
+tests for one, and calling a name that is neither a real method nor a
+registered macro raises `BadMethodCallException`.
+
+Four macros are registered at boot and are therefore always available on
+the `Filesystem` facade:
+
+| Call | Returns |
+|---|---|
+| `files($path, $filter, $recursive, $full, $exclude)` | Paths of the files in a directory |
+| `directories($path, $filter, $recursive, $full, $exclude)` | Paths of the sub-directories |
+| `emptyDirectory($path)` | Deletes everything inside a directory, keeping the directory |
+| `directoryTree($path, $filter, $maxLevel, $level, $parent)` | A nested array describing the tree |
+
+```php
+$num_files = count(Filesystem::files(PATH_APP . DS . $folder));
+```

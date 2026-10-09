@@ -62,6 +62,7 @@ book.
     gives you one fewer password to keep; see
     [Third-party logins](#third-party-logins) below for what it leaves
     unfinished.
+
 3. Under **Login Information**, type a **Username**. The hint under the box
     says what is allowed: *Combination of lowercase letters and numbers. No
     spaces or punctuation.* When you leave the box, the hub checks the name
@@ -74,6 +75,7 @@ book.
     Choose one you would not mind a co-author seeing. On hubs that offer SSH or
     SFTP access for tool development, the same username is your login there;
     the **Account** tab shows it as your local services username.
+
 4. Type a **Password**, then repeat it in **Confirm Password**. The list of
     rules under the boxes is your hub's own — it is a table an administrator
     edits, so its length and content vary. The list updates as you type, marking
@@ -85,6 +87,7 @@ book.
 
     This is the name that appears on anything you contribute, so type it as you
     would want it cited.
+
 6. Type your address in **Valid E-mail** and again in **Confirm E-mail**. A
     warning under the boxes names the address the confirmation message will
     come from.
@@ -102,6 +105,7 @@ book.
     be raised. That second button is there because the usual reason to register
     twice is running out of disk or session quota, and a second account is not
     the fix.
+
 7. Answer the questions in **Personal Information**. These are your hub's own
     fields — organisation, discipline, position, and so on. Fields marked
     *required* have to be answered; the rest can be left blank and filled in
@@ -121,9 +125,10 @@ book.
         field blank.* That is a trap for automated form fillers. Leave it empty,
         as it says. If a password manager or browser autofill has put something in
         it, clear it, or the form is rejected as a bot.
-        10. Under **Terms & Conditions**, open the **Terms of Use** link, read it, and
-        tick *Yes, I have read and agree to the Terms of Use.*
-        11. Select **Create Account**.
+
+10. Under **Terms & Conditions**, open the **Terms of Use** link, read it, and
+    tick *Yes, I have read and agree to the Terms of Use.*
+11. Select **Create Account**.
 
 ## What happens next
 

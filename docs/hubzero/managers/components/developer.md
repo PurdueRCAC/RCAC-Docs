@@ -201,7 +201,7 @@ parts:
 
 A logged-in reader's own active tokens are listed on those pages, so the
 examples can be tried as they are read. See
-[REST API](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/developers/16-api.md) in the developers book for how the
+[REST API](../../developers/api.md) in the developers book for how the
 documentation is produced and how to add to it, and the
 [API reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/api/README.md) for the same endpoint list in
 these pages.

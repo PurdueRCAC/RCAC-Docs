@@ -574,7 +574,7 @@ may use.
     The AWS S3 keys you type into a connection form are stored
     with it and are usable by everyone the connection is shared with. Ask for a
     key scoped to the one bucket, or the one prefix, and nothing else.
-    ## Databases
+## Databases
 
 A spreadsheet in the file area is a file: you download it, open it, and
 scroll. A project database turns that same spreadsheet into a table your

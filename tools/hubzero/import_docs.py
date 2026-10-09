@@ -697,6 +697,13 @@ CALLOUT_RE = re.compile(
 QUOTE_RE = re.compile(r"^(?P<ind>[ \t]*)>[ \t]?(?P<rest>.*)$")
 
 
+def starts_block(line: str) -> bool:
+    """True if the line opens a block (list item, heading, fence, rule), so it
+    ends a blockquote instead of continuing it lazily, as in CommonMark."""
+    return bool(LIST_RE.match(line) or ATX_RE.match(line) or HR_RE.match(line)
+                or FENCE_OPEN_RE.match(line))
+
+
 def convert_callouts(lines: list[str], kinds: list[str]) -> tuple[list[str], int]:
     """`> **Note:** …` blockquotes → Material admonitions (`!!! note`).
 
@@ -721,7 +728,7 @@ def convert_callouts(lines: list[str], kinds: list[str]) -> tuple[list[str], int
             q = QUOTE_RE.match(lines[i])
             if q and q.group("ind") == ind:
                 body.append(q.group("rest"))
-            elif not lines[i].lstrip().startswith(">"):
+            elif not (lines[i].lstrip().startswith(">") or starts_block(lines[i])):
                 body.append(lines[i].strip())      # lazy continuation
             else:
                 break
@@ -739,12 +746,18 @@ def normalize_dialect(lines: list[str], kinds: list[str]) -> tuple[list[str], di
     list-item content re-indented to 4 spaces per level, a blank line inserted
     before a top-level list that directly follows a paragraph, and a blank line
     inserted where a block (heading, list, fence, quote, HTML) directly follows a
-    table row. GFM ends a table there; Python-Markdown reads the block as a row."""
+    table row. GFM ends a table there; Python-Markdown reads the block as a row.
+    Also a blank line before a list item that directly follows a later paragraph
+    of the previous item: Python-Markdown reads the marker as paragraph text. The
+    item is already loose (that paragraph follows a blank line), so the list
+    renders with the same spacing."""
     out: list[str] = []
-    stats = {"reindented": 0, "blank-before-list": 0, "blank-after-table": 0}
+    stats = {"reindented": 0, "blank-before-list": 0, "blank-after-table": 0,
+             "blank-between-items": 0}
     stack: list[tuple[int, int]] = []       # (original content column, delta)
     fence_delta: tuple[int, int] | None = None   # (threshold column, delta) inside a fence
     prev = "blank"
+    later_para = False      # the current text began after a blank line inside a list
 
     def delta_for(col: int) -> tuple[int, int]:
         for c, d in reversed(stack):
@@ -784,6 +797,9 @@ def normalize_dialect(lines: list[str], kinds: list[str]) -> tuple[list[str], di
             if not in_list and prev == "text":
                 out.append("")
                 stats["blank-before-list"] += 1
+            elif in_list and prev == "text" and later_para:
+                out.append("")
+                stats["blank-between-items"] += 1
             spaces = len(m.group("sp").expandtabs(4))
             width = len(m.group("mark"))
             content = lead + width + (1 if (not m.group("rest") or spaces > 4) else spaces)
@@ -802,6 +818,8 @@ def normalize_dialect(lines: list[str], kinds: list[str]) -> tuple[list[str], di
         elif kind == "text" and TABLE_ROW_RE.match(line):
             prev = "table"
         elif kind == "text" and not ATX_RE.match(line):
+            if prev != "text":
+                later_para = prev == "blank" and bool(stack)
             prev = "text"
         else:
             prev = "other"
@@ -915,7 +933,7 @@ def run_import(model: Model) -> Result:
     warnings: list[str] = []
     stats = {"pages": 0, "assets": 0, "github-fallback-links": 0, "github-pages-refs": 0,
              "explicit-heading-ids": 0, "callouts": 0, "reindented": 0, "blank-before-list": 0,
-             "blank-after-table": 0}
+             "blank-after-table": 0, "blank-between-items": 0}
     assets: set[str] = set()
     files: dict[str, bytes] = {}
     for page in model.pages():
@@ -1187,6 +1205,7 @@ def main(argv: list[str] | None = None) -> int:
               f"list lines re-indented: "
               f"{s['reindented']}; blank lines before lists: {s['blank-before-list']}; "
               f"blank lines after tables: {s['blank-after-table']}; "
+              f"blank lines between list items: {s['blank-between-items']}; "
               f"links to not-yet-imported pages (GitHub): {s['github-fallback-links']}; "
               f"GitHub Pages references repointed: {s['github-pages-refs']}")
         if result.unreferenced:

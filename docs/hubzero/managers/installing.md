@@ -49,9 +49,9 @@ Everything after a hub is running is covered and current:
     [External authentication](configuring/extauth.md) —
     the sign-in providers, including the Apache configuration a federated
     provider needs in front of it.
-- [Developers](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/developers/README.md) — for working on the code rather
+- [Developers](../developers/index.md) — for working on the code rather
     than running a hub, including
-    [the development environment](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/developers/01-getting-started/06-devenvironment.md),
+    [the development environment](../developers/getting-started/devenvironment.md),
     which sets out what this repository provides and what it does not.
 
 ## Requirements

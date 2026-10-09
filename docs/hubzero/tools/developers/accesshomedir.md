@@ -68,7 +68,7 @@ option is on.
 !!! note
     Your home directory is separate from group and project file areas.
     Uploading a file here does not put it in a group or a project.
-    ## sFTP
+## sFTP
 
 sFTP transfers files over SSH. It encrypts commands and data, so passwords and
 file contents never cross the network in the clear. It is not FTP: an FTP client
@@ -240,7 +240,7 @@ folders between it and your computer.
 !!! tip
     If dragging does not work, right-click the file or folder and choose
     **Copy**, then right-click the destination and choose **Paste**.
-    ## filexfer
+## filexfer
 
 `filexfer` moves a file between your computer and a running tool session,
 without going through sFTP or WebDAV first.

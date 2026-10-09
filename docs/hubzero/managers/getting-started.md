@@ -614,7 +614,7 @@ once before the screen-by-screen chapters rather than after.
 
 It is for the person who has just been given a hub to run and has no
 background in the software. If you write code for a hub, read
-[Application structure](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/developers/03-foundation/01-structure.md)
+[Application structure](../developers/foundation/structure.md)
 instead; it covers the same ground with the detail a developer needs.
 
 ### The two halves
@@ -949,7 +949,7 @@ go and look.
 - [The first week with a new hub](#the-first-week-with-a-new-hub) — the ordered path through the
     decisions a new hub needs.
 - [Extensions](extensions/index.md) — the four kinds, in full.
-- [Application structure](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/developers/03-foundation/01-structure.md) —
+- [Application structure](../developers/foundation/structure.md) —
     the same picture with the code paths, for readers who want the detail.
 ## The administrator interface
 

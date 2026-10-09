@@ -1,0 +1,254 @@
+---
+tags:
+- HUBzero
+render_macros: false
+hubzero:
+  upstream: docs/developers/07-extensions/02-parameters.md
+  commit: 9c1a8c678002bdfb41860f90915a3589ab60339e
+  status: rewritten
+  reviewed-against: 2.4-main @ 348f0057c2
+  reviewed: '2026-09-10'
+  screenshots: none
+  source: https://help.hubzero.org/documentation/240/webdevs/extensions/parameters
+  source-id: '3468'
+  imported: '2026-09-09'
+  source-state: unpublished
+---
+
+# Parameters
+
+A parameter is a setting an administrator can change without editing code.
+You declare them in XML; the CMS builds a form from the declaration, stores
+what was entered as JSON in the extension's `#__extensions` row, and hands
+them back to you as a `Registry`.
+
+Declare one when a hub will reasonably want a different value from yours —
+how many days ahead `com_bookings` lets people reserve an instrument, whether
+a reservation needs approval. Do not declare one for every constant in the
+extension. Each parameter is a screen an administrator has to understand and a
+value your code has to keep working for; a setting nobody changes is a
+liability with a form field attached.
+
+This page is about declaring them. [Config](../basics/config.md) covers
+reading them at runtime — `Component::params()`, `$this->params`, and the
+`Registry` methods. Every parameter the shipped extensions declare is listed
+in the [configuration reference](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/reference/configuration/README.md).
+
+## Where the declaration goes
+
+| Kind | File | Root |
+|---|---|---|
+| Component | `config/config.xml` | `<config>` |
+| Module | its XML manifest | `<config><fields name="params">` |
+| Plugin | its XML manifest | `<config><fields name="params">` |
+| Template | `templateDetails.xml` | `<config><fields name="params">` |
+
+The difference between the two shapes is a common half-hour: a component's
+`config.xml` has `<fieldset>` children **directly** inside `<config>`, while
+everything else wraps them in `<fields name="params">`. Put a component's
+fieldsets inside a `<fields>` element and the Options screen comes up empty.
+
+A component keeps its parameters in a separate file, and that file's root
+element is `<config>` with `<fieldset>` children directly inside it:
+
+```xml
+<config>
+	<fieldset name="basic">
+		<field name="title" type="text" menu="hide" default="" label="COM_BLOG_CONFIG_TITLE_LABEL" description="COM_BLOG_CONFIG_TITLE_DESC" />
+		<field name="@spacer" type="spacer" default="" label="" description="" />
+		<field name="uploadpath" type="text" menu="hide" default="/site/blog" label="COM_BLOG_CONFIG_UPLOADS_LABEL" description="COM_BLOG_CONFIG_UPLOADS_DESC" />
+	</fieldset>
+```
+
+Everything else declares them inside its manifest, wrapped in a
+`<fields name="params">`:
+
+```xml
+	<config>
+		<fields name="params">
+
+			<fieldset name="basic">
+				<field name="filter_groups" type="usergroup"
+					description="PLG_DEBUG_FIELD_ALLOWED_GROUPS_DESC"
+					label="PLG_DEBUG_FIELD_ALLOWED_GROUPS_LABEL"
+					multiple="true"
+					size="10"
+				/>
+```
+
+## Fieldsets
+
+A `<fieldset>` becomes a tab or a titled group on the settings screen. The
+names are conventional rather than enforced:
+
+| Name | Where it appears |
+|---|---|
+| `basic` | The first tab. Most parameters belong here. |
+| `advanced` | A second tab, for the layout and CSS class settings a module gets. |
+| Anything else | Its own tab, labelled from the fieldset's `label` attribute or its name. |
+
+`com_blog` uses `basic`, `archive`, `entry` and `feeds`; a component is free
+to group its settings however reads best.
+
+## Fields
+
+```xml
+<field
+	name="introlength"
+	type="text"
+	default="300"
+	label="COM_BLOG_CONFIG_INTROLENGTH_LABEL"
+	description="COM_BLOG_CONFIG_INTROLENGTH_DESC"
+/>
+```
+
+| Attribute | Meaning |
+|---|---|
+| `name` | The key. `$params->get('introlength')` reads it. Required. |
+| `type` | Which field class renders it. Defaults to `text`. |
+| `default` | The value used until an administrator saves something else. |
+| `label` | A language key for the field's label. |
+| `description` | A language key for its help text. |
+| `required` | `true` to refuse an empty value. |
+| `filter` | How the submitted value is cleaned — `safehtml`, `integer`, `raw`. |
+| `class`, `size`, `cols`, `rows` | Passed to the rendered control. |
+
+`label` and `description` are language keys, resolved from the extension's
+own `.ini` file. Put them there rather than writing English into the
+manifest. For a component that file is the **administrator** one, because the
+Options screen runs in the administrator client; a label defined only in
+`site/language/` renders on the settings screen as its own key. See
+[Languages](languages.md).
+
+Fields that offer a fixed set of choices carry `<option>` children, whose
+text is also a language key:
+
+```xml
+<field name="show_from" type="list" default="site"
+	label="COM_BLOG_CONFIG_DATA_SRC_LABEL"
+	description="COM_BLOG_CONFIG_DATA_SRC_DESC">
+	<option value="site">COM_BLOG_CONFIG_DATA_SRC_SITE</option>
+	<option value="member">COM_BLOG_CONFIG_DATA_SRC_MEMBER</option>
+	<option value="group">COM_BLOG_CONFIG_DATA_SRC_GROUP</option>
+</field>
+```
+
+## Field types
+
+A `type` is resolved to a class in
+[`Hubzero\Form\Fields`](https://github.com/hubzero/hubzero-cms/tree/9c1a8c678002bdfb41860f90915a3589ab60339e/core/libraries/Hubzero/Form/Fields) by
+`Hubzero\Form\Helper::loadFieldType()`: `type="calendar"` loads
+`Fields\Calendar`. Two things are worth knowing about that lookup:
+
+- `type="list"` is special-cased to `Fields\Select`, because `List` cannot be
+    a PHP class name. Most of the tree writes `list`.
+- **An unrecognised type silently becomes a text box.**
+    [`Form::loadField()`](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/core/libraries/Hubzero/Form/Form.php) calls
+    `loadFieldType('text')` when the named class is not found. There is no error
+    and no log line, so a typo in `type` costs you the widget and nothing tells
+    you — and an administrator then types free text where a drop-down should
+    have constrained them. Check the name against the directory.
+
+These are the types that exist:
+
+| Type | Control |
+|---|---|
+| `text` | Single-line text box |
+| `textarea` | Multi-line text box |
+| `password` | Text box that obscures what is typed |
+| `email`, `url`, `tel` | Text boxes with the matching HTML input type |
+| `number`, `integer` | Numeric input; `integer` renders a range as a drop-down |
+| `hidden` | Stored but not shown |
+| `list` | Drop-down of the `<option>` children |
+| `select` | The same class, under its own name |
+| `groupedlist` | Drop-down with `<group>` headings |
+| `combo` | Drop-down that also accepts a typed value |
+| `radio` | Radio buttons |
+| `checkbox`, `checkboxes` | One box, or a set of them |
+| `spacer` | A visual separator; stores nothing |
+| `calendar` | Text box with a date picker |
+| `color` | Colour picker |
+| `editor` | WYSIWYG editor |
+| `media`, `file` | Media picker, file upload |
+| `filelist`, `folderlist`, `imagelist` | Files, folders, or images from a named directory |
+| `category` | Content categories |
+| `tags` | Tag input |
+| `user` | User picker |
+| `usergroup` | User groups |
+| `accesslevel` | Viewing access levels |
+| `rules` | The permissions grid |
+| `language`, `contentlanguage` | Installed languages, content languages |
+| `country` | Country list |
+| `timezone` | Time zones |
+| `plugins` | Plugins in a given group |
+| `templatestyle` | Installed template styles |
+| `componentlayout`, `modulelayout` | Alternative layouts for a component or module |
+| `menuitem` | Menu items |
+| `sql` | Options from a query given in the field's `query` attribute |
+| `cachehandler`, `sessionhandler`, `databaseconnection` | The configured handlers |
+
+!!! note
+    The old version of this page listed `editors`, `languages`,
+    `timezones`, `menu` and `helpsites`. None of those exist. The singular
+    forms — `editor`, `language`, `timezone` — are the real names, there is no
+    menu-picker field, and `helpsites` went with the help system it belonged to.
+
+## Permissions
+
+Permissions are declared in a second file, `config/access.xml`, which names
+the actions the component recognises, grouped into sections:
+
+```xml
+<access component="com_blog">
+	<section name="component">
+		<action name="core.admin" title="JACTION_ADMIN" description="JACTION_ADMIN_COMPONENT_DESC" />
+		<action name="core.manage" title="JACTION_MANAGE" description="JACTION_MANAGE_COMPONENT_DESC" />
+		<action name="core.create" title="JACTION_CREATE" description="JACTION_CREATE_COMPONENT_DESC" />
+		<action name="core.delete" title="JACTION_DELETE" description="JACTION_DELETE_COMPONENT_DESC" />
+		<action name="core.edit" title="JACTION_EDIT" description="JACTION_EDIT_COMPONENT_DESC" />
+		<action name="core.edit.state" title="JACTION_EDITSTATE" description="JACTION_EDITSTATE_COMPONENT_DESC" />
+		<action name="core.edit.own" title="JACTION_EDITOWN" description="JACTION_EDITOWN_COMPONENT_DESC" />
+	</section>
+```
+
+The grid an administrator edits is a field in `config.xml` like any other,
+of `type="rules"`, pointing at a section of that file:
+
+```xml
+<field name="rules" type="rules" label="JCONFIG_PERMISSIONS_LABEL"
+	class="inputbox" validate="rules" filter="rules"
+	component="com_answers" section="component" />
+```
+
+See [Users](../basics/user.md) for how a controller then checks an action.
+
+## Where the values end up
+
+Saved parameters are JSON in the `params` column of the extension's
+`#__extensions` row. A module instance's parameters are in `#__modules`
+instead, because the same module can be published several times with
+different settings.
+
+Nothing writes those columns at install time. Until an administrator saves
+the settings screen the column is empty, and every `$params->get()` returns
+its second argument — **not** the `default` in the manifest.
+
+!!! warning
+    This is the parameter trap. The declaration says
+    `default="300"`, the code says `$params->get('introlength')`, and on a
+    freshly installed extension the code gets `null`. Cast it and you have `0`;
+    use it as a limit and the feature does nothing, on exactly the hubs where
+    nobody has been into the settings yet. It works on your development hub
+    because you opened the screen once.
+
+Always pass a default in code, and make it the same value as the one in the
+manifest:
+
+```php
+$limit = (int) $params->get('introlength', 300);
+```
+
+A migration can seed the column instead, with the `saveParams` macro, if a
+sensible value matters before anyone visits the screen. That is worth doing
+when the parameter is not optional — when there is no sane fallback — and
+unnecessary otherwise.

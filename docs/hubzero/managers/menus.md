@@ -179,7 +179,7 @@ modules that will and will not show on this page.
     would load them is disabled behind an always-false condition, with a `TODO`
     saying that fixing it breaks the form. Recorded in
     It is recorded with the project.
-    ### Where the types come from
+### Where the types come from
 
 The picker is built from every enabled component. For each one the hub looks
 for a `<menu>` block in the component's `site/metadata.xml`. If there is

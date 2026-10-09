@@ -2553,6 +2553,692 @@
     "Tool users",
     "Getting started"
   ],
+  "/hubzero/developers/": [
+    "Home",
+    "HUBzero",
+    "Developers"
+  ],
+  "/hubzero/developers/getting-started/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Getting started"
+  ],
+  "/hubzero/developers/getting-started/releasenotes/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Getting started",
+    "Release notes"
+  ],
+  "/hubzero/developers/getting-started/fileaccess/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Getting started",
+    "Accessing files"
+  ],
+  "/hubzero/developers/getting-started/databaseaccess/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Getting started",
+    "Direct database access"
+  ],
+  "/hubzero/developers/getting-started/upgrade/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Getting started",
+    "Upgrade guide"
+  ],
+  "/hubzero/developers/getting-started/browsersupport/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Getting started",
+    "Browser support"
+  ],
+  "/hubzero/developers/getting-started/devenvironment/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Getting started",
+    "Development environment"
+  ],
+  "/hubzero/developers/tutorials/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Video tutorials"
+  ],
+  "/hubzero/developers/foundation/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Foundation"
+  ],
+  "/hubzero/developers/foundation/structure/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Foundation",
+    "Application structure"
+  ],
+  "/hubzero/developers/foundation/constants/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Foundation",
+    "Constants"
+  ],
+  "/hubzero/developers/foundation/autoloading/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Foundation",
+    "Autoloading"
+  ],
+  "/hubzero/developers/foundation/events/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Foundation",
+    "Events"
+  ],
+  "/hubzero/developers/foundation/extensions/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Foundation",
+    "Extensions"
+  ],
+  "/hubzero/developers/foundation/facades/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Foundation",
+    "Facades"
+  ],
+  "/hubzero/developers/foundation/providers/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Foundation",
+    "Service providers"
+  ],
+  "/hubzero/developers/services/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Services"
+  ],
+  "/hubzero/developers/services/cache/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Services",
+    "Cache"
+  ],
+  "/hubzero/developers/services/filesystem/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Services",
+    "Filesystem"
+  ],
+  "/hubzero/developers/services/session/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Services",
+    "Session"
+  ],
+  "/hubzero/developers/services/events/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Services",
+    "Events"
+  ],
+  "/hubzero/developers/services/server/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Services",
+    "Server"
+  ],
+  "/hubzero/developers/basics/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "The basics"
+  ],
+  "/hubzero/developers/basics/requests/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "The basics",
+    "Requests"
+  ],
+  "/hubzero/developers/basics/responses/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "The basics",
+    "Responses"
+  ],
+  "/hubzero/developers/basics/config/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "The basics",
+    "Config"
+  ],
+  "/hubzero/developers/basics/languages/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "The basics",
+    "Languages"
+  ],
+  "/hubzero/developers/basics/user/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "The basics",
+    "Users & profiles"
+  ],
+  "/hubzero/developers/basics/tags/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "The basics",
+    "Tags"
+  ],
+  "/hubzero/developers/basics/debugging/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "The basics",
+    "Debugging"
+  ],
+  "/hubzero/developers/basics/cron/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "The basics",
+    "Scheduled tasks"
+  ],
+  "/hubzero/developers/basics/dates/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "The basics",
+    "Dates"
+  ],
+  "/hubzero/developers/basics/redirect/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "The basics",
+    "Redirect"
+  ],
+  "/hubzero/developers/database/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Database"
+  ],
+  "/hubzero/developers/extensions/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Extensions"
+  ],
+  "/hubzero/developers/extensions/extreqs/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Extensions",
+    "Requirements"
+  ],
+  "/hubzero/developers/extensions/parameters/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Extensions",
+    "Parameters"
+  ],
+  "/hubzero/developers/extensions/languages/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Extensions",
+    "Languages"
+  ],
+  "/hubzero/developers/extensions/deployext/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Extensions",
+    "Deploying extensions"
+  ],
+  "/hubzero/developers/modules/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Modules"
+  ],
+  "/hubzero/developers/modules/migrations/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Modules",
+    "Migrations"
+  ],
+  "/hubzero/developers/modules/structure/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Modules",
+    "Structure"
+  ],
+  "/hubzero/developers/modules/controllers/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Modules",
+    "Controllers"
+  ],
+  "/hubzero/developers/modules/helpers/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Modules",
+    "Helpers"
+  ],
+  "/hubzero/developers/modules/languages/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Modules",
+    "Languages"
+  ],
+  "/hubzero/developers/modules/views/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Modules",
+    "Views"
+  ],
+  "/hubzero/developers/modules/assets/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Modules",
+    "Assets"
+  ],
+  "/hubzero/developers/modules/packaging/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Modules",
+    "Packaging"
+  ],
+  "/hubzero/developers/modules/loading/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Modules",
+    "Loading"
+  ],
+  "/hubzero/developers/components/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Components"
+  ],
+  "/hubzero/developers/components/migrations/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Components",
+    "Migrations"
+  ],
+  "/hubzero/developers/components/structure/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Components",
+    "Structure"
+  ],
+  "/hubzero/developers/components/controllers/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Components",
+    "Controllers"
+  ],
+  "/hubzero/developers/components/helpers/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Components",
+    "Helpers"
+  ],
+  "/hubzero/developers/components/models/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Components",
+    "Models"
+  ],
+  "/hubzero/developers/components/languages/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Components",
+    "Languages"
+  ],
+  "/hubzero/developers/components/views/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Components",
+    "Views"
+  ],
+  "/hubzero/developers/components/assets/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Components",
+    "Assets"
+  ],
+  "/hubzero/developers/components/routing/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Components",
+    "Routing"
+  ],
+  "/hubzero/developers/components/configuration/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Components",
+    "Configuration"
+  ],
+  "/hubzero/developers/components/packaging/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Components",
+    "Packaging"
+  ],
+  "/hubzero/developers/plugins/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Plugins"
+  ],
+  "/hubzero/developers/plugins/migrations/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Plugins",
+    "Migrations"
+  ],
+  "/hubzero/developers/plugins/structure/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Plugins",
+    "Structure"
+  ],
+  "/hubzero/developers/plugins/controllers/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Plugins",
+    "Controllers"
+  ],
+  "/hubzero/developers/plugins/languages/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Plugins",
+    "Languages"
+  ],
+  "/hubzero/developers/plugins/views/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Plugins",
+    "Views"
+  ],
+  "/hubzero/developers/plugins/assets/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Plugins",
+    "Assets"
+  ],
+  "/hubzero/developers/plugins/configuration/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Plugins",
+    "Configuration"
+  ],
+  "/hubzero/developers/plugins/packaging/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Plugins",
+    "Packaging"
+  ],
+  "/hubzero/developers/plugins/loading/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Plugins",
+    "Loading"
+  ],
+  "/hubzero/developers/templates/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Templates"
+  ],
+  "/hubzero/developers/templates/migrations/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Templates",
+    "Migrations"
+  ],
+  "/hubzero/developers/templates/languages/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Templates",
+    "Languages"
+  ],
+  "/hubzero/developers/templates/structure/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Templates",
+    "Structure"
+  ],
+  "/hubzero/developers/templates/designing/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Templates",
+    "Designing"
+  ],
+  "/hubzero/developers/templates/layouts/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Templates",
+    "Page layouts"
+  ],
+  "/hubzero/developers/templates/css/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Templates",
+    "Cascading style sheets"
+  ],
+  "/hubzero/developers/templates/javascript/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Templates",
+    "JavaScript"
+  ],
+  "/hubzero/developers/templates/overrides/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Templates",
+    "Output overrides"
+  ],
+  "/hubzero/developers/templates/packaging/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Templates",
+    "Packaging"
+  ],
+  "/hubzero/developers/templates/socicons/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Templates",
+    "Socicons"
+  ],
+  "/hubzero/developers/templates/fontcons/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Templates",
+    "Fontcons"
+  ],
+  "/hubzero/developers/templates/elements/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Templates",
+    "Elements and typography"
+  ],
+  "/hubzero/developers/templates/accessibility/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Templates",
+    "Accessibility"
+  ],
+  "/hubzero/developers/muse/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Muse"
+  ],
+  "/hubzero/developers/supergroups/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Super Groups"
+  ],
+  "/hubzero/developers/supergroups/templating-system/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Super Groups",
+    "Templating system"
+  ],
+  "/hubzero/developers/supergroups/page-templates/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Super Groups",
+    "Page templates"
+  ],
+  "/hubzero/developers/supergroups/custom-macros/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Super Groups",
+    "Custom macros"
+  ],
+  "/hubzero/developers/supergroups/php-pages/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Super Groups",
+    "PHP pages"
+  ],
+  "/hubzero/developers/supergroups/databases/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Super Groups",
+    "Databases"
+  ],
+  "/hubzero/developers/supergroups/migrations/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Super Groups",
+    "Migrations"
+  ],
+  "/hubzero/developers/supergroups/components/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Super Groups",
+    "Components"
+  ],
+  "/hubzero/developers/supergroups-gitlab/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Super groups with GitLab"
+  ],
+  "/hubzero/developers/testing/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Testing"
+  ],
+  "/hubzero/developers/api/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "REST API"
+  ],
+  "/hubzero/developers/aws/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "AWS"
+  ],
+  "/hubzero/developers/contributing/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Contributing"
+  ],
+  "/hubzero/developers/conventions/": [
+    "Home",
+    "HUBzero",
+    "Developers",
+    "Conventions"
+  ],
   "/hubzero/style/": [
     "Home",
     "HUBzero",

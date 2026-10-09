@@ -61,10 +61,10 @@ What it is not:
     modules](#approval-of-pages-and-modules).
 
 Writing the template itself is a developer task. See
-[Super Groups](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/developers/13-supergroups/README.md) in the developer
+[Super Groups](../../developers/supergroups/index.md) in the developer
 book for the templating system, page templates, macros, PHP pages, databases,
 migrations and components, and
-[Super Groups with GitLab](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/developers/14-supergroups-gitlab.md)
+[Super Groups with GitLab](../../developers/supergroups-gitlab.md)
 for the repository workflow.
 
 ## Creating a super group

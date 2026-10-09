@@ -123,7 +123,7 @@ The toolbar offers **Options**, **New**, **Delete**, and **Help**.
     Treat it as gone. If a spam wave puts two hundred junk tickets in the
     queue, you close or delete them one at a time. Recorded in
     It is recorded with the project.
-    ## Reading and answering a ticket
+## Reading and answering a ticket
 
 Clicking a ticket's summary opens it. The top of the screen shows the
 original report — which cannot be edited — with the submitter's name,

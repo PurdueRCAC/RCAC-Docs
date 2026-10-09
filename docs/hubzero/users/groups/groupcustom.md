@@ -242,7 +242,7 @@ saying the page is awaiting approval. The page shows **Pending Approval** in
     the server. See
     [Super Groups](../../managers/users/supergroups.md) for what the
     status gives a group and
-    [Super Groups](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/developers/13-supergroups/README.md) in the developer
+    [Super Groups](../../developers/supergroups/index.md) in the developer
     book for the templating itself.
 
 ## The group calendar

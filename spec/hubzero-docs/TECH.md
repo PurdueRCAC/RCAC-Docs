@@ -6,7 +6,7 @@ appetite: big
 status: in_progress
 branch: feature/hubzero-docs
 base: main
-current_phase: P5
+current_phase: P6
 last_updated: '2026-10-08'
 phases:
 - id: P1
@@ -73,7 +73,7 @@ phases:
     .venv/bin/python tools/hubzero/import_docs.py check
 - id: P5
   name: Import the Developers book
-  status: pending
+  status: done
   satisfies:
   - R2
   - R3
@@ -301,11 +301,36 @@ the three other root pages, a nav region, and the status hook. No book is import
 **Satisfies:** R2, R3, R4 · **Depends on:** P4
 **Goal:** all 101 Developers pages render, with the 52 include-bearing pages showing their code.
 
-- [ ] Enable `developers`; re-import.
-- [ ] Render check: include pages with line ranges and language mapping, a page with many
+- [x] Enable `developers`; re-import.
+- [x] Render check: include pages with line ranges and language mapping, a page with many
       source-tree links (pinned GitHub URLs with `#L` anchors), `11-templates/12-fontcons.md`
       and `14-supergroups-gitlab.md` (raw tags), nested-list fixups.
-- [ ] Fold fixes into the importer; re-import; breadcrumbs.
+- [x] Fold fixes into the importer; re-import; breadcrumbs.
+- **Amended in P5 (2026-10-08, draft findings; no GOAL change):**
+  - *Includes.* All 111 include directives in the book expand to exactly their source line
+    ranges; fences carry the mapped language (php 293, xml 23, bash 19, …).
+  - *Source links.* 461 blob and 41 tree links are pinned to the commit. The book has no `#L`
+    anchors; they live in `reference/api` (P6). The one `tree/2.4-main` URL is README's own
+    absolute link, kept verbatim (P1).
+  - *Raw tags.* fontcons' tags are inside code blocks; supergroups-gitlab's
+    `` `hub-<first label …>` `` is a code span that spans lines and renders. Neither carries a
+    lost placeholder; a scan of every built page for unknown elements finds only P3's
+    `<name>`. Upstream's second "`<first>`" placeholder is re-checked in P6.
+  - *Callouts end at a block (importer fix, all books).* `convert_callouts` took any non-`>`
+    line after a `> **Note:**` blockquote as lazy continuation, so a following heading or
+    list item was pulled into the admonition. Nine headings across seven pages (in
+    tools, users, managers, developers) rendered inside note boxes, and
+    `users/20-registration.md` steps 10–11 moved into its note. CommonMark never continues a
+    paragraph with a list marker, heading, fence, or rule; neither does the importer now.
+  - *List item after a later paragraph (new dialect rule, all books).* Python-Markdown reads a
+    list marker that directly follows an item's second paragraph as text: registration
+    steps 3–9 collapsed into step 2. A blank line is inserted there (9 places in 4 pages); the
+    item is already loose, so spacing is unchanged.
+  - *Structure parity.* After both fixes, every imported page renders the same number of list
+    items as its source, and the render probe (headings, headings inside admonitions, blocks
+    in table cells, leaked markdown, images, alt) is clean on all 259 book pages. Neither
+    regression was visible to `check` or `--strict`; the probes are scratch scripts, not part
+    of the gate.
 - **Verify:** `.venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py && grep -q 'hubzero/developers/index.md' mkdocs.yml && HUBZERO_CMS=$HOME/Software/github.com/hubzero/hubzero-cms .venv/bin/python tools/hubzero/import_docs.py check`
 - **Touches:** `tools/hubzero/**`, `docs/hubzero/**`,
   `docs/assets/images/hubzero/developers/`, `mkdocs.yml`,

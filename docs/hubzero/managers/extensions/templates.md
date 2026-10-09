@@ -39,7 +39,7 @@ It is not where the site's appearance is designed. Changing colours,
 typography or layout beyond the handful of parameters a template exposes
 means editing or writing a template, which belongs in `app/templates/` and is
 a developer's job; see [Output
-overrides](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/developers/11-templates/09-overrides.md).
+overrides](../../developers/templates/overrides.md).
 
 It is not where module positions are chosen either. The template *offers*
 positions; the [Module Manager](modules.md) puts modules into them.

@@ -117,7 +117,7 @@ are appended to the notes with a timestamp and mailed to the member.
     never appears afterwards. The job board's own cancel screen has the same
     fault. Work refunds out by hand. Recorded in
     It is recorded with the project.
-    ### Activating a subscription somebody has paid for
+### Activating a subscription somebody has paid for
 
 An employer has chosen the Premium service and sent the department a cheque
 for three months. This is the sequence.
