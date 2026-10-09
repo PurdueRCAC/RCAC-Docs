@@ -55,7 +55,7 @@ and two plugins carry it to Solr:
          //@TODO: Add check for isIndexable
          Event::trigger('search.onRemoveIndex', array($table, $model));
      }
-```
+    ```
 
 2. **Search - Solr** (`plg_search_solr`) picks that up, checks that the
     record's component is in the **Indexed** state and that the document is not

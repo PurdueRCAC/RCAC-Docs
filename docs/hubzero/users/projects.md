@@ -682,7 +682,7 @@ which has three tabs.
 
 Choose one of: **Text [small]**, **Text [large]**, **Link**, **Image**,
 **Email**, **Integer**, **Floating Point**, **Numeric [4 decimal places]**,
-**Date [yyyy-mm-dd]**, or **Date & Time [yyyy-mm-dd HH:MM:SS]**.
+**Date [yyyy-mm-dd]**, or **Date & Time [yyyy-mm-dd HH&#58;MM:SS]**.
 
 - Use **Text [small]** for a title or a short label, **Text [large]** for
     anything longer than a sentence. Either can be set to **Limit text to a

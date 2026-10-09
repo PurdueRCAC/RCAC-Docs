@@ -33,7 +33,7 @@ API version 1.0, task `create` in [`questionsv1_0.php`](https://github.com/hubze
 | `anonymous` | integer | no | 0 | List author as anonymous or not |
 | `subject` | string | yes | — | Short, one-line question |
 | `question` | string | no | — | Longer, detailed question |
-| `created` | string | no | now | Created timestamp (YYYY-MM-DD HH:mm:ss) |
+| `created` | string | no | now | Created timestamp (YYYY-MM-DD HH&#58;mm:ss) |
 | `crated_by` | integer | no | 0 | User ID of entry creator |
 | `state` | integer | no | 0 | Published state (0 = unpublished, 1 = published) |
 | `reward` | integer | no | 0 | Reward points |
@@ -86,7 +86,7 @@ API version 1.0, task `update` in [`questionsv1_0.php`](https://github.com/hubze
 | `anonymous` | integer | no | — | List author as anonymous or not |
 | `subject` | string | no | — | Short, one-line question |
 | `question` | string | no | — | Longer, detailed question |
-| `created` | string | no | — | Created timestamp (YYYY-MM-DD HH:mm:ss) |
+| `created` | string | no | — | Created timestamp (YYYY-MM-DD HH&#58;mm:ss) |
 | `crated_by` | integer | no | — | User ID of entry creator |
 | `state` | integer | no | — | Published state (0 = unpublished, 1 = published) |
 | `reward` | integer | no | — | Reward points |

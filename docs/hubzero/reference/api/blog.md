@@ -34,13 +34,13 @@ API version 1.0, task `create` in [`entriesv1_0.php`](https://github.com/hubzero
 | `title` | string | yes | — | Entry title |
 | `alias` | string | no | — | Entry alias |
 | `content` | string | yes | — | Entry content |
-| `created` | string | no | now | Created timestamp (YYYY-MM-DD HH:mm:ss) |
+| `created` | string | no | now | Created timestamp (YYYY-MM-DD HH&#58;mm:ss) |
 | `created_by` | integer | no | 0 | User ID of entry creator |
 | `state` | integer | no | 0 | Published state (0 = unpublished, 1 = published) |
 | `access` | integer | no | 0 | Access level (1 = public, 2 = registered users, 5 = private) |
 | `allow_comments` | integer | no | 1 | Allow comments on the entry? |
-| `publish_up` | string | no | now | Publish start timestamp (YYYY-MM-DD HH:mm:ss) |
-| `publish_down` | string | no | — | Publish end timestamp (YYYY-MM-DD HH:mm:ss) |
+| `publish_up` | string | no | now | Publish start timestamp (YYYY-MM-DD HH&#58;mm:ss) |
+| `publish_down` | string | no | — | Publish end timestamp (YYYY-MM-DD HH&#58;mm:ss) |
 | `tags` | string | no | — | Comma-separated list of tags |
 
 ## GET /blog/list { #get-blog-list }
@@ -93,12 +93,12 @@ API version 1.0, task `update` in [`entriesv1_0.php`](https://github.com/hubzero
 | `title` | string | yes | — | Entry title |
 | `alias` | string | no | — | Entry alias |
 | `content` | string | yes | — | Entry content |
-| `created` | string | no | now | Created timestamp (YYYY-MM-DD HH:mm:ss) |
+| `created` | string | no | now | Created timestamp (YYYY-MM-DD HH&#58;mm:ss) |
 | `created_by` | integer | no | 0 | User ID of entry creator |
 | `state` | integer | no | 0 | Published state (0 = unpublished, 1 = published) |
 | `access` | integer | no | 0 | Access level (1 = public, 2 = registered users, 5 = private) |
 | `allow_comments` | integer | no | 1 | Allow comments on the entry? |
-| `publish_up` | string | no | now | Publish start timestamp (YYYY-MM-DD HH:mm:ss) |
-| `publish_down` | string | no | — | Publish end timestamp (YYYY-MM-DD HH:mm:ss) |
+| `publish_up` | string | no | now | Publish start timestamp (YYYY-MM-DD HH&#58;mm:ss) |
+| `publish_down` | string | no | — | Publish end timestamp (YYYY-MM-DD HH&#58;mm:ss) |
 | `hits` | integer | no | 0 | Record hits |
 | `tags` | string | no | — | Comma-separated list of tags |

@@ -88,7 +88,7 @@ Currently available MANAGERs are:
 
 | Option | Meaning |
 |---|---|
-| `-h`, `--help [tools\|venues\|managers\|examples]` | Report command usage, or one of the lists above |
+| `-h`, `--help [tools|venues|managers|examples]` | Report command usage, or one of the lists above |
 | `-l`, `--local` | Execute the command in the tool session instead of sending it away |
 | `--status` | Report status for runs executing remotely |
 | `-k`, `--kill` | Kill runs executing remotely |

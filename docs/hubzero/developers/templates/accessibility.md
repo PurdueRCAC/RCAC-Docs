@@ -153,7 +153,7 @@ Two things to know:
                   <span class="disabled" aria-hidden="true">&lsaquo;</span>
               <?php } ?>
           </li>
-```
+    ```
 
     The strings are passed to `Lang::txt()` as literal English — `'Previous page'`
     and `'Next page'` — and no such keys exist in any `en-GB.ini`, so `Lang::txt()`
@@ -193,7 +193,7 @@ builds admin list tables. What it emits:
 
           return '<input type="checkbox" id="cb' . $rowNum . '" name="' . $name . '[]" value="' . $recId . '" class="checkbox-toggle" title="' . Lang::txt('JGRID_CHECKBOX_ROW_N', ($rowNum + 1)) . '" /><label for="cb' . $rowNum . '" class="sr-only visually-hidden">' . $recId . '</label>';
       }
-```
+    ```
 
     The `<label>` text is the **record's database id**, and the useful string
     ("Checkbox for row 3", from `JGRID_CHECKBOX_ROW_N`) is in the `title`

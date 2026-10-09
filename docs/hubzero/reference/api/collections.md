@@ -39,7 +39,7 @@ API version 1.0, task `create` in [`collectionsv1_0.php`](https://github.com/hub
 | `title` | string | yes | — | Entry title |
 | `alias` | string | no | — | Entry alias |
 | `description` | string | no | — | Entry description |
-| `created` | string | no | now | Created timestamp (YYYY-MM-DD HH:mm:ss) |
+| `created` | string | no | now | Created timestamp (YYYY-MM-DD HH&#58;mm:ss) |
 | `created_by` | integer | no | 0 | User ID of entry creator |
 | `state` | integer | no | 0 | Published state (0 = unpublished, 1 = published) |
 | `access` | integer | no | 0 | Access level (0 = public, 1 = registered users, 4 = private) |
@@ -87,7 +87,7 @@ API version 1.0, task `create` in [`postsv1_0.php`](https://github.com/hubzero/h
 | `title` | string | yes | — | Entry title |
 | `description` | string | no | — | Entry description |
 | `url` | string | no | — | Entry URL; Requires 'type'='link' |
-| `created` | string | no | now | Created timestamp (YYYY-MM-DD HH:mm:ss) |
+| `created` | string | no | now | Created timestamp (YYYY-MM-DD HH&#58;mm:ss) |
 | `created_by` | integer | no | 0 | User ID of entry creator |
 | `state` | integer | no | 0 | Published state (0 = unpublished, 1 = published) |
 | `access` | integer | no | 0 | Access level (0 = public, 1 = registered users, 4 = private) |
@@ -127,7 +127,7 @@ API version 1.0, task `update` in [`postsv1_0.php`](https://github.com/hubzero/h
 | `title` | string | no | — | Entry title |
 | `description` | string | no | — | Entry description |
 | `url` | string | no | — | Entry URL; Requires 'type'='link' |
-| `created` | string | no | now | Created timestamp (YYYY-MM-DD HH:mm:ss) |
+| `created` | string | no | now | Created timestamp (YYYY-MM-DD HH&#58;mm:ss) |
 | `created_by` | integer | no | 0 | User ID of entry creator |
 | `state` | integer | no | 0 | Published state (0 = unpublished, 1 = published) |
 | `access` | integer | no | 0 | Access level (0 = public, 1 = registered users, 4 = private) |
@@ -168,7 +168,7 @@ API version 1.0, task `update` in [`collectionsv1_0.php`](https://github.com/hub
 | `title` | string | yes | — | Entry title |
 | `alias` | string | no | — | Entry alias |
 | `description` | string | no | — | Entry description |
-| `created` | string | no | now | Created timestamp (YYYY-MM-DD HH:mm:ss) |
+| `created` | string | no | now | Created timestamp (YYYY-MM-DD HH&#58;mm:ss) |
 | `created_by` | integer | no | 0 | User ID of entry creator |
 | `state` | integer | no | 0 | Published state (0 = unpublished, 1 = published) |
 | `access` | integer | no | 0 | Access level (0 = public, 1 = registered users, 4 = private) |

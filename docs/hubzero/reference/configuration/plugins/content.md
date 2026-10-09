@@ -143,7 +143,7 @@ Adding Open Graph meta information to the site. The Open Graph protocol enables 
 | Parameter | Label | Type | Default | Description |
 |---|---|---|---|---|
 | `app_id` | Application ID | text | — | Set Facebook Application ID |
-| `other` | Other Properties | textarea | — | Set other properties. Separate each property value with semicolon (;). E.g. og:audio:title=Some Audio;og:audio:artist=SomeArtist |
+| `other` | Other Properties | textarea | — | Set other properties. Separate each property value with semicolon (;). E.g. og&#58;audio:title=Some Audio;og&#58;audio:artist=SomeArtist |
 
 ## Content - Pagebreak (`plg_content_pagebreak`) { #content-pagebreak-plg-content-pagebreak }
 

@@ -39,7 +39,7 @@ API version 1.0, task `create` in [`entriesv1_0.php`](https://github.com/hubzero
 | `action` | string | yes | — | Action taken |
 | `alias` | string | no | — | Entry alias |
 | `description` | string | yes | — | Description of the activity |
-| `created` | string | no | now | Created timestamp (YYYY-MM-DD HH:mm:ss) |
+| `created` | string | no | now | Created timestamp (YYYY-MM-DD HH&#58;mm:ss) |
 | `crated_by` | integer | no | 0 | User ID of entry creator |
 | `anonymous` | integer | no | 0 | Anonymous (0 = false, 1 = true) |
 | `parent` | integer | no | 0 | ID of parent activity |
@@ -58,7 +58,7 @@ API version 1.1, task `create` in [`entriesv1_1.php`](https://github.com/hubzero
 | `action` | string | yes | — | Action taken |
 | `alias` | string | no | — | Entry alias |
 | `description` | string | yes | — | Description of the activity |
-| `created` | string | no | now | Created timestamp (YYYY-MM-DD HH:mm:ss) |
+| `created` | string | no | now | Created timestamp (YYYY-MM-DD HH&#58;mm:ss) |
 | `crated_by` | integer | no | 0 | User ID of entry creator |
 | `anonymous` | integer | no | 0 | Anonymous (0 = false, 1 = true) |
 | `parent` | integer | no | 0 | ID of parent activity |
@@ -95,8 +95,8 @@ API version 1.1, task `list` in [`entriesv1_1.php`](https://github.com/hubzero/h
 | `search` | string | no | — | A word or phrase to search for. |
 | `sort` | string | no | created | Field to sort results by. |
 | `sort_Dir` | string | no | desc | Direction to sort results by. |
-| `start_date` | string | no | — | Start timestamp (YYYY-MM-DD or YYYY-MM-DD HH:mm:ss) |
-| `end_date` | string | no | — | Start timestamp (YYYY-MM-DD or YYYY-MM-DD HH:mm:ss) |
+| `start_date` | string | no | — | Start timestamp (YYYY-MM-DD or YYYY-MM-DD HH&#58;mm:ss) |
+| `end_date` | string | no | — | Start timestamp (YYYY-MM-DD or YYYY-MM-DD HH&#58;mm:ss) |
 | `recipients` | string | no | — | Filter by a list of recipients (type:id) the activity was sent to. Example: recipients=user:1000,project:2413 |
 | `sort` | string | no | created | Field to sort results by. |
 | `sort_Dir` | string | no | desc | Direction to sort results by. |
@@ -157,7 +157,7 @@ API version 1.0, task `update` in [`entriesv1_0.php`](https://github.com/hubzero
 | `action` | string | no | — | Action taken |
 | `alias` | string | no | — | Entry alias |
 | `description` | string | no | — | Description of the activity |
-| `created` | string | no | now | Created timestamp (YYYY-MM-DD HH:mm:ss) |
+| `created` | string | no | now | Created timestamp (YYYY-MM-DD HH&#58;mm:ss) |
 | `crated_by` | integer | no | 0 | User ID of entry creator |
 | `anonymous` | integer | no | 0 | Anonymous (0 = false, 1 = true) |
 | `parent` | integer | no | 0 | ID of parent activity |
@@ -177,7 +177,7 @@ API version 1.1, task `update` in [`entriesv1_1.php`](https://github.com/hubzero
 | `action` | string | no | — | Action taken |
 | `alias` | string | no | — | Entry alias |
 | `description` | string | no | — | Description of the activity |
-| `created` | string | no | now | Created timestamp (YYYY-MM-DD HH:mm:ss) |
+| `created` | string | no | now | Created timestamp (YYYY-MM-DD HH&#58;mm:ss) |
 | `crated_by` | integer | no | 0 | User ID of entry creator |
 | `anonymous` | integer | no | 0 | Anonymous (0 = false, 1 = true) |
 | `parent` | integer | no | 0 | ID of parent activity |

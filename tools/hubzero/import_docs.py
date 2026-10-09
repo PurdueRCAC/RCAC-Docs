@@ -428,9 +428,11 @@ def _expand_line(text: str, src: Source, warn) -> str:
         if span:
             start, _, end = span.partition("-")
             lines = lines[max(int(start) - 1, 0): int(end or len(lines))]
-        body = "\n".join(lines).rstrip("\n")
+        # A directive indented into a list item keeps the whole block there.
+        ind = text[: len(text) - len(text.lstrip(" \t"))] if text.lstrip().startswith("<!--") else ""
+        body = "\n".join(ind + ln if ln.strip() else "" for ln in lines).rstrip("\n")
         lang = INCLUDE_LANGS.get(PurePosixPath(rel).suffix, "")
-        return f"```{lang}\n{body}\n```"
+        return f"```{lang}\n{body}\n{ind}```"
 
     return INCLUDE_RE.sub(replace, text)
 
@@ -835,6 +837,88 @@ def normalize_dialect(lines: list[str], kinds: list[str]) -> tuple[list[str], di
     return out, stats
 
 
+SHORTCODE_RE = re.compile(r":(?=[+\-\w]+:)")
+HTML_TAG_RE = re.compile(r"<[^>\n]*>")
+
+
+def neutralize_shortcodes(lines: list[str], kinds: list[str]) -> tuple[list[str], int]:
+    """Keep `:word:` text literal. The site enables pymdownx.emoji, so prose such
+    as `HH:mm:ss` would render `:mm:` as a flag; upstream renders no emoji at all.
+    The opening colon of each shortcode-shaped run becomes `&#58;`, outside code
+    spans, link destinations, bare URLs and HTML tags."""
+    out: list[str] = []
+    count = 0
+    for line, kind in zip(lines, kinds):
+        if kind != "text" or ":" not in line:
+            out.append(line)
+            continue
+        masked = mask_code_spans(line)
+        for rx in (LINK_DEST_RE, HTML_TAG_RE, BARE_URL_RE):
+            masked = rx.sub(lambda m: "\0" * len(m.group(0)), masked)
+        hits = []
+        for m in SHORTCODE_RE.finditer(masked):
+            end = masked.find(":", m.end())
+            if hits and m.start() < hits[-1][1]:
+                continue
+            hits.append((m.start(), end))
+        for start, _end in reversed(hits):
+            line = line[:start] + "&#58;" + line[start + 1:]
+        count += len(hits)
+        out.append(line)
+    return out, count
+
+
+def unescape_table_code_pipes(lines: list[str], kinds: list[str]) -> tuple[list[str], int]:
+    """In a table row, `\\|` inside a code span is CommonMark's way to keep the
+    pipe from splitting the cell. Python-Markdown already ignores pipes inside
+    code spans and would print the backslash, so drop it there."""
+    out: list[str] = []
+    count = 0
+    for line, kind in zip(lines, kinds):
+        if kind == "text" and TABLE_ROW_RE.match(line) and "\\|" in line:
+            new = CODE_SPAN_RE.sub(lambda m: m.group(0).replace("\\|", "|"), line)
+            count += new != line
+            line = new
+        out.append(line)
+    return out, count
+
+
+OL_ITEM_RE = re.compile(r"^(\d{1,9})[.)][ \t]")
+
+
+def continue_ordered_lists(lines: list[str], kinds: list[str]) -> tuple[list[str], int]:
+    """Python-Markdown ignores an ordered list's start number, so a top-level list
+    that resumes after a block (step 3, a table, then step 4) restarts at 1. When
+    item n+1 follows item n with only non-heading blocks in between, those blocks
+    are indented into item n, so the numbering carries on. Upstream renders the
+    same steps as `<ol start="n+1">`."""
+    out = list(lines)
+    count = 0
+    last_n: int | None = None
+    gap_start: int | None = None     # first top-level non-list line after item n
+    for i, (line, kind) in enumerate(zip(lines, kinds)):
+        if not line.strip():        # blank, including blank lines inside a fence
+            continue
+        top = indent_of(line) == 0
+        m = OL_ITEM_RE.match(line) if (kind == "text" and top) else None
+        if m:
+            n = int(m.group(1))
+            if gap_start is not None and last_n is not None and n == last_n + 1:
+                for j in range(gap_start, i):
+                    if out[j].strip():
+                        out[j] = "    " + out[j]
+                count += 1
+            last_n, gap_start = n, None
+            continue
+        if not top:
+            continue
+        if ATX_RE.match(line) or HR_RE.match(line) or (kind == "text" and LIST_RE.match(line)):
+            last_n, gap_start = None, None
+        elif last_n is not None and gap_start is None:
+            gap_start = i
+    return out, count
+
+
 def front_matter(page: Page, commit: str) -> str:
     fm: dict = {"tags": ["HUBzero"], "render_macros": False}
     if page.landing:
@@ -897,9 +981,16 @@ def convert(model: Model, page: Page, warnings: list[str], stats: dict[str, int]
     lines, n_callouts = convert_callouts(lines, kinds)
     stats["callouts"] += n_callouts
     kinds = line_kinds(lines)
+    lines, n_codes = neutralize_shortcodes(lines, kinds)
+    stats["shortcodes"] += n_codes
+    lines, n_pipes = unescape_table_code_pipes(lines, kinds)
+    stats["table-code-pipes"] += n_pipes
     lines, dialect = normalize_dialect(lines, kinds)
     for key, value in dialect.items():
         stats[key] += value
+    kinds = line_kinds(lines)
+    lines, n_resumed = continue_ordered_lists(lines, kinds)
+    stats["resumed-lists"] += n_resumed
     text = "\n".join(lines).rstrip("\n") + "\n"
     if page.landing:
         text += about_block(model.config, text)
@@ -942,7 +1033,8 @@ def run_import(model: Model) -> Result:
     warnings: list[str] = []
     stats = {"pages": 0, "assets": 0, "github-fallback-links": 0, "github-pages-refs": 0,
              "explicit-heading-ids": 0, "callouts": 0, "reindented": 0, "blank-before-list": 0,
-             "blank-after-table": 0, "blank-between-items": 0}
+             "blank-after-table": 0, "blank-between-items": 0, "shortcodes": 0,
+             "table-code-pipes": 0, "resumed-lists": 0}
     assets: set[str] = set()
     files: dict[str, bytes] = {}
     for page in model.pages():
@@ -1116,6 +1208,15 @@ def run_check(model: Model, result: Result, final: bool) -> list[str]:
         if final and re.search(r"github\.com/hubzero/hubzero-cms/blob/[0-9a-f]{40}/docs/[^)\s\"'#]*\.md", body):
             find(f"R3 --final docs/{page.output}: still links a docs page on GitHub")
 
+    # R1 (final): the landing page links every book's index relatively.
+    if final:
+        landing = next((pg for pg in pages if pg.landing), None)
+        data = on_disk.get(landing.output) if landing else None
+        body = split_front_matter(data.decode("utf-8"))[1] if data else ""
+        for book in model.books:
+            if not re.search(r"\]\(" + re.escape(book.book) + r"/index\.md[)#]", body):
+                find(f"R1 --final docs/hubzero/index.md: no relative link to {book.book}/index.md")
+
     # R11 (final): the home page card.
     if final and "hubzero/index.md" not in (DOCS / "index.md").read_text(encoding="utf-8"):
         find("R11 docs/index.md: no HUBzero card linking hubzero/index.md")
@@ -1267,6 +1368,8 @@ def main(argv: list[str] | None = None) -> int:
               f"{s['reindented']}; blank lines before lists: {s['blank-before-list']}; "
               f"blank lines after tables: {s['blank-after-table']}; "
               f"blank lines between list items: {s['blank-between-items']}; "
+              f"shortcodes kept literal: {s['shortcodes']}; table code pipes: "
+              f"{s['table-code-pipes']}; resumed ordered lists: {s['resumed-lists']}; "
               f"links to not-yet-imported pages (GitHub): {s['github-fallback-links']}; "
               f"GitHub Pages references repointed: {s['github-pages-refs']}")
         if result.unreferenced:

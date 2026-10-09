@@ -51,7 +51,7 @@ recognise later, like `Site notice`, and change its message.
 1. Log in to `/administrator`.
 2. Go to **Extensions → Module Manager**.
 
-![The Module Manager](/assets/images/hubzero/managers/media/notices-site-notices.png)
+    ![The Module Manager](/assets/images/hubzero/managers/media/notices-site-notices.png)
 
 3. Find the notices module. Filter by position, type, or state, or type
     `notices` into the search box. The module's type is `mod_notices` and it

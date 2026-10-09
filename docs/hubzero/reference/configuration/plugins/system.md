@@ -161,7 +161,7 @@ Routing plugin to check user registration status for missing/required fields
 
 ## System - jQuery (`plg_system_jquery`) { #system-jquery-plg-system-jquery }
 
-This plugin allows to embed jQuery, jQueryUI and Fancybox into your website.Built-in versions:jQuery: 1.11.1jQuery UI: 1.10.0Fancybox: 2.1.5
+This plugin allows to embed jQuery, jQueryUI and Fancybox into your website.Built-in versions&#58;jQuery: 1.11.1jQuery UI: 1.10.0Fancybox: 2.1.5
 
 ### Jquery
 

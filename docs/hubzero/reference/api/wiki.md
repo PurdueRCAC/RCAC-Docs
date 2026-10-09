@@ -32,7 +32,7 @@ API version 1.0, task `create` in [`pagesv1_0.php`](https://github.com/hubzero/h
 | `title` | string | yes | — | Entry title |
 | `pagename` | string | no | — | Page name |
 | `pagetext` | string | yes | — | Page content |
-| `created` | string | no | now | Created timestamp (YYYY-MM-DD HH:mm:ss) |
+| `created` | string | no | now | Created timestamp (YYYY-MM-DD HH&#58;mm:ss) |
 | `created_by` | integer | no | 0 | User ID of entry creator |
 | `state` | integer | no | 0 | Published state (0 = unpublished, 1 = published) |
 | `access` | integer | no | 0 | Access level (0 = public, 1 = registered users, 4 = private) |
@@ -89,7 +89,7 @@ API version 1.0, task `update` in [`pagesv1_0.php`](https://github.com/hubzero/h
 | `title` | string | yes | — | Entry title |
 | `pagename` | string | no | — | Page name |
 | `pagetext` | string | yes | — | Page content |
-| `created` | string | no | now | Created timestamp (YYYY-MM-DD HH:mm:ss) |
+| `created` | string | no | now | Created timestamp (YYYY-MM-DD HH&#58;mm:ss) |
 | `created_by` | integer | no | 0 | User ID of entry creator |
 | `state` | integer | no | 0 | Published state (0 = unpublished, 1 = published) |
 | `access` | integer | no | 0 | Access level (0 = public, 1 = registered users, 4 = private) |

@@ -52,3 +52,18 @@ attributes line instead of duplicating. A fix that would weaken a `hammerable:fa
 - **Recommended fix:** use `git diff main...HEAD -- . ':!spec/'` (and the same for `--stat`) in
   both files; GOAL.md is already passed inline. Severity high because it's a gate-integrity gap.
 - **Confidence:** high · **Effort:** small
+
+## F3 — docs-draft's render check assumes a browser
+`origin=docs-draft:P5 severity=medium category=missing-guidance status=open target=.agents/skills/docs-draft/SKILL.md`
+- **What happened:** Step 4's "`mkdocs serve` and eyeball the rendered page" couldn't be done in a
+  headless session (Remote Control from a phone, overnight). Scratch probes over `site/` stood in
+  and caught two importer bugs that `--strict` and the phase gate passed (headings inside
+  admonitions, collapsed list items). They still missed three that the blind reviewer found by
+  diffing against upstream's renderer (emoji shortcodes, indented includes, list start numbers).
+- **Skill cause (not mine):** the render step names no headless method. For migrations, the
+  strongest check is a structural diff against the source's own renderer, and the skill doesn't
+  mention it.
+- **Recommended fix:** add a headless alternative to Step 4: grep or parse the built `site/` for
+  the page's structure, and for ports, build the upstream renderer and compare element counts per
+  page. Consider committing such a probe under `.agents/factory/bin/`.
+- **Confidence:** medium · **Effort:** medium

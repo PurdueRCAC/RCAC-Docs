@@ -58,7 +58,7 @@ API version 1.0, task `create` in [`threadsv1_0.php`](https://github.com/hubzero
 | `scope_id` | integer | yes | 0 | Scope object ID |
 | `title` | string | no | — | Entry title |
 | `comment` | string | yes | — | Entry content |
-| `created` | string | no | now | Created timestamp (YYYY-MM-DD HH:mm:ss) |
+| `created` | string | no | now | Created timestamp (YYYY-MM-DD HH&#58;mm:ss) |
 | `created_by` | integer | no | 0 | User ID of entry creator |
 | `state` | integer | no | 1 | Published state (0 = unpublished, 1 = published) |
 | `access` | integer | no | 1 | Access level (1 = public, 2 = registered users, 5 = private) |
@@ -134,5 +134,5 @@ API version 1.0, task `read` in [`threadsv1_0.php`](https://github.com/hubzero/h
 | `scope_sub_id` | integer | no | 0 | Scope sub-ID |
 | `object_id` | integer | no | 0 | Object ID |
 | `start_id` | integer | no | 0 | ID of record to start with |
-| `start_at` | string | no | — | Start timestamp (YYYY-MM-DD HH:mm:ss) |
+| `start_at` | string | no | — | Start timestamp (YYYY-MM-DD HH&#58;mm:ss) |
 | `sort` | string | no | newest | Field to sort results by. |

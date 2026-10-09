@@ -109,14 +109,14 @@ visible on the site.
 2. Select **New**.
 3. Fill in the form:
 
-| Field | Meaning |
-|---|---|
-| **Subject** | A one-line summary. Required |
-| **Body** | The note itself, in the editor |
-| **Category** | One of the note categories, or none |
-| **User** | The member the note is about. Required |
-| **State** | Published, Unpublished or Trashed |
-| **Review time** | A date to look at this note again. Shown in the list's Review date column and left blank if you do not need one |
+    | Field | Meaning |
+    |---|---|
+    | **Subject** | A one-line summary. Required |
+    | **Body** | The note itself, in the editor |
+    | **Category** | One of the note categories, or none |
+    | **User** | The member the note is about. Required |
+    | **State** | Published, Unpublished or Trashed |
+    | **Review time** | A date to look at this note again. Shown in the list's Review date column and left blank if you do not need one |
 
 4. Select **Save**.
 

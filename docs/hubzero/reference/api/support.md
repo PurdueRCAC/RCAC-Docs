@@ -86,7 +86,7 @@ API version 2.1, task `create` in [`categoriesv2_1.php`](https://github.com/hubz
 |---|---|---|---|---|
 | `title` | string | yes | — | Entry title |
 | `alias` | string | no | — | Entry alias |
-| `created` | string | no | now | Created timestamp (YYYY-MM-DD HH:mm:ss) |
+| `created` | string | no | now | Created timestamp (YYYY-MM-DD HH&#58;mm:ss) |
 | `created_by` | integer | no | 0 | User ID of entry creator |
 
 ## GET /support/categories/list { #get-support-categories-list }
@@ -100,8 +100,8 @@ API version 2.1, task `list` in [`categoriesv2_1.php`](https://github.com/hubzer
 | `created_by` | integer | no | 0 | List categories created by a specific user (by id) |
 | `modified_by` | integer | no | 0 | List categories modified by a specific user (by id) |
 | `search` | string | no | — | A word or phrase to search for in the category title. |
-| `created` | string\|integer | no | — | A timestamp (YYYY-MM-DD HH:mm:ss) for items created on or after the specified date. A time window can be specified adding a second timestamp, separated by a comma. Example: 2018-01-01,2018-12-31 |
-| `modified` | string\|integer | no | — | A timestamp (YYYY-MM-DD HH:mm:ss) for items modified on or after the specified date. A time window can be specified adding a second timestamp, separated by a comma. Example: 2018-01-01,2018-12-31 |
+| `created` | string\|integer | no | — | A timestamp (YYYY-MM-DD HH&#58;mm:ss) for items created on or after the specified date. A time window can be specified adding a second timestamp, separated by a comma. Example: 2018-01-01,2018-12-31 |
+| `modified` | string\|integer | no | — | A timestamp (YYYY-MM-DD HH&#58;mm:ss) for items modified on or after the specified date. A time window can be specified adding a second timestamp, separated by a comma. Example: 2018-01-01,2018-12-31 |
 | `limit` | integer | no | 25 | Number of result to return. |
 | `start` | integer | no | 0 | Number of where to start returning results. |
 | `sort` | string | no | id | Field to sort results by. |
@@ -138,7 +138,7 @@ API version 2.1, task `update` in [`categoriesv2_1.php`](https://github.com/hubz
 | `id` | integer | yes | — | Entry identifier |
 | `title` | string | yes | — | Entry title |
 | `alias` | string | no | — | Entry alias |
-| `created` | string | no | now | Created timestamp (YYYY-MM-DD HH:mm:ss) |
+| `created` | string | no | now | Created timestamp (YYYY-MM-DD HH&#58;mm:ss) |
 | `created_by` | integer | no | 0 | User ID of entry creator |
 
 ## GET /support/comments { #get-support-comments }
@@ -166,7 +166,7 @@ API version 2.0, task `create` in [`commentsv2_0.php`](https://github.com/hubzer
 | `owner` | integer | no | — | Id of the owner to assign ticket to |
 | `severity` | string | no | — | Severity of the ticket |
 | `status` | integer | no | — | Status of the ticket |
-| `target_date` | string | no | — | Target date for completion of ticket (YYYY-MM-DD hh:mm:ss) |
+| `target_date` | string | no | — | Target date for completion of ticket (YYYY-MM-DD hh&#58;mm:ss) |
 | `cc` | string | no | submitter,owner | Comma separated list of email addresses to email updates to |
 | `private` | boolean | no | no | Should the comment be flagged as private |
 | `email_submitter` | boolean | no | no | Should the submitter be emailed about this comment |
@@ -186,7 +186,7 @@ API version 2.1, task `create` in [`commentsv2_1.php`](https://github.com/hubzer
 | `owner` | integer | no | — | Id of the owner to assign ticket to |
 | `severity` | string | no | — | Severity of the ticket |
 | `status` | integer | no | — | Status of the ticket |
-| `target_date` | string | no | — | Target date for completion of ticket (YYYY-MM-DD hh:mm:ss) |
+| `target_date` | string | no | — | Target date for completion of ticket (YYYY-MM-DD hh&#58;mm:ss) |
 | `cc` | string | no | submitter, owner | Comma separated list of email addresses to email updates to |
 | `private` | boolean | no | no | Should the comment be flagged as private |
 | `email_submitter` | boolean | no | no | Should the submitter be emailed about this comment |
@@ -204,7 +204,7 @@ API version 2.1, task `list` in [`commentsv2_1.php`](https://github.com/hubzero/
 | `created_by` | integer | no | 0 | List comments from a specific user (by id) |
 | `access` | integer | no | 0 | Show only private (1) or non-private (0) comments |
 | `search` | string | no | — | A word or phrase to search for. |
-| `created` | string\|integer | no | — | A timestamp (YYYY-MM-DD HH:mm:ss) for items created on or after the specified date. A time window can be specified adding a second timestamp, separated by a comma. Example: 2018-01-01,2018-12-31 |
+| `created` | string\|integer | no | — | A timestamp (YYYY-MM-DD HH&#58;mm:ss) for items created on or after the specified date. A time window can be specified adding a second timestamp, separated by a comma. Example: 2018-01-01,2018-12-31 |
 | `limit` | integer | no | 25 | Number of result to return. |
 | `start` | integer | no | 0 | Number of where to start returning results. |
 | `sort` | string | no | created | Field to sort results by. |
@@ -474,8 +474,8 @@ API version 2.1, task `list` in [`ticketsv2_1.php`](https://github.com/hubzero/h
 | `category` | integer | no | — | Category ID the ticket is assigned to |
 | `severity` | string | no | — | List tickets with a specific severity |
 | `group` | string\|integer | no | — | List tickets with a specific group (by alias or group ID) |
-| `created` | string\|integer | no | — | A timestamp (YYYY-MM-DD HH:mm:ss) for items created on or after the specified date. A time window can be specified adding a second timestamp, separated by a comma. Example: 2018-01-01,2018-12-31 |
-| `closed` | string\|integer | no | — | A timestamp (YYYY-MM-DD HH:mm:ss) for items closed on or after the specified date. A time window can be specified adding a second timestamp, separated by a comma. Example: 2018-01-01,2018-12-31 |
+| `created` | string\|integer | no | — | A timestamp (YYYY-MM-DD HH&#58;mm:ss) for items created on or after the specified date. A time window can be specified adding a second timestamp, separated by a comma. Example: 2018-01-01,2018-12-31 |
+| `closed` | string\|integer | no | — | A timestamp (YYYY-MM-DD HH&#58;mm:ss) for items closed on or after the specified date. A time window can be specified adding a second timestamp, separated by a comma. Example: 2018-01-01,2018-12-31 |
 
 ## DELETE /support/tickets/{ticket} (v2.0) { #delete-support-tickets-ticket-v2-0 }
 

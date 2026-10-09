@@ -3,7 +3,7 @@ slug: hubzero-docs
 title: Port the HUBzero documentation into a top-level /hubzero/ section
 kind: feature
 appetite: big
-status: blocked
+status: in_review
 branch: feature/hubzero-docs
 base: main
 current_phase: done
@@ -244,7 +244,8 @@ the three other root pages, a nav region, and the status hook. No book is import
     `#webdav` anchor: in `developers/06-accesshomedir.md` `## WebDAV` directly follows the sFTP
     command table and vanished into it. `normalize_dialect` now inserts a blank line where a
     heading, list, fence, quote, or HTML block directly follows a table row. Across the whole
-    source this fires twice: here and `users/23-wiki.md` :179 (P3).
+    source this fires once, here. *(Corrected in review cycle 1: P2 first said twice; the
+    `users/23-wiki.md` :179 candidate sits inside a code example, see P3.)*
 - **Verify:** `.venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py && grep -q 'hubzero/tools/index.md' mkdocs.yml && HUBZERO_CMS=$HOME/Software/github.com/hubzero/hubzero-cms .venv/bin/python tools/hubzero/import_docs.py check`
 - **Touches:** `tools/hubzero/**`, `docs/hubzero/**`, `docs/assets/images/hubzero/tools/`,
   `mkdocs.yml`, `docs/assets/data/breadcrumbs.json`.
@@ -309,7 +310,10 @@ the three other root pages, a nav region, and the status hook. No book is import
 - **Amended in P5 (2026-10-08, draft findings; no GOAL change):**
   - *Includes.* All 111 include directives in the book expand to exactly their source line
     ranges; fences carry the mapped language (php 293, xml 23, bash 19, …).
-  - *Source links.* 461 blob and 41 tree links are pinned to the commit. The book has no `#L`
+  - *Source links.* Every source link is pinned to the commit. *(Corrected in review cycle 1:
+    the 461 blob and 41 tree links first cited here were counted across all four imported books;
+    the Developers book alone has 316 blob, 51 of them fallbacks into Reference until P6, and 28
+    tree.)* The book has no `#L`
     anchors; they live in `reference/api` (P6). The one `tree/2.4-main` URL is README's own
     absolute link, kept verbatim (P1).
   - *Raw tags.* fontcons' tags are inside code blocks; supergroups-gitlab's
@@ -353,6 +357,8 @@ pages shows its method, full path (with `{id}`-style parameters intact), and par
     (`slugify`); and its Parameter table renders the same parameter names in order (GOAL R5
     says "with its parameters"). Coverage: 245 endpoints, 912 parameters. A negative test (one
     id and one parameter cell broken in `site/`) produced three R5 findings.
+  - *API pages.* 31 pages carry endpoints, plus `reference/api/index.md` (the goal line's "30"
+    undercounts by one; the 245 endpoints are right).
   - *`{id}` headings.* `PUT /tags/{id}` renders as `<h2 id="put-tags-id">PUT /tags/{id}`; the
     summary tables' anchors resolve (R3).
   - *Links to source files missing at the commit (new importer rule).*
@@ -409,6 +415,39 @@ over.
   - Home card: `:material-hub:` icon, "HUBzero", one sentence, link to `hubzero/index.md`.
 - **Verify:** `.venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py && HUBZERO_CMS=$HOME/Software/github.com/hubzero/hubzero-cms .venv/bin/python tools/hubzero/import_docs.py check --final`
 - **Touches:** `tools/hubzero/**`, `docs/index.md`.
+
+## Remediation — review cycle 1 (2026-10-09)
+**Covers:** REVIEW.md F1–F3, F5 (CONFIRMED, importer) · R2, R5 · **Reviewed commit:** `087291b6`
+
+The blind reviewer compared all 416 pages with upstream's own renderer and found three defects
+that `check`, `--strict`, and the drafting probes all missed. Each fix is an importer rule; the
+pages were re-imported, never hand-edited.
+
+- [x] **F1, shortcodes.** `neutralize_shortcodes`: outside code spans, link destinations, bare URLs,
+      and HTML tags, the opening colon of every `:word:` run becomes `&#58;`. The site's
+      `pymdownx.emoji` turned `HH:mm:ss` into a 🇲🇲 flag 32 times on 8 Reference pages; upstream
+      renders no emoji. 36 runs are neutralized (all render as plain colons). No `twemoji` image
+      remains under `site/hubzero/`.
+- [x] **F2, indented includes.** `_expand_line` indents the included lines and the closing fence
+      to the directive's indent. The source's three includes inside list items
+      (`developers/11-templates/14-accessibility.md` ×2, `managers/…/31-search/05-index.md`) now
+      render as code blocks inside their items. No literal "```" remains outside code on any page.
+- [x] **F3, list numbering.** `continue_ordered_lists`: Python-Markdown ignores start numbers, so
+      when top-level item n+1 follows item n with only non-heading blocks between, those blocks
+      are indented into item n. Fires twice (`managers/06-users/…user-notes` table,
+      `managers/03-maintenance/…notices` image); "Select Save" is step 4 again. Upstream renders
+      these as `<ol start>`; the numbering readers see now matches.
+- [x] **F5, table pipes.** `unescape_table_code_pipes`: `\|` inside a code span in a table row
+      becomes `|` (Python-Markdown already ignores pipes in code spans). One row,
+      `tools/…/grid/submitcmd.md`.
+- [x] **`check --final` asserts R1's landing links** (the completeness pass found P7 claimed this
+      but the gate didn't check it): the landing must link each `<book>/index.md` relatively.
+- **Not fixed, for Geoffrey:** F4 (landing H1 is README's "Hubzero documentation";
+  hubzero.github.io titles the page "About Hubzero"), a judgment call between fidelity and a
+  sensible section heading. F6 and F7 (empty code spans, a wrapped bold run, empty generated
+  `###` headings) are upstream source defects that render wrong on both sites; F8 (README
+  says the docs live in hubzero-cms) is content, a non-goal.
+- **Verify:** the P7 verify command, plus render probes and list parity (all clean). ✅
 
 ---
 

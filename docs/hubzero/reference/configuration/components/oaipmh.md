@@ -26,4 +26,4 @@ Parameters from [`core/components/com_oaipmh/config/config.xml`](https://github.
 | `email` | Admin E-Mail | text | — | Email address for Repository Admin |
 | `edate` | Earliest Datestamp | text | `2012-02-12 00:00:00` | Earliest datestamp in Repository |
 | `del` | Deleted Record | list | `No` | Deleted Record. Options: `no` No, `transient` Transient, `persistent` Persistent. |
-| `gran` | Harvesting Granularity | list | `c (YYYY-MM-DDThh:mm:ssZ)` | Finest harvesting granularity. Options: `c` YYYY-MM-DDThh:mm:ssZ, `Y-m-d` YYYY-MM-DD. |
+| `gran` | Harvesting Granularity | list | `c (YYYY-MM-DDThh:mm:ssZ)` | Finest harvesting granularity. Options: `c` YYYY-MM-DDThh&#58;mm:ssZ, `Y-m-d` YYYY-MM-DD. |
