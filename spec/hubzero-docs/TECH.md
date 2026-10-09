@@ -6,7 +6,7 @@ appetite: big
 status: in_progress
 branch: feature/hubzero-docs
 base: main
-current_phase: P2
+current_phase: P3
 last_updated: '2026-10-08'
 phases:
 - id: P1
@@ -27,7 +27,7 @@ phases:
     .venv/bin/python tools/hubzero/import_docs.py check
 - id: P2
   name: Import the Tools book
-  status: pending
+  status: done
   satisfies:
   - R2
   - R3
@@ -231,9 +231,20 @@ the three other root pages, a nav region, and the status hook. No book is import
 **Goal:** all 34 Tools pages render. The smallest book, and the only one with `reviewed` and
 `draft` pages, so it proves every banner and stamp variant first.
 
-- [ ] Enable `tools` in `import.yml`; re-run `import` (root-page links to Tools turn relative).
-- [ ] Render check: a `reviewed` page, the `draft` page, a `rewritten` page, an image page.
-- [ ] Fold any render fix into the importer; re-import; breadcrumbs.
+- [x] Enable `tools` in `import.yml`; re-run `import` (root-page links to Tools turn relative).
+- [x] Render check: a `reviewed` page, the `draft` page, a `rewritten` page, an image page.
+- [x] Fold any render fix into the importer; re-import; breadcrumbs.
+- **Amended in P2 (2026-10-08, draft findings; no GOAL change):**
+  - *Render check.* `tools/index.md` (draft: "Draft" banner, no stamp),
+    `developers/invoke.md` (reviewed stamp), `administrators.md` (rewritten stamp),
+    `developers/overview.md` (image with alt). All 9 referenced images resolve; the importer
+    lists 2 unreferenced `media/` files and doesn't copy them. No `{{` leaks.
+  - *Blocks after a table (new dialect rule, applies to every book).* GFM ends a table at the
+    next block; Python-Markdown reads that line as another row. `check` caught it as a dead
+    `#webdav` anchor: in `developers/06-accesshomedir.md` `## WebDAV` directly follows the sFTP
+    command table and vanished into it. `normalize_dialect` now inserts a blank line where a
+    heading, list, fence, quote, or HTML block directly follows a table row. Across the whole
+    source this fires twice: here and `users/23-wiki.md` :179 (P3).
 - **Verify:** `.venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py && grep -q 'hubzero/tools/index.md' mkdocs.yml && HUBZERO_CMS=$HOME/Software/github.com/hubzero/hubzero-cms .venv/bin/python tools/hubzero/import_docs.py check`
 - **Touches:** `tools/hubzero/**`, `docs/hubzero/**`, `docs/assets/images/hubzero/tools/`,
   `mkdocs.yml`, `docs/assets/data/breadcrumbs.json`.

@@ -1477,6 +1477,252 @@
     "Home",
     "HUBzero"
   ],
+  "/hubzero/tools/": [
+    "Home",
+    "HUBzero",
+    "Tools"
+  ],
+  "/hubzero/tools/administrators/": [
+    "Home",
+    "HUBzero",
+    "Tools",
+    "Tool administrators"
+  ],
+  "/hubzero/tools/developers/": [
+    "Home",
+    "HUBzero",
+    "Tools",
+    "Tool developers"
+  ],
+  "/hubzero/tools/developers/toolrepostructure/": [
+    "Home",
+    "HUBzero",
+    "Tools",
+    "Tool developers",
+    "Tool repository structure"
+  ],
+  "/hubzero/tools/developers/overview/": [
+    "Home",
+    "HUBzero",
+    "Tools",
+    "Tool developers",
+    "What you can publish as a tool"
+  ],
+  "/hubzero/tools/developers/invoke/": [
+    "Home",
+    "HUBzero",
+    "Tools",
+    "Tool developers",
+    "Launching tools with invoke scripts"
+  ],
+  "/hubzero/tools/developers/nanowhim/": [
+    "Home",
+    "HUBzero",
+    "Tools",
+    "Tool developers",
+    "Combining tools in one session"
+  ],
+  "/hubzero/tools/developers/grid/": [
+    "Home",
+    "HUBzero",
+    "Tools",
+    "Tool developers",
+    "Accessing outside computing resources"
+  ],
+  "/hubzero/tools/developers/grid/submitcmd/": [
+    "Home",
+    "HUBzero",
+    "Tools",
+    "Tool developers",
+    "Accessing outside computing resources",
+    "Submit command"
+  ],
+  "/hubzero/tools/developers/grid/pegasuswf/": [
+    "Home",
+    "HUBzero",
+    "Tools",
+    "Tool developers",
+    "Accessing outside computing resources",
+    "Pegasus workflow submission"
+  ],
+  "/hubzero/tools/developers/grid/rappture-submit/": [
+    "Home",
+    "HUBzero",
+    "Tools",
+    "Tool developers",
+    "Accessing outside computing resources",
+    "Submitting from a Rappture tool"
+  ],
+  "/hubzero/tools/developers/grid/jupyter-submit/": [
+    "Home",
+    "HUBzero",
+    "Tools",
+    "Tool developers",
+    "Accessing outside computing resources",
+    "Submitting from a Jupyter notebook"
+  ],
+  "/hubzero/tools/developers/accesshomedir/": [
+    "Home",
+    "HUBzero",
+    "Tools",
+    "Tool developers",
+    "Accessing your home directory"
+  ],
+  "/hubzero/tools/developers/toolpaths/": [
+    "Home",
+    "HUBzero",
+    "Tools",
+    "Tool developers",
+    "Tool paths"
+  ],
+  "/hubzero/tools/developers/toolpaths/toolenvvars/": [
+    "Home",
+    "HUBzero",
+    "Tools",
+    "Tool developers",
+    "Tool paths",
+    "Environment variables"
+  ],
+  "/hubzero/tools/developers/toolpaths/toolpathsinvoke/": [
+    "Home",
+    "HUBzero",
+    "Tools",
+    "Tool developers",
+    "Tool paths",
+    "Passing path variables with the invoke script"
+  ],
+  "/hubzero/tools/developers/toolpaths/toolpathexamples/": [
+    "Home",
+    "HUBzero",
+    "Tools",
+    "Tool developers",
+    "Tool paths",
+    "Example files"
+  ],
+  "/hubzero/tools/developers/toolpaths/toolpathsresults/": [
+    "Home",
+    "HUBzero",
+    "Tools",
+    "Tool developers",
+    "Tool paths",
+    "Tool generated files"
+  ],
+  "/hubzero/tools/developers/fileinout/": [
+    "Home",
+    "HUBzero",
+    "Tools",
+    "Tool developers",
+    "Getting files in and out of a tool session"
+  ],
+  "/hubzero/tools/developers/largedatapaths/": [
+    "Home",
+    "HUBzero",
+    "Tools",
+    "Tool developers",
+    "Large data paths"
+  ],
+  "/hubzero/tools/developers/jupyter-notebooks/": [
+    "Home",
+    "HUBzero",
+    "Tools",
+    "Tool developers",
+    "Jupyter notebooks"
+  ],
+  "/hubzero/tools/developers/jupyter-notebooks/jupyter-deployment-styles/": [
+    "Home",
+    "HUBzero",
+    "Tools",
+    "Tool developers",
+    "Jupyter notebooks",
+    "Deployment styles"
+  ],
+  "/hubzero/tools/developers/jupyter-notebooks/pyton-from-jupyter/": [
+    "Home",
+    "HUBzero",
+    "Tools",
+    "Tool developers",
+    "Jupyter notebooks",
+    "Using Python packages from Jupyter notebooks"
+  ],
+  "/hubzero/tools/developers/jupyter-notebooks/testing-jupyter/": [
+    "Home",
+    "HUBzero",
+    "Tools",
+    "Tool developers",
+    "Jupyter notebooks",
+    "Testing a Jupyter tool"
+  ],
+  "/hubzero/tools/developers/jupyter-notebooks/environment-variables/": [
+    "Home",
+    "HUBzero",
+    "Tools",
+    "Tool developers",
+    "Jupyter notebooks",
+    "Environment variables in a notebook"
+  ],
+  "/hubzero/tools/developers/jupyter-notebooks/invoke-jupyter/": [
+    "Home",
+    "HUBzero",
+    "Tools",
+    "Tool developers",
+    "Jupyter notebooks",
+    "Invoke scripts for Jupyter notebooks"
+  ],
+  "/hubzero/tools/developers/prerequisites/": [
+    "Home",
+    "HUBzero",
+    "Tools",
+    "Tool developers",
+    "Prerequisites"
+  ],
+  "/hubzero/tools/developers/process/": [
+    "Home",
+    "HUBzero",
+    "Tools",
+    "Tool developers",
+    "The contribution process"
+  ],
+  "/hubzero/tools/users/": [
+    "Home",
+    "HUBzero",
+    "Tools",
+    "Tool users"
+  ],
+  "/hubzero/tools/users/introduction/": [
+    "Home",
+    "HUBzero",
+    "Tools",
+    "Tool users",
+    "Introduction"
+  ],
+  "/hubzero/tools/users/tools/": [
+    "Home",
+    "HUBzero",
+    "Tools",
+    "Tool users",
+    "Tools"
+  ],
+  "/hubzero/tools/users/simusagedefinitions/": [
+    "Home",
+    "HUBzero",
+    "Tools",
+    "Tool users",
+    "Simulation usage definitions"
+  ],
+  "/hubzero/tools/users/usage/": [
+    "Home",
+    "HUBzero",
+    "Tools",
+    "Tool users",
+    "Usage"
+  ],
+  "/hubzero/tools/users/gettingstarted/": [
+    "Home",
+    "HUBzero",
+    "Tools",
+    "Tool users",
+    "Getting started"
+  ],
   "/hubzero/style/": [
     "Home",
     "HUBzero",

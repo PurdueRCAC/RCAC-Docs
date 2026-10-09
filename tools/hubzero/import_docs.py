@@ -325,6 +325,7 @@ FENCE_OPEN_RE = re.compile(r"^(?P<ind>[ \t]*)(?P<fence>`{3,}|~{3,})(?P<info>.*)$
 ATX_RE = re.compile(r"^ {0,3}(#{1,6})(?:[ \t]+(.*?))?(?:[ \t]+#+)?[ \t]*$")
 LIST_RE = re.compile(r"^(?P<ind>[ \t]*)(?P<mark>[-*+]|\d{1,9}[.)])(?P<sp>[ \t]+|$)(?P<rest>.*)$")
 HR_RE = re.compile(r"^ {0,3}([-*_])(?:[ \t]*\1){2,}[ \t]*$")
+TABLE_ROW_RE = re.compile(r"^ {0,3}\|")
 CODE_SPAN_RE = re.compile(r"(`+)(?!`)(.+?)(?<!`)\1(?!`)")
 
 
@@ -735,10 +736,12 @@ def convert_callouts(lines: list[str], kinds: list[str]) -> tuple[list[str], int
 
 def normalize_dialect(lines: list[str], kinds: list[str]) -> tuple[list[str], dict[str, int]]:
     """Mechanical CommonMark → Python-Markdown fixes (PLAN §2, transform 6):
-    list-item content re-indented to 4 spaces per level, and a blank line inserted
-    before a top-level list that directly follows a paragraph."""
+    list-item content re-indented to 4 spaces per level, a blank line inserted
+    before a top-level list that directly follows a paragraph, and a blank line
+    inserted where a block (heading, list, fence, quote, HTML) directly follows a
+    table row. GFM ends a table there; Python-Markdown reads the block as a row."""
     out: list[str] = []
-    stats = {"reindented": 0, "blank-before-list": 0}
+    stats = {"reindented": 0, "blank-before-list": 0, "blank-after-table": 0}
     stack: list[tuple[int, int]] = []       # (original content column, delta)
     fence_delta: tuple[int, int] | None = None   # (threshold column, delta) inside a fence
     prev = "blank"
@@ -770,6 +773,9 @@ def normalize_dialect(lines: list[str], kinds: list[str]) -> tuple[list[str], di
         m = None if (kind != "text" or is_quote or HR_RE.match(line)) else LIST_RE.match(line)
         interrupts = bool(m) or kind in ("fence", "html") or is_quote or bool(ATX_RE.match(line)) or bool(HR_RE.match(line))
         in_list = bool(stack)
+        if prev == "table" and interrupts:
+            out.append("")
+            stats["blank-after-table"] += 1
         if prev == "blank" or interrupts:
             while stack and lead < stack[-1][0]:
                 stack.pop()
@@ -791,7 +797,14 @@ def normalize_dialect(lines: list[str], kinds: list[str]) -> tuple[list[str], di
             fence_delta = (thr, dd)
             prev = "fence-open"
             continue
-        prev = "item" if m else ("text" if kind == "text" and not ATX_RE.match(line) else "other")
+        if m:
+            prev = "item"
+        elif kind == "text" and TABLE_ROW_RE.match(line):
+            prev = "table"
+        elif kind == "text" and not ATX_RE.match(line):
+            prev = "text"
+        else:
+            prev = "other"
     return out, stats
 
 
@@ -901,7 +914,8 @@ def build_nav(model: Model) -> str:
 def run_import(model: Model) -> Result:
     warnings: list[str] = []
     stats = {"pages": 0, "assets": 0, "github-fallback-links": 0, "github-pages-refs": 0,
-             "explicit-heading-ids": 0, "callouts": 0, "reindented": 0, "blank-before-list": 0}
+             "explicit-heading-ids": 0, "callouts": 0, "reindented": 0, "blank-before-list": 0,
+             "blank-after-table": 0}
     assets: set[str] = set()
     files: dict[str, bytes] = {}
     for page in model.pages():
@@ -1172,6 +1186,7 @@ def main(argv: list[str] | None = None) -> int:
         print(f"  explicit heading ids: {s['explicit-heading-ids']}; callouts: {s['callouts']}; "
               f"list lines re-indented: "
               f"{s['reindented']}; blank lines before lists: {s['blank-before-list']}; "
+              f"blank lines after tables: {s['blank-after-table']}; "
               f"links to not-yet-imported pages (GitHub): {s['github-fallback-links']}; "
               f"GitHub Pages references repointed: {s['github-pages-refs']}")
         if result.unreferenced:

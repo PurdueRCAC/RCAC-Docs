@@ -29,7 +29,7 @@ all_books:
 
 # Books imported into docs/hubzero/. Grows by one book per phase of
 # spec/hubzero-docs/TECH.md; the finished port lists all five.
-books: []
+books: [tools]
 
 # Root pages hubzero.github.io publishes (site.json `pages`). `docs/plan/` and
 # `docs/_tools/` are skipped, as upstream's SKIP_DOC_DIRS does.
