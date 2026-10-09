@@ -33,7 +33,7 @@ reach, and who does what to get it published.
 
 Two pages outside this section are worth reading first:
 
-- [Tools](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/users/22-tools.md) in the users book says what a tool
+- [Tools](../../users/tools.md) in the users book says what a tool
     session looks like to the person running it.
 - [Tools](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/managers/03-maintenance/02-tools.md) in the hub managers
     book documents the contribution pipeline, including every field on the

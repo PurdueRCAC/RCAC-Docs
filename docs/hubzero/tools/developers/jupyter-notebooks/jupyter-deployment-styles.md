@@ -50,7 +50,7 @@ author does not want it read in the browser.
     Tool style hides the code from the running interface. It is not a
     licensing control. Whether people can obtain the source is set by the
     licence you choose in the pipeline — see
-    [Tools](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/users/22-tools.md#contributing-a-tool) in the users book.
+    [Tools](../../../users/tools.md#contributing-a-tool) in the users book.
 
 Whichever style you pick, changes a user makes while running your published
 tool are not saved back to it. Each launch starts from the notebook as

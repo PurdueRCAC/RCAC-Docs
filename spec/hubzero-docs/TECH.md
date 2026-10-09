@@ -6,7 +6,7 @@ appetite: big
 status: in_progress
 branch: feature/hubzero-docs
 base: main
-current_phase: P3
+current_phase: P4
 last_updated: '2026-10-08'
 phases:
 - id: P1
@@ -43,7 +43,7 @@ phases:
     .venv/bin/python tools/hubzero/import_docs.py check
 - id: P3
   name: Import the Hub users book
-  status: pending
+  status: done
   satisfies:
   - R2
   - R3
@@ -253,11 +253,23 @@ the three other root pages, a nav region, and the status hook. No book is import
 **Satisfies:** R2, R3, R4 · **Depends on:** P2
 **Goal:** all 34 Hub users pages render, with their images (the heaviest `media/` user).
 
-- [ ] Enable `users`; re-import.
-- [ ] Render check: an image-heavy page, `users/23-wiki.md` (Jinja hazard, renders literally),
+- [x] Enable `users`; re-import.
+- [x] Render check: an image-heavy page, `users/23-wiki.md` (Jinja hazard, renders literally),
       the include page, and `users/01-collections.md`, `18-publications.md`, `28-usage.md`
       (raw-tag pages; note which carries the lost placeholder).
-- [ ] Fold fixes into the importer; re-import; breadcrumbs.
+- [x] Fold fixes into the importer; re-import; breadcrumbs.
+- **Findings in P3 (2026-10-08; no importer change, no GOAL change):**
+  - `collections` (19 images, the heaviest page) resolves every image with alt. `wiki` shows its
+    `{{{…}}}` examples literally. `projects` expands its one include
+    (`databases.php:79-83`) into a code block. The other "include" hit, `07-events.md`:96, is
+    prose.
+  - Raw tags: `collections` and `usage` carry intentional `<a id>` anchors, which render as
+    anchors. The lost placeholder in this book is `18-publications.md`, in the curation table:
+    "*Assigned to `<name>`*" is passed through as an unknown HTML element, so readers see
+    "Assigned to". This is an upstream defect; it goes in the P7 note to Nick.
+  - The 23-wiki.md :179 table-then-fence case named in P2 sits inside an example and needs
+    no fix (the blank-after-table rule still fired only once).
+  - The importer listed 14 unreferenced `users/media/` files and didn't copy them.
 - **Verify:** `.venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py && grep -q 'hubzero/users/index.md' mkdocs.yml && HUBZERO_CMS=$HOME/Software/github.com/hubzero/hubzero-cms .venv/bin/python tools/hubzero/import_docs.py check`
 - **Touches:** `tools/hubzero/**`, `docs/hubzero/**`, `docs/assets/images/hubzero/users/`,
   `mkdocs.yml`, `docs/assets/data/breadcrumbs.json`.

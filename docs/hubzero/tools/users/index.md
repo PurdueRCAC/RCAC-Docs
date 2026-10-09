@@ -30,14 +30,14 @@ the people who build tools and the people who run the hub.
 
 ## Running a tool
 
-[Tools](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/users/22-tools.md) is the chapter to read. It covers:
+[Tools](../../users/tools.md) is the chapter to read. It covers:
 
-- [Launching a session](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/users/22-tools.md#running-a-tool) from a tool's
+- [Launching a session](../../users/tools.md#running-a-tool) from a tool's
     page, and what the controls across the top of the session page do — keeping
     a session for later, terminating it, renaming it, and choosing a viewer.
-- [Your files](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/users/22-tools.md#your-files): a session sees your home
+- [Your files](../../users/tools.md#your-files): a session sees your home
     directory on the hub, not your own computer.
-- [Sharing a session](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/users/22-tools.md#sharing-a-session) with other
+- [Sharing a session](../../users/tools.md#sharing-a-session) with other
     members or with a group, read-only or not.
 
 ![A tool session running in a browser](/assets/images/hubzero/tools/media/users-tools2.gif)
@@ -47,22 +47,22 @@ page looks different now, but the arrangement — the tool in a frame, its
 controls above it, the storage meter below — is the same.
 
 New to the hub altogether? Start with
-[Getting started](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/users/30-gettingstarted.md), which walks through
+[Getting started](../../users/gettingstarted.md), which walks through
 registering and finding your way around, and
-[Introduction](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/users/04-introduction.md), which explains how the member
+[Introduction](../../users/introduction.md), which explains how the member
 area is laid out.
 
 ## Usage figures
 
-- [Usage](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/users/28-usage.md) — the **Usage** tab on your own profile,
+- [Usage](../../users/usage.md) — the **Usage** tab on your own profile,
     which of its figures are computed live, and which need statistics collection
     the hub has to set up separately.
-- [Simulation usage definitions](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/users/25-simusagedefinitions.md) — what
+- [Simulation usage definitions](../../users/simusagedefinitions.md) — what
     each figure on the hub-wide usage pages counts.
 
 ## Contributing a tool of your own
 
-[Contributing a tool](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/users/22-tools.md#contributing-a-tool) describes
+[Contributing a tool](../../users/tools.md#contributing-a-tool) describes
 what can be hosted and walks the contribution pipeline from registration to a
 published tool page. Note that the Rappture toolkit, long the usual way to put
 an interface on a command-line program, is deprecated; a Jupyter notebook is

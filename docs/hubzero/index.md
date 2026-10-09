@@ -43,7 +43,7 @@ and is published at https://docs.rcac.purdue.edu/hubzero/.
 
 ## Use a hub
 
-- [Hub users](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/users/README.md) — profiles, groups, projects, publications,
+- [Hub users](users/index.md) — profiles, groups, projects, publications,
     resources, the wiki, forums, courses, and the other features a hub offers.
 - [Tools](tools/index.md) — the tool platform: publishing simulation tools,
     invoke scripts, the submit command, Jupyter, and tool administration.

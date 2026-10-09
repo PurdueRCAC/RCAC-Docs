@@ -1477,6 +1477,214 @@
     "Home",
     "HUBzero"
   ],
+  "/hubzero/users/": [
+    "Home",
+    "HUBzero",
+    "Hub users"
+  ],
+  "/hubzero/users/collections/": [
+    "Home",
+    "HUBzero",
+    "Hub users",
+    "Collections"
+  ],
+  "/hubzero/users/courses/": [
+    "Home",
+    "HUBzero",
+    "Hub users",
+    "Courses"
+  ],
+  "/hubzero/users/faq/": [
+    "Home",
+    "HUBzero",
+    "Hub users",
+    "Frequently asked questions"
+  ],
+  "/hubzero/users/introduction/": [
+    "Home",
+    "HUBzero",
+    "Hub users",
+    "Introduction"
+  ],
+  "/hubzero/users/blog/": [
+    "Home",
+    "HUBzero",
+    "Hub users",
+    "Blog"
+  ],
+  "/hubzero/users/citations/": [
+    "Home",
+    "HUBzero",
+    "Hub users",
+    "Citations"
+  ],
+  "/hubzero/users/events/": [
+    "Home",
+    "HUBzero",
+    "Hub users",
+    "Events"
+  ],
+  "/hubzero/users/forum/": [
+    "Home",
+    "HUBzero",
+    "Hub users",
+    "Forum"
+  ],
+  "/hubzero/users/groups/": [
+    "Home",
+    "HUBzero",
+    "Hub users",
+    "Groups"
+  ],
+  "/hubzero/users/groups/createdeleteagroup/": [
+    "Home",
+    "HUBzero",
+    "Hub users",
+    "Groups",
+    "Creating and deleting a group"
+  ],
+  "/hubzero/users/groups/groupmembers/": [
+    "Home",
+    "HUBzero",
+    "Hub users",
+    "Groups",
+    "Member functions"
+  ],
+  "/hubzero/users/groups/groupcustom/": [
+    "Home",
+    "HUBzero",
+    "Hub users",
+    "Groups",
+    "Customization"
+  ],
+  "/hubzero/users/groups/groupcitations/": [
+    "Home",
+    "HUBzero",
+    "Hub users",
+    "Groups",
+    "Group citations"
+  ],
+  "/hubzero/users/groups/groupforum/": [
+    "Home",
+    "HUBzero",
+    "Hub users",
+    "Groups",
+    "Group forum"
+  ],
+  "/hubzero/users/support/": [
+    "Home",
+    "HUBzero",
+    "Hub users",
+    "Support"
+  ],
+  "/hubzero/users/knowledgebase/": [
+    "Home",
+    "HUBzero",
+    "Hub users",
+    "Knowledge base"
+  ],
+  "/hubzero/users/dashboard/": [
+    "Home",
+    "HUBzero",
+    "Hub users",
+    "Member dashboard"
+  ],
+  "/hubzero/users/profile/": [
+    "Home",
+    "HUBzero",
+    "Hub users",
+    "Member profile"
+  ],
+  "/hubzero/users/projects/": [
+    "Home",
+    "HUBzero",
+    "Hub users",
+    "Projects"
+  ],
+  "/hubzero/users/newsletters/": [
+    "Home",
+    "HUBzero",
+    "Hub users",
+    "Newsletters"
+  ],
+  "/hubzero/users/publications/": [
+    "Home",
+    "HUBzero",
+    "Hub users",
+    "Publications"
+  ],
+  "/hubzero/users/questions/": [
+    "Home",
+    "HUBzero",
+    "Hub users",
+    "Questions and answers"
+  ],
+  "/hubzero/users/registration/": [
+    "Home",
+    "HUBzero",
+    "Hub users",
+    "Registration"
+  ],
+  "/hubzero/users/resources/": [
+    "Home",
+    "HUBzero",
+    "Hub users",
+    "Resources"
+  ],
+  "/hubzero/users/tools/": [
+    "Home",
+    "HUBzero",
+    "Hub users",
+    "Tools"
+  ],
+  "/hubzero/users/wiki/": [
+    "Home",
+    "HUBzero",
+    "Hub users",
+    "Wiki"
+  ],
+  "/hubzero/users/search/": [
+    "Home",
+    "HUBzero",
+    "Hub users",
+    "Search"
+  ],
+  "/hubzero/users/simusagedefinitions/": [
+    "Home",
+    "HUBzero",
+    "Hub users",
+    "Simulation usage definitions"
+  ],
+  "/hubzero/users/storefront/": [
+    "Home",
+    "HUBzero",
+    "Hub users",
+    "Storefront"
+  ],
+  "/hubzero/users/tags/": [
+    "Home",
+    "HUBzero",
+    "Hub users",
+    "Tags"
+  ],
+  "/hubzero/users/usage/": [
+    "Home",
+    "HUBzero",
+    "Hub users",
+    "Usage"
+  ],
+  "/hubzero/users/wishlist/": [
+    "Home",
+    "HUBzero",
+    "Hub users",
+    "Wish list"
+  ],
+  "/hubzero/users/gettingstarted/": [
+    "Home",
+    "HUBzero",
+    "Hub users",
+    "Getting started"
+  ],
   "/hubzero/tools/": [
     "Home",
     "HUBzero",

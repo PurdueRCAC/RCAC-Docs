@@ -19,7 +19,7 @@ What each figure on the hub-wide usage pages counts.
 This chapter lives in the users book, which is written for everyone on a
 hub rather than for tool authors. Read it there:
 
-- [Simulation usage definitions](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/users/25-simusagedefinitions.md) — simulation usage definitions.
+- [Simulation usage definitions](../../users/simusagedefinitions.md) — simulation usage definitions.
 
 The copy that used to sit here was an import of the same page from a
 parallel source tree. It was left behind when the two trees were merged

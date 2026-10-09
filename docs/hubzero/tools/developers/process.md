@@ -142,7 +142,7 @@ Before the tool can be approved it needs:
 
 Then **Approve this tool**. An administrator publishes it, and it becomes a
 resource page with a **Launch Tool** button like any other. See
-[Tools](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/users/22-tools.md) in the users book for what members get.
+[Tools](../../users/tools.md) in the users book for what members get.
 
 ## After publishing
 

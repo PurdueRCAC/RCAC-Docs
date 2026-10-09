@@ -20,7 +20,7 @@ your way around.
 This chapter lives in the users book, which is written for everyone on a
 hub rather than for tool authors. Read it there:
 
-- [Getting started](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/users/30-gettingstarted.md) — getting started.
+- [Getting started](../../users/gettingstarted.md) — getting started.
 
 The copy that used to sit here was an import of the same page from a
 parallel source tree. It was left behind when the two trees were merged

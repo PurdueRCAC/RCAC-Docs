@@ -21,7 +21,7 @@ separately.
 This chapter lives in the users book, which is written for everyone on a
 hub rather than for tool authors. Read it there:
 
-- [Usage](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/users/28-usage.md) — your own usage figures.
+- [Usage](../../users/usage.md) — your own usage figures.
 
 The copy that used to sit here was an import of the same page from a
 parallel source tree. It was left behind when the two trees were merged

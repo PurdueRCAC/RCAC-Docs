@@ -54,7 +54,7 @@ resource page.
 - Hub managers run the pipeline: [Tools](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/managers/03-maintenance/02-tools.md)
     walks the states from the administrator's side and lists every field on the
     registration form.
-- Hub members run the result: [Tools](https://github.com/hubzero/hubzero-cms/blob/9c1a8c678002bdfb41860f90915a3589ab60339e/docs/users/22-tools.md) describes a
+- Hub members run the result: [Tools](../../users/tools.md) describes a
     tool session as the user sees it.
 - Hub administrators configure the platform:
     [Tool administrators](../administrators.md).
