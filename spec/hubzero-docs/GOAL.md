@@ -12,7 +12,7 @@
 HUBzero is an RCAC-run platform (nanoHUB and other science gateways run on it), but
 docs.rcac.purdue.edu has no HUBzero material. HUBzero's documentation spent a decade in the
 help.hubzero.org database as CKEditor HTML. In September 2026 Nick Kisseberth exported it to
-Markdown in `hubzero/hubzero-cms` (`2.4-main`, `docs/`): 417 pages in five books (hub users,
+Markdown in `hubzero/hubzero-cms` (`2.4-main`, `docs/`): 416 published pages in five books (hub users,
 hub managers, tools, developers, generated reference), including the REST API reference a
 running hub normally serves live. That material uses its own conventions (`STYLE.md`, an
 HTML-comment metadata header, per-book `media/`, numbered chapter files, its own static
@@ -35,8 +35,9 @@ factory on a real, sizable migration.
 
 - **R1** — The site nav SHALL contain a top-level HUBzero section at `/hubzero/` whose
   landing page links each of the five books.
-- **R2** — For every source page in `docs/` at the pinned source commit, the HUBzero section
-  SHALL contain exactly one rendered page with the same title, whatever its review status.
+- **R2** — For every source page in `docs/` at the pinned source commit that
+  hubzero.github.io publishes (the `site.json` books and root pages), the HUBzero section SHALL
+  contain exactly one rendered page with the same title, whatever its review status.
 - **R3** — IF a reader follows any internal link inside the HUBzero section, THEN it SHALL
   resolve, and `mkdocs build --strict` SHALL report no new warning.
 - **R4** — Where a source page includes an image, the rendered page SHALL display it, with
@@ -52,6 +53,7 @@ factory on a real, sizable migration.
   license notice.
 - **R10** — Every HUBzero page SHALL pass the accessibility checks `docs-review` applies to
   the rest of the site.
+- **R11** — The site home page SHALL carry a HUBzero card that links to `/hubzero/`.
 
 ## Non-goals (no-gos)
 
@@ -86,6 +88,13 @@ factory on a real, sizable migration.
 - **Q:** URL and nav? **A:** `/hubzero/`, top-level (Geoffrey, resolved 2026-10-08).
 - **Q:** Size? **A:** One feature job, not a pilot split. `TECH.md` phases it toward the full
   five-book port (Geoffrey, resolved 2026-10-08).
+- **Q:** Link source code at the pinned commit or at `2.4-main`? **A:** The pinned commit
+  (Geoffrey, resolved 2026-10-08).
+- **Q:** Publish `plan/documentation-program.md`? **A:** No. Upstream doesn't publish it
+  (`build_site.py` skips `plan/` and `_tools/`), so it isn't a documentation page. R2 amended
+  to "pages hubzero.github.io publishes": 416 pages (Geoffrey, resolved 2026-10-08).
+- **Q:** HUBzero card on the site home page? **A:** Yes; added as R11 (Geoffrey, resolved
+  2026-10-08).
 
 ## Related materials
 

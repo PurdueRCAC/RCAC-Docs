@@ -6,7 +6,8 @@ cited detail lives in each brief; this is the decision-ready summary that `PLAN.
 
 - [`01-site-integration.md`](01-site-integration.md): nav insertion, the nav-region decision,
   front-matter contract, `render_macros`, anchors not validated by `--strict`.
-- [`02-source-format.md`](02-source-format.md): 417 pages, the metadata header and status
+- [`02-source-format.md`](02-source-format.md): 417 source pages (416 published; `plan/` is
+  excluded, see Decided), the metadata header and status
   semantics, ordering and URLs, the one slug collision, include directives, dialect.
 - [`03-links-anchors-assets.md`](03-links-anchors-assets.md): link census and rewrite rules,
   the anchor-id mismatch, the image rule, upstream defects.
@@ -48,10 +49,10 @@ cited detail lives in each brief; this is the decision-ready summary that `PLAN.
 10. **R10** is clean at source: no heading skips, exactly one H1 per page, no vague link text, and
     every image has alt.
 
-## Open (for the human; see PLAN §5)
+## Decided (Geoffrey, 2026-10-08; see PLAN §5)
 
-- Link to source at the pinned SHA (chosen) or at `2.4-main` (upstream's choice)?
-- Publish `plan/documentation-program.md` (an internal program plan)? R2 says every source
-  page, so the default is yes.
-- Add a HUBzero card to the site home page? It isn't in the GOAL, but it serves the "unity"
-  rationale.
+- Source links pin to the commit SHA, not `2.4-main`.
+- `plan/documentation-program.md` is not published: upstream `build_site.py` skips `plan/`,
+  and no published page links to it. R2 now counts 416 pages; briefs 01 and 02 predate this
+  and still say 417.
+- The site home page gets a HUBzero card (R11).

@@ -7,7 +7,7 @@
 
 ## 1. Summary
 
-Port all 417 HUBzero pages with a small, deterministic importer (`tools/hubzero/import_docs.py`),
+Port all 416 published HUBzero pages with a small, deterministic importer (`tools/hubzero/import_docs.py`),
 not by hand. The importer reads `hubzero/hubzero-cms` at a pinned commit, converts each page to
 RCAC-Docs conventions (front-matter, relative links, absolute assets, preserved anchors,
 expanded includes), and writes a top-level `/hubzero/` section plus its `mkdocs.yml` nav
@@ -40,8 +40,9 @@ writing prose.
     five books, plus an importer-appended **About this documentation** block: credit to the
     HUBzero project and repository, the MIT notice with a link to `license.md`, and the pinned
     commit (R1, R9). Front-matter adds `hide: [footer]`.
-  - `license.md`, `style.md` (from `STYLE.md`), and `plan/documentation-program.md`: the other
-    three root pages (R2).
+  - `license.md` and `style.md` (from `STYLE.md`): the other two root pages upstream publishes
+    (R2). `plan/` and `_tools/` are skipped, as upstream's `SKIP_DOC_DIRS` does; no published
+    page links into them.
   - `<book>/index.md` and `<book>/<path>.md` for each book: numeric prefixes stripped,
     `README.md` → `index.md`, and the one collision mapped to `…/search/index/index.md`.
     Upstream slugs (kebab-case) are kept so URLs mirror hubzero.github.io one to one.
@@ -49,7 +50,7 @@ writing prose.
   `Contact us`. The first child is `hubzero/index.md`. Then the five books in upstream order
   (Hub managers, Hub users, Tools, Developers, Reference), each a section whose first child is
   its `index.md`, nested by directory. Then an `About these docs` group (Writing guide,
-  Documentation program, License). Labels are the plain-text H1s. The importer owns the subtree
+  License). Labels are the plain-text H1s. The importer owns the subtree
   between `# >>> hubzero nav …` and `# <<< hubzero nav` markers. Breadcrumbs regenerate with
   `tools/generate_breadcrumbs.py` after every nav change.
 - **Transforms** (per page, in order; [`research/04`](research/04-importer-design.md)):
@@ -75,7 +76,8 @@ writing prose.
   `docs/assets/images/hubzero/{users,managers,tools,developers}/`. The importer lists
   unreferenced files instead of copying them.
 - **Cross-links & tags.** `tags: [HUBzero]` on every page. The landing page links back to the
-  upstream repo. A home-page card is an open question (§5).
+  upstream repo. The site home page (`docs/index.md`) gets a HUBzero card as the fifth card in
+  its **RCAC Resources** grid, after Datasets, in the existing card format (R11, P7).
 - **Accessibility plan.** At source: every image has alt text, each page has exactly one H1, no
   heading-level skips, no vague link text (measured, [`research/00`](research/00-digest.md)
   §10). Markdown tables always have header rows. Admonition titles are text. `check` re-asserts
@@ -89,7 +91,7 @@ writing prose.
 | R-ID | Design element(s) that satisfy it |
 |------|-----------------------------------|
 | R1   | Top-level `HUBzero` nav entry → `hubzero/index.md`; the upstream README already links all five books (P1 scaffold; the links become relative as each book lands; complete at P7) |
-| R2   | Importer maps all 417 source pages (413 book + 4 root) one-to-one, H1 unchanged; `check` asserts the count and title parity |
+| R2   | Importer maps all 416 published source pages (413 book + 3 root) one-to-one, H1 unchanged; `check` asserts the count and title parity |
 | R3   | Link resolver (relative / commit-pinned GitHub); preserved upstream heading ids; `--strict` gate plus `check`'s anchor scan of `site/hubzero/` |
 | R4   | Referenced images copied to `/assets/images/hubzero/…`; alt carried through; `check` asserts `<img>` alt and `src` exist |
 | R5   | Brace-safe heading ids; `check` asserts all 245 endpoint `h2`s render with id and full path, per API page |
@@ -98,6 +100,7 @@ writing prose.
 | R8   | Deterministic importer reading via `git show <sha>`; `check` regenerates into a temp tree and byte-compares |
 | R9   | Importer-appended "About this documentation" block on the landing page, plus `license.md` |
 | R10  | Source is clean (measured); `check` asserts image alt; the review rubric's a11y pass applies |
+| R11  | HUBzero card in the home page's RCAC Resources grid, linking `hubzero/index.md` (P7) |
 
 ## 3. Invariant gate (constitution check)
 
@@ -132,7 +135,7 @@ before research (gate #1) and again after this design (gate #2).
 
 | Deviation | Why needed | Simpler alternative rejected because |
 |-----------|-----------|--------------------------------------|
-| A machine-written region (~430 lines) inside `mkdocs.yml` `nav:` | 417 pages must stay in nav (§4) and reproduce exactly (R8) | Hand-writing it is error-prone and can't be re-run for the touch-up; a nav plugin adds a dependency and `generate_breadcrumbs.py` reads `mkdocs.yml` nav directly |
+| A machine-written region (~430 lines) inside `mkdocs.yml` `nav:` | 416 pages must stay in nav (§4) and reproduce exactly (R8) | Hand-writing it is error-prone and can't be re-run for the touch-up; a nav plugin adds a dependency and `generate_breadcrumbs.py` reads `mkdocs.yml` nav directly |
 | Kebab-case filenames and a lowercase `hubzero/` tree, not house `snake_case` | URL parity with hubzero.github.io (for the HUBzero team's later redirects) and clean touch-up diffs | Renaming to snake_case breaks the 1:1 path map in `redirects.json` and adds a mapping layer with no reader benefit (the style guide already lets generated/dataset entries keep source casing) |
 | A page hook in `main.py` for the status banner (adds complexity to a high-impact file) | Keeps `hubzero.status` the single source, so the maintainer workflow is one field | Baking the banner text into the body duplicates state: maintainers would edit front-matter **and** prose to change a status |
 | ~971 explicit heading ids `{ #… }` added to imported text | Keeps upstream anchors, so all 1,388 fragment links and the API summary tables resolve | Rewriting the links to Python-Markdown slugs breaks inbound upstream deep links; a site-wide `toc` slugify change would alter anchors on every existing page |
@@ -154,14 +157,12 @@ before research (gate #1) and again after this design (gate #2).
 
 ## 5. Risks & open questions
 
-- **Open: source links at the pinned SHA or at `2.4-main`?** The SHA (chosen) keeps `#L`
-  anchors exact and the output reproducible; `2.4-main` (upstream's choice) stays current but
-  lets line anchors drift. Default: SHA.
-- **Open: publish `plan/documentation-program.md`?** It's an internal program plan (403
-  lines). R2 says every source page, so the default is to publish it under "About these docs".
-  Excluding it means amending R2 in GOAL with sign-off.
-- **Open: home-page card for HUBzero?** It isn't in the GOAL, but it serves the public-unity
-  rationale. Default: propose it in P7, and add it only on Geoffrey's OK.
+- **Resolved: source links pin to the commit,** not `2.4-main`: `#L` anchors stay exact and the
+  output reproducible (Geoffrey, 2026-10-08).
+- **Resolved: `plan/documentation-program.md` is not published.** Upstream skips `plan/`, so
+  R2 now covers only published pages: 416 (GOAL amended, Geoffrey, 2026-10-08).
+- **Resolved: the home page gets a HUBzero card** (new R11, built in P7; Geoffrey,
+  2026-10-08).
 - **Risk: the source commit must stay available.** The local clone is shallow. The importer
   reads via `git show <sha>` and fails with a `git fetch --depth=1 origin <sha>` hint.
 - **Risk: `verify:` needs the local hubzero-cms clone** (`HUBZERO_CMS`). CI never runs
@@ -169,7 +170,7 @@ before research (gate #1) and again after this design (gate #2).
 - **Risk: dialect drift beyond what was measured.** CommonMark (upstream) and Python-Markdown
   differ in edge cases the scan didn't target. Mitigation: a render spot-check per book phase,
   with each fix landing as an importer rule, never a page hand-edit.
-- **Risk: search index and repo growth.** About 417 pages and up to 15 MB of images. P7
+- **Risk: search index and repo growth.** About 416 pages and up to 15 MB of images. P7
   measures `site/search/search_index.json` before and after.
 - **Risk: hand edits before the touch-up sync** get overwritten by a re-import.
   `tools/hubzero/README.md` sequences it: touch-up first, then the handover.

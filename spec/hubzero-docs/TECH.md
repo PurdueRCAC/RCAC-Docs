@@ -66,7 +66,7 @@ phases:
   - id: P7
     name: "Integration: final check, a11y sweep, search growth, handoff"
     status: pending
-    satisfies: [R1, R3, R8, R10]
+    satisfies: [R1, R3, R8, R10, R11]
     depends_on: [P6]
     parallel: false
     hammerable: false
@@ -145,8 +145,8 @@ the three other root pages, a nav region, and the status hook. No book is import
       and `# <<< hubzero nav` markers, after `RCAC Services`, before `Contact us`.
 - [ ] Root pages: `docs/hubzero/index.md` (README + appended **About this documentation**:
       HUBzero credit, MIT notice, link to `license.md`, pinned commit), `license.md`,
-      `style.md`, `plan/documentation-program.md`. Links into books go to GitHub until each
-      book lands.
+      `style.md`. Skip `plan/` and `_tools/` (upstream `SKIP_DOC_DIRS`). Links into books go
+      to GitHub until each book lands.
 - [ ] `main.py`: `on_post_page_macros(env)` renders the banner and stamp from
       `page.meta.hubzero` (upstream wording, `build_site.py:594–630`). Confirm the hook fires on
       `render_macros: false` pages (the PLAN §5 hypothesis). If it doesn't, stop and revise
@@ -158,8 +158,8 @@ the three other root pages, a nav region, and the status hook. No book is import
       retirement after handover.
 - [ ] `.venv/bin/python tools/generate_breadcrumbs.py`.
 - **Verify:** `.venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py && grep -q 'hubzero/index.md' mkdocs.yml && HUBZERO_CMS=$HOME/Software/github.com/hubzero/hubzero-cms .venv/bin/python tools/hubzero/import_docs.py check`
-- **Touches:** `tools/hubzero/**`, `docs/hubzero/{index,license,style}.md`,
-  `docs/hubzero/plan/`, `mkdocs.yml`, `main.py`, `docs/assets/data/breadcrumbs.json`.
+- **Touches:** `tools/hubzero/**`, `docs/hubzero/{index,license,style}.md`, `mkdocs.yml`,
+  `main.py`, `docs/assets/data/breadcrumbs.json`.
 
 ## Phase P2 — Tools book
 **Satisfies:** R2, R3, R4, R6 · **Depends on:** P1
@@ -229,11 +229,11 @@ pages shows its method, full path (with `{id}`-style parameters intact), and par
   `docs/assets/data/breadcrumbs.json`.
 
 ## Phase P7 — Integration
-**Satisfies:** R1, R3, R8, R10 · **Depends on:** P6
+**Satisfies:** R1, R3, R8, R10, R11 · **Depends on:** P6
 **Goal:** the whole section passes `check --final`, reads well end to end, and is ready to hand
 over.
 
-- [ ] `check --final`: all five books enabled, 417 pages, zero remaining GitHub fallback links to
+- [ ] `check --final`: all five books enabled, 416 pages, zero remaining GitHub fallback links to
       docs pages, landing links all five books relative (R1).
 - [ ] a11y sweep per the review rubric: one H1, no skips, image alt, admonition titles, table
       headers (source measured clean; confirm on `site/`).
@@ -241,10 +241,11 @@ over.
       commit body. Flag if search degrades.
 - [ ] Finalize `tools/hubzero/README.md` (touch-up, then handover, then retire).
 - [ ] Draft (don't send) the upstream-defects note for Nick Kisseberth: the lost placeholders.
-- [ ] Home-page HUBzero card: propose only. Add it in this phase only with Geoffrey's OK
-      (PLAN §5).
+- [ ] Home-page HUBzero card (R11): fifth card in the `docs/index.md` **RCAC Resources** grid,
+      after Datasets, in the existing format (icon, bold title, rule, one sentence,
+      `:octicons-arrow-right-24:` link to `hubzero/index.md`).
 - **Verify:** `.venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py && HUBZERO_CMS=$HOME/Software/github.com/hubzero/hubzero-cms .venv/bin/python tools/hubzero/import_docs.py check --final`
-- **Touches:** `tools/hubzero/**`, possibly `docs/index.md` (if approved).
+- **Touches:** `tools/hubzero/**`, `docs/index.md`.
 
 ---
 
