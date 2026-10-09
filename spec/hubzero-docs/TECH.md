@@ -3,11 +3,11 @@ slug: hubzero-docs
 title: Port the HUBzero documentation into a top-level /hubzero/ section
 kind: feature
 appetite: big
-status: in_review
+status: blocked
 branch: feature/hubzero-docs
 base: main
 current_phase: done
-last_updated: '2026-10-08'
+last_updated: '2026-10-09'
 phases:
 - id: P1
   name: 'Importer + scaffold: landing, root pages, nav region, status hook'
@@ -119,9 +119,9 @@ phases:
     && HUBZERO_CMS=$HOME/Software/github.com/hubzero/hubzero-cms .venv/bin/python
     tools/hubzero/import_docs.py check --final
 review:
-  last_reviewed_commit: ''
-  verdict: none
-  blocked_reason: ''
+  last_reviewed_commit: 087291b66a77dbd3fd199a2b36bf72bb158ea3d2
+  verdict: changes-requested
+  blocked_reason: 'review cycle 1: emoji shortcodes, indented includes, ol start (importer)'
 ---
 # TECH.md — Port the HUBzero documentation into a top-level /hubzero/ section
 

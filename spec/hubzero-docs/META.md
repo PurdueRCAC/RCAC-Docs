@@ -40,3 +40,15 @@ attributes line instead of duplicating. A fix that would weaken a `hammerable:fa
   `main`; Step 3 runs `git worktree add .worktrees/{slug} -b {branch} main` and works from there;
   allow `Bash(git worktree *)`. `docs-plan` Step 1 already works unchanged inside a worktree.
 - **Confidence:** high · **Effort:** small
+
+## F2 — docs-review's diff command leaks PLAN/TECH to the blind reviewer
+`origin=docs-review severity=high category=instruction status=open target=.agents/skills/docs-review/SKILL.md`
+- **What happened:** Step 2 hands the reviewer `git diff main...HEAD`, but `spec/{slug}/` is
+  committed on the branch, so that diff carries `PLAN.md`, `TECH.md`, `research/`, and `META.md`
+  in full. Read as written, it breaks the blindness the step exists for. The orchestrator ran
+  `git diff main...HEAD -- . ':!spec/'` instead and passed GOAL.md inline.
+- **Skill cause (not mine):** the diff recipe in Step 2 and in `review-rubric.md` ("What the
+  reviewer sees") has no `spec/` exclusion.
+- **Recommended fix:** use `git diff main...HEAD -- . ':!spec/'` (and the same for `--stat`) in
+  both files; GOAL.md is already passed inline. Severity high because it's a gate-integrity gap.
+- **Confidence:** high · **Effort:** small
