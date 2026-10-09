@@ -6,8 +6,8 @@
 > **evidence** — a build/render/link result or a direct read of the diff — not an assertion.
 
 - **Reviewed commit:** 087291b66a77dbd3fd199a2b36bf72bb158ea3d2  ·  **Base:** main (`f013840e`)  ·  **Date:** 2026-10-09
-- **Verdict:** changes-requested
-- **Cycle:** 1 of ≤3 (escalate to human on non-convergence)
+- **Verdict:** approved (cycle 2, at `1c752aa7`) · cycle 1 at `087291b6`: changes-requested
+- **Cycle:** 2 of ≤3 (escalate to human on non-convergence)
 
 Run unattended overnight on Geoffrey's go (Oct 8): one blind correctness reviewer (fresh subagent;
 inputs were GOAL.md, `git diff main...HEAD -- . ':!spec/'`, invariants, rubric, style guide, strict
@@ -84,11 +84,34 @@ Unmapped changes (possible scope creep): none.
 ### F8 [LOW/PLAUSIBLE] Landing contradicts itself
 - **Where:** README prose ("Everything here is Markdown in the hubzero-cms repository") vs. the appended paragraph (the HUBzero team maintains the pages here). Content changes are a non-goal; human call.
 
+## Cycle 2 — 2026-10-09, at `1c752aa7`: approved
+
+Same blind reviewer, same rules (diff without `spec/`; no PLAN/TECH/research/META/REVIEW). It
+re-ran every cycle-1 check against the rebuilt site and diffed the output against cycle 1.
+
+- `--strict`: PASS, 0 warnings; build log identical to cycle 1 apart from the fixes.
+- **F1 fixed:** 0 emoji images under `site/hubzero`; text matches upstream on all 7 API pages and
+  oaipmh; parameter tables match upstream cell for cell for all 245 endpoints; the 35 `&#58;` lines
+  never surface as literal `&amp;#58;` or inside `<code>`.
+- **F2 fixed:** the three blocks render as highlighted code inside their list items, each identical
+  to its source line range with relative indentation preserved; no literal "```" anywhere.
+- **F3 fixed:** user-notes numbers 1–4 (table inside step 3), notices 1–4 (image inside step 2).
+- **F5 fixed:** `--help [tools|venues|managers|examples]` matches upstream; `string\|integer`
+  outside code in support.md is untouched.
+- **Regressions:** none. All four new rules checked over the full corpus: heading ids unchanged,
+  list counts/nesting/numbering unchanged elsewhere, 8,795 internal links (the 34 new ones are
+  line anchors in the repaired code blocks) with 0 unresolved, 149 images with alt.
+- **R8:** clean `git archive HEAD` re-import is byte-identical, nav region and breadcrumbs included.
+- **Unchanged, for human triage:** F4, F6, F7 (PLAUSIBLE), F8 (PLAUSIBLE).
+- R1–R12 all PASS (R2 with F4, R10 with F7 for triage). Scope creep: none.
+
 ## Human-gate triggers
 
-- **Triggered.** F1–F5 are rooted in `tools/hubzero/import_docs.py` (high-impact `tools/**`), and
-  their fixes regenerate `docs/hubzero/**` and may touch the nav region in `mkdocs.yml`. Geoffrey
-  signs off before `docs-publish`.
+- **Triggered (cycle 1), still standing.** F1–F5 were rooted in `tools/hubzero/import_docs.py`
+  (high-impact `tools/**`). The cycle-1 remediation (`1c752aa7`) changed that file and regenerated
+  16 pages; cycle 2 found no open CONFIRMED finding. Geoffrey reviews the importer change and
+  triages F4/F6/F7/F8 before `docs-publish`. The diff also touches `main.py` and `mkdocs.yml`
+  (high-impact) by design.
 
 ## Optional completeness sub-pass (separate reviewer; may see TECH.md)
 

@@ -119,8 +119,8 @@ phases:
     && HUBZERO_CMS=$HOME/Software/github.com/hubzero/hubzero-cms .venv/bin/python
     tools/hubzero/import_docs.py check --final
 review:
-  last_reviewed_commit: 087291b66a77dbd3fd199a2b36bf72bb158ea3d2
-  verdict: changes-requested
+  last_reviewed_commit: 1c752aa71b7c4280e4a28f0f620fc634eb78e975
+  verdict: approved
   blocked_reason: 'review cycle 1: emoji shortcodes, indented includes, ol start (importer)'
 ---
 # TECH.md — Port the HUBzero documentation into a top-level /hubzero/ section
