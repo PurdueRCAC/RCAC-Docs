@@ -6,7 +6,7 @@ appetite: big
 status: in_progress
 branch: feature/agents-d-all-clusters
 base: main
-current_phase: P2
+current_phase: P3
 last_updated: '2026-10-09'
 phases:
 - id: P1
@@ -24,7 +24,7 @@ phases:
     site/ && grep -rq 'docs.rcac.purdue.edu/mcp' site/agentic-ai/mcp_servers/
 - id: P2
   name: 'Generator: emit context only; data-driven templates; drop purgelist'
-  status: pending
+  status: done
   satisfies:
   - R2
   - R7
@@ -170,15 +170,15 @@ The finite-state machine for this job. The YAML frontmatter is the resume ground
 **Goal:** the generator emits only `agents.d/`; templates read commands, QOS and support text
 from data; the existing three regenerate identically apart from `purgelist`.
 
-- [ ] Delete the settings code paths and docstring text; `git rm` the four template dirs and the
+- [x] Delete the settings code paths and docstring text; `git rm` the four template dirs and the
       twelve generated settings files.
-- [ ] Add `DEFAULTS` and a deep-merge (PLAN §2.1); make the five templates read them.
-- [ ] Wrap the `-A standby` prohibition; generic QOS mapping branch; `os: null` and
+- [x] Add `DEFAULTS` and a deep-merge (PLAN §2.1); make the five templates read them.
+- [x] Wrap the `-A standby` prohibition; generic QOS mapping branch; `os: null` and
       `purge_days: null` branches; `notes.<topic>` bullets; optional `filesystems.project`.
-- [ ] Remove the `purgelist` bullet.
-- [ ] Before committing, diff the regenerated Gautschi, Gilbreth and Negishi `agents.d/` against
+- [x] Remove the `purgelist` bullet.
+- [x] Before committing, diff the regenerated Gautschi, Gilbreth and Negishi `agents.d/` against
       `main`: only the `purgelist` lines may change.
-- [ ] Update `docs/snippets/agentic-ai/GENERATED.md`.
+- [x] Update `docs/snippets/agentic-ai/GENERATED.md`.
 - **Touches:** `tools/generate_agent_context.py`, `tools/agent_context/templates/**`,
   `docs/snippets/agentic-ai/**`.
 

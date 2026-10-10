@@ -34,3 +34,11 @@ provided, `module load rcac`) for the recommended stack, and verify with `module
   into a job script.
 - For Python, prefer the `anaconda` modules and user environments rather than modifying
   a base installation.
+{% if notes.lmod %}
+
+## {{ title }} specifics
+
+{% for n in notes.lmod %}
+- {{ n }}
+{% endfor %}
+{% endif %}

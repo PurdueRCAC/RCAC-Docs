@@ -3,14 +3,22 @@
 All real computation on {{ title }} runs as **Slurm** jobs. Never run compute on a login
 node (see `unix.md`) — submit it here.
 
+{% if scheduler.require_qos %}
 ## Every {{ title }} job needs four things
 
 A job request must specify **resources**, an **account**, a **QOS**, and a
 **partition**. On {{ title }} you MUST explicitly set **both the account
 (`-A`/`--account=`) and the partition (`-p`/`--partition=`)**; also set the QOS
 (`-q`/`--qos=`) and always a time limit (`--time`).
+{% else %}
+## Every {{ title }} job needs three things
 
-- Discover the accounts you can charge (and their balances) with **`slist`** — do not
+A job request must specify **resources**, an **account**, and a **partition**. On
+{{ title }} you MUST explicitly set **both the account (`-A`/`--account=`) and the
+partition (`-p`/`--partition=`)**, and always a time limit (`--time`).
+{% endif %}
+
+- Discover the accounts you can {% if charging %}charge (and their balances){% else %}submit to{% endif %} with **`{{ commands.accounts }}`** — do not
   guess an account name.
 - Set a realistic `--time`; memory is allocated in proportion to the cores you request.
 
@@ -21,8 +29,9 @@ A job request must specify **resources**, an **account**, a **QOS**, and a
 {% for p in partitions %}
 | `{{ p.name }}` | {{ p.use }} | {{ p.notes }} |
 {% endfor %}
+{% if qos %}
 
-## QOS and charging
+## QOS{% if charging %} and charging{% endif +%}
 
 {% if 'normal' in qos %}
 - **`normal`** — the default; normal priority, charged against your account.
@@ -39,11 +48,15 @@ A job request must specify **resources**, an **account**, a **QOS**, and a
 - **`training`** — required for the `training` partition (`-q training`); low priority,
   **not charged**, max 24 hours.
 {% endif %}
+{% for q in qos if q is mapping %}
+- **`{{ q.name }}`** — {{ q.text }}
+{% endfor %}
+{% endif %}
 
 ## Common commands
 
 `sbatch` (submit a batch script), `squeue -u $USER` (your jobs), `scontrol show job
-<id>` (job detail), `scontrol hold`/`release`, `scancel <id>` (cancel), `sinteractive`
+<id>` (job detail), `scontrol hold`/`release`, `scancel <id>` (cancel), `{{ commands.interactive }}`
 (interactive job), `srun` (launch tasks).
 
 ## Prohibitions
@@ -51,10 +64,20 @@ A job request must specify **resources**, an **account**, a **QOS**, and a
 {% for ap in anti_patterns %}
 - {{ ap }}
 {% endfor %}
+{% if 'standby' in qos %}
 - **Do NOT** write `-A standby` or `#SBATCH -A standby` — `standby` is a QOS
   (`-q standby`), not an account.
+{% endif %}
 - **Do NOT** emit flags for other schedulers (PBS/Torque `#PBS`, LSF `#BSUB`) — this is
   Slurm.
-- **Do NOT** invent partition or QOS names; the valid sets are listed above.
+- **Do NOT** invent {% if qos %}partition or QOS names; the valid sets are{% else %}partition names; the valid partitions are{% endif %} listed above.
 - **Do NOT** submit jobs without a `--time` limit, and **do NOT** `scancel` jobs you do
   not own or run bulk cancellations without confirming with the user.
+{% if notes.slurm %}
+
+## {{ title }} specifics
+
+{% for n in notes.slurm %}
+- {{ n }}
+{% endfor %}
+{% endif %}

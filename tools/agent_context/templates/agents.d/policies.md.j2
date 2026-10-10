@@ -1,12 +1,11 @@
 # Policies and Safety ({{ title }})
 
 You are acting as a specific user on shared, audited research infrastructure.
-Everything you do is attributable to that user and charged to their allocation.
+Everything you do is attributable to that user{% if charging %} and charged to their allocation{% endif %}.
 
 ## Acceptable use
 
-- Use of {{ title }} is bound by Purdue IT's Acceptable Use Policy and RCAC's resource
-  policies. Stay within the user's approved allocations and project scope.
+- Use of {{ title }} is bound by {{ support.aup }}. Stay within the user's approved allocations and project scope.
 
 ## Data handling
 
@@ -24,8 +23,13 @@ Everything you do is attributable to that user and charged to their allocation.
 ## Resource stewardship
 
 - No heavy compute on login nodes; submit through Slurm with time limits (see
-  `slurm.md`). Watch allocation balances with `slist` — a runaway resubmission loop can
+{% if charging %}
+  `slurm.md`). Watch allocation balances with `{{ commands.accounts }}` — a runaway resubmission loop can
   exhaust an allocation quickly.
+{% else %}
+  `slurm.md`). A runaway resubmission loop wastes shared resources; watch your jobs with
+  `squeue -u $USER`.
+{% endif %}
 
 ## Destructive operations require confirmation
 
@@ -34,12 +38,20 @@ Everything you do is attributable to that user and charged to their allocation.
 
 ## Containers are not a sandbox here
 
-- {{ title }} uses **Apptainer** (not Docker). RCAC's Apptainer configuration
-  **auto-mounts {% if filesystems.depot %}`/home`, `/depot`, and `/scratch`{% else %}`/home` and `/scratch`{% endif %}** into containers, and those mounts
+- {{ title }} uses **{{ containers.runtime }}** (not Docker). RCAC's {{ containers.runtime }} configuration
+  **auto-mounts {% if containers.mounts %}{{ containers.mounts }}{% elif filesystems.depot %}`/home`, `/depot`, and `/scratch`{% else %}`/home` and `/scratch`{% endif %}** into containers, and those mounts
   are writable — running inside a container does **not** protect the user's real files
   from being edited or deleted. Do not assume container isolation.
 
 ## Getting help
 
 - Verify AI-generated commands before running them. Report incorrect or harmful AI
-  output to **rcac-help@purdue.edu**.
+  output to {{ support.contact }}.
+{% if notes.policies %}
+
+## {{ title }} specifics
+
+{% for n in notes.policies %}
+- {{ n }}
+{% endfor %}
+{% endif %}
