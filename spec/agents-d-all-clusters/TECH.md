@@ -1,83 +1,129 @@
 ---
 slug: agents-d-all-clusters
-title: "/etc/agents.d context for every cluster; retire per-harness settings"
+title: /etc/agents.d context for every cluster; retire per-harness settings
 kind: feature
 appetite: big
 status: in_progress
 branch: feature/agents-d-all-clusters
 base: main
-current_phase: P1
-last_updated: "2026-10-09"
+current_phase: P2
+last_updated: '2026-10-09'
 phases:
-  - id: P1
-    name: "Retire per-harness settings from the pages (stub, MCP docs-server tabs)"
-    status: pending
-    satisfies: [R4, R5]
-    depends_on: []
-    parallel: false
-    hammerable: false
-    hill: uphill
-    verify: ".venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py && grep -q 'shared_context/settings.md' mkdocs.yml && ! grep -rlq 'managed-settings' site/ && grep -rq 'docs.rcac.purdue.edu/mcp' site/agentic-ai/mcp_servers/"
-  - id: P2
-    name: "Generator: emit context only; data-driven templates; drop purgelist"
-    status: pending
-    satisfies: [R2, R7]
-    depends_on: [P1]
-    parallel: false
-    hammerable: false
-    hill: uphill
-    verify: "git add -A docs/snippets/agentic-ai && .venv/bin/python tools/generate_agent_context.py && git diff --quiet -- docs/snippets/agentic-ai && ! grep -rq 'purgelist' docs/snippets/agentic-ai/ && .venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py"
-  - id: P3
-    name: "Anvil: data model and Using AI Agents chapter"
-    status: pending
-    satisfies: [R1, R2, R3]
-    depends_on: [P2]
-    parallel: false
-    hammerable: false
-    hill: uphill
-    verify: "git add -A docs/snippets/agentic-ai && .venv/bin/python tools/generate_agent_context.py && git diff --quiet -- docs/snippets/agentic-ai && ! (grep -h 'slist\\|findscratch\\|RCAC_SCRATCH\\|hsi\\|htar\\|standby\\|rcac-help' docs/snippets/agentic-ai/anvil/agents.d/*.md | grep -v 'Do NOT' | grep -q .) && .venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py && grep -q 'userguides/anvil/using_ai_agents.md' mkdocs.yml && grep -q 'anvil.yml' site/userguides/anvil/using_ai_agents/index.html"
-  - id: P4
-    name: "Scholar: data model and Using AI Agents chapter"
-    status: pending
-    satisfies: [R1, R2, R3]
-    depends_on: [P3]
-    parallel: false
-    hammerable: false
-    hill: uphill
-    verify: "git add -A docs/snippets/agentic-ai && .venv/bin/python tools/generate_agent_context.py && git diff --quiet -- docs/snippets/agentic-ai && ! (grep -h 'standby\\|preemptible' docs/snippets/agentic-ai/scholar/agents.d/*.md | grep -v 'Do NOT' | grep -q .) && ! grep -q 'None' docs/snippets/agentic-ai/scholar/agents.d/AGENTS.md && .venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py && grep -q 'userguides/scholar/using_ai_agents.md' mkdocs.yml && grep -q 'scholar.yml' site/userguides/scholar/using_ai_agents/index.html"
-  - id: P5
-    name: "How the context reaches an agent: per-harness opt-in and rcac://context"
-    status: pending
-    satisfies: [R6]
-    depends_on: [P4]
-    parallel: false
-    hammerable: false
-    hill: uphill
-    verify: ".venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py && grep -rq 'etc/agents.d/AGENTS.md' site/agentic-ai/shared_context/ && ! grep -rqi 'symlinked to' site/agentic-ai/"
-  - id: P6
-    name: "Plain-language pass over the section and the five chapters"
-    status: pending
-    satisfies: [R8]
-    depends_on: [P5]
-    parallel: false
-    hammerable: true
-    hill: uphill
-    verify: ".venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py && ! grep -rqi 'absorbs the cluster\\|not prohibition\\|push back' docs/agentic-ai/ docs/userguides/*/using_ai_agents.md"
-  - id: P7
-    name: "Integration: cross-links to all five chapters, breadcrumbs, final checks"
-    status: pending
-    satisfies: [R3, R4, R7, R9]
-    depends_on: [P6]
-    parallel: false
-    hammerable: false
-    hill: uphill
-    verify: "git add -A docs/snippets/agentic-ai && .venv/bin/python tools/generate_agent_context.py && git diff --quiet -- docs/snippets/agentic-ai && .venv/bin/python tools/generate_breadcrumbs.py && test -z \"$(git status --porcelain docs/assets/data/breadcrumbs.json)\" && .venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py && ! grep -rlq 'managed-settings' site/ && for c in anvil gautschi gilbreth negishi scholar; do grep -q \"$c.yml\" site/userguides/$c/using_ai_agents/index.html || exit 1; done"
+- id: P1
+  name: Retire per-harness settings from the pages (stub, MCP docs-server tabs)
+  status: done
+  satisfies:
+  - R4
+  - R5
+  depends_on: []
+  parallel: false
+  hammerable: false
+  hill: uphill
+  verify: .venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py
+    && grep -q 'shared_context/settings.md' mkdocs.yml && ! grep -rlq 'managed-settings'
+    site/ && grep -rq 'docs.rcac.purdue.edu/mcp' site/agentic-ai/mcp_servers/
+- id: P2
+  name: 'Generator: emit context only; data-driven templates; drop purgelist'
+  status: pending
+  satisfies:
+  - R2
+  - R7
+  depends_on:
+  - P1
+  parallel: false
+  hammerable: false
+  hill: uphill
+  verify: git add -A docs/snippets/agentic-ai && .venv/bin/python tools/generate_agent_context.py
+    && git diff --quiet -- docs/snippets/agentic-ai && ! grep -rq 'purgelist' docs/snippets/agentic-ai/
+    && .venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py
+- id: P3
+  name: 'Anvil: data model and Using AI Agents chapter'
+  status: pending
+  satisfies:
+  - R1
+  - R2
+  - R3
+  depends_on:
+  - P2
+  parallel: false
+  hammerable: false
+  hill: uphill
+  verify: git add -A docs/snippets/agentic-ai && .venv/bin/python tools/generate_agent_context.py
+    && git diff --quiet -- docs/snippets/agentic-ai && ! (grep -h 'slist\|findscratch\|RCAC_SCRATCH\|hsi\|htar\|standby\|rcac-help'
+    docs/snippets/agentic-ai/anvil/agents.d/*.md | grep -v 'Do NOT' | grep -q .) &&
+    .venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py
+    && grep -q 'userguides/anvil/using_ai_agents.md' mkdocs.yml && grep -q 'anvil.yml'
+    site/userguides/anvil/using_ai_agents/index.html
+- id: P4
+  name: 'Scholar: data model and Using AI Agents chapter'
+  status: pending
+  satisfies:
+  - R1
+  - R2
+  - R3
+  depends_on:
+  - P3
+  parallel: false
+  hammerable: false
+  hill: uphill
+  verify: git add -A docs/snippets/agentic-ai && .venv/bin/python tools/generate_agent_context.py
+    && git diff --quiet -- docs/snippets/agentic-ai && ! (grep -h 'standby\|preemptible'
+    docs/snippets/agentic-ai/scholar/agents.d/*.md | grep -v 'Do NOT' | grep -q .)
+    && ! grep -q 'None' docs/snippets/agentic-ai/scholar/agents.d/AGENTS.md && .venv/bin/mkdocs
+    build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py &&
+    grep -q 'userguides/scholar/using_ai_agents.md' mkdocs.yml && grep -q 'scholar.yml'
+    site/userguides/scholar/using_ai_agents/index.html
+- id: P5
+  name: 'How the context reaches an agent: per-harness opt-in and rcac://context'
+  status: pending
+  satisfies:
+  - R6
+  depends_on:
+  - P4
+  parallel: false
+  hammerable: false
+  hill: uphill
+  verify: .venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py
+    && grep -rq 'etc/agents.d/AGENTS.md' site/agentic-ai/shared_context/ && ! grep
+    -rqi 'symlinked to' site/agentic-ai/
+- id: P6
+  name: Plain-language pass over the section and the five chapters
+  status: pending
+  satisfies:
+  - R8
+  depends_on:
+  - P5
+  parallel: false
+  hammerable: true
+  hill: uphill
+  verify: .venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py
+    && ! grep -rqi 'absorbs the cluster\|not prohibition\|push back' docs/agentic-ai/
+    docs/userguides/*/using_ai_agents.md
+- id: P7
+  name: 'Integration: cross-links to all five chapters, breadcrumbs, final checks'
+  status: pending
+  satisfies:
+  - R3
+  - R4
+  - R7
+  - R9
+  depends_on:
+  - P6
+  parallel: false
+  hammerable: false
+  hill: uphill
+  verify: git add -A docs/snippets/agentic-ai && .venv/bin/python tools/generate_agent_context.py
+    && git diff --quiet -- docs/snippets/agentic-ai && .venv/bin/python tools/generate_breadcrumbs.py
+    && test -z "$(git status --porcelain docs/assets/data/breadcrumbs.json)" && .venv/bin/mkdocs
+    build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py &&
+    ! grep -rlq 'managed-settings' site/ && for c in anvil gautschi gilbreth negishi
+    scholar; do grep -q "$c.yml" site/userguides/$c/using_ai_agents/index.html ||
+    exit 1; done
 review:
-  last_reviewed_commit: ""
+  last_reviewed_commit: ''
   verdict: none
-  blocked_reason: ""
+  blocked_reason: ''
 ---
-
 # TECH.md — `/etc/agents.d` context for every cluster; retire per-harness settings
 
 The finite-state machine for this job. The YAML frontmatter is the resume ground truth
@@ -105,15 +151,15 @@ The finite-state machine for this job. The YAML frontmatter is the resume ground
 **Satisfies:** R4, R5 · **Depends on:** —
 **Goal:** no page presents a settings file as RCAC-deployed; the old URL resolves to a stub.
 
-- [ ] Replace `docs/agentic-ai/shared_context/settings.md` with the stub (PLAN §2.3).
-- [ ] `mcp_servers.md`: add the four-tab docs-server registration block (Claude Code, Codex,
+- [x] Replace `docs/agentic-ai/shared_context/settings.md` with the stub (PLAN §2.3).
+- [x] `mcp_servers.md`: add the four-tab docs-server registration block (Claude Code, Codex,
       Gemini CLI, opencode) carried over from the settings templates; re-check each form
       against `research/05`.
-- [ ] Remove the `managed-settings.json` paragraph and include from the three chapters.
-- [ ] Replace the settings sentences in `index.md`, `acceptable_use.md`, `best_practices.md`,
+- [x] Remove the `managed-settings.json` paragraph and include from the three chapters.
+- [x] Replace the settings sentences in `index.md`, `acceptable_use.md`, `best_practices.md`,
       `running_agents/on_cluster.md`, `running_agents/local.md`, `shared_context/index.md`
       (research/05 C.2) with harness-own approval advice.
-- [ ] `mkdocs.yml`: relabel "Shared Context & Settings" → "Shared Context" and the settings
+- [x] `mkdocs.yml`: relabel "Shared Context & Settings" → "Shared Context" and the settings
       entry → "Harness Settings (Retired)"; regenerate breadcrumbs.
 - **Verify:** see frontmatter.
 - **Touches:** `docs/agentic-ai/**`, `docs/userguides/{gautschi,gilbreth,negishi}/using_ai_agents.md`,
@@ -163,6 +209,12 @@ from data; the existing three regenerate identically apart from `purgelist`.
 **Satisfies:** R6 · **Depends on:** P4
 **Goal:** the pages describe what is true: files on login and compute nodes, a one-time
 per-cluster opt-in per harness, and `rcac://context` on demand for local agents.
+
+> **Amended 2026-10-09 (P1):** the page rewrites for this phase landed in P1, because the same
+> paragraphs carried the settings text: `shared_context/index.md` (Load the context in your
+> harness), `context_files.md`, `mcp_servers.md`, `running_agents/{on_cluster,local}.md`, and
+> the chapter shape. P5 now re-reads those pages against `research/05` A–B and checks that
+> the Anvil and Scholar chapters carry the same wording.
 
 - [ ] `shared_context/index.md`: "Load it in your harness" section with tabs (research/05 A.1–A.5),
       including the Codex existing-file and Gemini `fileName`-order caveats; local agents via

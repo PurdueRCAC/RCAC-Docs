@@ -8,27 +8,19 @@ authors:
 
 # Agentic AI at RCAC
 
-Researchers on RCAC's clusters are already using agentic coding tools — Claude
-Code, OpenAI Codex, Gemini CLI, opencode, and Warp — to write Slurm scripts,
-debug failing jobs, move data, and explore software. RCAC's stance is
-**proactive engagement, not prohibition**. Rather than forbidding these tools,
-we shape the context in which you use them so their output is more likely to be
-correct for *our* systems, and we give you what you need to **verify** that
-output rather than simply trust it.
+Researchers on RCAC's clusters use agentic coding tools (Claude Code, OpenAI Codex, Gemini
+CLI, opencode and Warp) to write Slurm scripts, debug failing jobs, move data and explore
+software. RCAC does not prohibit these tools. It publishes cluster-specific context that makes
+their output more likely to be correct on RCAC systems, and guidance on checking that output.
 
-These tools are genuinely useful, but they are also capable of producing
-confident, plausible, and wrong answers: a Slurm script for a scheduler we don't
-run, a module name that doesn't exist, a path on the wrong filesystem. The aim of
-this section is to make the tools work *well* on RCAC by giving them accurate,
-cluster-specific context, and to give you the judgment to check what they produce.
-Treat an agent as **augmenting your expertise, not outsourcing it** — ask *why*,
-not just *what*.
+These tools can produce answers that look correct and are wrong: a Slurm script for a
+scheduler RCAC does not run, a module name that doesn't exist, a path on the wrong
+filesystem. This section describes the context RCAC provides and how to check what an agent
+produces. Review what the agent proposes, and ask it to explain its choices.
 
-!!! note "Early and evolving"
+!!! note "New and changing"
 
-    This is new, actively-developed work. The MCP servers, the shared context
-    files, and the per-harness settings documented here are prototypes that will
-    change over time. We publish them openly and invite your feedback — see the
+    The MCP servers and the shared context files are new and will change. See the
     shared-context pages for how to send corrections.
 
 ## In this section
@@ -39,8 +31,8 @@ not just *what*.
 
     ---
 
-    The rules for running agents on RCAC systems, consistent with Purdue's
-    Acceptable Use Policy.
+    The rules for running agents on RCAC systems, consistent with Purdue's Acceptable Use
+    Policy.
 
     [:octicons-arrow-right-24: Acceptable Use & Etiquette](acceptable_use.md)
 
@@ -48,8 +40,8 @@ not just *what*.
 
     ---
 
-    Using an agent *for research* versus *for operations*; context engineering;
-    verifying output; and the caution/blast-radius risks.
+    Using an agent for research versus operations; giving it context; checking output; and
+    the risks of letting an agent run commands.
 
     [:octicons-arrow-right-24: Best Practices & Limitations](best_practices.md)
 
@@ -57,8 +49,8 @@ not just *what*.
 
     ---
 
-    RCAC's MCP servers (`rcac-mcp`, `globus-mcp`, `rcac-docs-mcp`) and how they give
-    an agent context that knows our clusters.
+    RCAC's MCP servers (`rcac-mcp`, `globus-mcp`, `rcac-docs-mcp`) and what they let an
+    agent do.
 
     [:octicons-arrow-right-24: MCP Servers](mcp_servers.md)
 
@@ -66,30 +58,27 @@ not just *what*.
 
     ---
 
-    Set up your harness on the cluster (login nodes) or locally, targeting the
-    cluster over SSH — for all five harnesses.
+    Set up your harness on the cluster (login nodes) or on your own machine, reaching the
+    cluster over SSH, for all five harnesses.
 
     [:octicons-arrow-right-24: Running Agents](running_agents/index.md)
 
--   :material-file-cog:{ .lg .middle } __Shared Context & Settings__
+-   :material-file-cog:{ .lg .middle } __Shared Context__
 
     ---
 
-    The actual context files and per-harness settings each cluster deploys, published
-    verbatim as the canonical source of truth — plus how to send feedback.
+    The context files RCAC places on each cluster, and how to connect your harness to them.
 
-    [:octicons-arrow-right-24: Shared Context & Settings](shared_context/index.md)
+    [:octicons-arrow-right-24: Shared Context](shared_context/index.md)
 
 </div>
 
-For cluster-specific setup pointers, see the **Using AI Agents** chapter in each
-cluster's user guide — for example
+For cluster-specific setup, see the *Using AI Agents* chapter in each cluster's user guide:
 [Gautschi](../userguides/gautschi/using_ai_agents.md),
-[Negishi](../userguides/negishi/using_ai_agents.md), or
-[Gilbreth](../userguides/gilbreth/using_ai_agents.md).
+[Gilbreth](../userguides/gilbreth/using_ai_agents.md) and
+[Negishi](../userguides/negishi/using_ai_agents.md).
 
 ---
 
-*RCAC's approach to agentic computing is described in the PEARC'26 paper "Hello
-Computer: HPC in the Agentic Era" (Lentner & Ashish, 2026) — see the
-[replication package](https://github.com/glentner/pearc26-hello-computer).*
+Reference: Lentner and Ashish, "Hello Computer: HPC in the Agentic Era", PEARC'26 (2026);
+[replication package](https://github.com/glentner/pearc26-hello-computer).

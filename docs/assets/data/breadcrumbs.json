@@ -1420,19 +1420,19 @@
   "/agentic-ai/shared_context/": [
     "Home",
     "Agentic AI",
-    "Shared Context & Settings"
+    "Shared Context"
   ],
   "/agentic-ai/shared_context/context_files/": [
     "Home",
     "Agentic AI",
-    "Shared Context & Settings",
+    "Shared Context",
     "Context Files (/etc/agents.d)"
   ],
   "/agentic-ai/shared_context/settings/": [
     "Home",
     "Agentic AI",
-    "Shared Context & Settings",
-    "Harness Settings & Permissions"
+    "Shared Context",
+    "Harness Settings (Retired)"
   ],
   "/services/genai/": [
     "Home",

@@ -410,10 +410,10 @@ nav:
         - agentic-ai/running_agents/index.md
         - On the Cluster (Login Nodes): agentic-ai/running_agents/on_cluster.md
         - Local (over SSH): agentic-ai/running_agents/local.md
-      - Shared Context & Settings:
+      - Shared Context:
         - agentic-ai/shared_context/index.md
         - Context Files (/etc/agents.d): agentic-ai/shared_context/context_files.md
-        - Harness Settings & Permissions: agentic-ai/shared_context/settings.md
+        - Harness Settings (Retired): agentic-ai/shared_context/settings.md
     - Purdue GenAI Studio:
       - services/genai/index.md
       - Chat Interface: services/genai/chat-interface.md
