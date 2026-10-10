@@ -28,6 +28,7 @@ search:
 - [**Job Submission**](jobs.md)
 - [**File Management**](file_management.md)
 - [**Anvil Software**](anvil-software.md)
+- [**Using AI Agents**](using_ai_agents.md)
 - [**Frequently Asked Questions**](faqs.md)
 
 ## Other Services

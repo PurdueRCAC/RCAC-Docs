@@ -6,7 +6,7 @@ appetite: big
 status: in_progress
 branch: feature/agents-d-all-clusters
 base: main
-current_phase: P3
+current_phase: P4
 last_updated: '2026-10-09'
 phases:
 - id: P1
@@ -38,7 +38,7 @@ phases:
     && .venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py
 - id: P3
   name: 'Anvil: data model and Using AI Agents chapter'
-  status: pending
+  status: done
   satisfies:
   - R1
   - R2
@@ -186,9 +186,9 @@ from data; the existing three regenerate identically apart from `purgelist`.
 **Satisfies:** R1, R2, R3 · **Depends on:** P2
 **Goal:** Anvil's context is correct for Anvil and is shown in its guide.
 
-- [ ] Write `tools/agent_context/clusters/anvil.yml` (PLAN §2.2; cite sources in comments).
-- [ ] Regenerate; read the five rendered files line by line against `research/01`.
-- [ ] Create `docs/userguides/anvil/using_ai_agents.md`; add it to nav after
+- [x] Write `tools/agent_context/clusters/anvil.yml` (PLAN §2.2; cite sources in comments).
+- [x] Regenerate; read the five rendered files line by line against `research/01`.
+- [x] Create `docs/userguides/anvil/using_ai_agents.md`; add it to nav after
       `anvil-software.md` and to `docs/userguides/anvil/index.md` before FAQs; regenerate
       breadcrumbs.
 - **Touches:** `tools/agent_context/clusters/anvil.yml`, `docs/snippets/agentic-ai/anvil/**`,
