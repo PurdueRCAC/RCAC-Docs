@@ -9,10 +9,10 @@ scratch_path: /scratch/gilbreth
 
 filesystems:
   home:
-    tech: GPFS
+    tech: ZFS                         # staff-confirmed 2026-10-10 (the shared home snippet said GPFS)
     snapshots: nightly snapshots kept for 7 days, weekly for 4 weeks, and monthly for 3 months (recoverable)
   scratch:
-    tech: null
+    tech: Lustre                      # staff-confirmed 2026-10-10; the guide does not name it
     purge_days: 60
   depot: true
   fortress: true

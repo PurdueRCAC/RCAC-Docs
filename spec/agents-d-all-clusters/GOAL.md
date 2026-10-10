@@ -117,6 +117,27 @@ change. The prose is plain and instructional.
   files are purged at 30 days with no grace period or warning; containers mount `/anvil`,
   `/home` and `/tmp`. Re-confirmed R1, R2.
 
+### Amendment 2026-10-10 (after review, directed by the human)
+
+- **Python guidance changes on every cluster.** The context recommends the `conda` module
+  (Miniforge) and tells the agent not to use the `anaconda` module for new environments. It
+  also names `uv` as a good choice for pip-style project environments, installed in user
+  space. Staff-confirmed: `conda` is the preferred Python module on all five clusters.
+  Re-confirmed R1, R2.
+- **RCAC job helpers are listed on every cluster.** `jobinfo`, `jobscript`, `jobcmd` and
+  `jobenv` are installed on all five clusters (staff-confirmed); the user guides document
+  them only partly. Re-confirmed R1.
+- **Storage technologies corrected** (staff-confirmed): home is ZFS on every cluster, scratch
+  is Lustre on Gautschi, Gilbreth and Negishi, and Scholar's scratch is served by the same ZFS
+  system as home. Anvil is unchanged (GPFS scratch and project). The shared home-directory
+  snippet said GPFS; it is corrected here because the agent context had copied the error
+  from it. Re-confirmed R1.
+- **Docs defects found in this job are recorded for follow-up work**, not fixed here (the
+  Anvil overview's OS line, the Anvil architecture page's Ceph/Lustre sentence, the scratch
+  pages that do not name the filesystem or call Scholar's a parallel filesystem, and the
+  Scholar and Anvil page errors noted in `research/`). The documentation factory does not yet
+  have a place to queue them; adding one is planned as a separate harness change.
+
 ## Related materials
 
 - Prior job: [`spec/agentic-ai-docs/`](../agentic-ai-docs/GOAL.md).

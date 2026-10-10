@@ -58,6 +58,12 @@ partition (`-p`/`--partition=`)**, and always a time limit (`--time`).
 `sbatch` (submit a batch script), `squeue -u $USER` (your jobs), `scontrol show job
 <id>` (job detail), `scontrol hold`/`release`, `scancel <id>` (cancel), `{{ commands.interactive }}`
 (interactive job), `srun` (launch tasks).
+{% if commands.job_helpers %}
+
+RCAC helpers: `jobinfo <id>` (one view of a running or finished job, from `sacct`, `sstat`
+and `squeue`), `jobscript <id>` (the job's submission script), `jobcmd <id>` (its
+submission command line), `jobenv <id>` (its environment).
+{% endif %}
 
 ## Prohibitions
 

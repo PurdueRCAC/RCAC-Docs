@@ -18,11 +18,13 @@ charging: false
 
 filesystems:
   home:
-    tech: GPFS                        # storage/home_directory.md
+    tech: ZFS                         # staff-confirmed 2026-10-10 (storage/home_directory.md said GPFS)
     snapshots: nightly snapshots kept for 7 days, weekly for 4 weeks, and monthly for 3 months (recoverable)
   scratch:
-    # storage/scratch_space.md says only "high-performance, large-capacity parallel filesystem".
-    tech: null
+    # Staff-confirmed 2026-10-10: served by the same ZFS system as home, not a parallel
+    # filesystem (storage/scratch_space.md says "parallel filesystem").
+    tech: ZFS
+    tech_text: ZFS, served by the same storage system as home (not a parallel filesystem)
     purge_days: 60                    # storage/scratch_space.md
   depot: true                         # mounted (scholar-spark.md "Layout"; apptainer_example.md)
   fortress: true                      # storage/long_term_storage.md, hsi.md, htar.md

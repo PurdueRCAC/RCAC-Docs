@@ -5,7 +5,7 @@ Home directories are provided for long-term file storage. Each user has one home
 
 Daily snapshots of your home directory are provided for a limited period of time in the event of accidental deletion. For additional security, you should store another copy of your files on more permanent storage, such as the [Fortress HPSS Archive](https://www.rcac.purdue.edu/storage/fortress).
 
-Your home directory physically resides on a GPFS storage system in the data center. To find the path to your home directory, first log in then immediately enter the following:
+Your home directory physically resides on a ZFS storage system in the data center. To find the path to your home directory, first log in then immediately enter the following:
 
 ```bash
 $ pwd

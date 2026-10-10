@@ -82,3 +82,18 @@ Observation, out of scope: `rcac-mcp`'s `rcac://context` returns the topic files
 - High-impact paths are touched (`mkdocs.yml`, `docs/snippets/**`, `tools/**`), but no CONFIRMED
   finding, so the mandatory gate does not trigger. The opt-in instructions users will copy were
   the reviewer's suggested human look before publishing.
+
+## Post-review changes (2026-10-10)
+
+The human's read-through of the five assembled `AGENTS.md` files added the facts in the GOAL's
+2026-10-10 Amendment. They landed after the reviewed commit and were checked by the author, not
+re-reviewed:
+
+- Templates: a `## Python` section in `lmod` (`conda` over `anaconda`, `uv`); an RCAC helpers
+  line in `slurm`, switchable per cluster (`commands.job_helpers`); an optional
+  `filesystems.scratch.tech_text` override in `filesystems`.
+- Data: home `ZFS` for Gilbreth, Negishi and Scholar; scratch `Lustre` for Gilbreth and
+  Negishi; Scholar scratch described with `tech_text`.
+- `docs/snippets/home_directory.md`: GPFS → ZFS.
+- Verification: strict gate PASS; generator re-run is idempotent; every changed line in the
+  five generated sets traces to the 2026-10-10 Amendment.

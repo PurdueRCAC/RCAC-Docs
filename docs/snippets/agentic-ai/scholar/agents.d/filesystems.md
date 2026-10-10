@@ -7,14 +7,14 @@ checking.
 
 ## Home — `/home/$USER` (`$HOME`)
 
-- **Technology:** GPFS, with nightly snapshots kept for 7 days, weekly for 4 weeks, and monthly for 3 months (recoverable).
+- **Technology:** ZFS, with nightly snapshots kept for 7 days, weekly for 4 weeks, and monthly for 3 months (recoverable).
 - **Use for:** source code, scripts, configuration, small files. It is
   medium-performance and space-limited.
 - **Do NOT** stage large datasets or run heavy parallel job I/O here.
 
 ## Scratch — `/scratch/scholar/$USER` (`$RCAC_SCRATCH`)
 
-- **Technology:** a high-performance, large-capacity parallel filesystem.
+- **Technology:** ZFS, served by the same storage system as home (not a parallel filesystem).
 - **Use for:** active job input/output and large working data. Point writable working
   files here (`$RCAC_SCRATCH`), not at home. Find the path with `findscratch`.
 - **Not backed up, and purged after 60 days of inactivity** (by last access and

@@ -55,14 +55,14 @@ checking.
 
 ## Home — `/home/$USER` (`$HOME`)
 
-- **Technology:** GPFS, with nightly snapshots kept for 7 days, weekly for 4 weeks, and monthly for 3 months (recoverable).
+- **Technology:** ZFS, with nightly snapshots kept for 7 days, weekly for 4 weeks, and monthly for 3 months (recoverable).
 - **Use for:** source code, scripts, configuration, small files. It is
   medium-performance and space-limited.
 - **Do NOT** stage large datasets or run heavy parallel job I/O here.
 
 ## Scratch — `/scratch/negishi/$USER` (`$RCAC_SCRATCH`)
 
-- **Technology:** a high-performance, large-capacity parallel filesystem.
+- **Technology:** Lustre, a high-performance parallel filesystem.
 - **Use for:** active job input/output and large working data. Point writable working
   files here (`$RCAC_SCRATCH`), not at home. Find the path with `findscratch`.
 - **Not backed up, and purged after 60 days of inactivity** (by last access and
@@ -128,8 +128,13 @@ The recommended compiler and MPI stack is **GCC 12.2.0 with OpenMPI**. Check
 - **Do NOT invent module names or versions.** Verify a package and version exist with
   `module spider` (or `module avail`) before claiming it is available or writing it
   into a job script.
-- For Python, prefer the `anaconda` modules and user environments rather than modifying
-  a base installation.
+
+## Python
+
+- Use the `conda` module (Miniforge) for Python, and create your own environments with
+  it rather than modifying a base installation.
+- **Do NOT** use the `anaconda` module for new environments. `conda` replaces it.
+- `uv` is a good choice for pip-style project environments; install it in user space.
 
 <!-- Source: slurm.md -->
 
@@ -168,6 +173,10 @@ A job request must specify **resources**, an **account**, a **QOS**, and a
 `sbatch` (submit a batch script), `squeue -u $USER` (your jobs), `scontrol show job
 <id>` (job detail), `scontrol hold`/`release`, `scancel <id>` (cancel), `sinteractive`
 (interactive job), `srun` (launch tasks).
+
+RCAC helpers: `jobinfo <id>` (one view of a running or finished job, from `sacct`, `sstat`
+and `squeue`), `jobscript <id>` (the job's submission script), `jobcmd <id>` (its
+submission command line), `jobenv <id>` (its environment).
 
 ## Prohibitions
 

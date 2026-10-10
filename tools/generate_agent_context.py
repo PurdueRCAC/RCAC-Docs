@@ -44,6 +44,8 @@ DEFAULTS = {
         "features": "sfeatures",
         "findscratch": "findscratch",
         "interactive": "sinteractive",
+        # RCAC wrappers jobinfo/jobscript/jobcmd/jobenv (staff-confirmed on every cluster).
+        "job_helpers": True,
     },
     "env": {"scratch": "RCAC_SCRATCH"},
     "scheduler": {"require_qos": True},

@@ -33,6 +33,10 @@ partition (`-p`/`--partition=`)**, and always a time limit (`--time`).
 <id>` (job detail), `scontrol hold`/`release`, `scancel <id>` (cancel), `sinteractive`
 (interactive job), `srun` (launch tasks).
 
+RCAC helpers: `jobinfo <id>` (one view of a running or finished job, from `sacct`, `sstat`
+and `squeue`), `jobscript <id>` (the job's submission script), `jobcmd <id>` (its
+submission command line), `jobenv <id>` (its environment).
+
 ## Prohibitions
 
 - **Do NOT** request a `standby`, `partner`, or owner queue or QOS. None exist on Anvil, and all partitions have equal priority.

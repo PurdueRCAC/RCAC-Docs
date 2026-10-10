@@ -14,7 +14,7 @@ checking.
 
 ## Scratch — {% if scratch_path %}`{{ scratch_path }}/$USER` (`${{ env.scratch }}`){% else %}`${{ env.scratch }}`{% endif +%}
 
-- **Technology:** {% if filesystems.scratch.tech %}{{ filesystems.scratch.tech }}, a high-performance parallel filesystem{% else %}a high-performance, large-capacity parallel filesystem{% endif %}.
+- **Technology:** {% if filesystems.scratch.tech_text is defined %}{{ filesystems.scratch.tech_text }}{% elif filesystems.scratch.tech %}{{ filesystems.scratch.tech }}, a high-performance parallel filesystem{% else %}a high-performance, large-capacity parallel filesystem{% endif %}.
 - **Use for:** active job input/output and large working data. Point writable working
   files here (`${{ env.scratch }}`), not at home.{% if commands.findscratch %} Find the path with `{{ commands.findscratch }}`.{% endif +%}
 {% if filesystems.scratch.purge_text is defined %}
