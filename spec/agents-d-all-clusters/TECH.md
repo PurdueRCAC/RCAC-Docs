@@ -6,7 +6,7 @@ appetite: big
 status: in_progress
 branch: feature/agents-d-all-clusters
 base: main
-current_phase: P6
+current_phase: P7
 last_updated: '2026-10-09'
 phases:
 - id: P1
@@ -88,7 +88,7 @@ phases:
     -rqi 'symlinked to' site/agentic-ai/
 - id: P6
   name: Plain-language pass over the section and the five chapters
-  status: pending
+  status: done
   satisfies:
   - R8
   depends_on:
@@ -227,8 +227,8 @@ per-cluster opt-in per harness, and `rcac://context` on demand for local agents.
 **Satisfies:** R8 · **Depends on:** P5
 **Goal:** the section and the five chapters state facts and instructions plainly.
 
-- [ ] Apply research/05 C.1 rewrites on lines that remain; drop decorative bold.
-- [ ] Read each page top to bottom once more for slogans and rhetorical framing.
+- [x] Apply research/05 C.1 rewrites on lines that remain; drop decorative bold.
+- [x] Read each page top to bottom once more for slogans and rhetorical framing.
 - **Touches:** `docs/agentic-ai/**`, `docs/userguides/*/using_ai_agents.md`.
 
 ## Phase P7 — Integration

@@ -12,10 +12,10 @@ agent, in the shape fact, correct command or path, "do not…", reason. They are
 cluster from a single data model, so the partitions, GPUs, filesystems and toolchain are
 correct for the machine the agent is on.
 
-The files below are **Gautschi's**, shown as the worked example. Each cluster publishes
-its own set under *Using AI Agents* in its user guide — for example
-[Negishi](../../userguides/negishi/using_ai_agents.md) and
-[Gilbreth](../../userguides/gilbreth/using_ai_agents.md).
+The files below are Gautschi's, shown as an example. Each cluster's *Using AI Agents* chapter
+shows its own assembled file: [Gautschi](../../userguides/gautschi/using_ai_agents.md),
+[Gilbreth](../../userguides/gilbreth/using_ai_agents.md) and
+[Negishi](../../userguides/negishi/using_ai_agents.md).
 
 Numbers that change (quotas, balances) are not in the files. The files tell the agent to
 run the cluster's quota and balance commands and read the real values.
