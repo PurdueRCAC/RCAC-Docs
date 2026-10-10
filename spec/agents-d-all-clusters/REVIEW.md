@@ -95,5 +95,6 @@ re-reviewed:
 - Data: home `ZFS` for Gilbreth, Negishi and Scholar; scratch `Lustre` for Gilbreth and
   Negishi; Scholar scratch described with `tech_text`.
 - `docs/snippets/home_directory.md`: GPFS → ZFS.
+- After a live check on each cluster's login node: Scholar and Gilbreth OS lines; an Anvil note on `standard` (older name of `wholenode`) and `profiling`; a `uname -m` / `/etc/os-release` grounding bullet for every cluster.
 - Verification: strict gate PASS; generator re-run is idempotent; every changed line in the
   five generated sets traces to the 2026-10-10 Amendment.

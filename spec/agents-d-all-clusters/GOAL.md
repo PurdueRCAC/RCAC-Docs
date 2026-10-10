@@ -137,6 +137,12 @@ change. The prose is plain and instructional.
   pages that do not name the filesystem or call Scholar's a parallel filesystem, and the
   Scholar and Anvil page errors noted in `research/`). The documentation factory does not yet
   have a place to queue them; adding one is planned as a separate harness change.
+- **Checked against live login nodes (2026-10-10).** A read-only check on each cluster confirmed
+  the commands, filesystem types, modules and toolchains the context names. Resulting changes:
+  Scholar's OS is stated (Rocky Linux 9 on login and x86_64 compute nodes; the Spark nodes run
+  Ubuntu 24.04 on aarch64), Gilbreth's OS reads "Rocky Linux 9", Anvil's context names `standard`
+  as the older name of `wholenode` and keeps agents off `profiling` (staff-confirmed), and every cluster's context tells agents to check the node's
+  architecture and OS, since compute nodes can differ from the login node. Re-confirmed R1, R2.
 
 ## Related materials
 

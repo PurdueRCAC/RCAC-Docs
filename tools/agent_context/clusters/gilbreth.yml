@@ -4,7 +4,7 @@
 cluster: gilbreth
 title: Gilbreth
 login_host: gilbreth.rcac.purdue.edu
-os: Rocky 9
+os: Rocky Linux 9
 scratch_path: /scratch/gilbreth
 
 filesystems:

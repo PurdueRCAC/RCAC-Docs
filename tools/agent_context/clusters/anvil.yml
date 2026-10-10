@@ -98,6 +98,7 @@ notes:
   lmod:
     - "The CPU module tree (`modtree/cpu`) is loaded at login. GPU software is visible only after `module load modtree/gpu`; load it before searching for GPU modules."
   slurm:
+    - "`standard` is the older name of `wholenode` (the same nodes, limits and charging); write `wholenode`. **Do NOT** submit to `profiling`; it is not for user jobs."
     - "Jobs are charged in service units (SUs) against the allocation account: on CPU nodes 1 SU is one core-hour, and on GPU nodes 1 SU is one GPU-hour. Find partition limits with `showpartitions`."
   policies:
     - "`singularity` still works as a command and runs Apptainer."

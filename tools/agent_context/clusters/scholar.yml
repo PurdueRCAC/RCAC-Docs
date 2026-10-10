@@ -7,9 +7,9 @@
 cluster: scholar
 title: Scholar
 login_host: scholar.rcac.purdue.edu   # accounts.md "SSH Client Software"
-# The OS of the x86_64 nodes is not stated in the guide; the template tells the agent to
-# check /etc/os-release. (The Spark nodes run Ubuntu 24.04 on aarch64; see notes.lmod.)
-os: null
+# Login and x86_64 compute nodes: observed on a login node 2026-10-10 (Rocky Linux 9.8);
+# the guide does not state it. The Spark nodes run Ubuntu 24.04 on aarch64 (notes.unix, notes.lmod).
+os: Rocky Linux 9 on the login and x86_64 compute nodes
 scratch_path: /scratch/scholar        # storage/environment_variables.md
 
 commands:
@@ -65,6 +65,8 @@ anti_patterns:
   - "**Do NOT** assume `ai`, `smallgpu`, `highmem`, `a10`/`a30`/`a100-*` or `training` partitions. Those belong to other RCAC clusters; Scholar's partitions are `cpu`, `gpu`, `spark-batch` and `spark-interactive`."
 
 notes:
+  unix:
+    - "The `spark-batch` and `spark-interactive` nodes are the exception: they are aarch64 and run **Ubuntu 24.04**, not Rocky Linux. Check `/etc/os-release` and `uname -m` on the node you are on before building or running software."
   filesystems:
     - "Scholar's home directory is separate from the user's home on other RCAC clusters and is not synchronized with it. Copy files between clusters deliberately."
   lmod:

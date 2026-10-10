@@ -41,6 +41,8 @@ read-only, cheap, and safe — run them eagerly before you plan or act:
 - `mybalance` — the allocation accounts you can charge and their balances in service units (SUs).
 - `sfeatures` — node and GPU hardware features.
 - `module avail` / `module list` — available and currently-loaded software.
+- `uname -m` and `/etc/os-release` — the architecture and OS of the node you are on.
+  Compute nodes can differ from the login node.
 
 Grounding your plan in real output prevents the most common failure mode: confidently
 acting on an assumption that is wrong for this cluster.
@@ -204,6 +206,7 @@ submission command line), `jobenv <id>` (its environment).
 
 ## Anvil specifics
 
+- `standard` is the older name of `wholenode` (the same nodes, limits and charging); write `wholenode`. **Do NOT** submit to `profiling`; it is not for user jobs.
 - Jobs are charged in service units (SUs) against the allocation account: on CPU nodes 1 SU is one core-hour, and on GPU nodes 1 SU is one GPU-hour. Find partition limits with `showpartitions`.
 
 <!-- Source: policies.md -->

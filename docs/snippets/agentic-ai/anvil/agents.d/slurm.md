@@ -53,4 +53,5 @@ submission command line), `jobenv <id>` (its environment).
 
 ## Anvil specifics
 
+- `standard` is the older name of `wholenode` (the same nodes, limits and charging); write `wholenode`. **Do NOT** submit to `profiling`; it is not for user jobs.
 - Jobs are charged in service units (SUs) against the allocation account: on CPU nodes 1 SU is one core-hour, and on GPU nodes 1 SU is one GPU-hour. Find partition limits with `showpartitions`.
