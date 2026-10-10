@@ -49,4 +49,4 @@ partition (`-p`/`--partition=`)**, and always a time limit (`--time`).
 
 ## Anvil specifics
 
-- Jobs are charged in service units (SUs) against the allocation account: on CPU nodes 1 SU is one core-hour, on GPU and AI nodes 1 SU is one GPU-hour. Find partition limits with `showpartitions`.
+- Jobs are charged in service units (SUs) against the allocation account: on CPU nodes 1 SU is one core-hour, and on GPU nodes 1 SU is one GPU-hour. Find partition limits with `showpartitions`.

@@ -34,4 +34,3 @@ The recommended compiler and MPI stack is **GCC 11.2.0 with OpenMPI**. Check
 ## Anvil specifics
 
 - The CPU module tree (`modtree/cpu`) is loaded at login. GPU software is visible only after `module load modtree/gpu`; load it before searching for GPU modules.
-- **Do NOT** add `module load` lines to `~/.bashrc` or other shell startup files.

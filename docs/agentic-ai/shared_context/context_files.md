@@ -20,7 +20,7 @@ shows its own assembled file: [Anvil](../../userguides/anvil/using_ai_agents.md)
 [Scholar](../../userguides/scholar/using_ai_agents.md).
 
 Numbers that change (quotas, balances) are not in the files. The files tell the agent to
-run the cluster's quota and balance commands and read the real values.
+run the cluster's quota and account commands and read the real values.
 
 ## `unix.md`
 

@@ -142,7 +142,6 @@ The recommended compiler and MPI stack is **GCC 11.2.0 with OpenMPI**. Check
 ## Anvil specifics
 
 - The CPU module tree (`modtree/cpu`) is loaded at login. GPU software is visible only after `module load modtree/gpu`; load it before searching for GPU modules.
-- **Do NOT** add `module load` lines to `~/.bashrc` or other shell startup files.
 
 <!-- Source: slurm.md -->
 
@@ -196,7 +195,7 @@ partition (`-p`/`--partition=`)**, and always a time limit (`--time`).
 
 ## Anvil specifics
 
-- Jobs are charged in service units (SUs) against the allocation account: on CPU nodes 1 SU is one core-hour, on GPU and AI nodes 1 SU is one GPU-hour. Find partition limits with `showpartitions`.
+- Jobs are charged in service units (SUs) against the allocation account: on CPU nodes 1 SU is one core-hour, and on GPU nodes 1 SU is one GPU-hour. Find partition limits with `showpartitions`.
 
 <!-- Source: policies.md -->
 

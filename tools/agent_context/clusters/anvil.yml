@@ -97,9 +97,8 @@ notes:
     - "**Do NOT** look for Data Depot (`/depot`) or use `hsi`/`htar` on Anvil. Data Depot is not available, and Fortress is reachable only by SFTP or Globus."
   lmod:
     - "The CPU module tree (`modtree/cpu`) is loaded at login. GPU software is visible only after `module load modtree/gpu`; load it before searching for GPU modules."
-    - "**Do NOT** add `module load` lines to `~/.bashrc` or other shell startup files."
   slurm:
-    - "Jobs are charged in service units (SUs) against the allocation account: on CPU nodes 1 SU is one core-hour, on GPU and AI nodes 1 SU is one GPU-hour. Find partition limits with `showpartitions`."
+    - "Jobs are charged in service units (SUs) against the allocation account: on CPU nodes 1 SU is one core-hour, and on GPU nodes 1 SU is one GPU-hour. Find partition limits with `showpartitions`."
   policies:
     - "`singularity` still works as a command and runs Apptainer."
     - "**Do NOT** run `mykeys` or print its output. It returns the user's S3 access and secret keys for Anvil Object Storage."

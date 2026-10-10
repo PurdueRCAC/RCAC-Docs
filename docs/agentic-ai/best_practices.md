@@ -45,7 +45,7 @@ system RCAC does not run.
 
 ## Check the output
 
-- **Ask why, not just what.** When an agent proposes an `#SBATCH` line or a `module load`,
+- **Ask for the reasoning.** When an agent proposes an `#SBATCH` line or a `module load`,
   ask it to explain the choice. The explanation often exposes a wrong assumption.
 - **Check before you run.** Read a generated script before you submit it. Confirm the
   partition exists, the account is one you can charge, and the paths are real. An agent states
@@ -71,8 +71,7 @@ invent a version.
 
 ## Understand the blast radius
 
-Agents do not add new kinds of risk to a well-run cluster, but they make ordinary mistakes
-happen faster. Cgroups, quotas, health checks, root-squash and per-user permissions still
+Agents make ordinary mistakes happen faster. Cgroups, quotas, health checks, root-squash and per-user permissions still
 apply to an agent acting as you. Keep these failure modes in mind:
 
 - **Destructive commands.** An agent can run `rm -rf` on a project directory. Require

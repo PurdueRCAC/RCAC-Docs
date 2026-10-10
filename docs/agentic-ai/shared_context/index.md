@@ -37,10 +37,10 @@ you install the harness:
     Import the file from your user-level memory file:
 
     ```bash
-    mkdir -p ~/.claude && echo '@/etc/agents.d/AGENTS.md' >> ~/.claude/CLAUDE.md
+    mkdir -p ~/.claude && printf '\n@/etc/agents.d/AGENTS.md\n' >> ~/.claude/CLAUDE.md
     ```
 
-    `>>` appends, so an existing `~/.claude/CLAUDE.md` is kept. Run `/memory` in a session to
+    `>>` appends on a new line, so an existing `~/.claude/CLAUDE.md` is kept. Run `/memory` in a session to
     confirm the file loaded.
 
 === "Codex"
@@ -59,8 +59,8 @@ you install the harness:
 
 === "Gemini CLI"
 
-    Gemini CLI does not import files from outside `~/.gemini`, so link the file there and add
-    its name to the files Gemini reads:
+    Gemini CLI's `@` imports in `~/.gemini/GEMINI.md` do not reach `/etc`, so link the file
+    into `~/.gemini` and add its name to the files Gemini reads:
 
     ```bash
     mkdir -p ~/.gemini && ln -s /etc/agents.d/AGENTS.md ~/.gemini/AGENTS.md
@@ -102,8 +102,7 @@ you install the harness:
 
     Do not copy the file into your working directory; the copy goes out of date.
 
-These steps were checked against each harness's documentation in October 2026. If the file
-is missing on a host, each harness skips it without an error.
+These steps were checked against each harness's documentation in October 2026.
 
 ## Agents running on your own machine
 
