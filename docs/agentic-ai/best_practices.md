@@ -36,7 +36,7 @@ Specific requests get better results than vague ones:
 - Name the cluster, partition, account and software versions you intend to use, rather than
   letting the agent guess.
 - Connect your agent to the cluster's context files (see
-  [Shared Context](shared_context/index.md)). They tell it the scheduler, module system and
+  [Load the context in your harness](shared_context/index.md#load-the-context-in-your-harness)). They tell it the scheduler, module system and
   partitions, so it does not have to guess them.
 - Give the agent the error message, the job ID and the exact file, not a paraphrase.
 

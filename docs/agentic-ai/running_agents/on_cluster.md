@@ -97,7 +97,7 @@ needed. Run these on a cluster login node after you SSH in.
     ```
 
 To load the cluster's context in every session, see
-[Shared Context](../shared_context/index.md). To add the documentation search server, see
+[Load the context in your harness](../shared_context/index.md#load-the-context-in-your-harness). To add the documentation search server, see
 [MCP Servers](../mcp_servers.md).
 
 ## Warp

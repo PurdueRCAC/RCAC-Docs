@@ -6,7 +6,7 @@ appetite: big
 status: in_progress
 branch: feature/agents-d-all-clusters
 base: main
-current_phase: P5
+current_phase: P6
 last_updated: '2026-10-09'
 phases:
 - id: P1
@@ -75,7 +75,7 @@ phases:
     site/userguides/scholar/using_ai_agents/index.html
 - id: P5
   name: 'How the context reaches an agent: per-harness opt-in and rcac://context'
-  status: pending
+  status: done
   satisfies:
   - R6
   depends_on:
@@ -216,10 +216,10 @@ per-cluster opt-in per harness, and `rcac://context` on demand for local agents.
 > the chapter shape. P5 now re-reads those pages against `research/05` A–B and checks that
 > the Anvil and Scholar chapters carry the same wording.
 
-- [ ] `shared_context/index.md`: "Load it in your harness" section with tabs (research/05 A.1–A.5),
+- [x] `shared_context/index.md`: "Load it in your harness" section with tabs (research/05 A.1–A.5),
       including the Codex existing-file and Gemini `fileName`-order caveats; local agents via
       `rcac://context`; remove the symlink claim.
-- [ ] `context_files.md`, `running_agents/on_cluster.md`, `running_agents/local.md`,
+- [x] `context_files.md`, `running_agents/on_cluster.md`, `running_agents/local.md`,
       `mcp_servers.md`, the five chapters: align the delivery sentences (research/05 C.3).
 - **Touches:** `docs/agentic-ai/**`, `docs/userguides/*/using_ai_agents.md`.
 

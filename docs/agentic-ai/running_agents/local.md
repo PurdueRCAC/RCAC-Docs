@@ -109,7 +109,7 @@ Recommended workflow:
 2. **SSH into the cluster** in a Warp terminal.
 3. **Point the agent at the cluster's context.** Add a Global Rule in Warp that tells the
    agent to read `/etc/agents.d/AGENTS.md` when the session is on an RCAC cluster. See
-   [Shared Context](../shared_context/index.md).
+   [Load the context in your harness](../shared_context/index.md#load-the-context-in-your-harness).
 4. **Keep the denylist on.** Warp's default Agent Profile denylist requires approval for
    `rm`, `curl`, `wget` and `eval`.
 
