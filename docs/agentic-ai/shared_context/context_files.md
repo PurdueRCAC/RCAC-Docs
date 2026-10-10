@@ -13,9 +13,11 @@ cluster from a single data model, so the partitions, GPUs, filesystems and toolc
 correct for the machine the agent is on.
 
 The files below are Gautschi's, shown as an example. Each cluster's *Using AI Agents* chapter
-shows its own assembled file: [Gautschi](../../userguides/gautschi/using_ai_agents.md),
-[Gilbreth](../../userguides/gilbreth/using_ai_agents.md) and
-[Negishi](../../userguides/negishi/using_ai_agents.md).
+shows its own assembled file: [Anvil](../../userguides/anvil/using_ai_agents.md),
+[Gautschi](../../userguides/gautschi/using_ai_agents.md),
+[Gilbreth](../../userguides/gilbreth/using_ai_agents.md),
+[Negishi](../../userguides/negishi/using_ai_agents.md) and
+[Scholar](../../userguides/scholar/using_ai_agents.md).
 
 Numbers that change (quotas, balances) are not in the files. The files tell the agent to
 run the cluster's quota and balance commands and read the real values.

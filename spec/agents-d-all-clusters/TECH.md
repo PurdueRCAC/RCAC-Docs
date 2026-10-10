@@ -3,10 +3,10 @@ slug: agents-d-all-clusters
 title: /etc/agents.d context for every cluster; retire per-harness settings
 kind: feature
 appetite: big
-status: in_progress
+status: in_review
 branch: feature/agents-d-all-clusters
 base: main
-current_phase: P7
+current_phase: done
 last_updated: '2026-10-09'
 phases:
 - id: P1
@@ -101,7 +101,7 @@ phases:
     docs/userguides/*/using_ai_agents.md
 - id: P7
   name: 'Integration: cross-links to all five chapters, breadcrumbs, final checks'
-  status: pending
+  status: done
   satisfies:
   - R3
   - R4
@@ -235,9 +235,9 @@ per-cluster opt-in per harness, and `rcac://context` on demand for local agents.
 **Satisfies:** R3, R4, R7, R9 · **Depends on:** P6
 **Goal:** every hub lists all five chapters; generated files and breadcrumbs are in sync.
 
-- [ ] Hubs (`agentic-ai/index.md`, `context_files.md`) link all five chapters.
-- [ ] Regenerate context and breadcrumbs; both must leave the tree clean.
-- [ ] `mkdocs serve`: eyeball the stub, the tab blocks and each chapter.
+- [x] Hubs (`agentic-ai/index.md`, `context_files.md`) link all five chapters.
+- [x] Regenerate context and breadcrumbs; both must leave the tree clean.
+- [x] `mkdocs serve`: eyeball the stub, the tab blocks and each chapter.
 - **Touches:** hubs, `breadcrumbs.json`.
 
 ---

@@ -74,9 +74,11 @@ produces. Review what the agent proposes, and ask it to explain its choices.
 </div>
 
 For cluster-specific setup, see the *Using AI Agents* chapter in each cluster's user guide:
+[Anvil](../userguides/anvil/using_ai_agents.md),
 [Gautschi](../userguides/gautschi/using_ai_agents.md),
-[Gilbreth](../userguides/gilbreth/using_ai_agents.md) and
-[Negishi](../userguides/negishi/using_ai_agents.md).
+[Gilbreth](../userguides/gilbreth/using_ai_agents.md),
+[Negishi](../userguides/negishi/using_ai_agents.md) and
+[Scholar](../userguides/scholar/using_ai_agents.md).
 
 ---
 
