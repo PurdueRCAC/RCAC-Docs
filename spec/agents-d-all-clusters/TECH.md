@@ -120,8 +120,8 @@ phases:
     scholar; do grep -q "$c.yml" site/userguides/$c/using_ai_agents/index.html ||
     exit 1; done
 review:
-  last_reviewed_commit: ''
-  verdict: none
+  last_reviewed_commit: 43bd6b2af46d45711eab5113763c62435eb64166
+  verdict: approved
   blocked_reason: ''
 ---
 # TECH.md — `/etc/agents.d` context for every cluster; retire per-harness settings
