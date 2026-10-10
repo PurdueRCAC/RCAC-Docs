@@ -106,6 +106,7 @@ nav:
       - Job Submission: userguides/anvil/jobs.md
       - File Management: userguides/anvil/file_management.md
       - Anvil Software: userguides/anvil/anvil-software.md
+      - Using AI Agents: userguides/anvil/using_ai_agents.md
       - Frequently Asked Questions: userguides/anvil/faqs.md
       - Anvil Composable Subsystem:
         - userguides/anvil/composable/index.md
@@ -187,6 +188,7 @@ nav:
       - File Storage and Transfer: userguides/scholar/storage.md
       - Gateway (Open OnDemand): userguides/scholar/gateway.md
       - Compiling Source Code: userguides/scholar/compile.md
+      - Using AI Agents: userguides/scholar/using_ai_agents.md
       - Frequently Asked Questions: userguides/scholar/faqs.md
     - Geddes:
       - userguides/geddes/index.md
@@ -409,10 +411,10 @@ nav:
         - agentic-ai/running_agents/index.md
         - On the Cluster (Login Nodes): agentic-ai/running_agents/on_cluster.md
         - Local (over SSH): agentic-ai/running_agents/local.md
-      - Shared Context & Settings:
+      - Shared Context:
         - agentic-ai/shared_context/index.md
         - Context Files (/etc/agents.d): agentic-ai/shared_context/context_files.md
-        - Harness Settings & Permissions: agentic-ai/shared_context/settings.md
+        - Harness Settings (Retired): agentic-ai/shared_context/settings.md
     - Purdue GenAI Studio:
       - services/genai/index.md
       - Chat Interface: services/genai/chat-interface.md

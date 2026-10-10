@@ -12,20 +12,34 @@ checking.
   medium-performance and space-limited.
 - **Do NOT** stage large datasets or run heavy parallel job I/O here.
 
-## Scratch — `{{ scratch_path }}/$USER` (`$RCAC_SCRATCH`)
+## Scratch — {% if scratch_path %}`{{ scratch_path }}/$USER` (`${{ env.scratch }}`){% else %}`${{ env.scratch }}`{% endif +%}
 
-- **Technology:** {% if filesystems.scratch.tech %}{{ filesystems.scratch.tech }}, a high-performance parallel filesystem{% else %}a high-performance, large-capacity parallel filesystem{% endif %}.
+- **Technology:** {% if filesystems.scratch.tech_text is defined %}{{ filesystems.scratch.tech_text }}{% elif filesystems.scratch.tech %}{{ filesystems.scratch.tech }}, a high-performance parallel filesystem{% else %}a high-performance, large-capacity parallel filesystem{% endif %}.
 - **Use for:** active job input/output and large working data. Point writable working
-  files here (`$RCAC_SCRATCH`), not at home. Find the path with `findscratch`.
+  files here (`${{ env.scratch }}`), not at home.{% if commands.findscratch %} Find the path with `{{ commands.findscratch }}`.{% endif +%}
+{% if filesystems.scratch.purge_text is defined %}
+- {{ filesystems.scratch.purge_text }}
+{% elif filesystems.scratch.purge_days %}
 - **Not backed up, and purged after {{ filesystems.scratch.purge_days }} days of inactivity** (by last access and
-  content-modification time; touching metadata does not protect a file). Use
-  `purgelist` to see files scheduled for purge.
+  content-modification time; touching metadata does not protect a file).
+{% else %}
+- **Not backed up, and purged after a period of inactivity.** The user guide does not state
+  the window; check it before relying on scratch.
+{% endif %}
 {% if filesystems.depot or filesystems.fortress %}
 - **Do NOT** treat scratch as durable storage — move anything you want to keep to {% if filesystems.depot and filesystems.fortress %}Data
   Depot or Fortress{% elif filesystems.depot %}Data Depot{% else %}Fortress{% endif %}.
 {% else %}
 - **Do NOT** treat scratch as durable storage — move anything you want to keep to
   durable project or archive storage.
+{% endif %}
+{% if filesystems.project is defined %}
+
+## Project — `{{ filesystems.project.path }}` (`{{ filesystems.project.env }}`)
+
+{% for line in filesystems.project.lines %}
+- {{ line }}
+{% endfor %}
 {% endif %}
 
 ## Node-local — `/tmp`
@@ -48,10 +62,10 @@ checking.
 
 ## Check before you write
 
-- Run **`myquota`** to read home and scratch usage and limits before writing large
+- Run **`{{ commands.quota }}`** to read home and scratch usage and limits before writing large
   amounts of data. **Do NOT assume specific quota numbers** — they differ per user and
-  change over time; read them from `myquota`.
-- Reference paths with environment variables (`$HOME`, `$RCAC_SCRATCH`), not
+  change over time; read them from `{{ commands.quota }}`.
+- Reference paths with environment variables (`$HOME`, `${{ env.scratch }}`), not
   hard-coded strings, since paths can change.
 
 ## Prohibitions
@@ -60,3 +74,11 @@ checking.
   paths.
 - **Do NOT** perform bulk or recursive deletes (`rm -rf`) without confirming with the
   user first.
+{% if notes.filesystems %}
+
+## {{ title }} specifics
+
+{% for n in notes.filesystems %}
+- {{ n }}
+{% endfor %}
+{% endif %}

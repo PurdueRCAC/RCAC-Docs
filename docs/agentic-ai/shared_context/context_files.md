@@ -7,20 +7,20 @@ authors:
 
 # Context Files (`/etc/agents.d`)
 
-Every RCAC cluster ships a small set of **shared-context files** under `/etc/agents.d/` —
-plain Markdown deployed to the cluster and injected into agents by `rcac-mcp`. Each is
-written for the agent, in the shape *fact → correct command/path → "do not…" →
-rationale*. They are **generated per cluster** from a single data model, so the
-partitions, GPUs, filesystems, and toolchain are correct for the machine the agent is
-on.
+Each RCAC cluster has a set of context files in `/etc/agents.d/`. Each is written for the
+agent, in the shape fact, correct command or path, "do not…", reason. They are generated per
+cluster from a single data model, so the partitions, GPUs, filesystems and toolchain are
+correct for the machine the agent is on.
 
-The files below are **Gautschi's**, shown as the worked example. Each cluster publishes
-its own set under *Using AI Agents* in its user guide — for example
+The files below are Gautschi's, shown as an example. Each cluster's *Using AI Agents* chapter
+shows its own assembled file: [Anvil](../../userguides/anvil/using_ai_agents.md),
+[Gautschi](../../userguides/gautschi/using_ai_agents.md),
+[Gilbreth](../../userguides/gilbreth/using_ai_agents.md),
 [Negishi](../../userguides/negishi/using_ai_agents.md) and
-[Gilbreth](../../userguides/gilbreth/using_ai_agents.md).
+[Scholar](../../userguides/scholar/using_ai_agents.md).
 
-Volatile numbers (quotas, balances) are deliberately **not hardcoded**: the files tell
-the agent to run `myquota` and `slist` and read the real values instead.
+Numbers that change (quotas, balances) are not in the files. The files tell the agent to
+run the cluster's quota and account commands and read the real values.
 
 ## `unix.md`
 
@@ -54,16 +54,15 @@ the agent to run `myquota` and `slist` and read the real values instead.
 
 ## The assembled `AGENTS.md`
 
-On the cluster, the files above are concatenated into a single `AGENTS.md` and
-symlinked to each harness's context filename. This is the exact assembled file an
-on-cluster agent reads:
+The topic files are also combined into `/etc/agents.d/AGENTS.md`. This is the file the
+[per-harness setup](index.md#load-the-context-in-your-harness) loads:
 
 ??? note "Show the concatenated `AGENTS.md`"
 
-    ```markdown title="AGENTS.md (assembled)"
+    ```markdown title="/etc/agents.d/AGENTS.md"
     --8<-- "docs/snippets/agentic-ai/gautschi/agents.d/AGENTS.md"
     ```
 
 ---
 
-Back to [Shared Context & Settings](index.md).
+Back to [Shared Context](index.md).

@@ -28,5 +28,10 @@ provided, `module load rcac`) for the recommended stack, and verify with `module
 - **Do NOT invent module names or versions.** Verify a package and version exist with
   `module spider` (or `module avail`) before claiming it is available or writing it
   into a job script.
-- For Python, prefer the `anaconda` modules and user environments rather than modifying
-  a base installation.
+
+## Python
+
+- Use the `conda` module (Miniforge) for Python, and create your own environments with
+  it rather than modifying a base installation.
+- **Do NOT** use the `anaconda` module for new environments. `conda` replaces it.
+- `uv` is a good choice for pip-style project environments; install it in user space.

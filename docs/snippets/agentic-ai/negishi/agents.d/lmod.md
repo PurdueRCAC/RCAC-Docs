@@ -28,5 +28,10 @@ The recommended compiler and MPI stack is **GCC 12.2.0 with OpenMPI**. Check
 - **Do NOT invent module names or versions.** Verify a package and version exist with
   `module spider` (or `module avail`) before claiming it is available or writing it
   into a job script.
-- For Python, prefer the `anaconda` modules and user environments rather than modifying
-  a base installation.
+
+## Python
+
+- Use the `conda` module (Miniforge) for Python, and create your own environments with
+  it rather than modifying a base installation.
+- **Do NOT** use the `anaconda` module for new environments. `conda` replaces it.
+- `uv` is a good choice for pip-style project environments; install it in user space.

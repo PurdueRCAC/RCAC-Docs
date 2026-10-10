@@ -8,17 +8,17 @@ authors:
 # On the Cluster (Login Nodes)
 
 In this mode you SSH into a cluster login node and run a command-line harness right
-there. The four CLI harnesses — **Claude Code**, **Codex**, **Gemini CLI**, and
-**opencode** — install and run headlessly on Linux, so they work over SSH. **Warp**
-does not run here; it is a desktop application (see [Warp](#warp) below).
+there. The four CLI harnesses (Claude Code, Codex, Gemini CLI and opencode) install and
+run headlessly on Linux, so they work over SSH. Warp does not run here; it is a desktop
+application (see [Warp](#warp) below).
 
 ## The login-node rule applies to your agent
 
 A login (front-end) node is a shared, multi-tenant machine meant for editing,
 compiling, submitting jobs, and light pre- and post-processing — not for running
 computation. Launching a harness there is fine: the agent process itself is
-lightweight (mostly network calls). But **anything heavy the agent then wants to do
-must go through Slurm**, exactly as if you were doing it by hand.
+lightweight (mostly network calls). But anything heavy the agent then wants to do must
+go through Slurm, as if you were doing it by hand.
 
 !!! important
 
@@ -28,31 +28,29 @@ must go through Slurm**, exactly as if you were doing it by hand.
     the cluster. Always use SLURM to submit your work as a job.
 
 In practice: instruct your agent to compile modestly, test on tiny inputs, and submit
-real runs with `sbatch` or `sinteractive` — with a correct account (`-A`, discovered
-via `slist`), partition (`-p`), QOS (`-q`), and an explicit `--time` limit. The shared
-[context files](../shared_context/context_files.md) RCAC publishes already tell an agent
-this, and the [per-harness settings](../shared_context/settings.md) deny the most
-dangerous operations, but the responsibility is ultimately yours.
+real runs with `sbatch` or `sinteractive`, with a correct account (`-A`), partition
+(`-p`), QOS where the cluster uses one (`-q`), and an explicit `--time` limit. The cluster's
+[context files](../shared_context/context_files.md) tell an agent this once you connect your
+harness to them. You are responsible for what the agent runs.
 
 ## Where agents may write
 
-Point an agent's working files at your **scratch** space, not your home directory.
-Scratch is the large, high-performance filesystem intended for job I/O; find it with
-`findscratch` or the `$RCAC_SCRATCH` environment variable. Keep in mind scratch is
-**not backed up and is purged after a period of inactivity** (the window varies by
-cluster), so move anything you want to keep to durable storage.
+Point an agent's working files at your scratch space, not your home directory. Scratch is
+the large, high-performance filesystem intended for job I/O. On most clusters it is
+`$RCAC_SCRATCH` (`findscratch` prints it); on Anvil it is `$SCRATCH`. Scratch is not backed up
+and is purged after a period of inactivity (the window varies by cluster), so move anything
+you want to keep to durable storage.
 
-!!! warning "Sandboxes are weak on shared nodes — don't rely on them"
+!!! warning "Sandboxes are often unavailable on shared nodes"
 
-    The harnesses ship OS-level sandboxes (Codex uses `bubblewrap`, Gemini uses
-    Docker/Podman, Claude Code uses Linux namespaces). These are frequently
-    **unavailable or disabled on shared login nodes**, so do not count on them.
-    Containers are not a safety net either: RCAC uses **Apptainer** (not Docker), and
-    its configuration **auto bind-mounts `/home`, `/depot`, and `/scratch`** into the
-    container — those mounts stay writable, so an agent in a container can still edit
-    your real files. Treat the harness's **permission/approval rules as your primary
-    control**: keep destructive operations (`rm -rf`, `sudo`) denied and set writable
-    roots to `$RCAC_SCRATCH`.
+    The harnesses ship OS-level sandboxes (Codex uses `bubblewrap`, Gemini uses Docker or
+    Podman, Claude Code uses Linux namespaces). These are often unavailable or disabled on
+    shared login nodes, so do not count on them. Containers do not protect you either: RCAC
+    uses Apptainer, not Docker, and its configuration bind-mounts your home, scratch and
+    (where present) Depot or project space into the container. Those mounts are writable, so
+    an agent in a container can still change your real files. Treat your harness's
+    permission and approval settings as the main control: block destructive operations
+    (`rm -rf`, `sudo`) and point writable work at scratch.
 
 ## Install and run each harness
 
@@ -98,20 +96,17 @@ needed. Run these on a cluster login node after you SSH in.
     opencode run "…"       # non-interactive
     ```
 
-To connect these harnesses to the RCAC [MCP servers](../mcp_servers.md) and wire in the
-shared context and permission policy, see
-[Shared Context & Settings](../shared_context/index.md).
+To load the cluster's context in every session, see
+[Load the context in your harness](../shared_context/index.md#load-the-context-in-your-harness). To add the documentation search server, see
+[MCP Servers](../mcp_servers.md).
 
 ## Warp
 
-Warp is **RCAC's recommended harness for most users** — but it is a **desktop
-application**, not a headless CLI, and **cannot be installed on a login node**. There
-is no login-node path for Warp, and you should not try to fabricate one.
+Warp is a desktop application. It does not run on a login node.
 
-Instead, run Warp on your own workstation and SSH into the cluster from there; its Agent
-Mode then rides your live SSH session — reading output and issuing commands in the
-session you opened — while the app stays local. That is the recommended setup for Warp;
-see [Local, Targeting the Cluster](local.md).
+Run Warp on your own workstation and SSH into the cluster from there. Its agent reads output
+and runs commands in the SSH session you opened, while the app stays local. See
+[Local, Targeting the Cluster](local.md).
 
 ---
 
