@@ -18,7 +18,7 @@ guardrails in first-party CLI harnesses leak: users can install their own copy, 
 config path, or switch modes. RCAC has dropped them as a goal. The site still says they are
 deployed and enforced, which is wrong.
 
-The context files exist for only three clusters: Gautschi, Gilbreth and Negishi. Anvil, Bell and
+The context files exist for only three clusters: Gautschi, Gilbreth and Negishi. Anvil and
 Scholar have no data model, so there is nothing to deploy there. The docs also
 describe a delivery path that was never built: they say the assembled `AGENTS.md` is "symlinked
 to the other well-known context filenames". With no managed settings, nothing on a cluster
@@ -26,7 +26,7 @@ points a harness at `/etc/agents.d/`. Users need to be told how to opt in.
 
 ## Outcome / vision
 
-All six clusters (Anvil, Bell, Gautschi, Gilbreth, Negishi, Scholar) publish a correct,
+All five clusters (Anvil, Gautschi, Gilbreth, Negishi, Scholar) publish a correct,
 generated set of `/etc/agents.d/` files, and the published files are what each cluster carries. Each
 cluster's user guide has a *Using AI Agents* chapter that shows that cluster's context. The
 Agentic AI section describes what RCAC actually ships: context, not control. It explains how a
@@ -37,7 +37,7 @@ change. The prose is plain and instructional.
 
 **Context for every cluster**
 
-- **R1** — For each of Anvil, Bell, Gautschi, Gilbreth, Negishi and Scholar, the site SHALL
+- **R1** — For each of Anvil, Gautschi, Gilbreth, Negishi and Scholar, the site SHALL
   publish a generated `/etc/agents.d/` set: the five topic files and the assembled `AGENTS.md`.
   Its login host, OS, filesystems and scratch path, partitions, QOS and toolchain SHALL match
   that cluster's own user guide. A value the guide does not confirm SHALL be left out, and the
@@ -47,7 +47,7 @@ change. The prose is plain and instructional.
   or Fortress), THEN that cluster's context files SHALL name the cluster's own equivalent or omit
   the instruction. They SHALL never tell an agent to run a command, use a path, or request a
   QOS or partition that the cluster does not have.
-- **R3** — WHEN a reader opens any of the six cluster user guides, its nav SHALL include a
+- **R3** — WHEN a reader opens any of the five cluster user guides, its nav SHALL include a
   *Using AI Agents* chapter that shows that cluster's own assembled `AGENTS.md`, not another
   cluster's.
 
@@ -70,7 +70,7 @@ change. The prose is plain and instructional.
 
 **Prose and build**
 
-- **R8** — Pages in the Agentic AI section and the six *Using AI Agents* chapters SHALL state
+- **R8** — Pages in the Agentic AI section and the five *Using AI Agents* chapters SHALL state
   facts and instructions plainly. No slogans, rhetorical framing, or promotional phrasing
   (examples under Clarifications).
 - **R9** — `mkdocs build --strict` SHALL report no new warnings and no build errors against the
@@ -84,6 +84,7 @@ change. The prose is plain and instructional.
   so agents are never told to use a command that is missing.
 - Deploying the files to the clusters. That is RCAC-internal work, tracked outside this repo.
 - Code changes to `rcac-mcp` / `cluster-mcp` or `rcac-docs-mcp`.
+- Bell, which retires in 2026 (see Clarifications).
 - Geddes, Hammer and the storage guides (Depot, Fortress, Box, REED), which have no login nodes
   where agents run.
 - A rewrite of the Agentic AI section beyond what R4–R8 require.
@@ -99,11 +100,22 @@ change. The prose is plain and instructional.
 - **Q:** Include the `xdu` rule from the 2026-10-06 Agent-Ready HPC decision? — **A:** Not yet.
   It lands with the `xdu` install (resolved 2026-10-09).
 - **Q:** Which clusters? — **A:** Anvil, Bell, Gautschi, Gilbreth, Negishi, Scholar
-  (resolved 2026-10-09).
+  (resolved 2026-10-09; amended below).
 - **Q:** What counts as flowery (R8)? — **A:** For example: "absorbs the cluster's rules before
   you ask your first question"; "proactive engagement, not prohibition" used as a slogan; "a
   deliberate first draft — please push back"; bold or capitals used for emphasis instead of
   meaning. State the fact or the instruction instead (resolved 2026-10-09).
+
+### Amendment 2026-10-09 (during `docs-plan`, directed by the human)
+
+- **Bell is out of scope.** It retires in 2026. R1, R3 and R8 now cover five clusters: Anvil,
+  Gautschi, Gilbreth, Negishi and Scholar. Re-confirmed R1, R3, R8.
+- **`purgelist` is dropped from every cluster's context.** No cluster user guide documents it.
+  This is an intended change to the three published sets. Re-confirmed R1, R2.
+- **Anvil facts confirmed by RCAC staff** (where the Anvil guide is silent): scratch is
+  `$SCRATCH`; the container runtime is Apptainer, with `singularity` kept as an alias; scratch
+  files are purged at 30 days with no grace period or warning; containers mount `/anvil`,
+  `/home` and `/tmp`. Re-confirmed R1, R2.
 
 ## Related materials
 
@@ -111,4 +123,4 @@ change. The prose is plain and instructional.
 - Generator: `tools/generate_agent_context.py`; data models in `tools/agent_context/clusters/`;
   templates in `tools/agent_context/templates/`.
 - Pages: `docs/agentic-ai/**`, `docs/userguides/{gautschi,gilbreth,negishi}/using_ai_agents.md`.
-- Fact sources for the new clusters: `docs/userguides/{anvil,bell,scholar}/`.
+- Fact sources for the new clusters: `docs/userguides/{anvil,scholar}/`.
