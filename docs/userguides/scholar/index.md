@@ -31,4 +31,5 @@ Scholar is a small computer cluster, suitable for classroom learning about high 
 - [**File Storage and Transfer**](storage.md)
 - [**Gateway (Open OnDemand)**](gateway.md)
 - [**Compiling Source Code**](compile.md)
+- [**Using AI Agents**](using_ai_agents.md)
 - [**Frequently Asked Questions**](faqs.md)

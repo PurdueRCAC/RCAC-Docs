@@ -6,7 +6,7 @@ appetite: big
 status: in_progress
 branch: feature/agents-d-all-clusters
 base: main
-current_phase: P4
+current_phase: P5
 last_updated: '2026-10-09'
 phases:
 - id: P1
@@ -56,7 +56,7 @@ phases:
     site/userguides/anvil/using_ai_agents/index.html
 - id: P4
   name: 'Scholar: data model and Using AI Agents chapter'
-  status: pending
+  status: done
   satisfies:
   - R1
   - R2
@@ -198,9 +198,9 @@ from data; the existing three regenerate identically apart from `purgelist`.
 **Satisfies:** R1, R2, R3 · **Depends on:** P3
 **Goal:** Scholar's context is correct for Scholar and is shown in its guide.
 
-- [ ] Write `tools/agent_context/clusters/scholar.yml` (PLAN §2.2).
-- [ ] Regenerate; read the rendered files against `research/03`.
-- [ ] Create `docs/userguides/scholar/using_ai_agents.md`; nav after Scholar `compile.md`;
+- [x] Write `tools/agent_context/clusters/scholar.yml` (PLAN §2.2).
+- [x] Regenerate; read the rendered files against `research/03`.
+- [x] Create `docs/userguides/scholar/using_ai_agents.md`; nav after Scholar `compile.md`;
       `index.md` entry; breadcrumbs.
 - **Touches:** `tools/agent_context/clusters/scholar.yml`, `docs/snippets/agentic-ai/scholar/**`,
   `docs/userguides/scholar/{using_ai_agents,index}.md`, `mkdocs.yml`, `breadcrumbs.json`.

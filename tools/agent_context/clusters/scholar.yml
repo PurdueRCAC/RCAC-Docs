@@ -1,0 +1,69 @@
+# Agentic-AI context data model for Scholar.
+# Edit this file (not docs/snippets/agentic-ai/scholar/**) and re-run
+# tools/generate_agent_context.py. Facts verified against docs/userguides/scholar/
+# (see spec/agents-d-all-clusters/research/03-scholar-facts.md).
+# Scholar is RCAC's teaching cluster: no charging or balances are documented, and its QOS
+# set differs from the research clusters.
+cluster: scholar
+title: Scholar
+login_host: scholar.rcac.purdue.edu   # accounts.md "SSH Client Software"
+# The OS of the x86_64 nodes is not stated in the guide; the template tells the agent to
+# check /etc/os-release. (The Spark nodes run Ubuntu 24.04 on aarch64; see notes.lmod.)
+os: null
+scratch_path: /scratch/scholar        # storage/environment_variables.md
+
+commands:
+  accounts_desc: "the accounts you can submit to"
+charging: false
+
+filesystems:
+  home:
+    tech: GPFS                        # storage/home_directory.md
+    snapshots: nightly snapshots kept for 7 days, weekly for 4 weeks, and monthly for 3 months (recoverable)
+  scratch:
+    # storage/scratch_space.md says only "high-performance, large-capacity parallel filesystem".
+    tech: null
+    purge_days: 60                    # storage/scratch_space.md
+  depot: true                         # mounted (scholar-spark.md "Layout"; apptainer_example.md)
+  fortress: true                      # storage/long_term_storage.md, hsi.md, htar.md
+
+# No default compiler/MPI stack is stated (compile_serial.md shows both intel and gcc).
+toolchain: null
+
+# run_jobs/queues.md "Quality of Service (QoS)". Written as mappings because the shared
+# template's text for `normal` mentions charging, which Scholar does not document.
+qos:
+  - name: normal
+    text: "the default; jobs up to 4 hours."
+  - name: long
+    text: "jobs longer than 4 hours, up to 3 days, at lower priority. Request it with **`-q long`**."
+  - name: debug
+    text: "high priority for testing: one running job, up to 2 nodes, 30 minutes. Request it with **`-q debug`**."
+
+# run_jobs/queues.md "Scholar Partitions"; overview.md; scholar-spark.md "Specifications".
+partitions:
+  - name: cpu
+    use: "CPU jobs (`scholar-a`: 128 cores, 256 GB; `scholar-b`: 64 cores, 256 GB)"
+    notes: "`-A scholar`; QOS `normal` (default, up to 4 h), `long` (up to 3 days) or `debug` (30 min)"
+  - name: gpu
+    use: "NVIDIA GPU jobs (V100, A30, A30 MIG slices, A40 nodes)"
+    notes: "`-A scholar`; request GPUs with `--gres=gpu:N` or `--gpus-per-node=N`"
+  - name: spark-batch
+    use: "NVIDIA GB10 (DGX Spark) nodes with exclusive resources; aarch64, Ubuntu 24.04"
+    notes: "`-A scholar`; `module load modtree/spark` first; x86_64 binaries do not run"
+  - name: spark-interactive
+    use: "NVIDIA GB10 (DGX Spark) nodes, shared, for interactive work; aarch64"
+    notes: "`-A scholar`; `module load modtree/spark` first; x86_64 binaries do not run"
+
+anti_patterns:
+  - "**Do NOT** request a `standby`, `preemptible`, or `training` QOS. Scholar has none; its QOS are `normal`, `long` and `debug`."
+  - "**Do NOT** request more than 4 hours under the default `normal` QOS; add `-q long` for jobs up to 3 days."
+  - "**Do NOT** invent an account name. The documented account is `scholar` (`-A scholar`); check `slist` for the accounts available to you."
+  - "**Do NOT** submit to the `gpu` partition without requesting GPUs (`--gres=gpu:N` or `--gpus-per-node=N`)."
+  - "**Do NOT** assume `ai`, `smallgpu`, `highmem`, `a10`/`a30`/`a100-*` or `training` partitions. Those belong to other RCAC clusters; Scholar's partitions are `cpu`, `gpu`, `spark-batch` and `spark-interactive`."
+
+notes:
+  filesystems:
+    - "Scholar's home directory is separate from the user's home on other RCAC clusters and is not synchronized with it. Copy files between clusters deliberately."
+  lmod:
+    - "The `spark-batch` and `spark-interactive` nodes are aarch64 (NVIDIA GB10) and run Ubuntu 24.04. They use their own module tree: run `module load modtree/spark` there and rebuild software for aarch64 (check with `uname -m`). **Do NOT** run x86_64 software or modules from the default tree on them."

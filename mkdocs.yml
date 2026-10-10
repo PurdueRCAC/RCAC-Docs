@@ -189,6 +189,7 @@ nav:
       - File Storage and Transfer: userguides/scholar/storage.md
       - Gateway (Open OnDemand): userguides/scholar/gateway.md
       - Compiling Source Code: userguides/scholar/compile.md
+      - Using AI Agents: userguides/scholar/using_ai_agents.md
       - Frequently Asked Questions: userguides/scholar/faqs.md
     - Geddes:
       - userguides/geddes/index.md
