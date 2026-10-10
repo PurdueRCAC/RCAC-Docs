@@ -1,0 +1,105 @@
+# Agentic-AI context data model for Anvil.
+# Edit this file (not docs/snippets/agentic-ai/anvil/**) and re-run
+# tools/generate_agent_context.py. Facts verified against docs/userguides/anvil/
+# (see spec/agents-d-all-clusters/research/01-anvil-facts.md); where the guide is silent,
+# confirmed by RCAC staff on 2026-10-09 (spec/agents-d-all-clusters/GOAL.md, Amendment).
+# Anvil is an NSF ACCESS resource and differs from the campus clusters, so it overrides
+# many of the generator's DEFAULTS.
+cluster: anvil
+title: Anvil
+login_host: anvil.rcac.purdue.edu
+# architecture.md "Compute Nodes" (overview.md's "CentOS 8 (Rocky Linux)" is outdated).
+os: Rocky Linux 8.10
+# The guide gives the mount (/anvil/scratch) and the variable ($SCRATCH) but not the
+# per-user path, so the heading names only $SCRATCH.
+scratch_path: null
+
+commands:
+  accounts: mybalance           # jobs.md "Mandatory SBATCH fields"
+  accounts_desc: "the allocation accounts you can charge and their balances in service units (SUs)"
+  findscratch: null             # not on Anvil
+env:
+  scratch: SCRATCH              # file_management.md "File Systems"; staff-confirmed
+scheduler:
+  require_qos: false            # no user-selectable QOS (faqs.md "Partitions and Node Types")
+support:
+  contact: "the **ACCESS Help Desk** (https://support.access-ci.org/help-ticket)"
+  aup: "Purdue IT's Acceptable Use Policy and the ACCESS allocation\n  policies"
+containers:
+  runtime: Apptainer            # staff-confirmed; `singularity` remains as an alias
+  mounts: "`/anvil`, `/home`, and `/tmp`"   # staff-confirmed
+
+filesystems:
+  home:
+    tech: ZFS
+    snapshots: nightly snapshots kept 7 days, weekly for 3 weeks, and monthly for 2 months (recover with `flost`)
+  scratch:
+    tech: GPFS                  # architecture.md "Storage"; file_management.md
+    purge_days: 30
+    # Staff-confirmed: enforced by the filesystem itself, so there is no grace period.
+    purge_text: "**Not backed up, and purged after 30 days.** The purge runs continuously, with no grace period and no warning email, and it cannot be overridden. Do not try to circumvent it."
+  project:
+    path: /anvil/projects
+    env: "$PROJECT"
+    lines:
+      - "One project space per allocation, shared read/write by everyone on it. `$WORK` points to the same place."
+      - "GPFS with snapshots; 5 TB and 1 million files by default (more on request)."
+      - "Use for shared group data and software installs, not for active job output."
+      - "Removed 90 days after the allocation expires."
+  depot: false                  # faqs.md "Storage and Filesystems"
+  fortress: false               # reachable only by SFTP or Globus; see notes
+
+toolchain:
+  compiler: GCC 11.2.0          # software catalog default (gcc.md)
+  mpi: OpenMPI
+
+qos: []
+
+partitions:                     # jobs.md "Anvil Queues (Partitions)"
+  - name: debug
+    use: "Testing and debugging (CPU)"
+    notes: "up to 2 nodes / 256 cores; max 2 h; 1 running, 2 queued per user"
+  - name: gpu-debug
+    use: "Testing and debugging (GPU)"
+    notes: "1 node, up to 2 GPUs; max 30 min; 1 running, 2 queued per user"
+  - name: wholenode
+    use: "Multi-node CPU jobs (128-core nodes)"
+    notes: "node-exclusive (charged 128 cores per node); up to 16 nodes; max 96 h"
+  - name: wide
+    use: "Large multi-node CPU jobs"
+    notes: "node-exclusive; up to 56 nodes / 7,168 cores; max 12 h; 5 running per user"
+  - name: shared
+    use: "Single-node CPU jobs that share a node; the default partition"
+    notes: "1 node, up to 128 cores; max 96 h"
+  - name: highmem
+    use: "Large-memory jobs (1 TB nodes)"
+    notes: "1 node; max 48 h; charged 4 SU per core"
+  - name: gpu
+    use: "GPU jobs (4× NVIDIA A100 40 GB per node)"
+    notes: "needs GPU credits; max 48 h; max 12 GPUs in use per user"
+  - name: ai
+    use: "AI jobs (4× NVIDIA H100 80 GB per node)"
+    notes: "needs AI credits; max 48 h; max 12 GPUs in use per user"
+
+anti_patterns:                  # jobs.md, faqs.md, getting-started.md (research/01)
+  - "**Do NOT** request a `standby`, `partner`, or owner queue or QOS. None exist on Anvil, and all partitions have equal priority."
+  - "**Do NOT** omit `-A` or `-p`. Without them the job goes to `shared` and may be charged to an unintended account."
+  - "**Do NOT** send small or single-core jobs to `wholenode` or `wide`. Those partitions are node-exclusive and charge all 128 cores per node; use `shared`."
+  - "**Do NOT** use `highmem` unless the job needs more memory than a standard node. It is charged 4 SU per core."
+  - "**Do NOT** charge `gpu` or `ai` jobs to a CPU-only account. CPU, GPU and AI credits are separate; check `mybalance` for an account with credits for that partition."
+  - "**Do NOT** request `--mem-per-cpu=2G`. The default is about 1896 MB per core, and asking for more can allocate extra cores and raise the charge."
+
+notes:
+  unix:
+    - "Anvil usernames are the user's ACCESS username with an `x-` prefix (for example `x-jdoe`). Do not assume a Purdue career-account name."
+  filesystems:
+    - "**Do NOT** fill `$HOME`; it is limited to 25 GB. Keep conda or virtual environments and large files in `$PROJECT`."
+    - "**Do NOT** look for Data Depot (`/depot`) or use `hsi`/`htar` on Anvil. Data Depot is not available, and Fortress is reachable only by SFTP or Globus."
+  lmod:
+    - "The CPU module tree (`modtree/cpu`) is loaded at login. GPU software is visible only after `module load modtree/gpu`; load it before searching for GPU modules."
+  slurm:
+    - "`standard` is the older name of `wholenode` (the same nodes, limits and charging); write `wholenode`. **Do NOT** submit to `profiling`; it is not for user jobs."
+    - "Jobs are charged in service units (SUs) against the allocation account: on CPU nodes 1 SU is one core-hour, and on GPU nodes 1 SU is one GPU-hour. Find partition limits with `showpartitions`."
+  policies:
+    - "`singularity` still works as a command and runs Apptainer."
+    - "**Do NOT** run `mykeys` or print its output. It returns the user's S3 access and secret keys for Anvil Object Storage."

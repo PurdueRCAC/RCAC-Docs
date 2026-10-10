@@ -7,19 +7,18 @@ checking.
 
 ## Home — `/home/$USER` (`$HOME`)
 
-- **Technology:** GPFS, with nightly snapshots kept for 7 days, weekly for 4 weeks, and monthly for 3 months (recoverable).
+- **Technology:** ZFS, with nightly snapshots kept for 7 days, weekly for 4 weeks, and monthly for 3 months (recoverable).
 - **Use for:** source code, scripts, configuration, small files. It is
   medium-performance and space-limited.
 - **Do NOT** stage large datasets or run heavy parallel job I/O here.
 
 ## Scratch — `/scratch/negishi/$USER` (`$RCAC_SCRATCH`)
 
-- **Technology:** a high-performance, large-capacity parallel filesystem.
+- **Technology:** Lustre, a high-performance parallel filesystem.
 - **Use for:** active job input/output and large working data. Point writable working
   files here (`$RCAC_SCRATCH`), not at home. Find the path with `findscratch`.
 - **Not backed up, and purged after 60 days of inactivity** (by last access and
-  content-modification time; touching metadata does not protect a file). Use
-  `purgelist` to see files scheduled for purge.
+  content-modification time; touching metadata does not protect a file).
 - **Do NOT** treat scratch as durable storage — move anything you want to keep to Data
   Depot or Fortress.
 

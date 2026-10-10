@@ -9,14 +9,11 @@ authors:
 
 {% set resource = "gautschi" %}
 
-Running an agentic coding tool on RCAC's systems does not change the rules — it
-raises the stakes. An agent can issue commands faster than you can read them, so
-the same acceptable-use and good-citizen expectations that apply to *you* apply
-to any agent acting on your behalf. **You are accountable for everything your
-agent does under your account**, exactly as if you had typed it yourself. The
-rules below are the etiquette for using these tools responsibly on shared HPC
-resources; they are consistent with RCAC's existing Acceptable Use policy, quoted
-at the bottom of this page.
+The rules for using RCAC systems apply to agents too. An agent can run commands faster
+than you can read them, so the expectations that apply to you apply to any agent acting on
+your behalf. You are accountable for everything your agent does under your account, as if you
+had typed it yourself. The rules below are consistent with RCAC's Acceptable Use policy,
+quoted at the bottom of this page.
 
 ## No heavy compute on the login nodes
 
@@ -36,10 +33,10 @@ guidance:
 
 ## Run real work through Slurm, with time limits
 
-Any nontrivial computation an agent performs SHALL go through the Slurm
-scheduler, not run interactively on a login node. Instruct your agent to submit
+Any nontrivial computation an agent performs must go through Slurm, not run
+interactively on a login node. Instruct your agent to submit
 batch or interactive jobs (`sbatch`, `sinteractive`) with an explicit
-`--time` limit and a correct account, partition, and QOS. A bounded time limit
+`--time` limit and a correct account and partition (and QOS, where the cluster uses one). A bounded time limit
 protects both your allocation and the shared queue from a runaway job an agent
 started and then lost track of.
 
@@ -49,8 +46,8 @@ Do not let an agent place sensitive or restricted data in world-readable paths
 (for example, a group- or world-readable scratch directory). Agents readily
 create scratch files, logs, and intermediate outputs; make sure those land in
 appropriately-permissioned locations. If your work involves regulated or
-export-controlled data, confirm it is handled on an approved system before an
-agent ever touches it.
+export-controlled data, confirm it is handled on an approved system before you give
+an agent access to it.
 
 ## Never expose secrets or credentials
 
@@ -65,14 +62,13 @@ keep secrets out of it.
 Require your agent to pause for your confirmation before any destructive or
 hard-to-undo operation — deleting files (`rm`), overwriting data, cancelling
 other users' jobs, or changing permissions on shared paths. Configure your
-harness so these actions prompt rather than run automatically; the
-[per-harness settings](shared_context/settings.md) we publish deny the most dangerous
-operations outright as a starting point.
+harness so these actions ask for approval before they run. Each harness documents its
+own permission settings; [Harness Settings](shared_context/settings.md) links to them.
 
 ## Be a good citizen
 
-You share these systems with thousands of other researchers. The same courtesy
-you extend as a human user extends to your agent: do not stress the filesystem
+You share these systems with thousands of other researchers. The same expectations
+apply to your agent: do not stress the filesystem
 with runaway metadata operations, do not leave orphaned processes on login
 nodes, and do not consume shared resources you are not actually using. If an
 agent's behavior is affecting the system or other users, RCAC staff may stop it

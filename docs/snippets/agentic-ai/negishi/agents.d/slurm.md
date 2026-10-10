@@ -35,6 +35,10 @@ A job request must specify **resources**, an **account**, a **QOS**, and a
 <id>` (job detail), `scontrol hold`/`release`, `scancel <id>` (cancel), `sinteractive`
 (interactive job), `srun` (launch tasks).
 
+RCAC helpers: `jobinfo <id>` (one view of a running or finished job, from `sacct`, `sstat`
+and `squeue`), `jobscript <id>` (the job's submission script), `jobcmd <id>` (its
+submission command line), `jobenv <id>` (its environment).
+
 ## Prohibitions
 
 - **Do NOT** assume `ai`/`smallgpu` partitions or a `preemptible` QOS — those are from other RCAC clusters. Negishi's GPU partition is `gpu` (AMD MI210), and the low-priority QOS is `standby`.

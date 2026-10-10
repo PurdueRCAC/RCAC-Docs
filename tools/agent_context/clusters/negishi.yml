@@ -9,12 +9,10 @@ scratch_path: /scratch/negishi
 
 filesystems:
   home:
-    tech: GPFS
+    tech: ZFS                         # staff-confirmed 2026-10-10 (the shared home snippet said GPFS)
     snapshots: nightly snapshots kept for 7 days, weekly for 4 weeks, and monthly for 3 months (recoverable)
   scratch:
-    # Negishi docs describe scratch only as a "high-performance, large-capacity
-    # parallel filesystem" — the specific technology is not stated, so leave it null.
-    tech: null
+    tech: Lustre                      # staff-confirmed 2026-10-10; the guide does not name it
     purge_days: 60
   depot: true
   fortress: true

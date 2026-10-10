@@ -39,6 +39,10 @@ A job request must specify **resources**, an **account**, a **QOS**, and a
 <id>` (job detail), `scontrol hold`/`release`, `scancel <id>` (cancel), `sinteractive`
 (interactive job), `srun` (launch tasks).
 
+RCAC helpers: `jobinfo <id>` (one view of a running or finished job, from `sacct`, `sstat`
+and `squeue`), `jobscript <id>` (the job's submission script), `jobcmd <id>` (its
+submission command line), `jobenv <id>` (its environment).
+
 ## Prohibitions
 
 - **Do NOT** use `--partition=a10` — it is not a Gautschi partition. The valid GPU partitions are `ai` and `smallgpu`.

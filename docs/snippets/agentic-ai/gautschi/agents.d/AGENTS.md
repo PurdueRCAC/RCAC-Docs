@@ -41,6 +41,8 @@ read-only, cheap, and safe — run them eagerly before you plan or act:
 - `slist` — the accounts you can charge and their balances.
 - `sfeatures` — node and GPU hardware features.
 - `module avail` / `module list` — available and currently-loaded software.
+- `uname -m` and `/etc/os-release` — the architecture and OS of the node you are on.
+  Compute nodes can differ from the login node.
 
 Grounding your plan in real output prevents the most common failure mode: confidently
 acting on an assumption that is wrong for this cluster.
@@ -66,8 +68,7 @@ checking.
 - **Use for:** active job input/output and large working data. Point writable working
   files here (`$RCAC_SCRATCH`), not at home. Find the path with `findscratch`.
 - **Not backed up, and purged after 60 days of inactivity** (by last access and
-  content-modification time; touching metadata does not protect a file). Use
-  `purgelist` to see files scheduled for purge.
+  content-modification time; touching metadata does not protect a file).
 - **Do NOT** treat scratch as durable storage — move anything you want to keep to Data
   Depot or Fortress.
 
@@ -129,8 +130,13 @@ The recommended compiler and MPI stack is **GCC 14.1.0 with OpenMPI**. Check
 - **Do NOT invent module names or versions.** Verify a package and version exist with
   `module spider` (or `module avail`) before claiming it is available or writing it
   into a job script.
-- For Python, prefer the `anaconda` modules and user environments rather than modifying
-  a base installation.
+
+## Python
+
+- Use the `conda` module (Miniforge) for Python, and create your own environments with
+  it rather than modifying a base installation.
+- **Do NOT** use the `anaconda` module for new environments. `conda` replaces it.
+- `uv` is a good choice for pip-style project environments; install it in user space.
 
 <!-- Source: slurm.md -->
 
@@ -173,6 +179,10 @@ A job request must specify **resources**, an **account**, a **QOS**, and a
 `sbatch` (submit a batch script), `squeue -u $USER` (your jobs), `scontrol show job
 <id>` (job detail), `scontrol hold`/`release`, `scancel <id>` (cancel), `sinteractive`
 (interactive job), `srun` (launch tasks).
+
+RCAC helpers: `jobinfo <id>` (one view of a running or finished job, from `sacct`, `sstat`
+and `squeue`), `jobscript <id>` (the job's submission script), `jobcmd <id>` (its
+submission command line), `jobenv <id>` (its environment).
 
 ## Prohibitions
 

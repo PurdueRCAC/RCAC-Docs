@@ -7,127 +7,102 @@ authors:
 
 # Best Practices & Limitations
 
-Agentic coding tools are genuinely useful on HPC — they draft submission scripts,
-untangle build errors, and automate the tedious parts of managing a workflow. They
-are also prone to confident, plausible mistakes, and getting good results is less
-about the model than about *how you use it*. This page collects the practices that
-separate a productive session from a frustrating — or costly — one.
+Agents can draft submission scripts, fix build errors, and automate routine workflow steps.
+They also make mistakes that look correct. This page lists practices that reduce those
+mistakes and limit their cost.
 
 ## Know when you're doing research versus operations
 
-Draw a line between the two very different jobs you might ask an agent to do:
+Separate the two kinds of work you might ask an agent to do:
 
-- **Research** — writing analysis code, exploring a dataset, prototyping a model,
-  drafting and debugging a submission script. Mistakes here are usually cheap and
-  self-correcting: the code doesn't compile, the plot looks wrong, the job fails
-  fast. This is where agents shine, and where you can let them iterate freely.
-- **Operations** — moving or deleting data, managing quota, cancelling jobs,
-  changing permissions, installing software, editing shared files. Mistakes here
-  are expensive and sometimes irreversible: a deleted directory, an exhausted
-  allocation, a corrupted shared environment. Slow down. Review each command before
-  it runs, and keep destructive operations behind an explicit confirmation.
+- **Research:** writing analysis code, exploring a dataset, prototyping a model, drafting and
+  debugging a submission script. Mistakes here are usually cheap and show up quickly: the code
+  doesn't compile, the plot looks wrong, the job fails fast. Agents work well here, and you
+  can let them iterate.
+- **Operations:** moving or deleting data, managing quota, cancelling jobs, changing
+  permissions, installing software, editing shared files. Mistakes here are expensive and
+  sometimes irreversible: a deleted directory, an exhausted allocation, a broken shared
+  environment. Review each command before it runs, and keep destructive operations behind an
+  explicit confirmation.
 
-The same agent is trustworthy for the first and needs a short leash for the second.
-Configure your harness accordingly — the
-[per-harness settings](shared_context/settings.md) we publish deny the most dangerous
-operations by default as a starting point.
+Give the agent more freedom for research and review every command for operations. Set your
+harness's permission settings to match; each harness documents its own (see
+[Harness Settings](shared_context/settings.md) for links).
 
-## Engineer the context
+## Give the agent specific context
 
-An agent is only as good as the context it operates in. Vague requests get vague —
-often wrong — answers; specific ones get useful results. The canonical illustration
-is Picard ordering from the replicator: not "a drink," but "Tea, Earl Grey, hot."
-Bring the same specificity to your prompts:
+Specific requests get better results than vague ones:
 
-- Name the cluster, the partition, the account, and the software versions you
-  actually intend to use, rather than letting the agent guess.
-- Point the agent at the authoritative source. RCAC injects cluster-specific
-  context into agents automatically (see [MCP Servers](mcp_servers.md) and the shared
-  [context files](shared_context/context_files.md)), so an agent connected to our
-  tooling already knows the cluster runs Slurm, uses Lmod, and which partitions it
-  has — it does not have to infer it from general knowledge.
-- Give the agent the error message, the job ID, the exact file — not a paraphrase.
+- Name the cluster, partition, account and software versions you intend to use, rather than
+  letting the agent guess.
+- Connect your agent to the cluster's context files (see
+  [Load the context in your harness](shared_context/index.md#load-the-context-in-your-harness)). They tell it the scheduler, module system and
+  partitions, so it does not have to guess them.
+- Give the agent the error message, the job ID and the exact file, not a paraphrase.
 
-Good context supplied up front prevents the single most common failure mode on HPC:
-a plausible, well-formatted answer written for a system we don't run.
+Context supplied up front prevents a common failure: a well-formatted answer written for a
+system RCAC does not run.
 
-## Verify: augmented, not outsourced
+## Check the output
 
-Use an agent to accelerate your own understanding, not to replace it. The goal is to
-be **augmented, not outsourced**.
+- **Ask for the reasoning.** When an agent proposes an `#SBATCH` line or a `module load`,
+  ask it to explain the choice. The explanation often exposes a wrong assumption.
+- **Check before you run.** Read a generated script before you submit it. Confirm the
+  partition exists, the account is one you can charge, and the paths are real. An agent states
+  a nonexistent module or an invalid partition without any sign of doubt.
+- **Be careful outside your expertise.** You are least able to catch an error where you know
+  the least. If you can't yet evaluate the output, treat it as a draft to learn from, not an
+  answer to run.
 
-- **Ask *why*, not just *what*.** When an agent proposes an `#SBATCH` line or a
-  `module load`, ask it to explain the choice. You learn something, and the
-  explanation often exposes a wrong assumption.
-- **Verification isn't optional — it's the core competency.** Read the generated
-  script before you submit it. Confirm the partition exists, the account is one you
-  can charge, the paths are real. An agent will state a nonexistent module or an
-  invalid partition with total confidence.
-- **Mind the expertise paradox.** These tools are most dangerous precisely where you
-  know the least, because that is exactly where you cannot catch the error. If you
-  can't yet evaluate the output, treat it as a draft to learn from, not an answer to
-  run.
+## Let the agent check the cluster first
 
-## Let the agent ground itself first
+Let the agent check the cluster's state before it acts. Allow it to run these read-only
+commands without asking:
 
-Counterintuitively, the safest agents are the ones that look before they leap.
-Encourage — and permit — your agent to run **read-only sanity checks** eagerly,
-before it acts, so its plan is grounded in the real state of the cluster rather than
-an assumption:
+- `myquota`: home and scratch usage and limits.
+- `slist`: the accounts you can charge and their balances (`mybalance` on Anvil).
+- `sfeatures`: the node and GPU features available.
+- `module avail` / `module list`: what software exists and what is loaded.
 
-- `myquota` — how much home and scratch space you actually have left.
-- `slist` — which accounts you can charge, and their balances.
-- `sfeatures` — the real node/GPU features available.
-- `module avail` / `module list` — what software exists and what is currently
-  loaded.
-
-The per-harness [settings we publish](shared_context/settings.md) allow-list these
-commands so the agent runs them without stopping to ask. An agent that checks `slist`
-before writing
-`--account=` will not invent an account name; one that runs `module avail` before a
-`module load` will not hallucinate a version.
+You can allow these commands in your harness's permission settings so the agent runs them
+without stopping to ask. An agent that checks your accounts before writing `--account=` will
+not invent an account name, and one that runs `module avail` before a `module load` will not
+invent a version.
 
 ## Understand the blast radius
 
-Agents don't introduce new *kinds* of risk on a well-run cluster so much as they
-**accelerate the pace** at which an ordinary mistake can happen. The confinement that
-already protects our systems — cgroups, quotas, health checks, root-squash,
-per-user permissions — still applies to an agent acting as you. But existing
-hardening has to be *respected*, not bypassed. Keep these failure modes in mind:
+Agents make ordinary mistakes happen faster. Cgroups, quotas, health checks, root-squash and per-user permissions still
+apply to an agent acting as you. Keep these failure modes in mind:
 
-- **Destructive commands.** An agent can `rm -rf` a project directory in the time it
-  takes to read the confirmation prompt. Require confirmation for deletes, mass
-  moves, and permission changes; never run in a fully-autonomous "do not ask" mode on
-  shared systems.
-- **Allocation exhaustion.** A retry loop that resubmits a failing GPU job can burn
-  through an allocation in hours. Always set a `--time` limit, watch `slist`, and
-  don't let an agent submit jobs unattended.
-- **Credential and secret leakage.** Whatever an agent reads can end up in its
-  context window, its logs, or a request to a model provider. Never point it at
-  private keys, tokens, or `.env` files, and never paste credentials into a prompt.
+- **Destructive commands.** An agent can run `rm -rf` on a project directory. Require
+  confirmation for deletes, mass moves and permission changes, and do not run an agent in a
+  mode that skips all approvals on shared systems.
+- **Allocation exhaustion.** A retry loop that resubmits a failing GPU job can use up an
+  allocation in hours. Always set a `--time` limit, watch your balance, and don't let an agent
+  submit jobs unattended.
+- **Credential and secret leakage.** Whatever an agent reads can end up in its context window,
+  its logs, or a request to a model provider. Never point it at private keys, tokens or `.env`
+  files, and never paste credentials into a prompt.
 
-## Containers offer limited protection — this is not Docker
+## Containers do not isolate an agent
 
-A common assumption is that running an agent "in a container" sandboxes it. On RCAC
-clusters that assumption is wrong in an important way:
+Running an agent in a container does not sandbox it on RCAC clusters.
 
 !!! warning "Apptainer is not a sandbox for agents"
 
-    RCAC uses **Apptainer** (not Docker) for containers, and RCAC's Apptainer
-    configuration **automatically bind-mounts `/home`, `/depot`, and `/scratch`**
-    into the container for convenience. Those mounts are **writable**, so an agent
-    running inside a container can still edit — or delete — your real files on those
-    filesystems. The most likely failure is not a container escape; it is an agent
-    quietly *modifying files* on a mount you forgot was there.
+    RCAC clusters use Apptainer, not Docker. RCAC's Apptainer configuration bind-mounts your
+    home directory, scratch, and (where the cluster has them) Depot or project space into the
+    container. Those mounts are writable, so an agent inside a container can still change or
+    delete your real files. The likely failure is not a container escape but an agent changing
+    files on a mount you forgot was there.
 
-    If you need stronger isolation, invoke Apptainer explicitly with the bind-mounts
-    disabled, and still keep the permission guardrails in place. Do not rely on the
-    container alone.
+    If you need stronger isolation, run Apptainer with the bind mounts disabled, and keep your
+    harness's approval settings on. Do not rely on the container alone.
 
-The harnesses' own OS-level sandboxes (Codex's `bubblewrap`, Gemini's Docker/Podman
-mode, Claude Code's namespace isolation) are frequently **unavailable on shared login
-nodes** as well. Treat the **permission and approval layer as your primary control**,
-point writable work at `$RCAC_SCRATCH`, and deny `rm -rf`/`sudo` outright.
+The harnesses' own OS-level sandboxes (Codex's `bubblewrap`, Gemini's Docker or Podman mode,
+Claude Code's namespace isolation) are often unavailable on shared login nodes. Treat your
+harness's permission and approval settings as the main control, point writable work at your
+scratch directory, and block `rm -rf` and `sudo`.
 
 ---
 

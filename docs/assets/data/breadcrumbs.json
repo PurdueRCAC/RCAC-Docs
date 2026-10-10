@@ -38,6 +38,11 @@
     "Anvil User Guide",
     "Anvil Software"
   ],
+  "/userguides/anvil/using_ai_agents/": [
+    "Home",
+    "Anvil User Guide",
+    "Using AI Agents"
+  ],
   "/userguides/anvil/faqs/": [
     "Home",
     "Anvil User Guide",
@@ -412,6 +417,11 @@
     "Home",
     "Scholar User Guide",
     "Compiling Source Code"
+  ],
+  "/userguides/scholar/using_ai_agents/": [
+    "Home",
+    "Scholar User Guide",
+    "Using AI Agents"
   ],
   "/userguides/scholar/faqs/": [
     "Home",
@@ -1420,19 +1430,19 @@
   "/agentic-ai/shared_context/": [
     "Home",
     "Agentic AI",
-    "Shared Context & Settings"
+    "Shared Context"
   ],
   "/agentic-ai/shared_context/context_files/": [
     "Home",
     "Agentic AI",
-    "Shared Context & Settings",
+    "Shared Context",
     "Context Files (/etc/agents.d)"
   ],
   "/agentic-ai/shared_context/settings/": [
     "Home",
     "Agentic AI",
-    "Shared Context & Settings",
-    "Harness Settings & Permissions"
+    "Shared Context",
+    "Harness Settings (Retired)"
   ],
   "/services/genai/": [
     "Home",
