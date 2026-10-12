@@ -32,7 +32,8 @@ As of October 1st, Gautschi has been in production for 19 months, and over that 
 
 #### Reducing Max GPUs per Group
 Over the past nine months, we've watched the total utilization of the AI partition creep towards 100% while the percentage of jobs using the "preemptible" QOS falls. This indicates that we are at 100% utilization while there are always "normal" QOS jobs that are waiting to start.
-![[Pasted image 20261012132345.png]]
+
+![Utilization Graph of Allocated GPU Hours by QOS](/assets/images/blog/gautschi_usage_by_qos.png)
 
 In order to address this, we'll be reducing the maximum number of GPUs that can be used by a group under the normal QOS from three full nodes (or 24 H100s) to two full nodes (or 16 H100s). This may be reduced further as more groups purchase into Gautschi. Currently, no groups have purchased a full node of H100s on Gautschi, and so this limit still allows all groups to parallelize across more GPUs than strictly purchased. Additionally, the "preemptible" QOS will still be available to allow groups to scale past this limit when idle GPUs are available.
 
