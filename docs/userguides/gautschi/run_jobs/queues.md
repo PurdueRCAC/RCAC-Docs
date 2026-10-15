@@ -82,7 +82,7 @@ When using the AI partition, jobs are tagged by the "normal" QOS by default, but
 
 - Jobs have a high priority and should not need to wait very long before starting.
 - The account the job is submitted to will be charged 1 GPU hour for each GPU this job uses per hour (this is tracked by the minute).
-- These jobs can run for up to two weeks at a time.
+- These jobs can run for up to four days at a time.
 
 **Jobs tagged with the "preemptible" QOS subject to the following policies:**
 
