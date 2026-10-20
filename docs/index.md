@@ -236,6 +236,14 @@ Follow these steps to get up and running on RCAC clusters.
 
     [:octicons-arrow-right-24: Dataset catalog](datasets/index.md)
 
+-   :material-hub:{ .lg .middle } __HUBzero__
+
+    ---
+
+    Documentation for the HUBzero science gateway platform, with guides for hub users, hub managers, tool developers, and CMS developers, and the REST API reference.
+
+    [:octicons-arrow-right-24: HUBzero documentation](hubzero/index.md)
+
 </div>
 
 ## :material-lifebuoy: Need Help?

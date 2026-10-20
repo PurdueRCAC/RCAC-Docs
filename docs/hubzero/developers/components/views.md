@@ -1,0 +1,202 @@
+---
+tags:
+- HUBzero
+render_macros: false
+hubzero:
+  upstream: docs/developers/09-components/07-views.md
+  commit: 9c1a8c678002bdfb41860f90915a3589ab60339e
+  status: rewritten
+  reviewed-against: 2.4-main @ 348f0057c2
+  reviewed: '2026-09-10'
+  source: https://help.hubzero.org/documentation/240/webdevs/components/views
+---
+
+# Views
+
+A view is two things: a `Hubzero\Component\View` object that carries data, and
+a PHP file — the layout — that turns that data into markup. The controller
+fills the object; the layout reads it back as `$this`.
+
+The split is what makes a component restyleable. A hub can replace one layout
+from its template without touching your code — but only for work that is in
+the layout. A query run inside a layout, or a permission decided there, is
+work a template override silently loses. Decide in the controller or the
+model; render in the layout.
+
+## Where layouts go
+
+```
+app/components/com_bookings/
+    site/views/
+        instruments/         the view name, matching the controller
+            tmpl/
+                display.php  the layout, matching the task
+                display.xml  menu-item metadata for that layout
+                view.php     view.xml
+                book.php     book.xml
+                _calendar.php   partials
+                _slot.php
+```
+
+The controller has already built a view for you before your task runs: its
+name is the controller name and its layout is the task name. A controller
+`Instruments` running task `book` renders
+`site/views/instruments/tmpl/book.php`. Nothing needs to be wired up.
+
+A layout whose basename starts with an underscore is a partial. The convention
+matters beyond readability — the menu manager ignores layouts with an
+underscore in the name when it lists menu item types, so a partial never turns
+up as something an administrator can link to.
+
+## Passing data in
+
+`set()` chains, which is why most tasks end in one statement:
+
+```php
+$this->view
+    ->set('instrument', $instrument)
+    ->set('reservations', $reservations)
+    ->setLayout('view')
+    ->display();
+```
+
+`$this->view->article = $article` works too, and `assign()` takes an array or
+an object and copies its public properties across. Names beginning with an
+underscore are refused, because those are the view's own.
+
+Four variables are already set for you: `option`, `controller`, `task`, and
+`baseurl`.
+
+## Reading data out
+
+```php
+<h3><?php echo $this->escape($this->instrument->get('title')); ?></h3>
+<p><?php echo Lang::txt('COM_BOOKINGS_AVAILABILITY'); ?></p>
+```
+
+A name a person typed is not set by you but by whoever typed it. Anything from
+a person goes through `$this->escape()`; an instrument titled
+`<script>…</script>` is otherwise a stored cross-site scripting hole, and it
+renders perfectly until someone tries it. Content that is *meant* to carry
+markup goes through the content parser instead — see [Models](models.md).
+
+A property that was never `set()` reads as `null` and renders as nothing, so a
+typo in `$this->reservation` where the controller set `reservations` produces
+an empty page, not an error.
+
+!!! note
+    A layout file declares no namespace, and `include` does not
+    inherit one, so a layout runs in the global namespace. That is why
+    `Lang::txt()` and `Route::url()` work in a layout with no `use` statements,
+    while the same call in a controller needs one. Do not add a `namespace`
+    declaration to a layout.
+
+Every layout starts with the entry guard:
+
+```php
+// No direct access
+defined('_HZEXEC_') or die();
+```
+
+## Choosing a different layout
+
+`setLayout($name)` changes the file without disturbing the data — the usual
+case being a failed save falling back to the edit form. It also accepts the
+form `template:layout`: the part before the colon is recorded as the layout
+template, the part after is the layout name.
+
+`$this->setView($name, $layout)` on the controller replaces the view object
+entirely, pointing it at a different view directory. Set your data after that
+call.
+
+## Partials
+
+`$this->view($layout, $name = null)` builds a sibling view: same base path,
+same `option`, `controller`, and `task`, a different layout. `com_kb` uses it
+to render a comment thread:
+
+```php
+				$this->view('_list')
+					 ->set('parent', 0)
+					 ->set('cls', 'odd')
+					 ->set('depth', 0)
+					 ->set('option', $this->option)
+					 ->set('article', $this->article)
+					 ->set('comments', $comments)
+					 ->set('base', $this->article->link())
+					 ->display();
+```
+
+Pass a second argument to reach a partial in another view's directory.
+Data does **not** carry over from the parent — a partial sees only what you
+`set()` on it, which is what makes them safe to reuse.
+
+## The search order
+
+`View::loadTemplate()` looks for `{layout}.php` in three directories, in this
+order:
+
+1. `{template}/html/{option}/{view name}/` — the active template's override
+    directory;
+2. `{base path}/views/{view name}/tmpl/`;
+3. `{base path}/views/{view name}/`.
+
+The third exists so a view can skip the `tmpl` directory entirely. The first
+is how a hub restyles a component without editing it: dropping
+`app/templates/hubzero/html/com_bookings/instruments/view.php` into place
+replaces that one layout and leaves the rest of `com_bookings` alone. See
+[Overrides](../templates/overrides.md).
+
+An override is a copy, and copies rot. A layout you change in a later release
+does not reach a hub that overrode it, and nothing warns either of you.
+
+If none of the three has the requested layout, the search runs again for
+`default.php`. If that is missing too, `InvalidLayoutException` is thrown with
+a 404 status — which is the error you get when a task's name and its layout
+file's name have drifted apart. `bookTask()` with no `book.php` is a 404 on a
+page that plainly exists.
+
+## Layout metadata
+
+The `.xml` file beside a layout describes it to the menu manager, so an
+administrator can create a menu item pointing straight at it:
+
+```xml
+<metadata>
+	<layout title="Article">
+		<message>
+			<![CDATA[Article]]>
+		</message>
+	</layout>
+	<state>
+		<name>Article</name>
+		<description>Article</description>
+		<params>
+		</params>
+	</state>
+</metadata>
+```
+
+`title` is the label in the menu item type list and is passed through
+`Lang::txt()`, so it may be a language key. `message` becomes the description.
+Add `hidden="true"` to the `layout` element to keep a layout out of the list.
+A view with no `.xml` files at all offers no menu item types.
+
+## Building a view by hand
+
+Outside a controller — in a module, a plugin, or a second view within one task
+— construct one directly:
+
+```php
+$view = new \Hubzero\Component\View(array(
+    'base_path' => PATH_COMPONENT,
+    'name'      => 'instruments',
+    'layout'    => 'display'
+));
+
+$view->set('instruments', $instruments)
+     ->display();
+```
+
+`display()` echoes; casting the view to a string returns the markup instead,
+which is what you want when the result has to be embedded rather than emitted.
