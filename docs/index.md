@@ -142,7 +142,27 @@ Follow these steps to get up and running on RCAC clusters.
 
     **128 cores/node | 256 GB RAM | 100 Gbps HDR Infiniband**
 
-    [:octicons-arrow-right-24: Negishi User Guide](https://www.rcac.purdue.edu/knowledge/negishi)
+    [:octicons-arrow-right-24: Negishi User Guide](userguides/negishi/index.md)
+
+-   :material-server:{ .lg .middle } __Geddes__
+
+    ---
+
+    Community Composable Platform optimized for composable, cloud-like workflows that are complementary to the batch applications run on Community Clusters. Geddes consists of Dell Compute nodes with two 64-core AMD Epyc 'Rome' processors (128 cores per node).
+
+    **128 cores/node | 1 TB RAM | Nvidia A100 GPU**
+
+    [:octicons-arrow-right-24: Geddes User Guide](userguides/geddes/index.md)
+
+-   :material-server:{ .lg .middle } __Hammer__
+
+    ---
+
+    Optimized for Purdue's communities utilizing loosely-coupled, high-throughput computing. Hammer will be expanded annually, with each year's purchase of nodes to remain in production for 5 years from their initial purchase.
+
+    **256 cores/node | 512 GB RAM | Nvidia Tesla T4 GPU**
+
+    [:octicons-arrow-right-24: Hammer User Guide](userguides/hammer/index.md)
 
 </div>
 
