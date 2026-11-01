@@ -133,8 +133,8 @@ phases:
     docs/userguides/gilbreth/run_jobs/python_example.md && grep -q 'uv.md' docs/userguides/negishi/run_jobs/python.md
     && grep -q 'python_uv.md' docs/userguides/scholar/run_jobs/python_example.md
 review:
-  last_reviewed_commit: ''
-  verdict: none
+  last_reviewed_commit: 7f07d519
+  verdict: approved
   blocked_reason: ''
 ---
 # TECH.md — uv on RCAC clusters, and current Python guidance
