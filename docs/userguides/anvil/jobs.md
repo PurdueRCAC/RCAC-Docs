@@ -422,6 +422,8 @@ Filesystem storage is not charged.
 
 --8<-- "docs/snippets/apps/python.md"
 
+To install Python packages from PyPI with uv instead, see [Python Packages with uv](python_uv.md).
+
 ### R on {{ cluster }} cluster
 
 --8<-- "docs/snippets/apps/r.md"

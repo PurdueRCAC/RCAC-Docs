@@ -6,7 +6,7 @@ appetite: big
 status: in_progress
 branch: feature/uv-module
 base: main
-current_phase: P4
+current_phase: P5
 last_updated: '2026-11-01'
 phases:
 - id: P1
@@ -56,7 +56,7 @@ phases:
     'UVM_REPAIR' site/userguides/scholar/run_jobs/python_uv/
 - id: P4
   name: Anvil page with the 30-day purge note, in nav
-  status: pending
+  status: done
   satisfies:
   - R2
   - R3
@@ -199,12 +199,12 @@ are the work. Design: [`PLAN.md`](PLAN.md). Facts: [`research/05`](research/05-u
 ## Phase P4 — Anvil page
 **Satisfies:** R2–R6, R9 · **Depends on:** P2
 
-- [ ] `docs/userguides/anvil/python_uv.md` with the `!!! warning` 30-day purge admonition
+- [x] `docs/userguides/anvil/python_uv.md` with the `!!! warning` 30-day purge admonition
   (`mkdir -p $PROJECT/$USER`, `export UVM_ROOT=$PROJECT/$USER/.uv`, before `module load uv`; not
   the shared top of `$PROJECT`), then the include.
-- [ ] Nav: `- Python with uv: userguides/anvil/python_uv.md` after `Anvil Software`.
-- [ ] Link from the Python paragraph of `anvil-software.md` and from `jobs.md` § Python.
-- [ ] `.venv/bin/python tools/generate_breadcrumbs.py`.
+- [x] Nav: `- Python with uv: userguides/anvil/python_uv.md` after `Anvil Software`.
+- [x] Link from the Python paragraph of `anvil-software.md` and from `jobs.md` § Python.
+- [x] `.venv/bin/python tools/generate_breadcrumbs.py`.
 - **Touches:** `docs/userguides/anvil/{python_uv,anvil-software,jobs}.md`, `mkdocs.yml`, breadcrumbs.
 
 ## Phase P5 — Python guidance audit
@@ -218,7 +218,7 @@ are the work. Design: [`PLAN.md`](PLAN.md). Facts: [`research/05`](research/05-u
 - [ ] Gilbreth `learning/customml.md`, `learning/ml_batch.md`: `module load anaconda` →
   `module load conda`; env names `…-py3.8.5` → `…-py3.12`; the step text "Load the anaconda module"
   → "Load the conda module".
-- [ ] Anvil `anvil-software.md` Python sentence names the `conda` (Miniforge) and `uv` modules.
+- [x] Anvil `anvil-software.md` Python sentence names the `conda` (Miniforge) and `uv` modules (done in P4, where the link to the uv page went).
 - **Touches:** the files above (shared snippets are high-impact: human gate at review).
 
 ## Phase P6 — Blog post and author title
