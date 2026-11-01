@@ -6,7 +6,7 @@ appetite: big
 status: in_progress
 branch: feature/uv-module
 base: main
-current_phase: P3
+current_phase: P4
 last_updated: '2026-11-01'
 phases:
 - id: P1
@@ -39,7 +39,7 @@ phases:
     && grep -rq 'only-managed' site/userguides/gautschi/run_jobs/examples/python_uv/
 - id: P3
   name: Gilbreth, Negishi and Scholar pages, linked from their hubs
-  status: pending
+  status: done
   satisfies:
   - R2
   - R3
@@ -190,9 +190,9 @@ are the work. Design: [`PLAN.md`](PLAN.md). Facts: [`research/05`](research/05-u
 ## Phase P3 — Gilbreth, Negishi, Scholar pages
 **Satisfies:** R2, R3, R4, R5 · **Depends on:** P2
 
-- [ ] `docs/userguides/gilbreth/run_jobs/examples/python_uv.md` + link in its `python_example.md`.
-- [ ] `docs/userguides/negishi/run_jobs/python/uv.md` + link in `run_jobs/python.md`.
-- [ ] `docs/userguides/scholar/run_jobs/python_uv.md` + a link line after the include in
+- [x] `docs/userguides/gilbreth/run_jobs/examples/python_uv.md` + link in its `python_example.md`.
+- [x] `docs/userguides/negishi/run_jobs/python/uv.md` + link in `run_jobs/python.md`.
+- [x] `docs/userguides/scholar/run_jobs/python_uv.md` + a link line after the include in
   `run_jobs/python_example.md`.
 - **Touches:** three new pages, three hubs.
 

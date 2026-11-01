@@ -24,6 +24,7 @@ $ module spider conda
 ```
 
 - [**Example Python Jobs**](python/example_python_job.md)
+- [**Python Packages with uv**](python/uv.md)
 - [**Managing Environments with Conda**](python/conda.md)
 - [**Managing Packages with Pip**](python/pip.md)
 - [**Installing Packages**](python/packages.md)
