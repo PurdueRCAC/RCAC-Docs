@@ -158,7 +158,6 @@ are the work. Design: [`PLAN.md`](PLAN.md). Facts: [`research/05`](research/05-u
   `module load conda`; env names `…-py3.8.5` → `…-py3.12`; the step text "Load the anaconda module"
   → "Load the conda module".
 - [ ] Anvil `anvil-software.md` Python sentence names the `conda` (Miniforge) and `uv` modules.
-- [ ] Hammer-only learning snippets: per the human's answer on R8 scope.
 - **Touches:** the files above (shared snippets are high-impact: human gate at review).
 
 ## Phase P6 — Blog post and author title

@@ -54,10 +54,12 @@ module, create environments with Python 3.8, or show paths from retired Anaconda
   state, purge damage, in the context of the move from Anaconda to Miniforge), what uv-manager is,
   how to use it, and what to keep in mind; and SHALL link the catalog entry, the cluster guides and
   the 2025 "Conda vs Anaconda" post.
-- **R8** — No user-guide page or shared snippet SHALL tell readers to `module load anaconda` for new
-  work, or to create an environment with an end-of-life Python (3.8 or older).
-- **R9** — `mkdocs build --strict` SHALL report no new warning, and every new page SHALL appear in
-  nav (blog posts via the blog plugin).
+- **R8** — No user-guide page for Anvil, Gautschi, Gilbreth, Negishi or Scholar, and no shared
+  snippet those pages include, SHALL tell readers to `module load anaconda` for new work, or to
+  create an environment with an end-of-life Python (3.8 or older).
+- **R9** — `mkdocs build --strict` SHALL report no new warning, and every new page SHALL be
+  reachable from nav: listed in it, or linked from its chapter's hub as its sibling pages are (blog
+  posts via the blog plugin).
 - **R10** — The blog author entry `glentner` SHALL show the title "Principal AI Scientist".
 
 ## Non-goals (no-gos)
@@ -77,6 +79,19 @@ module, create environments with Python 3.8, or show paths from retired Anaconda
   keep it all in, despite the size circuit-breaker (resolved 2026-10-31).
 - **Q:** The blog author entry for Geoffrey Lentner says "Lead Research Data Scientist"; fix it
   here? — **A:** Yes, to "Principal AI Scientist"; added as R10 (resolved 2026-10-31).
+
+**Amendment, 2026-10-31 (planning), with the human's sign-off:**
+
+- **Q:** R9 asks for every new page in nav, but the sibling Python pages on Gautschi, Gilbreth,
+  Negishi and Scholar are reached from their chapter's hub, not nav. — **A:** R9 reworded to
+  "reachable from nav, listed in it or linked from its chapter's hub as its sibling pages are".
+  R9 re-confirmed.
+- **Q:** Two shared ML snippets that only the Hammer guide includes load `anaconda`. In R8? —
+  **A:** No; R8 covers the five clusters' pages and the snippets they include. R8 re-confirmed.
+- **Q:** Do compute nodes on the five clusters reach the internet (first use and repair need
+  HTTPS)? — **A:** Yes, on all five (staff confirmation). R2 and R4 unaffected.
+- **Q:** The strict build fails on `main` from a broken link in the Fall 2026 Genomics Exchange
+  Session 3 page (`session-4.md`). — **A:** Fix the link in this job; it is outside every R-ID.
 
 ## Related materials
 

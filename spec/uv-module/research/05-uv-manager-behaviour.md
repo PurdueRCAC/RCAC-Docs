@@ -30,5 +30,5 @@ the login nodes of all five clusters, 2026-10-31.
 - **Advice from the README worth carrying:** prefer `uvx` over `uv tool install` on purged storage;
   keep project `.venv`s off scratch for long-lived work (Depot or home for small ones); run
   `uv cache prune` to keep inode counts down; `UV_COMPILE_BYTECODE=1` for many-rank jobs.
-- **Not yet verified:** outbound HTTPS from compute nodes on Gilbreth, Negishi and Scholar
-  (verified on Gautschi and Anvil).
+- **Compute-node egress:** outbound HTTPS works from compute nodes on all five clusters (tested on
+  Gautschi and Anvil; staff confirmation for Gilbreth, Negishi and Scholar, 2026-10-31).

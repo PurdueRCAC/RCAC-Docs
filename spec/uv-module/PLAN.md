@@ -114,7 +114,7 @@ One H1 per page; the snippet starts at H2; the conda/uv table and any blog table
 | R6 | Anvil page admonition (P4) |
 | R7 | `blog/posts/uv_manager.md` (P6) |
 | R8 | Audit edits (P5) |
-| R9 | Strict gate on every phase; Anvil nav entry; other pages linked from their hubs (P7 checks reachability) — see deviation |
+| R9 | Strict gate on every phase; Anvil nav entry; other pages linked from their hubs (P7 checks reachability) |
 | R10 | `.authors.yml` (P6) |
 
 ## 3. Invariant gate (constitution check)
@@ -125,7 +125,7 @@ Walked before research and again after this design.
   are live on all five clusters, since `main` deploys in ~5 minutes.
 - §2 Dev-only layer — untouched.
 - §3 Generated firewall — `apps_md/uv.md` and catalog pages only via `make`; sources edited instead.
-- §4 Nav — Anvil page added to nav; others follow their siblings (see deviation); breadcrumbs
+- §4 Nav — Anvil page added to nav; others follow their siblings, as amended R9 allows; breadcrumbs
   regenerated after the nav edit.
 - §5 Links relative — all page links relative; no assets.
 - §6 Front-matter — per archetype above.
@@ -141,7 +141,7 @@ Walked before research and again after this design.
 
 | Deviation | Why needed | Simpler alternative rejected because |
 |-----------|-----------|--------------------------------------|
-| Four new pages are not in `nav:` (R9 as written asks for every new page in nav) | Their sibling Python pages are not in nav; they are reached from the chapter hub (research/01) | Listing only the uv page in nav would make it the one Python sub-page in each cluster's nav, breaking §10 parallelism. **Needs a GOAL amendment with sign-off** (see §5). |
+| — | — | — |
 
 ## 4. Rabbit holes (resolved)
 
@@ -152,16 +152,13 @@ Walked before research and again after this design.
 
 ## 5. Risks & open questions
 
-- **R9 amendment (needs sign-off):** "Every new page SHALL be reachable from `nav:`, either listed
-  in it or linked from its chapter's hub as its sibling pages are."
-- **R8 scope (needs sign-off):** the Hammer-only `snippets/examples/apps/learning/{customml,ml_batch}.md`
-  load `anaconda`. Either fix them too (unverified that Hammer has the `conda` module) or scope R8 to
-  the five clusters' pages and the snippets they include.
-- **Compute-node egress on Gilbreth, Negishi and Scholar is unverified.** First use and repair need
-  HTTPS. Until a test job confirms it, the snippet tells users to run `uv` once on a login node to
-  install it, and names the hosts repair needs.
-- **Merge order:** the docs PR merges only after the five modulefile changes are merged and live;
-  the seeds would otherwise list a module users can't load.
+- **Resolved 2026-10-31 (GOAL amendment):** R9 now reads "reachable from nav", so the four
+  hub-linked pages comply; R8 is scoped to the five clusters (the Hammer-only learning snippets stay);
+  compute nodes have outbound HTTPS on all five clusters, so first use works inside a job.
+- **Merge order:** the five modulefile changes merged on 2026-10-31; P7 confirms `module load uv`
+  resolves from each cluster's live module tree before the docs PR opens.
+- **Pre-existing build failure:** the Fall 2026 Genomics Exchange Session 3 page links `session-4.md`;
+  fixed in this job (`../session4/index.md`) so the strict gate can run.
 - **Moving facts:** "newest managed Python is 3.15" and "uv 0.13.6" date quickly; the text names
   the behaviour, not the version numbers.
 
