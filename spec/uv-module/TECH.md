@@ -6,7 +6,7 @@ appetite: big
 status: in_progress
 branch: feature/uv-module
 base: main
-current_phase: P6
+current_phase: P7
 last_updated: '2026-11-01'
 phases:
 - id: P1
@@ -89,7 +89,7 @@ phases:
     docs/userguides/negishi docs/userguides/scholar docs/snippets/apps
 - id: P6
   name: Blog post and the author title
-  status: pending
+  status: done
   satisfies:
   - R7
   - R10
@@ -228,11 +228,11 @@ are the work. Design: [`PLAN.md`](PLAN.md). Facts: [`research/05`](research/05-u
 ## Phase P6 — Blog post and author title
 **Satisfies:** R7, R10 · **Depends on:** P1, P3, P4
 
-- [ ] `docs/blog/posts/uv_manager.md` per PLAN §2: front-matter (`date.created` = drafting date,
+- [x] `docs/blog/posts/uv_manager.md` per PLAN §2: front-matter (`date.created` = drafting date,
   updated at publish; `categories: [Software, Announcements]`; `slug: uv-manager`; `authors:
   [glentner]`; tags `uv`, `Python`, `Conda`), excerpt + `<!-- more -->`, four `##` sections, links to
   `conda_anaconda.md`, the catalog entry and the five cluster pages.
-- [ ] `docs/blog/.authors.yml`: `glentner.description: Principal AI Scientist`.
+- [x] `docs/blog/.authors.yml`: `glentner.description: Principal AI Scientist`.
 - **Touches:** the post, `.authors.yml`.
 
 ## Phase P7 — Integration and HPC accuracy
