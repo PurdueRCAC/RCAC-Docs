@@ -11,7 +11,7 @@ search:
 # All software and versions on RCAC clusters
 
 ## Overview
-As of **October 29, 2026**, there have been a total of **288** applications with **2649** available versions deployed across **6** RCAC HPC clusters: **ANVIL, BELL, GAUTSCHI, GILBRETH, NEGISHI, SCHOLAR**.
+As of **November 01, 2026**, there have been a total of **289** applications with **2656** available versions deployed across **6** RCAC HPC clusters: **ANVIL, BELL, GAUTSCHI, GILBRETH, NEGISHI, SCHOLAR**.
 
 ## Applications Catalog
 
@@ -1324,6 +1324,11 @@ As of **October 29, 2026**, there have been a total of **288** applications with
       <td><a href="../apps_md/util-linux-uuid"><strong>util-linux-uuid</strong></a></td>
       <td>Library, Utilities</td>
       <td>ANVIL, BELL, GAUTSCHI, GILBRETH, NEGISHI, SCHOLAR</td>
+    </tr>
+    <tr>
+      <td><a href="../apps_md/uv"><strong>uv</strong></a></td>
+      <td>Programming</td>
+      <td>ANVIL, GAUTSCHI, GILBRETH, NEGISHI, SCHOLAR</td>
     </tr>
     <tr>
       <td><a href="../apps_md/valgrind"><strong>valgrind</strong></a></td>

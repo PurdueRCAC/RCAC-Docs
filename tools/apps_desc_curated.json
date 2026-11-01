@@ -392,5 +392,10 @@
     "description": "HPC-X is a comprehensive software stack for high-performance computing (HPC) environments, providing optimized libraries, tools, and runtimes for parallel applications. It includes components such as MPI implementations, math libraries, and performance analysis tools, designed to enhance the performance and scalability of HPC workloads on various hardware architectures.",
     "homepage": "https://www.mellanox.com/products/hpc-x",
     "source": "curated"
-  }
+  },
+    "uv": {
+      "description": "uv is a fast Python package and project manager, written in Rust, that covers what pip, virtualenv, pipx and pyenv do in one tool. On RCAC clusters the uv module provides uv through the uv-manager wrapper: you run uv and uvx as usual, and each user gets their own copy of uv, with its download cache, tool environments and uv-managed Python interpreters kept on scratch rather than in the home directory, separated by CPU architecture. In batch jobs the module repairs files lost to the scratch purge before your command runs.",
+      "homepage": "https://docs.astral.sh/uv/",
+      "source": "curated"
+    }
 }

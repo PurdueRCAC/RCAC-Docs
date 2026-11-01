@@ -1,83 +1,144 @@
 ---
 slug: uv-module
-title: "uv on RCAC clusters, and current Python guidance"
+title: uv on RCAC clusters, and current Python guidance
 kind: feature
 appetite: big
 status: in_progress
 branch: feature/uv-module
 base: main
-current_phase: P1
-last_updated: "2026-10-31"
+current_phase: P2
+last_updated: '2026-11-01'
 phases:
-  - id: P1
-    name: "Catalog entry: uv seeds, curated description, generated page"
-    status: pending
-    satisfies: [R1]
-    depends_on: []
-    parallel: false
-    hammerable: false
-    hill: uphill
-    verify: ".venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py && test $(grep -c '0.7.0 (D)' docs/software/apps_md/uv.md) -eq 5"
-  - id: P2
-    name: "Shared uv snippet + the Gautschi page (gold standard)"
-    status: pending
-    satisfies: [R2, R3, R4, R5]
-    depends_on: [P1]
-    parallel: false
-    hammerable: false
-    hill: uphill
-    verify: ".venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py && grep -q 'python_uv.md' docs/userguides/gautschi/run_jobs/python_example.md && grep -rq 'UVM_REPAIR' site/userguides/gautschi/run_jobs/examples/python_uv/ && grep -rq 'only-managed' site/userguides/gautschi/run_jobs/examples/python_uv/"
-  - id: P3
-    name: "Gilbreth, Negishi and Scholar pages, linked from their hubs"
-    status: pending
-    satisfies: [R2, R3, R4, R5]
-    depends_on: [P2]
-    parallel: false
-    hammerable: false
-    hill: uphill
-    verify: ".venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py && grep -rq 'UVM_REPAIR' site/userguides/gilbreth/run_jobs/examples/python_uv/ && grep -rq 'UVM_REPAIR' site/userguides/negishi/run_jobs/python/uv/ && grep -rq 'UVM_REPAIR' site/userguides/scholar/run_jobs/python_uv/"
-  - id: P4
-    name: "Anvil page with the 30-day purge note, in nav"
-    status: pending
-    satisfies: [R2, R3, R4, R5, R6, R9]
-    depends_on: [P2]
-    parallel: false
-    hammerable: false
-    hill: uphill
-    verify: ".venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py && grep -q 'userguides/anvil/python_uv.md' mkdocs.yml && grep -rq 'UVM_REPAIR' site/userguides/anvil/python_uv/ && grep -rq 'purged after 30 days' site/userguides/anvil/python_uv/"
-  - id: P5
-    name: "Python guidance audit: Miniforge wording, no anaconda, no Python 3.8"
-    status: pending
-    satisfies: [R8]
-    depends_on: [P2]
-    parallel: false
-    hammerable: false
-    hill: uphill
-    verify: ".venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py && ! grep -rq 'module load anaconda' docs/userguides/anvil docs/userguides/gautschi docs/userguides/gilbreth docs/userguides/negishi docs/userguides/scholar docs/snippets/apps docs/snippets/examples/apps/python docs/snippets/examples/apps/python.md && ! grep -rq 'python=3.8' docs/userguides/anvil docs/userguides/gautschi docs/userguides/gilbreth docs/userguides/negishi docs/userguides/scholar docs/snippets/apps docs/snippets/examples/apps/python docs/snippets/examples/apps/python.md"
-  - id: P6
-    name: "Blog post and the author title"
-    status: pending
-    satisfies: [R7, R10]
-    depends_on: [P1, P3, P4]
-    parallel: false
-    hammerable: false
-    hill: uphill
-    verify: ".venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py && grep -q 'Principal AI Scientist' docs/blog/.authors.yml && grep -q '<!-- more -->' docs/blog/posts/uv_manager.md && grep -q 'apps_md/uv.md' docs/blog/posts/uv_manager.md && grep -q 'conda_anaconda.md' docs/blog/posts/uv_manager.md"
-  - id: P7
-    name: "Integration: cross-links, breadcrumbs, reachability, HPC accuracy pass"
-    status: pending
-    satisfies: [R1, R2, R3, R4, R5, R6, R7, R8, R9, R10]
-    depends_on: [P1, P2, P3, P4, P5, P6]
-    parallel: false
-    hammerable: false
-    hill: uphill
-    verify: ".venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py && grep -q 'python_uv.md' docs/userguides/anvil/anvil-software.md && grep -q 'python_uv.md' docs/userguides/gilbreth/run_jobs/python_example.md && grep -q 'uv.md' docs/userguides/negishi/run_jobs/python.md && grep -q 'python_uv.md' docs/userguides/scholar/run_jobs/python_example.md"
+- id: P1
+  name: 'Catalog entry: uv seeds, curated description, generated page'
+  status: done
+  satisfies:
+  - R1
+  depends_on: []
+  parallel: false
+  hammerable: false
+  hill: uphill
+  verify: .venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py
+    && test $(grep -c '0.7.0 (D)' docs/software/apps_md/uv.md) -eq 5
+- id: P2
+  name: Shared uv snippet + the Gautschi page (gold standard)
+  status: pending
+  satisfies:
+  - R2
+  - R3
+  - R4
+  - R5
+  depends_on:
+  - P1
+  parallel: false
+  hammerable: false
+  hill: uphill
+  verify: .venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py
+    && grep -q 'python_uv.md' docs/userguides/gautschi/run_jobs/python_example.md
+    && grep -rq 'UVM_REPAIR' site/userguides/gautschi/run_jobs/examples/python_uv/
+    && grep -rq 'only-managed' site/userguides/gautschi/run_jobs/examples/python_uv/
+- id: P3
+  name: Gilbreth, Negishi and Scholar pages, linked from their hubs
+  status: pending
+  satisfies:
+  - R2
+  - R3
+  - R4
+  - R5
+  depends_on:
+  - P2
+  parallel: false
+  hammerable: false
+  hill: uphill
+  verify: .venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py
+    && grep -rq 'UVM_REPAIR' site/userguides/gilbreth/run_jobs/examples/python_uv/
+    && grep -rq 'UVM_REPAIR' site/userguides/negishi/run_jobs/python/uv/ && grep -rq
+    'UVM_REPAIR' site/userguides/scholar/run_jobs/python_uv/
+- id: P4
+  name: Anvil page with the 30-day purge note, in nav
+  status: pending
+  satisfies:
+  - R2
+  - R3
+  - R4
+  - R5
+  - R6
+  - R9
+  depends_on:
+  - P2
+  parallel: false
+  hammerable: false
+  hill: uphill
+  verify: .venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py
+    && grep -q 'userguides/anvil/python_uv.md' mkdocs.yml && grep -rq 'UVM_REPAIR'
+    site/userguides/anvil/python_uv/ && grep -rq 'purged after 30 days' site/userguides/anvil/python_uv/
+- id: P5
+  name: 'Python guidance audit: Miniforge wording, no anaconda, no Python 3.8'
+  status: pending
+  satisfies:
+  - R8
+  depends_on:
+  - P2
+  parallel: false
+  hammerable: false
+  hill: uphill
+  verify: .venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py
+    && ! grep -rq 'module load anaconda' docs/userguides/anvil docs/userguides/gautschi
+    docs/userguides/gilbreth docs/userguides/negishi docs/userguides/scholar docs/snippets/apps
+    docs/snippets/examples/apps/python docs/snippets/examples/apps/python.md && !
+    grep -rq 'python=3.8' docs/userguides/anvil docs/userguides/gautschi docs/userguides/gilbreth
+    docs/userguides/negishi docs/userguides/scholar docs/snippets/apps docs/snippets/examples/apps/python
+    docs/snippets/examples/apps/python.md
+- id: P6
+  name: Blog post and the author title
+  status: pending
+  satisfies:
+  - R7
+  - R10
+  depends_on:
+  - P1
+  - P3
+  - P4
+  parallel: false
+  hammerable: false
+  hill: uphill
+  verify: .venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py
+    && grep -q 'Principal AI Scientist' docs/blog/.authors.yml && grep -q '<!-- more
+    -->' docs/blog/posts/uv_manager.md && grep -q 'apps_md/uv.md' docs/blog/posts/uv_manager.md
+    && grep -q 'conda_anaconda.md' docs/blog/posts/uv_manager.md
+- id: P7
+  name: 'Integration: cross-links, breadcrumbs, reachability, HPC accuracy pass'
+  status: pending
+  satisfies:
+  - R1
+  - R2
+  - R3
+  - R4
+  - R5
+  - R6
+  - R7
+  - R8
+  - R9
+  - R10
+  depends_on:
+  - P1
+  - P2
+  - P3
+  - P4
+  - P5
+  - P6
+  parallel: false
+  hammerable: false
+  hill: uphill
+  verify: .venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py
+    && grep -q 'python_uv.md' docs/userguides/anvil/anvil-software.md && grep -q 'python_uv.md'
+    docs/userguides/gilbreth/run_jobs/python_example.md && grep -q 'uv.md' docs/userguides/negishi/run_jobs/python.md
+    && grep -q 'python_uv.md' docs/userguides/scholar/run_jobs/python_example.md
 review:
-  last_reviewed_commit: ""
+  last_reviewed_commit: ''
   verdict: none
-  blocked_reason: ""
+  blocked_reason: ''
 ---
-
 # TECH.md — uv on RCAC clusters, and current Python guidance
 
 The finite-state machine for this job. The frontmatter is the resume ground truth
@@ -99,17 +160,17 @@ are the work. Design: [`PLAN.md`](PLAN.md). Facts: [`research/05`](research/05-u
 ## Phase P1 — Catalog entry
 **Satisfies:** R1 · **Depends on:** —
 
-- [ ] Copy the deployed `uv/0.7.0.lua` for each cluster, plus `default -> 0.7.0.lua`, into
+- [x] Copy the deployed `uv/0.7.0.lua` for each cluster, plus `default -> 0.7.0.lua`, into
   `modulefiles/anvil/cpu/Core/uv/`, `modulefiles/anvil/gpu/Core/uv/`, `modulefiles/gautschi/cpu/Core/uv/`,
   `modulefiles/gautschi/gpu/Core/uv/`, `modulefiles/gilbreth/external-20250225/uv/`,
   `modulefiles/negishi/cpu/Core/uv/`, `modulefiles/scholar/cpu/Core/uv/`.
-- [ ] Add a curated `uv` entry to `tools/apps_desc_curated.json` (description of the RCAC module:
+- [x] Add a curated `uv` entry to `tools/apps_desc_curated.json` (description of the RCAC module:
   uv through the uv-manager wrapper, state on scratch, per architecture; homepage
   `https://docs.astral.sh/uv/`; `"source": "curated"`).
-- [ ] `cd tools && PATH=/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH make`. Inspect `git status`:
-  the generated diff must be limited to the uv additions (`apps_md/uv.md`, catalog rows,
-  `apps_descriptions.json`, `apps_topics.json`, the inventory). Anything else: stop and report.
-- [ ] If the topic heuristic did not give `Programming`, add an explicit override in
+- [x] `cd tools && make` (run on a Linux login node; see research/02). Commit only the files CI
+  commits (`apps_md/uv.md`, `app_catalog.md`, `index.md`, `apps_descriptions.json`); their diff must
+  be limited to the uv additions and the date/count line. Anything else: stop and report.
+- [x] If the topic heuristic did not give `Programming`, add an explicit override in
   `tools/generate_apps_topics.py` and re-run `make`.
 - **Touches:** `modulefiles/*/…/uv/`, `tools/apps_desc_curated.json`, generated catalog files.
 

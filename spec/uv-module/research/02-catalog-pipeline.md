@@ -14,8 +14,14 @@
   the uv seeds are read.
 - **CI:** `rebuild_on_module_tools_change.yml` runs `make` on any push to `main` touching
   `modulefiles/**` or `tools/**` and commits the generated output as the docs bot.
-- **Local run:** the scripts use GNU `mktemp --suffix`; on macOS put
-  `/opt/homebrew/opt/coreutils/libexec/gnubin` first on `PATH`. `jq` is present.
+- **Where to run it:** the scripts need GNU `mktemp --suffix`, `jq`, Python with `requests`, and
+  bash 4 or newer (`mapfile`, `declare -A`). macOS ships bash 3.2, so `generate_md.sh` fails there.
+  Run `make` on a Linux host (a cluster login node works) from a copy without macOS `._*` files,
+  and bring back only the output.
+- **What CI commits:** the workflow stages only `docs/software/apps_md`, `app_catalog.md`,
+  `index.md`, `apps_descriptions.json` and the NGC/ROCm outputs. The topic catalog pages
+  (`*_catalog.md`), `apps_topics.json` and `rcac_apps_inventory.json` are regenerated but never
+  committed, so on `main` they lag the seeds. This job commits the same set CI does.
 - **Why run it locally too:** the blog post and the cluster pages link `software/apps_md/uv.md`,
   which does not exist until the generator runs. Committing the generator's own output keeps the
   branch's `--strict` build honest (§3 forbids hand edits, not regeneration). CI's later run on
