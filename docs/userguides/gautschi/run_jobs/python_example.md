@@ -24,6 +24,8 @@ $ module spider conda
 
 - [**Example Python Jobs**](examples/example_python_job.md)
 
+- [**Python Packages with uv**](examples/python_uv.md)
+
 - [**Distributed Training on RCAC Clusters**](examples/example_distributed.md)
 
 

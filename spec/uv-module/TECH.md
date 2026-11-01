@@ -6,7 +6,7 @@ appetite: big
 status: in_progress
 branch: feature/uv-module
 base: main
-current_phase: P2
+current_phase: P3
 last_updated: '2026-11-01'
 phases:
 - id: P1
@@ -22,7 +22,7 @@ phases:
     && test $(grep -c '0.7.0 (D)' docs/software/apps_md/uv.md) -eq 5
 - id: P2
   name: Shared uv snippet + the Gautschi page (gold standard)
-  status: pending
+  status: done
   satisfies:
   - R2
   - R3
@@ -177,14 +177,14 @@ are the work. Design: [`PLAN.md`](PLAN.md). Facts: [`research/05`](research/05-u
 ## Phase P2 — Shared snippet + Gautschi page
 **Satisfies:** R2, R3, R4, R5 · **Depends on:** P1
 
-- [ ] Write `docs/snippets/examples/apps/python/uv.md` per PLAN §2 (eight `##` sections). The batch
+- [x] Write `docs/snippets/examples/apps/python/uv.md` per PLAN §2 (eight `##` sections). The batch
   example uses a generic `#SBATCH` header (`-A <account>`, `-p <partition>`), `module load uv`,
   `srun uv run --no-project analyse.py`, with `UVM_REPAIR` explained in prose.
-- [ ] Create `docs/userguides/gautschi/run_jobs/examples/python_uv.md`: front-matter (`tags:
+- [x] Create `docs/userguides/gautschi/run_jobs/examples/python_uv.md`: front-matter (`tags:
   [Gautschi]`, `authors: [glentner]`, `resource: Gautschi`, `search: {boost: 2}`), H1, intro, include,
   back-link to `../python_example.md`.
-- [ ] Add `- [**Python Packages with uv**](examples/python_uv.md)` to `run_jobs/python_example.md`.
-- [ ] `mkdocs serve`; eyeball headings, the table, the code blocks.
+- [x] Add `- [**Python Packages with uv**](examples/python_uv.md)` to `run_jobs/python_example.md`.
+- [x] `mkdocs serve`; eyeball headings, the table, the code blocks.
 - **Touches:** `docs/snippets/examples/apps/python/uv.md`, two Gautschi pages.
 
 ## Phase P3 — Gilbreth, Negishi, Scholar pages
