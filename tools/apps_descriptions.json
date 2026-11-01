@@ -2428,5 +2428,13 @@
     "topic": [
       "Miscellaneous"
     ]
+  },
+  "uv": {
+    "description": "An extremely fast Python package and project manager, written in Rust.",
+    "homepage": null,
+    "source": "pypi",
+    "topic": [
+      "Miscellaneous"
+    ]
   }
 }
