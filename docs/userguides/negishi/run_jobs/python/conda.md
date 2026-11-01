@@ -11,7 +11,7 @@ search:
 
 # Managing Environments with Conda
 
-Conda is a package manager in Anaconda that allows you to create and manage multiple environments where you can pick and choose which packages you want to use. To use Conda you must load an Anaconda module:
+Conda is a package and environment manager that allows you to create and manage multiple environments where you can pick and choose which packages you want to use. To use conda, load the `conda` module, which provides the Miniforge distribution:
 
 ```
 $ module load conda
@@ -26,7 +26,7 @@ $ conda list
 To create your own custom environment:
 
 ```
-$ conda create --name MyEnvName python=3.8 FirstPackageName SecondPackageName -y
+$ conda create --name MyEnvName python=3.12 FirstPackageName SecondPackageName -y
 ```
 
 The `--name` option specifies that the environment created will be named MyEnvName. You can include as many packages as you require separated by a space. Including the `-y` option lets you skip the prompt to install the package. By default environments are created and stored in the $HOME/.conda directory.
@@ -34,7 +34,7 @@ The `--name` option specifies that the environment created will be named MyEnvNa
 To create an environment at a custom location:
 
 ```
-$ conda create --prefix=$HOME/MyEnvName python=3.8 PackageName -y
+$ conda create --prefix=$HOME/MyEnvName python=3.12 PackageName -y
 ```
 
 To see a list of your environments:
@@ -81,7 +81,7 @@ $ source activate MyEnvName
 For more information about Python:
 
 * [The Python Programming Language - Official Website](http://www.python.org/)
-* [Anaconda Python Distribution - Official Website](https://store.continuum.io/cshop/anaconda/)
+* [Miniforge](https://github.com/conda-forge/miniforge)
 * [Conda User Guide](https://conda.io/projects/conda/en/latest/user-guide/)
 
 [**Back to the Python section**](../python.md)

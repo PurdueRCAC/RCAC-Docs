@@ -12,7 +12,7 @@ search:
 
 ### Using conda to create an environment that uses the biopython package
 
-To use Conda you must first load the anaconda module:
+To use conda, first load the `conda` module:
 
 ```bash
 module load conda

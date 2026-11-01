@@ -6,7 +6,7 @@ appetite: big
 status: in_progress
 branch: feature/uv-module
 base: main
-current_phase: P5
+current_phase: P6
 last_updated: '2026-11-01'
 phases:
 - id: P1
@@ -74,7 +74,7 @@ phases:
     site/userguides/anvil/python_uv/ && grep -rq 'purged after 30 days' site/userguides/anvil/python_uv/
 - id: P5
   name: 'Python guidance audit: Miniforge wording, no anaconda, no Python 3.8'
-  status: pending
+  status: done
   satisfies:
   - R8
   depends_on:
@@ -85,10 +85,8 @@ phases:
   verify: .venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py
     && ! grep -rq 'module load anaconda' docs/userguides/anvil docs/userguides/gautschi
     docs/userguides/gilbreth docs/userguides/negishi docs/userguides/scholar docs/snippets/apps
-    docs/snippets/examples/apps/python docs/snippets/examples/apps/python.md && !
-    grep -rq 'python=3.8' docs/userguides/anvil docs/userguides/gautschi docs/userguides/gilbreth
-    docs/userguides/negishi docs/userguides/scholar docs/snippets/apps docs/snippets/examples/apps/python
-    docs/snippets/examples/apps/python.md
+    && ! grep -rq 'python=3.8' docs/userguides/anvil docs/userguides/gautschi docs/userguides/gilbreth
+    docs/userguides/negishi docs/userguides/scholar docs/snippets/apps
 - id: P6
   name: Blog post and the author title
   status: pending
@@ -210,16 +208,22 @@ are the work. Design: [`PLAN.md`](PLAN.md). Facts: [`research/05`](research/05-u
 ## Phase P5 — Python guidance audit
 **Satisfies:** R8 · **Depends on:** P2
 
-- [ ] Hub intros (Gautschi, Gilbreth `python_example.md`; Negishi `python.md`) and
-  `snippets/apps/python.md`, `snippets/examples/apps/python.md`: Miniforge `conda` wording, plus a
-  pointer to uv (hubs link the page; snippets name `module load uv`).
-- [ ] `python=3.8` → `python=3.12` in `snippets/examples/apps/python/conda.md`,
-  Gilbreth `examples/python_conda.md`, Negishi `python/conda.md`.
-- [ ] Gilbreth `learning/customml.md`, `learning/ml_batch.md`: `module load anaconda` →
-  `module load conda`; env names `…-py3.8.5` → `…-py3.12`; the step text "Load the anaconda module"
+- [x] Hub intros (Gautschi, Gilbreth `python_example.md`; Negishi `python.md`) and
+  `snippets/apps/python.md`: Miniforge `conda` wording. The uv pointer is the hub's list item (P2, P3)
+  and, for the snippet, the link line its includers carry after it (P3, P4).
+  `snippets/examples/apps/python.md` is Bell/Hammer-only and out of scope (amended R8).
+- [x] `python=3.8` → `python=3.12`, Miniforge wording and a Miniforge link in Gilbreth
+  `examples/python_conda.md` and Negishi `python/conda.md`; "load the conda module" in the
+  Gilbreth and Negishi Biopython environment examples. The shared
+  `snippets/examples/apps/python/conda.md` is Bell/Hammer-only and out of scope (amended R8).
+- [x] Gilbreth `learning/customml.md`, `learning/ml_batch.md`: `module load anaconda` →
+  `module load conda`; env names `…-py3.8.5` → `…-py3.12.11` (the default `conda` module's Python on Gilbreth); the step text "Load the anaconda module"
   → "Load the conda module".
 - [x] Anvil `anvil-software.md` Python sentence names the `conda` (Miniforge) and `uv` modules (done in P4, where the link to the uv page went).
 - **Touches:** the files above (shared snippets are high-impact: human gate at review).
+- **Follow-up, outside this job:** the Gilbreth and Negishi numpy pages describe the `anaconda`
+  modules' MKL threading, and the source pages are built on Anaconda's base package list. Both need a
+  rewrite checked against the `conda` (Miniforge) module, which this job did not verify.
 
 ## Phase P6 — Blog post and author title
 **Satisfies:** R7, R10 · **Depends on:** P1, P3, P4
