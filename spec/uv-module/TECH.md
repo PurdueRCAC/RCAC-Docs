@@ -3,10 +3,10 @@ slug: uv-module
 title: uv on RCAC clusters, and current Python guidance
 kind: feature
 appetite: big
-status: in_progress
+status: in_review
 branch: feature/uv-module
 base: main
-current_phase: P7
+current_phase: done
 last_updated: '2026-11-01'
 phases:
 - id: P1
@@ -106,7 +106,7 @@ phases:
     && grep -q 'conda_anaconda.md' docs/blog/posts/uv_manager.md
 - id: P7
   name: 'Integration: cross-links, breadcrumbs, reachability, HPC accuracy pass'
-  status: pending
+  status: done
   satisfies:
   - R1
   - R2
@@ -238,11 +238,22 @@ are the work. Design: [`PLAN.md`](PLAN.md). Facts: [`research/05`](research/05-u
 ## Phase P7 — Integration and HPC accuracy
 **Satisfies:** all · **Depends on:** P1–P6
 
-- [ ] Every new page is reachable from its hub (and Anvil's from nav); the blog links resolve.
-- [ ] Regenerate breadcrumbs if nav moved since P4.
-- [ ] On each cluster's login node, with the deployed module, run every command the snippet shows
+- [x] Every new page is reachable from its hub (and Anvil's from nav); the blog links resolve.
+- [x] Regenerate breadcrumbs if nav moved since P4.
+- [x] On each cluster's login node, with the deployed module, run every command the snippet shows
   (`uv --version`, `uv-manager status`, `uv run --no-project`, `uvx`, `uv venv` + `uv pip install`,
   `uv python pin 3.12`, `--python "$(command -v python3)"` after `module load conda`,
   `uv-manager doctor`) in a throwaway directory under the user's scratch; fix any mismatch.
-- [ ] Final render pass of one cluster page, the Anvil page and the post.
+- [x] Final render pass of one cluster page, the Anvil page and the post.
 - **Touches:** small fixes only.
+- **Result (2026-11-01):** on the login nodes of Anvil, Gautschi, Gilbreth, Negishi and Scholar,
+  `module load uv` resolved `uv/0.7.0` from the live module tree, and every command the pages show
+  passed in a throwaway scratch directory: `uv --version`, `uv-manager status`/`help`/`doctor`,
+  `uv run --with`, `uv add --script` + `uv run`, `uvx ruff`, `uvx --from jupyterlab`, `uv init` +
+  `uv add` + `uv run` + `uv sync`, `uv venv --python 3.12` + `uv pip install -r`,
+  `uv run --python 3.12` (ran 3.12), `uv python pin 3.12`, `uv python list`,
+  `uv venv --python "$(command -v python3)"` after `module load conda` (reached conda's Python),
+  `uv cache prune`, and `myquota`. `uv-manager help` lists `clean [WHAT] --yes` with `lock`. The
+  batch-script example was not submitted as a job; repair under `srun` was proven by uv-manager's
+  own release testing. Render checked from the built HTML: heading order, the conda/uv table header,
+  the Anvil warning admonition, and every link in the blog post.
