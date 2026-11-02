@@ -4,11 +4,11 @@
 
 ## Description
 
-An extremely fast Python package and project manager, written in Rust.
+uv is a fast Python package and project manager, written in Rust, that covers what pip, virtualenv, pipx and pyenv do in one tool. On RCAC clusters the uv module provides uv through the uv-manager wrapper: you run uv and uvx as usual, and each user gets their own copy of uv, with its download cache, tool environments and uv-managed Python interpreters kept on scratch rather than in the home directory, separated by CPU architecture. In batch jobs the module repairs files lost to the scratch purge before your command runs.
 
 ## Homepage
 
-N/A
+[https://docs.astral.sh/uv/](https://docs.astral.sh/uv/)
 
 ## Available Versions on RCAC Clusters
 

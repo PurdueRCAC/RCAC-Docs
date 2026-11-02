@@ -14,4 +14,6 @@ search:
 
 --8<-- "docs/snippets/apps/python.md"
 
+To install Python packages from PyPI with uv instead, see [Python Packages with uv](python_uv.md).
+
 [**Back to the Running Jobs section**](index.md)

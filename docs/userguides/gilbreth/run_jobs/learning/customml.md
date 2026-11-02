@@ -23,10 +23,10 @@ While we try to include as many common ML frameworks and versions as we can in M
 module purge
 ```
 
-**Step 2:** Load the anaconda module with desired Python version.
+**Step 2:** Load the conda module with the desired Python version.
 
 ```bash
-module load anaconda
+module load conda
 ```
 
 **Step 2A:** If the ML application requires Cuda and CuDNN, load the appropriate modules. Be sure to check that the versions you load are compatible with the desired ML package.
@@ -38,17 +38,17 @@ module load cudnn
 
 Many machine-learning packages, including PyTorch and TensorFlow, now provide installation pathways that include the full cudatoolkit within the environment, making it unnecessary to load these modules.
 
-**Step 3:** Create a custom anaconda environment. Make sure the Python version matches the Python version in the anaconda module.
+**Step 3:** Create a custom conda environment. Make sure the Python version matches the Python version in the conda module.
 
 ```bash
 conda-env-mod create -n env_name_here
 ```
 
-**Step 4:** Activate the anaconda environment by loading the modules displayed at the end of step 3.
+**Step 4:** Activate the conda environment by loading the modules displayed at the end of step 3.
 
 ```bash
 module load use.own
-module load conda-env/env_name_here-py3.8.5
+module load conda-env/env_name_here-py3.12.11
 ```
 
 **Step 5:** Now install the desired ML application. You can install multiple Python packages at this step using either `conda` or `pip`.
@@ -141,12 +141,12 @@ Clean up `PYTHONPATH`:
 unset PYTHONPATH
 ```
 
-Next, load the modules, such as `anaconda` and your custom environment:
+Next, load the modules, such as `conda` and your custom environment:
 
 ```bash
-module load anaconda
+module load conda
 module load use.own
-module load conda-env/env_name_here-py3.8.5
+module load conda-env/env_name_here-py3.12.11
 ```
 
 For GPU-enabled applications, you may also need to load the corresponding `cuda/` and `cudnn/` modules.

@@ -3,13 +3,13 @@
 !!! note "Notice"
     Python 2.7 has reached end-of-life on Jan 1, 2020 (announcement). Please update your codes and your job scripts to use Python 3.
 
-Python is a high-level, general-purpose, interpreted, dynamic programming language. We suggest using Anaconda which is a Python distribution made for large-scale data processing, predictive analytics, and scientific computing. For example, to use the default Anaconda distribution:
+Python is a high-level, general-purpose, interpreted, dynamic programming language. We recommend the `conda` module, which loads Miniforge: the conda package and environment manager, installing packages from the open conda-forge channel. To use the default version:
 
 ``` bash
 $ module load conda
 ```
 
-For a full list of available Anaconda and Python modules enter:
+For a full list of available versions enter:
 ``` bash
 $ module spider conda
 ```
