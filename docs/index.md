@@ -15,18 +15,24 @@ meta:
 <!-- The invisible anchor below will make sure the outage widget only anchors to homepage. -->
 <div id="outage-widget-anchor"></div>
 
-??? info "Important: RCAC to decommission Bell on October 31, 2026"
-    **The Bell Community cluster has reached the end of its life, and we are taking steps to decommission this cluster on October 31, 2026.** 
+??? info "Important: Gautschi Scheduler Changes Coming November 2: Shorter Waits, New Burst QOS"
+    As Gautschi's utilization has ramped up, the RCAC team reached out to researchers to understand their workflows and collect feedback to guide the evolution of this resource. While the AI partition's near 100% utilization is a success by many metrics, many of you have pointed out that jobs using the normal QOS have begun to experience longer-than-expected wait times and that preemptible jobs are unlikely to start due to the near 100% occupancy of normal QOS jobs. To make sure that the Gautschi AI cluster delivers a positive experience while providing the desired AI cycles, we're making a set of scheduler changes to shorten waits, make capacity more predictable, enable new ways to get whole-node access when you need it, and make checkpointing easier to perform when using the preemptible QOS. This blog post will provide some of the data driving the decisions that we are making.
+
+    ## What's Changing
+
+    The following changes will take effect on **Monday, November 2, 2026**.
+
+    1. **Proportional GPU Limits:** The per-account limit of 24 GPUs is being reduced to **double the number of GPUs purchased or 2 GPUs, whichever is larger**.
+    2. **Reduced Max Walltimes:** The current two-week max walltime for normal QOS jobs is being reduced to **4 days**.
+    3. **New burst QOS:** A new quality of service will be created called burst with the following policies:
+        - Jobs using the burst QOS can use up to **8 GPUs** at once for up to **8 hours** at a time.
+        - Jobs with this QOS will have the highest priority on the cluster for more immediate start time, however they will only be able to preempt preemptible jobs. Normal QOS jobs will remain unaffected.
+        - Only one job from each account on the cluster can use this QOS at a time.
+        - Jobs using this QOS will be **charged at 2x the rate for the GPU hours** consumed by their job.
+    4. **New Preemptible Features:**
+        - Preemptible jobs will have a **GraceTime value of 10 minutes** which will allow preemptible jobs a guaranteed 10 minutes to clean-up and checkpoint their work before being interrupted.
     
-    Since its introduction in 2020, Bell has provided a cost-effective platform for a diverse spectrum of science and engineering workloads. Bell’s decommissioning is a crucial step towards creating capacity for novel systems that meet emerging research needs.  
-    
-    We recommend that you start backing up your data to appropriate storage systems such as [Data Depot](https://docs.rcac.purdue.edu/userguides/depot/) and [Fortress](https://docs.rcac.purdue.edu/userguides/fortress/). You can use [Globus](https://docs.rcac.purdue.edu/userguides/bell/storage/globus/) or other tools for your data transfer needs. 
-    
-    **After 5:00 PM on Friday, October 30, 2026, RCAC STAFF WILL NOT be able to retrieve any data left in the Bell scratch filesystem.** 
-    
-    To support research groups planning work beyond Bell’s retirement, RCAC recommends [Gautschi compute cluster](https://www.rcac.purdue.edu/compute/gautschi) as the successor community cluster. Gautschi compute cluster has considerable advantages over Bell in many respects. It offers significantly more processing cores per node, performant GPUs available via standby scheduling, and an interconnect designed for current high-performance and AI-enabled workloads. 
-    
-    Please also feel free to contact us at [rcac-help@purdue.edu](mailto:rcac-help@purdue.edu) if you have any questions or need support and visit [our post at RCAC website](https://www.rcac.purdue.edu/news/7776) for additional details.
+    Please also feel free to contact us at [rcac-help@purdue.edu](mailto:rcac-help@purdue.edu) if you have any questions or need support and visit [our post at RCAC website](https://www.rcac.purdue.edu/news/7941) for additional details.
 
 ## :material-rocket-launch: New to RCAC?
 
