@@ -40,6 +40,8 @@ In order for a job to use a Job QOS, the user submitting the job must have acces
 
 - "normal": The "normal" QOS is the default job QOS on the cluster meaning if you do not explicitly list an alternative job QOS, your job will be tagged with this QOS. The policy for this QOS provides a high priority and does not add any additional limits.
 - "standby": The "standby" QOS must be explicitly used if desired by using the option "-q standby" or "--qos=standby". The policy for this QOS gives access to idle resources on the cluster. Jobs tagged with this QOS are "low priority" jobs and are only allowed to run for up to four hours at a time, however the resources used by these jobs do not count against the resources in your Account. For users of our previous clusters, usage of this QOS replaces the previous -A standby style of submission.
+- "burst": The "burst" QOS must be explicitly used if desired by using the option "-q burst" or "--qos=burst". The policy for this QOS allows users to exceed their typical/normal limits for a short period of time with the highest priority in exchange for a higher charging rate.
+- "preemptible": The "preemptible" QOS must be explicitly used if desired by usion the option "-q preemptible" or "--qos=preemptible". The policy for this QOS allows users to run "as available/low priority" jobs that can exceed their typical limits while being charged at a reduced rate in exchange for allowing "normal" QOS jobs to interrupt your job if there is not room for the "normal" job to start otherwise.
 
 Some of these QOSes may not be available in every partition. Each of the partitions in the following section will enumerate which of these QOSes are allowed in the partition.
 
@@ -73,11 +75,13 @@ Available QOSes: "normal", "standby"
 
 ### AI Partition
 
+Note: As of November 2nd, 2026 some of the options and limits for this partition have changed. For a more in-depth discussion of those changes, see [our announcement](https://www.rcac.purdue.edu/news/7941).
+
 This partition contains the resources a group purchases access to when they purchase GPU resources on Gautschi and is made up of 20 Gautschi-H nodes. Each of these nodes contains two Intel Xeon Platinum 8480+ 56-core processors and 8-way NVLinked H100s for a total of 160 H100s in the partition. CPU memory in this partition is allocated proportional to your core request such that each core is given about 9 GB of memory per core requested. Submission to this partition can be accomplished by using the option: "-p ai" or "--partition=ai".
 
 The purchasing model for this cluster allows groups to purchase access to GPUs. When a group purchases access to a GPU for a year, they are given 365*24 hours of GPU time on the partition. The advantage to tracking resources this way is that if a group needs access to more than one GPU for a project, they can use multiple GPUs at once since instead of having to purchase additional GPUs, they just consume those GPU hours faster. When an account uses resources in this partition, the balance of GPU hours in their account is charged at a rate of at least one GPU hour for each GPU their job uses per hour (this is tracked by the minute), however the usage of some QOSes described below will charge usage at a faster/slower rate. 
 
-When using the AI partition, jobs are tagged by the "normal" QOS by default, but they can be tagged with the "preemptible" QOS if explicitly submitted using the "-q preemptible" or "--qos=preemptible" option.
+When using the AI partition, jobs are tagged by the "normal" QOS by default, but they can be tagged with the "preemptible" or "burst" QOS if explicitly submitted by using the "-q preemptible"/"--qos=preemptible" or "-q burst"/"--qos=preemptible" options respectively.
 
 **Jobs tagged with the "normal" QOS are subject to the following policies:**
 
