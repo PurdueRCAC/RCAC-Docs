@@ -3,6 +3,7 @@ tags:
   - Gautschi
 authors:
   - jin456
+  - rderue
 resource: Gautschi
 search:
   boost: 2
@@ -74,7 +75,7 @@ Available QOSes: "normal", "standby"
 
 This partition contains the resources a group purchases access to when they purchase GPU resources on Gautschi and is made up of 20 Gautschi-H nodes. Each of these nodes contains two Intel Xeon Platinum 8480+ 56-core processors and 8-way NVLinked H100s for a total of 160 H100s in the partition. CPU memory in this partition is allocated proportional to your core request such that each core is given about 9 GB of memory per core requested. Submission to this partition can be accomplished by using the option: "-p ai" or "--partition=ai".
 
-The purchasing model for this cluster allows groups to purchase access to GPUs. When a group purchases access to a GPU for a year, they are given 365*24 hours of GPU time on the partition. The advantage to tracking resources this way is that if a group needs access to more than one GPU for a project, they can use multiple GPUs at once since instead of having to purchase additional GPUs, they just consume those GPU hours faster. When an account uses resources in this partition, the balance of GPU hours in their account is charged at a rate of at least one GPU hour for each GPU their job uses per hour (this is tracked by the minute), however the usage of some QOSes described below will charge usage at a slower rate. 
+The purchasing model for this cluster allows groups to purchase access to GPUs. When a group purchases access to a GPU for a year, they are given 365*24 hours of GPU time on the partition. The advantage to tracking resources this way is that if a group needs access to more than one GPU for a project, they can use multiple GPUs at once since instead of having to purchase additional GPUs, they just consume those GPU hours faster. When an account uses resources in this partition, the balance of GPU hours in their account is charged at a rate of at least one GPU hour for each GPU their job uses per hour (this is tracked by the minute), however the usage of some QOSes described below will charge usage at a faster/slower rate. 
 
 When using the AI partition, jobs are tagged by the "normal" QOS by default, but they can be tagged with the "preemptible" QOS if explicitly submitted using the "-q preemptible" or "--qos=preemptible" option.
 
@@ -82,16 +83,26 @@ When using the AI partition, jobs are tagged by the "normal" QOS by default, but
 
 - Jobs have a high priority and should not need to wait very long before starting.
 - The account the job is submitted to will be charged 1 GPU hour for each GPU this job uses per hour (this is tracked by the minute).
-- These jobs can run for up to two weeks at a time.
+- These jobs can run for up to 4 days at a time.
+- Groups can use up to two GPUs at once or twice the number of GPUs they have purchased, whichever is larger, under the normal QOS.
 
-**Jobs tagged with the "preemptible" QOS subject to the following policies:**
+**Jobs tagged with the "preemptible" QOS are subject to the following policies:**
 
 - **Jobs have a low priority and there is no expectation of job start time.** If the partition is very busy with jobs using the "normal" QOS or if you are requesting a very large job, then jobs using the "preemptible" QOS may take hours or days to start.
 - The account the job is submitted to will be charged 0.25 GPU hour for each GPU this job uses per hour (this is tracked by the minute) which effectively allows jobs to use 4x as many resources as a job tagged with the "normal" qos for the same cost.
-- These jobs can run for up to two weeks at a time.
+- These jobs can run for up to thirty days at a time.
 - If there are not enough idle resources in this partition for a job tagged with the "normal" QOS to start, then this job may be cancelled to make room for that job. **This means it is imperative to use checkpointing if using this QOS.**
+- When the preemptible job is selected to be preempted (cancelled/requeued), its end time will be updated to be ten minutes from the time it's selected for preemption.
 
-Available QOSes: "normal", "preemptible"
+**Jobs tagged with the "burst" QOS are subject to the following policies:"**
+
+- Jobs have the highest priority and can preempt "preemptible" jobs.
+- **This QOS charges usage at a higher rate.** The account the job is submitted to will be charged 2 GPU hours for each GPU this job uses per hour (this is tracked by the minute).
+- Each account on the cluster can only have one "burst" job running at once.
+- A burst job can use up to **8 GPUs** at a time.
+- A burst job can only run for up to **8 hours**.
+
+Available QOSes: "normal", "preemptible", "burst"
 
 ### Highmem Partition
 
