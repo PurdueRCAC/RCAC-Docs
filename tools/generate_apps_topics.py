@@ -49,6 +49,7 @@ EXCEPTIONS = {
     'python': ['Programming'],
     'anaconda': ['Programming'],
     'conda': ['Programming'],
+    'uv': ['Programming'],
     'nextflow': ['Workflow'],
     'nf-core': ['Workflow'],
     'paraview': ['Engineering', 'Material Science'],

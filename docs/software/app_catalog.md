@@ -1327,7 +1327,7 @@ As of **November 01, 2026**, there have been a total of **289** applications wit
     </tr>
     <tr>
       <td><a href="../apps_md/uv"><strong>uv</strong></a></td>
-      <td>Miscellaneous</td>
+      <td>Programming</td>
       <td>ANVIL, GAUTSCHI, GILBRETH, NEGISHI, SCHOLAR</td>
     </tr>
     <tr>

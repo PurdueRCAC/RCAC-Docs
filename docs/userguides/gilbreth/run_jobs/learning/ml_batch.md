@@ -33,11 +33,11 @@ Save the following code as `tensor_hello.sub` in the same directory where `tenso
 #SBATCH -J hello_tensor
 
 module purge
-module load anaconda
+module load conda
 module load cuda
 module load cudnn
 module load use.own
-module load conda-env/my_tf_env-py3.8.5
+module load conda-env/my_tf_env-py3.12.11
 module list
 
 echo $PYTHONPATH

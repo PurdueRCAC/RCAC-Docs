@@ -43,7 +43,7 @@ Replace `YOUR_ACCOUNT` in `hpc.config` with your allocation, and drop the `--mem
 
 ## Next session
 
-[Session 4: Running nf-core pipelines on clusters (Oct 27, 2026)](session-4.md)
+[Session 4: Running nf-core pipelines on clusters (Oct 27, 2026)](../session4/index.md)
 
 
 

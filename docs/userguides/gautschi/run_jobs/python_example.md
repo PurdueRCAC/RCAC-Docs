@@ -10,19 +10,21 @@ search:
 
 # Python examples on Gautschi
 
-Python is a high-level, general-purpose, interpreted, dynamic programming language. We suggest using Anaconda which is a Python distribution made for large-scale data processing, predictive analytics, and scientific computing. For example, to use the default Anaconda distribution:
+Python is a high-level, general-purpose, interpreted, dynamic programming language. We recommend the `conda` module, which loads Miniforge: the conda package and environment manager, installing packages from the open conda-forge channel. To use the default version:
 
 ```bash
 $ module load conda
 ```
 
-For a full list of available Anaconda and Python modules enter:
+For a full list of available versions enter:
 
 ```bash
 $ module spider conda
 ```
 
 - [**Example Python Jobs**](examples/example_python_job.md)
+
+- [**Python Packages with uv**](examples/python_uv.md)
 
 - [**Distributed Training on RCAC Clusters**](examples/example_distributed.md)
 
