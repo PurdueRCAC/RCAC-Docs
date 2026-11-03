@@ -14,11 +14,11 @@ uv is a fast Python package and project manager, written in Rust, that covers wh
 
 |Cluster|Versions|
 |---|---|
-**ANVIL**|0.7.0 (D)
-**GAUTSCHI**|0.7.0 (D)
-**GILBRETH**|0.7.0 (D)
-**NEGISHI**|0.7.0 (D)
-**SCHOLAR**|0.7.0 (D)
+**ANVIL**|0.7.0, 0.8.0 (D)
+**GAUTSCHI**|0.7.0, 0.8.0 (D)
+**GILBRETH**|0.7.0, 0.8.0 (D)
+**NEGISHI**|0.7.0, 0.8.0 (D)
+**SCHOLAR**|0.7.0, 0.8.0 (D)
 
 (D): Default Module
 
