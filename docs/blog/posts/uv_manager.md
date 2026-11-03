@@ -1,6 +1,7 @@
 ---
 date:
   created: 2026-11-01
+  updated: 2026-11-03
 
 categories:
   - Software
@@ -65,9 +66,10 @@ installed under the names `uv`, `uvx` and `uv-manager`. When you run `uv`, it:
    that is actually running the command;
 4. runs the real uv with your arguments.
 
-Nothing it stores goes in your home directory, a login node and a compute node of different
-architectures never share binaries, and no two users share anything. `uv-manager status` shows
-every path it is using, and `uv-manager install` fetches a newer uv when you want one.
+Apart from a small record of each tool you install, nothing it stores goes in your home directory,
+a login node and a compute node of different architectures never share binaries, and no two users
+share anything. `uv-manager status` shows every path it is using, and `uv-manager install` fetches
+a newer uv when you want one.
 
 ## Using it
 
@@ -115,3 +117,15 @@ The [software catalog entry](../../software/apps_md/uv.md) lists the versions on
 If uv-manager itself misbehaves, please open an issue on
 [GitHub](https://github.com/PurdueRCAC/uv-manager/issues); for anything about your jobs, the
 [RCAC support team](../../contact.md) can help.
+
+## Update: uv-manager 0.8.0 (November 3, 2026)
+
+The `uv` module now loads
+[uv-manager 0.8.0](https://github.com/PurdueRCAC/uv-manager/releases/tag/0.8.0) by default on
+Anvil, Gautschi, Gilbreth, Negishi and Scholar, and `uv/0.7.0` is still available.
+With `UVM_REPAIR` set, as the module does, repair in a batch job now covers two more cases: a tool
+installed with `uv tool install` and run by its own name (`srun ruff check .`), and the environments
+`uv run script.py` and `uvx` run from uv's cache. To restore installed tools, uv-manager keeps a
+record of each one, a few KB apiece, under `~/.local/share/uvm`, off scratch. If you installed
+tools under 0.7.0, run `uv-manager doctor` once to record them. Each cluster's uv page has the
+details, including what to do if you switch back to 0.7.0.

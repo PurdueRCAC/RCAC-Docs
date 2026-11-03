@@ -3,10 +3,10 @@ slug: uv-module-080
 title: 'uv module 0.8.0: catalog, user guide and blog update'
 kind: fix
 appetite: small
-status: in_progress
+status: in_review
 branch: fix/uv-module-080
 base: main
-current_phase: P2
+current_phase: done
 last_updated: '2026-11-03'
 phases:
 - id: P1
@@ -22,7 +22,7 @@ phases:
     && test $(grep -c '0.8.0 (D)' docs/software/apps_md/uv.md) -eq 5
 - id: P2
   name: Shared uv text, blog update, live-module check
-  status: pending
+  status: done
   satisfies:
   - R2
   - R3
@@ -60,6 +60,11 @@ no cluster names in the shared snippet.
 ## Phase P2 — Shared text and blog
 **Satisfies:** R2–R7 · **Depends on:** P1
 
-- [ ] Snippet edits per PLAN §2.
-- [ ] Blog: home-directory sentence, `date.updated`, closing update section.
-- [ ] Run every new command against the live module on Anvil, Gilbreth, Negishi, Scholar.
+- [x] Snippet edits per PLAN §2.
+- [x] Blog: home-directory sentence, `date.updated`, closing update section.
+- [x] Run every new command against the live module on Anvil, Gilbreth, Negishi, Scholar.
+  2026-11-03: 15 checks, all passing on each of the four, with the live default `uv/0.8.0`, a
+  throwaway `UVM_ROOT` and `UVM_DATA`: `uv tool install ruff`, `ruff check .` by name from
+  `$UVM_DATA/bin`, `uv-manager doctor` writing the record, `uvx`, the `_trampoline` failure under
+  `uv/0.7.0` and its `uvm trampolines` fix, back to 0.8.0, `uv-manager clean cache --yes`, and a
+  user-exported `UVM_DATA`. `mkdocs build --strict`: no warnings.
