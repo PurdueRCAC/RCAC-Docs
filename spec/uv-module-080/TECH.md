@@ -39,6 +39,9 @@ phases:
     && grep -q 'uvm trampolines' docs/snippets/examples/apps/python/uv.md && grep
     -q 'UVM_DATA' docs/snippets/examples/apps/python/uv.md && grep -q 'uv-manager
     0.8.0' docs/blog/posts/uv_manager.md
+review:
+  verdict: approved
+  last_reviewed_commit: 0b807a62
 ---
 # TECH.md — uv module 0.8.0
 
