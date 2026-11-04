@@ -14,7 +14,6 @@ ncdf4 package provides R bindings for NetCDF scientific data.
 
 |Cluster|Versions|
 |---|---|
-**BELL**|1.23
 **GILBRETH**|1.21
 **SCHOLAR**|1.21
 

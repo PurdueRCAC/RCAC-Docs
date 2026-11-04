@@ -15,7 +15,6 @@ Rclone is a command line program to sync files and directories to and from vario
 |Cluster|Versions|
 |---|---|
 **ANVIL**|1.70.3 (D)
-**BELL**|1.70.3 (D)
 **GAUTSCHI**|1.70.3 (D)
 **GILBRETH**|1.70.3 (D)
 **NEGISHI**|1.70.3 (D)

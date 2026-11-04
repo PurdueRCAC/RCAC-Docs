@@ -64,7 +64,7 @@ To use scratch safely and effectively:
 
 * Design workflows assuming purge.
 
-    Assume that scratch can be purged or lost, and that files older than 60 days (or 30 days on Bell) may disappear at any time. Workflows should be able to recreate or re-stage data from Data Depot or Fortress and should not depend on scratch as the only copy of important files.
+    Assume that scratch can be purged or lost, and that files older than 60 days may disappear at any time. Workflows should be able to recreate or re-stage data from Data Depot or Fortress and should not depend on scratch as the only copy of important files.
 
 Please [contact us](https://www.rcac.purdue.edu/help) if you have questions or need assistance in copying your files to a more permanent location such as the [Fortress HPSS Archive](https://www.rcac.purdue.edu/storage/fortress).
 

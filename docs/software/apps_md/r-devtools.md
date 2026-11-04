@@ -14,7 +14,6 @@ R devtools package provides tools to simplify R package development.
 
 |Cluster|Versions|
 |---|---|
-**BELL**|2.4.5
 **GAUTSCHI**|2.4.5
 **GILBRETH**|2.4.5
 **SCHOLAR**|2.4.5

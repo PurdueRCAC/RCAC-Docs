@@ -56,7 +56,7 @@ If you haven't already set up SSH keys (check `ls ~/.ssh/id_rsa`), follow these 
 ssh-keygen -b 4096 -C "pete@purdue.edu"
 # Press Enter to accept the default file location and leave the passphrase empty for simplicity
 ssh-copy-id -i ~/.ssh/id_rsa.pub pete@gautschi.rcac.purdue.edu
-# Repeat for other clusters (negishi, bell, anvil)
+# Repeat for other clusters (negishi, anvil)
 # eg., ssh-copy-id -i ~/.ssh/id_rsa.pub pete@negishi.rcac.purdue.edu
 ```
 !!! note
@@ -74,8 +74,6 @@ Host gautschi
     HostName login03.gautschi.rcac.purdue.edu
 Host negishi
     HostName login03.negishi.rcac.purdue.edu
-Host bell
-    HostName bell-fe03.rcac.purdue.edu
 
 Match host *.rcac.purdue.edu
 	User pete
@@ -85,7 +83,7 @@ Match host *.rcac.purdue.edu
 ```
 
 !!! tip "Tip for setting VS Code config file"
-    We’ve created three connection targets, `gautschi`, `negishi` and `bell`. They will each create a VS Code session on the login node once you connect to it with VS Code. This is fine; notice how it’s targeting a specific `login03` or `fe03`. 
+    We’ve created two connection targets, `gautschi` and `negishi`. They will each create a VS Code session on the login node once you connect to it with VS Code. This is fine; notice how it’s targeting a specific `login03`. 
 
     **It doesn’t matter which one it is but pick the same one and stick to it so you don’t orphan your code server**.
 
@@ -95,13 +93,13 @@ You can connect to the RCAC clusters using VS Code's Remote - SSH extension:
 
 **Option 1:**
 
-Click on the left bottom corner of VS Code where it says "Open a Remote Window" and select "Remote-SSH: Connect to Host...". Then choose the cluster you want to connect to (e.g., `gautschi`, `negishi`, or `bell`).
+Click on the left bottom corner of VS Code where it says "Open a Remote Window" and select "Remote-SSH: Connect to Host...". Then choose the cluster you want to connect to (e.g., `gautschi` or `negishi`).
 
 ![VS Code Remote SSH](/assets/images/blog/vscode-connect.png)
 
 **Option 2:**
 
-Open the Command Palette (Ctrl+Shift+P) and type "Remote-SSH: Connect to Host..." and select the desired RCAC cluster (e.g., gautschi, negishi, bell) from the list of configured hosts.
+Open the Command Palette (Ctrl+Shift+P) and type "Remote-SSH: Connect to Host..." and select the desired RCAC cluster (e.g., gautschi, negishi) from the list of configured hosts.
 
 
 **Option 3:**
@@ -123,8 +121,6 @@ Host gautschi-compute
 
 Host negishi
     HostName login03.negishi.rcac.purdue.edu
-Host bell
-    HostName bell-fe03.rcac.purdue.edu
 
 Match host *.rcac.purdue.edu
 	User x-user

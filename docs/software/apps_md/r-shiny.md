@@ -14,7 +14,6 @@ Shiny is an R package for building interactive web applications directly from R.
 
 |Cluster|Versions|
 |---|---|
-**BELL**|1.9.1
 **GAUTSCHI**|1.8.1.1
 **GILBRETH**|1.8.1.1
 **SCHOLAR**|1.8.1.1

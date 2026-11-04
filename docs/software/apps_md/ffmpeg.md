@@ -15,7 +15,6 @@ FFmpeg is a complete, cross-platform solution to record, convert and stream audi
 |Cluster|Versions|
 |---|---|
 **ANVIL**|4.2.2
-**BELL**|7.0.2
 **GILBRETH**|6.1.1
 **NEGISHI**|4.4.1
 

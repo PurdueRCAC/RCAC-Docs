@@ -17,7 +17,7 @@ To locate home and scratch directories for **Anvil**, **Negishi**, and **Gautsch
 
 - **Home directory and Scratch storage**: "{CLUSTER} Cluster Collection", however, you can start typing "{cluster}" and it will suggest appropriate matches. From there, you can use the path to navigate between your home directory and scratch directory.
 
-To locate home and scratch directories for **Bell** and **Gilbreth**, they are stored on separate collections: 
+To locate home and scratch directories for **Gilbreth**, they are stored on separate collections: 
 
 - **Home directories**: "Purdue {Name} Cluster - Home Directories".
 - **Scratch directories**: "Purdue {Name} Cluster - Scratch".

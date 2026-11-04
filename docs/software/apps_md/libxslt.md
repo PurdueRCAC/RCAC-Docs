@@ -15,7 +15,6 @@ Libxslt is the XSLT C library developed for the GNOME project. XSLT itself is a 
 |Cluster|Versions|
 |---|---|
 **ANVIL**|1.1.33
-**BELL**|1.1.42
 **GAUTSCHI**|1.1.33
 **GILBRETH**|1.1.33
 **NEGISHI**|1.1.33

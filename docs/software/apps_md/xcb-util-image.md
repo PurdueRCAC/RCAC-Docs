@@ -15,7 +15,6 @@ Utility library for manipulating images in X11 applications.
 |Cluster|Versions|
 |---|---|
 **ANVIL**|0.4.0
-**BELL**|0.4.1
 **GAUTSCHI**|0.4.1
 **GILBRETH**|0.4.1
 **NEGISHI**|0.4.0

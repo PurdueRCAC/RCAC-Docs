@@ -15,7 +15,6 @@ A free, general-purpose, legally unencumbered lossless data-compression library.
 |Cluster|Versions|
 |---|---|
 **ANVIL**|1.2.11
-**BELL**|1.3.1
 **GILBRETH**|1.3.1
 **NEGISHI**|1.2.13
 

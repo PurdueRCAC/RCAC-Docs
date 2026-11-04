@@ -6,6 +6,7 @@ Compilers on HPC translate high-level code (C/C++, Fortran, etc.) into highly op
 * [**aocc**](apps_md/aocc.md)
 * [**cuda**](apps_md/cuda.md)
 * [**cudnn**](apps_md/cudnn.md)
+* [**fusioncompiler**](apps_md/fusioncompiler.md)
 * [**gcc**](apps_md/gcc.md)
 * [**gcc-runtime**](apps_md/gcc-runtime.md)
 * [**intel**](apps_md/intel.md)
