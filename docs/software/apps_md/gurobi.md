@@ -15,7 +15,6 @@ The Gurobi Optimizer was designed from the ground up to be the fastest, most pow
 |Cluster|Versions|
 |---|---|
 **ANVIL**|9.5.1
-**BELL**|11.0.3
 **GAUTSCHI**|11.0.3, 13.0.3
 **GILBRETH**|13.0.1
 **NEGISHI**|10.0.1

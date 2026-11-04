@@ -15,7 +15,6 @@ X11 utility for rendering operations.
 |Cluster|Versions|
 |---|---|
 **ANVIL**|0.3.9
-**BELL**|0.3.10
 **GAUTSCHI**|0.3.10
 **GILBRETH**|0.3.10
 **NEGISHI**|0.3.9

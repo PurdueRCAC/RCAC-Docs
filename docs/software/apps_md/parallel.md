@@ -15,7 +15,6 @@ GNU parallel is a shell tool for executing jobs in parallel using one or more co
 |Cluster|Versions|
 |---|---|
 **ANVIL**|20200822
-**BELL**|20240822
 **GAUTSCHI**|20241022 (D)
 **GILBRETH**|20241022
 **NEGISHI**|20220522

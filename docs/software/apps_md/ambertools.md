@@ -15,7 +15,6 @@ AmberTools is a free, useful standalone package and a prerequisite for installin
 |Cluster|Versions|
 |---|---|
 **ANVIL**|25, 26
-**BELL**|25
 **GAUTSCHI**|25
 **GILBRETH**|25
 **SCHOLAR**|25

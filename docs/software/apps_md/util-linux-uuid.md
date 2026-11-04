@@ -15,7 +15,6 @@ N/A
 |Cluster|Versions|
 |---|---|
 **ANVIL**|2.38.1
-**BELL**|2.38.1
 **GAUTSCHI**|2.38.1
 **GILBRETH**|2.38.1
 **NEGISHI**|2.38.1

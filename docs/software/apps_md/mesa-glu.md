@@ -15,7 +15,6 @@ Mesa OpenGL Utility library (GLU) for 3D graphics rendering.
 |Cluster|Versions|
 |---|---|
 **ANVIL**|9.0.2
-**BELL**|9.0.2
 **GAUTSCHI**|9.0.2
 **GILBRETH**|9.0.2
 **NEGISHI**|9.0.2

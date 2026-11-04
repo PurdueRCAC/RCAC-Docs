@@ -14,7 +14,6 @@ N/A
 
 |Cluster|Versions|
 |---|---|
-**BELL**|9.4
 **GAUTSCHI**|9.4
 **SCHOLAR**|9.4 (D)
 

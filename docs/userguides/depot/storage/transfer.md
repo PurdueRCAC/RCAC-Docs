@@ -26,7 +26,7 @@ Data Depot supports several methods for file transfer.
 
 The RCAC collections are as follows. A search for "Purdue" will give you several suggested results you can choose from, or you can give a more specific search.
 
-For **Bell** and **Gilbreth**, home and scratch directories have different collections:
+For **Gilbreth**, home and scratch directories have different collections:
 
 - **Home Directory storage:** *"Purdue {Name} Cluster - Home Directories"*
 - **Scratch Directory storage:** *"Purdue {Name} Cluster - Scratch"* 

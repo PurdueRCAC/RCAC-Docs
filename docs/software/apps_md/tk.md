@@ -15,7 +15,6 @@ Tk is a graphical user interface toolkit that takes developing desktop applicati
 |Cluster|Versions|
 |---|---|
 **ANVIL**|8.6.11
-**BELL**|8.6.11
 **NEGISHI**|8.6.11
 
 ## Module

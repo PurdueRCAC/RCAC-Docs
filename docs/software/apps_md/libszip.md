@@ -15,7 +15,6 @@ Szip is an implementation of the extended-Rice lossless compression algorithm.  
 |Cluster|Versions|
 |---|---|
 **ANVIL**|2.1.1
-**BELL**|2.1.1
 **NEGISHI**|2.1.1
 
 ## Module

@@ -14,7 +14,6 @@ HSPICE is a leading circuit simulator used for integrated circuit design and ver
 
 |Cluster|Versions|
 |---|---|
-**BELL**|2020.12
 **NEGISHI**|2020.12
 
 ## Module

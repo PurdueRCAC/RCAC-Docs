@@ -15,7 +15,6 @@ ParaView is an open-source, multi-platform data analysis and visualization appli
 |Cluster|Versions|
 |---|---|
 **ANVIL**|5.9.1, 5.10.1
-**BELL**|5.13.2
 **GAUTSCHI**|5.13.0
 **NEGISHI**|5.9.1 (D), 5.12.1-xdmf, 5.12.1
 **SCHOLAR**|5.13.0

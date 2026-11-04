@@ -21,7 +21,7 @@ $ module avail <category>
     Public datasets are accessible at the following paths:
 
     - **Anvil:** `/anvil/datasets`
-    - **Community clusters** (Gilbreth, Negishi, Bell, Gautschi, and others): `/depot/datasets`
+    - **Community clusters** (Gilbreth, Negishi, Gautschi, and others): `/depot/datasets`
 
     These paths are accessible to all cluster users with read-only permissions.
 
@@ -48,7 +48,7 @@ For a filterable table of all datasets, see the [Complete Dataset Catalog](datas
     If you need a dataset that is not currently hosted, submit a request through the appropriate support channel below. We welcome suggestions for new datasets that would benefit the RCAC research community.
     
     === "Purdue Community Cluster"
-        :material-server: **For Gautschi, Gilbreth, Negishi, Bell, and other Purdue clusters**
+        :material-server: **For Gautschi, Gilbreth, Negishi, and other Purdue clusters**
 
         [Submit a ticket to RCAC](https://service.purdue.edu/TDClient/32/Purdue/Requests/TicketRequests/NewForm?ID=WT~8y8Nl8Ks_&RequestorType=ServiceOffering){ .md-button }
 

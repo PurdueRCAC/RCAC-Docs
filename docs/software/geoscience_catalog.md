@@ -3,6 +3,7 @@
 Geoscience software supports simulation and analysis of Earth system processes such as ocean circulation, seismic wave propagation, atmospheric modeling, and climate studies, integrating physics-based models with observational data.
 
 * [**cdo**](apps_md/cdo.md)
+* [**fusioncompiler**](apps_md/fusioncompiler.md)
 * [**gdal**](apps_md/gdal.md)
 * [**geos**](apps_md/geos.md)
 * [**gmt**](apps_md/gmt.md)

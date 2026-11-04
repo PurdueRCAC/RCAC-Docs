@@ -15,7 +15,6 @@ Base class for building Libflame, shared with the AMD optimized version of the l
 |Cluster|Versions|
 |---|---|
 **ANVIL**|5.2.0
-**BELL**|5.2.0
 **GAUTSCHI**|5.2.0
 **GILBRETH**|5.2.0
 **NEGISHI**|5.2.0

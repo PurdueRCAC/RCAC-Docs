@@ -14,7 +14,6 @@ GaussView is a graphical user interface designed to build Gaussian input and ana
 
 |Cluster|Versions|
 |---|---|
-**BELL**|6.0.16 (D)
 **GAUTSCHI**|6.0.16
 **GILBRETH**|6.0.16
 **NEGISHI**|6.0.16 (D)

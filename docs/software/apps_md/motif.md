@@ -14,7 +14,6 @@
 
 |Cluster|Versions|
 |---|---|
-**BELL**|2.3.8
 **GAUTSCHI**|2.3.8
 **NEGISHI**|2.3.8
 **SCHOLAR**|2.3.8

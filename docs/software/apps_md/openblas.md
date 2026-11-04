@@ -15,7 +15,6 @@ OpenBLAS: An optimized BLAS library
 |Cluster|Versions|
 |---|---|
 **ANVIL**|0.3.17 (D), 0.3.27
-**BELL**|0.3.27
 **GAUTSCHI**|0.3.27
 **GILBRETH**|0.3.21, 0.3.27
 **NEGISHI**|0.3.21 (D)

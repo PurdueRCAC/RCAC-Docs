@@ -15,7 +15,6 @@ X11 utility for window management.
 |Cluster|Versions|
 |---|---|
 **ANVIL**|0.4.1
-**BELL**|0.4.2
 **GAUTSCHI**|0.4.2
 **GILBRETH**|0.4.2
 **NEGISHI**|0.4.1
