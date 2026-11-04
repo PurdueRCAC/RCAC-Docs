@@ -15,7 +15,6 @@ GNU libiconv provides an implementation of the iconv() function and the iconv pr
 |Cluster|Versions|
 |---|---|
 **ANVIL**|1.16
-**BELL**|1.17
 **NEGISHI**|1.16
 
 ## Module

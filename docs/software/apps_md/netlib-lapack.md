@@ -15,7 +15,6 @@ Linear Algebra PACKage (LAPACK) for high-performance linear algebra computations
 |Cluster|Versions|
 |---|---|
 **ANVIL**|3.8.0, 3.11.0
-**BELL**|3.11.0
 **GAUTSCHI**|3.11.0
 **GILBRETH**|3.11.0
 **NEGISHI**|3.8.0

@@ -15,7 +15,6 @@ The Grid Analysis and Display System (GrADS) is an interactive desktop tool that
 |Cluster|Versions|
 |---|---|
 **ANVIL**|2.2.1
-**BELL**|2.2.3
 **GILBRETH**|2.2.3
 **NEGISHI**|2.2.1
 

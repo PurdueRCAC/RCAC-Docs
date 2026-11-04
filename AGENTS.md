@@ -81,7 +81,7 @@ the prod image · pinned in `requirements.txt`. Plugins: `search`, `blog`, `tags
 | Path | Responsibility |
 |------|----------------|
 | `docs/` | All published content (the only directory MkDocs builds). |
-| `docs/userguides/<cluster>/` | Per-cluster/storage guides (anvil, bell, gautschi, gilbreth, negishi, scholar, geddes, hammer; storage: depot, fortress, boxfolder, reedfolder). Consistent chapter set across clusters. |
+| `docs/userguides/<cluster>/` | Per-cluster/storage guides (anvil, gautschi, gilbreth, negishi, scholar, geddes, hammer; storage: depot, fortress, boxfolder, reedfolder). Consistent chapter set across clusters. |
 | `docs/blog/posts/` | Blog posts (Material blog plugin); authors in `docs/blog/.authors.yml`. |
 | `docs/software/`, `docs/datasets/` | **Auto-generated** catalog pages (see Automation) — do not hand-edit. |
 | `docs/workshops/`, `docs/lifesciences/` | Training material, organized as series with an `index.md` hub. |

@@ -15,7 +15,6 @@ Quantum ESPRESSO (Quantum opEn-Source Package for Research in Electronic Structu
 |Cluster|Versions|
 |---|---|
 **ANVIL**|6.7, 7.2, 7.3, 7.4
-**BELL**|7.4
 **GAUTSCHI**|7.3.1
 **NEGISHI**|7.1
 **SCHOLAR**|7.3.1

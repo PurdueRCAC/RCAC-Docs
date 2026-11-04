@@ -10,14 +10,14 @@ RCAC clusters support the SSH (Secure Shell), Thinlinc and Open OnDemand mechani
 === "Anvil"
     Please refer to [SSH section on Anvil User Guide](/userguides/anvil/getting-started/#ssh) to learn how to SSH to Anvil.
 
-=== "Bell"
-    Please refer to [SSH section on Bell User Guide](/userguides/bell/accounts/#ssh) to learn how to SSH to Bell.
-
 === "Gautschi"
     Please refer to [SSH section on Gautschi User Guide](/userguides/gautschi/accounts/#ssh) to learn how to SSH to Gautschi.
 
 === "Gilbreth"
     Please refer to [SSH section on Gilbreth User Guide](/userguides/gilbreth/accounts/#ssh) to learn how to SSH to Gilbreth.
+
+=== "Negishi"
+    Please refer to [SSH section on Negishi User Guide](/userguides/negishi/accounts/#ssh) to learn how to SSH to Negishi.
 
 === "Scholar"
     Please refer to [SSH section on Scholar User Guide](/userguides/scholar/accounts/#ssh) to learn how to SSH to Scholar.
@@ -27,14 +27,14 @@ RCAC clusters support the SSH (Secure Shell), Thinlinc and Open OnDemand mechani
 === "Anvil"
     Please refer to [Thinlinc section on Anvil User Guide](/userguides/anvil/getting-started/#thinlinc) to learn how to configure and use Thinlinc to get connected to Anvil.
 
-=== "Bell"
-    Please refer to [Thinlinc section on Bell User Guide](/userguides/bell/accounts/#thinlinc) to learn how to configure and use Thinlinc to get connected to Bell.
-
 === "Gautschi"
     Please refer to [Thinlinc section on Gautschi User Guide](/userguides/gautschi/accounts/#thinlinc) to learn how to configure and use Thinlinc to get connected to Gautschi.
 
 === "Gilbreth"
     Please refer to [Thinlinc section on Gilbreth User Guide](/userguides/gilbreth/accounts/#thinlinc) to learn how to configure and use Thinlinc to get connected to Gilbreth.
+
+=== "Negishi"
+    Please refer to [Thinlinc section on Negishi User Guide](/userguides/negishi/accounts/#thinlinc) to learn how to configure and use Thinlinc to get connected to Negishi.
 
 === "Scholar"
     Please refer to [Thinlinc section on Scholar User Guide](/userguides/scholar/accounts/#thinlinc) to learn how to configure and use Thinlinc to get connected to Scholar.
@@ -45,14 +45,14 @@ RCAC clusters support the SSH (Secure Shell), Thinlinc and Open OnDemand mechani
 === "Anvil"
     One can visit Open OnDemand on Anvil via [https://ondemand.anvil.rcac.purdue.edu/](https://ondemand.anvil.rcac.purdue.edu/).
 
-=== "Bell"
-    One can visit Open OnDemand (Gateway) on Bell via [https://gateway.bell.rcac.purdue.edu/](https://gateway.bell.rcac.purdue.edu/).
-
 === "Gautschi"
     One can visit Open OnDemand (Gateway) on Gautschi via [https://gateway.gautschi.rcac.purdue.edu/](https://gateway.gautschi.rcac.purdue.edu/).
 
 === "Gilbreth"
     One can visit Open OnDemand (Gateway) on Gilbreth via [https://gateway.gilbreth.rcac.purdue.edu/](https://gateway.gilbreth.rcac.purdue.edu/).
+
+=== "Negishi"
+    One can visit Open OnDemand (Gateway) on Negishi via [https://gateway.negishi.rcac.purdue.edu/](https://gateway.negishi.rcac.purdue.edu/).
 
 === "Scholar"
     One can visit Open OnDemand (Gateway) on Scholar via [https://gateway.scholar.rcac.purdue.edu/](https://gateway.scholar.rcac.purdue.edu/).
@@ -65,14 +65,14 @@ We support several methods for file transfer to and from RCAC systems. Users can
 === "Anvil"
     [Data transfer on Anvil cluster](/userguides/anvil/file_management/#transferring-files)
 
-=== "Bell"
-    [Data transfer on Bell cluster](/userguides/bell/storage/)
-
 === "Gautschi"
     [Data transfer on Gautschi cluster](/userguides/gautschi/storage/)
 
 === "Gilbreth"
     [Data transfer on Gilbreth cluster](/userguides/gilbreth/storage/)
+
+=== "Negishi"
+    [Data transfer on Negishi cluster](/userguides/negishi/storage/)
 
 === "Scholar"
     [Data transfer on Scholar cluster](/userguides/scholar/storage/)
@@ -90,14 +90,14 @@ All RCAC clusters use the [Slurm Workload Manager](https://slurm.schedmd.com/) f
 === "Anvil"
     Learn how to submit your jobs to Anvil through [this section](/userguides/anvil/jobs/) on Anvil User Guide.
 
-=== "Bell"
-    Learn how to submit your jobs to Bell through [this section](/userguides/bell/run_jobs/) on Bell User Guide.
-
 === "Gautschi"
     Learn how to submit your jobs to Gautschi through [this section](/userguides/gautschi/run_jobs/) on Gautschi User Guide.
 
 === "Gilbreth"
     Learn how to submit your jobs to Gilbreth through [this section](/userguides/gilbreth/run_jobs/) on Gilbreth User Guide.
+
+=== "Negishi"
+    Learn how to submit your jobs to Negishi through [this section](/userguides/negishi/run_jobs/) on Negishi User Guide.
 
 === "Scholar"
     Learn how to submit your jobs to Scholar through [this section](/userguides/scholar/run_jobs/) on Scholar User Guide.

@@ -14,7 +14,6 @@ OpenMM is a high-performance toolkit for molecular simulation. It can be used as
 
 |Cluster|Versions|
 |---|---|
-**BELL**|7.4.2, 7.6.0, 7.7.0
 **NEGISHI**|7.4.2, 7.7.0
 
 ## Module

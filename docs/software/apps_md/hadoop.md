@@ -15,7 +15,6 @@ The Apache Hadoop software library is a framework that allows for the distribute
 |Cluster|Versions|
 |---|---|
 **ANVIL**|3.3.0
-**BELL**|3.4.0
 **NEGISHI**|3.3.2
 
 ## Module

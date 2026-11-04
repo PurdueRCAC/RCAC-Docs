@@ -14,7 +14,6 @@ Intel oneAPI compilers for building high-performance C, C++, and Fortran applica
 
 |Cluster|Versions|
 |---|---|
-**BELL**|2024.2.0
 **GILBRETH**|2024.2.1
 **NEGISHI**|2023.0.0, 2024.1.0
 

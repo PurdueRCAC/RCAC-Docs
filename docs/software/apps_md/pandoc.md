@@ -14,7 +14,6 @@ If you need to convert files from one markup format into another, pandoc is your
 
 |Cluster|Versions|
 |---|---|
-**BELL**|2.19.2
 **GAUTSCHI**|2.19.2
 **GILBRETH**|2.19.2
 **SCHOLAR**|2.19.2

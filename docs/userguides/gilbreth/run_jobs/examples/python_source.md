@@ -16,7 +16,7 @@ We maintain several [Anaconda](https://www.anaconda.com/) installations. Anacond
 ```bash
 $ module load conda
 $ conda list
-# packages in environment at /apps/spack/bell/apps/anaconda/2020.02-py37-gcc-4.8.5-u747gsx:
+# packages in environment at /apps/spack/gilbreth/apps/anaconda/2020.02-py37-gcc-4.8.5-mmvdvsv:
 #
 # Name                    Version                   Build  Channel
 _ipyw_jlab_nb_ext_conf    0.1.0                    py37_0  

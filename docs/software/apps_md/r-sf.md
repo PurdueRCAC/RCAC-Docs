@@ -14,7 +14,6 @@ Simple Features (sf) is an R package for handling spatial vector data.
 
 |Cluster|Versions|
 |---|---|
-**BELL**|1.0-16
 **GILBRETH**|1.0-12
 **SCHOLAR**|1.0-12
 

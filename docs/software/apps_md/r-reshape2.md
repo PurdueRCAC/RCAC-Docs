@@ -14,7 +14,6 @@ Reshape2 provides tools for reshaping R data structures.
 
 |Cluster|Versions|
 |---|---|
-**BELL**|1.4.4
 **GAUTSCHI**|1.4.4
 **GILBRETH**|1.4.4
 **SCHOLAR**|1.4.4

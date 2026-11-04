@@ -823,9 +823,8 @@ $ module show mymodulename
         with open("docs/snippets/scratchpurge.md", "r") as f:
             content = f.read()
         content = content.replace("{cluster}", resource.lower())
-        if resource.lower() in ("anvil", "bell"):
+        if resource.lower() == "anvil":
             content = content.replace("60 days", "30 days")
-            content = content.replace(" (or 30 days on Bell)", "")
         if resource.lower() == "anvil":
             content = content.replace(
                 "\n**Removal of purge warning emails**\n\nRCAC previously sent warning emails shortly before eligible files were purged from scratch. This notification mechanism is no longer supported and should not be considered an operational safeguard. Users are solely responsible for monitoring and managing their own data in scratch, and data may be deleted due to age at any time, without prior notice.\n\nYou can use the `purgelist` command to see a list of all your files which are currently scheduled for removal:\n\n```bash\n$ purgelist\n\nThe next purge run for scratch file systems is scheduled for Tue Apr 15, 2014.\nThe following files owned by myusername will be removed from /scratch/" + resource.lower() + ":\n\n/scratch/" + resource.lower() + "/myusername/foo\n/scratch/" + resource.lower() + "/myusername/bar\n```\n\nFiles listed by `purgelist` will be permanently removed on the date shown. Deletion of files begins on the morning of the date shown by `purgelist` shortly after midnight. If you need to keep any of these files, please copy them elsewhere. Remember to account for transfer time of your files and do not wait until the last minute to copy files off scratch space.",

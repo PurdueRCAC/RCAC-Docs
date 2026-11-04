@@ -15,7 +15,6 @@ Google's data interchange format.
 |Cluster|Versions|
 |---|---|
 **ANVIL**|3.11.4
-**BELL**|3.28.2
 **GILBRETH**|3.25.3
 **NEGISHI**|3.11.4, 3.18.0
 

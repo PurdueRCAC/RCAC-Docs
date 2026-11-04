@@ -120,6 +120,9 @@
   "conda": [
     "Programming"
   ],
+  "converge": [
+    "Miscellaneous"
+  ],
   "cosmosscope": [
     "Miscellaneous"
   ],
@@ -191,6 +194,10 @@
   ],
   "freetype": [
     "Miscellaneous"
+  ],
+  "fusioncompiler": [
+    "Compilers",
+    "Geoscience"
   ],
   "gatk": [
     "Library",
@@ -661,11 +668,17 @@
     "Chemistry",
     "Material Science"
   ],
+  "prime": [
+    "Miscellaneous"
+  ],
   "proj": [
     "Geoscience"
   ],
   "protobuf": [
     "Miscellaneous"
+  ],
+  "py-cython": [
+    "Library"
   ],
   "py-matplotlib": [
     "Library",
@@ -674,6 +687,10 @@
   "py-mpi4py": [
     "MPI"
   ],
+  "py-numba": [
+    "Library",
+    "Math/Stat"
+  ],
   "py-numpy": [
     "Library",
     "Math/Stat"
@@ -681,6 +698,31 @@
   "py-pandas": [
     "Library",
     "Math/Stat"
+  ],
+  "py-pip": [
+    "Programming",
+    "Utilities"
+  ],
+  "py-scikit-learn": [
+    "Library",
+    "Math/Stat"
+  ],
+  "py-scipy": [
+    "Library",
+    "Math/Stat"
+  ],
+  "py-seaborn": [
+    "Library"
+  ],
+  "py-setuptools": [
+    "Library"
+  ],
+  "py-virtualenv": [
+    "Programming",
+    "Utilities"
+  ],
+  "py-wheel": [
+    "Library"
   ],
   "python": [
     "Programming"
@@ -819,9 +861,6 @@
   "tecplot": [
     "Miscellaneous"
   ],
-  "texinfo": [
-    "Miscellaneous"
-  ],
   "texlive": [
     "Miscellaneous"
   ],
@@ -850,6 +889,9 @@
     "Library",
     "Utilities"
   ],
+  "uv": [
+    "Programming"
+  ],
   "valgrind": [
     "Miscellaneous"
   ],
@@ -860,9 +902,6 @@
   "vcftools": [
     "Library",
     "Workflow"
-  ],
-  "vim": [
-    "Miscellaneous"
   ],
   "virtualenv": [
     "Programming",

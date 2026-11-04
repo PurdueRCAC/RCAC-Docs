@@ -14,7 +14,6 @@ FormatR is an R package to format R code consistently.
 
 |Cluster|Versions|
 |---|---|
-**BELL**|1.14
 **GAUTSCHI**|1.14
 **GILBRETH**|1.14
 **SCHOLAR**|1.14

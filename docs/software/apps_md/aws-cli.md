@@ -15,7 +15,6 @@ The AWS Command Line Interface (CLI) is a unified tool to manage Amazon Web Serv
 |Cluster|Versions|
 |---|---|
 **ANVIL**|2.4.15
-**BELL**|2.9.7
 **GAUTSCHI**|2.9.7
 **GILBRETH**|2.24.5
 **NEGISHI**|2.9.7

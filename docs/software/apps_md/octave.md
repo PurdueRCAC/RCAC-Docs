@@ -15,7 +15,6 @@ GNU Octave is a high-level language, primarily intended for numerical computatio
 |Cluster|Versions|
 |---|---|
 **ANVIL**|6.3.0
-**BELL**|9.1.0
 **NEGISHI**|7.3.0
 
 ## Module
