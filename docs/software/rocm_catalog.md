@@ -81,11 +81,11 @@ As of **November 04, 2026**, there have been a total of **12** ROCm containers w
       <td>NEGISHI</td>
     </tr>
     <tr>
-      <td><a href="../rocm_md/specfem3d_globe"><strong>specfem3d_globe</strong></a></td>
+      <td><a href="../rocm_md/specfem3d"><strong>specfem3d</strong></a></td>
       <td>NEGISHI</td>
     </tr>
     <tr>
-      <td><a href="../rocm_md/specfem3d"><strong>specfem3d</strong></a></td>
+      <td><a href="../rocm_md/specfem3d_globe"><strong>specfem3d_globe</strong></a></td>
       <td>NEGISHI</td>
     </tr>
     <tr>
