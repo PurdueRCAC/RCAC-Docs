@@ -11,7 +11,7 @@ search:
 # All software and versions on RCAC clusters
 
 ## Overview
-As of **November 04, 2026**, there have been a total of **287** applications with **2215** available versions deployed across **5** RCAC HPC clusters: **ANVIL, GAUTSCHI, GILBRETH, NEGISHI, SCHOLAR**.
+As of **November 05, 2026**, there have been a total of **287** applications with **2215** available versions deployed across **5** RCAC HPC clusters: **ANVIL, GAUTSCHI, GILBRETH, NEGISHI, SCHOLAR**.
 
 ## Applications Catalog
 
