@@ -1439,6 +1439,11 @@
     "Purdue GenAI Studio",
     "MCP Integration"
   ],
+  "/services/genai/user-tool-servers/": [
+    "Home",
+    "Purdue GenAI Studio",
+    "Personal Tool Servers"
+  ],
   "/hubzero/": [
     "Home",
     "HUBzero"

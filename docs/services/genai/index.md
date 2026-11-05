@@ -104,5 +104,6 @@ of the attempt and the error message, but do not send passwords or API keys.
 
     [:octicons-arrow-right-24: Use tools](tool-calling.md) 
     [:octicons-arrow-right-24: Use MCP integrations](mcp-integration.md)
+    [:octicons-arrow-right-24: Connect your own tool server](user-tool-servers.md)
 
 </div>
