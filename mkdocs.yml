@@ -371,6 +371,7 @@ nav:
       - Guides:
         - Nextflow and nf-core: lifesciences/guides/nextflow.md
         - Nextflow on Gautschi: lifesciences/guides/nextflow-gautschi.md
+        - Script to Pipeline: lifesciences/guides/script-to-pipeline.md
         - Downloading SRA Data: lifesciences/guides/sra-download.md
         - Installing R Packages: lifesciences/guides/r-packages.md
         - R Skills for Biological Data: lifesciences/guides/r-data-wrangling.md
