@@ -44,10 +44,10 @@ Tested Oct 27, 2026 with Nextflow 26.04.2 and Apptainer 1.5.0. Two Gautschi-spec
    ```
    then `chmod 600 ~/.nextflow/scm`.
 
-With both in place, all three demo routes complete in under four minutes each. For your own analyses, prefer `--cluster_account "$SLURM_JOB_ACCOUNT"` in the launch command so the account only has to be set once, in the `#SBATCH` header. See also the [RCAC Nextflow on Gautschi guide](https://docs.rcac.purdue.edu/lifesciences/guides/nextflow-gautschi/).
+With both in place, all three demo routes complete in under four minutes each. For your own analyses, prefer `--cluster_account "$SLURM_JOB_ACCOUNT"` in the launch command so the account only has to be set once, in the `#SBATCH` header. See also the [RCAC Nextflow on Gautschi guide](../../../../lifesciences/guides/nextflow-gautschi.md).
 
 ## Next session
 
-[Session 5: Script to pipeline (Nov 10, 2026)](session-5.md)
+[Session 5: Script to pipeline (Nov 10, 2026)](../session5/index.md)
 
 [Back to Fall 2026](../index.md)
