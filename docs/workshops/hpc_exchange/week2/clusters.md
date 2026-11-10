@@ -15,7 +15,7 @@ The first three are what are considered "Purdue Community Clusters", and are ope
 
 **Best for:** General-purpose HPC, parallel CPU workloads, MPI jobs  
 
-Negishi is the successor to Bell and serves as a general-purpose community cluster for traditional scientific and engineering applications. It provides large core counts, fast networking, and modern CPUs, making it ideal for multi-process and MPI-based workloads.
+Negishi serves as a general-purpose community cluster for traditional scientific and engineering applications. It provides large core counts, fast networking, and modern CPUs, making it ideal for multi-process and MPI-based workloads.
 
 Negishi will remain in service through **Fall 2028**.
 
