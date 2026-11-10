@@ -323,6 +323,7 @@ nav:
             - Utilization & monitoring: workshops/hpc_exchange/week4/utilization-monitoring.md
             - Workload management: workshops/hpc_exchange/week4/workload-management.md
             - Multinode & topology: workshops/hpc_exchange/week4/multinode-topology.md
+        - HPC Crash Course: workshops/hpc_exchange/crash-course.md
       - Genomics Exchange:
         - workshops/genomics_exchange/index.md
         - Fall 2026:
