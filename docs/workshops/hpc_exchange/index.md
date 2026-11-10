@@ -6,3 +6,5 @@ Welcome to the HPC Exchange web page. We start here and will go through the othe
 * [Week 2](./week2/index.md)
 * [Week 3](./week3/index.md)
 * [Week 4](./week4/index.md)
+
+New to RCAC clusters? The [HPC Crash Course](./crash-course.md) covers the essentials of logging in, storing files, loading software, and submitting jobs.
