@@ -29,8 +29,8 @@ phases:
   verify: .venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py
     && grep -rlq 'APPTAINERENV_BLASTDB' site/blog/ --include=index.html
 review:
-  last_reviewed_commit: ''
-  verdict: none
+  last_reviewed_commit: 5e2e44a39065541694e9dc75395e6a90f9bce724
+  verdict: approved
   blocked_reason: ''
 ---
 # TECH.md — Announce the refreshed shared BLAST databases
