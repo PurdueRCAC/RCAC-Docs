@@ -466,6 +466,24 @@
     "Geddes User Guide",
     "Migration"
   ],
+  "/userguides/geddes/migration/geddes-to-geddes2-namespaces-workloads/": [
+    "Home",
+    "Geddes User Guide",
+    "Migration",
+    "Namespaces and Workloads"
+  ],
+  "/userguides/geddes/migration/geddes-to-geddes2-pvc-and-ingress/": [
+    "Home",
+    "Geddes User Guide",
+    "Migration",
+    "PVC Data and Ingress"
+  ],
+  "/userguides/geddes/migration/geddes2-tls-certificate/": [
+    "Home",
+    "Geddes User Guide",
+    "Migration",
+    "TLS Certificate"
+  ],
   "/userguides/hammer/": [
     "Home",
     "Hammer User Guide"
