@@ -199,7 +199,11 @@ nav:
         - Web Server: userguides/geddes/examples/webserver.md
         - R Shiny: userguides/geddes/examples/r-shiny.md
       - Troubleshooting: userguides/geddes/troubleshooting.md
-      - Migration: userguides/geddes/migration/index.md
+      - Migration:
+        - userguides/geddes/migration/index.md
+        - Namespaces and Workloads: userguides/geddes/migration/geddes-to-geddes2-namespaces-workloads.md
+        - PVC Data and Ingress: userguides/geddes/migration/geddes-to-geddes2-pvc-and-ingress.md
+        - TLS Certificate: userguides/geddes/migration/geddes2-tls-certificate.md
     - Hammer:
       - userguides/hammer/index.md
       - Hammer Overview: userguides/hammer/overview.md
