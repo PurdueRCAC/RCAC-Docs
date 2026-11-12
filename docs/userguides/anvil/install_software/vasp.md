@@ -7,7 +7,11 @@ The Vienna Ab initio Simulation Package (VASP) is a computer program for atomic 
 VASP License
 ------------
 
-The VASP team allows only registered users who have purchased their own license to use the software and access is only given to the VASP release which is covered by the license of the respective research group. For those who are interested to use VASP on Anvil, please send a ticket to [ACCESS Help Desk](https://support.access-ci.org/open-a-ticket) to request access and provide your license for our verification. Once confirmed, the approved users will be given access to the `vasp5` or `vasp6` unix groups.
+The VASP team allows only registered users who have purchased their own license to use the software and access is only given to the VASP release which is covered by the license of the respective research group. For those who are interested to use VASP on Anvil, please send a ticket to [ACCESS Help Desk](https://support.access-ci.org/open-a-ticket) to request access and provide your license for our verification. Once confirmed, the approved users will be given access to one or two unix groups, `vasp5` for VASP 5, `vasp6` for VASP 6 up through VASP 6.4.3, and `vasp6` for VASP 6.5 and later, depending on the expiration date of the VASP license. 
+
+VASP.5: Any other licensed user has access to VASP.5
+VASP.6.4.3: Any user with a license expiry date beyond 2020-01-01 has access up to VASP.6.4.3
+VASP.6.5+: Any user with a license expiry date beyond 2024-12-17 has access to all versions of VASP
 
 Please note, the license from Materials Design Inc is not accepted at this moment since we cannot verify the license information. If you hold a VASP license from Materials Design Inc, please check our user guide about build your own VASP below.
 
@@ -22,7 +26,7 @@ If you are interested to purchase and get a VASP license, please visit [VASP](ht
 VASP 5 and VASP 6 Installations
 -------------------------------
 
-The Anvil team provides **VASP 5.4.4** and **VASP 6.3.0** installations and modulefiles with our default environment compiler `gcc/11.2.0` and mpi library `openmpi/4.1.6`. Note that only license-approved users can load the VASP modulefile as below.
+The Anvil team provides **VASP 5.4.4**, **VASP 6.3.0**, **VASP 6.4.3** and **VASP 6.6.0** installations and modulefiles with either `gcc/11.2.0` or `intel/2024.1` compiler. Note that only license-approved users can load the VASP modulefile as below.
 
 You can use the VASP 5.4.4 module by:
 
@@ -38,6 +42,12 @@ $ module load gcc/11.2.0  openmpi/4.1.6
 $ module load vasp/6.3.0
 ```
 
+You can use the VASP 6.6.0 module by:
+
+```bash
+$ module load intel/2024.1
+$ module load vasp/6.6.0
+```
 Once a VASP module is loaded, you can choose one of the VASP executables to run your code: `vasp_std`, `vasp_gam`, and `vasp_ncl`.
 
 !!! note
