@@ -11,7 +11,7 @@ search:
 # Python Packages with uv on Anvil
 
 The `uv` module provides [uv](https://docs.astral.sh/uv/), a fast Python package and project manager,
-on Anvil. See its [software catalog entry](../../software/apps_md/uv.md) for the versions available.
+on Anvil. See its [software catalog entry](../../../software/apps_md/uv.md) for the versions available.
 
 !!! warning "Anvil scratch is purged after 30 days"
     By default the module keeps uv and everything it stores under `$SCRATCH/.uv`. Anvil purges
@@ -31,4 +31,4 @@ on Anvil. See its [software catalog entry](../../software/apps_md/uv.md) for the
 
 --8<-- "docs/snippets/examples/apps/python/uv.md"
 
-[**Back to Anvil Software**](anvil-software.md)
+[**Back to Anvil Software**](../anvil-software.md)
