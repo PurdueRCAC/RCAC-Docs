@@ -380,7 +380,7 @@ Every job tells Slurm which account to charge, where to run, and what resources 
 
     An interactive job gives you a shell on a compute node, which is useful for testing and debugging. Use `sinteractive` with the same options as `sbatch`:
 
-    ``` linenums="0" hl_lines="1,4"
+    ``` linenums="0" hl_lines="1 4"
     USERNAME@login03.negishi:[~] $ sinteractive -A mylab -p cpu -q normal -n 1 -t 00:30:00
     salloc: Granted job allocation 19809515
     salloc: Nodes a195 are ready for job
