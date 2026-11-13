@@ -7,7 +7,7 @@ The Vienna Ab initio Simulation Package (VASP) is a computer program for atomic 
 VASP License
 ------------
 
-The VASP team allows only registered users who have purchased their own license to use the software and access is only given to the VASP release which is covered by the license of the respective research group. For those who are interested to use VASP on Anvil, please send a ticket to [ACCESS Help Desk](https://support.access-ci.org/open-a-ticket) to request access and provide your license for our verification. Once confirmed, the approved users will be given access to one or two unix groups, `vasp5` for VASP 5, `vasp6` for VASP 6 up through VASP 6.4.3, and `vasp6` for VASP 6.5 and later, depending on the expiration date of the VASP license. 
+The VASP team allows only registered users who have purchased their own license to use the software and access is only given to the VASP release which is covered by the license of the respective research group. For those who are interested to use VASP on Anvil, please send a ticket to [ACCESS Help Desk](https://support.access-ci.org/open-a-ticket) to request access and provide your license for our verification. Once confirmed, the approved users will be given access to one or two unix groups, `vasp5` for VASP 5, `vasp6` for VASP 6 up through VASP 6.4.3, and `vasp65` for VASP 6.5 and later, depending on the expiration date of the VASP license. 
 
 VASP.5: Any other licensed user has access to VASP.5
 VASP.6.4.3: Any user with a license expiry date beyond 2020-01-01 has access up to VASP.6.4.3
