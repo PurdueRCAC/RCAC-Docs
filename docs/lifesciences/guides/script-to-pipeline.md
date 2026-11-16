@@ -11,7 +11,7 @@ search:
 
 # Script to Pipeline: Turning Your Scripts into a Nextflow Workflow
 
-This is the companion guide to [Genomics Exchange Fall 2026, Session 5](../../workshops/genomics_exchange/fall2026/session5/index.md) ("Script to pipeline", November 10, 2026). It walks through converting a working shell script into a small Nextflow workflow that runs many samples in parallel on Negishi and that a collaborator can run unchanged with their own samplesheet.
+This is the companion guide to [Genomics Exchange Fall 2026, Session 5](../../workshops/genomics_exchange/fall2026/session5/index.md) ("Script to pipeline", November 24, 2026). It walks through converting a working shell script into a small Nextflow workflow that runs many samples in parallel on Negishi and that a collaborator can run unchanged with their own samplesheet.
 
 The complete workflow is in the [rcac-bioinformatics/script-to-pipeline](https://github.com/rcac-bioinformatics/script-to-pipeline) repository (tag `v1.0.0`).
 

@@ -48,6 +48,6 @@ With both in place, all three demo routes complete in under four minutes each. F
 
 ## Next session
 
-[Session 5: Script to pipeline (Nov 10, 2026)](../session5/index.md)
+[Session 5: Script to pipeline (Nov 24, 2026)](../session5/index.md)
 
 [Back to Fall 2026](../index.md)
