@@ -1371,6 +1371,11 @@
     "Life Sciences",
     "Juicer"
   ],
+  "/lifesciences/tutorials/nfcore-ondemand/": [
+    "Home",
+    "Life Sciences",
+    "nf-core on Open OnDemand"
+  ],
   "/agentic-ai/": [
     "Home",
     "Agentic AI"
