@@ -20,6 +20,7 @@ GenAI Studio supports two common tool-calling workflows:
 Use a Workspace Tool when GenAI Studio should host and execute a reusable Python function. Use an
 API-defined tool when your own application should control execution, authorization, and error
 handling. To use a remote tool server registered by RCAC, see [MCP Integration](mcp-integration.md).
+To connect a tool server that you run yourself, see [Personal Tool Servers (mcpo)](user-tool-servers.md).
 
 !!! warning "Tools can perform actions"
     Only use tools whose code and behavior you trust. A tool may call external services, change
