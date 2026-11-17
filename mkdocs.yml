@@ -397,6 +397,8 @@ nav:
           - Mitochondrial Genomes (MitoHiFi): lifesciences/tutorials/mitohifi.md
         - Hi-C Analysis:
           - Juicer: lifesciences/tutorials/juicer.md
+        - Workflows:
+          - nf-core on Open OnDemand: lifesciences/tutorials/nfcore-ondemand.md
     - Agentic AI:
       - agentic-ai/index.md
       - Acceptable Use & Etiquette: agentic-ai/acceptable_use.md
