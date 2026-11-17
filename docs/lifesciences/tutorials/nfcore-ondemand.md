@@ -115,7 +115,7 @@ For this tutorial, everything lives in one project folder in scratch: `$RCAC_SCR
 Open a terminal from **Clusters**, then **Gautschi Shell Access**, and run the staging script. It copies the rnaseq test data from a shared location into your scratch and writes the samplesheet for you.
 
 ```bash
-bash /scratch/gautschi/aseethar/session-6/stage_ge06.sh
+bash /depot/workshop/data/genomics-exchange-fall2026-session-6/stage_ge06.sh
 ```
 
 ??? note "What the staging script does (click to expand)"
@@ -388,7 +388,7 @@ Keep `nf-params.json` with your results. Together with the app version, it is a 
 
 **Known limits**
 
-- The nf-core apps are available on **Gautschi only**. Support for Anvil is planned after its Open OnDemand upgrade. Older nf-core apps on other RCAC clusters were removed because they were out of date.
+- The nf-core apps are available on **Gautschi only**. Support for Negishi and Anvil is planned after their Open OnDemand upgrades. Older nf-core apps on other RCAC clusters were removed because they were out of date.
 - Each app runs **one pipeline version**. To run a different version, use the command line.
 - Pipelines that query NCBI while running (fetchngs and pathogensurveillance) need a personal NCBI API key, set up once in `~/.config/nfcore-ood/secrets.env`. Never type a key into the form.
 - Container images for each app's pipeline version are pre-loaded. If a step reports a missing image, email [rcac-help@purdue.edu](mailto:rcac-help@purdue.edu) with the `output.log`.
