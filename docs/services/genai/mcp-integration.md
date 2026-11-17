@@ -20,6 +20,9 @@ Examples include tools that search a curated database, interact with a laborator
 
     To request an integration, send the server details described below to [RCAC support](../../contact.md). Do not send credentials by email.
 
+    To use an MCP server only in your own browser, you can run it yourself through an
+    OpenAPI proxy. See [Personal Tool Servers (mcpo)](user-tool-servers.md).
+
 !!! warning "Only connect trusted servers"
     An MCP server receives tool arguments generated from your conversation and may return
     untrusted content or perform external actions. Use only servers maintained by an organization
@@ -37,7 +40,7 @@ GenAI Studio can connect to remote MCP servers that meet these requirements:
 * Use one of the supported authentication methods: none, a bearer token, OAuth 2.1, or OAuth 2.1 with a pre-registered client.
 * Return concise tool names, descriptions, and input schemas that a model can interpret reliably.
 
-`localhost` and private addresses on your computer are not reachable from the hosted GenAI Studio application. For a `stdio`-only or legacy SSE server, contact RCAC to discuss hosting or an approved MCP-to-OpenAPI proxy.
+`localhost` and private addresses on your computer are not reachable from the hosted GenAI Studio application. For a `stdio`-only or legacy SSE server, contact RCAC to discuss hosting or an approved MCP-to-OpenAPI proxy. For personal use, you can instead run such a server on your own computer as a [personal tool server](user-tool-servers.md).
 
 In the request, provide:
 
