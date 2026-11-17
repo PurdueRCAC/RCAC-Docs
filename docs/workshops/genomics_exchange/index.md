@@ -21,7 +21,7 @@ Eight sessions, Tuesdays at 11:00 AM Eastern (EDT through October, EST from Nove
 | 2 | Tue Sep 29, 2026 | [Data management for biologists](fall2026/session2/index.md) |
 | 3 | Tue Oct 20, 2026 | [Nextflow fundamentals](fall2026/session3/index.md) |
 | 4 | Tue Oct 27, 2026 | [Running nf-core pipelines on clusters](fall2026/session4/index.md) |
-| 5 | Tue Nov 10, 2026 | [Script to pipeline: custom Nextflow workflow introduction](fall2026/session5/index.md) |
+| 5 | Tue Nov 24, 2026 | [Script to pipeline: custom Nextflow workflow introduction](fall2026/session5/index.md) |
 | 6 | Tue Nov 17, 2026 | [nf-core on Open OnDemand](fall2026/session6/index.md) |
 | 7 | Tue Dec 1, 2026 | [R/RStudio and r-bioconductor on RCAC clusters](fall2026/session7/index.md) |
 | 8 | Tue Dec 8, 2026 | [AI for biologists](fall2026/session8/index.md) |
