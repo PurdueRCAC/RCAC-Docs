@@ -107,7 +107,6 @@ nav:
       - Job Submission: userguides/anvil/jobs.md
       - File Management: userguides/anvil/file_management.md
       - Anvil Software: userguides/anvil/anvil-software.md
-      - Python with uv: userguides/anvil/python_uv.md
       - Using AI Agents: userguides/anvil/using_ai_agents.md
       - Frequently Asked Questions: userguides/anvil/faqs.md
       - Anvil Composable Subsystem:
@@ -199,7 +198,11 @@ nav:
         - Web Server: userguides/geddes/examples/webserver.md
         - R Shiny: userguides/geddes/examples/r-shiny.md
       - Troubleshooting: userguides/geddes/troubleshooting.md
-      - Migration: userguides/geddes/migration/index.md
+      - Migration:
+        - userguides/geddes/migration/index.md
+        - Namespaces and Workloads: userguides/geddes/migration/geddes-to-geddes2-namespaces-workloads.md
+        - PVC Data and Ingress: userguides/geddes/migration/geddes-to-geddes2-pvc-and-ingress.md
+        - TLS Certificate: userguides/geddes/migration/geddes2-tls-certificate.md
     - Hammer:
       - userguides/hammer/index.md
       - Hammer Overview: userguides/hammer/overview.md
@@ -324,6 +327,7 @@ nav:
             - Utilization & monitoring: workshops/hpc_exchange/week4/utilization-monitoring.md
             - Workload management: workshops/hpc_exchange/week4/workload-management.md
             - Multinode & topology: workshops/hpc_exchange/week4/multinode-topology.md
+        - HPC Crash Course: workshops/hpc_exchange/crash-course.md
       - Genomics Exchange:
         - workshops/genomics_exchange/index.md
         - Fall 2026:
@@ -372,6 +376,7 @@ nav:
       - Guides:
         - Nextflow and nf-core: lifesciences/guides/nextflow.md
         - Nextflow on Gautschi: lifesciences/guides/nextflow-gautschi.md
+        - Script to Pipeline: lifesciences/guides/script-to-pipeline.md
         - Downloading SRA Data: lifesciences/guides/sra-download.md
         - Installing R Packages: lifesciences/guides/r-packages.md
         - R Skills for Biological Data: lifesciences/guides/r-data-wrangling.md
@@ -393,6 +398,8 @@ nav:
           - Mitochondrial Genomes (MitoHiFi): lifesciences/tutorials/mitohifi.md
         - Hi-C Analysis:
           - Juicer: lifesciences/tutorials/juicer.md
+        - Workflows:
+          - nf-core on Open OnDemand: lifesciences/tutorials/nfcore-ondemand.md
     - Agentic AI:
       - agentic-ai/index.md
       - Acceptable Use & Etiquette: agentic-ai/acceptable_use.md

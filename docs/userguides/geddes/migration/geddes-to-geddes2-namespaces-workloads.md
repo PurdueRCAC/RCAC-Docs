@@ -11,25 +11,13 @@ search:
 
 # Migrating Namespaces and Workloads from Geddes (RKE1) to Geddes2 (RKE2)
 
-This guide explains how to migrate namespaces and workloads between the Geddes (RKE1) cluster and the Geddes2 (RKE2) cluster using Rancher and `kubectl`.
+This guide explains how to prepare a namespace on Geddes2, export Kubernetes resources from Geddes, clean and validate the exported manifests, and deploy the resources to Geddes2.
 
-
-## Recommended Migration Workflow
-
-1. Configure kubeconfig contexts
-2. Create namespace on Geddes2
-3. Export resources from Geddes
-4. Clean YAML manifests
-5. Validate YAML files
-6. Deploy resources to Geddes2
-7. Verify workloads and services
-
-
-## Configure kubectl Contexts
+## 1. Configure kubectl Contexts
 
 To migrate namespaces between Geddes and Geddes2, first add both cluster kubeconfigs as contexts in your local `kubectl` configuration.
 
-
+---
 
 ### Step 1 — Download kubeconfig from Rancher
 
@@ -47,19 +35,19 @@ geddes-v1.yaml
 geddes-v2.yaml
 ```
 
-
+---
 
 ### Step 2 — Test Each kubeconfig Separately
 
 Verify that each kubeconfig can successfully connect to its cluster.
 
-##### Test Geddes (RKE1)
+#### Test Geddes (RKE1)
 
 ```bash
 kubectl --kubeconfig geddes-v1.yaml get nodes
 ```
 
-##### Test Geddes2 (RKE2)
+#### Test Geddes2 (RKE2)
 
 ```bash
 kubectl --kubeconfig geddes-v2.yaml get nodes
@@ -67,7 +55,7 @@ kubectl --kubeconfig geddes-v2.yaml get nodes
 
 If both commands work successfully, continue to the next step.
 
-
+---
 
 ### Step 3 — Merge kubeconfigs
 
@@ -83,7 +71,7 @@ Then merge them into your default kubeconfig:
 kubectl config view --flatten > ~/.kube/config
 ```
 
-
+---
 
 ### Step 4 — Verify Contexts
 
@@ -101,7 +89,7 @@ CURRENT   NAME
           geddes2
 ```
 
-
+---
 
 ### Step 5 — Test Switching Contexts
 
@@ -119,7 +107,7 @@ kubectl get pods -n <namespace>
 
 If this command works, your context and permissions are configured correctly.
 
-
+---
 
 #### Switch to Geddes2
 
@@ -127,7 +115,7 @@ If this command works, your context and permissions are configured correctly.
 kubectl config use-context geddes2
 ```
 
-
+---
 
 ### Step 6 — Use Contexts Directly
 
@@ -135,38 +123,86 @@ You can now run commands against either cluster directly.
 
 #### Geddes
 
-```bash id="p8m4qn"
+```bash
 kubectl --context geddes get ns
 ```
 
 #### Geddes2
 
-```bash id="x1q7rv"
+```bash
 kubectl --context geddes2 get ns
 ```
 
+---
 
+## 2. Create the Namespace on Geddes2
 
-### Export and Deploy YAML File
+Before exporting and deploying workloads, create the destination namespace.
 
-#### Important
+### On Geddes (GDS)
+
+1. Log in to the Geddes Rancher UI.
+2. Navigate to the Geddes cluster (`GDS`).
+3. Open **Projects / Namespaces**.
+4. Locate your assigned namespace.
+5. Record the exact namespace name.
+
+### On Geddes2 (GS2)
+
+1. Navigate to the Geddes2 cluster (`GS2`).
+2. Open **Projects / Namespaces**.
+3. Click **Create Namespace**.
+4. Enter the same namespace name used on Geddes.
+5. Click **Create**.
+
+The namespace name should remain the same on both clusters so that workload manifests referring to that namespace can be reused with minimal changes.
+
+---
+
+## 3. Review Namespace Resource Quotas
+
+If your Project already has default namespace Resource Quotas configured, Rancher will automatically apply those defaults when the namespace is created on Geddes2. In most cases, you do not need to recreate Resource Quotas manually.
+
+Review and document quotas if any of the following apply:
+
+- Namespace quotas were manually modified.
+- Additional resources were added.
+- Limits were reduced or customized for the namespace.
+
+Examples include custom CPU limits, increased memory quotas, modified storage limits, and pod limits.
+
+### Review quotas in Rancher
+
+1. Log in to Rancher.
+2. Navigate to the target cluster, your Project, and the namespace.
+3. In the namespace list, click the three dots (`⋮`) at the far right of the namespace row.
+4. Select **Edit Config**.
+5. Review and document the configured Resource Quotas, such as CPU, memory, storage, and pod limits.
+
+When recreating the namespace on Geddes2, apply the same custom Resource Quota values. If no custom quotas were configured, Rancher will apply the Project defaults.
+
+---
+
+## 4. Export and Deploy YAML File
+
+### Important
 
 This step is performed after:
 
 1. Exporting the namespace from Geddes
 2. Creating the namespace on Geddes2
 
-
+---
 
 ### Step 1 — Export Resources from Geddes
 
 You can export workloads individually or export the full namespace.
 
-
+---
 
 #### Example A — Export Individual Resource Types
 
-```bash id="z4m8qt"
+```bash
 kubectl --context geddes -n my-namespace get deployment -o yaml > deployment.yaml
 
 kubectl --context geddes -n my-namespace get statefulset -o yaml > statefulset.yaml
@@ -178,7 +214,7 @@ kubectl --context geddes -n my-namespace get job -o yaml > job.yaml
 kubectl --context geddes -n my-namespace get cronjob -o yaml > cronjob.yaml
 ```
 
-
+---
 
 #### Example B — Export Individual Applications
 
@@ -200,15 +236,15 @@ You can repeat this process for:
 * ingresses
 * secrets
 
-
+---
 
 #### Example C — Export All Resources Using Script
 
-**Script overview**
+##### Script overview
 
 The script is an interactive Bash utility that exports Kubernetes resources from a selected namespace into organized YAML files.
 
-**What the Script Does**
+##### What the Script Does
 
 The script performs the following actions:
 
@@ -222,7 +258,7 @@ The script performs the following actions:
 8. Organizes the files into resource-specific folders
 
 
-**Display Available Resource Types**
+##### Display Available Resource Types
 
 The script presents the following Kubernetes resource types:
 
@@ -247,9 +283,9 @@ Export pvc? (y/n):
 
 Only selected resources are exported.
 
+---
 
-
-**Create Export Directory Structure**
+##### Create Export Directory Structure
 
 The script automatically creates a folder structure under:
 
@@ -271,9 +307,9 @@ namespace/
 
 Each resource type gets its own directory.
 
+---
 
-
-**Export Resources as YAML Files**
+##### Export Resources as YAML Files
 
 The script exports every discovered resource individually using `kubectl`.
 
@@ -287,9 +323,9 @@ namespace/my-namespace/configmap/app-config.yaml
 
 Each file contains the full Kubernetes YAML manifest for that resource.
 
+---
 
-
-**Important Notes**
+##### Important Notes
 
 This script requires the Python `PyYAML` package.
 
@@ -299,7 +335,7 @@ Install it using:
 pip install pyyaml
 ```
 
-**Exported YAML Contains Cluster Metadata**
+###### Exported YAML Contains Cluster Metadata
 
 The exported YAML files include:
 
@@ -310,31 +346,27 @@ The exported YAML files include:
 
 Before deploying these manifests to another cluster, the files should be cleaned using a cleanup script.
 
-
-
-**Secrets**
+###### Secrets
 
 The script exports Kubernetes secrets exactly as stored in the cluster.
 
 Use caution when handling exported secret files.
 
-
-
-**Persistent Volumes**
+###### Persistent Volumes
 
 PVC objects may export successfully, but underlying storage data is not migrated automatically.
 
 Additional storage migration steps may be required.
 
+---
 
+##### Full Script
 
-**Full Script**
-
-Expand the section below to view and copy the complete `export-resources.py` script
+Expand the section below to view and copy the complete `export-resources.py` script.
 
 ??? note "View full export-resources.py script"
 
-    ```bash 
+    ```python
     #!/usr/bin/env python3
 
     import os
@@ -405,7 +437,7 @@ Expand the section below to view and copy the complete `export-resources.py` scr
         selected_resources = []
 
         print("\nSelect resources to export:")
-        print("--")
+        print("--------------------------------")
 
         for resource in AVAILABLE_RESOURCES:
             answer = input(f"Export {resource}? (y/n): ").strip().lower()
@@ -488,16 +520,11 @@ Expand the section below to view and copy the complete `export-resources.py` scr
 
     if __name__ == "__main__":
         main()
-
-
     ```
 
-
-
-
+---
 
 ### Step 2 — Resource Cleanup Before Deployment to Geddes2
-
 
 After exporting a namespace, the YAML files contain cluster-specific metadata that must be removed before deploying to Geddes2.
 
@@ -509,6 +536,7 @@ This cleanup process removes:
 
 Cleaning exported YAML files helps prevent deployment conflicts and removes unnecessary cluster-specific information before importing workloads into the Geddes2 cluster.
 
+---
 
 #### Cleanup Multiple YAML Files (Namespace Folder Cleanup)
 
@@ -519,11 +547,10 @@ This script:
 * Removes Kubernetes and Rancher-generated metadata
 * Overwrites the original YAML files (in-place cleanup)
 
-#### Important:
-  * This script **overwrites existing YAML files** with the cleaned version. There is no backup unless you create one manually.
-  * The script must be executed in the directory where the exported namespace folder exists. You may modify the script if your folder location is different.
+##### Important:
 
-
+* This script **overwrites existing YAML files** with the cleaned version. There is no backup unless you create one manually.
+* The script must be executed in the directory where the exported namespace folder exists. You may modify the script if your folder location is different.
 
 The script will:
 
@@ -531,12 +558,9 @@ The script will:
 * process every `.yaml` file
 * overwrite each file with cleaned content
 
-
-
-#### Python Cleanup Script
+###### Python Cleanup Script (Multiple Files)
 
 Expand the section below to view and copy the complete `cleanup_multiple_yaml.py` script.
-
 
 ??? note "View full cleanup_multiple_yaml.py script"
 
@@ -658,28 +682,23 @@ Expand the section below to view and copy the complete `cleanup_multiple_yaml.py
     print("=======================================")
     ```
 
+---
 
-
-
-### Cleanup a Single YAML File
+#### Cleanup a Single YAML File
 
 The following Python utility is designed to clean individual Kubernetes YAML manifests exported from geddes cluster.
 
+##### Example Usage
 
-
-### Example Usage
-
-  * Clean a Single YAML File
+* Clean a Single YAML File
 
     ```bash
-      python3 cleanup_single_yaml.py dirty.yaml
+    python3 cleanup_single_yaml.py dirty.yaml
     ```
 
 This prints the cleaned YAML output to the terminal.
 
-
-
-## Python Cleanup Script
+###### Python Cleanup Script (Single File)
 
 Expand the section below to view and copy the complete `cleanup_single_yaml.py` script.
 
@@ -689,9 +708,9 @@ Expand the section below to view and copy the complete `cleanup_single_yaml.py` 
     #!/usr/bin/env python3
     # Strip kubectl export noise from Deployment YAMLs.
     # Usage:
-    #   python3 k8s_clean.py dirty.yaml
-    #   python3 k8s_clean.py dirty.yaml -o clean.yaml
-    #   python3 k8s_clean.py *.yaml -o ./clean/
+    #   python3 cleanup_single_yaml.py dirty.yaml
+    #   python3 cleanup_single_yaml.py dirty.yaml -o clean.yaml
+    #   python3 cleanup_single_yaml.py *.yaml -o ./clean/
 
     import argparse
     import sys
@@ -797,8 +816,9 @@ Expand the section below to view and copy the complete `cleanup_single_yaml.py` 
         main()
     ```
 
+---
 
-## Step 3 — Basic Validation (Recommended)
+### Step 3 — Basic Validation (Recommended)
 
 Validate all YAML files after cleanup and before deployment to Geddes2.
 
@@ -808,7 +828,9 @@ This verifies:
 * Kubernetes API compatibility
 * cluster compatibility
 
-### Example A — Validate Single YAML File
+---
+
+#### Example A — Validate Single YAML File
 
 ```bash
 kubectl --context geddes2 apply --dry-run=client \
@@ -822,9 +844,9 @@ kubectl apply --dry-run=client \
 -f my-resources.yaml
 ```
 
+---
 
-
-### Example B — Validate Entire Directory
+#### Example B — Validate Entire Directory
 
 Not recommended for large exports because troubleshooting can become difficult.
 
@@ -833,8 +855,9 @@ kubectl --context geddes2 apply --dry-run=server \
 -f ./your-directory/
 ```
 
+---
 
-### Example C — Validate Each File Individually (Recommended)
+#### Example C — Validate Each File Individually (Recommended)
 
 This approach is safer and easier for debugging.
 
@@ -845,14 +868,15 @@ for file in $(find ./your-directory -name "*.yaml"); do
 done
 ```
 
+---
 
-## Step 4 — Resource Deployment on Geddes2
+### Step 4 — Resource Deployment on Geddes2
 
 After cleanup and validation, deploy the resources to Geddes2.
 
+---
 
-
-### Example A — Deploy Single YAML File
+#### Example A — Deploy Single YAML File
 
 Ensure your YAML contains:
 
@@ -867,11 +891,11 @@ Deploy using:
 kubectl --context geddes2 apply -f resources-file.yaml
 ```
 
+---
 
+#### Example B — Deploy Entire Namespace Folder
 
-### Example B — Deploy Entire Namespace Folder
-
-If using the `export-resources.sh` script, the exported structure will look like:
+If using the `export-resources.py` script, the exported structure will look like:
 
 ```text
 namespace/<my-namespace>
@@ -883,15 +907,17 @@ Deploy all resources:
 kubectl --context geddes2 apply -f namespace/<my-namespace>
 ```
 
+---
+
 ## Important Notes
 
 #### Persistent Volume Data
 
 PVC objects migrate, but the underlying storage data usually does not.
 
-Persistent application data must be migrated separately.
+Persistent application data must be migrated separately (see [Migrating PVC Storage and Ingress Guide](geddes-to-geddes2-pvc-and-ingress.md)).
 
-
+---
 
 #### Secrets
 

@@ -7,7 +7,8 @@ whatis([[Short description : AmberTools consists of several independently develo
 
 help([[AmberTools consists of several independently developed packages that work well by themselves, and with Amber24.]])
 
-depends_on('cuda')
+depends_on('cuda/12.8.0')
+depends_on('plumed/2.10.0')
 
 local bzip2_root = "/apps/spack/anvil/apps/bzip2/1.0.8-gcc-8.4.0-mjckyjz"
 -- Standard path modifications

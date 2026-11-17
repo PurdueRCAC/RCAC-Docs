@@ -11,7 +11,6 @@ search:
 
 # How‐To Migration From Geddes to Geddes2
 
-- [**Migrating Namespaces**](migration_namespaces.md)
-- [**Migrating Namespaces and Workloads**](migration_namespaces_workloads.md)
-- [**Migrating Workloads and PVC Data**](migration_workloads_pvc.md)
-- [**Migrating PVC Data**](migration_pvc_data.md)
+- [**Migrating Namespaces and Workloads**](geddes-to-geddes2-namespaces-workloads.md)
+- [**Migrating PVC Data and Ingress**](geddes-to-geddes2-pvc-and-ingress.md)
+- [**Requesting a TLS Certificate**](geddes2-tls-certificate.md)

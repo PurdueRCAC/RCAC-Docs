@@ -60,7 +60,7 @@ The scratch system is internally redundant, so you don't have to worry about har
 Scratch directories are good for intermediate to massive data I/O, so are perfect for data intensive jobs. It is **NOT** for the primary copy of your data or software. And it is **NOT for long-term storage.** It is only for short-term storage of intermediate results.
 
 !!! warning Scratch Purge Cycles
-     Scratch directories are **regularly purged of old data**. If a file is not accessed within 60 days (30 days on Bell), it will be staged for purging. RCAC sends courtesy Email warnings to users when files are staged for purging, but you should not rely on these Emails. Please be proactive in backing up any valuable data or results you have stored in scratch. 
+     Scratch directories are **regularly purged of old data**. If a file is not accessed within 60 days, it will be staged for purging. RCAC sends courtesy Email warnings to users when files are staged for purging, but you should not rely on these Emails. Please be proactive in backing up any valuable data or results you have stored in scratch. 
 
      <!-- ![An image showing files in a users scratch space being slowly transferred on a conveyor belt to a fire representing a file purge](/assets/images/workshops/hpc_exchange/scratch_purge.png) -->
 

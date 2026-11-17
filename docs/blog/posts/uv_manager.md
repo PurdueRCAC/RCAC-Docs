@@ -83,7 +83,7 @@ $ uv run --with numpy analysis.py
 Each cluster's user guide has a page with the details: projects and virtual environments, choosing
 a Python version, batch jobs, and when to use `conda` instead.
 
-- [Anvil](../../userguides/anvil/python_uv.md)
+- [Anvil](../../userguides/anvil/software/python_uv.md)
 - [Gautschi](../../userguides/gautschi/run_jobs/examples/python_uv.md)
 - [Gilbreth](../../userguides/gilbreth/run_jobs/examples/python_uv.md)
 - [Negishi](../../userguides/negishi/run_jobs/python/uv.md)

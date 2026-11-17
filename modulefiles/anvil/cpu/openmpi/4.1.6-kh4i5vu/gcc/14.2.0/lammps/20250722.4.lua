@@ -13,7 +13,7 @@ whatis([[Configure options : -DBUILD_SHARED_LIBS:BOOL=ON  -DBUILD_MPI:BOOL=ON -D
 help([[Name   : lammps]])
 help([[Version: 20250722.4]])
 help([[Target : zen3]])
-help()git 
+help()
 help([[LAMMPS stands for Large-scale Atomic/Molecular Massively Parallel
 Simulator.]])
 

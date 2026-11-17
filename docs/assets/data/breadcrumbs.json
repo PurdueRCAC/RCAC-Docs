@@ -38,11 +38,6 @@
     "Anvil User Guide",
     "Anvil Software"
   ],
-  "/userguides/anvil/python_uv/": [
-    "Home",
-    "Anvil User Guide",
-    "Python with uv"
-  ],
   "/userguides/anvil/using_ai_agents/": [
     "Home",
     "Anvil User Guide",
@@ -465,6 +460,24 @@
     "Home",
     "Geddes User Guide",
     "Migration"
+  ],
+  "/userguides/geddes/migration/geddes-to-geddes2-namespaces-workloads/": [
+    "Home",
+    "Geddes User Guide",
+    "Migration",
+    "Namespaces and Workloads"
+  ],
+  "/userguides/geddes/migration/geddes-to-geddes2-pvc-and-ingress/": [
+    "Home",
+    "Geddes User Guide",
+    "Migration",
+    "PVC Data and Ingress"
+  ],
+  "/userguides/geddes/migration/geddes2-tls-certificate/": [
+    "Home",
+    "Geddes User Guide",
+    "Migration",
+    "TLS Certificate"
   ],
   "/userguides/hammer/": [
     "Home",
@@ -1026,6 +1039,12 @@
     "Week 4",
     "Multinode & topology"
   ],
+  "/workshops/hpc_exchange/crash-course/": [
+    "Home",
+    "RCAC Workshops",
+    "HPC Exchange",
+    "HPC Crash Course"
+  ],
   "/workshops/genomics_exchange/": [
     "Home",
     "RCAC Workshops",
@@ -1262,6 +1281,11 @@
     "Life Sciences",
     "Nextflow on Gautschi"
   ],
+  "/lifesciences/guides/script-to-pipeline/": [
+    "Home",
+    "Life Sciences",
+    "Script to Pipeline"
+  ],
   "/lifesciences/guides/sra-download/": [
     "Home",
     "Life Sciences",
@@ -1346,6 +1370,11 @@
     "Home",
     "Life Sciences",
     "Juicer"
+  ],
+  "/lifesciences/tutorials/nfcore-ondemand/": [
+    "Home",
+    "Life Sciences",
+    "nf-core on Open OnDemand"
   ],
   "/agentic-ai/": [
     "Home",

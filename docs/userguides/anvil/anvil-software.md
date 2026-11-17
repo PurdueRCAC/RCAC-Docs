@@ -31,14 +31,15 @@ Other Software Usage Notes:
 4. Some compiler options are the same for all available compilers on Anvil (e.g. `-o`), while others are different. Many options are available in one compiler suite but not the other. For example, Intel, PGI, and GNU compilers use the `-qopenmp`, `-mp`, and `-fopenmp` flags, respectively, for building OpenMP applications.
 5. MPI compiler wrappers (e.g. mpicc, mpif90) all call the appropriate compilers and load the correct MPI libraries depending on the loaded modules. While the same names may be used for different compilers, keep in mind that these are completely independent scripts.
 
-For Python users, Anvil provides a natively compiled `python` module with a small subset of essential numerical libraries optimized for the AMD Milan architecture, the `conda` module (the Miniforge distribution, which installs packages from the open conda-forge channel), and the `uv` module for Python packages from PyPI; see [Python Packages with uv](python_uv.md). Install additional Python packages into a virtual environment or conda environment rather than into a shared installation.
+For Python users, Anvil provides a natively compiled `python` module with a small subset of essential numerical libraries optimized for the AMD Milan architecture, the `conda` module (the Miniforge distribution, which installs packages from the open conda-forge channel), and the `uv` module for Python packages from PyPI; see [Python Packages with uv](software/python_uv.md). Install additional Python packages into a virtual environment or conda environment rather than into a shared installation.
 
 A broad range of application modules from various science and engineering domains are installed on Anvil, including mathematics and statistical modeling tools, visualization software, computational fluid dynamics codes, molecular modeling packages, and debugging tools.
 
 In addition, Singularity is supported on Anvil and Nvidia GPU Cloud containers are available on Anvil GPU nodes.
 
-## Example application installation
-This section provides some instructions for installing and compiling some common applications on Anvil.
+## Example applications
+This section provides some instructions for using, installing and compiling some common applications on Anvil.
 
-- [VASP](install_software/vasp.md)
-- [LAMMPS](install_software/lammps.md)
+- [VASP](software/vasp.md)
+- [LAMMPS](software/lammps.md)
+- [Python Packages with uv](software/python_uv.md)

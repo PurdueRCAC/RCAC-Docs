@@ -8,21 +8,14 @@ The Rosen Center for Advanced Computing (Purdue's
 supercomputing center) maintains a few clusters
 that serve different purposes.
 
-The first four are what are considered "Purdue Community Clusters", and are open to be purchased by Purdue staff and faculty. The clusters listed after the first four are specialty clusters and have atypical methods of getting access to them.
+The first three are what are considered "Purdue Community Clusters", and are open to be purchased by Purdue staff and faculty. The clusters listed after the first three are specialty clusters and have atypical methods of getting access to them.
 
-## Bell
-
-**Best for:** Traditional CPU-based scientific computing, MPI workloads  
-
-Bell is a community cluster designed for tightly-coupled science and engineering applications using CPU-only workflows. It features high-core-count AMD processors and fast InfiniBand networking, making it well-suited for parallel simulations and MPI-based codes.
-
-Bell will be retired in **Fall 2026**.
 
 ## Negishi
 
 **Best for:** General-purpose HPC, parallel CPU workloads, MPI jobs  
 
-Negishi is the successor to Bell and serves as a general-purpose community cluster for traditional scientific and engineering applications. It provides large core counts, fast networking, and modern CPUs, making it ideal for multi-process and MPI-based workloads.
+Negishi serves as a general-purpose community cluster for traditional scientific and engineering applications. It provides large core counts, fast networking, and modern CPUs, making it ideal for multi-process and MPI-based workloads.
 
 Negishi will remain in service through **Fall 2028**.
 
