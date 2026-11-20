@@ -9,6 +9,8 @@ This page provides access to curated AI datasets available on RCAC clusters thro
 - compressed formats on the POSIX file system, and 
 - raw/extracted data on S3-compatible object storage.
 
+A few restricted datasets (marked 🔒 below) are available only on S3-compatible object storage, after you accept the dataset's license agreement and we approve your request.
+
 ## Accessing AI Datasets
 
 Choose your preferred access method based on your workflow needs.
@@ -60,6 +62,24 @@ Choose your preferred access method based on your workflow needs.
     
     For detailed instructions, see the [Anvil Object Storage documentation](../../userguides/anvil/objectstorage) and [User Tools guide](../../userguides/anvil/objectstorage/usertools).
 
+=== "🔒 Restricted Datasets (S3 only)"
+    Restricted datasets are available only in Anvil Object Storage, not on the cluster file systems. You need an approved request before you can access them.
+
+    | Parameter | Value |
+    |-----------|-------|
+    | **Endpoint** | `https://s3.anvil.rcac.purdue.edu` |
+    | **Bucket** | `restricted-ai-datasets` |
+    | **Access** | Approved users only, with their own Object Storage keys |
+
+    **How to get access:**
+
+    1. Accept the dataset's license agreement on its source page and take a screenshot that shows you accepted it.
+    2. Send us a ticket ([RCAC](https://service.purdue.edu/TDClient/32/Purdue/Requests/TicketRequests/NewForm?ID=WT~8y8Nl8Ks_&RequestorType=ServiceOffering), [ACCESS](https://support.access-ci.org/open-a-ticket) or [NAIRR](https://nairrpilot.org/open-support-request)) with the dataset name and the screenshot. If you do not have Anvil Object Storage access yet, ask for it in the same ticket (see [Getting access](../../userguides/anvil/objectstorage/access)).
+    3. After we approve your request, run `mykeys` on any Anvil login node to get your keys (see [Security and Access Control](../../userguides/anvil/objectstorage/acl)).
+    4. Access the data in the `restricted-ai-datasets` bucket with your keys (see the [User Tools guide](../../userguides/anvil/objectstorage/usertools)).
+
+    Each restricted dataset's page lists its agreement and exact S3 path.
+
 
 ## Available AI Datasets
 
@@ -76,5 +96,6 @@ Choose your preferred access method based on your workflow needs.
 | [**PhysicalAI-Robotics-GR00T-X-Embodiment-Sim**](ai/PhysicalAI-Robotics-GR00T-X-Embodiment-Sim.md) | GR00T cross-embodiment simulation |
 | [**PhysicalAI-Robotics-Manipulation-SingleArm**](ai/PhysicalAI-Robotics-Manipulation-SingleArm.md) | Single-arm manipulation datasets |
 | [**PhysicalAI-SmartSpaces**](ai/PhysicalAI-SmartSpaces.md) | Smart environment interaction data |
+| [**PhysicalAI-Autonomous-Vehicles**](ai/PhysicalAI-Autonomous-Vehicles.md) 🔒 | Multi-sensor autonomous driving data (7 cameras, LiDAR, radar) from 25 countries. **Restricted:** S3 only, requires the NVIDIA agreement and an approved ticket |
 
 

@@ -208,6 +208,28 @@
       "discipline": "AI / Robotics / PhysicalAI",
       "dataset_size": "Approx. 1.7TB per version (v1.0.0, v1.0.1; 3.4TB total)",
       "public": true
+    },
+    "PhysicalAI-Autonomous-Vehicles": {
+      "folder": "PhysicalAI-Autonomous-Vehicles",
+      "link": "https://huggingface.co/datasets/nvidia/PhysicalAI-Autonomous-Vehicles",
+      "publication_date": "2026-09-12",
+      "title": "PhysicalAI-Autonomous-Vehicles",
+      "description": "PhysicalAI-Autonomous-Vehicles is NVIDIA's multi-sensor driving dataset for autonomous vehicle research. It contains 1,700 hours of driving from planned data-collection drives in 25 countries and more than 2,500 cities, split into 306,152 clips of 20 seconds each. Every clip has 7 cameras; 298,326 clips also have LiDAR and 160,761 clips have up to 10 radars. Ego motion, sensor calibration and automatically generated (non-ground-truth) labels are included. The data covers a wide range of traffic densities, road types, weather, road surface conditions and times of day.",
+      "data_type": "Camera: MP4 (1080p, 30 fps) in zip chunks\nLiDAR and radar: Parquet\nCalibration, ego motion, labels, metadata: Parquet",
+      "usage_policy": "NVIDIA Autonomous Vehicle Dataset License Agreement. Use is limited to autonomous vehicle and automated driving development (commercial or non-commercial) under the license terms. Among other restrictions, the license prohibits surveillance, identifying individuals or license plates, and redistributing the dataset. The agreement expires 12 months after the initial download. Read the full license before use.",
+      "bibtex": "@misc{nvidia_physicalai_autonomous_vehicles,\n  author    = {{NVIDIA Corporation}},\n  title     = {{PhysicalAI-Autonomous-Vehicles}},\n  year      = {2026},\n  version   = {26.09},\n  publisher = {Hugging Face},\n  howpublished = {\\url{https://huggingface.co/datasets/nvidia/PhysicalAI-Autonomous-Vehicles}},\n  note      = {Dataset}\n}",
+      "cite": "NVIDIA Corporation. (2026). PhysicalAI-Autonomous-Vehicles (Version 26.09) [Dataset]. Hugging Face. https://huggingface.co/datasets/nvidia/PhysicalAI-Autonomous-Vehicles",
+      "downloaded": "2026-10-05",
+      "usage_policy_link": "https://huggingface.co/datasets/nvidia/PhysicalAI-Autonomous-Vehicles/blob/main/LICENSE.pdf",
+      "file_number": "73941",
+      "discipline": "AI / PhysicalAI / Autonomous Vehicles",
+      "dataset_size": "121T",
+      "public": false,
+      "restricted": true,
+      "s3_bucket": "restricted-ai-datasets",
+      "s3_path": "PhysicalAI-Autonomous-Vehicles",
+      "agreement_name": "NVIDIA Autonomous Vehicle Dataset License Agreement",
+      "agreement_link": "https://huggingface.co/datasets/nvidia/PhysicalAI-Autonomous-Vehicles"
     }
   }
 }
