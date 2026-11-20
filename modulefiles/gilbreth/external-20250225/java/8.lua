@@ -1,10 +1,15 @@
 help([[
-OpenJDK 8
+OpenJDK 8 (headless JRE, no javac)
 ]])
 
-whatis("Java 8 (OpenJDK)")
+whatis("Java 8 (OpenJDK headless JRE)")
 
-local root = "/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.472.b08-2.el9_7.x86_64"
+-- Unversioned alternatives symlink; survives openjdk package updates
+local root = "/usr/lib/jvm/jre-1.8.0"
+
+if not isDir(root) then
+  LmodError("java/8: ", root, " not found. Please report to rcac-help.\n")
+end
 
 setenv("JAVA_HOME", root)
-prepend_path("PATH", pathJoin(root, "jre", "bin"))
+prepend_path("PATH", pathJoin(root, "bin"))
