@@ -32,6 +32,7 @@
     - [NAIRR support ticket](https://nairrpilot.org/open-support-request)
 
     You also need Anvil Object Storage access. If you do not have it yet, ask for it in the same ticket (see [Getting access to Object Storage](https://docs.rcac.purdue.edu/userguides/anvil/objectstorage/access/)).
+
 3. **Get your keys.** After we approve your request, run `mykeys` on any Anvil login node to get your access key and secret key (see [Security and Access Control](https://docs.rcac.purdue.edu/userguides/anvil/objectstorage/acl/)).
 4. **Access the data in S3.** The dataset is only in object storage, at the endpoint and bucket below. It is not on the cluster file systems and has no module with data paths.
 

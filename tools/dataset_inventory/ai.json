@@ -230,6 +230,31 @@
       "s3_path": "PhysicalAI-Autonomous-Vehicles",
       "agreement_name": "NVIDIA Autonomous Vehicle Dataset License Agreement",
       "agreement_link": "https://huggingface.co/datasets/nvidia/PhysicalAI-Autonomous-Vehicles"
+    },
+    "imagenet-1k-ILSVRC-2012": {
+      "folder": "imagenet-1k/imagenet-1k-ILSVRC-2012",
+      "doi": "10.1007/s11263-015-0816-y",
+      "link": "https://image-net.org/",
+      "publication_date": "2012",
+      "title": "ImageNet Large Scale Visual Recognition Challenge 2012 (ILSVRC 2012), ImageNet-1k",
+      "description": "The ILSVRC 2012 image classification dataset, commonly called ImageNet-1k. It spans 1,000 object classes, with 1,281,167 training images and 50,000 validation images. The 100,000-image test set is not included. It is provided both as a single SquashFS image and as extracted train/ and val/ folders, together with a class index (ImageNet_class_index.json) and the validation labels (ImageNet_val_label.txt).",
+      "data_type": "SquashFS\nExtracted files on Ceph",
+      "usage_policy": "ImageNet Terms of Access. The database may be used only for non-commercial research and educational purposes. The researcher accepts full responsibility for their use of the database, may share access with research associates and colleagues only if they first agree to the same terms, and, if employed by a for-profit company, the employer is also bound by the terms. Access can be terminated at any time.",
+      "bibtex": "@article{Russakovsky_2015,\n  title     = {ImageNet Large Scale Visual Recognition Challenge},\n  author    = {Russakovsky, Olga and Deng, Jia and Su, Hao and Krause, Jonathan and Satheesh, Sanjeev and Ma, Sean and Huang, Zhiheng and Karpathy, Andrej and Khosla, Aditya and Bernstein, Michael and Berg, Alexander C. and Fei-Fei, Li},\n  journal   = {International Journal of Computer Vision},\n  volume    = {115},\n  number    = {3},\n  pages     = {211--252},\n  year      = {2015},\n  publisher = {Springer},\n  doi       = {10.1007/s11263-015-0816-y}\n}",
+      "cite": "Russakovsky, O., Deng, J., Su, H., Krause, J., Satheesh, S., Ma, S., Huang, Z., Karpathy, A., Khosla, A., Bernstein, M., Berg, A. C., & Fei-Fei, L. (2015). ImageNet Large Scale Visual Recognition Challenge. International Journal of Computer Vision, 115(3), 211-252. https://doi.org/10.1007/s11263-015-0816-y",
+      "downloaded": "2025-08-22",
+      "usage_policy_link": "https://image-net.org/",
+      "file_number": "1331171",
+      "discipline": "AI / Computer Vision / Image Classification",
+      "dataset_size": "143G",
+      "public": false,
+      "restricted": true,
+      "s3_bucket": "restricted-ai-datasets",
+      "s3_path": "imagenet-1k/imagenet-1k-ILSVRC-2012",
+      "fs_path": "restricted_datasets/ai/imagenet-1k/imagenet-1k-ILSVRC-2012",
+      "agreement_name": "ImageNet Terms of Access",
+      "agreement_link": "https://image-net.org/",
+      "hidden_notes_for_admin": "File-system access: the approval ticket adds the user to the Unix group that can read restricted_datasets/ai/imagenet-1k."
     }
   }
 }
