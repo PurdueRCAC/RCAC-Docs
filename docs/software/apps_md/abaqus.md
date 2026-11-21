@@ -14,7 +14,7 @@ Abaqus is a commercial finite element analysis (FEA) software suite developed by
 
 |Cluster|Versions|
 |---|---|
-**GAUTSCHI**|2024
+**GAUTSCHI**|2024, 2026
 **GILBRETH**|2023, 2024
 **NEGISHI**|2022 (D), 2023, 2024, 2026
 **SCHOLAR**|2024, 2026
