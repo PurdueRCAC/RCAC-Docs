@@ -27,4 +27,4 @@ end
 
 load("gcc/11.2.0")
 load("openmpi/4.0.6")
-load("xalt")
+load("xalt/2.10.45")
