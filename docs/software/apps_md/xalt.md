@@ -14,7 +14,7 @@ XALT is a tool for tracking HPC software usage and build environment provenance.
 
 |Cluster|Versions|
 |---|---|
-**ANVIL**|2.10.45
+**ANVIL**|2.10.45 (D), 3.2.4
 **GAUTSCHI**|3.1.4 (D)
 **GILBRETH**|3.1.4 (D)
 **NEGISHI**|3.0.2 (D)
