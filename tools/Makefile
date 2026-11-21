@@ -10,3 +10,4 @@ run:
 	./update_ngc_catalog.sh
 	./generate_rocm_md.sh
 	./update_rocm_catalog.sh
+	./update_bio_catalog.sh

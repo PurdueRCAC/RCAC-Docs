@@ -5,15 +5,17 @@ document.addEventListener("DOMContentLoaded", function () {
   const datasetTable = document.getElementById('datasetTable');
   const ngcTable = document.getElementById('ngcTable');
   const rocmTable = document.getElementById('rocmTable');
+  const bioTable = document.getElementById('bioTable');
   const tableId = appTable ? 'appTable'
                 : (datasetTable ? 'datasetTable'
                 : (ngcTable ? 'ngcTable'
-                : (rocmTable ? 'rocmTable' : null)));
+                : (rocmTable ? 'rocmTable'
+                : (bioTable ? 'bioTable' : null))));
 
   if (!tableId) return;  // No table found on this page
 
   const isDatasetTable = tableId === 'datasetTable';
-  const isContainerTable = tableId === 'ngcTable' || tableId === 'rocmTable';
+  const isContainerTable = tableId === 'ngcTable' || tableId === 'rocmTable' || tableId === 'bioTable';
   const isNgcTable = tableId === 'ngcTable';  // kept for compatibility
 
   // Count visible tbody rows directly from the DOM (reliable after any filter)
@@ -31,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
     span.textContent = label + count;
   }
 
-  // Container catalog tables (NGC, ROCm) have only 2 columns; the others have 3.
+  // Container catalog tables (NGC, ROCm, Biocontainers) have only 2 columns; the others have 3.
   var tfConfig = {
     base_path: '/assets/js/tablefilter/',
     paging: false,
