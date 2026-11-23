@@ -5,7 +5,7 @@
 #   bash submit-night.sh 20261123
 
 # The survey's directory on Data Depot: the same path on every cluster.
-survey=/depot/mygroup/survey
+survey=/depot/mygroup/data/survey
 # The number of fields the telescope images each night.
 fields=24
 

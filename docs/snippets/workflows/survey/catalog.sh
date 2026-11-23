@@ -6,7 +6,7 @@
 # nights/20261123/catalog.txt from every field's detections.
 
 # The survey's directory on Data Depot.
-survey=/depot/mygroup/survey
+survey=/depot/mygroup/data/survey
 
 night=$1
 cd $survey/nights/$night

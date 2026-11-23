@@ -1411,7 +1411,8 @@ the relay on `login00.gautschi.rcac.purdue.edu`, client jobs in `cpu` (`-q stand
 `ai` (`normal`, at most 1 GPU at a time). Negishi: the relay on `login00.negishi.rcac.purdue.edu`,
 client jobs in `cpu` (`-q standby` allowed). At most 4 client jobs per cluster at once, each with a
 30-minute walltime. Files: the pages' own paths (`$HOME/survey/` on each `login00`) and a Data
-Depot directory the validator's group owns (`<depot>` below, the same path on both clusters).
+Depot directory under the validator's group's `data/` directory (`<depot>` below, e.g.
+`/depot/<group>/data/survey`, the same path on both clusters).
 `$ACCT` is the validation account, kept out of the repository.
 
 **Assembling the run copies.** Use the published files as they are, except these lines, and record
@@ -1422,7 +1423,7 @@ each change:
   `max = 8` with `max = 2` and (Gautschi `gpu`) `max = 2` with `max = 1`. If `normal` is refused on
   `cpu` for account reasons only, change `--qos=normal` to `--qos=standby` in the `cpu` tables.
 - `database.toml`: `<your-namespace>` → `<ns>`.
-- `calibrate.sh`, `detect.sh`, `catalog.sh`, `submit-night.sh`: `survey=/depot/mygroup/survey` →
+- `calibrate.sh`, `detect.sh`, `catalog.sh`, `submit-night.sh`: `survey=/depot/mygroup/data/survey` →
   `survey=<depot>`.
 `run-relay.sh` is used exactly as published.
 

@@ -7,7 +7,7 @@
 # was given, and writes nights/20261123/detected/F007.txt.
 
 # The survey's directory on Data Depot.
-survey=/depot/mygroup/survey
+survey=/depot/mygroup/data/survey
 
 night=$1
 field=$2

@@ -163,7 +163,8 @@ gives every zone zero clients, and no job starts.
 
 The survey's data lives on [Data Depot](../../userguides/depot/index.md), which every cluster mounts at the
 same path, so that a field calibrated on one cluster can be detected on another. Make a directory
-there for the survey, such as `/depot/mygroup/survey` with your group's name, and save in it three
+there for the survey, such as `/depot/mygroup/data/survey` with your group's name (groups write
+under the `data` directory RCAC creates in each Depot space, not at its top), and save in it three
 stand-ins for the survey's steps. Each waits a few seconds, as if working, and writes a small text
 file that records the cluster and the node that ran it. Set `survey` in each to your directory.
 
@@ -245,7 +246,7 @@ When the last count is 0, the catalog is written. Read it, and the catalog task'
 record, with its exit status:
 
 ```bash
-cat /depot/mygroup/survey/nights/20261123/catalog.txt
+cat /depot/mygroup/data/survey/nights/20261123/catalog.txt
 hs list args exit_status --group 202611232
 ```
 

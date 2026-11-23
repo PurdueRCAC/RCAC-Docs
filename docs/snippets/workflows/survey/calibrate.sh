@@ -7,7 +7,7 @@
 # the cluster and the node that ran it.
 
 # The survey's directory on Data Depot.
-survey=/depot/mygroup/survey
+survey=/depot/mygroup/data/survey
 
 night=$1
 field=$2
