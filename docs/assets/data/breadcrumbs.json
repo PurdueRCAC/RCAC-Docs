@@ -913,6 +913,18 @@
     "HyperShell User Guide",
     "Tier 3: A Pipeline on One Cluster"
   ],
+  "/workflows/hypershell/geddes_service/": [
+    "Home",
+    "Workflow Automation",
+    "HyperShell User Guide",
+    "Tier 4: A Persistent Service on Geddes"
+  ],
+  "/workflows/hypershell/autoscaling/": [
+    "Home",
+    "Workflow Automation",
+    "HyperShell User Guide",
+    "Tier 4: Autoscaling Across Clusters"
+  ],
   "/workshops/": [
     "Home",
     "RCAC Workshops"

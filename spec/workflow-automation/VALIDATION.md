@@ -38,6 +38,11 @@ and Anvil is 2.9.0, and the tier 1 checks have been re-run on that module:
   port and login-node host-name wording) and F2 (the page's quoted log lines and the *Make the key*
   and *Start the server* steps), depend on C and are carried to this check; the page stays as
   drafted until then.
+- `P7-release: PASS — <date>, Geddes + Gautschi + Negishi, default module <version>, image <tag>`
+  *(written by the validator)*: the whole P7 request (A–K under the P7 heading), run once on the
+  released module and the matching published image, with a human doing the Rancher steps (C). P7
+  validation was deferred here by decision at the P7 draft: it needs a module with the `hyper-shell`
+  command and the post-2.9.0a8 fixes. Until this line is written, P7 has no `P7: PASS` line.
 
 ## P2 — Baseline tools (V2)
 
@@ -1347,6 +1352,317 @@ P6: PASS — 2026-11-23 · reduced scope: A1–A6 and B 7/7 on login nodes; C (l
 
 
 ## P7 — Tier 4 (V7, including the manual Rancher walk-through)
+
+Validation request for the P7 draft (the commit that adds this section), covering
+docs/workflows/hypershell/{geddes_service,autoscaling}.md and
+docs/snippets/workflows/survey/{database.toml,relay-gautschi.toml,relay-negishi.toml,run-relay.sh,submit-night.sh,calibrate.sh,detect.sh,catalog.sh};
+result: held for the release by decision (merge hold `P7-release: PASS`).
+
+P7: PENDING — held for the 2.9.0 release by decision: the whole request below runs once, on the released module and image, as the merge hold's `P7-release: PASS`; no `P7: PASS` until then
+
+### Validation request (written by the draft run, 2026-11-23)
+
+**Why it is held.** Tier 4 needs a module with the `hyper-shell` command (the relay starts every
+client as `hyper-shell client`; Gautschi's `hypershell/develop` has only `hs` and `hsx` today), the
+post-2.9.0a8 fixes, and a published image whose version matches the module. So the request runs once,
+on the released 2.9.0 module on Gautschi and Negishi and the `ghcr.io/hypershell/hypershell:2.9.0`
+image, with a human doing the Rancher steps (C). It is recorded under the merge hold as
+`P7-release: PASS`.
+
+**Build under test.** The default `hypershell` module on Gautschi and Negishi, once it is 2.9.0
+(record `hs --version` on each `login00`), and the image `ghcr.io/hypershell/hypershell:<the same
+version>`. Record the image's digest from the pod (Rancher shows it on the pod's detail page, or
+`kubectl -n <ns> get pod <pod> -o jsonpath='{.status.containerStatuses[*].imageID}'`). If the module
+reports a pre-release, stop: the request is for the release.
+
+**Where the page fails on 2.9.0a8** (for the record; do not validate on a8):
+- `--initdb` in the server container's arguments does not initialize the database on a8 (fixed in
+  2.9.0a9, HyperShell #105). With an empty TimescaleDB the server cannot load tasks; the a8 workaround
+  is `hs initdb` from `login00` with `database.toml`.
+- The relay cannot start clients from Gautschi's `hypershell/develop` module, which has no
+  `hyper-shell` command (module packaging, not a code version).
+- a8 reads no environment variable for a key whose own name holds an underscore (fixed in 2.9.0a9,
+  #113), nor the `_ENV`/`_EVAL` environment forms. The pages set none from the environment: the pod's
+  variables (`HYPERSHELL_SERVER_AUTH`, `…_SERVER_BIND`, `…_SERVER_TLS_CERT`, `…_SERVER_TLS_KEY`,
+  `…_DATABASE_PROVIDER/HOST/PORT/DATABASE/USER/PASSWORD`, `…_AUTOSCALE_DISTRIBUTION`,
+  `…_AUTOSCALE_SITES`, `…_LOGGING_LEVEL`) were each read correctly by `hs config get` on 2.9.0a8 and
+  2.9.0a9 from PyPI, and the relay's `num_threads`, `launcher_args` and `auth_eval` sit in
+  `relay.toml`. Checked on the workstation: on a8, `HYPERSHELL_RELAY_NUM_THREADS` and
+  `HYPERSHELL_RELAY_LAUNCHER_ARGS` are ignored and `HYPERSHELL_RELAY_UPSTREAM_AUTH_EVAL` is not
+  evaluated; on a9 all three are read.
+- The GHCR package lists `2.9.0a9` (and `sha-1acc548`), published 2026-11-22; there is no `2.9.0` and
+  no `latest` tag yet. The page names `:2.9.0`, which exists only once 2.9.0 is released.
+
+**Envelope.** One Geddes namespace of the validator's (`<ns>` below), one pod, one Load Balancer
+service on the private pool, three Secrets and one 20 GiB PVC, all deleted at the end (K). Gautschi:
+the relay on `login00.gautschi.rcac.purdue.edu`, client jobs in `cpu` (`-q standby` allowed) and
+`ai` (`normal`, at most 1 GPU at a time). Negishi: the relay on `login00.negishi.rcac.purdue.edu`,
+client jobs in `cpu` (`-q standby` allowed). At most 4 client jobs per cluster at once, each with a
+30-minute walltime. Files: the pages' own paths (`$HOME/survey/` on each `login00`) and a Data
+Depot directory the validator's group owns (`<depot>` below, the same path on both clusters).
+`$ACCT` is the validation account, kept out of the repository.
+
+**Assembling the run copies.** Use the published files as they are, except these lines, and record
+each change:
+- `relay.toml` on each cluster (from `relay-gautschi.toml` / `relay-negishi.toml`): replace
+  `<your-namespace>` with `<ns>`, the fingerprint placeholder with the real fingerprint (B4),
+  `--account=myallocation` with `--account=$ACCT`, `--time=04:00:00` with `--time=00:30:00`,
+  `max = 8` with `max = 2` and (Gautschi `gpu`) `max = 2` with `max = 1`. If `normal` is refused on
+  `cpu` for account reasons only, change `--qos=normal` to `--qos=standby` in the `cpu` tables.
+- `database.toml`: `<your-namespace>` → `<ns>`.
+- `calibrate.sh`, `detect.sh`, `catalog.sh`, `submit-night.sh`: `survey=/depot/mygroup/survey` →
+  `survey=<depot>`.
+`run-relay.sh` is used exactly as published.
+
+**Draft-run checks (workstation, not a cluster).** No Docker or Geddes from the drafting host, so
+the pod was stood in by `hs server --autoscaling=dynamic --initdb` run with exactly the page's
+environment variables (key from a file, `HYPERSHELL_SERVER_TLS_CERT`/`_KEY` pointing at a
+certificate made with the page's `openssl req` line), but SQLite in place of TimescaleDB and
+`-P 10` to plan every 10 seconds. Two relays ran from the published `run-relay.sh` with the
+published `relay.toml` files (host, port and fingerprint filled in; each with its own `HOME`; a
+stand-in `srun` that drops its options and sets `SLURM_CLUSTER_NAME`), on HyperShell 2.9.0a9 from
+PyPI. Results: the fingerprint printed by `openssl x509 -fingerprint -sha256`, prefixed with
+`SHA256:`, was accepted; each relay logged `Upstream identity … for zone cpu at site gautschi`,
+`Upstream server publishes a topology - site clients follow it` and `Relay-local server ready on
+0.0.0.0:50002`; the server logged `Relay site registered (site: gautschi, zone: cpu, min: 0, init:
+0, max: 8, clients: 0)` (and `gpu`, and `negishi` `cpu`); `submit-night.sh 20261123` submitted
+24 + 24 + 1 tasks, and a second run was refused (`… was already submitted as source …`, exit 2,
+nothing more submitted); under `spread` the plan grew the `cpu` zone one client per check on both
+sites (`site: gautschi, zone: cpu, target: 2` and `site: negishi, zone: cpu, target: 2`), the `gpu`
+zone only at Gautschi, and only once its group started (`Task group 202611231 waiting on zone gpu: 24
+tasks, no client serving it` until then); every launch was `srun <the zone's launcher_args>
+hyper-shell client -H … -p 50002 -N 4 -b 4 -w 5 -t {} -d 0 -S 10 -T 600 --zone <zone>`; the three
+groups ran in order and the catalog succeeded. A second night submitted while the first was in its
+detection group was accepted and started only after the first night's catalog finished.
+**An earlier draft used groups 0, 1, 2 for every night: the second night's catalog then ran first
+(the forever server was still on group 2) and failed.** That is why the groups are now the date
+plus the phase. `SIGUSR1` drained both relays (each exited within 30 seconds). The stand-in server,
+given `SIGUSR1`, logged `Signal interrupt (SIGUSR1)` but was still running a minute later; `SIGTERM`
+(what Kubernetes sends when a pod is deleted) stopped it at once. The pages never send `SIGUSR1` to
+the server. With 2.9.0a8 from PyPI the same files were read, both relays registered and the first
+clients were launched; the run stopped there only because a8's site clients dial the relay host's
+name (a8 has no `relay.advertise`, which the drafter used to point them at `127.0.0.1`), and the
+workstation's name does not resolve. The cluster and Geddes run is what counts.
+
+#### A. Login-node checks (no job)
+
+| # | Where | Command | PASS if |
+|---|---|---|---|
+| A1 | `login00` of Gautschi and Negishi | `module load hypershell && hs --version`; `command -v hs hsx hyper-shell` | `HyperShell v2.9.0 …` (record it) on both, and all three commands found. **If `hyper-shell` is missing, stop**: the relay cannot start clients (report to the module maintainers) |
+| A2 | Gautschi `login00`, module loaded | `hs relay --help \| grep -E -- '--launcher\|--zone\|--advertise'`; `hs server --help \| grep -- '--autoscaling'`; `hs submit --help \| grep -E -- '--group\|--zone'` | every option appears |
+| A3 | Gautschi `login00`, module loaded | the Python of the module's `hs` imports the PostgreSQL and UUIDv7 extras: `$(head -1 $(command -v hs) \| cut -c3-) -c 'import psycopg, uuid_utils; print("ok")'` (or the module's documented way) | prints `ok`. Without them, `hs submit`/`hs list` with `provider = "timescale"` stop with `Missing optional dependency "uuid-utils"` |
+| A4 | both `login00` | `hostname -s`; `hostname -f` | `login00` and the full name the pages use; record both |
+| A5 | both `login00` | `ls -d <depot>`; `touch <depot>/p7-probe-$(hostname -s)`; `ls <depot>` from the other cluster | the same path on both, writable, and each cluster sees the other's probe file |
+| A6 | Gautschi `login00` | `openssl version`; the page's `openssl req … -addext …` line in a scratch directory | `-addext` accepted (OpenSSL 1.1.1 or later); record the version |
+| A7 | Gautschi `login00` | `ls -ld $HOME`; after A1, `module show hypershell` | record whether `$HOME` is shared with Gautschi compute nodes (the relay's site certificate lives under `$HOME/survey/hypershell/lib/tls/`) |
+
+#### B. `srun --test-only` for each zone, and the credentials
+
+| # | Where | Command | PASS if |
+|---|---|---|---|
+| B1 | Gautschi `login00` | `srun --test-only <the cpu table's launcher_args, run copy> hostname` | `srun: Job … to start at … using … on …` and no error |
+| B2 | Gautschi `login00` | `srun --test-only <the gpu table's launcher_args, run copy> hostname` | as B1. If 14 cores per GPU is refused, record the message: the page's 14-core statement is wrong |
+| B3 | Negishi `login00` | `srun --test-only <Negishi's cpu table's launcher_args, run copy> hostname` | as B1 |
+| B4 | Gautschi `login00` | the page's *Make the credentials on login00* steps, exactly | `ls -l hypershell/upstream.key hypershell/db.password geddes/tls.key` all `-rw-------`; the fingerprint line reads `sha256 Fingerprint=` (or `SHA256 Fingerprint=`) and 32 colon-separated pairs; record which |
+
+#### C. The Rancher walk-through (a human, at geddes.rcac.purdue.edu)
+
+Follow `geddes_service.md` literally. At each step, compare the screen with what is written here and
+in the page, and record every label that differs (the exact text on screen), every field the page
+does not mention that had to be set, and a screenshot of each form tab used (for the close run's
+optional screenshots, with alt text). If Geddes now directs new workloads to Geddes2, record that,
+stop, and report (PLAN §5 Q6).
+
+**C1. Secrets** (*Store the credentials as Secrets*)
+1. Left menu **Storage** > **Secrets**; **Create** at the top right. Expected: a page of Secret
+   types with an **Opaque** card. Record the other cards shown (for example **TLS Certificate**).
+2. **Opaque**. Expected: a form with **Namespace**, **Name**, and a data tab with **Key** and
+   **Value** rows and an **add** control. Fill in `<ns>`, `hypershell-auth`, Key `auth`, Value = the
+   64 hexadecimal characters of `upstream.key` (no trailing newline). **Create**. Expected: the Secret
+   listed as Active.
+3. Repeat for `hypershell-db` (Key `password`, the 48 characters of `db.password`).
+4. Repeat for `hypershell-tls` with two keys, `tls.crt` and `tls.key`, each the whole PEM text
+   including the `-----BEGIN` and `-----END` lines. Record whether the value field kept the line
+   breaks (open the Secret afterwards and compare with `geddes/tls.crt`).
+
+**C2. The Deployment, first container** (*Deploy the pod*, steps 1–5 up to the second container)
+1. Project dropdown at the top right; left menu **Workload**; **Create**; **Deployment**. Expected:
+   the Deployment form, with a container selector or tab named `container-0` at the top and form tabs
+   on the left (General, Health Check, Labels & Annotations, Networking, Node Scheduling, Pod
+   Scheduling, Resources, Scaling and Upgrade Policy, Security Context, Storage). Record the actual
+   tab names and where they sit (pod-level vs container-level).
+2. Namespace `<ns>`, Name `hypershell`, **Container Name** `timescaledb`, **Container Image**
+   `geddes-registry.rcac.purdue.edu/docker-hub-cache/timescale/timescaledb:2.32.1-pg17`.
+3. **Environment Variables** > **Add Variable**: record the **Type** choices offered. Choose the one
+   for a key of a Secret (the page says **Secret key**; record the real label), Variable Name
+   `POSTGRES_PASSWORD`, Secret `hypershell-db`, Key `password`. Then a plain variable
+   `POSTGRES_DB = hypershell` (record the plain type's label; the page says Key/Value).
+4. **Storage** > **Add Volume** > **Create Persistent Volume Claim**: Name `hypershell-db`,
+   **Single-Node Read/Write**, Storage Class `geddes-performance-singlenode` (record the classes
+   offered), Capacity `20`, Mount Point `/var/lib/postgresql/data`, Sub Path `data`. Record whether
+   the mount point and sub path are set here or on the container.
+5. **Resources**: CPU Reservation `2000`, CPU Limit `2000`. Record the units the fields show.
+
+**C3. The second container**
+1. Find the control that adds a container (the page says **Add Container**, next to `timescaledb`
+   at the top of the form). Record its label and position.
+2. Container Name `server`, Image `ghcr.io/hypershell/hypershell:<version under test>`.
+3. **Command**: record the fields offered (the page assumes **Command** and **Arguments**). Leave
+   Command empty; Arguments `--autoscaling=dynamic --initdb`.
+4. **Ports** > **Add Port**: container port `50001`, TCP. Record the field labels (the page says
+   **Private Container Port**) and whether a service type is offered here (leave it at none or
+   ClusterIP; the service is made in E).
+5. The twelve environment variables of the page's table, two of them from Secrets.
+6. **Storage** > **Add Volume** > **Secret** (record the volume types offered): Secret
+   `hypershell-tls`, Mount Point `/tls`. Record whether a read-only box or default mode is shown.
+7. **Resources**: CPU Reservation `1000`, CPU Limit `1000`.
+
+**C4. Pod label, upgrade policy, create**
+1. **Labels & Annotations** > **Pod Labels** > **Add Label**: `hypershell` = `survey`.
+2. **Scaling and Upgrade Policy**: **Recreate** (record the choices offered and the default).
+3. **Create**. Expected: the Deployment listed, first with "does not have minimum availability",
+   then Active within 5 minutes. Record the time to Active and the number of restarts of each
+   container (the page says the server may restart once or twice).
+
+#### D. The pod's logs and the server container
+
+1. **View Logs**, container `timescaledb`: ends with `database system is ready to accept
+   connections`. Record any `timescaledb-tune` lines.
+2. **View Logs**, container `server`: shows, in order, `Scheduler will run forever`, `Empty database
+   - waiting for initial tasks`, `Server listening on 0.0.0.0:50001` and `Autoscale start (policy:
+   dynamic, distribution: spread)`, and no `PermissionError` or `Could not create directory`. Record
+   the exact lines, and any line about TLS or the database (provider `timescale`, initialization).
+3. **Execute Shell** in `server`: `/opt/hypershell/bin/hs --version` prints the version under test;
+   `/opt/hypershell/bin/hs config get database.provider` prints `timescale`;
+   `/opt/hypershell/bin/hs list --count` prints `0`; `ls -l /tls` lists `tls.crt` and `tls.key`.
+   Record whether `hs` is on `PATH` there (the page says it is not).
+
+#### E. The Load Balancer service (*Expose the server*)
+
+1. **Service Discovery** > **Services** > **Create** > **Load Balancer**. Fill in as the page says,
+   with two ports, `queue` 50001 → 50001 and `database` 5432 → 5432. Record the labels of the port
+   fields (the page says **Listening Port** and **Target Port**, and "a port named"; record whether
+   a port name field exists).
+2. **Selectors**: `hypershell` = `survey`; the bar turns green and names the pod.
+3. **Labels & Annotations** > **Add Annotation**: `metallb.universe.tf/address-pool` =
+   `geddes-private-pool`. **Create**.
+4. Record the external address assigned (hover the port link, or `kubectl -n <ns> get services`).
+
+#### F. From Gautschi's login00 (*Check the service from login00*)
+
+1. `host hypershell.<ns>.geddes.rcac.purdue.edu` prints the address from E4.
+2. Probe both ports: `timeout 5 bash -c 'exec 3<>/dev/tcp/hypershell.<ns>.geddes.rcac.purdue.edu/50001' && echo open`
+   and the same for 5432. Both `open`. **If either is closed, stop and escalate** (PLAN §5 Q5): the
+   design needs `login00` → Geddes on both ports.
+3. The page's `database.toml` (run copy) and the four commands of *Check the service from login00*:
+   `hs list --count` prints `0`.
+4. The same probe of 50001 from Negishi's `login00`: `open`.
+5. Optional: `openssl s_client -connect hypershell.<ns>.geddes.rcac.purdue.edu:50001 </dev/null 2>/dev/null | openssl x509 -noout -fingerprint -sha256`
+   prints the fingerprint of B4.
+
+#### G. The relay on Gautschi, and the first night
+
+1. Save the run copy of `relay.toml` and `run-relay.sh` as the page says. `bash run-relay.sh` prints
+   `Relay started on login00 with process ID <n>`; `ps -p $(cat $HOME/survey/hypershell/relay.pid)`
+   shows `hs relay`. `hypershell/relay.log` shows `Upstream identity … for zone cpu at site
+   gautschi`, the same for `gpu`, `Upstream server publishes a topology - site clients follow it`
+   and `Relay-local server ready on 0.0.0.0:50002`, and no TLS or key error. The server's log shows
+   `Relay site registered (site: gautschi, zone: cpu, min: 0, init: 0, max: 2, clients: 0)` and the
+   same for `gpu` with `max: 1`. `squeue --user=$USER --name=survey-cpu,survey-gpu` is empty.
+2. `ps -o args= -p $(cat $HOME/survey/hypershell/relay.pid)` shows no key (R12).
+3. Copy the three stand-ins to `<depot>` and run `bash submit-night.sh 20261123`: three `Submitted`
+   lines (24, 24, 1). Run it again: refused with `… was already submitted as source …`, exit 2,
+   and `hs list --count` stays 49.
+4. Within about two minutes, `squeue … --name=survey-cpu` shows one job in `cpu` (account, QOS and
+   walltime as the run copy), and a second within another minute or two. `relay.log` shows
+   `srun` launches only for zone `cpu`. Record the job IDs and `sacct -j <id> -X
+   --format=JobID,JobName,Partition,QOS,AllocCPUS,State,Elapsed,NodeList`.
+5. `hs list --group 202611230 --remaining --count` reaches 0; then a `survey-gpu` job starts in `ai`
+   with 1 GPU and 14 CPUs (record `sacct … AllocTRES`). No `gpu` job ran before that.
+6. When `hs list --group 202611232 --remaining --count` is 0: `hs list --succeeded --count` 49,
+   `hs list --failed --count` 0. `cat <depot>/nights/20261123/catalog.txt` has 48 lines: for each
+   field, `F… detected on gautschi <node> GPU <n>` and then its calibration line. `hs list args
+   exit_status --group 202611232` shows exit status 0, and `hypershell/relay.log` holds the catalog
+   task's two lines, `Fields calibrated on Gautschi: 24` and `Fields calibrated on Negishi: 0` (the
+   page says a task's output lands there). Record `SLURM_CLUSTER_NAME` as the files show it (the catalog's
+   counts match on `gautschi`).
+7. `hs list client_host --group 202611231` lists `ai` nodes only.
+8. The `cpu` jobs end on their own within about 10 minutes of their last task (`-T 600`); record
+   each `State` and `Elapsed`.
+
+#### H. Persistence (*How the data persists*)
+
+1. In Rancher, delete the pod (not the Deployment, not the PVC). A new pod starts; record the time
+   to Active.
+2. The server's log in the new pod shows `All previous tasks completed (49) - waiting for new tasks`
+   (or the 2.9.0 wording; record it); `hs list --count` from `login00` prints 49.
+3. `relay.log` records losing the server and connecting again, with no restart of the relay.
+
+#### I. Negishi, spread and fill (*Add a second cluster*)
+
+1. On Negishi's `login00`, follow the page's four steps (key pasted with `nano`, run copy of the
+   Negishi `relay.toml`). `ls -l hypershell/upstream.key` is `-rw-------`. The server logs `Relay
+   site registered (site: negishi, zone: cpu, …)`.
+2. `bash submit-night.sh 20261124` on Gautschi. Under `spread`, `cpu` jobs start on both clusters
+   (record each cluster's `squeue`); the `gpu` job only on Gautschi. The catalog's output counts
+   calibrations on both `gautschi` and `negishi`.
+3. While night 20261124 is in its detection group, `bash submit-night.sh 20261125` is accepted; its
+   calibrations start only after night 20261124's catalog has finished (compare `hs list id
+   schedule_time --group 202611250` with the catalog's completion).
+4. Fill: edit the Deployment's `server` container, set `HYPERSHELL_AUTOSCALE_DISTRIBUTION` to `fill`
+   and add `HYPERSHELL_AUTOSCALE_SITES` = `negishi,gautschi`; save (record that the pod restarted,
+   per the Recreate policy). The server's log shows `distribution: fill`. With every `cpu` client of
+   the last night gone (wait out `-T 600`), `bash submit-night.sh 20261126`: the first `cpu` clients
+   start on Negishi, and Gautschi gets one only once Negishi has its `max` (2).
+
+#### J. Failure, drain and stop (*When a task fails*, *Keep the relays running*)
+
+1. Before submitting night 20261127, remove its calibration of one field after it lands (or make
+   `<depot>/nights/20261127/calibrated/F005.txt` unreadable once written) so that `detect.sh` fails
+   for F005. The detection group then holds the catalog: the server logs `Failed task group
+   202611271 (…)`. Restore the file, `hs update --failed --revert` (answer `yes`), and the catalog
+   runs. Record the messages.
+2. `kill -s USR1 $(cat $HOME/survey/hypershell/relay.pid)` on Negishi: the relay finishes what it
+   holds and exits (record the time); `ps -p …` then prints only the header. The server logs `Relay
+   site left (site: negishi, …)`.
+3. `kill $(cat …/relay.pid)` on Gautschi while a client job runs: the relay and its `srun` jobs end
+   at once (record each job's `State`).
+4. On `login00` of Gautschi, start the relay again with `bash run-relay.sh` and check that it
+   registers; drain it again as in 2.
+
+#### K. Backup and clean-up (*Operate and maintain*)
+
+1. From a host with `kubectl` access, the page's two `kubectl` commands write `survey.dump`, more than
+   0 bytes; `pg_restore --list survey.dump | head` lists the `task` table (if `pg_restore` is at
+   hand).
+2. Clean up: delete the service, the Deployment, the PVC `hypershell-db`, the three Secrets; on both
+   `login00`, nothing of the survey is left running (`ps -u $USER -o pid,args | grep '[h]s relay'`
+   prints nothing); remove `<depot>/nights` if not wanted.
+
+#### L. Not covered by this request (record, do not run)
+
+- **A long campaign.** No run lasts days or crosses a `login00` reboot; G–J show restarts of the
+  relay and the pod. Whether `nohup` keeps the relay through a logout on both clusters is checked
+  only as far as the validator's session allows.
+- **Scale.** Clients stay at `max = 2` (`cpu`) and 1 (`gpu`) per cluster; the page's 8 and 2 are not
+  run.
+- **The page's `normal` QOS and 4-hour walltime** are checked by B only.
+- **The PostgreSQL memory defect.** No tier 4 example requests task memory (`-m`); not exercised.
+
+Close-run items expected whatever the outcome:
+- **F1** Apply every Rancher label difference recorded in C and E to `geddes_service.md`, and adopt
+  any screenshots with alt text describing the form state.
+- **F2** Replace the image tag `2.9.0` with the released tag if it differs, and the log lines quoted
+  in both pages with those recorded in D, G and H.
+- **F3** If B2 shows another rule for cores per GPU on `ai`, or I shows a different `fill` order,
+  amend `relay-gautschi.toml` and the page's text.
+- **F4** If A3 fails, add the module's missing extras to the merge hold (as P5's module packaging
+  item); if A7 shows home is not shared with compute nodes, set `[server.tls]` for the relay's site
+  and amend the page.
+
+#### Results
+
+*(validator: on the released module and image; then write the merge hold's `P7-release: PASS` line)*
 
 ## Network confirmations
 

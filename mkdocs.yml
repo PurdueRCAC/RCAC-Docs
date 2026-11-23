@@ -306,6 +306,8 @@ nav:
         - GPU Multiplexing: workflows/hypershell/gpu_multiplexing.md
         - "Tier 2: Extreme Scale": workflows/hypershell/extreme_scale.md
         - "Tier 3: A Pipeline on One Cluster": workflows/hypershell/pipelines.md
+        - "Tier 4: A Persistent Service on Geddes": workflows/hypershell/geddes_service.md
+        - "Tier 4: Autoscaling Across Clusters": workflows/hypershell/autoscaling.md
     - RCAC Workshops:
       - workshops/index.md
       - HPC Exchange:

@@ -125,7 +125,7 @@ phases:
     spec/workflow-automation/VALIDATION.md'
 - id: P7
   name: 'Tier 4: persistent service on Geddes and relay autoscaling across clusters'
-  status: pending
+  status: in_progress
   satisfies:
   - R6
   - R10
@@ -138,7 +138,7 @@ phases:
   - P6
   parallel: false
   hammerable: false
-  hill: uphill
+  hill: crest
   verify: '.venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py
     && grep -q ''workflows/hypershell/geddes_service.md'' mkdocs.yml && grep -q ''workflows/hypershell/autoscaling.md''
     mkdocs.yml && grep -rqF ''FILENAME: run-relay.sh'' site/workflows/hypershell/autoscaling/
@@ -446,14 +446,30 @@ introduced.
 **Goal:** two validated capstone pages: the Geddes pod (server + TimescaleDB) through Rancher, and
 the relay-based autoscaling script on login00 of Gautschi and Negishi, zones and groups together.
 
-- [ ] `geddes_service.md`: research 05 §7.1 outline, Rancher steps in the
+- [x] `geddes_service.md`: research 05 §7.1 outline, Rancher steps in the
   `../../userguides/geddes/examples/database.md` style (link it as the base). Secrets, PVC
   (TimescaleDB `2.32.1-pg17`, mount per research 05 §2.3), the server container (image tag matching
   the validated build; arguments only; `hs` path note for Execute Shell), Recreate policy,
   LoadBalancer on the private pool with 50001 and 5432 and the DNS name. Explicit statements of
   credential storage, persistence and network exposure. At most one collapsed container-entries
   reference. One-line MCP note.
-- [ ] `autoscaling.md`: login00 config (`docs/snippets/workflows/survey/relay.toml`),
+  (Drafted: credentials made on Gautschi's `login00` under `$HOME/survey/` with `openssl rand`, an
+  `openssl req -x509 … -addext subjectAltName` certificate for `hypershell.<your-namespace>.geddes…`
+  and its SHA-256 fingerprint; three Opaque Secrets `hypershell-auth` (`auth`), `hypershell-db`
+  (`password`), `hypershell-tls` (`tls.crt`, `tls.key`); Deployment `hypershell`, containers
+  `timescaledb` (`…/docker-hub-cache/timescale/timescaledb:2.32.1-pg17`, `POSTGRES_PASSWORD` from
+  the Secret, `POSTGRES_DB=hypershell`, PVC `hypershell-db` on `geddes-performance-singlenode`, 20 GiB,
+  `/var/lib/postgresql/data` sub path `data`) and `server` (`ghcr.io/hypershell/hypershell:2.9.0`,
+  arguments `--autoscaling=dynamic --initdb`, twelve `HYPERSHELL_*` variables, two from Secrets, TLS
+  Secret mounted at `/tls`); pod label `hypershell=survey`; Recreate; Load Balancer `hypershell` with
+  ports `queue` 50001 and `database` 5432 on `geddes-private-pool`. Checked from `login00` with
+  `host` and `hs list --count` through `database.toml`. Images verified on the web 2026-11-23:
+  GHCR lists `2.9.0a9` and `sha-1acc548`, no `2.9.0`, no `latest`; Docker Hub lists
+  `timescale/timescaledb:2.32.1-pg17`. **Amendment:** the example's groups are the night's date plus
+  the phase (`202611230`, `…1`, `…2`), not 0, 1, 2: a forever server keeps one group order for all
+  the work it holds, and the drafter's workstation run showed a second night's catalog (group 2)
+  running before its calibrations when every night reused groups 0–2.)
+- [x] `autoscaling.md`: login00 config (`docs/snippets/workflows/survey/relay.toml`),
   `run-relay.sh` (opens `# FILENAME: run-relay.sh`; `srun` launcher, never `sbatch`), drain and
   stop. login00 is presented as a system design choice (one host per cluster for persistent,
   low-CPU coordination), without restating RCAC login-node guidance (GOAL non-goal).
@@ -461,9 +477,29 @@ the relay-based autoscaling script on login00 of Gautschi and Negishi, zones and
   second cluster*: the same script on `login00.negishi.rcac.purdue.edu`, serving zone `cpu` only,
   and `autoscale.distribution`. Operate and maintain. Link the GPU page from the `gpu` zone.
   Gilbreth does not appear in tier 4 (no login00). No `-m`/`memory:` of 2G or more (PostgreSQL defect).
-- [ ] Nav lines; guide-landing cards; breadcrumbs.
-- [ ] Draft run ends per *Validating phases*; `P7: PENDING` lists the Rancher walk-through and the
-  live checks (PLAN §6 V7, §5 Q5–Q8).
+  (Drafted, written plain by foreman rule (no `case`, `set -e`, parameter-expansion operators,
+  subshell `umask`, background loops): `docs/snippets/workflows/survey/` holds `relay-gautschi.toml`
+  and `relay-negishi.toml` (both `# FILENAME: relay.toml`, shown as tabs; amended from PLAN's one
+  `relay.toml`), `database.toml` (amended from PLAN's single shared config: the database settings
+  stay out of the relay's file, so the copy the relay hands its site clients carries no database
+  command), `run-relay.sh` (opens `# FILENAME: run-relay.sh`; sets `HYPERSHELL_SITE` and
+  `HYPERSHELL_CONFIG_FILE`, `nohup hs relay … &`, writes `relay.pid`; drain is `kill -s USR1`, stop
+  is `kill`, both in prose), `submit-night.sh` (date-based groups, `&&` between the three
+  submissions so a refused phase stops the rest), and three stand-ins `calibrate.sh`, `detect.sh`,
+  `catalog.sh` on Data Depot (amended from PLAN's one `submit-night.sh` stand-in; data on Depot so
+  any cluster's clients reach it). Relay: `site`, `num_threads = 4` (relay-wide in 2.9.0, so each
+  zone's Slurm request is sized around it), `timeout = 600`, `launcher = "srun"`,
+  `[relay.upstream]` with `auth_eval` and `[relay.upstream.tls] fingerprint`; zone `cpu`
+  `--partition=cpu --qos=normal --ntasks=1 --cpus-per-task=4 --time=04:00:00`, `max = 8`; zone
+  `gpu` (Gautschi only) `--partition=ai --qos=normal --ntasks=1 --gpus-per-node=1
+  --cpus-per-task=14`, `max = 2`. `autoscale.distribution` is set on the server
+  (`HYPERSHELL_AUTOSCALE_DISTRIBUTION`, `spread`; `fill` with `HYPERSHELL_AUTOSCALE_SITES`).
+  Checked end to end on the workstation with 2.9.0a9 (see VALIDATION.md P7).)
+- [x] Nav lines; guide-landing cards; breadcrumbs. (Also: the tier map's tier 4 row links both pages.)
+- [x] Draft run ends per *Validating phases*; `P7: PENDING` lists the Rancher walk-through and the
+  live checks (PLAN §6 V7, §5 Q5–Q8). (Validation held for the release by foreman decision: the full
+  request is written under VALIDATION.md's P7 heading and runs once on the released module and image
+  as the merge hold's `P7-release: PASS`; P7 stays `in_progress`, hill `crest`.)
 - **Verify:** see frontmatter.
 - **Touches:** two pages, `docs/snippets/workflows/survey/*`, `docs/workflows/hypershell/index.md`,
   `mkdocs.yml`, breadcrumbs, `VALIDATION.md`.

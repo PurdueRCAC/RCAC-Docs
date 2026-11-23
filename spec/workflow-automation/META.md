@@ -140,3 +140,30 @@ attributes line instead of duplicating. A fix that would weaken a `hammerable:fa
   validation-row feature against the build under test and list the misses in the risk that names
   that build.
 - **Confidence:** medium · **Effort:** small
+
+## F9 — the shell register for reader-facing scripts is not in the style guide
+`origin=docs-draft:P7 severity=medium category=missing-guidance status=open target=.agents/factory/style-guide.md`
+- **What happened:** mid-phase, the foreman set a content rule for P7: guides are for scientists, so
+  job scripts, helper scripts and commands stay plain (one command per line with a comment, tunables
+  as plain variables, no `${VAR:-…}`/`${VAR:?…}`, `case`, `set -e`, `exec`, subshell `umask`,
+  background loops, here-docs or multi-stage `sed`/`awk` pipelines; checks in prose; scripts of about
+  30 lines). The P7 draft's first scripts used several of those (an idiom set the P6 scripts also
+  use), and were rewritten.
+- **Skill cause (not mine):** `style-guide.md` covers code-block mechanics (language tag, `title=`,
+  `# FILENAME:`) but says nothing about the shell register of published scripts, so the drafter
+  follows the conventions of earlier phases.
+- **Recommended fix:** add the rule to `style-guide.md` (Voice & tone or Code blocks) and to the
+  review rubric, and decide whether P2–P6 scripts are swept to it in P8.
+- **Confidence:** high · **Effort:** small
+
+## F10 — no FSM state for a phase whose validation is deferred to the merge hold
+`origin=docs-draft:P7 severity=low category=instruction status=open target=.agents/skills/docs-draft/SKILL.md`
+- **What happened:** P6 (partly) and P7 (wholly) defer cluster validation to the released module.
+  *Validating phases* knows only draft → `P<n>: PASS` → close, so P7 is left `in_progress`/`crest`
+  with a `P7: PENDING` line and a merge-hold bullet, and P8's "VALIDATION.md shows PASS for P2–P7"
+  cannot be met until the release. The foreman decides the FSM handling case by case.
+- **Skill cause (not mine):** docs-draft and TECH's *Validating phases* have no "held for release"
+  outcome, nor a `verify:` form that accepts a recorded hold.
+- **Recommended fix:** define a `P<n>: HELD — <merge-hold line>` status that a close run may accept
+  in place of PASS for `verify:`, with P8 and docs-publish checking the merge hold instead.
+- **Confidence:** medium · **Effort:** small
