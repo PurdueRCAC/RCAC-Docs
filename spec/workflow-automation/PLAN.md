@@ -1,6 +1,6 @@
 # PLAN — Workflow Automation: choosing a tool, and a tiered HyperShell user guide
 
-> **Status:** Draft for review · **Last updated:** 2026-11-22
+> **Status:** Revised after the plan gate (2026-11-22) · **Last updated:** 2026-11-22
 > **Authoritative design.** The *how*. Vision/contract is [`GOAL.md`](GOAL.md); the phased
 > executable roadmap is [`TECH.md`](TECH.md). Backing detail is in [`research/`](research/)
 > (digest: [`research/00-digest.md`](research/00-digest.md)). Every design element traces to a GOAL
@@ -65,9 +65,9 @@ scripts closes only after a cluster validation run recorded in `VALIDATION.md`.
 | `single_job.md` | *Tier 1: One Job Script*. A complete per-cluster tabbed script running `hsx frames.txt --restart` with a stable `HYPERSHELL_SITE` for the campaign, one node or several (`--launcher=srun`, one client per node, `-N` executors per client). Resubmitting after the walltime runs out picks up only unfinished work. Inspecting outcomes with `hs list --failed`, `hs list --completed`, `hs info`. Re-running failures: `hs update --failed --revert`, then resubmit, or `-r` retries during the run. States that this one script covers most needs. | VFX: render an animation frame by frame (stand-in renderer) | R6, R7, R12 |
 | `gpu_multiplexing.md` | *Running Many Small Tasks on Large GPUs*. One node, n GPUs, k executors per GPU (`-N n×k`); a small POSIX `gpu-pick` wrapper choosing a device by `TASK_SLOT`; measure k with `nvidia-smi` and `hs info` timings; caveats (GPU memory × k, host cores and memory, time-slicing vs MPS vs MIG). MPS and Scholar MIG variants appear only if live checks pass (otherwise one sentence each). Tabs: Gautschi, Anvil, Gilbreth, Scholar; Negishi (AMD) only if the ROCm variant validates. | Climate: hyperparameter sweep of small ML emulators | R6, R11, R12 |
 | `extreme_scale.md` | *Tier 2: Extreme Scale*. Bundling (`-b`, `-w`), executors and clients per node, `--no-confirm`, `--no-db` trade-offs, staggered starts (`--delay-start=-N`), task timeouts, logging volume, per-task files avoided, a quick throughput measurement. States that Purdue workloads rarely need this. Written so the advice holds at leadership-class facilities (site launchers, `mpiexec`/`srun`, filesystem etiquette). | Climate: a perturbed-parameter ensemble of 10⁶+ short tasks | R6, R8, R12 |
-| `pipelines.md` | *Tier 3: A Pipeline on One Cluster*. A persistent configuration set once with `hs config` (database, server, key via `server.auth`), `hs initdb`, a long-lived `hs server --forever`, phases submitted with `hs submit -g N --zone Z` from a login node, and a helper script that compares outstanding work per zone with running client jobs and `sbatch`es `hs client --zone Z -T <idle>` jobs into the matching partition. Introduces **groups** (when: phases in order; the reached-group rule) and **zones** (where: routing to `cpu` vs `highmem`), each with what it does and when to use it. Uses `TASK_SLOT`, not `{slot}`. | Genomics: a crop diversity-panel pipeline (per-sample → per-region → merge) | R6, R9, R12 |
+| `pipelines.md` | *Tier 3: A Pipeline on One Cluster*. A persistent configuration set once with `hs config` (database, server, key via `server.auth`), `hs initdb`, a long-lived `hs server --forever` on a login node (presented as the design choice of one coordination host; not moved into a batch job), phases submitted with `hs submit -g N --zone Z` from a login node, and a helper script that compares outstanding work per zone with running client jobs and `sbatch`es `hs client --zone Z -T <idle>` jobs into the matching partition. Introduces **groups** (when: phases in order; the reached-group rule) and **zones** (where: routing to `cpu` vs `highmem`), each with what it does and when to use it. Uses `TASK_SLOT`, not `{slot}`. | Genomics: a crop diversity-panel pipeline (per-sample → per-region → merge) | R6, R9, R12 |
 | `geddes_service.md` | *Tier 4: A Persistent Service on Geddes*. Builds on and links the Geddes database guide. Architecture table. Rancher steps in the `database.md` style: Opaque Secrets (database password, queue key, TLS certificate and key); one Deployment with two containers (TimescaleDB, then HyperShell server with arguments `--autoscaling --initdb`); a PVC for the database; Recreate upgrade policy; a LoadBalancer Service on the private pool exposing the queue port (50001) and PostgreSQL (5432), with the DNS name to use. States how credentials are stored, how data persists across pod restarts, and what network exposure the server needs. One-line note that an MCP-server container is out of scope. At most one collapsed reference of the two container entries (about 30 lines); no Service, PVC or Secret YAML. | Astronomy: a nightly time-domain survey run as a service | R6, R10, R12 |
-| `autoscaling.md` | *Tier 4: Autoscaling Clients Across Clusters*. Configure `login00.gautschi.rcac.purdue.edu`: one config file for `hs submit`/`hs list` (database via `password_eval`) and for the relay (`[relay]`, `[relay.upstream]` with `auth_eval` and the TLS fingerprint, zone tables with `srun` launchers). The minimum viable autoscaling script (start, keep alive, drain with `SIGUSR1`, stop), with login-node etiquette. Submitting nightly work with zones and groups together (CPU calibrate → GPU detect → CPU catalog). **Adding a second cluster**: the same script with a different `site` and zone on the second cluster's pinned login node (§5 Q3), and `autoscale.distribution`. Operate and maintain: back up with `pg_dump`, upgrade, rotate the key. | Same survey | R6, R10, R11, R12 |
+| `autoscaling.md` | *Tier 4: Autoscaling Clients Across Clusters*. Presents login00 as a system design choice: one host per cluster for persistent, low-CPU coordination processes (GOAL non-goal: RCAC's wider login-node guidance is not restated). Configure `login00.gautschi.rcac.purdue.edu`: one config file for `hs submit`/`hs list` (database via `password_eval`) and for the relay (`[relay]`, `[relay.upstream]` with `auth_eval` and the TLS fingerprint, zone tables with `srun` launchers). The minimum viable autoscaling script (start, keep alive, drain with `SIGUSR1`, stop), Submitting nightly work with zones and groups together (group 0 calibrate in zone `cpu` → group 1 detect in zone `gpu` → group 2 catalog in zone `cpu`). **Adding a second cluster**: the same script on `login00.negishi.rcac.purdue.edu` with its own `site` and zone tables (Negishi serves zone `cpu` only), and `autoscale.distribution` (`spread` or `fill`) deciding how the shared `cpu` zone's clients split between the clusters (§5 Q3). Operate and maintain: back up with `pg_dump`, upgrade, rotate the key. | Same survey | R6, R10, R11, R12 |
 
 **Version admonition** (once, prominently, on `hypershell/index.md`; GOAL gate): Purdue is the
 primary site of HyperShell's development, and new versions with fixes and features land often
@@ -75,6 +75,14 @@ through module updates. The guide documents HyperShell 2.9.0. Check with `hs --v
 versions differ by cluster. Each tier page then carries a one-line *Minimum version* note that
 links back to it. Minimums: 2.9.0 for file-aware `--restart`, slots, zones and the relay; 2.8.0 for
 task groups and the default SQLite database (02 §12).
+
+**Tier 4 zones (plan gate: planner's choice).** Two zones. `cpu` is served by both relays
+(Gautschi `cpu` partition, Negishi `cpu` partition). `gpu` is served by Gautschi's relay only (an
+NVIDIA partition, linking the GPU multiplexing page). A zone names a capability, not a cluster, so
+adding a site that offers the same capability changes no submitted task. A shared `cpu` zone is
+where the server's autoscaler visibly spreads or fills clients across two clusters. Negishi's GPUs
+are AMD and the guide's GPU material targets NVIDIA, so the worked `gpu` zone stays on Gautschi.
+Groups order the nightly phases; zones place them.
 
 **Snippet files (new; `docs/snippets/workflows/`, excluded from the build, included with `--8<--`):**
 
@@ -189,9 +197,9 @@ and a `title=` filename.
 | R7 | `single_job.md` + `frames/` snippets; rerun semantics stated per research 02 §2.2 (see §5 Q2) |
 | R8 | `extreme_scale.md` |
 | R9 | `pipelines.md` + `panel/` snippets (config, `hs submit` phases, helper scheduling client jobs); groups and zones introduced and explained |
-| R10 | `geddes_service.md` (Rancher pod, Secrets, PVC, LoadBalancer) + `autoscaling.md` (relay on login00, second cluster, zones + groups together) |
+| R10 | `geddes_service.md` (Rancher pod, Secrets, PVC, LoadBalancer) + `autoscaling.md` (the same relay script on login00 of Gautschi and Negishi, zones + groups together) |
 | R11 | `gpu_multiplexing.md` (after tier 1; linked from tiers 3 and 4) |
-| R12 | Top-level commands only; key via `HYPERSHELL_SERVER_AUTH`/`server.auth` (and `relay.upstream.auth_eval` for the relay, §3 deviations); P8 grep sweep |
+| R12 | Top-level commands only; key via `HYPERSHELL_SERVER_AUTH`/`server.auth`, and the relay's upstream key via `relay.upstream.auth_eval` (R12 as amended at the plan gate); P8 grep sweep |
 | R13 | Nav per phase; front-matter contract above; relative links; snippets keep `{%`/`{#`/`{{` out of the Jinja pass; `--strict` gate every phase |
 | R14 | Accessibility plan above; P8 sweep |
 | R15 | Byte-exact snippet scripts; validation envelope (§6) with a recorded PASS per phase in `VALIDATION.md`, enforced by each phase's `verify:` |
@@ -202,8 +210,8 @@ Walked against [`../../.agents/factory/invariants.md`](../../.agents/factory/inv
 research (sane: a cross-cutting content section, no theme or generated-file work) and again after
 this design.
 
-- **§1 Branch & deploy** — work on `feature/workflow-automation`, squash PR to `main`. Publish
-  timing is coupled to the HyperShell 2.9.0 release (§5 Q1).
+- **§1 Branch & deploy** — work on `feature/workflow-automation`, squash PR to `main`. The draft PR
+  may open at any time; the merge waits on the publish rule (§5 Q1).
 - **§2 Dev-only a11y layer** — untouched. No CSS, JS or overrides.
 - **§3 Generated-content firewall** — no edits to `docs/software/**`, catalogs or
   `breadcrumbs.json` beyond running the generator.
@@ -230,9 +238,8 @@ this design.
 | Tabs omit Bell from the GOAL-gate list | R15 (GOAL gate *Clusters*) | Bell is decommissioned; its docs were removed 2026-11-04 (PR #323). No partitions or versions to cite. | A Bell tab would be invented HPC specifics, violating §11 |
 | New files under `docs/snippets/workflows/` (a high-impact path) | R7, R9, R10, R11, R15 | One byte-exact source per script: tabs get complete scripts, bodies stay out of the Jinja pass, and the validator runs the published files | Inline scripts per tab duplicate each body five times, break on `{%`/`{#`, and drift from what was validated. A new `main.py` macro is a worse high-impact edit. Accept the human review gate. |
 | Per-example tab sets differ (Gilbreth only in GPU examples; Negishi out of NVIDIA-specific ones) | R15 | Gilbreth has only GPU partitions; Negishi's GPUs are AMD | Uniform tabs would print headers that cannot run |
-| The relay's upstream key uses `relay.upstream.auth_eval` (or `HYPERSHELL_RELAY_UPSTREAM_AUTH`), not `server.auth`/`HYPERSHELL_SERVER_AUTH` | R12 | HyperShell reads a relay's upstream key only from `relay.upstream.auth`; never from `[server]`, never from the CLI | There is no way to give a relay its key through `server.auth`. R12's intent (no key on a command line) holds. |
-| The second cluster's relay runs on that cluster's login node, not on login00 | R10 (pending §5 Q3) | One relay per site is HyperShell's model; ssh launching cannot pass the key, and homes are separate per cluster | Driving a second scheduler from login00 is not supported by the relay |
-| Persistent low-CPU HyperShell processes on login nodes (tier 3 server, tier 4 relay) | R9, R10 (pending §5 Q4) | Tier 3's `hs submit` on a login node and tier 4's relay on login00 are required by the GOAL | Hosting them in batch jobs breaks tier 3's single-host database access and contradicts R10's login00 |
+| ~~The relay's upstream key uses `relay.upstream.auth_eval`, not `server.auth`~~ | R12 | Resolved: R12 amended at the plan gate (2026-11-22) to name the relay's own setting | — |
+| Persistent low-CPU HyperShell processes on login nodes (tier 3 server, tier 4 relay), presented as a system design choice without restating RCAC login-node guidance | R9, R10 | Tier 3's `hs submit` on a login node and tier 4's relay on login00 are required by the GOAL. Login-node policy is a GOAL non-goal (plan gate, 2026-11-22). | Hosting them in batch jobs breaks tier 3's single-host database access and contradicts R10's login00 |
 
 ## 4. Rabbit holes (resolved)
 
@@ -256,46 +263,44 @@ this design.
   ([03](research/03-landscape.md) §5).
 - **Geddes pod** → TimescaleDB + HyperShell server, Opaque Secrets, PVC, LoadBalancer exposing 50001
   and 5432 (because `hs submit`/`hs list` use the database) ([05](research/05-geddes-capstone.md)).
-- **Second cluster** → a second relay on Gilbreth's login node, upstream to the same Geddes server;
-  zone `cpu` on Gautschi, zone `gpu` on Gilbreth; Negishi as fallback
-  ([05](research/05-geddes-capstone.md) §4, [02](research/02-hypershell-reference.md) §6).
+- **Second cluster** → Negishi: the same relay script on `login00.negishi`, upstream to the same
+  Geddes server; zone `cpu` on both clusters, zone `gpu` on Gautschi only. Gilbreth has no login00
+  (plan gate) ([05](research/05-geddes-capstone.md) §4, [02](research/02-hypershell-reference.md) §6).
 - **Images** → `ghcr.io/hypershell/hypershell:<2.9.0 tag>` (no `latest`); TimescaleDB
   `2.32.1-pg17` through the Geddes Docker Hub cache ([05](research/05-geddes-capstone.md) §2).
 - **Jinja hazards** → scripts in snippets; draft-time grep ([01](research/01-site-integration.md)).
 
-## 5. Risks & open questions (for the plan gate; each with a recommendation)
+## 5. Risks & open questions
+
+Q1–Q4 were decided at the plan gate on 2026-11-22 (GOAL *Plan gate, 2026-11-22*). The rest stand
+as risks with the mitigation shown.
 
 1. **HyperShell 2.9.0 is not released, and modules stop at 2.7.0 (Gilbreth 2.5.2).** The tier 1
    script (`FILE --restart`) fails on 2.7.0. The relay, zones and slots do not exist before 2.9.0.
-   The capstone's `hs server --initdb` and underscore-key env vars are broken in 2.9.0a8, the only
-   published wheel and image. **Recommendation:** draft now against `develop` docs. Run validation
-   phases P4–P7 on a 2.9.0 release build, or failing that a recorded `develop` commit at or after
-   the post-a8 fixes, never a8 alone. Hold `docs-publish` until 2.9.0 is tagged and at least the
-   Gautschi and Anvil modules default to it, then re-run V4 on the module. The version admonition
-   (GOAL gate wording) also shows `hs --version`.
-2. **R7 wording vs behaviour.** R7 says a rerun "picks up only unfinished or failed work"; a
-   `--restart` rerun skips failed tasks. **Recommendation:** no GOAL amendment. Tier 1 shows the
-   rerun picking up unfinished work, and shows `hs update --failed --revert` followed by a resubmit
-   picking up exactly the failed work, which meets R7 truthfully. If the human prefers, amend R7 to
-   "…and how failed work is re-run" (needs sign-off).
-3. **Second cluster vs R10's "runs on login00".** Under the relay model, login00 runs the Gautschi
-   relay. The Geddes server's autoscaler plans clients across every connected relay, and the second
-   cluster needs its own relay on its own login node. **Recommendation:** Gilbreth as the GPU site
-   (zones become meaningful: `cpu` on Gautschi, `gpu` on Gilbreth; links the GPU page), started by
-   the same script on Gilbreth's pinned login node. Negishi is the fallback if the human wants a
-   homogeneous two-site `fill` story. Confirm this meets R10, or the page adds "start it from
-   login00 over ssh" (user-installed keys, key file read by `auth_eval`), which has more moving parts.
-4. **Persistent processes on login nodes.** The front-end policy permits job preparation and
-   submission and kills significant CPU or memory use. It is silent on long-running low-CPU
-   daemons, and login00 is not documented as special. **Recommendation:** RCAC staff confirm the
-   tier 3 server and the tier 4 relay are acceptable on a pinned login node (login00 for Gautschi),
-   and the pages state the etiquette (one per user, no tasks on the login node, restart after a
-   reboot). If not acceptable, tier 3's server moves into a small long-walltime job with `hs submit`
-   run on that node, and R10 would need amending.
+   **Decided (publish rule):** draft now, and validate on Gautschi's `hypershell/develop` module (it
+   reports 2.9.0a8 today; record the exact `hs --version` at each validation) or a recorded `develop`
+   commit. The draft PR may open at any time. The merge waits until 2.9.0 is tagged, the default
+   module on Gautschi and Anvil is 2.9.0, and V4's tier 1 checks have been re-run on that module.
+   P8 records the hold, and the PR body states it. *Residual risk:* `hs server --initdb` and
+   environment variables for underscore keys (e.g. `auth_eval`) are broken in 2.9.0a8. If the
+   `develop` module still reports a8 at V6/V7, those steps validate on a recorded `develop` commit
+   instead, or wait for the module.
+2. **R7 wording vs behaviour.** **Decided:** R7 amended. Tier 1 explains that a `--restart` rerun
+   skips tasks that already ran, failed ones included, and shows `hs update --failed --revert`
+   followed by a resubmit.
+3. **Second cluster.** **Decided:** R10 held as "login00 of one or more clusters"; the same relay
+   script runs on each cluster's login00. The worked pair is Gautschi and Negishi
+   (`login00.negishi.rcac.purdue.edu`). Gilbreth is dropped from the capstone: it has no login00
+   (front-ends `gilbreth-feNN`; `login00.gilbreth` does not resolve, checked 2026-11-22). Zones as in
+   §2 (*Tier 4 zones*).
+4. **Persistent processes on login nodes.** **Decided:** a GOAL non-goal. The pages present login00
+   as a system design choice (one host per cluster for persistent, low-CPU coordination processes)
+   and neither reconcile nor restate RCAC's wider login-node guidance. The tier 3 server stays on a
+   login node.
 5. **Network reachability (unverified).** Compute nodes → a login node's HyperShell port (tiers 3,
-   4); login00 → the Geddes LoadBalancer on 50001 and 5432 (tier 4). **Recommendation:** first
-   items in V6/V7; on failure, the page design changes (tier 3 server in a job; tier 4 needs RCAC
-   network help). Escalate.
+   4; Gautschi and Negishi); login00 → the Geddes LoadBalancer on 50001 and 5432 (tier 4).
+   **Mitigation:** first items in V6/V7. On failure, stop and escalate to the human: the design keeps
+   the tier 3 server on a login node, so a blocked port needs RCAC network help, not a redesign.
 6. **Geddes vs Geddes2.** The guide's examples are Geddes-era; a Geddes2 migration section exists
    with a different registry and ingress. **Recommendation:** mirror `database.md` (Geddes) as it
    stands; the validator deploys where RCAC currently directs new workloads and records label
@@ -306,8 +311,8 @@ this design.
 8. **`hyper-shell` executable in the module.** Relay site clients launch as `hyper-shell client`;
    a module that links only `hs`/`hsx` breaks the relay. **Recommendation:** a V7 check; report
    upstream to the module maintainers if missing.
-9. **Page authors handle.** No `authors:` named in GOAL. **Recommendation:** the HyperShell
-   author's existing site handle (as on the Agentic AI pages), confirmed at the gate.
+9. **Page authors handle.** No `authors:` named in GOAL. **Default:** the HyperShell author's
+   existing site handle (as on the Agentic AI pages) unless the human names another.
 10. **SQLite on shared filesystems.** Tier 1 keeps one SQLite file per campaign on a shared path;
     tier 3's server and `hs submit` share one file from one host. **Recommendation:** V4/V6 validate
     the chosen path (scratch vs home vs depot) with WAL; pages name the validated location.
@@ -315,8 +320,14 @@ this design.
     PostgreSQL/TimescaleDB (open upstream). **Recommendation:** tier 4 examples never use `-m`/`memory:`
     ≥ 2G; revisit if fixed in 2.9.0.
 12. **Phase count is 8**, at the circuit-breaker. **Recommendation:** keep one cycle (GOAL
-    resolved this). If validation stalls on tier 4 infrastructure (Q4–Q7), split P7 into a
+    resolved this). If validation stalls on tier 4 infrastructure (Q5–Q7), split P7 into a
     follow-up cycle rather than block P1–P6.
+13. **One config shared across module versions.** On Gautschi, the default `hypershell/2.7.0`
+    crashed on `hs --version` with `AttributeError: 'auth' has more than one variant` (raised from
+    cmdkit's namespace handling) under an account whose HyperShell config may carry 2.9-era auth
+    keys. The cause is unconfirmed. **Mitigation:** a V4 check (§6). If confirmed, the version
+    admonition gains a one-line caution against using one HyperShell config with module versions
+    from both sides of 2.9.0.
 
 ## 6. Verification strategy
 
@@ -340,12 +351,15 @@ HyperShell <version/commit>`), with notes on anything that changed the draft. Ac
 and QOS values below are placeholders the validator fills; scripts run exactly as published:
 `cat header-<cluster>.sh body.sh > job.sub`.
 
-- **Build under test.** Preferred: the 2.9.0 release (`module load uv`, `uv tool install
-  'hypershell==2.9.0'`). Before release: a `develop` build at a recorded commit that includes the
-  post-a8 fixes (installed with `uv tool install` from the repository or a wheel copied to the
-  cluster). Alternatively Gautschi's `develop` module if `hs --version` shows that commit or later.
-  2.9.0a8 alone is not acceptable for P6–P7 (`hs server --initdb`, underscore-key env vars). The
-  Geddes image tag must match the build.
+- **Build under test (publish rule, §5 Q1).** Gautschi's `hypershell/develop` module (record the
+  exact `hs --version`; 2.9.0a8 today) or a recorded `develop` commit installed in user space
+  (`module load uv`, `uv tool install` from the repository or a wheel copied to the cluster). Where a
+  step needs a fix made after a8 (`hs server --initdb`, underscore-key env vars) and the module
+  still reports a8, that step uses the recorded commit. The Geddes image tag must match the build
+  under test, and `VALIDATION.md` records it.
+- **Merge hold.** The draft PR may open at any time. Before merge: 2.9.0 is tagged, the default
+  module on Gautschi and Anvil is 2.9.0, and V4's tier 1 checks have been re-run on that default
+  module (recorded in `VALIDATION.md` as a `P4-release: PASS` line).
 - **Header check, every tab (all phases with scripts):** on each cluster's login node, `module load
   hypershell` succeeds (record `hs --version`), and `sbatch --test-only job.sub` accepts each tab's
   header with the validator's real account. This catches partition, QOS and account syntax without
@@ -355,16 +369,16 @@ and QOS values below are placeholders the validator fills; scripts run exactly a
 |---|---|---|---|---|
 | V2 | P2 | Gautschi `cpu`, `-q standby` | 1 node, 15 min | Job-array script runs every index with `%N` throttle; Make and Parallel snippets produce the stated outputs; `scontrol show config | grep -i MaxArraySize` and `sacctmgr show qos` commands print (values not published); `module load parallel` on Anvil, Gautschi, Negishi, Gilbreth |
 | V3 | P3 | Login nodes, all five | none | `module spider nextflow`, `snakemake`, `parallel` per cluster match the pages' availability statements; any page command runs |
-| V4 | P4 | Gautschi `cpu`/`standby`; Anvil `wholenode` | 2 nodes, 15 min each | Tier 1 on 1 and 2 nodes (one client per node). `scancel` mid-run, resubmit: only unfinished frames run. Planted failures appear in `hs list --failed`; `hs update --failed --revert` + resubmit runs only those. The resubmit-without-changes gate behaves as stated. The SQLite path chosen works across jobs. |
+| V4 | P4 | Gautschi `cpu`/`standby`; Anvil `wholenode` | 2 nodes, 15 min each | Tier 1 on 1 and 2 nodes (one client per node). `scancel` mid-run, resubmit: only unfinished frames run. Planted failures appear in `hs list --failed`; `hs update --failed --revert` + resubmit runs only those. The resubmit-without-changes gate behaves as stated. The SQLite path chosen works across jobs. **Config across versions:** with a config written for 2.9.0 (including `server.auth`), load the default 2.7.0 module and run `hs --version`; record whether it fails with `'auth' has more than one variant`, then repeat with the config moved aside (§5 Q13). |
 | V5 | P5 | Gautschi `ai` (or `smallgpu`); Gautschi `cpu`/`standby` | 1 node × 2 GPUs, 15 min; 2 nodes, 20 min | GPU: each task's device is one of the job's; `nvidia-smi` shows k processes per GPU for k = 1, 2, 4; no OOM at the chosen size; wall-time trend recorded. Live: compute mode, MPS availability, Scholar MIG request syntax, ROCm variable on Negishi. Tier 2: ≥10⁵ trivial tasks with default vs tuned bundling; `--no-confirm`, `--no-db` runs complete; throughput numbers only as illustrations. |
-| V6 | P6 | Gautschi pinned login node + `cpu` (and `highmem` or a stand-in zone) | ≤ 4 client jobs × 1 node, 30 min | Probe compute node → login node port first. `hs config`/`hs initdb`/`hs server --forever`; three `hs submit` phases in groups; reached-group refusal; helper script launches clients per zone; `hs list`/`hs wait` per phase; policy confirmation recorded. |
-| V7 | P7 | Geddes namespace; `login00.gautschi.rcac.purdue.edu`; Gilbreth login node + one GPU partition | Pod; ≤ 4 client jobs per cluster, 30 min | **Manual Rancher walk-through** (cannot be machine-validated): follow `geddes_service.md` literally, screenshot each form, record label differences; Secrets as env and as volume; pod logs show TimescaleDB ready and the server listening with TLS and autoscaling. Then from login00: resolve the LoadBalancer name, open 50001 and 5432; `hs submit` across two zones and three groups; start the relay script; clients launch via `srun`; tasks finish; delete the pod (not the PVC) and confirm `hs list` still shows earlier tasks; start the Gilbreth relay and confirm `gpu`-zone tasks run only there; drain with `SIGUSR1`. Record image tags. |
-| — | P8 | none | — | All of P2–P7 show PASS; re-run any validation a P8 edit touches |
+| V6 | P6 | Gautschi login node (server host) + `cpu` (and `highmem` or a stand-in zone) | ≤ 4 client jobs × 1 node, 30 min | Probe compute node → login node port first. `hs config`/`hs initdb`/`hs server --forever`; three `hs submit` phases in groups; reached-group refusal; helper script launches clients per zone; `hs list`/`hs wait` per phase. |
+| V7 | P7 | Geddes namespace; `login00.gautschi.rcac.purdue.edu` (`cpu` + one GPU partition); `login00.negishi.rcac.purdue.edu` (`cpu`) | Pod; ≤ 4 client jobs per cluster, 30 min | **Manual Rancher walk-through** (cannot be machine-validated): follow `geddes_service.md` literally, screenshot each form, record label differences; Secrets as env and as volume; pod logs show TimescaleDB ready and the server listening with TLS and autoscaling. Then from login00: resolve the LoadBalancer name, open 50001 and 5432; `hs submit` across two zones and three groups; start the relay script; clients launch via `srun`; tasks finish; delete the pod (not the PVC) and confirm `hs list` still shows earlier tasks; from Negishi's login00, confirm it resolves and reaches the LoadBalancer on 50001, compute nodes there reach login00:50002, and start the same relay script; confirm `cpu`-zone clients land on both clusters under `spread` (and on the first-listed site under `fill`) and `gpu`-zone tasks run only on Gautschi; drain with `SIGUSR1`. Record image tags and both `hs --version` results. |
+| — | P8 | none | — | All of P2–P7 show PASS; re-run any validation a P8 edit touches. Merge hold recorded (publish rule). |
 
 **What cannot be machine-validated, and how it is checked instead:** Rancher UI labels and flows,
-network policy, and login-node policy. The V7 walk-through checks the first two (the validator follows
-the page as written and records deviations, and the drafter amends). RCAC staff confirm the third,
-recorded in `VALIDATION.md`. `docs-review` classifies these PLAUSIBLE with that record as evidence.
+and network reachability. The V7 walk-through checks both (the validator follows the page as written
+and records deviations, and the drafter amends). `docs-review` classifies these PLAUSIBLE with the
+`VALIDATION.md` record as evidence. Login-node policy is a GOAL non-goal and is not validated.
 
 ---
 

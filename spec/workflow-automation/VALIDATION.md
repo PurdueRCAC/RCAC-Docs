@@ -17,7 +17,17 @@ checks from the PLAN §6 row, and any change the draft needs.
 
 ## Build under test
 
-*(validator: HyperShell version or `develop` commit, install route, per cluster)*
+Publish rule (GOAL *Plan gate, 2026-11-22*): validate on Gautschi's `hypershell/develop` module
+(record the exact `hs --version` each time) or a recorded `develop` commit.
+
+*(validator: version or commit, install route, per cluster)*
+
+## Merge hold
+
+The draft PR may open at any time. Merge only after 2.9.0 is tagged, the default module on Gautschi
+and Anvil is 2.9.0, and the tier 1 checks have been re-run on that module:
+
+- `P4-release: PASS — <date>, Gautschi + Anvil, default module <version>` *(written by the validator)*
 
 ## P2 — Baseline tools (V2)
 
@@ -31,6 +41,6 @@ checks from the PLAN §6 row, and any change the draft needs.
 
 ## P7 — Tier 4 (V7, including the manual Rancher walk-through)
 
-## Policy and network confirmations
+## Network confirmations
 
-*(RCAC staff confirmations for PLAN §5 Q4 and Q5, with date and source)*
+*(PLAN §5 Q5: compute node → login node port on Gautschi and Negishi; login00 → Geddes LoadBalancer)*

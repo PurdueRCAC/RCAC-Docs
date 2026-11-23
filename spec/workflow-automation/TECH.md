@@ -80,7 +80,7 @@ phases:
     parallel: false
     hammerable: false
     hill: uphill
-    verify: ".venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py && grep -q 'workflows/' docs/lifesciences/guides/nextflow.md && grep -q 'workflows/' docs/lifesciences/guides/nextflow-gautschi.md && grep -q 'workflows/hypershell/' docs/workshops/hpc_exchange/week4/workload-management.md && ! grep -rqE 'hs task|hsx? [^|]*-k( |$)' docs/workflows docs/snippets/workflows && test $(grep -c '^P[2-7]: PASS' spec/workflow-automation/VALIDATION.md) -eq 6"
+    verify: ".venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py && grep -q 'workflows/' docs/lifesciences/guides/nextflow.md && grep -q 'workflows/' docs/lifesciences/guides/nextflow-gautschi.md && grep -q 'workflows/hypershell/' docs/workshops/hpc_exchange/week4/workload-management.md && ! grep -rqE 'hs task|hsx? [^|]*-k( |$)' docs/workflows docs/snippets/workflows && test $(grep -c '^P[2-7]: PASS' spec/workflow-automation/VALIDATION.md) -ge 6"
 review:
   last_reviewed_commit: ""
   verdict: none
@@ -245,6 +245,9 @@ complete, validated tier 1 script.
   Sections on resubmitting after walltime (only unfinished frames run), checking outcomes
   (`hs list --failed`, `--completed`, `hs info`), re-running failures (`hs update --failed --revert`
   then resubmit; or `-r`). State plainly that this one script addresses most needs.
+- [ ] If V4's config-across-versions check (PLAN §5 Q13) confirms the crash, add one line to the
+  version admonition cautioning against one HyperShell config across module versions from both
+  sides of 2.9.0 (close run).
 - [ ] Turn the P2 pages' "move to HyperShell" sentences into links to `hypershell/index.md`.
 - [ ] Nav: `HyperShell User Guide:` subsection with index + tier 1; hub card for the guide;
   breadcrumbs.
@@ -279,7 +282,7 @@ introduced.
 - [ ] `pipelines.md`: research 04 tier 3 scenario. `docs/snippets/workflows/panel/`: `config.toml`
   (database, server, `server.auth` via `_eval` or `HYPERSHELL_SERVER_AUTH`), `submit-phases.sh`,
   `schedule-clients.sh` (opens `# FILENAME: schedule-clients.sh`), per-cluster `client-<cluster>.sh`
-  headers as tabs. Server placement per PLAN §5 Q4 outcome. Groups: what, when, the reached-group
+  headers as tabs. The server runs on a login node, presented as the design choice of one coordination host (GOAL non-goal: no restating of RCAC login-node guidance). Groups: what, when, the reached-group
   rule. Zones: what, when, matching client jobs to partitions. `TASK_SLOT`, not `{slot}`, under
   `hs submit`. Minimum version 2.9.0 (zones), groups 2.8.0.
 - [ ] Nav line; guide-landing card; breadcrumbs.
@@ -291,7 +294,7 @@ introduced.
 ## Phase P7 — Tier 4: persistent service on Geddes and relay autoscaling
 **Satisfies:** R6, R10, R11, R12, R13, R14, R15 · **Depends on:** P6 · **Validation:** V7 (includes the manual Rancher walk-through)
 **Goal:** two validated capstone pages: the Geddes pod (server + TimescaleDB) through Rancher, and
-the relay-based autoscaling script on login00 with a second cluster, zones and groups together.
+the relay-based autoscaling script on login00 of Gautschi and Negishi, zones and groups together.
 
 - [ ] `geddes_service.md`: research 05 §7.1 outline, Rancher steps in the
   `../../userguides/geddes/examples/database.md` style (link it as the base). Secrets, PVC
@@ -302,11 +305,15 @@ the relay-based autoscaling script on login00 with a second cluster, zones and g
   reference. One-line MCP note.
 - [ ] `autoscaling.md`: login00 config (`docs/snippets/workflows/survey/relay.toml`),
   `run-relay.sh` (opens `# FILENAME: run-relay.sh`; `srun` launcher, never `sbatch`), drain and
-  stop, login-node etiquette, `submit-night.sh` with zones + groups, *Adding a second cluster* per
-  PLAN §5 Q3 outcome, operate and maintain. Link the GPU page from the GPU zone.
+  stop. login00 is presented as a system design choice (one host per cluster for persistent,
+  low-CPU coordination), without restating RCAC login-node guidance (GOAL non-goal).
+  `submit-night.sh` with zones `cpu`/`gpu` and groups 0–2 (PLAN §2 *Tier 4 zones*). *Adding a
+  second cluster*: the same script on `login00.negishi.rcac.purdue.edu`, serving zone `cpu` only,
+  and `autoscale.distribution`. Operate and maintain. Link the GPU page from the `gpu` zone.
+  Gilbreth does not appear in tier 4 (no login00). No `-m`/`memory:` of 2G or more (PostgreSQL defect).
 - [ ] Nav lines; guide-landing cards; breadcrumbs.
 - [ ] Draft run ends per *Validating phases*; `P7: PENDING` lists the Rancher walk-through and the
-  live checks (PLAN §6 V7, §5 Q4–Q8).
+  live checks (PLAN §6 V7, §5 Q5–Q8).
 - **Verify:** see frontmatter.
 - **Touches:** two pages, `docs/snippets/workflows/survey/*`, `docs/workflows/hypershell/index.md`,
   `mkdocs.yml`, breadcrumbs, `VALIDATION.md`.
@@ -327,6 +334,10 @@ accessibility sweeps.
   alt text on any image.
 - [ ] Confirm `VALIDATION.md` shows PASS for P2–P7; if a P8 edit touches a script, re-validate it.
 - [ ] Regenerate breadcrumbs; `.venv/bin/mkdocs serve` walk-through of the whole section.
+- [ ] Record the merge hold (PLAN §5 Q1, publish rule) in `VALIDATION.md` and carry it into the PR
+  body at `docs-publish`. The draft PR may open at any time. The merge waits until 2.9.0 is tagged,
+  the default module on Gautschi and Anvil is 2.9.0, and V4's tier 1 checks have passed on that
+  module.
 - [ ] On done: `--top-status in_review`.
 - **Verify:** see frontmatter.
 - **Touches:** `docs/workflows/**`, the three cross-link pages, `mkdocs.yml` (only if nav fixes),
