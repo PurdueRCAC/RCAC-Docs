@@ -663,6 +663,268 @@ P4: PASS — 2026-11-22 · Gautschi standby, hypershell/develop 2.9.0a8 · A1–
 
 ## P5 — GPU multiplexing and Tier 2 (V5)
 
+Validation request for the P5 draft (the commit that adds this section), covering docs/workflows/hypershell/{gpu_multiplexing,extreme_scale}.md, docs/snippets/workflows/gpu_sweep/{header-anvil,header-gautschi,header-gilbreth,header-scholar,body,gpu-pick}.sh, docs/snippets/workflows/gpu_sweep/emulator.cu, docs/snippets/workflows/ensemble/{header-anvil,header-gautschi,header-negishi,header-scholar,body,member}.sh; result: pending.
+
+### Validation request (written by the draft run, 2026-11-22)
+
+**Build under test.** Gautschi's `hypershell/develop` module (2.9.0a8 today). Record its exact
+`hs --version` in the PASS line. Neither page needs the `hyper-shell` executable or anything the
+2.9.0a8 known issues touch: no `hs server --initdb`, no key, no `#` inside a task command, no
+duration with units on `-w` or `--delay-start` (both plain seconds; `-W 300` is plain seconds too),
+and the only environment variables for configuration keys are `HYPERSHELL_LOGGING_LEVEL` and
+`HYPERSHELL_DATABASE_FILE`, whose key names hold no underscore. As in P4: if `srun` fails to start
+the clients, `hsx` on a8 waits until the walltime instead of exiting, so a tier 2 job whose task
+counts do not move for several minutes is a launch failure; record it.
+
+**Envelope.** GPU page: Gautschi `-A "$ACCT" -p ai -q "$GPU_QOS"` (`$GPU_QOS` is the foreman's
+choice at run time; `ai` does not accept `standby`), 1 node, 2 GPUs, 28 cores (14 per GPU), at most
+15 minutes per job, at most 2 jobs queued. The Gautschi tab already says `ai`, one node, two GPUs,
+28 cores and 15 minutes; pass the account and QOS on the command line. Tier 2: Gautschi
+`-A "$ACCT" -p cpu -q standby`, at most 2 nodes × 20 minutes per job, at most 2 jobs queued. The
+tier 2 tab asks for 4 nodes × 192 cores × 4 hours, so every tier 2 job below passes
+`-q standby -N 2 -c 32 -t 00:20:00` on the command line, as P4 did; the body sizes executors and
+bundles from `$SLURM_CPUS_PER_TASK`, so the behaviour under test is unchanged. Files only under
+`$RCAC_SCRATCH/workflow-automation/p5/`. `$ACCT` is the validation account, kept out of the
+repository. Anvil, Gilbreth, Negishi and Scholar get login-node checks and `sbatch --test-only`
+only.
+
+**Tabs.** The GPU page's tabs are Anvil, Gautschi, Gilbreth and Scholar, as PLAN §2 lists them
+(Negishi's GPUs are AMD, and no ROCm check is in this envelope). Tier 2's tabs are P4's four CPU
+clusters: Anvil, Gautschi, Negishi and Scholar.
+
+**Assembling a tab.** As in P4: the header file, one empty line, then the shared body. This
+reproduces the rendered tab byte for byte (checked against the built `site/` for all eight tabs and
+the three other published files). The published headers say `module load hypershell`, which loads
+2.7.0 on Gautschi today: there, `gpu-pick.sh` stops with `run this under HyperShell 2.9.0 or
+later`, and `hsx` refuses a task file together with `--restart`. For the Gautschi runs, change that
+one line and nothing else, and record that you did:
+
+```bash
+{ sed 's|^module load hypershell$|module load hypershell/develop|' gpu_sweep/header-gautschi.sh; echo; cat gpu_sweep/body.sh; } > gpu_sweep.sub
+{ sed 's|^module load hypershell$|module load hypershell/develop|' ensemble/header-gautschi.sh; echo; cat ensemble/body.sh; } > ensemble.sub
+```
+
+All snippet paths are under `docs/snippets/workflows/`. `emulator.cu`, `gpu-pick.sh` and
+`member.sh` are used as published (copy them as named).
+
+**The GPU stand-in.** `emulator.cu` is a small CUDA program the page builds on a login node with
+`module load cuda` and `nvcc` (the `cuda` module is in the software catalog on Anvil, Gautschi,
+Gilbreth and Scholar; on Anvil it sits under `modtree/gpu`). Each run holds 1 GiB of GPU memory and
+does 50 steps of a short kernel followed by a 60 ms sleep, then writes
+`results/member_NNNN.txt` with its GPU's PCI bus address, its `TASK_SLOT` and its seconds. `nvcc`
+links the CUDA runtime statically by default, so the job needs only the node's driver, not the
+module. Two things the draft could not check: the program was not compiled with `nvcc` (its host
+code was compiled and run on a workstation against stubs), and the kernel's run time per step on an
+H100 is an estimate (about 20 ms, so a run takes roughly 4 to 5 seconds alone). Neither changes the
+PASS conditions below, which do not depend on the timings.
+
+**Draft-run checks (workstation, not a cluster).** With HyperShell 2.9.0a8 from PyPI: the GPU body
+with a stub `nvidia-smi`, a shell stand-in for `emulator`, 24 tasks and `CUDA_VISIBLE_DEVICES=0,1`
+gave slots 0, 2, 4, 6 on GPU 0 and 1, 3, 5, 7 on GPU 1 at the default of 4 tasks per GPU, and
+slots 0 to 3 split the same way at `TASKS_PER_GPU=2`; `gpu-pick.sh` stops with a message when
+`TASK_SLOT` or `CUDA_VISIBLE_DEVICES` is unset, and passes a MIG-style UUID list through unchanged.
+The tier 2 body, with a stand-in `srun` that runs its command once and `-H 127.0.0.1` added
+(the workstation's host name does not resolve), ran 20,000 pre-submitted members: killing the job's
+process group at 40 seconds left 7,992 completed and 8,000 result lines; the unchanged resubmit
+finished the remaining 12,008, and the two result files held 20,008 lines and 20,000 distinct
+members. The job output held only the version line (no per-task log lines). `hs submit -b 10000`
+loaded 100,000 tasks in 8 seconds, and a second `hs submit` of the same file was refused with
+`pass --repeat to submit it again, or --update to add only new tasks` (exit status 2). The
+`--no-db --no-confirm` line ran all 20,000 members and wrote no database. With
+`HYPERSHELL_DATABASE_FILE=:memory:`, `hsx` ran a five-line file and wrote no database. The cluster
+run is what counts.
+
+#### A. Login-node checks (no job)
+
+| # | Cluster(s) | Command | PASS if |
+|---|---|---|---|
+| A1 | Gautschi, Gilbreth, Negishi, Scholar; Anvil after `module load modtree/gpu` | `module load hypershell && hs --version` | loads with no other prerequisite; record the version per cluster (below 2.9.0 is expected). On Anvil also run it without `modtree/gpu` (the tier 2 tab) and record both. If Anvil's `hypershell` is not visible under `modtree/gpu`, that is a FAIL for the Anvil GPU tab's module lines (record `module spider hypershell` there). |
+| A2 | Gautschi, Gilbreth, Scholar; Anvil after `module load modtree/gpu` | `module load cuda && nvcc --version` | loads; record the default CUDA version per cluster |
+| A3 | Gautschi, in `$RCAC_SCRATCH/workflow-automation/p5/gpu/` | `module load cuda; nvcc -O2 -o emulator emulator.cu; echo $?`; `ldd emulator \| grep -c cudart` | exit 0 with no error (record any warning); the `grep -c` prints 0 (static runtime) or record what it links |
+| A4 | Gautschi, with `hypershell/develop` | `hsx --help \| grep -E -- '--no-db\|--no-confirm\|--delay-start\|--bundlesize\|--bundlewait\|--task-timeout\|--template'`; `hs submit --help \| grep -- '--bundlesize'`; `hs list --help \| grep -- '--all'` | every option named appears |
+| A5 | Gautschi, Gilbreth, Anvil, Scholar | `sinfo -p <gpu partition> -o '%N %G' \| head`; for one node of each, `scontrol show node <node> \| grep -E 'Gres=\|CfgTRES'` (partitions: Gautschi `ai`, Gilbreth `a100-80gb`, Anvil `gpu`, Scholar `gpu`) | recorded either way: the GRES strings, and whether any names `mps`, `shard` or a MIG type (expected on Scholar's MIG nodes only). The outcome decides the MPS and MIG sentences in the close run, not PASS or FAIL. |
+| A6 | Gautschi, with `hypershell/develop`, in `$RCAC_SCRATCH/workflow-automation/p5/mem/` | `printf 'echo %d\n' 1 2 3 > three.txt; HYPERSHELL_SITE="$PWD/site" HYPERSHELL_DATABASE_FILE=:memory: hsx three.txt -N 1; ls site/lib/main.db` | prints 1, 2 and 3 (in any order) and `ls` reports no such file: `:memory:` behaves as `--no-db`, as the tier 2 page says |
+
+#### B. `sbatch --test-only`, every tab
+
+On each cluster's login node, assemble the tab as published and run
+`sbatch --test-only -A <your account> <file>.sub` (on Scholar, without `-A`). PASS if sbatch prints
+`Job <n> to start at … in partition <p>` and no error. If a `normal` QOS is refused for account
+reasons only, record that and repeat with `-q standby` (Gilbreth, Gautschi `cpu`, Negishi) or the
+QOS you have (Gautschi `ai`); a syntax, partition, ratio or GRES error is a FAIL. Mark a cluster N/A
+if you have no account there.
+
+| File | Cluster | Partition in the tab | Shape |
+|---|---|---|---|
+| `gpu_sweep.sub` | Anvil | `gpu` (no QOS line) | 1 node × 1 task × 64 CPUs, 2 GPUs |
+| `gpu_sweep.sub` | Gautschi | `ai`, `normal` | 1 node × 1 task × 28 CPUs, 2 GPUs (14 per GPU) |
+| `gpu_sweep.sub` | Gilbreth | `a100-80gb`, `normal` | 1 node × 1 task × 32 CPUs, 2 GPUs, `--mem=128G` |
+| `gpu_sweep.sub` | Scholar | `gpu`, `normal` | 1 node × 1 task × 16 CPUs, 2 GPUs |
+| `ensemble.sub` | Anvil | `wholenode` (no QOS line) | 4 nodes × 1 task × 128 CPUs, 4 h |
+| `ensemble.sub` | Gautschi | `cpu`, `normal` | 4 nodes × 1 task × 192 CPUs, 4 h |
+| `ensemble.sub` | Negishi | `cpu`, `normal` | 4 nodes × 1 task × 128 CPUs, 4 h |
+| `ensemble.sub` | Scholar | `cpu`, `normal` | 4 nodes × 1 task × 64 CPUs, 4 h (the `normal` maximum) |
+
+#### C. Gautschi GPU runs
+
+Set up in `$RCAC_SCRATCH/workflow-automation/p5/gpu/k4/`: copy `emulator.cu` and `gpu-pick.sh`,
+build `emulator` as in A3 (or copy A3's), write the task file with the page's command
+`printf './emulator %d\n' $(seq 1 64) > sweep.txt` (check `wc -l < sweep.txt` is 64 and
+`head -1 sweep.txt` prints `./emulator 1`), and assemble `gpu_sweep.sub` as above. For `hs` commands
+on the login node: `module load hypershell/develop; export HYPERSHELL_SITE="$PWD/hypershell"`.
+Record each job's `sacct -j <id> -X --format=JobID,State,ExitCode,Elapsed,NodeList`.
+
+**C1. Four tasks per GPU (the script as published).** `sbatch -A "$ACCT" -q "$GPU_QOS" gpu_sweep.sub`
+→ G1.
+
+1. `slurm-G1.out` starts with `HyperShell v2.9.0a8`, then `GPUs in this job: <list>` (record the
+   list: `0,1` means Slurm renumbers the job's GPUs), then a CSV table with a header row and two
+   rows of `NVIDIA H100 …`. **Record the `compute_mode` column.** `Default` is expected. If it reads
+   `Exclusive_Process`, only one process can use each GPU, the runs fail with a "busy or
+   unavailable" error, and the page needs a redesign: a FAIL.
+2. G1 `COMPLETED`. Record `Elapsed`.
+3. `ls results | wc -l` 64; `hs list --succeeded --count` 64; `hs list --failed --count` 0 (no
+   out-of-memory failures at 1 GiB per run).
+4. `cut -d' ' -f2 results/member_*.txt | sort | uniq -c` shows exactly two `gpu=` values, 32 runs
+   each, and each matches a `pci.bus_id` in G1's table. (`nvidia-smi` prints an eight-digit domain,
+   `00000000:1B:00.0`, and CUDA a four-digit one, `0000:1B:00.0`; compare from the bus number on.)
+5. `awk '{print $2, $3}' results/member_*.txt | sort -u` prints eight lines: slots 0, 2, 4 and 6
+   with one GPU, slots 1, 3, 5 and 7 with the other, and no slot outside 0–7.
+6. In `gpu-use-G1.txt`, the busiest sample shows four processes on one GPU:
+   `awk '/^[0-9][0-9]:[0-9][0-9]:[0-9][0-9]$/ {t = $0; next} {split($0, f, ", "); n[t " " f[1]]++} END {for (k in n) if (n[k] > m) m = n[k]; print m}' gpu-use-G1.txt`
+   prints 4. Both bus addresses appear in the file
+   (`awk -F', ' 'NF == 3 {print $1}' gpu-use-G1.txt | sort | uniq -c`). Record the largest
+   per-process memory: `awk -F', ' 'NF == 3 {sub(/ MiB/, "", $3); if ($3 + 0 > m) m = $3 + 0} END {print m " MiB"}' gpu-use-G1.txt`
+   (expected a little over 1024 MiB; the page says each process adds a few hundred megabytes).
+   If the job finished before the first sample (under 10 seconds of tasks), the file is empty:
+   record it, and 6 is N/A.
+7. Record the mean seconds per run:
+   `awk -F'seconds=' '{s += $2} END {printf "%.1f\n", s / NR}' results/member_*.txt`.
+
+**C2. Two tasks per GPU.** As the page says: `mkdir ../k2; cp emulator gpu-pick.sh sweep.txt gpu_sweep.sub ../k2/; cd ../k2`,
+then `sbatch -A "$ACCT" -q "$GPU_QOS" --export=ALL,TASKS_PER_GPU=2 gpu_sweep.sub` → G2. Same checks
+as C1 with these numbers: 64 results, 0 failed, two GPUs with 32 runs each, slots 0 and 2 on one GPU
+and 1 and 3 on the other, and the busiest sample shows 2. Record `Elapsed` and the mean seconds.
+
+**C3. One task per GPU.** The same in `../k1` with `TASKS_PER_GPU=1` → G3: slots 0 and 1 only, one
+per GPU, the busiest sample shows 1. Record `Elapsed` and the mean seconds.
+
+Record a table of k, `Elapsed` and mean seconds per run for C1–C3. The trend is a record item, not a
+PASS condition. Expected: `Elapsed` falls from k = 1 to k = 4 while the mean seconds per run rises
+modestly. The close run puts the table on the page as a measured illustration and checks the page's
+"What to look for" sentences against it.
+
+**C4 (optional, one short job).** If an allocation slot is free, a 2-minute job with the Gautschi
+header (module line as above) and this body instead of the page's, to settle the MPS and MIG
+sentences: `nvidia-smi -q | grep -iE 'compute mode|mig mode' | sort | uniq -c; command -v nvidia-cuda-mps-control || echo 'no MPS control'; nvidia-smi | head -4`.
+Record the output (MIG mode, whether the MPS control program exists on the node, and the driver's
+CUDA version). Not a PASS condition.
+
+#### D. Gautschi tier 2 runs
+
+Set up in `$RCAC_SCRATCH/workflow-automation/p5/ensemble/run/`: copy `member.sh`, assemble
+`ensemble.sub` as above, then check the page's generator at full size and use 100,000 members for
+the runs:
+
+```bash
+seq 1000000 | sed 's/^/sh member.sh /' | wc -l        # 1000000
+seq 1000000 | sed 's/^/sh member.sh /' | head -1      # sh member.sh 1
+seq 100000 | sed 's/^/sh member.sh /' > members.txt
+sh member.sh 42                                        # one line: 42 <parameter> <warming>
+```
+
+Then, on the login node, the page's loading step:
+`module load hypershell/develop; export HYPERSHELL_SITE="$PWD/hypershell"; time hs submit -b 10000 members.txt`.
+PASS if it logs `Submitted 100000 tasks` and `hs list --count` prints 100000; record the time.
+Running the same `hs submit` again is refused with `already submitted … pass --repeat to submit it
+again, or --update to add only new tasks` and exit status 2, and `hs list --count` is still 100000.
+Every job below is submitted as `sbatch -A "$ACCT" -q standby -N 2 -c 32 -t 00:20:00 ensemble.sub`
+(call this *the D submit*).
+
+**D1. First job, cancelled mid-run.** The D submit → E1. Once it runs, check
+`hs list --completed --count` every 30 seconds; when it is between 10,000 and 90,000, `scancel E1`
+and record the count (C1). If E1 finishes first, record that, skip the cancel, and go on.
+
+1. `slurm-E1.out` holds the version line and no per-task lines: `grep -c 'Running task' slurm-E1.out`
+   prints 0.
+2. While it runs: `scontrol show step E1.0 | grep -oE '(CPUs|Tasks)=[0-9]+'` shows `Tasks=2` and
+   `CPUs=64` (one client per node with the job's cores).
+3. `wc -l < ensemble-E1.txt` is at least C1, and at most a few hundred more (result lines of members
+   whose results had not reached the database). Record both.
+4. `hs list --failed --count` 0.
+
+**D2. Resubmit unchanged, to completion.** The D submit → E2.
+
+1. E2 `COMPLETED 0:0`; record `Elapsed`. `slurm-E2.out` holds no `Running task` lines.
+2. `hs list --succeeded --count` 100000; `hs list --remaining --count` 0; `hs list --failed --count`
+   0.
+3. `cat ensemble-*.txt | wc -l` is 100000 plus D1's surplus (record it), and the page's
+   `sort -n -u -k1,1 ensemble-*.txt > ensemble.txt; wc -l < ensemble.txt` prints 100000.
+4. `hs list id | head -3` is refused with a message naming `--all` (or `--limit`), as the page says;
+   `hs list id --limit 3` prints three IDs.
+5. Optional, for the staggered start: `hs list client_host start_time --all | sort -k2 | awk '!seen[$1]++'`
+   prints each host's first task start; record how far apart they are (up to 30 seconds expected).
+
+**D3. Throughput, tuned against defaults (illustration).** In two fresh directories,
+`$RCAC_SCRATCH/workflow-automation/p5/ensemble/{tuned,default}/`, each with `member.sh`, a 20,000-member
+`members.txt` (`seq 20000 | sed 's/^/sh member.sh /' > members.txt`) and its own
+`HYPERSHELL_SITE`, load the tasks with `hs submit -b 10000 members.txt`. In `tuned/`, use
+`ensemble.sub` as assembled. In `default/`, remove the bundling options, as the page's *Measure
+throughput* section says:
+`sed 's| -b "${executors}" -w 30||' ensemble.sub > ensemble-default.sub` (check with
+`grep -c -- ' -b ' ensemble-default.sub`, which prints 0). Submit each with the D submit, one after
+the other. Both `COMPLETED`, each with `hs list --succeeded --count` 20000. Record each `Elapsed`
+and tasks per second (20000 ÷ seconds). The numbers are illustrations, not PASS conditions; note
+that `--delay-start=-30` adds up to 30 seconds to each.
+
+**D4. Without the database.** In a fresh directory `$RCAC_SCRATCH/workflow-automation/p5/ensemble/nodb/`,
+with `member.sh` and the 100,000-member `members.txt` (no `hs submit`), build the page's variant by
+changing only the `hsx` line:
+
+```bash
+{ sed 's|^module load hypershell$|module load hypershell/develop|' ensemble/header-gautschi.sh; echo; sed 's|^hsx --restart \\$|hsx members.txt --no-db --no-confirm \\|' ensemble/body.sh; } > ensemble-nodb.sub
+grep -n 'hsx' ensemble-nodb.sub    # hsx members.txt --no-db --no-confirm \
+```
+
+The resulting `hsx` command is the page's `--no-db` block line for line. The D submit with
+`ensemble-nodb.sub` → E4. E4 `COMPLETED`; `wc -l < ensemble-E4.txt` 100000;
+`sort -n -u -k1,1 ensemble-E4.txt | wc -l` 100000; `ls hypershell/lib/main.db` reports no such file.
+Record `Elapsed` and tasks per second.
+
+#### E. Not covered by this envelope (record, do not run)
+
+- **Anvil, Gilbreth, Negishi and Scholar batch runs.** Checked by A and B only; record "batch: not
+  run" as a residual risk. The Anvil GPU tab's `module load modtree/gpu` runs in a non-login batch
+  shell, as in P2 and P4.
+- **NVIDIA MPS, MIG slices, ROCm on Negishi, and one client per GPU.** The page gives MPS and MIG
+  one sentence each, has no Negishi tab, and names the one-client-per-GPU layout as not shown or
+  tested. A5 and C4 record what the close run needs to keep or adjust those sentences.
+- **Scale.** No run approaches a million tasks or more than two nodes. The tier 2 page cites
+  HyperShell's documentation for its scale statement (more than 1,000 nodes and 250,000 executors)
+  and its large-run advice (`--delay-start` rule of thumb, bundling with executors, the submit-once
+  route), and states the leadership-facility notes as general practice.
+- **The task timeout.** No member runs for 300 seconds; D shows only that `-W 300` is accepted. The
+  page's caveat (the timeout signals the task's shell) comes from HyperShell's open issue on signal
+  teardown, not from a run.
+- **Heartbeats and eviction.** The 10-second heartbeat and 600-second eviction on the page are
+  HyperShell's documented defaults; nothing here loses a node.
+- **The released module.** As in P4, the merge hold re-runs the tier 1 checks on the default 2.9.0
+  module; it does not re-run P5.
+
+Close-run items expected whatever the outcome:
+- **F1** Add C1–C3's table to the GPU page's *Choose how many tasks share a GPU* as a measured
+  illustration (H100, this stand-in), and adjust the "What to look for" sentences if the trend
+  differs.
+- **F2** Add D3 and D4's tasks per second to the tier 2 page's *Measure throughput* as illustrations
+  (two nodes at 32 cores each, trivial tasks), labelled as such.
+- **F3** Keep or adjust the MPS and MIG sentences from A5 and C4.
+
+#### Results
+
+*(validator)*
+
+P5: PENDING — docs/snippets/workflows/gpu_sweep/{header-anvil,header-gautschi,header-gilbreth,header-scholar,body,gpu-pick}.sh, gpu_sweep/emulator.cu, docs/snippets/workflows/ensemble/{header-anvil,header-gautschi,header-negishi,header-scholar,body,member}.sh · A1–A6, B 8 tabs, C1–C3 (C4 optional), D1–D4
+
 ## P6 — Tier 3 (V6)
 
 ## P7 — Tier 4 (V7, including the manual Rancher walk-through)

@@ -84,7 +84,7 @@ attributes line instead of duplicating. A fix that would weaken a `hammerable:fa
   spaces on render; avoid tab-significant content, or use a tab-free form (`.RECIPEPREFIX` for Make).
 - **Confidence:** high · **Effort:** small
 
-## F5 — P3 `verify:` has no include sentinel although the phase publishes snippet files
+## F5 — P3 `verify:` has no include sentinel although the phase publishes snippet files · seen again (P5)
 `origin=docs-draft:P3 severity=medium category=instruction status=open target=spec/workflow-automation/TECH.md`
 - **What happened:** P3's pages publish three files through `--8<--` includes (a Snakefile and two
   Parsl files). A mistyped include renders an empty block and `--strict` stays silent (invariants §8),
@@ -108,4 +108,19 @@ attributes line instead of duplicating. A fix that would weaken a `hammerable:fa
   (`grep -l 'HyperShell User Guide in this section' docs/workflows/*.md`) instead of a fixed page
   list, or have docs-draft append its pages to the resolving phase's *Touches* when it plants the
   same placeholder.
+- **Confidence:** medium · **Effort:** small
+
+## F7 — a "show it only if validation passes" step cannot be met inside draft → validate → close
+`origin=docs-draft:P5 severity=low category=instruction status=open target=spec/workflow-automation/TECH.md`
+- **What happened:** P5's checklist says to show MPS and MIG blocks "only if V5's live checks pass, else
+  one sentence each". The draft run comes before validation, so it can only write the sentences; a
+  block added in the close run, after validation, would publish commands no run has checked. The
+  drafter wrote one sentence each and asked the validator to record what a later block would need.
+  (Seen with it: P5's `verify:` again checks only the header sentinels, not the body sentinel or the
+  three other included files, so the drafter grepped `site/` by hand; F5 seen again.)
+- **Skill cause (not mine):** docs-plan phrases conditional content as depending on a validation
+  result without placing the condition in the draft/validate/close order (TECH *Validating phases*).
+- **Recommended fix:** in docs-plan, phrase a validation-conditional block as either "draft it, and the
+  close run removes it if the check fails" (so it is validated with the rest) or "a follow-up phase
+  adds it", never "only if validation passes".
 - **Confidence:** medium · **Effort:** small

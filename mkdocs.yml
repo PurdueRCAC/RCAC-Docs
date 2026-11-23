@@ -303,6 +303,8 @@ nav:
       - HyperShell User Guide:
         - workflows/hypershell/index.md
         - "Tier 1: One Job Script": workflows/hypershell/single_job.md
+        - GPU Multiplexing: workflows/hypershell/gpu_multiplexing.md
+        - "Tier 2: Extreme Scale": workflows/hypershell/extreme_scale.md
     - RCAC Workshops:
       - workshops/index.md
       - HPC Exchange:

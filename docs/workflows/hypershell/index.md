@@ -51,8 +51,8 @@ Start with tier 1. Move to a later tier only when your work has outgrown the one
 | Tier | Who it is for | What it adds | Move on when |
 |---|---|---|---|
 | [Tier 1: One Job Script](single_job.md) | Anyone with a list of independent commands, from hundreds to hundreds of thousands, that fits in one Slurm job or a few resubmissions of it. That is most readers. | `hsx` over a task file in one job, on one node or several; resubmitting picks up where the last job stopped; checking and re-running failures | Your work has phases that must run in order, needs different hardware per phase, is submitted over days, or has more tasks than one job can get through |
-| GPU Multiplexing | Tier 1 readers whose tasks each use a fraction of a large GPU, such as small models, short inference runs or small renders | Several tasks at once on each GPU of a job | Each task fills a GPU on its own |
-| Tier 2: Extreme Scale | Readers with millions of tasks lasting seconds each, or anyone running HyperShell at a leadership-class facility. Purdue workloads rarely need it. | Bundling, staggered client starts, and running without the database | Throughput is fine with the defaults (go back to tier 1), or your problem is structure rather than scale (tier 3) |
+| [GPU Multiplexing](gpu_multiplexing.md) | Tier 1 readers whose tasks each use a fraction of a large GPU, such as small models, short inference runs or small renders | Several tasks at once on each GPU of a job | Each task fills a GPU on its own |
+| [Tier 2: Extreme Scale](extreme_scale.md) | Readers with millions of tasks lasting seconds each, or anyone running HyperShell at a leadership-class facility. Purdue workloads rarely need it. | Bundling, staggered client starts, and running without the database | Throughput is fine with the defaults (go back to tier 1), or your problem is structure rather than scale (tier 3) |
 | Tier 3: A Pipeline on One Cluster | Groups whose work has distinct phases and different hardware needs, and outlives any one job, all on one cluster | A persistent configuration and database, phases submitted from a login node, task groups and zones, and a helper script that schedules client jobs | The pipeline should run as a standing service, scale itself, or span clusters |
 | Tier 4: A Persistent Service | Labs running a long campaign or a shared service | A server and database on Geddes, and clients that scale themselves on more than one cluster | This is the top tier |
 
@@ -96,6 +96,23 @@ host can read it in the process list. From version 2.9.0, HyperShell refuses a k
     and re-runs exactly the failures. It covers most needs.
 
     [:octicons-arrow-right-24: Tier 1: One Job Script](single_job.md)
+
+-   :material-expansion-card:{ .lg .middle } __GPU Multiplexing__
+
+    ---
+
+    Run several small tasks at once on each GPU of a job, and measure how many each GPU can take.
+
+    [:octicons-arrow-right-24: GPU Multiplexing](gpu_multiplexing.md)
+
+-   :material-speedometer:{ .lg .middle } __Tier 2: Extreme Scale__
+
+    ---
+
+    Options and practices for millions of short tasks, and for running HyperShell at
+    leadership-class facilities. Rarely needed at Purdue.
+
+    [:octicons-arrow-right-24: Tier 2: Extreme Scale](extreme_scale.md)
 
 </div>
 

@@ -895,6 +895,18 @@
     "HyperShell User Guide",
     "Tier 1: One Job Script"
   ],
+  "/workflows/hypershell/gpu_multiplexing/": [
+    "Home",
+    "Workflow Automation",
+    "HyperShell User Guide",
+    "GPU Multiplexing"
+  ],
+  "/workflows/hypershell/extreme_scale/": [
+    "Home",
+    "Workflow Automation",
+    "HyperShell User Guide",
+    "Tier 2: Extreme Scale"
+  ],
   "/workshops/": [
     "Home",
     "RCAC Workshops"

@@ -84,7 +84,7 @@ phases:
     grep -q ''^P4: PASS'' spec/workflow-automation/VALIDATION.md'
 - id: P5
   name: GPU multiplexing and Tier 2 (extreme scale)
-  status: pending
+  status: in_progress
   satisfies:
   - R6
   - R8
@@ -97,7 +97,7 @@ phases:
   - P4
   parallel: false
   hammerable: false
-  hill: uphill
+  hill: crest
   verify: '.venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py
     && grep -q ''workflows/hypershell/gpu_multiplexing.md'' mkdocs.yml && grep -q
     ''workflows/hypershell/extreme_scale.md'' mkdocs.yml && grep -rqF ''FILENAME:
@@ -371,18 +371,31 @@ complete, validated tier 1 script.
 **Satisfies:** R6, R8, R11, R12, R13, R14, R15 · **Depends on:** P4 · **Validation:** V5
 **Goal:** a validated GPU multiplexing page after tier 1, and a tier 2 page for very large runs.
 
-- [ ] `gpu_multiplexing.md`: research 04 §4(d) design; `docs/snippets/workflows/gpu_sweep/`
+- [x] `gpu_multiplexing.md`: research 04 §4(d) design; `docs/snippets/workflows/gpu_sweep/`
   (header `# FILENAME: gpu_sweep.sub`, `gpu-pick`, body). Tabs: Anvil, Gautschi, Gilbreth, Scholar
   (Negishi only if V5 validates the ROCm variant). MPS and MIG blocks only if V5's live checks pass,
-  else one sentence each. Minimum version 2.9.0 (slots).
-- [ ] `extreme_scale.md`: research 02 §2.4 and §10 options; states Purdue workloads rarely need
+  else one sentence each. Minimum version 2.9.0 (slots). (Drafted: one node, two GPUs, one local
+  client with `-N gpus × TASKS_PER_GPU` (default 4) and `-t 'sh gpu-pick.sh {}'`; `gpu-pick.sh` picks
+  from the job's `CUDA_VISIBLE_DEVICES` by `TASK_SLOT mod n`. Stand-in `emulator.cu`, built on a login
+  node with `module load cuda` and `nvcc`; an `nvidia-smi` sampling loop records sharing. Gautschi
+  `ai`/`normal`, 28 cores for 2 GPUs (14 per GPU, enforced). No Negishi tab: V5 does not test ROCm.
+  MPS and MIG are one sentence each in the draft; the measured k = 1, 2, 4 table is a close-run item.)
+- [x] `extreme_scale.md`: research 02 §2.4 and §10 options; states Purdue workloads rarely need
   it; leadership-facility framing; `docs/snippets/workflows/ensemble/` (header
-  `# FILENAME: ensemble.sub`). Throughput figures only as validated illustrations.
-- [ ] Nav lines (GPU page directly after tier 1, then tier 2); guide-landing cards; breadcrumbs.
-- [ ] Draft run ends per *Validating phases*; `P5: PENDING`.
+  `# FILENAME: ensemble.sub`). Throughput figures only as validated illustrations. (Drafted: tasks
+  loaded once with `hs submit -b 10000`, then `hsx --restart` with no file, `-N`/`-b` = cores per
+  node, `-w 30`, `--delay-start=-30`, `-W 300`, `HYPERSHELL_LOGGING_LEVEL=warning`, results to one
+  file per job; `--no-db --no-confirm` variant; stand-in `member.sh`. Headers are P4's with 4 nodes and
+  4 hours. No throughput figures in the draft: the close run adds V5's as illustrations.)
+- [x] Nav lines (GPU page directly after tier 1, then tier 2); guide-landing cards; breadcrumbs.
+  (Also: the guide landing's tier map links both pages, and tier 1's *Move on when* links the GPU
+  page.)
+- [x] Draft run ends per *Validating phases*; `P5: PENDING`.
+- [ ] Close run, after `P5: PASS` in `VALIDATION.md`: apply any fixes validation required, add the
+  measured illustrations (GPU k table, tier 2 throughput), run the full `verify:`, mark P5 `done`.
 - **Verify:** see frontmatter.
 - **Touches:** two pages, `docs/snippets/workflows/{gpu_sweep,ensemble}/*`, `docs/workflows/hypershell/index.md`,
-  `mkdocs.yml`, breadcrumbs, `VALIDATION.md`.
+  `docs/workflows/hypershell/single_job.md` (one link), `mkdocs.yml`, breadcrumbs, `VALIDATION.md`.
 
 ## Phase P6 — Tier 3: a pipeline on one cluster
 **Satisfies:** R6, R9, R12, R13, R14, R15 · **Depends on:** P5 · **Validation:** V6

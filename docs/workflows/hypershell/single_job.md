@@ -28,7 +28,7 @@ order. That describes most many-task work, so it describes most readers.
 
 Your work has phases that must run in order, needs different hardware for different phases, is
 submitted bit by bit over days, or has more tasks than one job can get through. If your tasks each
-use only part of a GPU, read GPU Multiplexing next; for the rest, see
+use only part of a GPU, read [GPU Multiplexing](gpu_multiplexing.md) next; for the rest, see
 [the tiers](index.md#the-tiers).
 
 ## Minimum version
