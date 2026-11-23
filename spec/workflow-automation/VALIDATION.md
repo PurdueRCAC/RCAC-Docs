@@ -1687,7 +1687,7 @@ The P8 run rewrote the section's example scripts to the style guide's *Example s
 commands, no advanced shell constructs). This section lists, for each changed script, what changed
 and how to re-check it. It adds items only: the P2–P7 requests and results above stand as written.
 
-P8: PENDING — re-validation R1–R3 below (Gautschi), then `P8: PASS` (validator)
+Validation request for the simplification pass (`5f227045`); result: PASS, see Results (R1–R3) below.
 
 **Build under test.** As in P4 and P5: Gautschi's `hypershell/develop` module; record its exact
 `hs --version`. For R2 and R3, change the published `module load hypershell` line to
@@ -1812,6 +1812,27 @@ PASS if:
 6. The busiest sample shows four processes on one GPU:
    `awk -F', ' '{n[substr($1, 1, 19) " " $2]++} END {for (k in n) if (n[k] > m) m = n[k]; print m}' gpu-use-<id>.txt`
    prints 4 (rows of one sample share the second in their timestamp).
+
+#### Results (R1–R3)
+
+Re-validated 2026-11-23 by the foreman against `c767610f`, snippets as committed. Build under test:
+Gautschi `hypershell/develop`, `HyperShell v2.9.0a8 (CPython 3.14.6)`; for R2 and R3 only the
+module line was changed to `module load hypershell/develop`.
+
+- **R1** PASS. Job array, Gautschi `cpu` standby: 20 tasks `COMPLETED 0:0`; 20 results;
+  `results/sample_05.count` = `5 data/sample_05.txt`; `array-<id>_7.out` = `Array task 7 of job
+  <id>: data/sample_07.txt`.
+- **R2** PASS. Tier 1, `-N 2 -c 32` standby: GNU `seq -f` output identical to the old `printf` line
+  (`cmp`: same). `COMPLETED 0:0` in 6:37 on two nodes; succeeded 1199; `--failed` one line,
+  `sh render-frame.sh 5` exit status 1; 1200 `.pgm`; task durations 20 s (shortest) to 24 s
+  (longest), the fixed wait plus start-up.
+- **R3** PASS. GPU, `ai` burst: generator identical (`cmp`: same); `COMPLETED 0:0` in 1:01 (the
+  background `nvidia-smi` did not hold the job open); version line, `GPUs in this job: 0,1`, the
+  two-row H100 table; 64 results, 64 succeeded, 0 failed; slots 0, 2, 4, 6 on `0000:5D:00.0` and
+  1, 3, 5, 7 on `0000:9B:00.0`; `gpu-use` lines carry their own timestamp
+  (`2026/11/23 13:54:51.674, 00000000:9B:00.0, <pid>, 1542 MiB`); busiest sample 4.
+
+P8: PASS — 2026-11-23 · R1–R3 on Gautschi (cpu standby, ai burst), hypershell/develop 2.9.0a8 · tier 3 and tier 4 changes carried to P6-release and P7-release
 
 ### P6-release as amended (tier 3; run at the merge hold, not now)
 

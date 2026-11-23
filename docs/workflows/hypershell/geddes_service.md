@@ -308,6 +308,16 @@ ports: the server's queue and the database.
         + Fill in **Key** `metallb.universe.tf/address-pool` and **Value** `geddes-private-pool`
     * Select **Create**
 
+!!! note "Why a Load Balancer and not an Ingress"
+    For a web application on Geddes, the usual pattern is a **Cluster IP** service with an
+    **Ingress** (see the [web server example](../../userguides/geddes/examples/webserver.md)): the
+    Ingress gives it a `geddes.rcac.purdue.edu` name and handles HTTPS for you. An Ingress routes
+    only HTTP and HTTPS, though. HyperShell's queue port and the PostgreSQL port carry their own
+    protocols over plain TCP, so this guide exposes them with a **Load Balancer** on the private
+    pool, as the [database example](../../userguides/geddes/examples/database.md) does. If you add
+    an HTTP service to this pod later, such as a web dashboard, give that one a Cluster IP and an
+    Ingress.
+
 **What network exposure the server needs.** One Load Balancer service with an address on the
 private Purdue network, reachable from campus networks, the cluster `login00` nodes among them,
 and not from the internet. It opens two TCP ports: 50001, the server's queue, which the relays

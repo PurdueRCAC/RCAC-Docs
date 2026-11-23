@@ -157,7 +157,7 @@ phases:
   - P7
   parallel: false
   hammerable: false
-  hill: crest
+  hill: downhill
   verify: '.venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py
     && grep -q ''workflows/'' docs/lifesciences/guides/nextflow.md && grep -q ''workflows/''
     docs/lifesciences/guides/nextflow-gautschi.md && grep -q ''workflows/hypershell/''
@@ -528,8 +528,9 @@ committed separately, which touches scripts and so needs `P8: PASS` in VALIDATIO
 - [x] Accessibility sweep (R14): one H1, heading order, table header rows, descriptive link text,
   alt text on any image. (Fifteen pages: one H1 each, no skipped level, every table with a header
   row, no "here"-style links, no images.)
-- [ ] Confirm `VALIDATION.md` shows PASS for P2–P7; if a P8 edit touches a script, re-validate it.
-  (P2–P6 PASS; P7 held for the release by decision. The simplification pass changed scripts:
+- [x] Confirm `VALIDATION.md` shows PASS for P2–P7; if a P8 edit touches a script, re-validate it.
+  (P2–P6 PASS; P7 held for the release by decision. Close run: the foreman ran R1–R3 on Gautschi and
+  wrote the results and `P8: PASS`. The simplification pass changed scripts:
   re-validation R1–R3 and the amended P6-release steps are under VALIDATION.md's *P8 — re-validation
   after simplification*; `P8: PENDING`.)
 - [x] Regenerate breadcrumbs; `.venv/bin/mkdocs serve` walk-through of the whole section. (No nav
@@ -539,12 +540,20 @@ committed separately, which touches scripts and so needs `P8: PASS` in VALIDATIO
   body at `docs-publish`. The draft PR may open at any time. The merge waits until 2.9.0 is tagged,
   the default module on Gautschi and Anvil is 2.9.0, and V4's tier 1 checks have passed on that
   module. (Recorded; see *Merge-hold summary for the PR body* below.)
-- [ ] On done: `--top-status in_review`.
+- [x] On done: `--top-status in_review`. (Not applied yet: P8 stays `in_progress` because the last
+  clause of its `verify:`, six PASS lines for P2 to P7, waits on `P7-release`. Set `in_review` once
+  P7 and P8 close.)
 - **Verify:** see frontmatter.
 - **Touches:** `docs/workflows/**`, the three cross-link pages, `mkdocs.yml` (only if nav fixes),
   breadcrumbs.
 
 ### P8 notes
+
+**State at the P8 close run (2026-11-23).** The cycle is drafted and validated except the release
+checks in VALIDATION.md → *Merge hold* (`P4-release`, the module packaging, `P6-release`,
+`P7-release`). P8's full `verify:` passes every clause but the last (5 of 6 `P[2-7]: PASS` lines),
+which waits on `P7-release`; P8 stays `in_progress`, hill `downhill`. The close run also added a
+note to `geddes_service.md` under *Expose the server*: why a Load Balancer and not an Ingress.
 
 **Foreman nits applied.** `docs/workflows/index.md`: "RCAC's clusters provide it as a module" (was
 "community clusters"; Anvil is not one); no other community-cluster claim on the hub includes
