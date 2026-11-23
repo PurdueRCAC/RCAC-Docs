@@ -186,31 +186,60 @@ Resolved with the human before shaping; recorded 2026-11-22.
   (resolved 2026-11-22)
 - **Q:** Which HyperShell version does the guide document? — **A:** HyperShell 2.9.0 (relay,
   zones, groups); each page states the minimum version a feature needs. Updating the deployed RCAC
-  module is a separate effort and a non-goal. (foreman default — confirm at GOAL gate, 2026-11-22)
+  module is a separate effort and a non-goal. (confirmed at GOAL gate, 2026-11-22)
 - **Q:** Is the unreleased Nextflow executor prototype documented? — **A:** No. The Nextflow
   coverage may describe composing a workflow manager over HyperShell in general terms only.
-  (foreman default — confirm at GOAL gate, 2026-11-22)
+  (confirmed at GOAL gate, 2026-11-22)
 - **Q:** How are job scripts and commands validated? — **A:** Every job script and command is
   validated before publish (the HPC accuracy invariant, R15); how and where is decided at the plan
-  gate. (foreman default — confirm at GOAL gate, 2026-11-22)
-- **Q:** Is Pegasus available on Anvil? — **A:** Believed set up on Anvil, unverified.
-  `[NEEDS CLARIFICATION: confirm Pegasus availability, version, and access route on Anvil (and any
-  other cluster) during plan research; R4 states only what is verified.]` A local grep found
-  Pegasus documented under HUBzero grid tools (`docs/hubzero/tools/developers/grid/pegasuswf.md`),
-  which plan research should reconcile with any cluster availability.
+  gate. (confirmed at GOAL gate, 2026-11-22)
+- **Q:** Is Pegasus available on Anvil? — **A:** No cluster-side Pegasus WMS was found: a check
+  on Anvil's login node (2026-11-22) showed no Pegasus WMS module and no `pegasus-plan` or
+  `condor_submit` on the PATH; on Gautschi, `cadence/pegasus/*` is Cadence's EDA tool, not the
+  Pegasus workflow system. R4 covers Pegasus honestly: what it is, and how RCAC users would reach
+  it (for example a hosted ACCESS Pegasus service that targets Anvil, if plan research verifies
+  one on the web), reconciled with `docs/hubzero/tools/developers/grid/pegasuswf.md`. Other
+  clusters are listed for live confirmation in the plan's validation envelope.
+  (resolved at GOAL gate, 2026-11-22)
 - **Q:** RCAC modules currently top out at HyperShell 2.7.0 (generated catalog, read 2026-11-22),
-  below the 2.9.0 the guide documents. How should a reader get 2.9.0 meanwhile? —
-  `[NEEDS CLARIFICATION: until the modules are updated, do the pages direct readers to a
-  user-space install (and by which route), or note the version gap and wait? This decides what
-  tiers 1–4 tell a reader to run first.]`
-- **Q:** Which clusters do the guide's job scripts and helper scripts target? —
-  `[NEEDS CLARIFICATION: one primary cluster with notes for the others, or worked specifics for
-  every community cluster that carries HyperShell (Anvil, Gautschi, Negishi, Gilbreth, Scholar)?
-  Partitions, accounts, and module lines differ per cluster (R15).]`
-- **Q:** Which host is login00 for the capstone relay? —
-  `[NEEDS CLARIFICATION: login00 of which cluster (its full hostname), and from that host which
-  clusters' schedulers the autoscaling script can submit clients to. Plan research may settle the
-  hostname; the intended cluster set is the human's call.]`
+  below the 2.9.0 the guide documents. How should a reader get 2.9.0 meanwhile? — **A:** Design
+  against HyperShell 2.9.0 now. Every guide page that tells a reader what to load suggests
+  `module load hypershell` without a pinned version. The guide carries one prominent admonition
+  (on its landing page or tier 1, the planner's call) stating that Purdue is the primary site of
+  HyperShell's development and that new versions with fixes and features land often through
+  module updates. The per-feature minimum-version notes (R6) stay. (resolved at GOAL gate,
+  2026-11-22)
+- **Q:** Which clusters do the guide's job scripts and helper scripts target? — **A:** Tabbed
+  headers. Each example has one worked script whose `#SBATCH` header and module lines sit in
+  content tabs (`pymdownx.tabbed`), one tab per community cluster that carries HyperShell (Anvil,
+  Bell, Gautschi, Negishi, Gilbreth, Scholar; plan research confirms the list); the body is
+  shared. Validation runs on one or two clusters. (resolved at GOAL gate, 2026-11-22)
+- **Q:** Which host is login00 for the capstone relay? — **A:** `login00.gautschi.rcac.purdue.edu`
+  (resolves; checked 2026-11-22). The worked autoscaling script feeds Gautschi; adding a second
+  cluster is the multi-cluster step. Which second cluster, and how the script reaches its
+  scheduler from Gautschi's login00, is a plan research question, settled in PLAN or brought to
+  the plan gate as a concrete recommendation. (resolved at GOAL gate, 2026-11-22)
+
+### GOAL gate, 2026-11-22
+
+Approved with these answers (recorded above in each question):
+
+- **Version:** design against HyperShell 2.9.0; pages suggest `module load hypershell` (no
+  pinned version); one prominent admonition on Purdue as HyperShell's primary development site
+  and frequent module updates; per-feature minimum-version notes stay.
+- **Clusters:** one worked script per example, with per-cluster `#SBATCH` and module lines in
+  content tabs (Anvil, Bell, Gautschi, Negishi, Gilbreth, Scholar, confirmed in research); shared
+  body; validation on one or two clusters.
+- **login00:** `login00.gautschi.rcac.purdue.edu`; the autoscaling script feeds Gautschi; the
+  second cluster and its scheduler route are a plan research question.
+- **Pegasus:** no cluster-side Pegasus WMS on Anvil (Gautschi's `cadence/pegasus` is unrelated);
+  R4 covers Pegasus honestly, including any verified hosted route, reconciled with the HUBzero
+  Pegasus page.
+- **Foreman defaults** (Nextflow executor prototype excluded; version 2.9.0; validation before
+  publish) confirmed.
+
+Re-confirmed R-IDs: R4, R6, R7, R9, R10, and R15 stand as written; these answers resolve how they
+are met, not what they require.
 
 ## Related materials
 
