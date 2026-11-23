@@ -95,8 +95,10 @@ and per tool family by design (see Clarifications).
   SHALL state the minimum HyperShell version any feature it uses requires.
 - **R7** — **Tier 1, the canonical single job.** WHEN a reader opens tier 1, it SHALL give a
   complete, copy-pasteable Slurm job script that runs `hsx` over a task file on one or more nodes
-  with `--restart`, explain how a rerun picks up only unfinished or failed work, show how to check
-  which tasks succeeded or failed, and state that this one job script addresses most needs.
+  with `--restart`, explain that a rerun picks up only unfinished work and skips tasks that already
+  ran (failed ones included), show how to check which tasks succeeded or failed, show re-running
+  the failures explicitly with `hs update --failed --revert` followed by a resubmit, and state that
+  this one job script addresses most needs. *(amended at plan gate, 2026-11-22)*
 - **R8** — **Tier 2, extreme scale.** Tier 2 SHALL describe the additional HyperShell options and
   practices that serve very large runs, SHALL state that Purdue workloads rarely need them, and
   SHALL be written so that it also serves as guidance for running HyperShell at leadership-class
@@ -110,8 +112,9 @@ and per tool family by design (see Clarifications).
   web interface to deploy a persistent HyperShell server and a TimescaleDB database in one pod,
   stating how credentials are stored, how data persists across pod restarts, and what network
   exposure the server needs. It SHALL also give a minimum viable autoscaling script, using the
-  HyperShell relay, that runs on login00 and schedules clients for one or more clusters, and it
-  SHALL show zones and task groups working together as a total solution.
+  HyperShell relay, that runs on the login00 host of one or more clusters (the same script on
+  each) and schedules clients for those clusters, and it SHALL show zones and task groups working
+  together as a total solution. *(clarified at plan gate, 2026-11-22)*
 - **R11** — The guide SHALL include a page or section, placed where the planner judges best, that
   shows how to run many smaller tasks concurrently on large GPUs (GPU multiplexing).
 
@@ -121,7 +124,9 @@ and per tool family by design (see Clarifications).
   `hs list`, `hs info`, `hs wait`, `hs run`, `hs update`, `hs server`, `hs client`, `hs cluster` or
   `hsx`, `hs relay`, `hs config`, `hs initdb`) and SHALL NOT use any `hs task …` subcommand form.
   No example SHALL pass the queue key on a command line (no `-k`); examples SHALL supply it through
-  `HYPERSHELL_SERVER_AUTH` or the `server.auth` configuration setting.
+  `HYPERSHELL_SERVER_AUTH` or the `server.auth` configuration setting, or, for a relay's upstream
+  key, through the relay's own setting (`relay.upstream.auth`, `relay.upstream.auth_eval`, or
+  `HYPERSHELL_RELAY_UPSTREAM_AUTH`). *(amended at plan gate, 2026-11-22)*
 
 **Build, accessibility, accuracy (hammerable: false — never trimmed to fit appetite)**
 
@@ -162,6 +167,10 @@ and per tool family by design (see Clarifications).
   HyperQueue, xargs) beyond a passing mention.
 - **Theme, CSS, or JS changes**, or any accessibility-theme-layer edit (invariants §2).
 - **A companion announcement blog post**, deferred to a possible follow-up.
+- **RCAC login-node policy.** The pages use login00 as an example and present it as a system
+  design choice: one host per cluster for persistent, low-CPU coordination processes (the tier 3
+  server, the tier 4 relay). They neither reconcile nor restate RCAC's wider login-node guidance.
+  *(added at plan gate, 2026-11-22)*
 
 ## Clarifications
 
@@ -240,6 +249,39 @@ Approved with these answers (recorded above in each question):
 
 Re-confirmed R-IDs: R4, R6, R7, R9, R10, and R15 stand as written; these answers resolve how they
 are met, not what they require.
+
+### Plan gate, 2026-11-22
+
+Decided by the human at the plan gate:
+
+- **R7 amended.** A `--restart` rerun skips tasks that already ran, failed ones included (research
+  02 §2.2). Tier 1 SHALL show re-running failures explicitly with `hs update --failed --revert` and
+  then a resubmit. R7 above is reworded to match. Previous wording: "explain how a rerun picks up
+  only unfinished or failed work".
+- **R12 amended.** The queue key is never on a command line. Examples supply it through
+  `HYPERSHELL_SERVER_AUTH` or `server.auth`, or, for a relay's upstream key, through the relay's own
+  setting (`relay.upstream.auth`, `auth_eval`, or `HYPERSHELL_RELAY_UPSTREAM_AUTH`), since HyperShell
+  reads a relay's upstream key from nowhere else. R12 above is reworded to match. Previous wording
+  ended "examples SHALL supply it through `HYPERSHELL_SERVER_AUTH` or the `server.auth`
+  configuration setting."
+- **R10 held as "login00 of one or more clusters".** The same relay script runs on each cluster's
+  login00. The worked pair is Gautschi (`login00.gautschi.rcac.purdue.edu`) plus Negishi
+  (`login00.negishi.rcac.purdue.edu`). Gilbreth is dropped from the capstone because it has no
+  login00: its front-ends are named `gilbreth-feNN`, and `login00.gilbreth` does not resolve
+  (checked 2026-11-22). Zone names are the planner's choice, recorded in PLAN: `cpu` (served by
+  both relays) and `gpu` (served by Gautschi's relay only). Rationale: a zone names a capability,
+  not a cluster, so adding a site that offers the same capability changes no submitted task. A
+  shared `cpu` zone is where the server's autoscaler visibly spreads or fills clients across two
+  clusters. Negishi's GPUs are AMD and the guide's GPU material targets NVIDIA, so the worked `gpu`
+  zone stays on Gautschi. R10 above is clarified to match.
+- **Login-node policy is a non-goal** (added to Non-goals above). The tier 3 server stays on a
+  login node; it is not moved into a batch job.
+- **Publish rule.** Draft now, and validate on Gautschi's `hypershell/develop` module (it reports
+  2.9.0a8 today; record the exact version at each validation) or a recorded `develop` commit. The
+  draft PR may open at any time. The merge waits until 2.9.0 is tagged, the default module on
+  Gautschi and Anvil is 2.9.0, and the tier 1 checks have been re-run on that module.
+
+Re-confirmed R-IDs: R7 and R12 as amended, and R10 as clarified, stand as the contract.
 
 ## Related materials
 
