@@ -63,7 +63,7 @@ phases:
     mkdocs.yml && grep -q ''^P3: PASS'' spec/workflow-automation/VALIDATION.md'
 - id: P4
   name: HyperShell guide landing page and Tier 1 (one job script)
-  status: pending
+  status: in_progress
   satisfies:
   - R1
   - R6
@@ -76,7 +76,7 @@ phases:
   - P3
   parallel: false
   hammerable: false
-  hill: uphill
+  hill: crest
   verify: '.venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py
     && grep -q ''workflows/hypershell/index.md'' mkdocs.yml && grep -q ''workflows/hypershell/single_job.md''
     mkdocs.yml && grep -rqF ''same on every cluster'' site/workflows/hypershell/single_job/
@@ -332,11 +332,12 @@ genuinely wins, with availability statements that match verified facts.
 **Goal:** the guide subsection exists with its landing page (version admonition, tier map) and a
 complete, validated tier 1 script.
 
-- [ ] `docs/workflows/hypershell/index.md`: PLAN §2 content. The **version admonition** (GOAL gate
+- [x] `docs/workflows/hypershell/index.md`: PLAN §2 content. The **version admonition** (GOAL gate
   wording + `hs --version`; module versions differ by cluster). Tier map table from research 04 §3.
   Unpinned `module load hypershell`. Key handling (R12). Cards to tier pages as they appear (this
-  phase: tier 1).
-- [ ] `docs/workflows/hypershell/single_job.md`: Who this is for / Move on when / Minimum version
+  phase: tier 1). (Admonition under `## HyperShell versions`, the anchor tier pages link for
+  *Minimum version*; tier map names stay plain text until their pages exist.)
+- [x] `docs/workflows/hypershell/single_job.md`: Who this is for / Move on when / Minimum version
   (2.9.0). VFX frame-render scenario with a stand-in renderer (`render-frame.sh`). Tabbed script
   from `docs/snippets/workflows/frames/` (header `# FILENAME: frames.sub`). Body: a stable
   `HYPERSHELL_SITE` per campaign (path per V4), `hsx frames.txt --restart`, one client per node via
@@ -344,16 +345,26 @@ complete, validated tier 1 script.
   Sections on resubmitting after walltime (only unfinished frames run), checking outcomes
   (`hs list --failed`, `--completed`, `hs info`), re-running failures (`hs update --failed --revert`
   then resubmit; or `-r`). State plainly that this one script addresses most needs.
+  (Drafted: `HYPERSHELL_SITE="${SLURM_SUBMIT_DIR}/hypershell"`, so the database sits on scratch beside
+  the script; `hsx frames.txt --restart --capture --launcher="srun --cpus-per-task=${SLURM_CPUS_PER_TASK}"
+  -N "${SLURM_CPUS_PER_TASK}"`; headers ask for whole nodes, `--ntasks-per-node=1`. `-r` appears only
+  as a tip with its `--failed` caveat. Adds *Adding tasks later* (`--update --restart`). Stand-in
+  renderer is POSIX `sh` + `awk`, no Python. V4 checks the SQLite path, one client per node, and
+  whether a cancelled task can land as a negative exit status.)
 - [ ] If V4's config-across-versions check (PLAN §5 Q13) confirms the crash, add one line to the
   version admonition cautioning against one HyperShell config across module versions from both
   sides of 2.9.0 (close run).
-- [ ] Turn the P2 pages' "move to HyperShell" sentences into links to `hypershell/index.md`.
-- [ ] Nav: `HyperShell User Guide:` subsection with index + tier 1; hub card for the guide;
-  breadcrumbs.
-- [ ] Draft run ends per *Validating phases*; `P4: PENDING`.
+- [x] Turn the P2 pages' "move to HyperShell" sentences into links to `hypershell/index.md`.
+  (Amended: the four P3 pages carry the same sentence, so all seven tool pages now link the guide.)
+- [x] Nav: `HyperShell User Guide:` subsection with index + tier 1; hub card for the guide;
+  breadcrumbs. (Hub: guide card, placement-table link, one sentence in *RCAC recommends HyperShell*.)
+- [x] Draft run ends per *Validating phases*; `P4: PENDING`.
+- [ ] Close run, after `P4: PASS` in `VALIDATION.md`: apply any fixes validation required, run the
+  full `verify:`, mark P4 `done`.
 - **Verify:** see frontmatter.
 - **Touches:** `docs/workflows/hypershell/{index,single_job}.md`, `docs/snippets/workflows/frames/*`,
-  `docs/workflows/{index,job_arrays,gnu_make,gnu_parallel}.md`, `mkdocs.yml`, breadcrumbs, `VALIDATION.md`.
+  `docs/workflows/{index,job_arrays,gnu_make,gnu_parallel,snakemake,nextflow,pegasus,parsl}.md`,
+  `mkdocs.yml`, breadcrumbs, `VALIDATION.md`.
 
 ## Phase P5 — GPU multiplexing and Tier 2 (extreme scale)
 **Satisfies:** R6, R8, R11, R12, R13, R14, R15 · **Depends on:** P4 · **Validation:** V5

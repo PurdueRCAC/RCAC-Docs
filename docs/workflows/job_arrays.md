@@ -199,8 +199,9 @@ HyperShell takes over here. It runs the whole task list inside one job, or a few
 as you give it. Its database records every task: where it ran, how long it took and its exit
 status. A rerun continues where the last one stopped, and a single command re-queues exactly the
 failed tasks. RCAC recommends it for this work; see
-[RCAC recommends HyperShell](index.md#rcac-recommends-hypershell) for why. The HyperShell User
-Guide in this section starts with one job script that runs a whole task list this way.
+[RCAC recommends HyperShell](index.md#rcac-recommends-hypershell) for why. The
+[HyperShell User Guide](hypershell/index.md) in this section starts with one job script that
+runs a whole task list this way.
 
 For more examples of job arrays on RCAC clusters, see the
 [array jobs section of Running Bioinformatics Programs on RCAC](../lifesciences/guides/running-bioinformatics.md#array-jobs)

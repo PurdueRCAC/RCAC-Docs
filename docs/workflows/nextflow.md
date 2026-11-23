@@ -99,7 +99,8 @@ tens of thousands of inputs, let Nextflow own the pipeline, its containers and i
 and let that step be a single process that writes the list of commands and hands it to HyperShell
 inside one allocation. The step then runs as one job instead of thousands, with a record of every
 task. RCAC recommends HyperShell for flat many-task work; see
-[RCAC recommends HyperShell](index.md#rcac-recommends-hypershell) for why. The HyperShell User
-Guide in this section starts with one job script that runs a whole task list this way.
+[RCAC recommends HyperShell](index.md#rcac-recommends-hypershell) for why. The
+[HyperShell User Guide](hypershell/index.md) in this section starts with one job script that
+runs a whole task list this way.
 
 [Back to Workflow Automation](index.md){ .md-button }

@@ -300,6 +300,9 @@ nav:
       - Nextflow: workflows/nextflow.md
       - Pegasus: workflows/pegasus.md
       - Parsl: workflows/parsl.md
+      - HyperShell User Guide:
+        - workflows/hypershell/index.md
+        - "Tier 1: One Job Script": workflows/hypershell/single_job.md
     - RCAC Workshops:
       - workshops/index.md
       - HPC Exchange:

@@ -95,3 +95,17 @@ attributes line instead of duplicating. A fix that would weaken a `hammerable:fa
   `--8<--` include, whatever the file type (for P3: `grep -rqF glob_wildcards site/workflows/snakemake/`
   and `grep -rqF SlurmProvider site/workflows/parsl/`). Strengthens, does not weaken, a gate.
 - **Confidence:** high · **Effort:** small
+
+## F6 — a later phase's checklist misses a placeholder an earlier phase planted on pages it did not list
+`origin=docs-draft:P4 severity=low category=instructions status=open target=.agents/skills/docs-plan`
+- **What happened:** P2's checklist told the drafter to leave a "HyperShell User Guide" sentence for
+  P4 to turn into a link, and P4's checklist and *Touches* name only the three P2 pages. P3's drafter
+  wrote the same sentence on its four pages, so P4 had to amend TECH to touch seven pages, not three.
+- **Skill cause (not mine):** the plan records a deferred edit only on the phase that plants it; a
+  later phase that copies the pattern is not told to register its pages with the phase that resolves
+  it.
+- **Recommended fix:** in docs-plan, phrase a deferred edit as a grep the resolving phase runs
+  (`grep -l 'HyperShell User Guide in this section' docs/workflows/*.md`) instead of a fixed page
+  list, or have docs-draft append its pages to the resolving phase's *Touches* when it plants the
+  same placeholder.
+- **Confidence:** medium · **Effort:** small

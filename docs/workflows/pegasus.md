@@ -84,7 +84,7 @@ on the cluster's shared filesystem, and a planner, its catalogs and an HTCondor 
 with nothing to show for it. For that work, on any RCAC cluster, use HyperShell, which runs the
 list inside your own Slurm jobs and records every task in a database. RCAC recommends HyperShell
 for flat many-task work; see [RCAC recommends HyperShell](index.md#rcac-recommends-hypershell) for
-why. The HyperShell User Guide in this section starts with one job script that runs a whole task
-list this way.
+why. The [HyperShell User Guide](hypershell/index.md) in this section starts with one job script
+that runs a whole task list this way.
 
 [Back to Workflow Automation](index.md){ .md-button }

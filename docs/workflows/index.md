@@ -101,7 +101,7 @@ The table places each tool you are likely to meet on those four questions.
 | [Slurm job arrays](job_arrays.md) | Executes (the scheduler runs each task as a job) | A job script and an index range | The Slurm scheduler; accounting records and your output files | Flat; whole arrays can depend on each other |
 | [GNU Make](gnu_make.md) | Both, on one node | Rule-file DSL (a Makefile) | Single process; file timestamps | Graph of files |
 | [GNU Parallel](gnu_parallel.md) | Executes | Shell command, with input templating | Single process; an optional job log file | Flat |
-| HyperShell | Executes | Shell command, with input templating | Server with workers; a SQL database of every task | Flat, with ordered task groups |
+| [HyperShell](hypershell/index.md) | Executes | Shell command, with input templating | Server with workers; a SQL database of every task | Flat, with ordered task groups |
 | [Snakemake](snakemake.md) | Defines; submits through executors | Rule-file DSL (a Python-based Snakefile) | DAG engine (one driver process); files plus its own state directory | Graph of files |
 | [Nextflow](nextflow.md) | Defines; submits through executors | Pipeline DSL (Groovy-based) | DAG engine (a dataflow driver on the JVM); a work directory and resume cache | Dataflow graph |
 | [Pegasus](pegasus.md) | Defines (it plans; HTCondor executes) | Programming API (Python) plus catalogs | Planner over HTCondor's DAG manager; a provenance database | Graph with data movement |
@@ -149,7 +149,8 @@ per line, or one command template and a list of inputs. It runs those tasks acro
 resources it has, from one node in one job to many nodes across many jobs. A server holds the
 queue, clients connect to it from compute nodes, and a database records every task: its command,
 where and when it ran, how long it took, and its exit status. A single command, `hsx`, runs the
-server and its clients together inside one batch job, which covers most needs.
+server and its clients together inside one batch job, which covers most needs. The
+[HyperShell User Guide](hypershell/index.md) starts there.
 
 On the four questions, HyperShell executes rather than defines; you describe work as shell
 commands; a server with clients coordinates it, with state persisted in a SQL database (SQLite by
@@ -222,7 +223,8 @@ Because most many-task work is flat, that last line is where most readers land.
 
 ## Tool pages in this section
 
-Each page says what the tool is, the work it fits, where it wins, and where HyperShell takes over.
+Each tool page says what the tool is, the work it fits, where it wins, and where HyperShell takes
+over. The HyperShell User Guide shows how to run HyperShell, from one job script up.
 
 <div class="grid cards" markdown>
 
@@ -281,6 +283,14 @@ Each page says what the tool is, the work it fits, where it wins, and where Hype
     Parallel workflows written as ordinary Python, with graphs decided at run time.
 
     [:octicons-arrow-right-24: Parsl](parsl.md)
+
+-   :material-console-line:{ .lg .middle } __HyperShell User Guide__
+
+    ---
+
+    RCAC's recommended tool, in tiers: start with one job script that runs a whole task list.
+
+    [:octicons-arrow-right-24: HyperShell User Guide](hypershell/index.md)
 
 </div>
 

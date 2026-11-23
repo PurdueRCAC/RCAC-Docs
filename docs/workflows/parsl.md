@@ -117,7 +117,8 @@ optional monitoring database, its record of what ran lives in its log files.
 For that work, use HyperShell. Your task file is the list itself, the work runs inside your own
 Slurm jobs, and every task, with its exit status, run time and host, is recorded in a database you
 can query and re-run from. RCAC recommends HyperShell for flat many-task work; see
-[RCAC recommends HyperShell](index.md#rcac-recommends-hypershell) for why. The HyperShell User
-Guide in this section starts with one job script that runs a whole task list this way.
+[RCAC recommends HyperShell](index.md#rcac-recommends-hypershell) for why. The
+[HyperShell User Guide](hypershell/index.md) in this section starts with one job script that
+runs a whole task list this way.
 
 [Back to Workflow Automation](index.md){ .md-button }

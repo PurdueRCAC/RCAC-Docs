@@ -884,6 +884,17 @@
     "Workflow Automation",
     "Parsl"
   ],
+  "/workflows/hypershell/": [
+    "Home",
+    "Workflow Automation",
+    "HyperShell User Guide"
+  ],
+  "/workflows/hypershell/single_job/": [
+    "Home",
+    "Workflow Automation",
+    "HyperShell User Guide",
+    "Tier 1: One Job Script"
+  ],
   "/workshops/": [
     "Home",
     "RCAC Workshops"

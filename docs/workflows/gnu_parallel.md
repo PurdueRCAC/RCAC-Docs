@@ -139,7 +139,8 @@ several, and they can join and leave while the work runs. Every task, with its e
 time and host, is a row in a database you can query with `hs list` and `hs info`. A rerun
 continues where the last one stopped, and failed tasks can be re-queued with one command. RCAC
 recommends HyperShell for flat many-task work; see
-[RCAC recommends HyperShell](index.md#rcac-recommends-hypershell) for why. The HyperShell User
-Guide in this section starts with one job script that runs a whole task list this way.
+[RCAC recommends HyperShell](index.md#rcac-recommends-hypershell) for why. The
+[HyperShell User Guide](hypershell/index.md) in this section starts with one job script that
+runs a whole task list this way.
 
 [Back to Workflow Automation](index.md){ .md-button }

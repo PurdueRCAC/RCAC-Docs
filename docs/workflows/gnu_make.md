@@ -138,7 +138,7 @@ commands, and HyperShell runs that list across one node or many, recording every
 status and run time in a database. If your pipeline has a handful of ordered stages, Make can stay
 as the outer driver, with each wide stage running as one HyperShell job. RCAC recommends HyperShell
 for flat many-task work; see [RCAC recommends HyperShell](index.md#rcac-recommends-hypershell) for
-why. The HyperShell User Guide in this section starts with one job script that runs a whole task
-list this way.
+why. The [HyperShell User Guide](hypershell/index.md) in this section starts with one job script
+that runs a whole task list this way.
 
 [Back to Workflow Automation](index.md){ .md-button }

@@ -387,6 +387,218 @@ P3: PASS — 2026-11-22 · login nodes of all five clusters, no jobs · HyperShe
 
 ## P4 — Guide landing page and Tier 1 (V4)
 
+P4: PENDING — docs/workflows/hypershell/{index,single_job}.md, docs/snippets/workflows/frames/{header-anvil,header-gautschi,header-negishi,header-scholar,body,render-frame}.sh (draft `[feature] Draft workflow-automation P4`)
+
+### Validation request (written by the draft run, 2026-11-22)
+
+**Build under test.** Gautschi's `hypershell/develop` module (2.9.0a8 today). Record its exact
+`hs --version` in the PASS line. Tier 1 depends on nothing the 2.9.0a8 known issues touch: it uses
+no `hs server --initdb`, no environment variable for a key with an underscore, no key at all, no
+`#` inside a task command, and no duration with units. One a8 behaviour to know: if `srun` fails to
+start the clients, `hsx` on a8 waits until the walltime instead of exiting (fixed after a8), so a
+job that sits with no `Running task` lines for several minutes is a launch failure; record it.
+
+**Envelope.** Gautschi, `-A "$ACCT" -p cpu -q standby`, at most 2 nodes × 15 minutes per job, at
+most 2 jobs queued at once, files only under `$RCAC_SCRATCH/workflow-automation/p4/`. `$ACCT` is
+the validation account, kept out of the repository. The Gautschi tab already says
+`--partition=cpu`, two nodes and 15 minutes; override the account and QOS on the command line
+(`sbatch -A "$ACCT" -q standby …`), and add `-N 1` for the one-node runs (a command-line option
+overrides the matching `#SBATCH` line). Anvil, Negishi and Scholar get login-node checks and
+`sbatch --test-only` only.
+
+**Assembling a tab.** As in P2, each published tab is its header file, one empty line, then the
+shared body. This reproduces the rendered tab byte for byte (checked against the built `site/` for
+all four tabs and `render-frame.sh`):
+
+```bash
+{ cat header-<cluster>.sh; echo; cat body.sh; } > frames.sub
+```
+
+The published header says `module load hypershell`, which on Gautschi today loads the default
+2.7.0, where `hsx` refuses a task file together with `--restart`. For the Gautschi runs (C), change
+that one line and nothing else, and record that you did:
+
+```bash
+{ sed 's|^module load hypershell$|module load hypershell/develop|' header-gautschi.sh; echo; cat body.sh; } > frames.sub
+```
+
+The module line itself is checked as published in A1. All paths below are under
+`docs/snippets/workflows/frames/`. `render-frame.sh` is used as published (copy it as named), and
+the task file comes from the page's command:
+`printf 'sh render-frame.sh %d\n' $(seq 1 1200) > frames.txt`.
+
+**Draft-run check (workstation, not a cluster).** The body ran on macOS with HyperShell 2.9.0a8
+from PyPI, a stand-in `srun` that runs its command once, 40 frames, a shortened `sleep`, and
+`-H 127.0.0.1` added because the workstation's host name does not resolve. Killing the job's
+process group with SIGTERM mid-run left 16 succeeded, 2 failed (planted) and 22 unfinished, with no
+negative exit status; the unchanged resubmit logged `Found 22 unfinished tasks` and
+`Reverted 8 previously interrupted tasks`, rendered exactly the 21 frames left (the third planted
+frame failed again), and exited 0; a further resubmit logged `All previous tasks completed (40) -
+stopping`; `hs update --failed --revert` asked `Update affects 3 tasks, continue? yes/[no]:` and
+logged `Updated 3 tasks`, and the next resubmit rendered exactly those three. Appending a line to
+the task file made the next run stop with `differs from its prior submission (content changed);
+pass --update --restart`, and `--update --restart` then submitted only the new line. The cluster
+run is what counts.
+
+#### A. Login-node checks (no job)
+
+| # | Cluster(s) | Command | PASS if |
+|---|---|---|---|
+| A1 | Anvil, Gautschi, Negishi, Scholar | `module load hypershell && hs --version`; `module spider hypershell` | loads with no prerequisite module; record the version (catalog: 2.7.0 default on all four; a version below 2.9.0 is expected until the merge hold clears) |
+| A2 | Gautschi | `module load hypershell/develop && hs --version`; `command -v hs hsx hyper-shell` | prints `HyperShell v2.9.0a8 …` or later; record the version, and which of the three executables are on `PATH` (the relay in P7 needs `hyper-shell`) |
+| A3 | Gautschi, with `hypershell/develop` loaded | `hsx --help \| grep -E -- '--restart\|--update\|--capture\|--launcher'`; `hs list --help \| grep -E -- '--failed\|--succeeded\|--remaining\|--count\|--fields'`; `hs update --help \| grep -E -- '--revert\|--failed\|--no-confirm'` | every option named appears |
+| A4 | Gautschi | the config-across-versions check below | recorded either way; the outcome decides a close-run line, not PASS or FAIL |
+
+**A4. Config written for 2.9.0, read by the 2.7.0 module (PLAN §5 Q13).** `HYPERSHELL_CONFIG_FILE`
+makes HyperShell read only the file it names, so your own `~/.hypershell/config.toml` is neither
+read nor changed. In `$RCAC_SCRATCH/workflow-automation/p4/config/`:
+
+```bash
+umask 077
+openssl rand -hex 16 > key
+printf '[server]\nauth = "%s"\n' "$(cat key)" > auth.toml
+printf '[server]\nauth_eval = "cat %s/key"\n' "$PWD" > auth-eval.toml
+: > empty.toml
+module purge; module load hypershell/2.7.0
+for c in auth auth-eval empty; do echo "--- $c"; HYPERSHELL_CONFIG_FILE="$PWD/$c.toml" hs --version; done
+module purge; module load hypershell/develop
+for c in auth auth-eval empty; do echo "--- $c"; HYPERSHELL_CONFIG_FILE="$PWD/$c.toml" hs --version; done
+```
+
+`auth.toml` sets the key the way every version reads it; `auth-eval.toml` uses `server.auth_eval`,
+which HyperShell honours for the key from 2.8.7; `empty.toml` is the config moved aside. Expected,
+from a workstation run of HyperShell 2.7.0 with cmdkit 2.7.7: under 2.7.0, `auth` and `empty`
+print the version, and `auth-eval` ends in a traceback with
+`AttributeError: 'auth' has more than one variant` (2.7.0's built-in default sets `server.auth`, and
+cmdkit before 2.8.0 cannot merge it with a file's `auth_eval`; with cmdkit 2.8.0 the same 2.7.0
+prints the version). Under `develop`, all three print the version. Record each result and, if you
+can, the module's cmdkit version (`"$(head -1 "$(command -v hs)" | cut -c3-)" -c 'import cmdkit;
+print(cmdkit.__version__)'`; skip it if the first line of `hs` is not a Python path). Optional, to
+explain the crash seen earlier: `grep -cE '^[[:space:]]*auth_(eval|env)[[:space:]]*=' ~/.hypershell/config.toml`
+prints a count, not the key. **If any 2.7.0 run crashes with `'auth' has more than one variant`,
+the close run adds a one-line caution to the version admonition.**
+
+#### B. `sbatch --test-only`, every tab
+
+On each cluster's login node, assemble the tab as published and run
+`sbatch --test-only -A <your account> frames.sub` (on Scholar, without `-A`; the file already says
+`scholar`). PASS if sbatch prints `Job <n> to start at … in partition <p>` and no error. If Gautschi
+or Negishi rejects `--qos=normal` for account reasons only, record that and repeat with
+`-q standby`; a syntax or partition error is a FAIL. Mark a cluster N/A if you have no account
+there.
+
+| Cluster | Partition in the tab | Shape |
+|---|---|---|
+| Anvil | `wholenode` (no QOS line) | 2 nodes × 1 task × 128 CPUs |
+| Gautschi | `cpu`, `normal` | 2 nodes × 1 task × 192 CPUs |
+| Negishi | `cpu`, `normal` | 2 nodes × 1 task × 128 CPUs |
+| Scholar | `cpu`, `normal` | 2 nodes × 1 task × 64 CPUs (fits both node types) |
+
+#### C. Gautschi runs
+
+All in `$RCAC_SCRATCH/workflow-automation/p4/frames/` unless stated. Set up:
+
+```bash
+cp <snippets>/frames/render-frame.sh .
+printf 'sh render-frame.sh %d\n' $(seq 1 1200) > frames.txt
+{ sed 's|^module load hypershell$|module load hypershell/develop|' <snippets>/frames/header-gautschi.sh; echo; cat <snippets>/frames/body.sh; } > frames.sub
+mkdir -p frames
+for n in 0005 0017 0333; do touch frames/frame_$n.pgm; chmod 444 frames/frame_$n.pgm; done
+```
+
+Check `wc -l < frames.txt` is 1200 and `head -1 frames.txt` prints `sh render-frame.sh 1`. The three
+read-only files are the planted failures: the renderer cannot overwrite them, so frames 5, 17 and
+333 exit 1. For the `hs` commands on the login node, use the page's setup with the develop module:
+`module load hypershell/develop; export HYPERSHELL_SITE="$PWD/hypershell"`. Record each job's node
+list (`sacct -j <id> -X --format=JobID,State,ExitCode,Elapsed,NodeList`).
+
+**C1. First job, one node, cancelled mid-run.**
+
+1. `sbatch -A "$ACCT" -q standby -N 1 frames.sub` → J1. Once it runs, watch `ls frames | wc -l`;
+   when it is between 300 and 900 (the first 192 frames finish 10 to 29 seconds after the start),
+   `scancel J1`. Record the count.
+2. `slurm-J1.out` starts with `HyperShell v2.9.0a8` (the version line), then shows
+   `Found 1200 tasks in …/frames.txt`, `Submitting all 1200 tasks from …/frames.txt as a new source
+   (--restart)`, and many `Running task (…)` lines. `sacct` shows J1 `CANCELLED`.
+3. `ls hypershell` shows `lib` and `log`, and `hypershell/lib/main.db` exists (the SQLite database
+   on scratch).
+4. `hs list --count` prints 1200. `hs list --completed --count` (C1) plus
+   `hs list --remaining --count` (R1) is 1200. Record C1 and R1, and
+   P1 = `hs list args --remaining | grep -cE 'render-frame.sh (5|17|333)$'` (planted frames not yet
+   run).
+5. `hs list args exit_status --failed` lists only planted frames, each with exit status 1. **Record
+   any task with a negative exit status** (for example `-15`): that would be a task recorded as
+   killed rather than left unfinished, which `--restart` would not re-run. The page then needs a
+   sentence (close run).
+
+**C2. Resubmit unchanged, one node, to completion.**
+
+1. `touch marker`, then `sbatch -A "$ACCT" -q standby -N 1 frames.sub` → J2.
+2. `slurm-J2.out` shows `Restarting …/frames.txt (source …): 1200 present; submitting only new tasks`,
+   `1200 tasks already present; submitting 0 new tasks`, `Found <R1> unfinished tasks` and
+   `Reverted <n> previously interrupted tasks` (record n). `sacct` shows J2 `COMPLETED 0:0`
+   although three frames failed (the page says Slurm reports the job as completed).
+3. `hs list --count` 1200 (nothing submitted twice); `hs list --succeeded --count` 1197;
+   `hs list --failed --count` 3; `hs list --remaining --count` 0; `ls frames/*.pgm | wc -l` 1200.
+4. `find frames -name '*.pgm' -newer marker | wc -l` equals R1 − P1: the job rendered only the frames
+   that were unfinished after J1.
+5. `hs list id args exit_status --failed` prints exactly three lines, for `sh render-frame.sh 5`, `17`
+   and `333`, each with exit status 1. With the ID of frame 5, `hs info <id> --stderr` prints a line
+   ending `frames/frame_0005.pgm: Permission denied`, and `hs info <id>` prints the task's record.
+   `hs list --fields` lists the field names, `exit_status` among them.
+
+**C3. Resubmit with nothing left to run.** `sbatch -A "$ACCT" -q standby -N 1 frames.sub` → J3.
+`slurm-J3.out` shows `All previous tasks completed (1200) - stopping`, J3 is `COMPLETED` within about
+a minute of starting, and `hs list --count` is still 1200.
+
+**C4. Re-run the failures, two nodes (the tab as published, apart from the module line).**
+
+1. `chmod 644 frames/frame_0005.pgm frames/frame_0017.pgm frames/frame_0333.pgm`.
+2. `hs update --failed --revert` asks `Update affects 3 tasks, continue? yes/[no]:`; answer `yes`; it
+   logs `Updated 3 tasks`. `hs list --remaining --count` is 3.
+3. `touch marker2`, then `sbatch -A "$ACCT" -q standby frames.sub` → J4. J4 `COMPLETED`;
+   `slurm-J4.out` shows `Found 3 unfinished tasks`; `find frames -name '*.pgm' -newer marker2` lists
+   exactly the three frames; `hs list --succeeded --count` 1200 and `hs list --failed --count` 0.
+   J1, J2 and J4 together show the database path working across jobs (record whether they ran on
+   different nodes).
+
+**C5. A full two-node run, one client per node.** In a new empty directory
+`$RCAC_SCRATCH/workflow-automation/p4/frames2/`, repeat the set-up without the planted failures,
+then `sbatch -A "$ACCT" -q standby frames.sub` → J5.
+
+1. While it runs: `scontrol show step J5.0 | grep -oE '(CPUs|Tasks)=[0-9]+'` shows `Tasks=2` and
+   `CPUs=384` (the launcher step got every core of both nodes; `CPUs=2` would mean `--cpus-per-task`
+   did not reach the step, a FAIL). Optional: run `hs list --succeeded --count` two or three times
+   from the login node during the run and record whether it answers without error (if it does, the
+   close run may say these commands work while the job runs).
+2. J5 `COMPLETED` with `Elapsed` under 5 minutes (1,200 frames of 10 to 29 seconds on 384 executors
+   take about 1 to 2 minutes; one executor per node would hit the walltime).
+3. `hs list --succeeded --count` 1200; `hs list client_host --all | sort | uniq -c` shows exactly two
+   hosts, J5's two nodes, with counts adding to 1200.
+
+**C6. Adding tasks (back in `frames/`).**
+
+1. `echo 'sh render-frame.sh 1201' >> frames.txt`, then `sbatch -A "$ACCT" -q standby -N 1 frames.sub`
+   → J6. `slurm-J6.out` shows `differs from its prior submission (content changed); pass --update
+   --restart`, and no task runs. Record J6's `State` and `ExitCode`.
+2. Change `--restart` to `--update --restart` in `frames.sub`, as the page says
+   (`sed -i 's/hsx frames.txt --restart/hsx frames.txt --update --restart/' frames.sub`), and submit
+   again with `-N 1` → J7. `slurm-J7.out` shows `submitting 1 new tasks`; J7 `COMPLETED`;
+   `frames/frame_1201.pgm` exists; `hs list --count` 1201 and `hs list --succeeded --count` 1201.
+
+#### D. Not covered by this envelope (record, do not run)
+
+- **Anvil, Negishi and Scholar batch runs.** Checked by A1 and B only. The Anvil tab, like P2's,
+  runs `module load` under `#!/bin/bash` in a non-login batch shell and relies on Slurm exporting
+  the submit-time module environment. Anvil batch runs are out of scope: record "Anvil batch: not
+  run" as a residual risk.
+- **Walltime expiry.** C1 stops the job with `scancel`; Slurm ends a job at its walltime with the
+  same signals, so C1 stands in for it.
+- **The released module.** The merge hold re-runs C1–C4 on the default 2.9.0 module of Gautschi and
+  Anvil (`P4-release: PASS`).
+- **The `-r` tip.** Described from HyperShell's documentation and checked on a workstation with
+  2.9.0a8 (`hs list --failed` lists the retried first attempts), not run here.
+
 ## P5 — GPU multiplexing and Tier 2 (V5)
 
 ## P6 — Tier 3 (V6)
