@@ -28,6 +28,9 @@ The draft PR may open at any time. Merge only after 2.9.0 is tagged, the default
 and Anvil is 2.9.0, and the tier 1 checks have been re-run on that module:
 
 - `P4-release: PASS — <date>, Gautschi + Anvil, default module <version>` *(written by the validator)*
+- Module packaging, from P5 A1, fixed with the 2.9.0 deploy before merge: Anvil's GPU module tree
+  (`modtree/gpu`) offers a `hypershell` module, and Gilbreth's `hypershell` loads without
+  `module load external`.
 
 ## P2 — Baseline tools (V2)
 
@@ -921,9 +924,89 @@ Close-run items expected whatever the outcome:
 
 #### Results
 
-*(validator)*
+Validated 2026-11-22/23 by the foreman against `9c080bdf`. Build under test: Gautschi
+`hypershell/develop`, `HyperShell v2.9.0a8 (CPython 3.14.6)`. The Gautschi run scripts are the
+published Gautschi tabs with only the module line changed to `module load hypershell/develop`.
+GPU jobs ran under QOS `burst` (the `ai` partition refuses `standby`; `normal` showed a four-day
+start estimate). HyperShell: develop 2.9.0a8.
 
-P5: PENDING — docs/snippets/workflows/gpu_sweep/{header-anvil,header-gautschi,header-gilbreth,header-scholar,body,gpu-pick}.sh, gpu_sweep/emulator.cu, docs/snippets/workflows/ensemble/{header-anvil,header-gautschi,header-negishi,header-scholar,body,member}.sh · A1–A6, B 8 tabs, C1–C3 (C4 optional), D1–D4
+- **A1** PASS with record. `module load hypershell` → `HyperShell v2.7.0 (CPython 3.13.3)` on Anvil
+  (CPU tree), Negishi and Scholar; on Gautschi the default module stops on a configuration holding
+  `auth_eval` (the P4 A4 behaviour; with `HYPERSHELL_CONFIG_FILE` pointed at an empty file it prints
+  2.7.0). **Anvil GPU tree:** after `module load modtree/gpu`, no `hypershell` module is visible,
+  and loading `modtree/gpu` after `hypershell` unloads it. **Gilbreth:** `hypershell/2.5.2` loads
+  only after `module load external`. Both are module-packaging gaps, to be fixed when the 2.9.0
+  release is deployed (out of scope for this cycle; recorded under the merge hold). The pages keep
+  `module load hypershell`.
+- **A2** PASS. `cuda`: Gautschi 12.6 (V12.6.20), Gilbreth 12.6, Scholar 12.6, Anvil (GPU tree) 11.2.
+- **A3** PASS. On Gautschi `nvcc -O2 -o emulator emulator.cu` exits 0 with no warning; `ldd emulator
+  | grep -c cudart` prints 0 (static runtime).
+- **A4** PASS. `hsx --help`: `--bundlesize --bundlewait --delay-start --no-confirm --no-db
+  --task-timeout --template`; `hs submit --help`: `--bundlesize`; `hs list --help`: `--all`.
+- **A5** recorded. Gautschi `ai` h[000-019] `gpu:h100:8,hp_gpu:8` (CfgTRES cpu=112, gres/gpu=8);
+  Gilbreth `a100-80gb` `gpu:2,hp_a100-80gb:2`; Anvil `gpu` g[000-015] `gpu:4`; Scholar `gpu`:
+  `nvidia_a40:2`, `tesla_v100-pcie-16gb:1`, `nvidia_a30:2`. **No `mps`, `shard` or MIG GRES on any
+  cluster**, Scholar included. → close-run item F3.
+- **A6** PASS. `HYPERSHELL_DATABASE_FILE=:memory: hsx three.txt -N 1` printed 1, 2, 3; no
+  `site/lib/main.db`.
+- **B** PASS, 8/8 (account-limit retries noted). GPU: Gautschi `ai` (28 CPUs, `-q burst`), Gilbreth
+  `a100-80gb` (32 CPUs), Scholar `gpu` (16 CPUs, `scholar-h002`), Anvil `gpu` (64 CPUs; with the
+  validation allocation's GPU account). Tier 2: Gautschi (`cpu`, 768 CPUs; `normal` refused on
+  account limits, `-q standby` passed), Negishi (`cpu`, 512), Scholar (`cpu`, 256), Anvil
+  (`wholenode`, 512; one allocation refused on account limits, another passed).
+- **C1** PASS with record. G1 (k = 4) `COMPLETED` 1:01 on h002. `GPUs in this job: 0,1`; two
+  `NVIDIA H100 80GB HBM3` rows, `compute_mode` **Default**. 64 results, 64 succeeded, 0 failed.
+  Slots 0, 2, 4, 6 on `0000:4C:00.0`, slots 1, 3, 5, 7 on `0000:9B:00.0`; the busiest sample shows
+  4 processes on one GPU; both bus addresses sampled; largest per-process memory 1542 MiB; mean
+  6.0 s per run. The per-GPU split was **34/30**, not 32/32: slots take tasks as they free up, so
+  the split is close to even, not exact. → close-run item F1.
+- **C2** PASS. G2 (k = 2) `COMPLETED` 1:28; 64/64, 0 failed; 32/32; slots 0, 2 and 1, 3; busiest 2;
+  mean 4.7 s.
+- **C3** PASS. G3 (k = 1) `COMPLETED` 2:38; 64/64, 0 failed; 32/32; slots 0 and 1; busiest 1; mean
+  4.4 s.
+
+  | Tasks per GPU (k) | Elapsed, 64 runs on 2 H100s | Mean seconds per run |
+  |---|---|---|
+  | 1 | 2:38 | 4.4 |
+  | 2 | 1:28 | 4.7 |
+  | 4 | 1:01 | 6.0 |
+
+- **C4** recorded (2-minute job, h-node). `Compute Mode: Default` on both GPUs; MIG Mode reported
+  but no MIG instances in GRES; `/usr/bin/nvidia-cuda-mps-control` present on the node; driver
+  595.71.05, CUDA 13.2.
+- **D, loading** PASS. 1,000,000-line generator and `sh member.sh 1` checked; `sh member.sh 42`
+  prints one line. `hs submit -b 10000 members.txt` (100,000): `Submitted 100000 tasks` in 15.2 s;
+  `hs list --count` 100000. A second submit is refused with `… was already submitted as source …;
+  pass --repeat to submit it again, or --update to add only new tasks` and the count stays 100000.
+- **D1** PASS. E1 (`-N 2 -c 32 -t 00:20:00`) step `.0` `CPUs=64 Tasks=2`; cancelled at 12,384
+  completed (0:36, a[052,171]); 0 `Running task` lines; `ensemble-E1.txt` 12,384 lines (no surplus);
+  0 failed.
+- **D2** PASS. E2 `COMPLETED 0:0` 3:01 (a[035,052]); 0 `Running task` lines; succeeded 100000,
+  remaining 0, failed 0; result lines 100000; `sort -n -u -k1,1` → 100000. `hs list id` refused
+  with `Refusing to list 100,000 tasks (over 1,000); pass --all … --limit N … or --count`;
+  `--limit 3` prints three. First task starts per host in E1: a052 23:56:46, a171 23:57:06 (20 s
+  apart, within the 30 s stagger).
+- **D3** recorded. 20,000 members, 2 nodes × 32 cores, trivial tasks: tuned (`-b`/`-w` as
+  published) `COMPLETED` 1:04, about 310 tasks/s; default (no `-b`/`-w`) `COMPLETED` 7:06, about
+  47 tasks/s. Both include up to 30 s of `--delay-start`. → close-run item F2.
+- **D4** PASS. `--no-db --no-confirm` variant: E4 `COMPLETED` 1:17 (a[205,292]); 100,000 result
+  lines, 100,000 unique; no `hypershell/lib/main.db`. About 1,300 tasks/s.
+- **E** Not run, as listed (other clusters' batch runs; MPS/MIG/ROCm/one-client-per-GPU; scale;
+  task timeout; eviction; released module).
+
+Close-run items:
+- **F1** Put the C1–C3 table on the GPU page under *Choose how many tasks share a GPU* as a measured
+  illustration (two H100s, this stand-in). Make sure no sentence claims an exactly even split of
+  tasks across GPUs (C1 measured 34/30).
+- **F2** Put D3's and D4's throughput on the tier 2 page under *Measure throughput* as illustrations
+  (two 32-core nodes, trivial tasks): tuned about 310 tasks/s, defaults about 47 tasks/s, without the
+  database about 1,300 tasks/s.
+- **F3** MPS and MIG sentences: no cluster offers MIG slices or MPS through Slurm GRES; the MPS
+  control program exists on Gautschi's H100 nodes but is not offered as a service. Keep each to one
+  sentence and say nothing that implies a MIG partition exists on RCAC clusters.
+
+P5: PASS — 2026-11-23 · Gautschi `ai` (burst) and `cpu` (standby), hypershell/develop 2.9.0a8 · A1–A6, B 8/8, C1–C4, D1–D4 · module-packaging gaps (Anvil GPU tree, Gilbreth) recorded for the 2.9.0 deploy · close-run items F1–F3
+
 
 ## P6 — Tier 3 (V6)
 

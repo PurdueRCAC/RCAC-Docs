@@ -152,8 +152,8 @@ cores. Replace `myallocation` with your own account. The GPU partitions differ b
   32 or 64 cores, so the tab asks for 32 cores, which fits either kind. GPU jobs on Gilbreth must
   state their memory. Use `--qos=standby` for jobs of up to four hours that do not draw on your
   account's GPUs. See [Gilbreth's queues](../../userguides/gilbreth/run_jobs/queues.md).
-- **Scholar:** the `gpu` partition mixes nodes with different kinds and numbers of GPUs, including
-  MIG slices (below). Asking for two GPUs and 16 cores fits every node with at least two. See
+- **Scholar:** the `gpu` partition mixes nodes with different kinds and numbers of GPUs. Asking for
+  two GPUs and 16 cores fits every node with at least two. See
   [Scholar's queues](../../userguides/scholar/run_jobs/queues.md#gpu-partition).
 
 Negishi's GPUs are AMD, not NVIDIA, so this page, which relies on `CUDA_VISIBLE_DEVICES` and
@@ -198,7 +198,9 @@ cat results/member_*.txt
 Each line names the GPU a run used (by its PCI bus address, as in the table at the top of the job's
 output file), the executor slot that ran it, and how many seconds it took. With two GPUs and four
 tasks per GPU, slots 0, 2, 4 and 6 run on the first GPU and slots 1, 3, 5 and 7 on the second.
-`gpu-use-<jobid>.txt` shows four processes on each GPU at a time while the job runs.
+Each GPU gets close to half of the runs, but not always exactly half: an executor takes the next run
+as soon as it is free, so the split depends on timing (34 and 30 in one test). `gpu-use-<jobid>.txt`
+shows four processes on each GPU at a time while the job runs.
 
 Checking which runs failed, re-running them, and resubmitting after the walltime all work exactly
 as in tier 1: see [Check which tasks succeeded or failed](single_job.md#check-which-tasks-succeeded-or-failed)
@@ -229,7 +231,20 @@ sacct -j <jobid> -X --format=JobID,Elapsed,State
 Also compare the `seconds` in each run's result line, and check the job for failures with
 `hs list --failed --count`. What to look for: while the tasks on a GPU fill the gaps in each
 other's GPU use, raising the number of tasks per GPU makes the whole sweep finish sooner, and each
-run takes only a little longer. Once the GPU is busy all the time, another task per GPU only makes
+run takes only a little longer.
+
+As an illustration, here is this page's stand-in sweep (64 runs on two H100 GPUs on Gautschi), run
+once at each setting. These numbers describe this stand-in, which leaves the GPU idle most of each
+step; your tasks will differ.
+
+| Tasks per GPU | Time for the whole sweep | Average time per run |
+|---|---|---|
+| 1 | 2 min 38 s | 4.4 s |
+| 2 | 1 min 28 s | 4.7 s |
+| 4 | 1 min 1 s | 6.0 s |
+
+Going from one to four tasks per GPU cut the sweep's time by more than half, while each run took
+about a third longer. Once the GPU is busy all the time, another task per GPU only makes
 each run slower in proportion, and the sweep finishes no sooner. Stop there, or sooner if runs begin
 to fail.
 
@@ -240,19 +255,17 @@ to fail.
   last to start fails with an out-of-memory error. HyperShell cannot check this for you. Use the
   `used_memory` column of `gpu-use-<jobid>.txt` from a short trial to size *k*. The GPUs in this
   page's tabs hold 40 GB (Anvil's A100) or 80 GB (Gautschi's H100 and Gilbreth's `a100-80gb`
-  A100); on Scholar, from a 6 GB MIG slice to 48 GB, by node type.
+  A100); on Scholar, from 16 GB to 48 GB, by node type.
 - **CPU cores and host memory.** All the tasks share the job's CPU cores and memory. Ask for enough
   cores that each running task has at least one, and on clusters where memory follows cores, enough
   memory too.
 - **One task can crowd out the others.** Nothing stops one task from taking more GPU memory than
   its share; when it does, the other tasks on that GPU fail as they ask for theirs.
-- **NVIDIA MPS.** NVIDIA's Multi-Process Service lets the work of several processes run on one GPU
-  at the same instant instead of taking turns. RCAC's user guides do not cover it, and this page
-  does not use it.
-- **MIG slices.** Some GPUs can be split by the system administrators into smaller, isolated GPUs
-  (Multi-Instance GPU). Scholar's `gpu` partition includes A30 GPUs split this way into 6 GB slices
-  (see the [Scholar overview](../../userguides/scholar/overview.md)); this page was not tested on
-  them.
+- **NVIDIA MPS.** NVIDIA's Multi-Process Service, which lets several processes' work run on one GPU
+  at the same instant instead of taking turns, is not offered as a service on RCAC's clusters, so
+  this page does not use it.
+- **MIG.** NVIDIA's Multi-Instance GPU, which splits one GPU into smaller isolated GPUs, is not
+  offered through Slurm on RCAC's clusters, so every GPU this page uses is a whole GPU.
 
 ## Make it yours
 

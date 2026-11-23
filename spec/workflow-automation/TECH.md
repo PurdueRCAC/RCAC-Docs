@@ -6,8 +6,8 @@ appetite: big
 status: in_progress
 branch: feature/workflow-automation
 base: main
-current_phase: P5
-last_updated: '2026-11-22'
+current_phase: P6
+last_updated: '2026-11-23'
 phases:
 - id: P1
   name: 'Scaffold: section nav anchor and the landing page'
@@ -84,7 +84,7 @@ phases:
     grep -q ''^P4: PASS'' spec/workflow-automation/VALIDATION.md'
 - id: P5
   name: GPU multiplexing and Tier 2 (extreme scale)
-  status: in_progress
+  status: done
   satisfies:
   - R6
   - R8
@@ -97,7 +97,7 @@ phases:
   - P4
   parallel: false
   hammerable: false
-  hill: crest
+  hill: downhill
   verify: '.venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py
     && grep -q ''workflows/hypershell/gpu_multiplexing.md'' mkdocs.yml && grep -q
     ''workflows/hypershell/extreme_scale.md'' mkdocs.yml && grep -rqF ''FILENAME:
@@ -391,8 +391,12 @@ complete, validated tier 1 script.
   (Also: the guide landing's tier map links both pages, and tier 1's *Move on when* links the GPU
   page.)
 - [x] Draft run ends per *Validating phases*; `P5: PENDING`.
-- [ ] Close run, after `P5: PASS` in `VALIDATION.md`: apply any fixes validation required, add the
+- [x] Close run, after `P5: PASS` in `VALIDATION.md`: apply any fixes validation required, add the
   measured illustrations (GPU k table, tier 2 throughput), run the full `verify:`, mark P5 `done`.
+  (F1: the k = 1, 2, 4 table and a sentence that runs split close to, not exactly, evenly across
+  GPUs. F2: tier 2 throughput illustrations. F3: MPS and MIG sentences say neither is offered on
+  RCAC's clusters; the Scholar MIG mentions are gone. Module-packaging gaps on Anvil's GPU tree and
+  Gilbreth added to the merge hold; no page change.)
 - **Verify:** see frontmatter.
 - **Touches:** two pages, `docs/snippets/workflows/{gpu_sweep,ensemble}/*`, `docs/workflows/hypershell/index.md`,
   `docs/workflows/hypershell/single_job.md` (one link), `mkdocs.yml`, breadcrumbs, `VALIDATION.md`.

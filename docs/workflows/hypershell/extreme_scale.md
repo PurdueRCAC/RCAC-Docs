@@ -296,6 +296,18 @@ sacct -j <jobid> -X --format=JobID,Elapsed
 hs list --succeeded --count
 ```
 
+As an illustration, the stand-in ensemble on two Gautschi nodes, with 32 cores each, ran:
+
+| Settings | Members | Tasks per second |
+|---|---|---|
+| The script as published (`-b` and `-w` set) | 20,000 | about 310 |
+| Defaults (no `-b` or `-w`) | 20,000 | about 47 |
+| Without the database (`--no-db --no-confirm`) | 100,000 | about 1,300 |
+
+Each run's time includes up to 30 seconds of `--delay-start`, and the members do almost no work, so
+these figures show HyperShell's own cost per task on a small run. They are illustrations, not
+benchmarks: your tasks, node count and filesystem will give other numbers.
+
 Throughput that does not rise when you add nodes means the server, the database or the filesystem
 has become the limit, not the nodes. Larger bundles, or running without the database, are then the
 remaining options.
