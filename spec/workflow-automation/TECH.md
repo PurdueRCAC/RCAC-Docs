@@ -6,7 +6,7 @@ appetite: big
 status: in_progress
 branch: feature/workflow-automation
 base: main
-current_phase: P6
+current_phase: P7
 last_updated: '2026-11-23'
 phases:
 - id: P1
@@ -106,7 +106,7 @@ phases:
     spec/workflow-automation/VALIDATION.md'
 - id: P6
   name: 'Tier 3: a pipeline on one cluster (database, config, phases, zones, groups)'
-  status: in_progress
+  status: done
   satisfies:
   - R6
   - R9
@@ -118,7 +118,7 @@ phases:
   - P5
   parallel: false
   hammerable: false
-  hill: crest
+  hill: downhill
   verify: '.venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py
     && grep -q ''workflows/hypershell/pipelines.md'' mkdocs.yml && grep -rqF ''FILENAME:
     schedule-clients.sh'' site/workflows/hypershell/pipelines/ && grep -q ''^P6: PASS''
@@ -432,8 +432,11 @@ introduced.
 - [x] Nav line; guide-landing card; breadcrumbs. (Also: the guide landing's tier map links the page.)
 - [x] Draft run ends per *Validating phases*; `P6: PENDING`. (P6 drafted while P5 awaits validation,
   by foreman decision; `current_phase` stays P5.)
-- [ ] Close run, after `P6: PASS` in `VALIDATION.md`: apply any fixes validation required, run the
-  full `verify:`, mark P6 `done`.
+- [x] Close run, after `P6: PASS` in `VALIDATION.md`: apply any fixes validation required, run the
+  full `verify:`, mark P6 `done`. (Reduced scope by foreman decision: validation ran A1–A6 and
+  B 7/7 on login nodes; C, the live server and client path, was not run. Page unchanged. Close-run
+  item F1 added a `P6-release: PASS` line to VALIDATION.md's *Merge hold*: the C0 probe, then
+  C1–C8 and C11 on the released module, with the request's F1–F2 wording checks carried there.)
 - **Verify:** see frontmatter.
 - **Touches:** `pipelines.md`, `docs/snippets/workflows/panel/*`, `docs/workflows/hypershell/index.md`,
   `mkdocs.yml`, breadcrumbs, `VALIDATION.md`.

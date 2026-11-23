@@ -31,6 +31,13 @@ and Anvil is 2.9.0, and the tier 1 checks have been re-run on that module:
 - Module packaging, from P5 A1, fixed with the 2.9.0 deploy before merge: Anvil's GPU module tree
   (`modtree/gpu`) offers a `hypershell` module, and Gilbreth's `hypershell` loads without
   `module load external`.
+- `P6-release: PASS — <date>, Gautschi, default module <version>` *(written by the validator)*:
+  the tier 3 server path, run once on the released module before merge. First the C0 port probe
+  from a compute node to the login node, then C1–C8 and C11 of the P6 request. P6 validation ran A
+  and B only (C deferred here by decision). The P6 request's own close-run checks, F1 (the page's
+  port and login-node host-name wording) and F2 (the page's quoted log lines and the *Make the key*
+  and *Start the server* steps), depend on C and are carried to this check; the page stays as
+  drafted until then.
 
 ## P2 — Baseline tools (V2)
 
@@ -1304,9 +1311,40 @@ Close-run items expected whatever the outcome:
 
 #### Results
 
-*(validator)*
+Validated 2026-11-23 by the foreman against `d2ea3c3b`, **reduced scope, by decision at the P6
+validation step**: no HyperShell server was run on a login node and no 2.9.0a9 install was made.
+Sections A and B ran as requested; C was not run. The server-and-client path rests on the
+drafter's local end-to-end runs (2.9.0a8 from PyPI and 2.9.0a9 from its tag, with stand-in
+`sbatch`/`squeue`) and is a residual risk until the merge hold's release checks.
 
-P6: PENDING — docs/snippets/workflows/panel/{config.toml,panel.sh,submit-phases.sh,schedule-clients.sh,header-anvil.sh,header-gautschi.sh,header-negishi.sh,header-scholar.sh,body.sh} · A1–A6, B 7 lines, C0–C8, C10–C11 (C9 optional)
+- **A1** PASS. `module load hypershell` → `HyperShell v2.7.0 (CPython 3.13.3)` on Anvil, Negishi,
+  Scholar (and Gautschi, per P4/P5).
+- **A2** PASS. Gautschi `hypershell/develop` `HyperShell v2.9.0a8 (CPython 3.14.6)`. Options present:
+  `hs client --capture --timeout/-T --zone`; `hs list --all --cancelled --count --failed --group
+  --limit --order-by --remaining --succeeded --where`; `hs submit --group --zone`; `hs server
+  --forever`; `hs config get`; `hs initdb --yes`; `hs update --cancel --revert`.
+- **A3** PASS. `highmem`: Anvil b[000-031], Gautschi b[000-005], Negishi b[000-005]; Scholar none.
+- **A4** PASS with record. The validator's shell landed on `login01.gautschi.rcac.purdue.edu`;
+  `login00.gautschi.rcac.purdue.edu` resolves (128.211.134.20). The `ssh login00` hop was not made.
+- **A5** PASS. `openssl`, `seq`, `nohup` in `/usr/bin`.
+- **A6** PASS. `squeue --noheader --user="$USER" --name="panel-cpu" --format=%i | wc -l` prints 0
+  with no error.
+- **B** PASS, 7/7, in the helper's exact form (`sbatch --job-name=panel-<zone> [--partition=highmem]
+  client.sub <zone>`): Anvil cpu (`wholenode`) and highmem; Negishi cpu and highmem; Scholar cpu;
+  Gautschi highmem (`normal`; `standby` is refused on `highmem` with "Invalid qos specification",
+  consistent with the page) and cpu (`normal` refused on the validation account's limits, `-q
+  standby` passed).
+- **C** Not run (decision above): the compute-node-to-login-node port probe, the live server,
+  client jobs, the group hold, the revert, the zone routing, `SIGUSR1` stop and restart, and the
+  optional reached-group check on 2.9.0a9.
+
+Close-run items:
+- **F1** Leave the page as drafted. Add to the Merge hold: before merge, run the tier 3 server path
+  once on the released module (C0 port probe from a compute node to the login node, then C1–C8 and
+  C11 of this request), recorded as `P6-release: PASS`.
+
+P6: PASS — 2026-11-23 · reduced scope: A1–A6 and B 7/7 on login nodes; C (live server and clients) not run by decision, deferred to the merge hold as P6-release · HyperShell: develop 2.9.0a8 (`--help` only)
+
 
 ## P7 — Tier 4 (V7, including the manual Rancher walk-through)
 
