@@ -83,3 +83,15 @@ attributes line instead of duplicating. A fix that would weaken a `hammerable:fa
 - **Recommended fix:** add one line to the style guide's verbatim-file pattern: tabs are expanded to
   spaces on render; avoid tab-significant content, or use a tab-free form (`.RECIPEPREFIX` for Make).
 - **Confidence:** high · **Effort:** small
+
+## F5 — P3 `verify:` has no include sentinel although the phase publishes snippet files
+`origin=docs-draft:P3 severity=medium category=instruction status=open target=spec/workflow-automation/TECH.md`
+- **What happened:** P3's pages publish three files through `--8<--` includes (a Snakefile and two
+  Parsl files). A mistyped include renders an empty block and `--strict` stays silent (invariants §8),
+  but P3's `verify:` checks only the build and the nav. The drafter grepped `site/` by hand.
+- **Skill cause (not mine):** PLAN §6 ties include sentinels to "pages with scripts", meaning job
+  scripts, so the planner left them out of phases whose includes are other verbatim files.
+- **Recommended fix:** in docs-plan, add a sentinel clause to `verify:` for every phase that adds a
+  `--8<--` include, whatever the file type (for P3: `grep -rqF glob_wildcards site/workflows/snakemake/`
+  and `grep -rqF SlurmProvider site/workflows/parsl/`). Strengthens, does not weaken, a gate.
+- **Confidence:** high · **Effort:** small

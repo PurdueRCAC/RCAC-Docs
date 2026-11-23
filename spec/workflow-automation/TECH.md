@@ -45,7 +45,7 @@ phases:
     site/workflows/job_arrays/ && grep -q ''^P2: PASS'' spec/workflow-automation/VALIDATION.md'
 - id: P3
   name: 'Workflow managers: Snakemake, Nextflow, Pegasus, Parsl'
-  status: pending
+  status: in_progress
   satisfies:
   - R1
   - R4
@@ -56,7 +56,7 @@ phases:
   - P2
   parallel: false
   hammerable: false
-  hill: uphill
+  hill: crest
   verify: '.venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py
     && grep -q ''workflows/snakemake.md'' mkdocs.yml && grep -q ''workflows/nextflow.md''
     mkdocs.yml && grep -q ''workflows/pegasus.md'' mkdocs.yml && grep -q ''workflows/parsl.md''
@@ -301,20 +301,27 @@ HyperShell, and where it stops serving and HyperShell takes over.
 **Goal:** four short tool pages stating what each tool is, how it describes work, and where it
 genuinely wins, with availability statements that match verified facts.
 
-- [ ] `snakemake.md`: Anvil module 6.8.0 (live-checked) and Biocontainers per V3. Any Snakefile
-  shown goes in a snippet (doubled-brace hazard).
-- [ ] `nextflow.md`: cross-link both Life Sciences Nextflow guides; availability per the catalog
+- [x] `snakemake.md`: Anvil module 6.8.0 (live-checked) and Biocontainers per V3. Any Snakefile
+  shown goes in a snippet (doubled-brace hazard). (Snakefile at `docs/snippets/workflows/snakemake/Snakefile`,
+  same word-count work as P2; current release via the `conda` module with the Slurm executor
+  plugin, ≥ 8.6; job grouping noted. Biocontainers is a V3 record item, not a page claim.)
+- [x] `nextflow.md`: cross-link both Life Sciences Nextflow guides; availability per the catalog
   and live check; composition over a lower-level executor in general terms only (research 03 §6),
-  with no mention of any unreleased executor.
-- [ ] `pegasus.md`: research 03 §5(d) wording. The Anvil Notebook Service route links
+  with no mention of any unreleased executor. (Version table per cluster; no code.)
+- [x] `pegasus.md`: research 03 §5(d) wording. The Anvil Notebook Service route links
   `../userguides/anvil/notebook.md` and RCAC news 7628. ACCESS Pegasus via HTCondor Annex with an
   Anvil allocation. State that there is no community-cluster route. Do not print the `htcondor annex
-  create` command (unverified). Do not link the HUBzero `pegasuswf.md` page.
-- [ ] `parsl.md`: user `conda`/`uv` environment (link `../software/apps_md/uv.md` if present); Slurm
-  provider in general terms. Any code shown is checked against Parsl's current docs.
-- [ ] Nav lines + hub cards; breadcrumbs.
-- [ ] Draft run ends per *Validating phases*; `P3: PENDING` lists every availability statement and
+  create` command (unverified). Do not link the HUBzero `pegasuswf.md` page. (Gautschi's
+  `cadence/pegasus` modules are not mentioned at all.)
+- [x] `parsl.md`: user `conda`/`uv` environment (link `../software/apps_md/uv.md` if present); Slurm
+  provider in general terms. Any code shown is checked against Parsl's current docs. (`uv venv
+  ~/parsl-env`; `config.py` + `count.py` snippets, checked against the SlurmProvider reference and
+  Parsl 2026.11.16.)
+- [x] Nav lines + hub cards; breadcrumbs. (Placement-table names for the four tools now link.)
+- [x] Draft run ends per *Validating phases*; `P3: PENDING` lists every availability statement and
   command to confirm.
+- [ ] Close run, after `P3: PASS` in `VALIDATION.md`: apply any fixes validation required, run the
+  full `verify:`, mark P3 `done`.
 - **Verify:** see frontmatter.
 - **Touches:** four pages, `docs/workflows/index.md`, `mkdocs.yml`, breadcrumbs, `VALIDATION.md`.
 

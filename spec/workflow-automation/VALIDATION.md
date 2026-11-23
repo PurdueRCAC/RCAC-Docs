@@ -31,7 +31,7 @@ and Anvil is 2.9.0, and the tier 1 checks have been re-run on that module:
 
 ## P2 — Baseline tools (V2)
 
-P2: PENDING — docs/snippets/workflows/{sample-data.sh, job_arrays/{header-anvil,header-gautschi,header-negishi,header-scholar,body}.sh, gnu_make/{header-anvil,header-gautschi,header-negishi,header-scholar,body}.sh, gnu_make/Makefile, gnu_parallel/{header-anvil,header-gautschi,header-negishi,body}.sh} (draft `[feature] Draft workflow-automation P2`)
+Validation request for draft `9849de64`, covering docs/snippets/workflows/{sample-data.sh, job_arrays/{header-anvil,header-gautschi,header-negishi,header-scholar,body}.sh, gnu_make/{header-anvil,header-gautschi,header-negishi,header-scholar,body}.sh, gnu_make/Makefile, gnu_parallel/{header-anvil,header-gautschi,header-negishi,body}.sh}; result: PASS, see Results below.
 
 ### Validation request (written by the draft run, 2026-11-22)
 
@@ -199,6 +199,138 @@ snippet files of `9849de64`, assembled as above. HyperShell: not used.
 P2: PASS — 2026-11-22 · Gautschi standby (a staff allocation), A–C as above · HyperShell: not used · close run adds the `scancel` accounting clause
 
 ## P3 — Workflow managers (V3)
+
+P3: PENDING — docs/workflows/{snakemake,nextflow,pegasus,parsl}.md, docs/snippets/workflows/{snakemake/Snakefile, parsl/config.py, parsl/count.py} (draft `[feature] Draft workflow-automation P3`)
+
+### Validation request (written by the draft run, 2026-11-22)
+
+P3 uses no HyperShell and submits no jobs. Record "HyperShell: not used" in the PASS line.
+
+**Envelope.** Login nodes only (V3): module checks on all five clusters, plus user-space installs
+and a few seconds of local commands on tiny files on Gautschi and Anvil. Nothing goes to Slurm:
+the one Slurm-flavoured command (B2.6) is a Snakemake dry run, which submits nothing. Files only
+under `$RCAC_SCRATCH/workflow-automation/p3/`, except the Parsl environment, which the page puts
+at `~/parsl-env` (B3). `$ACCT` is the validation account, kept out of the repository.
+
+**Already confirmed (foreman, 2026-11-22; re-run only if convenient):** Anvil `nextflow` 21.10.0
+and 22.10.1, `snakemake/6.8.0`, no Pegasus WMS module, no `pegasus-plan` or `condor_submit`;
+Gautschi `nextflow` 24.04.3, 25.10.04, 26.04.2, and `cadence/pegasus/*` is not Pegasus WMS; no
+HTCondor module or command on any of the five (P2 A5). The rows below still ask for the load and
+version commands on those clusters, which the confirmation did not cover.
+
+**Files.** The pages publish three files verbatim (copy them as named): `snakemake/Snakefile`
+(rendered at `site/workflows/snakemake/index.html`), `parsl/config.py` and `parsl/count.py`
+(rendered at `site/workflows/parsl/index.html`). All paths are under `docs/snippets/workflows/`.
+The sample data is P2's `sample-data.sh`. The draft run checked the Snakefile steps of B2.2–B2.6
+and B3.3–B3.5 on a workstation, with Snakemake 9.27.2 and snakemake-executor-plugin-slurm installed
+by pip (not conda) and Parsl 2026.11.16 on Python 3.12. Snakemake 6.8.0 (B1) and the conda install
+(B2.1) were not checked; the cluster run is what counts. On the workstation, building the Parsl
+executor (B3.3) tried to reach `api.ipify.org` to list the host's addresses; if a login node blocks
+that, a slow B3.3 is not a FAIL, but record it.
+
+#### A. Login-node module checks (no job)
+
+| # | Cluster(s) | Command | PASS if |
+|---|---|---|---|
+| A1 | Anvil | `module spider nextflow`; then, for each version, `module load nextflow/<v> && nextflow -version` | spider lists exactly 21.10.0 and 22.10.1; each loads with no prerequisite module and prints `version <v>` (`nextflow.md` table) |
+| A2 | Gautschi | as A1 | spider lists exactly 24.04.3, 25.10.04, 26.04.2; each loads with no prerequisite and prints `version <v>` |
+| A3 | Negishi | as A1 | spider lists exactly 22.10.1, 23.04.1, 25.10.04, 26.04.2; each loads with no prerequisite and prints `version <v>` |
+| A4 | Gilbreth, Scholar | `module spider nextflow` | no module found (the page says these two have none) |
+| A5 | Anvil | `module spider snakemake`; `module load snakemake && snakemake --version` | loads with no prerequisite module and prints `6.8.0` (the page says `module load snakemake` loads 6.8.0). If a prerequisite such as `biocontainers` is needed, FAIL: the close run adds that line |
+| A6 | Gautschi, Gilbreth, Negishi, Scholar | `module spider snakemake` | "Unable to find" on each: PASS. A hit that spider says needs `biocontainers` loaded first: PASS, record cluster and version (the close run may add one sentence naming it). A Snakemake module that loads with no prerequisite: FAIL (`snakemake.md` says the catalog lists none outside Anvil) |
+| A7 | Anvil, Gautschi, Gilbreth, Negishi, Scholar | `module spider pegasus`; `command -v pegasus-plan pegasus-version` | no Pegasus WMS module (on Gautschi, the only hits are `cadence/pegasus/*`, the unrelated EDA tool) and neither command found (`pegasus.md`: no Pegasus module on any community cluster). Negishi, Gilbreth and Scholar are the new checks |
+| A8 | all five | `module spider parsl` | no module found (`parsl.md`: RCAC provides no Parsl module) |
+| A9 | all five | `module load conda && conda --version` | loads and prints a version (`snakemake.md`: every RCAC cluster provides the `conda` module) |
+| A10 | all five | `module load uv && uv --version` | loads and prints a version (`parsl.md` installs with the `uv` module) |
+
+#### B. User-space installs and local runs on the login node (no job)
+
+Make `$RCAC_SCRATCH/workflow-automation/p3/` and work in the subdirectories named below. In each,
+first run `bash sample-data.sh` and check `ls data | wc -l` is 20. The commands in B1–B3 run 20
+`wc` and one `cat` over files of at most 20 lines, a few seconds in all.
+
+**B1. Snakemake 6.8.0 module** (Anvil, `smk-module/`, with `Snakefile` copied in):
+
+1. `module load snakemake`, then `snakemake -n`: prints a job table with `count` 20, `summary` 1,
+   `all` 1, total 22, and no error.
+2. `snakemake --cores 2`: exits 0; `wc -l < summary.txt` is 20; `grep sample_05 summary.txt` prints
+   `5 data/sample_05.txt`; `ls results | wc -l` is 20.
+3. `snakemake --cores 2` again: prints `Nothing to be done`.
+4. `seq 21 > data/sample_21.txt`, then `snakemake --cores 2`: runs exactly one `count` job (for
+   `sample_21`), the `summary` job and `all`; `wc -l < summary.txt` is 21.
+
+**B2. Current Snakemake from conda** (Gautschi, `smk-conda/`, with `Snakefile` copied in):
+
+1. Run the page's install block as written: `module load conda`, then
+   `conda create -n snakemake -c conda-forge -c bioconda snakemake snakemake-executor-plugin-slurm`
+   (answer `y` at the prompt), `conda activate snakemake`, `snakemake --version`: the environment
+   solves and installs, and the version is 8.6 or newer. Record it.
+2. `snakemake -n`: the same job table as B1.1.
+3. `snakemake --cores 2`: as B1.2.
+4. As B1.3: `Nothing to be done`.
+5. As B1.4: one `count`, `summary`, `all`; 21 lines.
+6. `snakemake -n --executor slurm --jobs 20 --default-resources slurm_account="$ACCT" slurm_partition=cpu`:
+   prints the job table and `This was a dry-run`, no error (warnings are fine; record any), and
+   `squeue -u $USER` shows no new job. This checks that the page's executor options parse.
+
+**B3. Parsl** (Gautschi, `parsl/`):
+
+1. Run the page's install block as written: `module load uv`, `uv venv ~/parsl-env --python 3.12`,
+   `source ~/parsl-env/bin/activate`, `uv pip install parsl`,
+   `python -c "import parsl; print(parsl.__version__)"`: prints a version. Record it. If
+   `~/parsl-env` already exists, move it aside first.
+2. Copy `config.py` and `count.py` into `parsl/`.
+3. Configuration builds (constructs objects only; nothing is submitted):
+   `python -c "from config import config; p = config.executors[0].provider; print(type(p).__name__, p.account, p.partition, p.qos, p.nodes_per_block, p.max_blocks, p.walltime, p.exclusive)"`
+   prints `SlurmProvider myallocation cpu normal 1 2 01:00:00 True` with no `TypeError`. (The page
+   says the provider asks for whole nodes by default; `True` confirms it.)
+4. The program runs, with a local thread pool standing in for `config.py` (nothing is submitted):
+
+    ```bash
+    python - <<'PY'
+    import runpy, sys, types
+    from parsl.config import Config
+    from parsl.executors.threads import ThreadPoolExecutor
+    sys.modules["config"] = types.SimpleNamespace(config=Config(executors=[ThreadPoolExecutor()]))
+    runpy.run_path("count.py", run_name="__main__")
+    PY
+    ```
+
+    exits 0; `wc -l < summary.txt` is 20; `grep sample_05 summary.txt` prints
+    `5 data/sample_05.txt`; `ls results | wc -l` is 20; a `runinfo/` directory exists.
+5. Planted failure: `chmod 000 data/sample_05.txt`, remove `summary.txt`, run B3.4 again: exits
+   non-zero with a traceback ending in `parsl.dataflow.errors.DependencyError`, and `summary.txt`
+   is not created (the page says the summary does not run and `.result()` raises). Then
+   `chmod 644 data/sample_05.txt`.
+
+#### C. Link checks (no cluster)
+
+From any machine, each URL opens a live page whose title matches the link text on the page:
+`https://snakemake.readthedocs.io/`, `https://snakemake.github.io/snakemake-plugin-catalog/plugins/executor/slurm.html`,
+`https://snakemake.readthedocs.io/en/stable/executing/grouping.html`, `https://docs.seqera.io/nextflow/`,
+`https://docs.seqera.io/nextflow/executor`, `https://nf-co.re/`, `https://pegasus.isi.edu/documentation/`,
+`https://www.rcac.purdue.edu/news/7628` (dated 2026-03-10, Pegasus on Anvil), `https://pegasus.access-ci.org`,
+the three ACCESS documentation pages linked from `pegasus.md` (ACCESS Pegasus, HTCondor Annex,
+Pegasus Workflows), `https://parsl.readthedocs.io/`, the SlurmProvider reference and the Providers
+guide linked from `parsl.md`. Optional, if you can log in to the Anvil Notebook Service with ACCESS
+credentials: record whether a Pegasus environment is offered at launch (the page does not name it).
+
+#### D. Not covered by this envelope (record, do not run)
+
+No job runs in V3, so these page statements are checked only as far as A–C go. Record each as a
+residual risk, to clear in a later envelope or at review:
+
+- **Parsl in Slurm.** That `SlurmProvider` blocks start on Gautschi with the page's values, that
+  `worker_init` finds `~/parsl-env` on the compute nodes, and that workers reach the driver on a
+  login node over the network. The Anvil (`partition="wholenode"`, no `qos`) and Negishi variants
+  in the prose are not built in B3.
+- **Snakemake Slurm executor.** Real submission with `--executor slurm` (B2.6 is a dry run only).
+- **Nextflow behaviour** (`-resume`, the `slurm` executor, `queueSize`, `submitRateLimit`) is
+  described from Nextflow's documentation and the Life Sciences guides, not run here.
+
+#### Results
+
+*(validator)*
 
 ## P4 — Guide landing page and Tier 1 (V4)
 

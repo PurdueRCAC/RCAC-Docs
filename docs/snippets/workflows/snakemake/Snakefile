@@ -1,0 +1,25 @@
+# Every data/<sample>.txt file is one sample.
+SAMPLES = sorted(glob_wildcards("data/{sample}.txt").sample)
+
+# The first rule is the default target: the summary of every sample.
+rule all:
+    input:
+        "summary.txt"
+
+# One job per sample: count the words in one input file.
+rule count:
+    input:
+        "data/{sample}.txt"
+    output:
+        "results/{sample}.count"
+    shell:
+        "wc -w {input} > {output}"
+
+# One job that waits for every count, then collects them.
+rule summary:
+    input:
+        expand("results/{sample}.count", sample=SAMPLES)
+    output:
+        "summary.txt"
+    shell:
+        "cat {input} > {output}"

@@ -102,10 +102,10 @@ The table places each tool you are likely to meet on those four questions.
 | [GNU Make](gnu_make.md) | Both, on one node | Rule-file DSL (a Makefile) | Single process; file timestamps | Graph of files |
 | [GNU Parallel](gnu_parallel.md) | Executes | Shell command, with input templating | Single process; an optional job log file | Flat |
 | HyperShell | Executes | Shell command, with input templating | Server with workers; a SQL database of every task | Flat, with ordered task groups |
-| Snakemake | Defines; submits through executors | Rule-file DSL (a Python-based Snakefile) | DAG engine (one driver process); files plus its own state directory | Graph of files |
-| Nextflow | Defines; submits through executors | Pipeline DSL (Groovy-based) | DAG engine (a dataflow driver on the JVM); a work directory and resume cache | Dataflow graph |
-| Pegasus | Defines (it plans; HTCondor executes) | Programming API (Python) plus catalogs | Planner over HTCondor's DAG manager; a provenance database | Graph with data movement |
-| Parsl | Both | Programming API (Python) | Driver process with pilot workers; in memory, with an optional monitoring database | Graph built at run time |
+| [Snakemake](snakemake.md) | Defines; submits through executors | Rule-file DSL (a Python-based Snakefile) | DAG engine (one driver process); files plus its own state directory | Graph of files |
+| [Nextflow](nextflow.md) | Defines; submits through executors | Pipeline DSL (Groovy-based) | DAG engine (a dataflow driver on the JVM); a work directory and resume cache | Dataflow graph |
+| [Pegasus](pegasus.md) | Defines (it plans; HTCondor executes) | Programming API (Python) plus catalogs | Planner over HTCondor's DAG manager; a provenance database | Graph with data movement |
+| [Parsl](parsl.md) | Both | Programming API (Python) | Driver process with pilot workers; in memory, with an optional monitoring database | Graph built at run time |
 | HTCondor | Executes | Submit description file, plus a DAG file for workflows | Pool manager (standing daemons) | Flat, or a graph through its DAG manager |
 | Dask | Both | Programming API (Python) | Scheduler with workers; in memory | Graph built at run time |
 | Ray | Both | Programming API (Python) | Head node with workers; an in-memory object store | Graph built at run time |
@@ -249,6 +249,38 @@ Each page says what the tool is, the work it fits, where it wins, and where Hype
     Zero-setup parallelism for a list of shell commands inside one single-node job.
 
     [:octicons-arrow-right-24: GNU Parallel](gnu_parallel.md)
+
+-   :material-snake:{ .lg .middle } __Snakemake__
+
+    ---
+
+    Rule files that turn file dependencies into a graph, with a software environment per rule.
+
+    [:octicons-arrow-right-24: Snakemake](snakemake.md)
+
+-   :material-transit-connection-variant:{ .lg .middle } __Nextflow__
+
+    ---
+
+    Containerized, portable pipelines and the nf-core catalog, with links to RCAC's Nextflow guides.
+
+    [:octicons-arrow-right-24: Nextflow](nextflow.md)
+
+-   :material-sitemap:{ .lg .middle } __Pegasus__
+
+    ---
+
+    A planner for data-heavy workflows across sites, reached at RCAC through Anvil.
+
+    [:octicons-arrow-right-24: Pegasus](pegasus.md)
+
+-   :material-language-python:{ .lg .middle } __Parsl__
+
+    ---
+
+    Parallel workflows written as ordinary Python, with graphs decided at run time.
+
+    [:octicons-arrow-right-24: Parsl](parsl.md)
 
 </div>
 

@@ -296,6 +296,10 @@ nav:
       - Slurm Job Arrays: workflows/job_arrays.md
       - GNU Make: workflows/gnu_make.md
       - GNU Parallel: workflows/gnu_parallel.md
+      - Snakemake: workflows/snakemake.md
+      - Nextflow: workflows/nextflow.md
+      - Pegasus: workflows/pegasus.md
+      - Parsl: workflows/parsl.md
     - RCAC Workshops:
       - workshops/index.md
       - HPC Exchange:

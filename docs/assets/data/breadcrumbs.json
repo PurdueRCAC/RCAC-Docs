@@ -864,6 +864,26 @@
     "Workflow Automation",
     "GNU Parallel"
   ],
+  "/workflows/snakemake/": [
+    "Home",
+    "Workflow Automation",
+    "Snakemake"
+  ],
+  "/workflows/nextflow/": [
+    "Home",
+    "Workflow Automation",
+    "Nextflow"
+  ],
+  "/workflows/pegasus/": [
+    "Home",
+    "Workflow Automation",
+    "Pegasus"
+  ],
+  "/workflows/parsl/": [
+    "Home",
+    "Workflow Automation",
+    "Parsl"
+  ],
   "/workshops/": [
     "Home",
     "RCAC Workshops"
