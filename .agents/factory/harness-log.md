@@ -10,4 +10,5 @@ coming back. Humans may annotate freely. **Newest first.**
 
 | date | finding | job (META) | action | target | note |
 |------|---------|-----------|--------|--------|------|
+| 2026-11-23 | example scripts carry advanced shell patterns that distract scientists from the lesson | workflow-automation (human feedback at the P7 gate, not a META finding) | applied (manual, human-approved diff) | `factory/style-guide.md` (Code blocks → *Example scripts*), `factory/review-rubric.md` (Scope item 6) | Maintainer feedback: user guides are for scientists, not professional Bash developers; an advanced pattern distracts from the main lesson. The cycle's P8 simplifies its existing examples to match. |
 | 2026-07-15 | initial hardening pass (build-gate ERRORs, uv/.venv standardization, weaker/non-Claude robustness, verbatim-include pattern) | agentic-ai-docs (test-drive) | applied (manual, pre-loop) | `.agents/**`, `AGENTS.md` | Applied by hand during the factory test-drive before `/docs-harness` existed; recorded for provenance. Commits `58f49733`..`804f0bd3`. |

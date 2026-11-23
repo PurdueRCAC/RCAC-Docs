@@ -1,0 +1,38 @@
+# FILENAME: relay.toml
+# The HyperShell relay on login00.gautschi.rcac.purdue.edu. It connects
+# to the server on Geddes, asks it for work in the zones below, and runs
+# that work in clients it launches with srun, one Slurm job each, as the
+# server's plan asks.
+
+[relay]
+# The name of this cluster in the server's plan.
+site = "gautschi"
+# Every client runs 4 tasks at once and exits after 10 minutes with
+# nothing to do, which ends its Slurm job.
+num_threads = 4
+timeout = 600
+# srun stays in the foreground for the life of the client, as the relay
+# needs, and passes the environment through to it.
+launcher = "srun"
+
+[relay.upstream]
+# The server's Load Balancer Service on Geddes.
+host = "hypershell.<your-namespace>.geddes.rcac.purdue.edu"
+port = 50001
+# The queue key, read from a file that only you can read.
+auth_eval = 'cat "$HYPERSHELL_SITE/upstream.key"'
+
+[relay.upstream.tls]
+# The fingerprint of the server's certificate, which the relay checks.
+fingerprint = "SHA256:<the fingerprint of tls.crt>"
+
+# Zone cpu: 4 cores on a standard node per client, up to 8 clients.
+[relay.zone.cpu]
+launcher_args = "--account=myallocation --partition=cpu --qos=normal --ntasks=1 --cpus-per-task=4 --time=04:00:00 --job-name=survey-cpu"
+max = 8
+
+# Zone gpu: one H100 per client, with the 14 cores per GPU that the ai
+# partition requires. The client's 4 tasks share the GPU.
+[relay.zone.gpu]
+launcher_args = "--account=myallocation --partition=ai --qos=normal --ntasks=1 --gpus-per-node=1 --cpus-per-task=14 --time=04:00:00 --job-name=survey-gpu"
+max = 2

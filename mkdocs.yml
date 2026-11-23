@@ -291,6 +291,23 @@ nav:
       - NVIDIA Nsight Systems: profilers/nvidia_nsight_systems.md
       - AMD uProf: profilers/amduprof.md
       - Intel VTune: profilers/vtune.md
+    - Workflow Automation:
+      - workflows/index.md
+      - Slurm Job Arrays: workflows/job_arrays.md
+      - GNU Make: workflows/gnu_make.md
+      - GNU Parallel: workflows/gnu_parallel.md
+      - Snakemake: workflows/snakemake.md
+      - Nextflow: workflows/nextflow.md
+      - Pegasus: workflows/pegasus.md
+      - Parsl: workflows/parsl.md
+      - HyperShell User Guide:
+        - workflows/hypershell/index.md
+        - "Tier 1: One Job Script": workflows/hypershell/single_job.md
+        - GPU Multiplexing: workflows/hypershell/gpu_multiplexing.md
+        - "Tier 2: Extreme Scale": workflows/hypershell/extreme_scale.md
+        - "Tier 3: A Pipeline on One Cluster": workflows/hypershell/pipelines.md
+        - "Tier 4: A Persistent Service on Geddes": workflows/hypershell/geddes_service.md
+        - "Tier 4: Autoscaling Across Clusters": workflows/hypershell/autoscaling.md
     - RCAC Workshops:
       - workshops/index.md
       - HPC Exchange:

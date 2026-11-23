@@ -1,0 +1,1947 @@
+# VALIDATION — workflow-automation
+
+The cluster validation log for this cycle (GOAL R15; PLAN §6). Step agents never run anything on a
+cluster. The cycle's validator runs the PLAN §6 envelope against the committed snippet files and
+records results here. Each validating phase's `verify:` in [`TECH.md`](TECH.md) greps for its
+status line, so a phase closes only once its line reads `PASS`.
+
+**Status line format** (one per phase, at the start of a line):
+
+- `P<n>: PENDING — <files to run>` (written by the draft run)
+- `P<n>: PASS — <YYYY-MM-DD>, <clusters>, HyperShell <version or commit>` (written by the validator)
+- `P<n>: FAIL — <YYYY-MM-DD>, <what broke>` (written by the validator; the close run fixes and re-queues)
+
+Under each phase heading, record: the build under test, image tags (P7), the account/partition/QOS
+used (placeholders in the pages stay placeholders), the `sbatch --test-only` result per tab, the
+checks from the PLAN §6 row, and any change the draft needs.
+
+## Build under test
+
+Publish rule (GOAL *Plan gate, 2026-11-22*): validate on Gautschi's `hypershell/develop` module
+(record the exact `hs --version` each time) or a recorded `develop` commit.
+
+*(validator: version or commit, install route, per cluster)*
+
+## Merge hold
+
+The draft PR may open at any time. Merge only after 2.9.0 is tagged, the default module on Gautschi
+and Anvil is 2.9.0, and the tier 1 checks have been re-run on that module:
+
+- `P4-release: PASS — <date>, Gautschi + Anvil, default module <version>` *(written by the validator)*
+- Module packaging, from P5 A1, fixed with the 2.9.0 deploy before merge: Anvil's GPU module tree
+  (`modtree/gpu`) offers a `hypershell` module, and Gilbreth's `hypershell` loads without
+  `module load external`.
+- `P6-release: PASS — <date>, Gautschi, default module <version>` *(written by the validator)*:
+  the tier 3 server path, run once on the released module before merge. First the C0 port probe
+  from a compute node to the login node, then C1–C8 and C11 of the P6 request. P6 validation ran A
+  and B only (C deferred here by decision). The P6 request's own close-run checks, F1 (the page's
+  port and login-node host-name wording) and F2 (the page's quoted log lines and the *Make the key*
+  and *Start the server* steps), depend on C and are carried to this check; the page stays as
+  drafted until then. **Amended by P8:** tier 3's scripts were simplified, so this check runs the
+  C steps in the forms listed under *P8 — re-validation after simplification* → *P6-release as
+  amended* (stand-ins `align.sh`/`genotype.sh`/`merge.sh`, phases as `hs submit` commands,
+  `schedule-clients.sh ZONE PARTITION` with one job per run, `keep-scheduling.sh`), and F2 also
+  checks the page's new helper output line.
+- `P7-release: PASS — <date>, Geddes + Gautschi + Negishi, default module <version>, image <tag>`
+  *(written by the validator)*: the whole P7 request (A–K under the P7 heading), run once on the
+  released module and the matching published image, with a human doing the Rancher steps (C). P7
+  validation was deferred here by decision at the P7 draft: it needs a release whose relay starts
+  its clients with `hs` rather than the deprecated `hyper-shell` (HyperShell seed
+  `relay-client-exe-deprecated-name`, ruling 2026-11-23), and the post-2.9.0a8 fixes. Until this line is written, P7 has no `P7: PASS` line.
+  P8's simplification pass changed no tier 4 script; a separate P8-time fix names the upstream
+  image `timescale/timescaledb:2.32.1-pg18` and mounts the volume at `/var/lib/postgresql`, and
+  the P7 request (C2, D1 and the new D1a) is updated to match.
+- `P8: PASS` *(written by the validator)*: the P8 re-validation R1–R3 (job array, tier 1, GPU) after
+  the simplification pass, before P8 closes.
+
+## P2 — Baseline tools (V2)
+
+Validation request for draft `9849de64`, covering docs/snippets/workflows/{sample-data.sh, job_arrays/{header-anvil,header-gautschi,header-negishi,header-scholar,body}.sh, gnu_make/{header-anvil,header-gautschi,header-negishi,header-scholar,body}.sh, gnu_make/Makefile, gnu_parallel/{header-anvil,header-gautschi,header-negishi,body}.sh}; result: PASS, see Results below.
+
+### Validation request (written by the draft run, 2026-11-22)
+
+P2 uses no HyperShell. Record "HyperShell: not used" in the PASS line.
+
+**Envelope.** Gautschi, `-A "$ACCT" -p cpu -q standby`, at most 1 node × 15 minutes per job,
+files only under `$RCAC_SCRATCH/workflow-automation/`. `$ACCT` is the validation account from the
+envelope, kept out of the repository. Every Gautschi tab already says `--partition=cpu` and asks
+for 1 node and 10 or 15 minutes. Run the files unchanged and override the account and QOS on the
+command line (`sbatch -A "$ACCT" -q standby …`); a command-line option overrides the matching
+`#SBATCH` line. The other clusters get login-node checks and `sbatch --test-only` only.
+
+**Assembling a tab.** Each published tab is its header file, one empty line, then the shared body.
+This command reproduces the rendered tab byte for byte (checked against the built `site/` for
+all 11 tabs, the sample-data block and the Makefile):
+
+```bash
+{ cat header-<cluster>.sh; echo; cat body.sh; } > <name>.sub
+```
+
+| Script | Header files (one per tab) | Body | Rendered at |
+|---|---|---|---|
+| `array.sub` | `job_arrays/header-{anvil,gautschi,negishi,scholar}.sh` | `job_arrays/body.sh` | `site/workflows/job_arrays/index.html` |
+| `make.sub` | `gnu_make/header-{anvil,gautschi,negishi,scholar}.sh` | `gnu_make/body.sh` | `site/workflows/gnu_make/index.html` |
+| `parallel.sub` | `gnu_parallel/header-{anvil,gautschi,negishi}.sh` | `gnu_parallel/body.sh` | `site/workflows/gnu_parallel/index.html` |
+
+Also used as published, not assembled: `sample-data.sh` (the "Make sample data" block on all three
+pages) and `gnu_make/Makefile` (copy it as `Makefile`). All paths are under
+`docs/snippets/workflows/`.
+
+#### A. Login-node checks (no job)
+
+| # | Cluster(s) | Command | PASS if |
+|---|---|---|---|
+| A1 | Anvil, Gautschi, Gilbreth, Negishi | `module load parallel && parallel --version \| head -1`; `module spider parallel` | loads with no prerequisite module; record the version (catalog: Anvil 20200822, Gautschi 20241022, Gilbreth 20241022, Negishi 20220522) |
+| A2 | Scholar | `module spider parallel` | no module found (the page says Scholar has none) |
+| A3 | Anvil, Gautschi, Negishi, Scholar | `command -v make && make --version \| head -1`, with no module loaded | a system `make` is found, GNU Make 3.82 or newer (`.RECIPEPREFIX` needs 3.82); the page says no module is needed |
+| A4 | Anvil and Gautschi | `module load parallel && man parallel \| col -b \| grep -A3 -E '^ +--(resume\|resume-failed\|retry-failed\|retries)( \|$)'` | all four options exist in the module's version, and the descriptions agree with the page's table (resume skips any task in the log; resume-failed runs failed then not-yet-run; retry-failed reruns failed from the log) |
+| A5 | Anvil, Gautschi, Gilbreth, Negishi, Scholar | `module spider htcondor; module spider condor; command -v condor_submit condor_q` | no module and no command on any cluster. The P1 landing page says HTCondor "is not provided as a module on RCAC's clusters"; any hit is a FAIL that sends a fix to `docs/workflows/index.md` |
+| A6 | Anvil, Gautschi, Negishi, Scholar | `scontrol show config \| grep -i MaxArraySize`; `sacctmgr show qos format=Name,MaxJobsPU,MaxSubmitPU` | the first prints a `MaxArraySize = <n>` line and the second a table with those three columns. Record the values here; they are not published |
+
+#### B. `sbatch --test-only`, every tab
+
+On each cluster's login node, with your real account there, assemble the tab and run
+`sbatch --test-only -A <your account> <name>.sub` (on Scholar, run it without `-A`; the file
+already says `scholar`). PASS if sbatch prints `Job <n> to start at … in partition <p>` and no
+error. If Gautschi or Negishi rejects `--qos=normal` for account reasons only (no CPU purchase on
+that account), record that and repeat with `-q standby`; a syntax or partition error is a FAIL.
+Mark a cluster N/A if you have no account there.
+
+| Cluster | Tabs |
+|---|---|
+| Anvil | `array.sub`, `make.sub`, `parallel.sub` (partition `shared`, no QOS line) |
+| Gautschi | `array.sub`, `make.sub`, `parallel.sub` |
+| Negishi | `array.sub`, `make.sub`, `parallel.sub` |
+| Scholar | `array.sub`, `make.sub` (no GNU Parallel tab) |
+
+#### C. Gautschi runs
+
+Make three empty directories under `$RCAC_SCRATCH/workflow-automation/p2/` (`arrays`, `make`,
+`parallel`). In each, run the sample-data block (`bash sample-data.sh`) and check: `ls data | wc -l`
+is 20, `wc -l < data/sample_08.txt` is 8, `wc -l < inputs.txt` is 20. Assemble the Gautschi tab
+into the matching directory.
+
+**C1. Job array** (`arrays/`, `array.sub` from `header-gautschi.sh`):
+
+1. Plant a failure: `chmod 000 data/sample_05.txt`.
+2. `sbatch --hold -A "$ACCT" -q standby array.sub` → J1. `scontrol show job J1 | grep -o 'ArrayTaskThrottle=[0-9]*'`
+   prints `ArrayTaskThrottle=5`. Then `scontrol release J1`.
+3. While it runs, `squeue -u $USER -r` shows one line per array task (`J1_<n>`). N/A if the tasks
+   finish before you look.
+4. After it ends, `sacct -j J1 -X --format=JobID,State,ExitCode` shows 20 rows `J1_1` … `J1_20`:
+   `J1_5` is `FAILED 1:0` and the other 19 are `COMPLETED 0:0`.
+5. `cat results/sample_07.count` prints `7 data/sample_07.txt`; there are 20 files
+   `array-J1_<n>.out`, and `head -1 array-J1_7.out` prints `Array task 7 of job J1: data/sample_07.txt`.
+6. Re-run only the failure: `chmod 644 data/sample_05.txt`, then
+   `sbatch -A "$ACCT" -q standby --array=5 array.sub` → J2. `sacct -j J2 -X --format=JobID,State,ExitCode`
+   shows one row `J2_5 COMPLETED 0:0`, and `cat results/sample_05.count` prints `5 data/sample_05.txt`.
+7. Cancel one task: `sbatch --hold -A "$ACCT" -q standby --array=1-3 array.sub` → J3,
+   `scancel J3_2`, then `sacct -j J3 -X --format=JobID,State` shows `J3_2` as `CANCELLED`; then
+   `scancel J3`.
+
+**C2. GNU Make** (`make/`, `make.sub` from `header-gautschi.sh`, plus `Makefile`):
+
+1. Plant a failure: `chmod 000 data/sample_05.txt`.
+2. `sbatch -A "$ACCT" -q standby make.sub` → J4. `sacct -j J4 -X --format=JobID,State,ExitCode`
+   shows `FAILED 2:0`. `ls results/*.count | wc -l` is 19, `results/sample_05.count` does not exist
+   (`.DELETE_ON_ERROR`), `summary.txt` does not exist, and `slurm-J4.out` contains
+   `not remade because of errors` and no `missing separator` error.
+3. `chmod 644 data/sample_05.txt`; resubmit → J5 `COMPLETED 0:0`. `slurm-J5.out` shows exactly two
+   recipes: `wc -w data/sample_05.txt > results/sample_05.count` and the `cat … > summary.txt` line.
+   `wc -l < summary.txt` is 20 and `grep sample_05 summary.txt` prints `5 data/sample_05.txt`.
+4. Resubmit unchanged → J6 `COMPLETED 0:0`; `slurm-J6.out` contains `'summary.txt' is up to date`.
+5. Add one sample: `seq 21 > data/sample_21.txt`; resubmit → J7 `COMPLETED 0:0`; `slurm-J7.out`
+   shows exactly two recipes (`sample_21.count` and `summary.txt`), and `wc -l < summary.txt` is 21.
+
+**C3. GNU Parallel** (`parallel/`, `parallel.sub` from `header-gautschi.sh`):
+
+1. Plant a failure before the first run: `echo data/sample_21.txt >> inputs.txt` (that file does
+   not exist yet), so `inputs.txt` has 21 lines.
+2. `sbatch -A "$ACCT" -q standby parallel.sub` → J8. `sacct -j J8 -X --format=JobID,State,ExitCode`
+   shows a non-zero exit (GNU Parallel exits with the number of failed tasks: expect `FAILED 1:0`).
+   `wc -l < parallel.log` is 22 (header + 21). The page's command
+   `awk -F '\t' 'NR > 1 && $7 != 0' parallel.log` prints exactly one line, ending
+   `wc -w data/sample_21.txt > results/sample_21.count`. `cat results/sample_07.count` prints
+   `7 data/sample_07.txt`. Record whether `slurm-J8.out` contains any citation notice.
+3. Fix it: `seq 21 > data/sample_21.txt`; note `stat -c %Y results/sample_07.count` → T. Resubmit
+   unchanged → J9 `COMPLETED 0:0`. `wc -l < parallel.log` is 23 (one new line, sequence 21,
+   `Exitval` 0); `cat results/sample_21.count` prints `21 data/sample_21.txt`; `stat -c %Y
+   results/sample_07.count` still prints T (succeeded tasks were skipped).
+4. Resubmit unchanged once more → J10 `COMPLETED 0:0`, and `wc -l < parallel.log` is still 23
+   (sequence 21's later success counts; nothing reruns). If it reruns sequence 21, record that: the
+   page's "tasks that succeeded are skipped" wording then needs a caveat for tasks that failed
+   once.
+
+#### D. Not covered by this envelope (record, do not run)
+
+The Anvil, Negishi and Scholar tabs are checked by `--test-only` (B) and the module checks (A),
+not executed. In particular, the Anvil GNU Parallel tab runs `module load parallel` under
+`#!/bin/bash` in a non-login batch shell and relies on Slurm exporting the submit-time module
+environment (Slurm's default). Running it is outside this envelope: record "Anvil batch: not
+run" as a residual risk, to clear in a later envelope or at review.
+
+#### Results
+
+Validated 2026-11-22 by the foreman on the clusters' login nodes and Gautschi batch, against the
+snippet files of `9849de64`, assembled as above. HyperShell: not used.
+
+- **A1** PASS. `module load parallel` loads with no prerequisite: Anvil 20200822, Gautschi 20241022,
+  Gilbreth 20241022, Negishi 20220522.
+- **A2** PASS. Scholar has no `parallel` module.
+- **A3** PASS. System `/usr/bin/make` with no module loaded: Anvil 4.2.1, Gautschi 4.3, Negishi 4.2.1,
+  Scholar 4.3 (all at least 3.82).
+- **A4** PASS. `--resume`, `--resume-failed`, `--retry-failed`, `--retries n` present in the man page
+  on Anvil and Gautschi.
+- **A5** PASS. No `htcondor` or `condor` module and no `condor_submit`/`condor_q` on Anvil, Gautschi,
+  Gilbreth, Negishi or Scholar. The P1 landing-page claim stands.
+- **A6** PASS (recorded, not published). MaxArraySize: Anvil 1001, Gautschi 20001, Negishi 1001,
+  Scholar 1001.
+- **B** PASS, 11/11. `sbatch --test-only` prints "Job … to start at … in partition …" for every tab:
+  Anvil array/make/parallel (`shared`); Gautschi, Negishi array/make/parallel (`cpu`); Scholar
+  array/make (`cpu`, no `-A`). On Anvil, one allocation was refused with `AssocGrpCPUMinutesLimit`
+  (an exhausted allocation, not a script fault); another allocation passed.
+- **C1** PASS. `ArrayTaskThrottle=5` on the held job; `squeue -r` showed one line per task; 19 ×
+  `COMPLETED 0:0` and `_5 FAILED 1:0`; `sample_07.count` = `7 data/sample_07.txt`; 20 output files;
+  first line `Array task 7 of job <id>: data/sample_07.txt`. Rerun `--array=5`: `_5 COMPLETED 0:0`,
+  `5 data/sample_05.txt`. `scancel <id>_2` on the held `--array=1-3` removed task 2
+  (`ArrayTaskId=1,3`). Note: a task cancelled before it starts leaves **no** `sacct` row (the request
+  expected `CANCELLED`); the page's `scancel` instruction is correct, and its "its own accounting
+  record" bullet needs a clause for tasks cancelled before they start (close run).
+- **C2** PASS. J4 `FAILED 2:0`, 19 counts, no `sample_05.count` or `summary.txt`, "Target
+  'summary.txt' not remade because of errors", no "missing separator". J5 `COMPLETED`, exactly two
+  recipes, 20 lines with `5 data/sample_05.txt`. J6 "'summary.txt' is up to date". J7 exactly two
+  recipes, 21 lines.
+- **C3** PASS. J8 `FAILED 1:0`, 22 log lines, one non-zero row (the `sample_21` command),
+  `sample_07.count` = `7 data/sample_07.txt`, no citation notice in the output. J9 `COMPLETED`, 23
+  lines, `21 data/sample_21.txt`, `sample_07.count` mtime unchanged (succeeded tasks skipped). J10
+  `COMPLETED`, log still 23 lines.
+- **Envelope deviation.** The make and parallel scripts (16 cores) sat at "Priority" with no start
+  estimate on a full `cpu` partition, so J6–J10 ran with `-c 4` on the command line. Both bodies size
+  their work from `$SLURM_CPUS_PER_TASK`, so the behaviour under test is unchanged. J4 and J5 ran at
+  16 cores; the first 16-core J6 and J8 were cancelled while pending.
+- **D** Anvil, Negishi, Scholar batch: not run (residual risk, as above).
+
+P2: PASS — 2026-11-22 · Gautschi standby (a staff allocation), A–C as above · HyperShell: not used · close run adds the `scancel` accounting clause
+
+## P3 — Workflow managers (V3)
+
+Validation request for draft `36896d7f`, covering docs/workflows/{snakemake,nextflow,pegasus,parsl}.md, docs/snippets/workflows/{snakemake/Snakefile, parsl/config.py, parsl/count.py}; result: PASS, see Results below.
+
+### Validation request (written by the draft run, 2026-11-22)
+
+P3 uses no HyperShell and submits no jobs. Record "HyperShell: not used" in the PASS line.
+
+**Envelope.** Login nodes only (V3): module checks on all five clusters, plus user-space installs
+and a few seconds of local commands on tiny files on Gautschi and Anvil. Nothing goes to Slurm:
+the one Slurm-flavoured command (B2.6) is a Snakemake dry run, which submits nothing. Files only
+under `$RCAC_SCRATCH/workflow-automation/p3/`, except the Parsl environment, which the page puts
+at `~/parsl-env` (B3). `$ACCT` is the validation account, kept out of the repository.
+
+**Already confirmed (foreman, 2026-11-22; re-run only if convenient):** Anvil `nextflow` 21.10.0
+and 22.10.1, `snakemake/6.8.0`, no Pegasus WMS module, no `pegasus-plan` or `condor_submit`;
+Gautschi `nextflow` 24.04.3, 25.10.04, 26.04.2, and `cadence/pegasus/*` is not Pegasus WMS; no
+HTCondor module or command on any of the five (P2 A5). The rows below still ask for the load and
+version commands on those clusters, which the confirmation did not cover.
+
+**Files.** The pages publish three files verbatim (copy them as named): `snakemake/Snakefile`
+(rendered at `site/workflows/snakemake/index.html`), `parsl/config.py` and `parsl/count.py`
+(rendered at `site/workflows/parsl/index.html`). All paths are under `docs/snippets/workflows/`.
+The sample data is P2's `sample-data.sh`. The draft run checked the Snakefile steps of B2.2–B2.6
+and B3.3–B3.5 on a workstation, with Snakemake 9.27.2 and snakemake-executor-plugin-slurm installed
+by pip (not conda) and Parsl 2026.11.16 on Python 3.12. Snakemake 6.8.0 (B1) and the conda install
+(B2.1) were not checked; the cluster run is what counts. On the workstation, building the Parsl
+executor (B3.3) tried to reach `api.ipify.org` to list the host's addresses; if a login node blocks
+that, a slow B3.3 is not a FAIL, but record it.
+
+#### A. Login-node module checks (no job)
+
+| # | Cluster(s) | Command | PASS if |
+|---|---|---|---|
+| A1 | Anvil | `module spider nextflow`; then, for each version, `module load nextflow/<v> && nextflow -version` | spider lists exactly 21.10.0 and 22.10.1; each loads with no prerequisite module and prints `version <v>` (`nextflow.md` table) |
+| A2 | Gautschi | as A1 | spider lists exactly 24.04.3, 25.10.04, 26.04.2; each loads with no prerequisite and prints `version <v>` |
+| A3 | Negishi | as A1 | spider lists exactly 22.10.1, 23.04.1, 25.10.04, 26.04.2; each loads with no prerequisite and prints `version <v>` |
+| A4 | Gilbreth, Scholar | `module spider nextflow` | no module found (the page says these two have none) |
+| A5 | Anvil | `module spider snakemake`; `module load snakemake && snakemake --version` | loads with no prerequisite module and prints `6.8.0` (the page says `module load snakemake` loads 6.8.0). If a prerequisite such as `biocontainers` is needed, FAIL: the close run adds that line |
+| A6 | Gautschi, Gilbreth, Negishi, Scholar | `module spider snakemake` | "Unable to find" on each: PASS. A hit that spider says needs `biocontainers` loaded first: PASS, record cluster and version (the close run may add one sentence naming it). A Snakemake module that loads with no prerequisite: FAIL (`snakemake.md` says the catalog lists none outside Anvil) |
+| A7 | Anvil, Gautschi, Gilbreth, Negishi, Scholar | `module spider pegasus`; `command -v pegasus-plan pegasus-version` | no Pegasus WMS module (on Gautschi, the only hits are `cadence/pegasus/*`, the unrelated EDA tool) and neither command found (`pegasus.md`: no Pegasus module on any community cluster). Negishi, Gilbreth and Scholar are the new checks |
+| A8 | all five | `module spider parsl` | no module found (`parsl.md`: RCAC provides no Parsl module) |
+| A9 | all five | `module load conda && conda --version` | loads and prints a version (`snakemake.md`: every RCAC cluster provides the `conda` module) |
+| A10 | all five | `module load uv && uv --version` | loads and prints a version (`parsl.md` installs with the `uv` module) |
+
+#### B. User-space installs and local runs on the login node (no job)
+
+Make `$RCAC_SCRATCH/workflow-automation/p3/` and work in the subdirectories named below. In each,
+first run `bash sample-data.sh` and check `ls data | wc -l` is 20. The commands in B1–B3 run 20
+`wc` and one `cat` over files of at most 20 lines, a few seconds in all.
+
+**B1. Snakemake 6.8.0 module** (Anvil, `smk-module/`, with `Snakefile` copied in):
+
+1. `module load snakemake`, then `snakemake -n`: prints a job table with `count` 20, `summary` 1,
+   `all` 1, total 22, and no error.
+2. `snakemake --cores 2`: exits 0; `wc -l < summary.txt` is 20; `grep sample_05 summary.txt` prints
+   `5 data/sample_05.txt`; `ls results | wc -l` is 20.
+3. `snakemake --cores 2` again: prints `Nothing to be done`.
+4. `seq 21 > data/sample_21.txt`, then `snakemake --cores 2`: runs exactly one `count` job (for
+   `sample_21`), the `summary` job and `all`; `wc -l < summary.txt` is 21.
+
+**B2. Current Snakemake from conda** (Gautschi, `smk-conda/`, with `Snakefile` copied in):
+
+1. Run the page's install block as written: `module load conda`, then
+   `conda create -n snakemake -c conda-forge -c bioconda snakemake snakemake-executor-plugin-slurm`
+   (answer `y` at the prompt), `conda activate snakemake`, `snakemake --version`: the environment
+   solves and installs, and the version is 8.6 or newer. Record it.
+2. `snakemake -n`: the same job table as B1.1.
+3. `snakemake --cores 2`: as B1.2.
+4. As B1.3: `Nothing to be done`.
+5. As B1.4: one `count`, `summary`, `all`; 21 lines.
+6. `snakemake -n --executor slurm --jobs 20 --default-resources slurm_account="$ACCT" slurm_partition=cpu`:
+   prints the job table and `This was a dry-run`, no error (warnings are fine; record any), and
+   `squeue -u $USER` shows no new job. This checks that the page's executor options parse.
+
+**B3. Parsl** (Gautschi, `parsl/`):
+
+1. Run the page's install block as written: `module load uv`, `uv venv ~/parsl-env --python 3.12`,
+   `source ~/parsl-env/bin/activate`, `uv pip install parsl`,
+   `python -c "import parsl; print(parsl.__version__)"`: prints a version. Record it. If
+   `~/parsl-env` already exists, move it aside first.
+2. Copy `config.py` and `count.py` into `parsl/`.
+3. Configuration builds (constructs objects only; nothing is submitted):
+   `python -c "from config import config; p = config.executors[0].provider; print(type(p).__name__, p.account, p.partition, p.qos, p.nodes_per_block, p.max_blocks, p.walltime, p.exclusive)"`
+   prints `SlurmProvider myallocation cpu normal 1 2 01:00:00 True` with no `TypeError`. (The page
+   says the provider asks for whole nodes by default; `True` confirms it.)
+4. The program runs, with a local thread pool standing in for `config.py` (nothing is submitted):
+
+    ```bash
+    python - <<'PY'
+    import runpy, sys, types
+    from parsl.config import Config
+    from parsl.executors.threads import ThreadPoolExecutor
+    sys.modules["config"] = types.SimpleNamespace(config=Config(executors=[ThreadPoolExecutor()]))
+    runpy.run_path("count.py", run_name="__main__")
+    PY
+    ```
+
+    exits 0; `wc -l < summary.txt` is 20; `grep sample_05 summary.txt` prints
+    `5 data/sample_05.txt`; `ls results | wc -l` is 20; a `runinfo/` directory exists.
+5. Planted failure: `chmod 000 data/sample_05.txt`, remove `summary.txt`, run B3.4 again: exits
+   non-zero with a traceback ending in `parsl.dataflow.errors.DependencyError`, and `summary.txt`
+   is not created (the page says the summary does not run and `.result()` raises). Then
+   `chmod 644 data/sample_05.txt`.
+
+#### C. Link checks (no cluster)
+
+From any machine, each URL opens a live page whose title matches the link text on the page:
+`https://snakemake.readthedocs.io/`, `https://snakemake.github.io/snakemake-plugin-catalog/plugins/executor/slurm.html`,
+`https://snakemake.readthedocs.io/en/stable/executing/grouping.html`, `https://docs.seqera.io/nextflow/`,
+`https://docs.seqera.io/nextflow/executor`, `https://nf-co.re/`, `https://pegasus.isi.edu/documentation/`,
+`https://www.rcac.purdue.edu/news/7628` (dated 2026-03-10, Pegasus on Anvil), `https://pegasus.access-ci.org`,
+the three ACCESS documentation pages linked from `pegasus.md` (ACCESS Pegasus, HTCondor Annex,
+Pegasus Workflows), `https://parsl.readthedocs.io/`, the SlurmProvider reference and the Providers
+guide linked from `parsl.md`. Optional, if you can log in to the Anvil Notebook Service with ACCESS
+credentials: record whether a Pegasus environment is offered at launch (the page does not name it).
+
+#### D. Not covered by this envelope (record, do not run)
+
+No job runs in V3, so these page statements are checked only as far as A–C go. Record each as a
+residual risk, to clear in a later envelope or at review:
+
+- **Parsl in Slurm.** That `SlurmProvider` blocks start on Gautschi with the page's values, that
+  `worker_init` finds `~/parsl-env` on the compute nodes, and that workers reach the driver on a
+  login node over the network. The Anvil (`partition="wholenode"`, no `qos`) and Negishi variants
+  in the prose are not built in B3.
+- **Snakemake Slurm executor.** Real submission with `--executor slurm` (B2.6 is a dry run only).
+- **Nextflow behaviour** (`-resume`, the `slurm` executor, `queueSize`, `submitRateLimit`) is
+  described from Nextflow's documentation and the Life Sciences guides, not run here.
+
+#### Results
+
+Validated 2026-11-22 by the foreman on the five clusters' login nodes (no Slurm jobs), against
+`36896d7f`. HyperShell: not used. Envelope note: the conda environment (B2) was created with
+`conda create -p` under `$RCAC_SCRATCH/workflow-automation/p3/envs/` and the Parsl venv (B3) under
+the same directory, not in the home directory; `CONDA_ENVS_DIRS` could not be used because the
+conda module already sets `CONDA_ENVS_PATH` (`MultipleKeysError`). The page's install commands are
+otherwise unchanged.
+
+- **A1 Anvil nextflow** FAIL (claim). `nextflow/22.10.1` loads with no prerequisite and prints
+  `version 22.10.1`. `nextflow/21.10.0` "exists but cannot be loaded as requested": it is a
+  `biocontainers` module. → close-run fix C2.
+- **A2 Gautschi nextflow** FAIL (claim). 25.10.04 and 26.04.2 load and print `version 25.10.4`,
+  `version 26.04.2`. `nextflow/24.04.3` loads but does not run: `UnsupportedClassVersionError`
+  (built for Java 11, class file 55; the system Java is 1.8.0_492). A module defect, reported
+  separately. → close-run fix C3.
+- **A3 Negishi nextflow** PASS. 22.10.1, 23.04.1, 25.10.4, 26.04.2 each load and print their version.
+- **A4** PASS with record. Gilbreth: no nextflow module. Scholar: `module spider nextflow` finds it
+  only behind `biocontainers/default`.
+- **A5 Anvil snakemake** FAIL (claim). `snakemake/6.8.0` is a `biocontainers` module (a Singularity
+  image run through a shell function). `module load snakemake` alone fails; `module load
+  biocontainers snakemake` on one line also leaves it unloaded; `module load biocontainers` then
+  `module load snakemake` (two commands) loads it, and `snakemake --version` prints 6.8.0.
+  → close-run fix C1.
+- **A6** PASS with record. Gilbreth: none. Gautschi, Negishi (`snakemake/6.8.0`) and Scholar: only
+  behind `biocontainers`. No Snakemake module loads without a prerequisite on any cluster.
+- **A7** PASS. No Pegasus WMS module and no `pegasus-plan`/`pegasus-version` on any of the five;
+  Gautschi and Negishi list only `cadence/pegasus/*`.
+- **A8** PASS. No `parsl` module on any of the five.
+- **A9** PASS. `conda` module: Anvil 25.1.1, Gautschi 26.1.0, Gilbreth 25.3.1, Negishi 25.3.1, Scholar 25.3.1.
+- **A10** PASS. `uv` module: Anvil 0.13.9, Gautschi 0.13.6, Gilbreth 0.13.6, Negishi 0.13.6, Scholar 0.12.8.
+- **B1** PASS (with the `biocontainers` prerequisite). Dry run: count 20, summary 1, all 1, total 22;
+  run exits 0, 20 lines, `5 data/sample_05.txt`, 20 results; rerun "Nothing to be done."; adding
+  `sample_21` runs count 1, summary 1, all 1 (total 3), 21 lines.
+- **B2** PASS. The page's conda install solves; Snakemake 9.27.2. B1.1–B1.4 repeat identically. The
+  executor dry run with the page's options exits 0; with outputs current it reports nothing to do,
+  and with `--forceall` it prints the table (total 23) and "This was a dry-run"; `squeue` shows no job.
+- **B3** PASS. Parsl 2026.11.16. Config check prints `SlurmProvider myallocation cpu normal 1 2
+  01:00:00 True`. Thread-pool run exits 0, 20 lines, `5 data/sample_05.txt`, 20 results, `runinfo/`.
+  Planted failure exits 1 with `parsl.dataflow.errors.DependencyError`, and no `summary.txt`.
+- **C** PASS. All 15 external URLs return 200 (two through a redirect; the RCAC news page checked
+  from a cluster login node, title "Scientific workflow management system, Pegasus, available on Anvil").
+- **D** not run, as listed (residual risks).
+
+Close-run fixes required before P3 closes:
+- **C1** `snakemake.md`: on Anvil, Snakemake 6.8.0 is a `biocontainers` module, loaded with
+  `module load biocontainers` and then `module load snakemake` as two commands. Say that Gautschi,
+  Negishi and Scholar also offer Snakemake 6.8.0 only through `biocontainers`, Gilbreth none; 6.8.0
+  predates the Slurm executor plugin, so the conda route stays the recommendation for current
+  Snakemake.
+- **C2** `nextflow.md`: Anvil 21.10.0 is behind `biocontainers`; 22.10.1 loads directly. Scholar's
+  Nextflow is only behind `biocontainers`.
+- **C3** `nextflow.md`: drop 24.04.3 from Gautschi's list (it does not run with the system Java);
+  list 25.10.04 and 26.04.2.
+
+P3: PASS — 2026-11-22 · login nodes of all five clusters, no jobs · HyperShell: not used · conditional on close-run fixes C1–C3, re-checked by the foreman at the gate
+
+## P4 — Guide landing page and Tier 1 (V4)
+
+Validation request for draft `136a0f10`, covering docs/workflows/hypershell/{index,single_job}.md, docs/snippets/workflows/frames/{header-anvil,header-gautschi,header-negishi,header-scholar,body,render-frame}.sh; result: PASS, see Results below.
+
+### Validation request (written by the draft run, 2026-11-22)
+
+**Build under test.** Gautschi's `hypershell/develop` module (2.9.0a8 today). Record its exact
+`hs --version` in the PASS line. Tier 1 depends on nothing the 2.9.0a8 known issues touch: it uses
+no `hs server --initdb`, no environment variable for a key with an underscore, no key at all, no
+`#` inside a task command, and no duration with units. One a8 behaviour to know: if `srun` fails to
+start the clients, `hsx` on a8 waits until the walltime instead of exiting (fixed after a8), so a
+job that sits with no `Running task` lines for several minutes is a launch failure; record it.
+
+**Envelope.** Gautschi, `-A "$ACCT" -p cpu -q standby`, at most 2 nodes × 15 minutes per job, at
+most 2 jobs queued at once, files only under `$RCAC_SCRATCH/workflow-automation/p4/`. `$ACCT` is
+the validation account, kept out of the repository. The Gautschi tab already says
+`--partition=cpu`, two nodes and 15 minutes; override the account and QOS on the command line
+(`sbatch -A "$ACCT" -q standby …`), and add `-N 1` for the one-node runs (a command-line option
+overrides the matching `#SBATCH` line). Anvil, Negishi and Scholar get login-node checks and
+`sbatch --test-only` only.
+
+**Assembling a tab.** As in P2, each published tab is its header file, one empty line, then the
+shared body. This reproduces the rendered tab byte for byte (checked against the built `site/` for
+all four tabs and `render-frame.sh`):
+
+```bash
+{ cat header-<cluster>.sh; echo; cat body.sh; } > frames.sub
+```
+
+The published header says `module load hypershell`, which on Gautschi today loads the default
+2.7.0, where `hsx` refuses a task file together with `--restart`. For the Gautschi runs (C), change
+that one line and nothing else, and record that you did:
+
+```bash
+{ sed 's|^module load hypershell$|module load hypershell/develop|' header-gautschi.sh; echo; cat body.sh; } > frames.sub
+```
+
+The module line itself is checked as published in A1. All paths below are under
+`docs/snippets/workflows/frames/`. `render-frame.sh` is used as published (copy it as named), and
+the task file comes from the page's command:
+`printf 'sh render-frame.sh %d\n' $(seq 1 1200) > frames.txt`.
+
+**Draft-run check (workstation, not a cluster).** The body ran on macOS with HyperShell 2.9.0a8
+from PyPI, a stand-in `srun` that runs its command once, 40 frames, a shortened `sleep`, and
+`-H 127.0.0.1` added because the workstation's host name does not resolve. Killing the job's
+process group with SIGTERM mid-run left 16 succeeded, 2 failed (planted) and 22 unfinished, with no
+negative exit status; the unchanged resubmit logged `Found 22 unfinished tasks` and
+`Reverted 8 previously interrupted tasks`, rendered exactly the 21 frames left (the third planted
+frame failed again), and exited 0; a further resubmit logged `All previous tasks completed (40) -
+stopping`; `hs update --failed --revert` asked `Update affects 3 tasks, continue? yes/[no]:` and
+logged `Updated 3 tasks`, and the next resubmit rendered exactly those three. Appending a line to
+the task file made the next run stop with `differs from its prior submission (content changed);
+pass --update --restart`, and `--update --restart` then submitted only the new line. The cluster
+run is what counts.
+
+#### A. Login-node checks (no job)
+
+| # | Cluster(s) | Command | PASS if |
+|---|---|---|---|
+| A1 | Anvil, Gautschi, Negishi, Scholar | `module load hypershell && hs --version`; `module spider hypershell` | loads with no prerequisite module; record the version (catalog: 2.7.0 default on all four; a version below 2.9.0 is expected until the merge hold clears) |
+| A2 | Gautschi | `module load hypershell/develop && hs --version`; `command -v hs hsx hyper-shell` | prints `HyperShell v2.9.0a8 …` or later; record the version, and which of the three executables are on `PATH` (the relay in P7 needs `hyper-shell`) |
+| A3 | Gautschi, with `hypershell/develop` loaded | `hsx --help \| grep -E -- '--restart\|--update\|--capture\|--launcher'`; `hs list --help \| grep -E -- '--failed\|--succeeded\|--remaining\|--count\|--fields'`; `hs update --help \| grep -E -- '--revert\|--failed\|--no-confirm'` | every option named appears |
+| A4 | Gautschi | the config-across-versions check below | recorded either way; the outcome decides a close-run line, not PASS or FAIL |
+
+**A4. Config written for 2.9.0, read by the 2.7.0 module (PLAN §5 Q13).** `HYPERSHELL_CONFIG_FILE`
+makes HyperShell read only the file it names, so your own `~/.hypershell/config.toml` is neither
+read nor changed. In `$RCAC_SCRATCH/workflow-automation/p4/config/`:
+
+```bash
+umask 077
+openssl rand -hex 16 > key
+printf '[server]\nauth = "%s"\n' "$(cat key)" > auth.toml
+printf '[server]\nauth_eval = "cat %s/key"\n' "$PWD" > auth-eval.toml
+: > empty.toml
+module purge; module load hypershell/2.7.0
+for c in auth auth-eval empty; do echo "--- $c"; HYPERSHELL_CONFIG_FILE="$PWD/$c.toml" hs --version; done
+module purge; module load hypershell/develop
+for c in auth auth-eval empty; do echo "--- $c"; HYPERSHELL_CONFIG_FILE="$PWD/$c.toml" hs --version; done
+```
+
+`auth.toml` sets the key the way every version reads it; `auth-eval.toml` uses `server.auth_eval`,
+which HyperShell honours for the key from 2.8.7; `empty.toml` is the config moved aside. Expected,
+from a workstation run of HyperShell 2.7.0 with cmdkit 2.7.7: under 2.7.0, `auth` and `empty`
+print the version, and `auth-eval` ends in a traceback with
+`AttributeError: 'auth' has more than one variant` (2.7.0's built-in default sets `server.auth`, and
+cmdkit before 2.8.0 cannot merge it with a file's `auth_eval`; with cmdkit 2.8.0 the same 2.7.0
+prints the version). Under `develop`, all three print the version. Record each result and, if you
+can, the module's cmdkit version (`"$(head -1 "$(command -v hs)" | cut -c3-)" -c 'import cmdkit;
+print(cmdkit.__version__)'`; skip it if the first line of `hs` is not a Python path). Optional, to
+explain the crash seen earlier: `grep -cE '^[[:space:]]*auth_(eval|env)[[:space:]]*=' ~/.hypershell/config.toml`
+prints a count, not the key. **If any 2.7.0 run crashes with `'auth' has more than one variant`,
+the close run adds a one-line caution to the version admonition.**
+
+#### B. `sbatch --test-only`, every tab
+
+On each cluster's login node, assemble the tab as published and run
+`sbatch --test-only -A <your account> frames.sub` (on Scholar, without `-A`; the file already says
+`scholar`). PASS if sbatch prints `Job <n> to start at … in partition <p>` and no error. If Gautschi
+or Negishi rejects `--qos=normal` for account reasons only, record that and repeat with
+`-q standby`; a syntax or partition error is a FAIL. Mark a cluster N/A if you have no account
+there.
+
+| Cluster | Partition in the tab | Shape |
+|---|---|---|
+| Anvil | `wholenode` (no QOS line) | 2 nodes × 1 task × 128 CPUs |
+| Gautschi | `cpu`, `normal` | 2 nodes × 1 task × 192 CPUs |
+| Negishi | `cpu`, `normal` | 2 nodes × 1 task × 128 CPUs |
+| Scholar | `cpu`, `normal` | 2 nodes × 1 task × 64 CPUs (fits both node types) |
+
+#### C. Gautschi runs
+
+All in `$RCAC_SCRATCH/workflow-automation/p4/frames/` unless stated. Set up:
+
+```bash
+cp <snippets>/frames/render-frame.sh .
+printf 'sh render-frame.sh %d\n' $(seq 1 1200) > frames.txt
+{ sed 's|^module load hypershell$|module load hypershell/develop|' <snippets>/frames/header-gautschi.sh; echo; cat <snippets>/frames/body.sh; } > frames.sub
+mkdir -p frames
+for n in 0005 0017 0333; do touch frames/frame_$n.pgm; chmod 444 frames/frame_$n.pgm; done
+```
+
+Check `wc -l < frames.txt` is 1200 and `head -1 frames.txt` prints `sh render-frame.sh 1`. The three
+read-only files are the planted failures: the renderer cannot overwrite them, so frames 5, 17 and
+333 exit 1. For the `hs` commands on the login node, use the page's setup with the develop module:
+`module load hypershell/develop; export HYPERSHELL_SITE="$PWD/hypershell"`. Record each job's node
+list (`sacct -j <id> -X --format=JobID,State,ExitCode,Elapsed,NodeList`).
+
+**C1. First job, one node, cancelled mid-run.**
+
+1. `sbatch -A "$ACCT" -q standby -N 1 frames.sub` → J1. Once it runs, watch `ls frames | wc -l`;
+   when it is between 300 and 900 (the first 192 frames finish 10 to 29 seconds after the start),
+   `scancel J1`. Record the count.
+2. `slurm-J1.out` starts with `HyperShell v2.9.0a8` (the version line), then shows
+   `Found 1200 tasks in …/frames.txt`, `Submitting all 1200 tasks from …/frames.txt as a new source
+   (--restart)`, and many `Running task (…)` lines. `sacct` shows J1 `CANCELLED`.
+3. `ls hypershell` shows `lib` and `log`, and `hypershell/lib/main.db` exists (the SQLite database
+   on scratch).
+4. `hs list --count` prints 1200. `hs list --completed --count` (C1) plus
+   `hs list --remaining --count` (R1) is 1200. Record C1 and R1, and
+   P1 = `hs list args --remaining | grep -cE 'render-frame.sh (5|17|333)$'` (planted frames not yet
+   run).
+5. `hs list args exit_status --failed` lists only planted frames, each with exit status 1. **Record
+   any task with a negative exit status** (for example `-15`): that would be a task recorded as
+   killed rather than left unfinished, which `--restart` would not re-run. The page then needs a
+   sentence (close run).
+
+**C2. Resubmit unchanged, one node, to completion.**
+
+1. `touch marker`, then `sbatch -A "$ACCT" -q standby -N 1 frames.sub` → J2.
+2. `slurm-J2.out` shows `Restarting …/frames.txt (source …): 1200 present; submitting only new tasks`,
+   `1200 tasks already present; submitting 0 new tasks`, `Found <R1> unfinished tasks` and
+   `Reverted <n> previously interrupted tasks` (record n). `sacct` shows J2 `COMPLETED 0:0`
+   although three frames failed (the page says Slurm reports the job as completed).
+3. `hs list --count` 1200 (nothing submitted twice); `hs list --succeeded --count` 1197;
+   `hs list --failed --count` 3; `hs list --remaining --count` 0; `ls frames/*.pgm | wc -l` 1200.
+4. `find frames -name '*.pgm' -newer marker | wc -l` equals R1 − P1: the job rendered only the frames
+   that were unfinished after J1.
+5. `hs list id args exit_status --failed` prints exactly three lines, for `sh render-frame.sh 5`, `17`
+   and `333`, each with exit status 1. With the ID of frame 5, `hs info <id> --stderr` prints a line
+   ending `frames/frame_0005.pgm: Permission denied`, and `hs info <id>` prints the task's record.
+   `hs list --fields` lists the field names, `exit_status` among them.
+
+**C3. Resubmit with nothing left to run.** `sbatch -A "$ACCT" -q standby -N 1 frames.sub` → J3.
+`slurm-J3.out` shows `All previous tasks completed (1200) - stopping`, J3 is `COMPLETED` within about
+a minute of starting, and `hs list --count` is still 1200.
+
+**C4. Re-run the failures, two nodes (the tab as published, apart from the module line).**
+
+1. `chmod 644 frames/frame_0005.pgm frames/frame_0017.pgm frames/frame_0333.pgm`.
+2. `hs update --failed --revert` asks `Update affects 3 tasks, continue? yes/[no]:`; answer `yes`; it
+   logs `Updated 3 tasks`. `hs list --remaining --count` is 3.
+3. `touch marker2`, then `sbatch -A "$ACCT" -q standby frames.sub` → J4. J4 `COMPLETED`;
+   `slurm-J4.out` shows `Found 3 unfinished tasks`; `find frames -name '*.pgm' -newer marker2` lists
+   exactly the three frames; `hs list --succeeded --count` 1200 and `hs list --failed --count` 0.
+   J1, J2 and J4 together show the database path working across jobs (record whether they ran on
+   different nodes).
+
+**C5. A full two-node run, one client per node.** In a new empty directory
+`$RCAC_SCRATCH/workflow-automation/p4/frames2/`, repeat the set-up without the planted failures,
+then `sbatch -A "$ACCT" -q standby frames.sub` → J5.
+
+1. While it runs: `scontrol show step J5.0 | grep -oE '(CPUs|Tasks)=[0-9]+'` shows `Tasks=2` and
+   `CPUs=384` (the launcher step got every core of both nodes; `CPUs=2` would mean `--cpus-per-task`
+   did not reach the step, a FAIL). Optional: run `hs list --succeeded --count` two or three times
+   from the login node during the run and record whether it answers without error (if it does, the
+   close run may say these commands work while the job runs).
+2. J5 `COMPLETED` with `Elapsed` under 5 minutes (1,200 frames of 10 to 29 seconds on 384 executors
+   take about 1 to 2 minutes; one executor per node would hit the walltime).
+3. `hs list --succeeded --count` 1200; `hs list client_host --all | sort | uniq -c` shows exactly two
+   hosts, J5's two nodes, with counts adding to 1200.
+
+**C6. Adding tasks (back in `frames/`).**
+
+1. `echo 'sh render-frame.sh 1201' >> frames.txt`, then `sbatch -A "$ACCT" -q standby -N 1 frames.sub`
+   → J6. `slurm-J6.out` shows `differs from its prior submission (content changed); pass --update
+   --restart`, and no task runs. Record J6's `State` and `ExitCode`.
+2. Change `--restart` to `--update --restart` in `frames.sub`, as the page says
+   (`sed -i 's/hsx frames.txt --restart/hsx frames.txt --update --restart/' frames.sub`), and submit
+   again with `-N 1` → J7. `slurm-J7.out` shows `submitting 1 new tasks`; J7 `COMPLETED`;
+   `frames/frame_1201.pgm` exists; `hs list --count` 1201 and `hs list --succeeded --count` 1201.
+
+#### D. Not covered by this envelope (record, do not run)
+
+- **Anvil, Negishi and Scholar batch runs.** Checked by A1 and B only. The Anvil tab, like P2's,
+  runs `module load` under `#!/bin/bash` in a non-login batch shell and relies on Slurm exporting
+  the submit-time module environment. Anvil batch runs are out of scope: record "Anvil batch: not
+  run" as a residual risk.
+- **Walltime expiry.** C1 stops the job with `scancel`; Slurm ends a job at its walltime with the
+  same signals, so C1 stands in for it.
+- **The released module.** The merge hold re-runs C1–C4 on the default 2.9.0 module of Gautschi and
+  Anvil (`P4-release: PASS`).
+- **The `-r` tip.** Described from HyperShell's documentation and checked on a workstation with
+  2.9.0a8 (`hs list --failed` lists the retried first attempts), not run here.
+
+#### Results
+
+Validated 2026-11-22 by the foreman against `136a0f10`. Build under test: Gautschi
+`hypershell/develop`, `HyperShell v2.9.0a8 (CPython 3.14.6)`. The Gautschi run script is the
+published Gautschi tab with only its module line changed to `module load hypershell/develop`.
+
+- **A1** PASS. `module load hypershell` loads with no prerequisite and prints `HyperShell v2.7.0
+  (CPython 3.13.3)` on Anvil, Gautschi, Negishi and Scholar (below 2.9.0, as expected until the
+  merge hold clears).
+- **A2** PASS with record. `hypershell/develop` prints `HyperShell v2.9.0a8 (CPython 3.14.6)`. Its
+  `bin/` holds only `hs` and `hsx`: **no `hyper-shell` executable** (the 2.7.0 module has one). P7's
+  relay clients start as `hyper-shell client`, so the develop module needs that entry point before
+  P7 can validate (risk carried to P7).
+- **A3** PASS. `hsx --help`: `--capture --launcher --restart --update`; `hs list --help`: `--count
+  --failed --fields --remaining --succeeded`; `hs update --help`: `--failed --no-confirm --revert`.
+- **A4** CONFIRMED. Under 2.7.0 (cmdkit 2.7.7) with `HYPERSHELL_CONFIG_FILE`: `auth` and `empty`
+  print the version; `auth-eval` ends `AttributeError: 'auth' has more than one variant`. Under
+  develop all three print the version. → close-run item F1.
+- **B** PASS, 4/4. `sbatch --test-only` prints a start time for Anvil (`wholenode`, 256 CPUs on 2
+  nodes), Negishi (`cpu`, 256), Scholar (`cpu`, 128 on `scholar-b`) and Gautschi (`cpu`, 384). On
+  Gautschi the validation account's `normal` QOS was refused with `AssocGrpGRES` (an account limit,
+  not a script fault); `-q standby` passed.
+- **Envelope deviation (C).** Two whole Gautschi nodes on standby showed a start estimate six days
+  out, so C1–C3 and C6 ran with `-N 1 -c 32`, C4 with `-N 2 -c 16` and C5 with `-N 2 -c 32` on the
+  command line. The body sizes clients and executors from `$SLURM_CPUS_PER_TASK`, so the behaviour
+  under test is unchanged.
+- **C1** PASS. Cancelled at 390 files on disk (4:18, node a139), `CANCELLED`. Log: `Found 1200 tasks
+  in …/frames.txt`, `Submitting all 1200 tasks … as a new source (--restart)`, `Running task` lines.
+  `hypershell/` holds `lib` and `log`; `lib/main.db` exists. Total 1200; completed 390; remaining
+  810; P1 = 0. `--failed` lists only frames 5, 17, 333, each exit status 1; no negative exit status.
+- **C2** PASS. J2 `COMPLETED 0:0` (8:39, a139). Log: `1200 tasks already present; submitting 0 new
+  tasks`, `Found 810 unfinished tasks`, `Reverted 36 previously interrupted tasks`. Total 1200,
+  succeeded 1197, failed 3, remaining 0; 1200 `.pgm`; 810 newer than the marker (= R1 − P1).
+  `hs info <frame 5> --stderr` ends `frames/frame_0005.pgm: Permission denied`; `hs info` prints the
+  record (`group: 0`, `zone: default`); `hs list --fields` includes `exit_status`.
+- **C3** PASS. J3 `COMPLETED` in 0:05; log `All previous tasks completed (1,200) - stopping` (the
+  count prints with a thousands separator); total still 1200.
+- **C4** PASS. `hs update --failed --revert` asked `Update affects 3 tasks, continue? yes/[no]:` and
+  logged `Updated 3 tasks`; remaining 3. J4 (`-N 2`) `COMPLETED` in 0:32 on a[139,258]; `Found 3
+  unfinished tasks`; exactly frames 5, 17, 333 newer than marker2; succeeded 1200, failed 0. The
+  database carried across four jobs and onto a second node.
+- **C5** PASS. Fresh run, `-N 2 -c 32`: step `.0` (`hs`) shows `Nodes=2 CPUs=64 Tasks=2` (one client
+  per node with the full per-node CPU count; 384 at the published `-c 192`). `hs list --succeeded
+  --count` answered cleanly mid-run. J5 `COMPLETED` in 6:38 at 64 executors; succeeded 1200;
+  `client_host` 602 a139 + 598 a258.
+- **C6** PASS. Appended `sh render-frame.sh 1201`: J6 stopped in 0:04, `FAILED 2:0`, `CRITICAL …
+  differs from its prior submission (content changed); pass --update --restart to submit only the
+  new tasks`, no task ran. With `--update --restart`: J7 `COMPLETED` in 0:16, `1200 tasks already
+  present; submitting 1 new tasks`; `frame_1201.pgm` exists; total and succeeded 1201. → close-run
+  item F2.
+- **D** Not run: Anvil/Negishi/Scholar batch, walltime expiry (C1's `scancel` stands in), the
+  released module (merge hold, `P4-release: PASS`), the `-r` tip.
+
+Close-run items:
+- **F1** Add the one-line caution to the version admonition: a configuration that uses `auth_eval`
+  (or `auth_env`), written for 2.9.0, makes the older 2.7.0 module fail at start with `'auth' has
+  more than one variant`; keep those keys out of a configuration an older module reads.
+- **F2** Check that "Adding tasks later" says the plain `--restart` job stops with an error (the job
+  fails, exit code 2) and names `--update --restart`, as observed.
+
+P4: PASS — 2026-11-22 · Gautschi standby, hypershell/develop 2.9.0a8 · A1–A3, B 4/4, C1–C6 (reduced cores, as noted) · A4 confirmed · close-run items F1–F2
+
+## P5 — GPU multiplexing and Tier 2 (V5)
+
+Validation request for the P5 draft (the commit that adds this section), covering docs/workflows/hypershell/{gpu_multiplexing,extreme_scale}.md, docs/snippets/workflows/gpu_sweep/{header-anvil,header-gautschi,header-gilbreth,header-scholar,body,gpu-pick}.sh, docs/snippets/workflows/gpu_sweep/emulator.cu, docs/snippets/workflows/ensemble/{header-anvil,header-gautschi,header-negishi,header-scholar,body,member}.sh; result: pending.
+
+### Validation request (written by the draft run, 2026-11-22)
+
+**Build under test.** Gautschi's `hypershell/develop` module (2.9.0a8 today). Record its exact
+`hs --version` in the PASS line. Neither page needs the `hyper-shell` executable or anything the
+2.9.0a8 known issues touch: no `hs server --initdb`, no key, no `#` inside a task command, no
+duration with units on `-w` or `--delay-start` (both plain seconds; `-W 300` is plain seconds too),
+and the only environment variables for configuration keys are `HYPERSHELL_LOGGING_LEVEL` and
+`HYPERSHELL_DATABASE_FILE`, whose key names hold no underscore. As in P4: if `srun` fails to start
+the clients, `hsx` on a8 waits until the walltime instead of exiting, so a tier 2 job whose task
+counts do not move for several minutes is a launch failure; record it.
+
+**Envelope.** GPU page: Gautschi `-A "$ACCT" -p ai -q "$GPU_QOS"` (`$GPU_QOS` is the foreman's
+choice at run time; `ai` does not accept `standby`), 1 node, 2 GPUs, 28 cores (14 per GPU), at most
+15 minutes per job, at most 2 jobs queued. The Gautschi tab already says `ai`, one node, two GPUs,
+28 cores and 15 minutes; pass the account and QOS on the command line. Tier 2: Gautschi
+`-A "$ACCT" -p cpu -q standby`, at most 2 nodes × 20 minutes per job, at most 2 jobs queued. The
+tier 2 tab asks for 4 nodes × 192 cores × 4 hours, so every tier 2 job below passes
+`-q standby -N 2 -c 32 -t 00:20:00` on the command line, as P4 did; the body sizes executors and
+bundles from `$SLURM_CPUS_PER_TASK`, so the behaviour under test is unchanged. Files only under
+`$RCAC_SCRATCH/workflow-automation/p5/`. `$ACCT` is the validation account, kept out of the
+repository. Anvil, Gilbreth, Negishi and Scholar get login-node checks and `sbatch --test-only`
+only.
+
+**Tabs.** The GPU page's tabs are Anvil, Gautschi, Gilbreth and Scholar, as PLAN §2 lists them
+(Negishi's GPUs are AMD, and no ROCm check is in this envelope). Tier 2's tabs are P4's four CPU
+clusters: Anvil, Gautschi, Negishi and Scholar.
+
+**Assembling a tab.** As in P4: the header file, one empty line, then the shared body. This
+reproduces the rendered tab byte for byte (checked against the built `site/` for all eight tabs and
+the three other published files). The published headers say `module load hypershell`, which loads
+2.7.0 on Gautschi today: there, `gpu-pick.sh` stops with `run this under HyperShell 2.9.0 or
+later`, and `hsx` refuses a task file together with `--restart`. For the Gautschi runs, change that
+one line and nothing else, and record that you did:
+
+```bash
+{ sed 's|^module load hypershell$|module load hypershell/develop|' gpu_sweep/header-gautschi.sh; echo; cat gpu_sweep/body.sh; } > gpu_sweep.sub
+{ sed 's|^module load hypershell$|module load hypershell/develop|' ensemble/header-gautschi.sh; echo; cat ensemble/body.sh; } > ensemble.sub
+```
+
+All snippet paths are under `docs/snippets/workflows/`. `emulator.cu`, `gpu-pick.sh` and
+`member.sh` are used as published (copy them as named).
+
+**The GPU stand-in.** `emulator.cu` is a small CUDA program the page builds on a login node with
+`module load cuda` and `nvcc` (the `cuda` module is in the software catalog on Anvil, Gautschi,
+Gilbreth and Scholar; on Anvil it sits under `modtree/gpu`). Each run holds 1 GiB of GPU memory and
+does 50 steps of a short kernel followed by a 60 ms sleep, then writes
+`results/member_NNNN.txt` with its GPU's PCI bus address, its `TASK_SLOT` and its seconds. `nvcc`
+links the CUDA runtime statically by default, so the job needs only the node's driver, not the
+module. Two things the draft could not check: the program was not compiled with `nvcc` (its host
+code was compiled and run on a workstation against stubs), and the kernel's run time per step on an
+H100 is an estimate (about 20 ms, so a run takes roughly 4 to 5 seconds alone). Neither changes the
+PASS conditions below, which do not depend on the timings.
+
+**Draft-run checks (workstation, not a cluster).** With HyperShell 2.9.0a8 from PyPI: the GPU body
+with a stub `nvidia-smi`, a shell stand-in for `emulator`, 24 tasks and `CUDA_VISIBLE_DEVICES=0,1`
+gave slots 0, 2, 4, 6 on GPU 0 and 1, 3, 5, 7 on GPU 1 at the default of 4 tasks per GPU, and
+slots 0 to 3 split the same way at `TASKS_PER_GPU=2`; `gpu-pick.sh` stops with a message when
+`TASK_SLOT` or `CUDA_VISIBLE_DEVICES` is unset, and passes a MIG-style UUID list through unchanged.
+The tier 2 body, with a stand-in `srun` that runs its command once and `-H 127.0.0.1` added
+(the workstation's host name does not resolve), ran 20,000 pre-submitted members: killing the job's
+process group at 40 seconds left 7,992 completed and 8,000 result lines; the unchanged resubmit
+finished the remaining 12,008, and the two result files held 20,008 lines and 20,000 distinct
+members. The job output held only the version line (no per-task log lines). `hs submit -b 10000`
+loaded 100,000 tasks in 8 seconds, and a second `hs submit` of the same file was refused with
+`pass --repeat to submit it again, or --update to add only new tasks` (exit status 2). The
+`--no-db --no-confirm` line ran all 20,000 members and wrote no database. With
+`HYPERSHELL_DATABASE_FILE=:memory:`, `hsx` ran a five-line file and wrote no database. The cluster
+run is what counts.
+
+#### A. Login-node checks (no job)
+
+| # | Cluster(s) | Command | PASS if |
+|---|---|---|---|
+| A1 | Gautschi, Gilbreth, Negishi, Scholar; Anvil after `module load modtree/gpu` | `module load hypershell && hs --version` | loads with no other prerequisite; record the version per cluster (below 2.9.0 is expected). On Anvil also run it without `modtree/gpu` (the tier 2 tab) and record both. If Anvil's `hypershell` is not visible under `modtree/gpu`, that is a FAIL for the Anvil GPU tab's module lines (record `module spider hypershell` there). |
+| A2 | Gautschi, Gilbreth, Scholar; Anvil after `module load modtree/gpu` | `module load cuda && nvcc --version` | loads; record the default CUDA version per cluster |
+| A3 | Gautschi, in `$RCAC_SCRATCH/workflow-automation/p5/gpu/` | `module load cuda; nvcc -O2 -o emulator emulator.cu; echo $?`; `ldd emulator \| grep -c cudart` | exit 0 with no error (record any warning); the `grep -c` prints 0 (static runtime) or record what it links |
+| A4 | Gautschi, with `hypershell/develop` | `hsx --help \| grep -E -- '--no-db\|--no-confirm\|--delay-start\|--bundlesize\|--bundlewait\|--task-timeout\|--template'`; `hs submit --help \| grep -- '--bundlesize'`; `hs list --help \| grep -- '--all'` | every option named appears |
+| A5 | Gautschi, Gilbreth, Anvil, Scholar | `sinfo -p <gpu partition> -o '%N %G' \| head`; for one node of each, `scontrol show node <node> \| grep -E 'Gres=\|CfgTRES'` (partitions: Gautschi `ai`, Gilbreth `a100-80gb`, Anvil `gpu`, Scholar `gpu`) | recorded either way: the GRES strings, and whether any names `mps`, `shard` or a MIG type (expected on Scholar's MIG nodes only). The outcome decides the MPS and MIG sentences in the close run, not PASS or FAIL. |
+| A6 | Gautschi, with `hypershell/develop`, in `$RCAC_SCRATCH/workflow-automation/p5/mem/` | `printf 'echo %d\n' 1 2 3 > three.txt; HYPERSHELL_SITE="$PWD/site" HYPERSHELL_DATABASE_FILE=:memory: hsx three.txt -N 1; ls site/lib/main.db` | prints 1, 2 and 3 (in any order) and `ls` reports no such file: `:memory:` behaves as `--no-db`, as the tier 2 page says |
+
+#### B. `sbatch --test-only`, every tab
+
+On each cluster's login node, assemble the tab as published and run
+`sbatch --test-only -A <your account> <file>.sub` (on Scholar, without `-A`). PASS if sbatch prints
+`Job <n> to start at … in partition <p>` and no error. If a `normal` QOS is refused for account
+reasons only, record that and repeat with `-q standby` (Gilbreth, Gautschi `cpu`, Negishi) or the
+QOS you have (Gautschi `ai`); a syntax, partition, ratio or GRES error is a FAIL. Mark a cluster N/A
+if you have no account there.
+
+| File | Cluster | Partition in the tab | Shape |
+|---|---|---|---|
+| `gpu_sweep.sub` | Anvil | `gpu` (no QOS line) | 1 node × 1 task × 64 CPUs, 2 GPUs |
+| `gpu_sweep.sub` | Gautschi | `ai`, `normal` | 1 node × 1 task × 28 CPUs, 2 GPUs (14 per GPU) |
+| `gpu_sweep.sub` | Gilbreth | `a100-80gb`, `normal` | 1 node × 1 task × 32 CPUs, 2 GPUs, `--mem=128G` |
+| `gpu_sweep.sub` | Scholar | `gpu`, `normal` | 1 node × 1 task × 16 CPUs, 2 GPUs |
+| `ensemble.sub` | Anvil | `wholenode` (no QOS line) | 4 nodes × 1 task × 128 CPUs, 4 h |
+| `ensemble.sub` | Gautschi | `cpu`, `normal` | 4 nodes × 1 task × 192 CPUs, 4 h |
+| `ensemble.sub` | Negishi | `cpu`, `normal` | 4 nodes × 1 task × 128 CPUs, 4 h |
+| `ensemble.sub` | Scholar | `cpu`, `normal` | 4 nodes × 1 task × 64 CPUs, 4 h (the `normal` maximum) |
+
+#### C. Gautschi GPU runs
+
+Set up in `$RCAC_SCRATCH/workflow-automation/p5/gpu/k4/`: copy `emulator.cu` and `gpu-pick.sh`,
+build `emulator` as in A3 (or copy A3's), write the task file with the page's command
+`printf './emulator %d\n' $(seq 1 64) > sweep.txt` (check `wc -l < sweep.txt` is 64 and
+`head -1 sweep.txt` prints `./emulator 1`), and assemble `gpu_sweep.sub` as above. For `hs` commands
+on the login node: `module load hypershell/develop; export HYPERSHELL_SITE="$PWD/hypershell"`.
+Record each job's `sacct -j <id> -X --format=JobID,State,ExitCode,Elapsed,NodeList`.
+
+**C1. Four tasks per GPU (the script as published).** `sbatch -A "$ACCT" -q "$GPU_QOS" gpu_sweep.sub`
+→ G1.
+
+1. `slurm-G1.out` starts with `HyperShell v2.9.0a8`, then `GPUs in this job: <list>` (record the
+   list: `0,1` means Slurm renumbers the job's GPUs), then a CSV table with a header row and two
+   rows of `NVIDIA H100 …`. **Record the `compute_mode` column.** `Default` is expected. If it reads
+   `Exclusive_Process`, only one process can use each GPU, the runs fail with a "busy or
+   unavailable" error, and the page needs a redesign: a FAIL.
+2. G1 `COMPLETED`. Record `Elapsed`.
+3. `ls results | wc -l` 64; `hs list --succeeded --count` 64; `hs list --failed --count` 0 (no
+   out-of-memory failures at 1 GiB per run).
+4. `cut -d' ' -f2 results/member_*.txt | sort | uniq -c` shows exactly two `gpu=` values, 32 runs
+   each, and each matches a `pci.bus_id` in G1's table. (`nvidia-smi` prints an eight-digit domain,
+   `00000000:1B:00.0`, and CUDA a four-digit one, `0000:1B:00.0`; compare from the bus number on.)
+5. `awk '{print $2, $3}' results/member_*.txt | sort -u` prints eight lines: slots 0, 2, 4 and 6
+   with one GPU, slots 1, 3, 5 and 7 with the other, and no slot outside 0–7.
+6. In `gpu-use-G1.txt`, the busiest sample shows four processes on one GPU:
+   `awk '/^[0-9][0-9]:[0-9][0-9]:[0-9][0-9]$/ {t = $0; next} {split($0, f, ", "); n[t " " f[1]]++} END {for (k in n) if (n[k] > m) m = n[k]; print m}' gpu-use-G1.txt`
+   prints 4. Both bus addresses appear in the file
+   (`awk -F', ' 'NF == 3 {print $1}' gpu-use-G1.txt | sort | uniq -c`). Record the largest
+   per-process memory: `awk -F', ' 'NF == 3 {sub(/ MiB/, "", $3); if ($3 + 0 > m) m = $3 + 0} END {print m " MiB"}' gpu-use-G1.txt`
+   (expected a little over 1024 MiB; the page says each process adds a few hundred megabytes).
+   If the job finished before the first sample (under 10 seconds of tasks), the file is empty:
+   record it, and 6 is N/A.
+7. Record the mean seconds per run:
+   `awk -F'seconds=' '{s += $2} END {printf "%.1f\n", s / NR}' results/member_*.txt`.
+
+**C2. Two tasks per GPU.** As the page says: `mkdir ../k2; cp emulator gpu-pick.sh sweep.txt gpu_sweep.sub ../k2/; cd ../k2`,
+then `sbatch -A "$ACCT" -q "$GPU_QOS" --export=ALL,TASKS_PER_GPU=2 gpu_sweep.sub` → G2. Same checks
+as C1 with these numbers: 64 results, 0 failed, two GPUs with 32 runs each, slots 0 and 2 on one GPU
+and 1 and 3 on the other, and the busiest sample shows 2. Record `Elapsed` and the mean seconds.
+
+**C3. One task per GPU.** The same in `../k1` with `TASKS_PER_GPU=1` → G3: slots 0 and 1 only, one
+per GPU, the busiest sample shows 1. Record `Elapsed` and the mean seconds.
+
+Record a table of k, `Elapsed` and mean seconds per run for C1–C3. The trend is a record item, not a
+PASS condition. Expected: `Elapsed` falls from k = 1 to k = 4 while the mean seconds per run rises
+modestly. The close run puts the table on the page as a measured illustration and checks the page's
+"What to look for" sentences against it.
+
+**C4 (optional, one short job).** If an allocation slot is free, a 2-minute job with the Gautschi
+header (module line as above) and this body instead of the page's, to settle the MPS and MIG
+sentences: `nvidia-smi -q | grep -iE 'compute mode|mig mode' | sort | uniq -c; command -v nvidia-cuda-mps-control || echo 'no MPS control'; nvidia-smi | head -4`.
+Record the output (MIG mode, whether the MPS control program exists on the node, and the driver's
+CUDA version). Not a PASS condition.
+
+#### D. Gautschi tier 2 runs
+
+Set up in `$RCAC_SCRATCH/workflow-automation/p5/ensemble/run/`: copy `member.sh`, assemble
+`ensemble.sub` as above, then check the page's generator at full size and use 100,000 members for
+the runs:
+
+```bash
+seq 1000000 | sed 's/^/sh member.sh /' | wc -l        # 1000000
+seq 1000000 | sed 's/^/sh member.sh /' | head -1      # sh member.sh 1
+seq 100000 | sed 's/^/sh member.sh /' > members.txt
+sh member.sh 42                                        # one line: 42 <parameter> <warming>
+```
+
+Then, on the login node, the page's loading step:
+`module load hypershell/develop; export HYPERSHELL_SITE="$PWD/hypershell"; time hs submit -b 10000 members.txt`.
+PASS if it logs `Submitted 100000 tasks` and `hs list --count` prints 100000; record the time.
+Running the same `hs submit` again is refused with `already submitted … pass --repeat to submit it
+again, or --update to add only new tasks` and exit status 2, and `hs list --count` is still 100000.
+Every job below is submitted as `sbatch -A "$ACCT" -q standby -N 2 -c 32 -t 00:20:00 ensemble.sub`
+(call this *the D submit*).
+
+**D1. First job, cancelled mid-run.** The D submit → E1. Once it runs, check
+`hs list --completed --count` every 30 seconds; when it is between 10,000 and 90,000, `scancel E1`
+and record the count (C1). If E1 finishes first, record that, skip the cancel, and go on.
+
+1. `slurm-E1.out` holds the version line and no per-task lines: `grep -c 'Running task' slurm-E1.out`
+   prints 0.
+2. While it runs: `scontrol show step E1.0 | grep -oE '(CPUs|Tasks)=[0-9]+'` shows `Tasks=2` and
+   `CPUs=64` (one client per node with the job's cores).
+3. `wc -l < ensemble-E1.txt` is at least C1, and at most a few hundred more (result lines of members
+   whose results had not reached the database). Record both.
+4. `hs list --failed --count` 0.
+
+**D2. Resubmit unchanged, to completion.** The D submit → E2.
+
+1. E2 `COMPLETED 0:0`; record `Elapsed`. `slurm-E2.out` holds no `Running task` lines.
+2. `hs list --succeeded --count` 100000; `hs list --remaining --count` 0; `hs list --failed --count`
+   0.
+3. `cat ensemble-*.txt | wc -l` is 100000 plus D1's surplus (record it), and the page's
+   `sort -n -u -k1,1 ensemble-*.txt > ensemble.txt; wc -l < ensemble.txt` prints 100000.
+4. `hs list id | head -3` is refused with a message naming `--all` (or `--limit`), as the page says;
+   `hs list id --limit 3` prints three IDs.
+5. Optional, for the staggered start: `hs list client_host start_time --all | sort -k2 | awk '!seen[$1]++'`
+   prints each host's first task start; record how far apart they are (up to 30 seconds expected).
+
+**D3. Throughput, tuned against defaults (illustration).** In two fresh directories,
+`$RCAC_SCRATCH/workflow-automation/p5/ensemble/{tuned,default}/`, each with `member.sh`, a 20,000-member
+`members.txt` (`seq 20000 | sed 's/^/sh member.sh /' > members.txt`) and its own
+`HYPERSHELL_SITE`, load the tasks with `hs submit -b 10000 members.txt`. In `tuned/`, use
+`ensemble.sub` as assembled. In `default/`, remove the bundling options, as the page's *Measure
+throughput* section says:
+`sed 's| -b "${executors}" -w 30||' ensemble.sub > ensemble-default.sub` (check with
+`grep -c -- ' -b ' ensemble-default.sub`, which prints 0). Submit each with the D submit, one after
+the other. Both `COMPLETED`, each with `hs list --succeeded --count` 20000. Record each `Elapsed`
+and tasks per second (20000 ÷ seconds). The numbers are illustrations, not PASS conditions; note
+that `--delay-start=-30` adds up to 30 seconds to each.
+
+**D4. Without the database.** In a fresh directory `$RCAC_SCRATCH/workflow-automation/p5/ensemble/nodb/`,
+with `member.sh` and the 100,000-member `members.txt` (no `hs submit`), build the page's variant by
+changing only the `hsx` line:
+
+```bash
+{ sed 's|^module load hypershell$|module load hypershell/develop|' ensemble/header-gautschi.sh; echo; sed 's|^hsx --restart \\$|hsx members.txt --no-db --no-confirm \\|' ensemble/body.sh; } > ensemble-nodb.sub
+grep -n 'hsx' ensemble-nodb.sub    # hsx members.txt --no-db --no-confirm \
+```
+
+The resulting `hsx` command is the page's `--no-db` block line for line. The D submit with
+`ensemble-nodb.sub` → E4. E4 `COMPLETED`; `wc -l < ensemble-E4.txt` 100000;
+`sort -n -u -k1,1 ensemble-E4.txt | wc -l` 100000; `ls hypershell/lib/main.db` reports no such file.
+Record `Elapsed` and tasks per second.
+
+#### E. Not covered by this envelope (record, do not run)
+
+- **Anvil, Gilbreth, Negishi and Scholar batch runs.** Checked by A and B only; record "batch: not
+  run" as a residual risk. The Anvil GPU tab's `module load modtree/gpu` runs in a non-login batch
+  shell, as in P2 and P4.
+- **NVIDIA MPS, MIG slices, ROCm on Negishi, and one client per GPU.** The page gives MPS and MIG
+  one sentence each, has no Negishi tab, and names the one-client-per-GPU layout as not shown or
+  tested. A5 and C4 record what the close run needs to keep or adjust those sentences.
+- **Scale.** No run approaches a million tasks or more than two nodes. The tier 2 page cites
+  HyperShell's documentation for its scale statement (more than 1,000 nodes and 250,000 executors)
+  and its large-run advice (`--delay-start` rule of thumb, bundling with executors, the submit-once
+  route), and states the leadership-facility notes as general practice.
+- **The task timeout.** No member runs for 300 seconds; D shows only that `-W 300` is accepted. The
+  page's caveat (the timeout signals the task's shell) comes from HyperShell's open issue on signal
+  teardown, not from a run.
+- **Heartbeats and eviction.** The 10-second heartbeat and 600-second eviction on the page are
+  HyperShell's documented defaults; nothing here loses a node.
+- **The released module.** As in P4, the merge hold re-runs the tier 1 checks on the default 2.9.0
+  module; it does not re-run P5.
+
+Close-run items expected whatever the outcome:
+- **F1** Add C1–C3's table to the GPU page's *Choose how many tasks share a GPU* as a measured
+  illustration (H100, this stand-in), and adjust the "What to look for" sentences if the trend
+  differs.
+- **F2** Add D3 and D4's tasks per second to the tier 2 page's *Measure throughput* as illustrations
+  (two nodes at 32 cores each, trivial tasks), labelled as such.
+- **F3** Keep or adjust the MPS and MIG sentences from A5 and C4.
+
+#### Results
+
+Validated 2026-11-22/23 by the foreman against `9c080bdf`. Build under test: Gautschi
+`hypershell/develop`, `HyperShell v2.9.0a8 (CPython 3.14.6)`. The Gautschi run scripts are the
+published Gautschi tabs with only the module line changed to `module load hypershell/develop`.
+GPU jobs ran under QOS `burst` (the `ai` partition refuses `standby`; `normal` showed a four-day
+start estimate). HyperShell: develop 2.9.0a8.
+
+- **A1** PASS with record. `module load hypershell` → `HyperShell v2.7.0 (CPython 3.13.3)` on Anvil
+  (CPU tree), Negishi and Scholar; on Gautschi the default module stops on a configuration holding
+  `auth_eval` (the P4 A4 behaviour; with `HYPERSHELL_CONFIG_FILE` pointed at an empty file it prints
+  2.7.0). **Anvil GPU tree:** after `module load modtree/gpu`, no `hypershell` module is visible,
+  and loading `modtree/gpu` after `hypershell` unloads it. **Gilbreth:** `hypershell/2.5.2` loads
+  only after `module load external`. Both are module-packaging gaps, to be fixed when the 2.9.0
+  release is deployed (out of scope for this cycle; recorded under the merge hold). The pages keep
+  `module load hypershell`.
+- **A2** PASS. `cuda`: Gautschi 12.6 (V12.6.20), Gilbreth 12.6, Scholar 12.6, Anvil (GPU tree) 11.2.
+- **A3** PASS. On Gautschi `nvcc -O2 -o emulator emulator.cu` exits 0 with no warning; `ldd emulator
+  | grep -c cudart` prints 0 (static runtime).
+- **A4** PASS. `hsx --help`: `--bundlesize --bundlewait --delay-start --no-confirm --no-db
+  --task-timeout --template`; `hs submit --help`: `--bundlesize`; `hs list --help`: `--all`.
+- **A5** recorded. Gautschi `ai` h[000-019] `gpu:h100:8,hp_gpu:8` (CfgTRES cpu=112, gres/gpu=8);
+  Gilbreth `a100-80gb` `gpu:2,hp_a100-80gb:2`; Anvil `gpu` g[000-015] `gpu:4`; Scholar `gpu`:
+  `nvidia_a40:2`, `tesla_v100-pcie-16gb:1`, `nvidia_a30:2`. **No `mps`, `shard` or MIG GRES on any
+  cluster**, Scholar included. → close-run item F3.
+- **A6** PASS. `HYPERSHELL_DATABASE_FILE=:memory: hsx three.txt -N 1` printed 1, 2, 3; no
+  `site/lib/main.db`.
+- **B** PASS, 8/8 (account-limit retries noted). GPU: Gautschi `ai` (28 CPUs, `-q burst`), Gilbreth
+  `a100-80gb` (32 CPUs), Scholar `gpu` (16 CPUs, `scholar-h002`), Anvil `gpu` (64 CPUs; with the
+  validation allocation's GPU account). Tier 2: Gautschi (`cpu`, 768 CPUs; `normal` refused on
+  account limits, `-q standby` passed), Negishi (`cpu`, 512), Scholar (`cpu`, 256), Anvil
+  (`wholenode`, 512; one allocation refused on account limits, another passed).
+- **C1** PASS with record. G1 (k = 4) `COMPLETED` 1:01 on h002. `GPUs in this job: 0,1`; two
+  `NVIDIA H100 80GB HBM3` rows, `compute_mode` **Default**. 64 results, 64 succeeded, 0 failed.
+  Slots 0, 2, 4, 6 on `0000:4C:00.0`, slots 1, 3, 5, 7 on `0000:9B:00.0`; the busiest sample shows
+  4 processes on one GPU; both bus addresses sampled; largest per-process memory 1542 MiB; mean
+  6.0 s per run. The per-GPU split was **34/30**, not 32/32: slots take tasks as they free up, so
+  the split is close to even, not exact. → close-run item F1.
+- **C2** PASS. G2 (k = 2) `COMPLETED` 1:28; 64/64, 0 failed; 32/32; slots 0, 2 and 1, 3; busiest 2;
+  mean 4.7 s.
+- **C3** PASS. G3 (k = 1) `COMPLETED` 2:38; 64/64, 0 failed; 32/32; slots 0 and 1; busiest 1; mean
+  4.4 s.
+
+  | Tasks per GPU (k) | Elapsed, 64 runs on 2 H100s | Mean seconds per run |
+  |---|---|---|
+  | 1 | 2:38 | 4.4 |
+  | 2 | 1:28 | 4.7 |
+  | 4 | 1:01 | 6.0 |
+
+- **C4** recorded (2-minute job, h-node). `Compute Mode: Default` on both GPUs; MIG Mode reported
+  but no MIG instances in GRES; `/usr/bin/nvidia-cuda-mps-control` present on the node; driver
+  595.71.05, CUDA 13.2.
+- **D, loading** PASS. 1,000,000-line generator and `sh member.sh 1` checked; `sh member.sh 42`
+  prints one line. `hs submit -b 10000 members.txt` (100,000): `Submitted 100000 tasks` in 15.2 s;
+  `hs list --count` 100000. A second submit is refused with `… was already submitted as source …;
+  pass --repeat to submit it again, or --update to add only new tasks` and the count stays 100000.
+- **D1** PASS. E1 (`-N 2 -c 32 -t 00:20:00`) step `.0` `CPUs=64 Tasks=2`; cancelled at 12,384
+  completed (0:36, a[052,171]); 0 `Running task` lines; `ensemble-E1.txt` 12,384 lines (no surplus);
+  0 failed.
+- **D2** PASS. E2 `COMPLETED 0:0` 3:01 (a[035,052]); 0 `Running task` lines; succeeded 100000,
+  remaining 0, failed 0; result lines 100000; `sort -n -u -k1,1` → 100000. `hs list id` refused
+  with `Refusing to list 100,000 tasks (over 1,000); pass --all … --limit N … or --count`;
+  `--limit 3` prints three. First task starts per host in E1: a052 23:56:46, a171 23:57:06 (20 s
+  apart, within the 30 s stagger).
+- **D3** recorded. 20,000 members, 2 nodes × 32 cores, trivial tasks: tuned (`-b`/`-w` as
+  published) `COMPLETED` 1:04, about 310 tasks/s; default (no `-b`/`-w`) `COMPLETED` 7:06, about
+  47 tasks/s. Both include up to 30 s of `--delay-start`. → close-run item F2.
+- **D4** PASS. `--no-db --no-confirm` variant: E4 `COMPLETED` 1:17 (a[205,292]); 100,000 result
+  lines, 100,000 unique; no `hypershell/lib/main.db`. About 1,300 tasks/s.
+- **E** Not run, as listed (other clusters' batch runs; MPS/MIG/ROCm/one-client-per-GPU; scale;
+  task timeout; eviction; released module).
+
+Close-run items:
+- **F1** Put the C1–C3 table on the GPU page under *Choose how many tasks share a GPU* as a measured
+  illustration (two H100s, this stand-in). Make sure no sentence claims an exactly even split of
+  tasks across GPUs (C1 measured 34/30).
+- **F2** Put D3's and D4's throughput on the tier 2 page under *Measure throughput* as illustrations
+  (two 32-core nodes, trivial tasks): tuned about 310 tasks/s, defaults about 47 tasks/s, without the
+  database about 1,300 tasks/s.
+- **F3** MPS and MIG sentences: no cluster offers MIG slices or MPS through Slurm GRES; the MPS
+  control program exists on Gautschi's H100 nodes but is not offered as a service. Keep each to one
+  sentence and say nothing that implies a MIG partition exists on RCAC clusters.
+
+P5: PASS — 2026-11-23 · Gautschi `ai` (burst) and `cpu` (standby), hypershell/develop 2.9.0a8 · A1–A6, B 8/8, C1–C4, D1–D4 · module-packaging gaps (Anvil GPU tree, Gilbreth) recorded for the 2.9.0 deploy · close-run items F1–F3
+
+
+## P6 — Tier 3 (V6)
+
+Validation request for the P6 draft (the commit that adds this section), covering docs/workflows/hypershell/pipelines.md, docs/snippets/workflows/panel/{config.toml,panel.sh,submit-phases.sh,schedule-clients.sh,header-anvil.sh,header-gautschi.sh,header-negishi.sh,header-scholar.sh,body.sh}; result: pending.
+
+### Validation request (written by the draft run, 2026-11-23)
+
+**Build under test.** Gautschi's `hypershell/develop` module (2.9.0a8 today). Record its exact
+`hs --version` in the PASS line. Tier 3 avoids every 2.9.0a8 known issue it could meet: it runs
+`hs initdb` as its own step (never `hs server --initdb`), keeps the key's `auth_eval` in the
+configuration file (never `HYPERSHELL_SERVER_AUTH_EVAL`, an underscore key that a8 cannot read from
+the environment), sets no configuration key from the environment at all, passes no `-k`, puts no `#`
+inside a task command, uses only integer groups, and gives `-T 600` in plain seconds. It does not
+need the `hyper-shell` executable. **One page statement a8 cannot validate:** the refusal of a
+submission below the reached group (`Task group 0 is below the reached group 1 of the database
+(nothing submitted)`, exit status 2). It landed after a8 (HyperShell #118, in 2.9.0a9); a8 accepts
+such a submission. The draft checked it on a workstation (below). Optional C9 checks it on Gautschi
+with 2.9.0a9 from PyPI, if the job budget allows.
+
+**Envelope.** One HyperShell server on a Gautschi login node, run for this validation only and
+stopped at the end (C11). Files only under `$RCAC_SCRATCH/workflow-automation/p6/`. Client jobs:
+`-A "$ACCT" -p cpu -q standby`, 1 node × 32 cores × 15 minutes each (the page asks for 1 node; the
+envelope allows 2), at most 4 client jobs over the whole run and at most 2 queued at once. The run
+below needs 2 to 4 client jobs (J1 to J3, plus J1′ if J1 ends before C6), and holds at most one job
+per zone at a time (`MAX_JOBS=1`), so never more than 2 at once. C0's probe is a 2-minute
+single-core job, not a client job. `$ACCT` is the validation account, kept out of the repository.
+Anvil, Negishi and Scholar get login-node checks and `sbatch --test-only` only.
+
+**The login node.** The page runs the server on `login00.gautschi.rcac.purdue.edu`; the choice of
+node is yours. Pick one, record `hostname -f`, and run every step of C on that node: the server, the
+helper, `hs submit` and every `hs list` (the page's rule: everything that opens the database runs
+on the server's host). If your shell does not stay on one node between commands, prefix each step
+with `ssh <node>`, and record that you did. Background processes must outlive the command that
+starts them (the page uses `nohup … &` and a PID file); if your tool ends them when a command
+returns, start them with `setsid nohup …` instead, and record it.
+
+**Assembling a tab.** As in P4: the header file, one empty line, then the shared body. This
+reproduces the rendered tab byte for byte (checked against the built `site/` for all four tabs and
+the four other published files):
+
+```bash
+{ cat header-<cluster>.sh; echo; cat body.sh; } > client.sub
+```
+
+The helper submits `client.sub` itself, so the envelope's settings go into the Gautschi run copy's
+header, together with the module line. Change these lines and nothing else, and record that you did
+(`<snippets>` is `docs/snippets/workflows`):
+
+```bash
+{ sed -e 's|^module load hypershell$|module load hypershell/develop|' \
+      -e "s|^#SBATCH --account=myallocation$|#SBATCH --account=$ACCT|" \
+      -e 's|^#SBATCH --qos=normal$|#SBATCH --qos=standby|' \
+      -e 's|^#SBATCH --cpus-per-task=192$|#SBATCH --cpus-per-task=32|' \
+      -e 's|^#SBATCH --time=04:00:00$|#SBATCH --time=00:15:00|' \
+      <snippets>/panel/header-gautschi.sh; echo; cat <snippets>/panel/body.sh; } > client.sub
+grep -c '^#SBATCH' client.sub     # 8
+```
+
+The body sizes the client from `$SLURM_CPUS_PER_TASK`, so the behaviour under test is the same at 32
+cores. Every helper run in C sets `MAX_JOBS=1 HIGHMEM_PARTITION=cpu`: one job per zone, and the
+`highmem` zone's jobs go to `cpu` as a stand-in (the envelope has no `highmem` jobs; B checks the
+`highmem` partition with `--test-only`). `panel.sh`, `submit-phases.sh` and `schedule-clients.sh`
+are used as published.
+
+**Draft-run checks (workstation, not a cluster).** The whole of C ran on macOS twice, with
+HyperShell 2.9.0a8 from PyPI and with 2.9.0a9 built from its tag, using stand-in `sbatch` and
+`squeue` scripts (each "job" ran `client.sub` in the background with 8 cores), `panel.sh` with its
+sleeps cut to 1 second, and `HYPERSHELL_SERVER_HOST=127.0.0.1` in the environment because the
+workstation's host name does not resolve. Both versions gave the same results: `hs submit` loaded
+48 + 48 + 24 + 1 tasks and refused the repeated batch 1 (`pass --repeat to submit it again, or
+--update to add only new tasks`, exit 2); the server logged `Task group 0 waiting on zone cpu: 96
+tasks, no client serving it`; the first helper pass submitted one `cpu` job and a second pass none;
+with `aligned/L050.txt` read-only, 95 alignments succeeded, `align L050` failed with exit status 1,
+the server logged `Failed task group 0 (at least 1 tasks exceeding allowed retries, …)` and did not
+start group 1, and the helper printed `Group 0 has failed tasks: revert or cancel them with hs
+update` and submitted nothing; after `chmod 644` and `hs update --failed --revert` the still-running
+`cpu` client ran it, the server logged `Completed task group 0 - starting task group 1`, the next
+pass submitted one `highmem` job, the idle `cpu` client ran the merge when group 2 started, `hs wait`
+on the merge task returned, `panel-calls.txt` held 2,304 lines with 96 per region, and `SIGUSR1`
+stopped the server, after which both client "jobs" ended. Separately, with a `highmem` task of
+group 1 running, `hs submit --group 0` was refused on 2.9.0a9 with the message above (exit 2) and
+accepted on 2.9.0a8; with no group-1 task sent to a client yet, both accepted it (the reached group
+counts only groups with a task sent to a client). A server started on a port already in use logged
+`Cannot listen on 0.0.0.0:<port> ([Errno 48] Address already in use)` and exited with status 5. The
+cluster run is what counts.
+
+#### A. Login-node checks (no job)
+
+| # | Cluster(s) | Command | PASS if |
+|---|---|---|---|
+| A1 | Anvil, Negishi, Scholar | `module load hypershell && hs --version` | loads with no prerequisite; record the version (2.7.0 expected, as in P4 A1) |
+| A2 | Gautschi, with `hypershell/develop` | `hs --version`; `hs submit --help \| grep -E -- '--group\|--zone'`; `hs client --help \| grep -E -- '--zone\|--capture\|--timeout'`; `hs list --help \| grep -E -- '--group\|--order-by\|--limit\|--all\|--cancelled'`; `hs server --help \| grep -- '--forever'`; `hs update --help \| grep -E -- '--revert\|--cancel\|--no-confirm'`; `hs initdb --help \| grep -- '--yes'` | `HyperShell v2.9.0a8 …` or later, and every option named appears |
+| A3 | Anvil, Gautschi, Negishi, Scholar | `sinfo -s -p highmem` | a `highmem` row on Anvil, Gautschi and Negishi; none on Scholar (the page says Scholar has no high-memory partition) |
+| A4 | Gautschi | `hostname -f`; `getent hosts login00.gautschi.rcac.purdue.edu`; from a login node other than login00, `ssh login00.gautschi.rcac.purdue.edu hostname` (optional) | record each: the node C will use, that login00 resolves, and whether the page's `ssh` step works from another login node |
+| A5 | Gautschi | `command -v openssl seq nohup`; `seq -f 'L%03g' 1 3 \| tr '\n' ' '` | all three found; prints `L001 L002 L003` |
+| A6 | Gautschi | `squeue --noheader --user="$USER" --name=panel-cpu --format=%i; echo "rc=$?"` | `rc=0` with no error (the helper's count of client jobs) |
+
+#### B. `sbatch --test-only`, every tab
+
+On each cluster's login node, assemble the tab as published and run the helper's own `sbatch` lines
+with `--test-only` and your account: for the `cpu` zone,
+`sbatch --test-only -A <your account> --job-name=panel-cpu client.sub cpu`, and for the `highmem`
+zone, `sbatch --test-only -A <your account> --job-name=panel-highmem --partition=highmem client.sub highmem`
+(on Scholar, without `-A`, and only the `cpu` line: the page sends Scholar's `highmem` clients to
+`cpu`). PASS if sbatch prints `Job <n> to start at … in partition <p>` and no error. If a `normal`
+QOS is refused for account reasons only (P4 saw `AssocGrpGRES` on Gautschi `cpu`), record that and
+repeat the `cpu` line with `-q standby`; `highmem` takes only `normal` on Gautschi and Negishi, so a
+refusal there for account reasons only is recorded, not a FAIL. A syntax, partition or core-count
+error is a FAIL. Mark a cluster N/A if you have no account there.
+
+| Cluster | Zone | Partition | Shape |
+|---|---|---|---|
+| Anvil | `cpu` | `wholenode` (no QOS line) | 1 node × 1 task × 128 CPUs, 4 h |
+| Anvil | `highmem` | `highmem` | 1 node × 1 task × 128 CPUs, 4 h |
+| Gautschi | `cpu` | `cpu`, `normal` | 1 node × 1 task × 192 CPUs, 4 h |
+| Gautschi | `highmem` | `highmem`, `normal` | 1 node × 1 task × 192 CPUs, 4 h (more than 48 cores, as the partition requires) |
+| Negishi | `cpu` | `cpu`, `normal` | 1 node × 1 task × 128 CPUs, 4 h |
+| Negishi | `highmem` | `highmem`, `normal` | 1 node × 1 task × 128 CPUs, 4 h (more than 64 cores) |
+| Scholar | `cpu` | `cpu`, `normal` | 1 node × 1 task × 64 CPUs, 4 h (the `normal` maximum) |
+
+#### C. Gautschi run (server on a login node)
+
+Set up on the chosen login node, in `$RCAC_SCRATCH/workflow-automation/p6/panel/`, following the
+page's *Set up the campaign* with the develop module:
+
+```bash
+module load hypershell/develop
+mkdir -p $RCAC_SCRATCH/workflow-automation/p6/panel/hypershell
+cd $RCAC_SCRATCH/workflow-automation/p6/panel
+export HYPERSHELL_SITE="$PWD/hypershell"
+export HYPERSHELL_CONFIG_FILE="$HYPERSHELL_SITE/config.toml"
+cp <snippets>/panel/panel.sh <snippets>/panel/submit-phases.sh <snippets>/panel/schedule-clients.sh .
+seq -f 'L%03g' 1 48 > batch-1.txt
+seq -f 'L%03g' 49 96 > batch-2.txt
+(umask 077; openssl rand -hex 32 > hypershell/auth.key)
+cp <snippets>/panel/config.toml hypershell/config.toml
+```
+
+Then assemble `client.sub` as above. If the chosen node is not login00, set `server.host` to its full
+name (and record it): `sed -i "s|^host = .*|host = \"$(hostname -f)\"|" hypershell/config.toml`.
+`HYPERSHELL_CONFIG_FILE` keeps your own `~/.hypershell/config.toml` out of every step: it is
+neither read nor changed. Every `hs` command below runs in this directory with the two variables
+set. Record each job's `sacct -j <id> -X --format=JobID,JobName,Partition,State,ExitCode,Elapsed,NodeList`.
+
+**C0. Network probe first (PLAN §5 Q5).** Before starting HyperShell, check that a compute node can
+reach the login node's port. On the login node:
+
+```bash
+timeout 300 python3 -c 'import socket; s = socket.socket(); s.bind(("0.0.0.0", 50101)); s.listen(); c, a = s.accept(); print("connection from", a)' > probe.txt 2>&1 &
+sbatch -A "$ACCT" -p cpu -q standby -n 1 -c 1 -t 00:02:00 -o probe-%j.out \
+    --wrap "timeout 10 bash -c 'exec 3<>/dev/tcp/$(hostname -f)/50101' && echo OPEN || echo CLOSED"
+```
+
+PASS if `probe-<id>.out` says `OPEN` and `probe.txt` says `connection from ('<address>', …)`
+(record the address). If the bind fails with `Address already in use`, choose another port, use it
+here and in `server.port`, and record it. **If the probe says `CLOSED`, stop C here and escalate**:
+the design keeps the server on a login node, so a blocked port needs RCAC network help (PLAN §5 Q5),
+not a redesign.
+
+**C1. Configuration, database and server.**
+
+1. `hs config get server.host` prints the chosen node; `hs config get server.port` prints `50101`
+   (or C0's port); `hs config get database.file` prints `…/p6/panel/hypershell/lib/main.db`.
+   `ls -l hypershell/auth.key` shows `-rw-------`.
+2. `hs initdb` (add `--yes` if your shell has no terminal: without one, `hs initdb` refuses to run
+   with `Non-interactive prompt cannot confirm (see --yes)`; record which) logs
+   `SQLite database initialized automatically`; `hypershell/lib/main.db` exists.
+3. Start the server as the page says: `nohup hs server --forever > hypershell/server.log 2>&1 &` then
+   `echo $! > hypershell/server.pid`. Within a few seconds `hypershell/server.log` shows
+   `Generated self-signed TLS certificate (…/hypershell/lib/tls/server.crt)`, `Certificate
+   fingerprint: SHA256:…`, `Scheduler will run forever`, `Empty database - waiting for initial
+   tasks` and `Server listening on 0.0.0.0:50101`.
+4. `ps -o args= -p "$(cat hypershell/server.pid)"` prints `… hs server --forever` and nothing that
+   looks like a key (R12).
+
+**C2. Helper with nothing to do.** `MAX_JOBS=1 HIGHMEM_PARTITION=cpu sh schedule-clients.sh` prints
+`No tasks waiting`, exits 0 and submits nothing.
+
+**C3. Submit the phases, with one planted failure.**
+
+1. `sh submit-phases.sh align batch-1.txt` logs `Submitted 48 tasks`; `head -1 tasks/align-batch-1.txt`
+   prints `sh panel.sh align L001`.
+2. The same command again is refused: `… was already submitted as source … pass --repeat to submit
+   it again, or --update to add only new tasks`, exit status 2 (`echo $?`).
+3. Plant the failure: `mkdir -p aligned; touch aligned/L050.txt; chmod 444 aligned/L050.txt`.
+4. `sh submit-phases.sh align batch-2.txt` (48), `sh submit-phases.sh genotype` (24),
+   `sh submit-phases.sh merge` (1), each logging `Submitted <n> tasks`.
+5. `hs list group zone --remaining --all | sort | uniq -c` prints three lines: `96 0 cpu`,
+   `24 1 highmem`, `1 2 cpu` (a tab between group and zone). `hypershell/server.log` shows
+   `Task group 0 waiting on zone cpu: 96 tasks, no client serving it`.
+
+**C4. First helper passes.** `MAX_JOBS=1 HIGHMEM_PARTITION=cpu sh schedule-clients.sh` prints
+`Submitted batch job <J1>` and `Group 0, zone cpu: 96 tasks waiting, 0 client jobs, 1 submitted`.
+Run it again at once: `Group 0, zone cpu: 96 tasks waiting, 1 client jobs, 0 submitted`, and no new
+job. `squeue -j <J1> -o '%j %P %q %C %l'` prints `panel-cpu cpu standby 32 15:00`.
+
+**C5. Group 0 runs; the failure holds group 1.**
+
+1. Once J1 runs, `slurm-<J1>.out` starts with `HyperShell v2.9.0a8`, then `Running task (…)` lines,
+   and no connection or TLS error. (If J1 runs for several minutes with no `Running task` line,
+   record the output: the client cannot reach the server.)
+2. When `hs list --group 0 --remaining --count` reaches 0 (about 2 to 3 minutes at 32 cores):
+   `hs list --group 0 --succeeded --count` 95; `hs list id args exit_status --failed` prints one
+   line, `sh panel.sh align L050` with exit status 1; `hs info <its id> --stderr` ends
+   `aligned/L050.txt: Permission denied`.
+3. `hypershell/server.log` shows `Failed task group 0 (at least 1 tasks exceeding allowed retries,
+   example: <id>)` and no `starting task group 1`; `hs list --group 1 --completed --count` 0.
+4. A helper pass prints `Group 0 has failed tasks: revert or cancel them with hs update` and
+   submits nothing.
+
+**C6. Re-run the failure.** `chmod 644 aligned/L050.txt`, then `hs update --failed --revert`: it asks
+`Update affects 1 tasks, continue? yes/[no]:`; answer `yes` (with no terminal, add `--no-confirm`;
+record which); it logs `Updated 1 tasks`. If J1 is still running, it runs the task within about
+30 seconds (the held server polls the database at most every 30 seconds);
+if J1 has ended, a helper pass submits J1′ for it (record which). Then `hs list --group 0
+--succeeded --count` 96, `aligned/L050.txt` holds 24 lines, and the server log shows `Completed task
+group 0 - starting task group 1`.
+
+**C7. Group 1, zone highmem.** A helper pass prints `Submitted batch job <J2>` and
+`Group 1, zone highmem: 24 tasks waiting, 0 client jobs, 1 submitted`; `squeue -j <J2> -o '%j %P'`
+prints `panel-highmem cpu` (the stand-in partition). When `hs list --group 1 --remaining --count`
+is 0:
+
+1. `hs list --group 1 --succeeded --count` 24; `ls regions | wc -l` 24; `wc -l < regions/region_01.txt`
+   96, which shows that genotyping started only after every line, L050 included, was aligned.
+2. Only J2's client ran group 1, and J2 ran nothing else:
+   `grep -o 'Running task ([0-9a-f-]*)' slurm-<J2>.out | tr -d '()' | awk '{print $3}' | sort > j2.txt`;
+   `hs list id --group 1 --all | sort > g1.txt`; `cmp j2.txt g1.txt && echo same` prints `same`.
+
+**C8. Group 2 and the end of the pipeline.** The server log shows `Completed task group 1 -
+starting task group 2`. If a `cpu` client is still running (J1 or J1′, within its 10 idle minutes),
+it runs the merge; otherwise a helper pass prints `Group 2, zone cpu: 1 tasks waiting, 0 client
+jobs, 1 submitted` for J3 (record which). Then:
+
+1. `hs wait "$(hs list id --group 2 --limit 1)"` returns, logging `Task completed (…)`.
+2. `wc -l < panel-calls.txt` 2304; `hs info <merge id> --stdout | head -2` prints
+   `region 1 96 lines` and `region 2 96 lines`.
+3. `hs list --succeeded --count` 121; `hs list --failed --count` 0; `hs list --remaining --count` 0.
+4. A helper pass prints `No tasks waiting`.
+5. Each client job ends on its own within about 10 minutes of its last task (`-T 600`), or at its
+   15-minute walltime, whichever is first: record each job's `State` and `Elapsed`.
+
+**C9 (optional, only if C used at most 3 client jobs). The reached-group refusal on 2.9.0a9.** In a
+fresh directory `$RCAC_SCRATCH/workflow-automation/p6/reached/`, install 2.9.0a9 in user space
+(`module load uv; uv tool install 'hypershell==2.9.0a9' --python 3.13`; record `hs --version` and
+how its `hs` gets on `PATH`, in your shell and in a batch job). Set the two variables there, make a
+fresh `hypershell/` with a key and the config (`server.host` as in C, and another port if 50101 is
+still in use), and start a server with that build as in C1. Then
+`printf 'sleep 300\n' > slow.txt; printf 'echo late\n' > late.txt` and
+`hs submit --group 1 --zone highmem slow.txt`. Submit one `highmem` client job from that directory
+(a copy of C's `client.sub` whose module line is replaced by whatever puts the 2.9.0a9 `hs` on
+`PATH`; `sbatch --job-name=panel-highmem client.sub highmem`). While its task runs
+(`hs list --group 1 --remaining --count` 1, and the job's log shows `Running task`):
+`hs submit --group 0 --zone cpu late.txt` is refused with `Task group 0 is below the reached group 1
+of the database (nothing submitted)`, exit status 2, and `hs list --count` stays 1. Then `scancel`
+the job and stop that server with `SIGUSR1`.
+
+**C10. The helper loop.** With nothing waiting, start the page's loop:
+`nohup sh -c 'while true; do sh schedule-clients.sh; sleep 300; done' > hypershell/scheduler.log 2>&1 &`
+then `echo $! > hypershell/scheduler.pid`. Within a few seconds `hypershell/scheduler.log` holds
+`No tasks waiting`. `kill $(cat hypershell/scheduler.pid)`; then `kill -0 $(cat
+hypershell/scheduler.pid)` fails (the loop has ended). No job was submitted. (The loop runs with the
+helper's defaults, but with no work waiting it submits nothing.)
+
+**C11. Stop and restart the server.**
+
+1. `kill -s USR1 $(cat hypershell/server.pid)`. Within about 30 seconds `hypershell/server.log` shows
+   `Signal interrupt (SIGUSR1)` and `kill -0 $(cat hypershell/server.pid)` fails. Any client job
+   still running ends within a minute (record its `State`).
+2. Restart as the page says (`nohup hs server --forever …` and the PID file). The log shows `All
+   previous tasks completed (121) - waiting for new tasks` and `Server listening on 0.0.0.0:50101`;
+   `hs list --count` 121.
+3. Stop it again with `SIGUSR1`, as in 1. Nothing of this campaign is left running on the login
+   node: `ps -u "$USER" -o pid,args | grep -E '[h]s server|[s]chedule-clients'` prints nothing.
+
+#### D. Not covered by this envelope (record, do not run)
+
+- **Anvil, Negishi and Scholar runs, and `highmem` jobs.** Checked by A and B only; record "batch:
+  not run" as a residual risk. As in P4, the tabs run `module load` in a non-login batch shell.
+- **The reached-group refusal on 2.9.0a8.** Not in a8 (see *Build under test*). Without C9, the
+  page's statement rests on the workstation run with 2.9.0a9 and on HyperShell's documentation.
+- **A long campaign.** No run lasts days, crosses a login-node reboot, or survives the user logging
+  out; C11 shows that a stopped server restarts on the same database. Whether `nohup` keeps the
+  server through a logout is not tested (HyperShell also handles `SIGHUP` itself, for log rotation,
+  without stopping).
+- **The released module.** As in P4, the merge hold re-runs the tier 1 checks on the default 2.9.0
+  module; it does not re-run P6.
+
+Close-run items expected whatever the outcome:
+- **F1** If C0 needed another port, or the login node's full host name differs from the form the
+  page uses, adjust the page's port sentence or host-name sentence to match.
+- **F2** Check the page's quoted log lines (server start, waiting on zone, failed group, helper
+  messages) against C's output, and the *Make the key* and *Start the server* steps against what
+  the validator had to change (for example `setsid`).
+
+#### Results
+
+Validated 2026-11-23 by the foreman against `d2ea3c3b`, **reduced scope, by decision at the P6
+validation step**: no HyperShell server was run on a login node and no 2.9.0a9 install was made.
+Sections A and B ran as requested; C was not run. The server-and-client path rests on the
+drafter's local end-to-end runs (2.9.0a8 from PyPI and 2.9.0a9 from its tag, with stand-in
+`sbatch`/`squeue`) and is a residual risk until the merge hold's release checks.
+
+- **A1** PASS. `module load hypershell` → `HyperShell v2.7.0 (CPython 3.13.3)` on Anvil, Negishi,
+  Scholar (and Gautschi, per P4/P5).
+- **A2** PASS. Gautschi `hypershell/develop` `HyperShell v2.9.0a8 (CPython 3.14.6)`. Options present:
+  `hs client --capture --timeout/-T --zone`; `hs list --all --cancelled --count --failed --group
+  --limit --order-by --remaining --succeeded --where`; `hs submit --group --zone`; `hs server
+  --forever`; `hs config get`; `hs initdb --yes`; `hs update --cancel --revert`.
+- **A3** PASS. `highmem`: Anvil b[000-031], Gautschi b[000-005], Negishi b[000-005]; Scholar none.
+- **A4** PASS with record. The validator's shell landed on `login01.gautschi.rcac.purdue.edu`;
+  `login00.gautschi.rcac.purdue.edu` resolves (128.211.134.20). The `ssh login00` hop was not made.
+- **A5** PASS. `openssl`, `seq`, `nohup` in `/usr/bin`.
+- **A6** PASS. `squeue --noheader --user="$USER" --name="panel-cpu" --format=%i | wc -l` prints 0
+  with no error.
+- **B** PASS, 7/7, in the helper's exact form (`sbatch --job-name=panel-<zone> [--partition=highmem]
+  client.sub <zone>`): Anvil cpu (`wholenode`) and highmem; Negishi cpu and highmem; Scholar cpu;
+  Gautschi highmem (`normal`; `standby` is refused on `highmem` with "Invalid qos specification",
+  consistent with the page) and cpu (`normal` refused on the validation account's limits, `-q
+  standby` passed).
+- **C** Not run (decision above): the compute-node-to-login-node port probe, the live server,
+  client jobs, the group hold, the revert, the zone routing, `SIGUSR1` stop and restart, and the
+  optional reached-group check on 2.9.0a9.
+
+Close-run items:
+- **F1** Leave the page as drafted. Add to the Merge hold: before merge, run the tier 3 server path
+  once on the released module (C0 port probe from a compute node to the login node, then C1–C8 and
+  C11 of this request), recorded as `P6-release: PASS`.
+
+P6: PASS — 2026-11-23 · reduced scope: A1–A6 and B 7/7 on login nodes; C (live server and clients) not run by decision, deferred to the merge hold as P6-release · HyperShell: develop 2.9.0a8 (`--help` only)
+
+
+## P7 — Tier 4 (V7, including the manual Rancher walk-through)
+
+Validation request for the P7 draft (the commit that adds this section), covering
+docs/workflows/hypershell/{geddes_service,autoscaling}.md and
+docs/snippets/workflows/survey/{database.toml,relay-gautschi.toml,relay-negishi.toml,run-relay.sh,submit-night.sh,calibrate.sh,detect.sh,catalog.sh};
+result: held for the release by decision (merge hold `P7-release: PASS`).
+
+P7: PENDING — held for the 2.9.0 release by decision: the whole request below runs once, on the released module and image, as the merge hold's `P7-release: PASS`; no `P7: PASS` until then
+
+### Validation request (written by the draft run, 2026-11-23)
+
+**Why it is held.** Tier 4 needs a relay that starts its clients with `hs` (in 2.9.0a9 the relay
+starts every client as the deprecated `hyper-shell client`, which RCAC modules do not put on `PATH`;
+HyperShell seed `relay-client-exe-deprecated-name`, ruling 2026-11-23), the
+post-2.9.0a8 fixes, and a published image whose version matches the module. So the request runs once,
+on the released 2.9.0 module on Gautschi and Negishi and the `ghcr.io/hypershell/hypershell:2.9.0`
+image, with a human doing the Rancher steps (C). It is recorded under the merge hold as
+`P7-release: PASS`.
+
+**Build under test.** The default `hypershell` module on Gautschi and Negishi, once it is 2.9.0
+(record `hs --version` on each `login00`), and the image `ghcr.io/hypershell/hypershell:<the same
+version>`. Record the image's digest from the pod (Rancher shows it on the pod's detail page, or
+`kubectl -n <ns> get pod <pod> -o jsonpath='{.status.containerStatuses[*].imageID}'`). If the module
+reports a pre-release, stop: the request is for the release.
+
+**Where the page fails on 2.9.0a8** (for the record; do not validate on a8):
+- `--initdb` in the server container's arguments does not initialize the database on a8 (fixed in
+  2.9.0a9, HyperShell #105). With an empty TimescaleDB the server cannot load tasks; the a8 workaround
+  is `hs initdb` from `login00` with `database.toml`.
+- The relay cannot start clients from Gautschi's `hypershell/develop` module: the relay launches
+  the deprecated `hyper-shell` by name, and RCAC modules put only `hs` and `hsx` on `PATH` (a
+  HyperShell fix, seed `relay-client-exe-deprecated-name`, not module packaging).
+- a8 reads no environment variable for a key whose own name holds an underscore (fixed in 2.9.0a9,
+  #113), nor the `_ENV`/`_EVAL` environment forms. The pages set none from the environment: the pod's
+  variables (`HYPERSHELL_SERVER_AUTH`, `…_SERVER_BIND`, `…_SERVER_TLS_CERT`, `…_SERVER_TLS_KEY`,
+  `…_DATABASE_PROVIDER/HOST/PORT/DATABASE/USER/PASSWORD`, `…_AUTOSCALE_DISTRIBUTION`,
+  `…_AUTOSCALE_SITES`, `…_LOGGING_LEVEL`) were each read correctly by `hs config get` on 2.9.0a8 and
+  2.9.0a9 from PyPI, and the relay's `num_threads`, `launcher_args` and `auth_eval` sit in
+  `relay.toml`. Checked on the workstation: on a8, `HYPERSHELL_RELAY_NUM_THREADS` and
+  `HYPERSHELL_RELAY_LAUNCHER_ARGS` are ignored and `HYPERSHELL_RELAY_UPSTREAM_AUTH_EVAL` is not
+  evaluated; on a9 all three are read.
+- The GHCR package lists `2.9.0a9` (and `sha-1acc548`), published 2026-11-22; there is no `2.9.0` and
+  no `latest` tag yet. The page names `:2.9.0`, which exists only once 2.9.0 is released.
+
+**Envelope.** One Geddes namespace of the validator's (`<ns>` below), one pod, one Load Balancer
+service on the private pool, three Secrets and one 20 GiB PVC, all deleted at the end (K). Gautschi:
+the relay on `login00.gautschi.rcac.purdue.edu`, client jobs in `cpu` (`-q standby` allowed) and
+`ai` (`normal`, at most 1 GPU at a time). Negishi: the relay on `login00.negishi.rcac.purdue.edu`,
+client jobs in `cpu` (`-q standby` allowed). At most 4 client jobs per cluster at once, each with a
+30-minute walltime. Files: the pages' own paths (`$HOME/survey/` on each `login00`) and a Data
+Depot directory under the validator's group's `data/` directory (`<depot>` below, e.g.
+`/depot/<group>/data/survey`, the same path on both clusters).
+`$ACCT` is the validation account, kept out of the repository.
+
+**Assembling the run copies.** Use the published files as they are, except these lines, and record
+each change:
+- `relay.toml` on each cluster (from `relay-gautschi.toml` / `relay-negishi.toml`): replace
+  `<your-namespace>` with `<ns>`, the fingerprint placeholder with the real fingerprint (B4),
+  `--account=myallocation` with `--account=$ACCT`, `--time=04:00:00` with `--time=00:30:00`,
+  `max = 8` with `max = 2` and (Gautschi `gpu`) `max = 2` with `max = 1`. If `normal` is refused on
+  `cpu` for account reasons only, change `--qos=normal` to `--qos=standby` in the `cpu` tables.
+- `database.toml`: `<your-namespace>` → `<ns>`.
+- `calibrate.sh`, `detect.sh`, `catalog.sh`, `submit-night.sh`: `survey=/depot/mygroup/data/survey` →
+  `survey=<depot>`.
+`run-relay.sh` is used exactly as published.
+
+**Draft-run checks (workstation, not a cluster).** No Docker or Geddes from the drafting host, so
+the pod was stood in by `hs server --autoscaling=dynamic --initdb` run with exactly the page's
+environment variables (key from a file, `HYPERSHELL_SERVER_TLS_CERT`/`_KEY` pointing at a
+certificate made with the page's `openssl req` line), but SQLite in place of TimescaleDB and
+`-P 10` to plan every 10 seconds. Two relays ran from the published `run-relay.sh` with the
+published `relay.toml` files (host, port and fingerprint filled in; each with its own `HOME`; a
+stand-in `srun` that drops its options and sets `SLURM_CLUSTER_NAME`), on HyperShell 2.9.0a9 from
+PyPI. Results: the fingerprint printed by `openssl x509 -fingerprint -sha256`, prefixed with
+`SHA256:`, was accepted; each relay logged `Upstream identity … for zone cpu at site gautschi`,
+`Upstream server publishes a topology - site clients follow it` and `Relay-local server ready on
+0.0.0.0:50002`; the server logged `Relay site registered (site: gautschi, zone: cpu, min: 0, init:
+0, max: 8, clients: 0)` (and `gpu`, and `negishi` `cpu`); `submit-night.sh 20261123` submitted
+24 + 24 + 1 tasks, and a second run was refused (`… was already submitted as source …`, exit 2,
+nothing more submitted); under `spread` the plan grew the `cpu` zone one client per check on both
+sites (`site: gautschi, zone: cpu, target: 2` and `site: negishi, zone: cpu, target: 2`), the `gpu`
+zone only at Gautschi, and only once its group started (`Task group 202611231 waiting on zone gpu: 24
+tasks, no client serving it` until then); every launch was `srun <the zone's launcher_args>
+hyper-shell client -H … -p 50002 -N 4 -b 4 -w 5 -t {} -d 0 -S 10 -T 600 --zone <zone>`; the three
+groups ran in order and the catalog succeeded. A second night submitted while the first was in its
+detection group was accepted and started only after the first night's catalog finished.
+**An earlier draft used groups 0, 1, 2 for every night: the second night's catalog then ran first
+(the forever server was still on group 2) and failed.** That is why the groups are now the date
+plus the phase. `SIGUSR1` drained both relays (each exited within 30 seconds). The stand-in server,
+given `SIGUSR1`, logged `Signal interrupt (SIGUSR1)` but was still running a minute later; `SIGTERM`
+(what Kubernetes sends when a pod is deleted) stopped it at once. The pages never send `SIGUSR1` to
+the server. With 2.9.0a8 from PyPI the same files were read, both relays registered and the first
+clients were launched; the run stopped there only because a8's site clients dial the relay host's
+name (a8 has no `relay.advertise`, which the drafter used to point them at `127.0.0.1`), and the
+workstation's name does not resolve. The cluster and Geddes run is what counts.
+
+#### A. Login-node checks (no job)
+
+| # | Where | Command | PASS if |
+|---|---|---|---|
+| A1 | `login00` of Gautschi and Negishi | `module load hypershell && hs --version`; `command -v hs hsx` | `HyperShell v2.9.0 …` (record it) on both, and both commands found. `hyper-shell` is deprecated and need not be on `PATH`; G checks that the relay starts its clients with `hs` |
+| A2 | Gautschi `login00`, module loaded | `hs relay --help \| grep -E -- '--launcher\|--zone\|--advertise'`; `hs server --help \| grep -- '--autoscaling'`; `hs submit --help \| grep -E -- '--group\|--zone'` | every option appears |
+| A3 | Gautschi `login00`, module loaded | the Python of the module's `hs` imports the PostgreSQL and UUIDv7 extras: `$(head -1 $(command -v hs) \| cut -c3-) -c 'import psycopg, uuid_utils; print("ok")'` (or the module's documented way) | prints `ok`. Without them, `hs submit`/`hs list` with `provider = "timescale"` stop with `Missing optional dependency "uuid-utils"` |
+| A4 | both `login00` | `hostname -s`; `hostname -f` | `login00` and the full name the pages use; record both |
+| A5 | both `login00` | `ls -d <depot>`; `touch <depot>/p7-probe-$(hostname -s)`; `ls <depot>` from the other cluster | the same path on both, writable, and each cluster sees the other's probe file |
+| A6 | Gautschi `login00` | `openssl version`; the page's `openssl req … -addext …` line in a scratch directory | `-addext` accepted (OpenSSL 1.1.1 or later); record the version |
+| A7 | Gautschi `login00` | `ls -ld $HOME`; after A1, `module show hypershell` | record whether `$HOME` is shared with Gautschi compute nodes (the relay's site certificate lives under `$HOME/survey/hypershell/lib/tls/`) |
+
+#### B. `srun --test-only` for each zone, and the credentials
+
+| # | Where | Command | PASS if |
+|---|---|---|---|
+| B1 | Gautschi `login00` | `srun --test-only <the cpu table's launcher_args, run copy> hostname` | `srun: Job … to start at … using … on …` and no error |
+| B2 | Gautschi `login00` | `srun --test-only <the gpu table's launcher_args, run copy> hostname` | as B1. If 14 cores per GPU is refused, record the message: the page's 14-core statement is wrong |
+| B3 | Negishi `login00` | `srun --test-only <Negishi's cpu table's launcher_args, run copy> hostname` | as B1 |
+| B4 | Gautschi `login00` | the page's *Make the credentials on login00* steps, exactly | `ls -l hypershell/upstream.key hypershell/db.password geddes/tls.key` all `-rw-------`; the fingerprint line reads `sha256 Fingerprint=` (or `SHA256 Fingerprint=`) and 32 colon-separated pairs; record which |
+
+#### C. The Rancher walk-through (a human, at geddes.rcac.purdue.edu)
+
+Follow `geddes_service.md` literally. At each step, compare the screen with what is written here and
+in the page, and record every label that differs (the exact text on screen), every field the page
+does not mention that had to be set, and a screenshot of each form tab used (for the close run's
+optional screenshots, with alt text). If Geddes now directs new workloads to Geddes2, record that,
+stop, and report (PLAN §5 Q6).
+
+**C1. Secrets** (*Store the credentials as Secrets*)
+1. Left menu **Storage** > **Secrets**; **Create** at the top right. Expected: a page of Secret
+   types with an **Opaque** card. Record the other cards shown (for example **TLS Certificate**).
+2. **Opaque**. Expected: a form with **Namespace**, **Name**, and a data tab with **Key** and
+   **Value** rows and an **add** control. Fill in `<ns>`, `hypershell-auth`, Key `auth`, Value = the
+   64 hexadecimal characters of `upstream.key` (no trailing newline). **Create**. Expected: the Secret
+   listed as Active.
+3. Repeat for `hypershell-db` (Key `password`, the 48 characters of `db.password`).
+4. Repeat for `hypershell-tls` with two keys, `tls.crt` and `tls.key`, each the whole PEM text
+   including the `-----BEGIN` and `-----END` lines. Record whether the value field kept the line
+   breaks (open the Secret afterwards and compare with `geddes/tls.crt`).
+
+**C2. The Deployment, first container** (*Deploy the pod*, steps 1–5 up to the second container)
+1. Project dropdown at the top right; left menu **Workload**; **Create**; **Deployment**. Expected:
+   the Deployment form, with a container selector or tab named `container-0` at the top and form tabs
+   on the left (General, Health Check, Labels & Annotations, Networking, Node Scheduling, Pod
+   Scheduling, Resources, Scaling and Upgrade Policy, Security Context, Storage). Record the actual
+   tab names and where they sit (pod-level vs container-level).
+2. Namespace `<ns>`, Name `hypershell`, **Container Name** `timescaledb`, **Container Image**
+   `timescale/timescaledb:2.32.1-pg18` (the upstream name, with no registry prefix).
+3. **Environment Variables** > **Add Variable**: record the **Type** choices offered. Choose the one
+   for a key of a Secret (the page says **Secret key**; record the real label), Variable Name
+   `POSTGRES_PASSWORD`, Secret `hypershell-db`, Key `password`. Then a plain variable
+   `POSTGRES_DB = hypershell` (record the plain type's label; the page says Key/Value).
+4. **Storage** > **Add Volume** > **Create Persistent Volume Claim**: Name `hypershell-db`,
+   **Single-Node Read/Write**, Storage Class `geddes-performance-singlenode` (record the classes
+   offered), Capacity `20`, Mount Point `/var/lib/postgresql`, Sub Path `data`. Record whether
+   the mount point and sub path are set here or on the container.
+5. **Resources**: CPU Reservation `2000`, CPU Limit `2000`. Record the units the fields show.
+
+**C3. The second container**
+1. Find the control that adds a container (the page says **Add Container**, next to `timescaledb`
+   at the top of the form). Record its label and position.
+2. Container Name `server`, Image `ghcr.io/hypershell/hypershell:<version under test>`.
+3. **Command**: record the fields offered (the page assumes **Command** and **Arguments**). Leave
+   Command empty; Arguments `--autoscaling=dynamic --initdb`.
+4. **Ports** > **Add Port**: container port `50001`, TCP. Record the field labels (the page says
+   **Private Container Port**) and whether a service type is offered here (leave it at none or
+   ClusterIP; the service is made in E).
+5. The twelve environment variables of the page's table, two of them from Secrets.
+6. **Storage** > **Add Volume** > **Secret** (record the volume types offered): Secret
+   `hypershell-tls`, Mount Point `/tls`. Record whether a read-only box or default mode is shown.
+7. **Resources**: CPU Reservation `1000`, CPU Limit `1000`.
+
+**C4. Pod label, upgrade policy, create**
+1. **Labels & Annotations** > **Pod Labels** > **Add Label**: `hypershell` = `survey`.
+2. **Scaling and Upgrade Policy**: **Recreate** (record the choices offered and the default).
+3. **Create**. Expected: the Deployment listed, first with "does not have minimum availability",
+   then Active within 5 minutes. Record the time to Active and the number of restarts of each
+   container (the page says the server may restart once or twice).
+
+#### D. The pod's logs and the server container
+
+1. **View Logs**, container `timescaledb`: ends with `database system is ready to accept
+   connections`, with no error about `/var/lib/postgresql/data (unused mount/volume)`. Record any
+   `timescaledb-tune` lines.
+1a. **The image and the PostgreSQL version (added at P8).** The pod pulls
+   `timescale/timescaledb:2.32.1-pg18` with no registry prefix: the pod's events show
+   `Pulling image "timescale/timescaledb:2.32.1-pg18"` (or `kubectl -n <ns> get pod <pod> -o
+   jsonpath='{.spec.containers[0].image}'` prints exactly that), and the pull succeeds. **Execute
+   Shell** in `timescaledb`: `psql -U postgres -d hypershell -c 'SELECT version();'` reports
+   `PostgreSQL 18.…`, and `cat /var/lib/postgresql/18/docker/PG_VERSION` prints `18` (the files
+   are on the volume mounted at `/var/lib/postgresql`). Record the version line.
+2. **View Logs**, container `server`: shows, in order, `Scheduler will run forever`, `Empty database
+   - waiting for initial tasks`, `Server listening on 0.0.0.0:50001` and `Autoscale start (policy:
+   dynamic, distribution: spread)`, and no `PermissionError` or `Could not create directory`. Record
+   the exact lines, and any line about TLS or the database (provider `timescale`, initialization).
+3. **Execute Shell** in `server`: `/opt/hypershell/bin/hs --version` prints the version under test;
+   `/opt/hypershell/bin/hs config get database.provider` prints `timescale`;
+   `/opt/hypershell/bin/hs list --count` prints `0`; `ls -l /tls` lists `tls.crt` and `tls.key`.
+   Record whether `hs` is on `PATH` there (the page says it is not).
+
+#### E. The Load Balancer service (*Expose the server*)
+
+1. **Service Discovery** > **Services** > **Create** > **Load Balancer**. Fill in as the page says,
+   with two ports, `queue` 50001 → 50001 and `database` 5432 → 5432. Record the labels of the port
+   fields (the page says **Listening Port** and **Target Port**, and "a port named"; record whether
+   a port name field exists).
+2. **Selectors**: `hypershell` = `survey`; the bar turns green and names the pod.
+3. **Labels & Annotations** > **Add Annotation**: `metallb.universe.tf/address-pool` =
+   `geddes-private-pool`. **Create**.
+4. Record the external address assigned (hover the port link, or `kubectl -n <ns> get services`).
+
+#### F. From Gautschi's login00 (*Check the service from login00*)
+
+1. `host hypershell.<ns>.geddes.rcac.purdue.edu` prints the address from E4.
+2. Probe both ports: `timeout 5 bash -c 'exec 3<>/dev/tcp/hypershell.<ns>.geddes.rcac.purdue.edu/50001' && echo open`
+   and the same for 5432. Both `open`. **If either is closed, stop and escalate** (PLAN §5 Q5): the
+   design needs `login00` → Geddes on both ports.
+3. The page's `database.toml` (run copy) and the four commands of *Check the service from login00*:
+   `hs list --count` prints `0`.
+4. The same probe of 50001 from Negishi's `login00`: `open`.
+5. Optional: `openssl s_client -connect hypershell.<ns>.geddes.rcac.purdue.edu:50001 </dev/null 2>/dev/null | openssl x509 -noout -fingerprint -sha256`
+   prints the fingerprint of B4.
+
+#### G. The relay on Gautschi, and the first night
+
+1. Save the run copy of `relay.toml` and `run-relay.sh` as the page says. `bash run-relay.sh` prints
+   `Relay started on login00 with process ID <n>`; `ps -p $(cat $HOME/survey/hypershell/relay.pid)`
+   shows `hs relay`. `hypershell/relay.log` shows `Upstream identity … for zone cpu at site
+   gautschi`, the same for `gpu`, `Upstream server publishes a topology - site clients follow it`
+   and `Relay-local server ready on 0.0.0.0:50002`, and no TLS or key error. The server's log shows
+   `Relay site registered (site: gautschi, zone: cpu, min: 0, init: 0, max: 2, clients: 0)` and the
+   same for `gpu` with `max: 1`. `squeue --user=$USER --name=survey-cpu,survey-gpu` is empty.
+2. `ps -o args= -p $(cat $HOME/survey/hypershell/relay.pid)` shows no key (R12).
+3. Copy the three stand-ins to `<depot>` and run `bash submit-night.sh 20261123`: three `Submitted`
+   lines (24, 24, 1). Run it again: refused with `… was already submitted as source …`, exit 2,
+   and `hs list --count` stays 49.
+4. Within about two minutes, `squeue … --name=survey-cpu` shows one job in `cpu` (account, QOS and
+   walltime as the run copy), and a second within another minute or two. `relay.log` shows
+   `srun` launches only for zone `cpu`, each running the module's `hs client` (not `hyper-shell`;
+   a launch of `hyper-shell` is a FAIL, the relay fix is missing). Record the job IDs and `sacct -j <id> -X
+   --format=JobID,JobName,Partition,QOS,AllocCPUS,State,Elapsed,NodeList`.
+5. `hs list --group 202611230 --remaining --count` reaches 0; then a `survey-gpu` job starts in `ai`
+   with 1 GPU and 14 CPUs (record `sacct … AllocTRES`). No `gpu` job ran before that.
+6. When `hs list --group 202611232 --remaining --count` is 0: `hs list --succeeded --count` 49,
+   `hs list --failed --count` 0. `cat <depot>/nights/20261123/catalog.txt` has 48 lines: for each
+   field, `F… detected on gautschi <node> GPU <n>` and then its calibration line. `hs list args
+   exit_status --group 202611232` shows exit status 0, and `hypershell/relay.log` holds the catalog
+   task's two lines, `Fields calibrated on Gautschi: 24` and `Fields calibrated on Negishi: 0` (the
+   page says a task's output lands there). Record `SLURM_CLUSTER_NAME` as the files show it (the catalog's
+   counts match on `gautschi`).
+7. `hs list client_host --group 202611231` lists `ai` nodes only.
+8. The `cpu` jobs end on their own within about 10 minutes of their last task (`-T 600`); record
+   each `State` and `Elapsed`.
+
+#### H. Persistence (*How the data persists*)
+
+1. In Rancher, delete the pod (not the Deployment, not the PVC). A new pod starts; record the time
+   to Active.
+2. The server's log in the new pod shows `All previous tasks completed (49) - waiting for new tasks`
+   (or the 2.9.0 wording; record it); `hs list --count` from `login00` prints 49.
+3. `relay.log` records losing the server and connecting again, with no restart of the relay.
+
+#### I. Negishi, spread and fill (*Add a second cluster*)
+
+1. On Negishi's `login00`, follow the page's four steps (key pasted with `nano`, run copy of the
+   Negishi `relay.toml`). `ls -l hypershell/upstream.key` is `-rw-------`. The server logs `Relay
+   site registered (site: negishi, zone: cpu, …)`.
+2. `bash submit-night.sh 20261124` on Gautschi. Under `spread`, `cpu` jobs start on both clusters
+   (record each cluster's `squeue`); the `gpu` job only on Gautschi. The catalog's output counts
+   calibrations on both `gautschi` and `negishi`.
+3. While night 20261124 is in its detection group, `bash submit-night.sh 20261125` is accepted; its
+   calibrations start only after night 20261124's catalog has finished (compare `hs list id
+   schedule_time --group 202611250` with the catalog's completion).
+4. Fill: edit the Deployment's `server` container, set `HYPERSHELL_AUTOSCALE_DISTRIBUTION` to `fill`
+   and add `HYPERSHELL_AUTOSCALE_SITES` = `negishi,gautschi`; save (record that the pod restarted,
+   per the Recreate policy). The server's log shows `distribution: fill`. With every `cpu` client of
+   the last night gone (wait out `-T 600`), `bash submit-night.sh 20261126`: the first `cpu` clients
+   start on Negishi, and Gautschi gets one only once Negishi has its `max` (2).
+
+#### J. Failure, drain and stop (*When a task fails*, *Keep the relays running*)
+
+1. Before submitting night 20261127, remove its calibration of one field after it lands (or make
+   `<depot>/nights/20261127/calibrated/F005.txt` unreadable once written) so that `detect.sh` fails
+   for F005. The detection group then holds the catalog: the server logs `Failed task group
+   202611271 (…)`. Restore the file, `hs update --failed --revert` (answer `yes`), and the catalog
+   runs. Record the messages.
+2. `kill -s USR1 $(cat $HOME/survey/hypershell/relay.pid)` on Negishi: the relay finishes what it
+   holds and exits (record the time); `ps -p …` then prints only the header. The server logs `Relay
+   site left (site: negishi, …)`.
+3. `kill $(cat …/relay.pid)` on Gautschi while a client job runs: the relay and its `srun` jobs end
+   at once (record each job's `State`).
+4. On `login00` of Gautschi, start the relay again with `bash run-relay.sh` and check that it
+   registers; drain it again as in 2.
+
+#### K. Backup and clean-up (*Operate and maintain*)
+
+1. From a host with `kubectl` access, the page's two `kubectl` commands write `survey.dump`, more than
+   0 bytes; `pg_restore --list survey.dump | head` lists the `task` table (if `pg_restore` is at
+   hand).
+2. Clean up: delete the service, the Deployment, the PVC `hypershell-db`, the three Secrets; on both
+   `login00`, nothing of the survey is left running (`ps -u $USER -o pid,args | grep '[h]s relay'`
+   prints nothing); remove `<depot>/nights` if not wanted.
+
+#### L. Not covered by this request (record, do not run)
+
+- **A long campaign.** No run lasts days or crosses a `login00` reboot; G–J show restarts of the
+  relay and the pod. Whether `nohup` keeps the relay through a logout on both clusters is checked
+  only as far as the validator's session allows.
+- **Scale.** Clients stay at `max = 2` (`cpu`) and 1 (`gpu`) per cluster; the page's 8 and 2 are not
+  run.
+- **The page's `normal` QOS and 4-hour walltime** are checked by B only.
+- **The PostgreSQL memory defect.** No tier 4 example requests task memory (`-m`); not exercised.
+
+Close-run items expected whatever the outcome:
+- **F1** Apply every Rancher label difference recorded in C and E to `geddes_service.md`, and adopt
+  any screenshots with alt text describing the form state.
+- **F2** Replace the image tag `2.9.0` with the released tag if it differs, and the log lines quoted
+  in both pages with those recorded in D, G and H.
+- **F3** If B2 shows another rule for cores per GPU on `ai`, or I shows a different `fill` order,
+  amend `relay-gautschi.toml` and the page's text.
+- **F4** If A3 fails, add the module's missing extras to the merge hold (as P5's module packaging
+  item); if A7 shows home is not shared with compute nodes, set `[server.tls]` for the relay's site
+  and amend the page.
+
+#### Results
+
+*(validator: on the released module and image; then write the merge hold's `P7-release: PASS` line)*
+
+## P8 — re-validation after simplification
+
+The P8 run rewrote the section's example scripts to the style guide's *Example scripts* rule (plain
+commands, no advanced shell constructs). This section lists, for each changed script, what changed
+and how to re-check it. It adds items only: the P2–P7 requests and results above stand as written.
+
+Validation request for the simplification pass (`5f227045`); result: PASS, see Results (R1–R3) below.
+
+**Build under test.** As in P4 and P5: Gautschi's `hypershell/develop` module; record its exact
+`hs --version`. For R2 and R3, change the published `module load hypershell` line to
+`module load hypershell/develop` and nothing else, as in P4 and P5, and record that you did.
+
+**Envelope.** R1 and R2: Gautschi `-A "$ACCT" -p cpu -q standby`, at most 2 nodes × 15 minutes per
+job. R3: Gautschi `-A "$ACCT" -p ai -q burst`, 1 node, 2 GPUs, at most 15 minutes. One job each, at
+most 2 queued at once. Files only under `$RCAC_SCRATCH/workflow-automation/p8/`. `$ACCT` is the
+validation account, kept out of the repository. `<snippets>` is `docs/snippets/workflows` at the P8
+commit.
+
+**Assembling a tab.** Unchanged from P2–P6: the header file, one empty line, then the shared body
+(`{ cat header-<cluster>.sh; echo; cat body.sh; } > <name>.sub`). At the P8 commit this reproduces
+every rendered tab byte for byte, and every other published snippet file renders byte for byte (50
+of 50 blocks checked against the built `site/`, locally).
+
+**Local checks already made (workstation, not a cluster).** Every script, and every assembled tab,
+passes `bash -n` (or `sh -n`; the `#!/bin/sh` files also `dash -n`). With HyperShell 2.9.0a9 from
+PyPI and stand-ins: the job array body before and after gives identical `results/` and output for
+tasks 1–20; `render-frame.sh 42` writes a byte-identical image (only the wait changed); the new
+generators `seq -f 'sh render-frame.sh %g' 1 1200` and `seq -f './emulator %g' 1 64` match the old
+`printf` lines byte for byte (BSD `seq`; R2 and R3 repeat this with GNU `seq`); the GPU body and
+`gpu-pick.sh`, old and new, with a stub `nvidia-smi` and `CUDA_VISIBLE_DEVICES=0,1`, give the same
+slot-to-GPU map (slots 0, 2, 4, 6 on GPU 0; 1, 3, 5, 7 on GPU 1), and the new wrapper picks `2,3`
+and MIG-style lists by position and passes on the task's exit status. Tier 3's new form ran end to
+end (below, *P6-release as amended*).
+
+### Scripts whose behaviour is unchanged (no cluster run)
+
+Only comments, or a page sentence, changed; each passes the syntax check and renders byte for byte:
+`sample-data.sh`; every `header-*.sh`; `frames/body.sh`; `gnu_make/{Makefile,body.sh}`;
+`gnu_parallel/body.sh`; `ensemble/{body.sh,member.sh}` (the tier 2 generator
+`seq 1000000 | sed 's/^/sh member.sh /'` is kept, since `seq -f '%g'` prints `1e+06` for one
+million, and the page now explains it; `member.sh` keeps `exec`, which the page's *Bound each task*
+teaches); `panel/config.toml`; every `survey/*` file (tier 4: checked against the rule, unchanged).
+
+### R1. Job array body (P2), behaviour unchanged, command changed
+
+Change: `wc -w "${INPUT}" > "results/$(basename "${INPUT}" .txt).count"` is now two commands,
+`NAME=$(basename "${INPUT}" .txt)` and `wc -w "${INPUT}" > "results/${NAME}.count"`.
+
+In `$RCAC_SCRATCH/workflow-automation/p8/array/`:
+
+```bash
+sh <snippets>/sample-data.sh
+{ cat <snippets>/job_arrays/header-gautschi.sh; echo; cat <snippets>/job_arrays/body.sh; } > array.sub
+sbatch -A "$ACCT" -q standby array.sub
+```
+
+PASS if: `sacct -j <id> -X --format=JobID,State,ExitCode` lists 20 array tasks, each `COMPLETED
+0:0`; `ls results | wc -l` 20; `cat results/sample_05.count` prints `5 data/sample_05.txt`;
+`cat array-<id>_7.out` prints `Array task 7 of job <id>: data/sample_07.txt`.
+
+### R2. Tier 1 (P4): `render-frame.sh` and the task-file command
+
+Changes: `render-frame.sh` waits a fixed 20 seconds (was `sleep $(( 10 + frame % 20 ))`, 10 to 29
+seconds); the image it writes is unchanged. The page's generator is
+`seq -f 'sh render-frame.sh %g' 1 1200 > frames.txt` (was a `printf … $(seq 1 1200)` line).
+`frames/body.sh` is unchanged.
+
+In `$RCAC_SCRATCH/workflow-automation/p8/frames/`:
+
+```bash
+cp <snippets>/frames/render-frame.sh .
+seq -f 'sh render-frame.sh %g' 1 1200 > frames.txt
+printf 'sh render-frame.sh %d\n' $(seq 1 1200) | cmp - frames.txt && echo same
+{ sed 's|^module load hypershell$|module load hypershell/develop|' <snippets>/frames/header-gautschi.sh; echo; cat <snippets>/frames/body.sh; } > frames.sub
+mkdir -p frames; touch frames/frame_0005.pgm; chmod 444 frames/frame_0005.pgm
+sbatch -A "$ACCT" -q standby -N 2 -c 32 frames.sub
+```
+
+PASS if: `cmp` prints `same`; the job is `COMPLETED` within 15 minutes (about 7 minutes expected:
+19 rounds of 20 seconds on 64 executors); with `module load hypershell/develop; export
+HYPERSHELL_SITE="$PWD/hypershell"` on the login node, `hs list --succeeded --count` 1199,
+`hs list args exit_status --failed` one line, `sh render-frame.sh 5` with exit status 1;
+`ls frames/*.pgm | wc -l` 1200; `hs list duration --succeeded --all | sort -n | sed -n '1p;$p'`
+prints two values of about 20 seconds (the fixed wait), not 10 and 29.
+
+### R3. GPU multiplexing (P5): `gpu_sweep/body.sh`, `gpu-pick.sh` and the task-file command
+
+Changes, all in one job:
+
+- The body sets `export GPUS=2` and `TASKS_PER_GPU=4` as plain values (was: GPUs counted from
+  `CUDA_VISIBLE_DEVICES` with `printf | tr | wc`, and `TASKS_PER_GPU` read from the environment with
+  a default of 4), and runs `hsx … -N $(( GPUS * TASKS_PER_GPU ))`.
+- The 10-second sampler is one `nvidia-smi --query-compute-apps=timestamp,gpu_bus_id,pid,used_memory
+  --format=csv,noheader --loop=10 … &` line, left for Slurm to stop when the job ends (was a
+  `while sleep 10` loop writing a `date` line before each sample, stopped with `kill`). Each line of
+  `gpu-use-<jobid>.txt` now starts with its own timestamp.
+- The body no longer stops when the job has no GPUs (`${CUDA_VISIBLE_DEVICES:?…}` removed).
+- `gpu-pick.sh` takes the list position `$(( TASK_SLOT % GPUS + 1 ))` with `cut -d, -f`, using
+  `GPUS` from the job script (was: counted the list itself, with `tr` and `wc`); it no longer stops
+  when `TASK_SLOT` or `CUDA_VISIBLE_DEVICES` is unset; it runs the task as `"$@"` (was `exec "$@"`).
+- The page's generator is `seq -f './emulator %g' 1 64 > sweep.txt`, and the page's k = 2 recipe
+  edits `TASKS_PER_GPU=4` in a copy of the script instead of `sbatch --export=…,TASKS_PER_GPU=2`
+  (the measured table on the page is kept; the k = 1 and 2 runs are not repeated).
+
+In `$RCAC_SCRATCH/workflow-automation/p8/gpu/`, with `emulator` built as in P5 A3 (or copied from
+P5's directory):
+
+```bash
+cp <snippets>/gpu_sweep/gpu-pick.sh .
+seq -f './emulator %g' 1 64 > sweep.txt
+printf './emulator %d\n' $(seq 1 64) | cmp - sweep.txt && echo same
+{ sed 's|^module load hypershell$|module load hypershell/develop|' <snippets>/gpu_sweep/header-gautschi.sh; echo; cat <snippets>/gpu_sweep/body.sh; } > gpu_sweep.sub
+sbatch -A "$ACCT" -q burst gpu_sweep.sub
+```
+
+PASS if:
+
+1. `cmp` prints `same`. The job is `COMPLETED 0:0` with `Elapsed` close to P5 C1's 1:01 (a few
+   minutes at most), not its 15-minute walltime: the background `nvidia-smi` does not hold the job
+   open, and Slurm ends it with the job.
+2. `slurm-<id>.out` shows the version line, `GPUs in this job: 0,1`, and the two-row GPU table.
+3. `ls results | wc -l` 64; `hs list --succeeded --count` 64; `hs list --failed --count` 0.
+4. `awk '{print $2, $3}' results/member_*.txt | sort -u` prints eight lines: slots 0, 2, 4, 6 with
+   one `gpu=` bus address and slots 1, 3, 5, 7 with the other, each address matching a
+   `pci.bus_id` in the table.
+5. `head -2 gpu-use-<id>.txt` shows lines of the form `<timestamp>, <bus id>, <pid>, <n> MiB`
+   (record one). If instead it holds an error such as `"timestamp" is not a valid field to query`,
+   that is a FAIL: the close run drops `timestamp,` from the query and the page's "with the time".
+6. The busiest sample shows four processes on one GPU:
+   `awk -F', ' '{n[substr($1, 1, 19) " " $2]++} END {for (k in n) if (n[k] > m) m = n[k]; print m}' gpu-use-<id>.txt`
+   prints 4 (rows of one sample share the second in their timestamp).
+
+#### Results (R1–R3)
+
+Re-validated 2026-11-23 by the foreman against `c767610f`, snippets as committed. Build under test:
+Gautschi `hypershell/develop`, `HyperShell v2.9.0a8 (CPython 3.14.6)`; for R2 and R3 only the
+module line was changed to `module load hypershell/develop`.
+
+- **R1** PASS. Job array, Gautschi `cpu` standby: 20 tasks `COMPLETED 0:0`; 20 results;
+  `results/sample_05.count` = `5 data/sample_05.txt`; `array-<id>_7.out` = `Array task 7 of job
+  <id>: data/sample_07.txt`.
+- **R2** PASS. Tier 1, `-N 2 -c 32` standby: GNU `seq -f` output identical to the old `printf` line
+  (`cmp`: same). `COMPLETED 0:0` in 6:37 on two nodes; succeeded 1199; `--failed` one line,
+  `sh render-frame.sh 5` exit status 1; 1200 `.pgm`; task durations 20 s (shortest) to 24 s
+  (longest), the fixed wait plus start-up.
+- **R3** PASS. GPU, `ai` burst: generator identical (`cmp`: same); `COMPLETED 0:0` in 1:01 (the
+  background `nvidia-smi` did not hold the job open); version line, `GPUs in this job: 0,1`, the
+  two-row H100 table; 64 results, 64 succeeded, 0 failed; slots 0, 2, 4, 6 on `0000:5D:00.0` and
+  1, 3, 5, 7 on `0000:9B:00.0`; `gpu-use` lines carry their own timestamp
+  (`2026/11/23 13:54:51.674, 00000000:9B:00.0, <pid>, 1542 MiB`); busiest sample 4.
+
+P8: PASS — 2026-11-23 · R1–R3 on Gautschi (cpu standby, ai burst), hypershell/develop 2.9.0a8 · tier 3 and tier 4 changes carried to P6-release and P7-release
+
+### P6-release as amended (tier 3; run at the merge hold, not now)
+
+Tier 3 was restructured, so the merge hold's `P6-release` check runs the P6 request's C steps in
+these forms. Everything not named here is as written under P6.
+
+What changed, and every behaviour change:
+
+- **The stand-in** `panel.sh` (one script, `case` on its first word) is now three scripts,
+  `align.sh LINE`, `genotype.sh REGION` and `merge.sh`. Waits are fixed (30, 15 and 5 seconds; were
+  20–39, 10–19 and 5); every call is `1` (was a seeded random 0, 1 or 2); region files are named by
+  a two-digit region from the task (`regions/region_07.txt`, as before) and filled with `grep -h`;
+  `merge.sh` prints `wc -l regions/region_*.txt` (one `<n> regions/region_NN.txt` line per region,
+  then `<total> total`) and writes `cat regions/region_*.txt > panel-calls.txt`. It no longer fails
+  when a region file is missing, so a cancelled genotype task leaves its region out of the merge
+  without an error. The `regions` subcommand is gone.
+- **`submit-phases.sh` is gone.** Each phase is one `hs submit` on the page:
+  `hs submit --group 0 --zone cpu --template 'sh align.sh {}' batch-1.txt` (and `batch-2.txt`);
+  `seq -w 1 24 > regions.txt` then `hs submit --group 1 --zone highmem --template 'sh genotype.sh {}' regions.txt`;
+  `hs submit --group 2 --zone cpu sh merge.sh`. No `tasks/` directory is written, and nothing stops
+  a phase whose input file is missing (was `set -e`).
+- **`schedule-clients.sh`** handles one zone per run, `sh schedule-clients.sh ZONE PARTITION`, and
+  always passes `--partition` (was: every zone in one run through a `while read` loop and `case`).
+  `MAX_JOBS=2` is a plain value at the top (was `${MAX_JOBS:-2}` from the environment);
+  `HIGHMEM_PARTITION` is gone (the partition is the second word). It submits **at most one job per
+  run** (was up to `MAX_JOBS` at once), so a zone reaches `MAX_JOBS` over successive passes. Its
+  report line is printed before it submits and has no "submitted" count:
+  `Group 0, zone cpu: 96 tasks waiting, 0 client jobs`. It no longer checks that the server runs
+  (`kill -0` on the PID file, removed); it says nothing about tasks in a zone you do not name; with
+  no task left anywhere it prints `No tasks waiting` even if a failure is unsettled (was the failure
+  message). The failed-group check is one `hs list … --where 'exit_status != -1' "group < N"` (was
+  a compound test); the job count is `squeue --noheader --user --name | wc -l` (was with
+  `--format=%i`).
+- **The loop** is a file, `keep-scheduling.sh` (a `while true` loop running the helper for `cpu`
+  and `highmem`, then `sleep 300`), started with `nohup sh keep-scheduling.sh > hypershell/scheduler.log 2>&1 &`
+  (was `nohup sh -c 'while true; …'`).
+- **`client.sub`'s body** reads the zone as `zone=$1` (was `${1:?usage…}`): submitted without a zone,
+  a client now starts with an empty zone, finds no task, and ends after 10 idle minutes.
+- **The key** is made with `touch`, `chmod 600`, then `openssl rand -hex 32 >` (was
+  `(umask 077; …)`).
+- **`hs wait`** is two steps on the page: `hs list id --group 2`, then `hs wait <id>`.
+
+The amended steps (C0, C1, C9 and C11 as written, except as noted):
+
+- **Set-up.** Copy `align.sh genotype.sh merge.sh schedule-clients.sh keep-scheduling.sh` (not
+  `panel.sh` or `submit-phases.sh`); make the key with the page's three commands. In the run copy of
+  `schedule-clients.sh` change `MAX_JOBS=2` to `MAX_JOBS=1`, and in the run copy of
+  `keep-scheduling.sh` change `sh schedule-clients.sh highmem highmem` to
+  `sh schedule-clients.sh highmem cpu` (the `cpu` stand-in partition); record both edits. A *helper
+  pass* below means `sh schedule-clients.sh cpu cpu` then `sh schedule-clients.sh highmem cpu`.
+- **C1.4** `ls -l hypershell/auth.key` shows `-rw-------`.
+- **C2.** A helper pass prints `No tasks waiting` twice and submits nothing.
+- **C3.** 1: `hs submit --group 0 --zone cpu --template 'sh align.sh {}' batch-1.txt` logs
+  `Submitted 48 tasks`; `hs list args --group 0 --all | sort | head -1` prints `sh align.sh L001`.
+  2: the same command again is refused as written (exit status 2). 3: as written. 4: the batch-2,
+  genotype and merge commands above log 48, 24 and 1. 5: as written (`96 0 cpu`, `24 1 highmem`,
+  `1 2 cpu`).
+- **C4.** `sh schedule-clients.sh cpu cpu` prints `Group 0, zone cpu: 96 tasks waiting, 0 client
+  jobs` and `Submitted batch job <J1>`; run again at once, it prints `… 1 client jobs` and submits
+  nothing. `sh schedule-clients.sh highmem cpu` prints `Group 0, zone highmem: 0 tasks waiting, 0
+  client jobs` and submits nothing. `squeue -j <J1> -o '%j %P %q %C %l'` as written.
+- **C5.** 2: the failed line is `sh align.sh L050` with exit status 1. 4: a helper pass prints
+  `Group 0 has failed tasks: revert or cancel them with hs update` for each zone and submits nothing.
+- **C6.** As written; `aligned/L050.txt` holds 24 lines (`01 L050 1` first).
+- **C7.** `sh schedule-clients.sh highmem cpu` prints `Group 1, zone highmem: 24 tasks waiting, 0
+  client jobs` and `Submitted batch job <J2>`; `squeue -j <J2> -o '%j %P'` prints `panel-highmem cpu`.
+  1: `ls regions | wc -l` 24 and `wc -l < regions/region_01.txt` 96. 2: as written.
+- **C8.** If no `cpu` client is left, `sh schedule-clients.sh cpu cpu` prints `Group 2, zone cpu: 1
+  tasks waiting, 0 client jobs` and submits J3. 1: `hs list id --group 2` prints one ID, and
+  `hs wait <id>` returns. 2: `wc -l < panel-calls.txt` 2304; `hs info <merge id> --stdout` prints
+  24 lines `96 regions/region_NN.txt` and a last line `2304 total`. 3–5 as written.
+- **C10.** `nohup sh keep-scheduling.sh > hypershell/scheduler.log 2>&1 &` then
+  `echo $! > hypershell/scheduler.pid`; within a few seconds the log holds `No tasks waiting` twice;
+  then as written.
+- **C11.3** `ps -u "$USER" -o pid,args | grep -E '[h]s server|[k]eep-scheduling|[s]chedule-clients'`
+  prints nothing.
+- **B** is not repeated: the `cpu` zone's `sbatch` line now also carries `--partition=<the header's
+  own partition>`, which changes nothing that B checked.
+
+The drafter ran the amended C1–C8 and C11 (without C0, C9 and C10's `nohup`, which the workstation
+sandbox refuses) on a workstation with HyperShell 2.9.0a9, stand-in `sbatch`/`squeue` (each "job"
+ran `client.sub` in the background with 4 cores) and the stand-ins' waits cut to 1 second: the
+repeated batch was refused (exit 2); the first two `cpu` passes submitted one job each and the third
+none at `MAX_JOBS=2`; 95 alignments succeeded and `sh align.sh L050` failed with exit status 1; the
+server logged `Failed task group 0 …` and held group 1; the helper printed the failed-group message;
+after the revert the running client re-ran it (24 lines), the server logged `Completed task group 0
+- starting task group 1`, one `highmem` job ran the 24 regions (96 lines each), the idle `cpu`
+client ran the merge, `panel-calls.txt` held 2,304 lines, the merge output ended `2304 total`,
+the counts were 121 succeeded, 0 failed, 0 remaining, and `SIGUSR1` stopped the server and all three
+client "jobs". The cluster run is what counts.
+
+### P7-release
+
+The simplification pass changed no tier 4 script. `run-relay.sh` keeps its one `nohup hs relay … &` and `$!`, which it
+explains in its comments (the relay must outlive the login session), and `submit-night.sh` keeps
+its `&&` chain, which it explains (a refused phase stops the later ones). A separate fix made at
+P8 time changes the Geddes page's database image to the upstream
+`timescale/timescaledb:2.32.1-pg18`, with the volume mounted at `/var/lib/postgresql`; the P7
+request's C2 and D1 now say so, and D1a checks the pulled image and `SELECT version();`.
+
+#### Results
+
+*(validator: R1–R3; then `P8: PASS — <date>, Gautschi, HyperShell <version>`)*
+
+## Network confirmations
+
+*(PLAN §5 Q5: compute node → login node port on Gautschi and Negishi; login00 → Geddes LoadBalancer)*

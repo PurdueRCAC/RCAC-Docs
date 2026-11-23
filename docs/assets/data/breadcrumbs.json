@@ -845,6 +845,86 @@
     "Profilers",
     "Intel VTune"
   ],
+  "/workflows/": [
+    "Home",
+    "Workflow Automation"
+  ],
+  "/workflows/job_arrays/": [
+    "Home",
+    "Workflow Automation",
+    "Slurm Job Arrays"
+  ],
+  "/workflows/gnu_make/": [
+    "Home",
+    "Workflow Automation",
+    "GNU Make"
+  ],
+  "/workflows/gnu_parallel/": [
+    "Home",
+    "Workflow Automation",
+    "GNU Parallel"
+  ],
+  "/workflows/snakemake/": [
+    "Home",
+    "Workflow Automation",
+    "Snakemake"
+  ],
+  "/workflows/nextflow/": [
+    "Home",
+    "Workflow Automation",
+    "Nextflow"
+  ],
+  "/workflows/pegasus/": [
+    "Home",
+    "Workflow Automation",
+    "Pegasus"
+  ],
+  "/workflows/parsl/": [
+    "Home",
+    "Workflow Automation",
+    "Parsl"
+  ],
+  "/workflows/hypershell/": [
+    "Home",
+    "Workflow Automation",
+    "HyperShell User Guide"
+  ],
+  "/workflows/hypershell/single_job/": [
+    "Home",
+    "Workflow Automation",
+    "HyperShell User Guide",
+    "Tier 1: One Job Script"
+  ],
+  "/workflows/hypershell/gpu_multiplexing/": [
+    "Home",
+    "Workflow Automation",
+    "HyperShell User Guide",
+    "GPU Multiplexing"
+  ],
+  "/workflows/hypershell/extreme_scale/": [
+    "Home",
+    "Workflow Automation",
+    "HyperShell User Guide",
+    "Tier 2: Extreme Scale"
+  ],
+  "/workflows/hypershell/pipelines/": [
+    "Home",
+    "Workflow Automation",
+    "HyperShell User Guide",
+    "Tier 3: A Pipeline on One Cluster"
+  ],
+  "/workflows/hypershell/geddes_service/": [
+    "Home",
+    "Workflow Automation",
+    "HyperShell User Guide",
+    "Tier 4: A Persistent Service on Geddes"
+  ],
+  "/workflows/hypershell/autoscaling/": [
+    "Home",
+    "Workflow Automation",
+    "HyperShell User Guide",
+    "Tier 4: Autoscaling Across Clusters"
+  ],
   "/workshops/": [
     "Home",
     "RCAC Workshops"

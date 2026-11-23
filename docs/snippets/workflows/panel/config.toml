@@ -1,0 +1,20 @@
+# FILENAME: config.toml
+# HyperShell configuration for the panel campaign. Every hs command in
+# the campaign reads this file and no other, because the campaign sets
+# HYPERSHELL_CONFIG_FILE to its path.
+
+[database]
+# A SQLite database in one file, hypershell/lib/main.db in the campaign
+# directory. Only the server and the hs commands you run on the
+# server's login node open it; clients never do.
+provider = "sqlite"
+
+[server]
+# The server runs on one login node and listens on all of its network
+# interfaces. Clients in batch jobs connect to host and port.
+bind = "0.0.0.0"
+host = "login00.gautschi.rcac.purdue.edu"
+port = 50101
+# The key that guards the queue, read from a file that only you can
+# read, so the key itself is in neither this file nor a command line.
+auth_eval = 'cat "$HYPERSHELL_SITE/auth.key"'

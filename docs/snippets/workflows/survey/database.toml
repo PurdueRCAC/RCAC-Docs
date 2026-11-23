@@ -1,0 +1,15 @@
+# FILENAME: database.toml
+# The survey's database on Geddes, for the hs commands that read or
+# write it on login00.gautschi.rcac.purdue.edu: hs submit, hs list,
+# hs info, hs wait and hs update. The relay never opens the database
+# and does not read this file.
+
+[database]
+provider = "timescale"
+host = "hypershell.<your-namespace>.geddes.rcac.purdue.edu"
+port = 5432
+database = "hypershell"
+user = "postgres"
+# The database password, read from a file that only you can read, so
+# the password itself is in neither this file nor a command line.
+password_eval = 'cat "$HYPERSHELL_SITE/db.password"'

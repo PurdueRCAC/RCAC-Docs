@@ -55,6 +55,8 @@ Nextflow is a strong choice when you want to use community-maintained pipelines 
 !!! note
     Nextflow is overkill for a one-off, single-tool command. If your entire analysis is `fastp | bwa mem | samtools sort`, a shell script is fine. Workflow managers pay off when you have multi-step pipelines, multiple samples, or a need to reproduce the analysis later.
 
+See also [Workflow Automation](../../workflows/index.md), which compares Nextflow with the other workflow tools on RCAC clusters and says when each one fits.
+
 ## Reading a Nextflow pipeline
 
 Before you run anything, it helps to recognize the building blocks of a Nextflow pipeline. We will walk through the structure of `nf-core/hello`, the smallest nf-core pipeline, to build that vocabulary. You do not need to understand every line. The goal is to know what you are looking at when you open a `main.nf` file.

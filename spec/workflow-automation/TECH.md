@@ -1,0 +1,622 @@
+---
+slug: workflow-automation
+title: 'Workflow Automation: choosing a tool, and a tiered HyperShell user guide'
+kind: feature
+appetite: big
+status: in_progress
+branch: feature/workflow-automation
+base: main
+current_phase: P7
+last_updated: '2026-11-23'
+phases:
+- id: P1
+  name: 'Scaffold: section nav anchor and the landing page'
+  status: done
+  satisfies:
+  - R1
+  - R2
+  - R5
+  - R13
+  - R14
+  depends_on: []
+  parallel: false
+  hammerable: false
+  hill: uphill
+  verify: .venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py
+    && grep -q 'workflows/index.md' mkdocs.yml
+- id: P2
+  name: 'Baseline tools: job arrays, GNU Make, GNU Parallel'
+  status: done
+  satisfies:
+  - R1
+  - R3
+  - R13
+  - R14
+  - R15
+  depends_on:
+  - P1
+  parallel: false
+  hammerable: false
+  hill: downhill
+  verify: '.venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py
+    && grep -q ''workflows/job_arrays.md'' mkdocs.yml && grep -q ''workflows/gnu_make.md''
+    mkdocs.yml && grep -q ''workflows/gnu_parallel.md'' mkdocs.yml && grep -rqF ''same
+    on every cluster'' site/workflows/job_arrays/ && grep -rqF ''FILENAME: array.sub''
+    site/workflows/job_arrays/ && grep -q ''^P2: PASS'' spec/workflow-automation/VALIDATION.md'
+- id: P3
+  name: 'Workflow managers: Snakemake, Nextflow, Pegasus, Parsl'
+  status: done
+  satisfies:
+  - R1
+  - R4
+  - R13
+  - R14
+  - R15
+  depends_on:
+  - P2
+  parallel: false
+  hammerable: false
+  hill: downhill
+  verify: '.venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py
+    && grep -q ''workflows/snakemake.md'' mkdocs.yml && grep -q ''workflows/nextflow.md''
+    mkdocs.yml && grep -q ''workflows/pegasus.md'' mkdocs.yml && grep -q ''workflows/parsl.md''
+    mkdocs.yml && grep -q ''^P3: PASS'' spec/workflow-automation/VALIDATION.md'
+- id: P4
+  name: HyperShell guide landing page and Tier 1 (one job script)
+  status: done
+  satisfies:
+  - R1
+  - R6
+  - R7
+  - R12
+  - R13
+  - R14
+  - R15
+  depends_on:
+  - P3
+  parallel: false
+  hammerable: false
+  hill: downhill
+  verify: '.venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py
+    && grep -q ''workflows/hypershell/index.md'' mkdocs.yml && grep -q ''workflows/hypershell/single_job.md''
+    mkdocs.yml && grep -rqF ''same on every cluster'' site/workflows/hypershell/single_job/
+    && grep -rqF ''FILENAME: frames.sub'' site/workflows/hypershell/single_job/ &&
+    grep -q ''^P4: PASS'' spec/workflow-automation/VALIDATION.md'
+- id: P5
+  name: GPU multiplexing and Tier 2 (extreme scale)
+  status: done
+  satisfies:
+  - R6
+  - R8
+  - R11
+  - R12
+  - R13
+  - R14
+  - R15
+  depends_on:
+  - P4
+  parallel: false
+  hammerable: false
+  hill: downhill
+  verify: '.venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py
+    && grep -q ''workflows/hypershell/gpu_multiplexing.md'' mkdocs.yml && grep -q
+    ''workflows/hypershell/extreme_scale.md'' mkdocs.yml && grep -rqF ''FILENAME:
+    gpu_sweep.sub'' site/workflows/hypershell/gpu_multiplexing/ && grep -rqF ''FILENAME:
+    ensemble.sub'' site/workflows/hypershell/extreme_scale/ && grep -q ''^P5: PASS''
+    spec/workflow-automation/VALIDATION.md'
+- id: P6
+  name: 'Tier 3: a pipeline on one cluster (database, config, phases, zones, groups)'
+  status: done
+  satisfies:
+  - R6
+  - R9
+  - R12
+  - R13
+  - R14
+  - R15
+  depends_on:
+  - P5
+  parallel: false
+  hammerable: false
+  hill: downhill
+  verify: '.venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py
+    && grep -q ''workflows/hypershell/pipelines.md'' mkdocs.yml && grep -rqF ''FILENAME:
+    schedule-clients.sh'' site/workflows/hypershell/pipelines/ && grep -q ''^P6: PASS''
+    spec/workflow-automation/VALIDATION.md'
+- id: P7
+  name: 'Tier 4: persistent service on Geddes and relay autoscaling across clusters'
+  status: in_progress
+  satisfies:
+  - R6
+  - R10
+  - R11
+  - R12
+  - R13
+  - R14
+  - R15
+  depends_on:
+  - P6
+  parallel: false
+  hammerable: false
+  hill: crest
+  verify: '.venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py
+    && grep -q ''workflows/hypershell/geddes_service.md'' mkdocs.yml && grep -q ''workflows/hypershell/autoscaling.md''
+    mkdocs.yml && grep -rqF ''FILENAME: run-relay.sh'' site/workflows/hypershell/autoscaling/
+    && grep -q ''^P7: PASS'' spec/workflow-automation/VALIDATION.md'
+- id: P8
+  name: 'Integration: hub completeness, cross-links, conventions and accessibility
+    sweep'
+  status: in_progress
+  satisfies:
+  - R1
+  - R12
+  - R13
+  - R14
+  - R15
+  depends_on:
+  - P7
+  parallel: false
+  hammerable: false
+  hill: downhill
+  verify: '.venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py
+    && grep -q ''workflows/'' docs/lifesciences/guides/nextflow.md && grep -q ''workflows/''
+    docs/lifesciences/guides/nextflow-gautschi.md && grep -q ''workflows/hypershell/''
+    docs/workshops/hpc_exchange/week4/workload-management.md && ! grep -rqE ''hs task|hsx?
+    [^|]*-k( |$)'' docs/workflows docs/snippets/workflows && test $(grep -c ''^P[2-7]:
+    PASS'' spec/workflow-automation/VALIDATION.md) -ge 6'
+review:
+  last_reviewed_commit: ''
+  verdict: none
+  blocked_reason: ''
+---
+# TECH.md — Workflow Automation: choosing a tool, and a tiered HyperShell user guide
+
+The **context engine and finite-state machine** for authoring this job. The YAML frontmatter
+above is the resume ground-truth (read it with
+`.venv/bin/python .agents/factory/bin/next_phase.py spec/workflow-automation/TECH.md`); the
+per-phase checklists below are the work. `docs-draft` executes the next actionable phase, runs its
+`verify:` command, updates state via `.venv/bin/python .agents/factory/bin/set_phase.py …`, and
+makes one atomic content+state commit. Run from the repo root.
+
+- **Vision / requirements (locked):** [`GOAL.md`](GOAL.md) — R-IDs are the contract.
+- **Authoritative design:** [`PLAN.md`](PLAN.md) — page list, nav block, snippet layout, header
+  conventions, risks, validation envelope (§6).
+- **Backing research:** [`research/00-digest.md`](research/00-digest.md) + briefs 01–06.
+- **Validation log:** [`VALIDATION.md`](VALIDATION.md) — filled by the cycle's validator, read by
+  `verify:`.
+
+## Frontmatter field reference
+
+- `base`: **`main`** (trunk and production).
+- `status` (top): `planned | in_progress | blocked | in_review | done`
+- phase `status`: `pending | in_progress | done | blocked`
+- `satisfies`: GOAL R-IDs this phase delivers. `depends_on`: phases that must be `done` first.
+- `parallel`: `false` everywhere. Every phase edits `mkdocs.yml` nav and the section hub.
+- `hammerable`: `false` everywhere. Every phase carries HPC-accuracy or build-integrity content.
+- `hill`: `uphill` → `crest` → `downhill`.
+- `verify`: build gate + nav check + include sentinels + (for phases with scripts) the
+  validation record.
+
+## Conventions (apply to every phase)
+
+- Voice, archetypes and load-bearing rules: [`../../AGENTS.md`](../../AGENTS.md),
+  [`../../.agents/factory/style-guide.md`](../../.agents/factory/style-guide.md),
+  [`../../.agents/factory/invariants.md`](../../.agents/factory/invariants.md).
+- Front-matter, tab labels, snippet layout and header conventions: PLAN §2. Headers mirror each
+  cluster's `queues` page per research 06 §2; never copy `-A standby` or Gautschi `--partition=a10`
+  from older example pages.
+- **HyperShell conventions (R12):** top-level commands only (`hs submit`, `hs list`, `hs info`,
+  `hs wait`, `hs run`, `hs update`, `hs server`, `hs client`, `hs cluster`/`hsx`, `hs relay`,
+  `hs config`, `hs initdb`), never `hs task …`. Never put the queue key on a command line: use
+  `HYPERSHELL_SERVER_AUTH` or `server.auth` (the relay's upstream key: `relay.upstream.auth_eval`).
+  Ground every option in research 02 and use only what it marks as present in 2.9.0. Honour its
+  "must not claim" list (§13): no graceful-walltime claim, no `-m ≥ 2G` on PostgreSQL, no `:latest`
+  image.
+- **Jinja safety:** scripts live in `docs/snippets/workflows/` and are included inside fenced blocks.
+  Before committing, `grep -nE '\{\{|\{%|\{#' docs/workflows/*.md docs/workflows/hypershell/*.md`
+  must show only intentional `{% raw %}` wrappers.
+- **Anchors:** after the build, grep its INFO output for anchor messages naming `workflows/`
+  (anchors are not `--strict`-checked); fix any.
+- **Adding a page updates `mkdocs.yml` `nav:` in the same commit** (block in PLAN §2, own lines
+  only), then `.venv/bin/python tools/generate_breadcrumbs.py`. Add the page's card to the
+  relevant hub in the same phase.
+- One atomic commit per `docs-draft` run: `[feature] Draft workflow-automation P<n>: …`, no
+  `Co-Authored-By` trailer.
+
+### Validating phases: draft run, then validation, then close
+
+P2–P7 each carry a `verify:` ending in `grep -q '^P<n>: PASS' spec/workflow-automation/VALIDATION.md`.
+They close in two runs:
+
+1. **Draft run (`docs-draft`).** Author the phase. Run the verify command *without* its last
+   clause (the build, nav and sentinel checks) until it passes. Mark the phase
+   `--phase-status in_progress --hill crest`, add a `P<n>: PENDING` line with the files to run to
+   `VALIDATION.md`, commit (`[feature] Draft workflow-automation P<n>: … (awaiting validation)`),
+   and stop. The full `verify:` fails by design until validation passes.
+2. **Validation (the cycle's validator, on clusters; never a step agent).** Execute the phase's
+   rows of the PLAN §6 envelope against the committed snippet files. Record results under the
+   phase's heading in `VALIDATION.md` and change the line to `P<n>: PASS — <date>, <clusters>,
+   HyperShell <version or commit>` (or `FAIL` with what broke).
+3. **Close run (`docs-draft`).** Apply any fixes validation required (a changed script returns to
+   step 2), run the full `verify:`, mark the phase `done`, and commit.
+
+P1 and P8 carry no scripts and close in one run.
+
+---
+
+## Phase P1 — Scaffold: section nav anchor and the landing page
+**Satisfies:** R1, R2, R5, R13, R14 · **Depends on:** —
+**Goal:** the `Workflow Automation` section exists in nav with a complete landing page that
+carries the landscape argument; later phases add cards for their pages.
+
+- [x] Create `docs/workflows/index.md` (hub archetype; front-matter per PLAN §2; mirror the
+  Agentic AI hub and `docs/lifesciences/index.md`).
+- [x] Write: the job-per-task anti-pattern; the four dimensions; the placement table (header row;
+  all 11 tools; research 03 §2.10); the case for intentional simplicity in flat work; the HyperShell
+  recommendation alongside each tool's honest "where it wins" line (research 03, Recommendations);
+  a short "Which tool?" list; *Other tools you may meet* (HTCondor, Dask, Ray paragraphs); a
+  closing link to `../software/workflow_catalog.md`. Availability wording per research 03: no
+  version pins on this page.
+- [x] Grid cards: only for pages that exist (none yet besides the hub). Card stubs for later pages
+  are added by their phases. Tool names in the placement table stay plain text until their pages exist.
+- [x] Insert the `- Workflow Automation:` block with only `workflows/index.md` under RCAC Resources
+  after Profilers (PLAN §2); regenerate breadcrumbs.
+- [x] `.venv/bin/mkdocs serve` and eyeball the table and prose. (Checked in the built `site/workflows/index.html`: one H1, H2/H3 order, table header row and 11 rows, links resolved.)
+- **Verify:** `.venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py && grep -q 'workflows/index.md' mkdocs.yml`
+- **Touches:** `docs/workflows/index.md`, `mkdocs.yml`, `docs/assets/data/breadcrumbs.json` (generated).
+
+## Phase P2 — Baseline tools: job arrays, GNU Make, GNU Parallel
+**Satisfies:** R1, R3, R13, R14, R15 · **Depends on:** P1 · **Validation:** V2 (draft run → validation → close run)
+**Goal:** three tool pages, each stating what the tool is, the work it fits, where it wins over
+HyperShell, and where it stops serving and HyperShell takes over.
+
+- [x] `docs/workflows/job_arrays.md` with a tabbed worked array script from
+  `docs/snippets/workflows/job_arrays/{header-<cluster>.sh, body.sh}` (header `# FILENAME: array.sub`;
+  body first line `# --- same on every cluster ---`; `--array` with `%N`). Check-your-limits
+  commands without numbers. Link `../lifesciences/guides/running-bioinformatics.md#array-jobs` and
+  each cluster's queues page. (Tabs: Anvil `shared`, Gautschi, Negishi, Scholar; no Gilbreth tab,
+  GPU-only. Also links the HPC Exchange array section and Gautschi's Job Dependencies page.)
+- [x] `docs/workflows/gnu_make.md`: one small in-job `make -j` example (a Makefile shown inline
+  only if free of `{`-hazards, else a snippet). (Makefile is a snippet: Python-Markdown expands
+  tabs to spaces, so it uses `.RECIPEPREFIX = >`; tabbed `make.sub` for the same four clusters.)
+- [x] `docs/workflows/gnu_parallel.md`: one in-job example. Keep GNU Parallel's `{#}` and similar
+  replacement strings in a snippet file (Jinja hazard). Note no Scholar module. Link
+  `../software/apps_md/parallel.md`. (Tabs: Anvil, Gautschi, Negishi; `--joblog` +
+  `--resume-failed` in the body; no `{#}` used.)
+- [x] Each page ends with "When to move to HyperShell" linking `hypershell/index.md`, added in P4.
+  Until then, link the section hub and leave a TODO-free sentence that P4 turns into a link.
+- [x] Nav lines + hub cards; breadcrumbs. (Hub: a "Tool pages in this section" card grid; the
+  three tool names in the placement table now link their pages.)
+- [x] Draft run ends per Conventions → *Validating phases*. `VALIDATION.md`: `P2: PENDING`, files to run,
+  and the full validation request (login-node, `--test-only` and Gautschi run checks).
+- [x] Close run, after `P2: PASS` in `VALIDATION.md`: apply any fixes validation required, run the
+  full `verify:`, mark P2 `done`. (Fix: `job_arrays.md` notes that a task cancelled before it
+  starts leaves no accounting record, per validation C1.)
+- **Verify:** see frontmatter (build + nav ×3 + sentinels + `P2: PASS`).
+- **Touches:** the three pages, `docs/snippets/workflows/job_arrays/*`, any Make/Parallel snippet
+  files, `docs/workflows/index.md`, `mkdocs.yml`, breadcrumbs, `VALIDATION.md` (status line only).
+
+## Phase P3 — Workflow managers: Snakemake, Nextflow, Pegasus, Parsl
+**Satisfies:** R1, R4, R13, R14, R15 · **Depends on:** P2 · **Validation:** V3 (login-node checks)
+**Goal:** four short tool pages stating what each tool is, how it describes work, and where it
+genuinely wins, with availability statements that match verified facts.
+
+- [x] `snakemake.md`: Anvil module 6.8.0 (live-checked) and Biocontainers per V3. Any Snakefile
+  shown goes in a snippet (doubled-brace hazard). (Snakefile at `docs/snippets/workflows/snakemake/Snakefile`,
+  same word-count work as P2; current release via the `conda` module with the Slurm executor
+  plugin, ≥ 8.6; job grouping noted. Biocontainers is a V3 record item, not a page claim.)
+- [x] `nextflow.md`: cross-link both Life Sciences Nextflow guides; availability per the catalog
+  and live check; composition over a lower-level executor in general terms only (research 03 §6),
+  with no mention of any unreleased executor. (Version table per cluster; no code.)
+- [x] `pegasus.md`: research 03 §5(d) wording. The Anvil Notebook Service route links
+  `../userguides/anvil/notebook.md` and RCAC news 7628. ACCESS Pegasus via HTCondor Annex with an
+  Anvil allocation. State that there is no community-cluster route. Do not print the `htcondor annex
+  create` command (unverified). Do not link the HUBzero `pegasuswf.md` page. (Gautschi's
+  `cadence/pegasus` modules are not mentioned at all.)
+- [x] `parsl.md`: user `conda`/`uv` environment (link `../software/apps_md/uv.md` if present); Slurm
+  provider in general terms. Any code shown is checked against Parsl's current docs. (`uv venv
+  ~/parsl-env`; `config.py` + `count.py` snippets, checked against the SlurmProvider reference and
+  Parsl 2026.11.16.)
+- [x] Nav lines + hub cards; breadcrumbs. (Placement-table names for the four tools now link.)
+- [x] Draft run ends per *Validating phases*; `P3: PENDING` lists every availability statement and
+  command to confirm.
+- [x] Close run, after `P3: PASS` in `VALIDATION.md`: apply any fixes validation required, run the
+  full `verify:`, mark P3 `done`. (Fixes C1–C3: Snakemake 6.8.0 is a BioContainers module on Anvil,
+  Gautschi, Negishi and Scholar, loaded in two commands, none on Gilbreth; Anvil Nextflow 21.10.0
+  and Scholar's Nextflow are behind BioContainers; Gautschi's 24.04.3 dropped.)
+- **Verify:** see frontmatter.
+- **Touches:** four pages, `docs/workflows/index.md`, `mkdocs.yml`, breadcrumbs, `VALIDATION.md`.
+
+## Phase P4 — HyperShell guide landing page and Tier 1 (one job script)
+**Satisfies:** R1, R6, R7, R12, R13, R14, R15 · **Depends on:** P3 · **Validation:** V4
+**Goal:** the guide subsection exists with its landing page (version admonition, tier map) and a
+complete, validated tier 1 script.
+
+- [x] `docs/workflows/hypershell/index.md`: PLAN §2 content. The **version admonition** (GOAL gate
+  wording + `hs --version`; module versions differ by cluster). Tier map table from research 04 §3.
+  Unpinned `module load hypershell`. Key handling (R12). Cards to tier pages as they appear (this
+  phase: tier 1). (Admonition under `## HyperShell versions`, the anchor tier pages link for
+  *Minimum version*; tier map names stay plain text until their pages exist.)
+- [x] `docs/workflows/hypershell/single_job.md`: Who this is for / Move on when / Minimum version
+  (2.9.0). VFX frame-render scenario with a stand-in renderer (`render-frame.sh`). Tabbed script
+  from `docs/snippets/workflows/frames/` (header `# FILENAME: frames.sub`). Body: a stable
+  `HYPERSHELL_SITE` per campaign (path per V4), `hsx frames.txt --restart`, one client per node via
+  `--launcher=srun` for multi-node, `-N` executors, `--capture` or failures file as validated.
+  Sections on resubmitting after walltime (only unfinished frames run), checking outcomes
+  (`hs list --failed`, `--completed`, `hs info`), re-running failures (`hs update --failed --revert`
+  then resubmit; or `-r`). State plainly that this one script addresses most needs.
+  (Drafted: `HYPERSHELL_SITE="${SLURM_SUBMIT_DIR}/hypershell"`, so the database sits on scratch beside
+  the script; `hsx frames.txt --restart --capture --launcher="srun --cpus-per-task=${SLURM_CPUS_PER_TASK}"
+  -N "${SLURM_CPUS_PER_TASK}"`; headers ask for whole nodes, `--ntasks-per-node=1`. `-r` appears only
+  as a tip with its `--failed` caveat. Adds *Adding tasks later* (`--update --restart`). Stand-in
+  renderer is POSIX `sh` + `awk`, no Python. V4 checks the SQLite path, one client per node, and
+  whether a cancelled task can land as a negative exit status.)
+- [x] If V4's config-across-versions check (PLAN §5 Q13) confirms the crash, add one line to the
+  version admonition cautioning against one HyperShell config across module versions from both
+  sides of 2.9.0 (close run). (Confirmed by V4 A4; F1 added the sentence.)
+- [x] Turn the P2 pages' "move to HyperShell" sentences into links to `hypershell/index.md`.
+  (Amended: the four P3 pages carry the same sentence, so all seven tool pages now link the guide.)
+- [x] Nav: `HyperShell User Guide:` subsection with index + tier 1; hub card for the guide;
+  breadcrumbs. (Hub: guide card, placement-table link, one sentence in *RCAC recommends HyperShell*.)
+- [x] Draft run ends per *Validating phases*; `P4: PENDING`.
+- [x] Close run, after `P4: PASS` in `VALIDATION.md`: apply any fixes validation required, run the
+  full `verify:`, mark P4 `done`. (F1: config caution in the version admonition. F2: *Adding tasks
+  later* says the error names `--update --restart`.)
+- **Verify:** see frontmatter.
+- **Touches:** `docs/workflows/hypershell/{index,single_job}.md`, `docs/snippets/workflows/frames/*`,
+  `docs/workflows/{index,job_arrays,gnu_make,gnu_parallel,snakemake,nextflow,pegasus,parsl}.md`,
+  `mkdocs.yml`, breadcrumbs, `VALIDATION.md`.
+
+## Phase P5 — GPU multiplexing and Tier 2 (extreme scale)
+**Satisfies:** R6, R8, R11, R12, R13, R14, R15 · **Depends on:** P4 · **Validation:** V5
+**Goal:** a validated GPU multiplexing page after tier 1, and a tier 2 page for very large runs.
+
+- [x] `gpu_multiplexing.md`: research 04 §4(d) design; `docs/snippets/workflows/gpu_sweep/`
+  (header `# FILENAME: gpu_sweep.sub`, `gpu-pick`, body). Tabs: Anvil, Gautschi, Gilbreth, Scholar
+  (Negishi only if V5 validates the ROCm variant). MPS and MIG blocks only if V5's live checks pass,
+  else one sentence each. Minimum version 2.9.0 (slots). (Drafted: one node, two GPUs, one local
+  client with `-N gpus × TASKS_PER_GPU` (default 4) and `-t 'sh gpu-pick.sh {}'`; `gpu-pick.sh` picks
+  from the job's `CUDA_VISIBLE_DEVICES` by `TASK_SLOT mod n`. Stand-in `emulator.cu`, built on a login
+  node with `module load cuda` and `nvcc`; an `nvidia-smi` sampling loop records sharing. Gautschi
+  `ai`/`normal`, 28 cores for 2 GPUs (14 per GPU, enforced). No Negishi tab: V5 does not test ROCm.
+  MPS and MIG are one sentence each in the draft; the measured k = 1, 2, 4 table is a close-run item.)
+- [x] `extreme_scale.md`: research 02 §2.4 and §10 options; states Purdue workloads rarely need
+  it; leadership-facility framing; `docs/snippets/workflows/ensemble/` (header
+  `# FILENAME: ensemble.sub`). Throughput figures only as validated illustrations. (Drafted: tasks
+  loaded once with `hs submit -b 10000`, then `hsx --restart` with no file, `-N`/`-b` = cores per
+  node, `-w 30`, `--delay-start=-30`, `-W 300`, `HYPERSHELL_LOGGING_LEVEL=warning`, results to one
+  file per job; `--no-db --no-confirm` variant; stand-in `member.sh`. Headers are P4's with 4 nodes and
+  4 hours. No throughput figures in the draft: the close run adds V5's as illustrations.)
+- [x] Nav lines (GPU page directly after tier 1, then tier 2); guide-landing cards; breadcrumbs.
+  (Also: the guide landing's tier map links both pages, and tier 1's *Move on when* links the GPU
+  page.)
+- [x] Draft run ends per *Validating phases*; `P5: PENDING`.
+- [x] Close run, after `P5: PASS` in `VALIDATION.md`: apply any fixes validation required, add the
+  measured illustrations (GPU k table, tier 2 throughput), run the full `verify:`, mark P5 `done`.
+  (F1: the k = 1, 2, 4 table and a sentence that runs split close to, not exactly, evenly across
+  GPUs. F2: tier 2 throughput illustrations. F3: MPS and MIG sentences say neither is offered on
+  RCAC's clusters; the Scholar MIG mentions are gone. Module-packaging gaps on Anvil's GPU tree and
+  Gilbreth added to the merge hold; no page change.)
+- **Verify:** see frontmatter.
+- **Touches:** two pages, `docs/snippets/workflows/{gpu_sweep,ensemble}/*`, `docs/workflows/hypershell/index.md`,
+  `docs/workflows/hypershell/single_job.md` (one link), `mkdocs.yml`, breadcrumbs, `VALIDATION.md`.
+
+## Phase P6 — Tier 3: a pipeline on one cluster
+**Satisfies:** R6, R9, R12, R13, R14, R15 · **Depends on:** P5 · **Validation:** V6
+**Goal:** a validated on-cluster pipeline with an intentional database and configuration, `hs submit`
+phases on a login node, and a helper that schedules client jobs; groups and zones explained where
+introduced.
+
+- [x] `pipelines.md`: research 04 tier 3 scenario. `docs/snippets/workflows/panel/`: `config.toml`
+  (database, server, `server.auth` via `_eval` or `HYPERSHELL_SERVER_AUTH`), `submit-phases.sh`,
+  `schedule-clients.sh` (opens `# FILENAME: schedule-clients.sh`), per-cluster `client-<cluster>.sh`
+  headers as tabs. The server runs on a login node, presented as the design choice of one coordination host (GOAL non-goal: no restating of RCAC login-node guidance). Groups: what, when, the reached-group
+  rule. Zones: what, when, matching client jobs to partitions. `TASK_SLOT`, not `{slot}`, under
+  `hs submit`. Minimum version 2.9.0 (zones), groups 2.8.0.
+  (Drafted: the campaign directory holds `hypershell/` with `config.toml`, `auth.key`, the SQLite
+  database at `hypershell/lib/main.db` and the logs; every process sets `HYPERSHELL_SITE` and
+  `HYPERSHELL_CONFIG_FILE="$HYPERSHELL_SITE/config.toml"`, so no other configuration is read. Config:
+  `database.provider = "sqlite"`, `server.bind = "0.0.0.0"`, `server.host =
+  "login00.gautschi.rcac.purdue.edu"`, `server.port = 50101`, `server.auth_eval = 'cat
+  "$HYPERSHELL_SITE/auth.key"'` (key file made with `openssl rand -hex 32` under `umask 077`). `hs initdb`
+  as its own step; `nohup hs server --forever` with a PID file; stop with `SIGUSR1`. Phases: align
+  (group 0, zone `cpu`, one task file per batch), genotype (group 1, zone `highmem`), merge (group 2,
+  zone `cpu`); stand-in `panel.sh` (96 lines, 24 regions). The job script follows the established
+  `header-<cluster>.sh` + `body.sh` layout (amended from PLAN's `client-<cluster>.sh`), `# FILENAME:
+  client.sub`, one whole node, `hs client --zone "$1" --capture -N cores -T 600`; tabs Anvil, Gautschi,
+  Negishi, Scholar. The helper finds the active group with `hs list`, counts its unfinished tasks per
+  zone with `hs list zone … | sort | uniq -c` (`hs list` has no zone filter), counts jobs with
+  `squeue --name=panel-<zone>`, tops up to `MAX_JOBS` (2) and never more jobs than tasks, holds while a
+  lower group has an uncancelled failure, and moves `highmem` jobs with `HIGHMEM_PARTITION`
+  (Scholar: `cpu`). No GPU zone here, so no `TASK_SLOT` text is needed; the GPU page already says it.)
+- [x] Nav line; guide-landing card; breadcrumbs. (Also: the guide landing's tier map links the page.)
+- [x] Draft run ends per *Validating phases*; `P6: PENDING`. (P6 drafted while P5 awaits validation,
+  by foreman decision; `current_phase` stays P5.)
+- [x] Close run, after `P6: PASS` in `VALIDATION.md`: apply any fixes validation required, run the
+  full `verify:`, mark P6 `done`. (Reduced scope by foreman decision: validation ran A1–A6 and
+  B 7/7 on login nodes; C, the live server and client path, was not run. Page unchanged. Close-run
+  item F1 added a `P6-release: PASS` line to VALIDATION.md's *Merge hold*: the C0 probe, then
+  C1–C8 and C11 on the released module, with the request's F1–F2 wording checks carried there.)
+- **Verify:** see frontmatter.
+- **Touches:** `pipelines.md`, `docs/snippets/workflows/panel/*`, `docs/workflows/hypershell/index.md`,
+  `mkdocs.yml`, breadcrumbs, `VALIDATION.md`.
+
+## Phase P7 — Tier 4: persistent service on Geddes and relay autoscaling
+**Satisfies:** R6, R10, R11, R12, R13, R14, R15 · **Depends on:** P6 · **Validation:** V7 (includes the manual Rancher walk-through)
+**Goal:** two validated capstone pages: the Geddes pod (server + TimescaleDB) through Rancher, and
+the relay-based autoscaling script on login00 of Gautschi and Negishi, zones and groups together.
+
+- [x] `geddes_service.md`: research 05 §7.1 outline, Rancher steps in the
+  `../../userguides/geddes/examples/database.md` style (link it as the base). Secrets, PVC
+  (TimescaleDB `2.32.1-pg17`, mount per research 05 §2.3), the server container (image tag matching
+  the validated build; arguments only; `hs` path note for Execute Shell), Recreate policy,
+  LoadBalancer on the private pool with 50001 and 5432 and the DNS name. Explicit statements of
+  credential storage, persistence and network exposure. At most one collapsed container-entries
+  reference. One-line MCP note.
+  (Drafted: credentials made on Gautschi's `login00` under `$HOME/survey/` with `openssl rand`, an
+  `openssl req -x509 … -addext subjectAltName` certificate for `hypershell.<your-namespace>.geddes…`
+  and its SHA-256 fingerprint; three Opaque Secrets `hypershell-auth` (`auth`), `hypershell-db`
+  (`password`), `hypershell-tls` (`tls.crt`, `tls.key`); Deployment `hypershell`, containers
+  `timescaledb` (`…/docker-hub-cache/timescale/timescaledb:2.32.1-pg17`, `POSTGRES_PASSWORD` from
+  the Secret, `POSTGRES_DB=hypershell`, PVC `hypershell-db` on `geddes-performance-singlenode`, 20 GiB,
+  `/var/lib/postgresql/data` sub path `data`) and `server` (`ghcr.io/hypershell/hypershell:2.9.0`,
+  arguments `--autoscaling=dynamic --initdb`, twelve `HYPERSHELL_*` variables, two from Secrets, TLS
+  Secret mounted at `/tls`); pod label `hypershell=survey`; Recreate; Load Balancer `hypershell` with
+  ports `queue` 50001 and `database` 5432 on `geddes-private-pool`. Checked from `login00` with
+  `host` and `hs list --count` through `database.toml`. Images verified on the web 2026-11-23:
+  GHCR lists `2.9.0a9` and `sha-1acc548`, no `2.9.0`, no `latest`; Docker Hub lists
+  `timescale/timescaledb:2.32.1-pg17`. **Amendment:** the example's groups are the night's date plus
+  the phase (`202611230`, `…1`, `…2`), not 0, 1, 2: a forever server keeps one group order for all
+  the work it holds, and the drafter's workstation run showed a second night's catalog (group 2)
+  running before its calibrations when every night reused groups 0–2.)
+- [x] `autoscaling.md`: login00 config (`docs/snippets/workflows/survey/relay.toml`),
+  `run-relay.sh` (opens `# FILENAME: run-relay.sh`; `srun` launcher, never `sbatch`), drain and
+  stop. login00 is presented as a system design choice (one host per cluster for persistent,
+  low-CPU coordination), without restating RCAC login-node guidance (GOAL non-goal).
+  `submit-night.sh` with zones `cpu`/`gpu` and groups 0–2 (PLAN §2 *Tier 4 zones*). *Adding a
+  second cluster*: the same script on `login00.negishi.rcac.purdue.edu`, serving zone `cpu` only,
+  and `autoscale.distribution`. Operate and maintain. Link the GPU page from the `gpu` zone.
+  Gilbreth does not appear in tier 4 (no login00). No `-m`/`memory:` of 2G or more (PostgreSQL defect).
+  (Drafted, written plain by foreman rule (no `case`, `set -e`, parameter-expansion operators,
+  subshell `umask`, background loops): `docs/snippets/workflows/survey/` holds `relay-gautschi.toml`
+  and `relay-negishi.toml` (both `# FILENAME: relay.toml`, shown as tabs; amended from PLAN's one
+  `relay.toml`), `database.toml` (amended from PLAN's single shared config: the database settings
+  stay out of the relay's file, so the copy the relay hands its site clients carries no database
+  command), `run-relay.sh` (opens `# FILENAME: run-relay.sh`; sets `HYPERSHELL_SITE` and
+  `HYPERSHELL_CONFIG_FILE`, `nohup hs relay … &`, writes `relay.pid`; drain is `kill -s USR1`, stop
+  is `kill`, both in prose), `submit-night.sh` (date-based groups, `&&` between the three
+  submissions so a refused phase stops the rest), and three stand-ins `calibrate.sh`, `detect.sh`,
+  `catalog.sh` on Data Depot (amended from PLAN's one `submit-night.sh` stand-in; data on Depot so
+  any cluster's clients reach it). Relay: `site`, `num_threads = 4` (relay-wide in 2.9.0, so each
+  zone's Slurm request is sized around it), `timeout = 600`, `launcher = "srun"`,
+  `[relay.upstream]` with `auth_eval` and `[relay.upstream.tls] fingerprint`; zone `cpu`
+  `--partition=cpu --qos=normal --ntasks=1 --cpus-per-task=4 --time=04:00:00`, `max = 8`; zone
+  `gpu` (Gautschi only) `--partition=ai --qos=normal --ntasks=1 --gpus-per-node=1
+  --cpus-per-task=14`, `max = 2`. `autoscale.distribution` is set on the server
+  (`HYPERSHELL_AUTOSCALE_DISTRIBUTION`, `spread`; `fill` with `HYPERSHELL_AUTOSCALE_SITES`).
+  Checked end to end on the workstation with 2.9.0a9 (see VALIDATION.md P7).)
+- [x] Nav lines; guide-landing cards; breadcrumbs. (Also: the tier map's tier 4 row links both pages.)
+- [x] Draft run ends per *Validating phases*; `P7: PENDING` lists the Rancher walk-through and the
+  live checks (PLAN §6 V7, §5 Q5–Q8). (Validation held for the release by foreman decision: the full
+  request is written under VALIDATION.md's P7 heading and runs once on the released module and image
+  as the merge hold's `P7-release: PASS`; P7 stays `in_progress`, hill `crest`.)
+- **Verify:** see frontmatter.
+- **Touches:** two pages, `docs/snippets/workflows/survey/*`, `docs/workflows/hypershell/index.md`,
+  `mkdocs.yml`, breadcrumbs, `VALIDATION.md`.
+
+## Phase P8 — Integration: hub completeness, cross-links, sweeps
+**Satisfies:** R1, R12, R13, R14, R15 · **Depends on:** P7
+**Goal:** the section is complete, cross-linked from its neighbours, and passes the convention and
+accessibility sweeps.
+
+(Drafted while P7 awaits its release-held validation, by foreman decision; `current_phase` stays P7.
+P8 also carries the plain-shell simplification pass of the style guide's *Example scripts* rule,
+committed separately, which touches scripts and so needs `P8: PASS` in VALIDATION.md before close.)
+
+- [x] Hub: a card for every tool page and the guide (R1); guide landing: a card per tier page and
+  the GPU page; the placement table's tool names link their pages. (Already complete: seven tool
+  cards and the guide card on the hub; six cards on the guide landing; HTCondor, Dask and Ray stay
+  plain text, having no pages.)
+- [x] One-sentence "See also" in `docs/lifesciences/guides/nextflow.md` (after line 22) and
+  `docs/lifesciences/guides/nextflow-gautschi.md` (after line 55) to `../../workflows/index.md`; one
+  sentence appended at `docs/workshops/hpc_exchange/week4/workload-management.md` line 195 linking
+  `../../../workflows/hypershell/index.md`. No other edits to those pages. (Amended: in
+  `nextflow-gautschi.md` line 55 opens a `!!! note`, so the sentence follows the note, before
+  `## Reading a Nextflow pipeline`.)
+- [x] R12 sweep (`hs task`, `-k`), Jinja grep, anchor-log grep, back-links at page ends. (All clean;
+  no anchor INFO line names `workflows/`; every page but the hub ends with its back-link.)
+- [x] Accessibility sweep (R14): one H1, heading order, table header rows, descriptive link text,
+  alt text on any image. (Fifteen pages: one H1 each, no skipped level, every table with a header
+  row, no "here"-style links, no images.)
+- [x] Confirm `VALIDATION.md` shows PASS for P2–P7; if a P8 edit touches a script, re-validate it.
+  (P2–P6 PASS; P7 held for the release by decision. Close run: the foreman ran R1–R3 on Gautschi and
+  wrote the results and `P8: PASS`. The simplification pass changed scripts:
+  re-validation R1–R3 and the amended P6-release steps are under VALIDATION.md's *P8 — re-validation
+  after simplification*; `P8: PENDING`.)
+- [x] Regenerate breadcrumbs; `.venv/bin/mkdocs serve` walk-through of the whole section. (No nav
+  change; the generator leaves `breadcrumbs.json` unchanged. Walk-through done on the built `site/`:
+  every snippet file and every header+body tab renders byte for byte, 50 of 50 blocks.)
+- [x] Record the merge hold (PLAN §5 Q1, publish rule) in `VALIDATION.md` and carry it into the PR
+  body at `docs-publish`. The draft PR may open at any time. The merge waits until 2.9.0 is tagged,
+  the default module on Gautschi and Anvil is 2.9.0, and V4's tier 1 checks have passed on that
+  module. (Recorded; see *Merge-hold summary for the PR body* below.)
+- [x] On done: `--top-status in_review`. (Not applied yet: P8 stays `in_progress` because the last
+  clause of its `verify:`, six PASS lines for P2 to P7, waits on `P7-release`. Set `in_review` once
+  P7 and P8 close.)
+- **Verify:** see frontmatter.
+- **Touches:** `docs/workflows/**`, the three cross-link pages, `mkdocs.yml` (only if nav fixes),
+  breadcrumbs.
+
+### P8 notes
+
+**State at the P8 close run (2026-11-23).** The cycle is drafted and validated except the release
+checks in VALIDATION.md → *Merge hold* (`P4-release`, the module packaging, `P6-release`,
+`P7-release`). P8's full `verify:` passes every clause but the last (5 of 6 `P[2-7]: PASS` lines),
+which waits on `P7-release`; P8 stays `in_progress`, hill `downhill`. The close run also added a
+note to `geddes_service.md` under *Expose the server*: why a Load Balancer and not an Ingress.
+
+**Foreman nits applied.** `docs/workflows/index.md`: "RCAC's clusters provide it as a module" (was
+"community clusters"; Anvil is not one); no other community-cluster claim on the hub includes
+Anvil. `pegasus.md`: "not installed as a module on any RCAC cluster" (P3 A7 checked all five,
+Anvil included) and "no verified route to Pegasus from these clusters" for the Gautschi, Gilbreth,
+Negishi and Scholar paragraph (Scholar is a teaching cluster, not a community cluster).
+`nextflow.md`: Scholar's row reads `21.10.0 through BioContainers` (confirmed on Scholar
+2026-11-22).
+
+**Simplification pass (commit "Simplify workflow-automation example scripts").** Every example
+script and command block was rewritten to the style guide's *Example scripts* rule. Tier 3 changed
+shape: `panel.sh` became `align.sh`, `genotype.sh` and `merge.sh`; `submit-phases.sh` became one
+`hs submit` per phase on the page (`--template` for the per-line phases); `schedule-clients.sh`
+handles one zone per run (`ZONE PARTITION`, one job per run); the loop is `keep-scheduling.sh`.
+Every behaviour change is listed in VALIDATION.md under *P8 — re-validation after simplification*.
+
+**Merge-hold summary for the PR body (`docs-publish`).** The draft PR may open at any time. Merge
+waits until all of these hold, each recorded in VALIDATION.md:
+
+1. HyperShell 2.9.0 is tagged, and the default `hypershell` module on Gautschi and Anvil is 2.9.0.
+2. `P4-release: PASS`: tier 1's checks (P4 C1–C4) re-run on that default module, Gautschi and Anvil.
+3. Module packaging fixed with the 2.9.0 deploy: Anvil's GPU module tree offers `hypershell`, and
+   Gilbreth's `hypershell` loads without `module load external`.
+4. `P6-release: PASS`: tier 3's server path on the released module (C0 port probe, then C1–C8 and
+   C11, in the forms amended by P8), with the F1–F2 wording checks.
+5. `P7-release: PASS`: the whole tier 4 request (A–K, with a human doing the Rancher steps) on the
+   released module and the matching published image, which also writes `P7: PASS`.
+6. `P8: PASS`: re-validation R1–R3 of the simplified scripts (job array, tier 1, GPU).
+
+**Tier 4 image (foreman fix, its own commit).** `geddes_service.md` names the upstream image
+`timescale/timescaledb:2.32.1-pg18` (was the Geddes Docker Hub cache path to `…:2.32.1-pg17`),
+says PostgreSQL 18 or later is recommended, and drops the sentence about the cache. The mount point
+moves from `/var/lib/postgresql/data` to `/var/lib/postgresql` (sub path `data` kept): from 18 the
+upstream PostgreSQL image, which TimescaleDB's image is built on, sets `PGDATA` to
+`/var/lib/postgresql/18/docker`, declares `VOLUME /var/lib/postgresql`, and its entrypoint refuses
+to start when `/var/lib/postgresql/data` is a mount with no database in it (docker-library/postgres
+`18/alpine3.24/Dockerfile` and `docker-entrypoint.sh`, read 2026-11-23). The P7 request (C2, D1,
+new D1a) matches.
+
+**Follow-ups outside this job's scope (record only; no page change in this cycle).**
+
+- `docs/userguides/scholar/overview.md` lists H-MIG and I-MIG node types with A30 GPUs split into
+  MIG slices, but Slurm on Scholar shows `gpu:nvidia_a30:2` and no MIG GRES (P5 A5).
+- Older example pages use `-A standby` (an account, where `standby` is a QOS): for example
+  `docs/userguides/gautschi/run_jobs/{gaussian_example,mpi_jobs}.md`,
+  `docs/userguides/gilbreth/run_jobs/gaussian_example.md` and
+  `docs/userguides/hammer/run_jobs/slurm/submit_script.md`.
+- The existing Geddes database example, `docs/userguides/geddes/examples/database.md`, writes the
+  Docker Hub cache path explicitly (`geddes-registry.rcac.purdue.edu/docker-hub-cache/postgis/…`);
+  it may want the same simplification as tier 4, which now names the upstream image directly
+  (`timescale/timescaledb:2.32.1-pg18`).
+- Gautschi example pages use `--partition=a10`: `docs/userguides/gautschi/run_jobs/{openmp_jobs,
+  gaussian_example,gpu_jobs,mpi_jobs}.md` (see *Conventions* above).
+
+---
+
+## How `docs-draft` drives this
+
+1. `next_phase.py` prints the next actionable phase.
+2. Pre-flight: clean tree, on `branch`, `.venv` present.
+3. Execute every `[ ]` in the phase (consult `PLAN.md` / `research/` / `style-guide.md`).
+4. Run the phase's `verify:` (for P2–P7 in a draft run, the clauses before the `VALIDATION.md` grep;
+   see *Validating phases*).
+5. Amend this file if reality diverges (via `set_phase.py`; note it in the commit body). STOP only
+   on a `GOAL.md` contradiction.
+6. Update state, one `[feature]` commit, stop and report.

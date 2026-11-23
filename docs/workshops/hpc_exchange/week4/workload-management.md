@@ -192,7 +192,7 @@ echo "All jobs completed!"
 
 You can submit this with `sbatch pilot.sh`, This just manually runs our workflow multiple times and saves the results to a different output file each time. You could extend this to doing multiple different workflows in tandem, as long as they fit within the job (RAM and CPUs) you can do whatever you want with the resources.
 
-There are many tools out there for automating computing of many tasks with the pilot job paradigm. Two examples are: HTCondor and HyperShell. They both achieve the task of computing many things using a single Slurm job and each have different features.
+There are many tools out there for automating computing of many tasks with the pilot job paradigm. Two examples are: HTCondor and HyperShell. They both achieve the task of computing many things using a single Slurm job and each have different features. RCAC's [HyperShell User Guide](../../../workflows/hypershell/index.md) shows how to run a list of tasks this way, starting with one job script.
 
 ## Conclusion
 Managing **high-throughput** and **many-task** workflows is an important aspect of high-performance computing. We can use various approaches, including submitting lots of separate jobs, using Slurm job arrays, or using the pilot job paradigm. Each approach has its own advantages and disadvantages, and the choice of approach depends on the specific requirements of your workflow.
