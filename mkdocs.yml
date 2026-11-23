@@ -291,6 +291,8 @@ nav:
       - NVIDIA Nsight Systems: profilers/nvidia_nsight_systems.md
       - AMD uProf: profilers/amduprof.md
       - Intel VTune: profilers/vtune.md
+    - Workflow Automation:
+      - workflows/index.md
     - RCAC Workshops:
       - workshops/index.md
       - HPC Exchange:

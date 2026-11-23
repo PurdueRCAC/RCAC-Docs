@@ -45,3 +45,27 @@ attributes line instead of duplicating. A fix that would weaken a `hammerable:fa
   that `next_phase.py` reports. Strengthens, does not weaken, the `hammerable:false` gates.
 - **Confidence:** high · **Effort:** small–medium
 
+## F2 — "serve and eyeball" step has no recipe an unattended step agent can run
+`origin=docs-draft:P1 severity=low category=instruction status=open target=.agents/skills/docs-draft/SKILL.md`
+- **What happened:** TECH P1 and docs-draft Step 4 ask for `.venv/bin/mkdocs serve` and an eyeball of
+  the render. A step agent has no browser, so it substituted a structural check of the built
+  `site/<page>/index.html` (H1 count and heading order, `<thead>` and row count of each table, the
+  rendered `href`s).
+- **Skill cause (not mine):** the step names a human action with no machine-runnable equivalent, so
+  each drafter improvises its own check, or skips it.
+- **Recommended fix:** in docs-draft Step 4, give a short built-HTML check recipe (one H1, heading
+  levels, tables with `<thead>`, include sentinels, links) as the unattended form of the eyeball step,
+  keeping `mkdocs serve` for attended runs. Strengthens, does not weaken, a gate.
+- **Confidence:** medium · **Effort:** small
+
+## F3 — first `set_phase.py` run restyles the whole TECH frontmatter
+`origin=docs-draft:P1 severity=low category=tooling status=open target=.agents/factory/bin/set_phase.py`
+- **What happened:** advancing one phase rewrote every line of the YAML frontmatter (flow lists to
+  block lists, double to single quotes), a ~170-line diff for a two-field state change, which buries
+  the real state change from the gate reviewer.
+- **Skill cause (not mine):** the script re-dumps the YAML in its own style instead of preserving the
+  planner's; `docs-plan` writes a style the script does not round-trip.
+- **Recommended fix:** have `set_phase.py` round-trip the existing style (e.g. `ruamel.yaml`), or have
+  `docs-plan` emit the frontmatter through `set_phase.py`'s own dumper so the first draft run is not a
+  restyle.
+- **Confidence:** high · **Effort:** small

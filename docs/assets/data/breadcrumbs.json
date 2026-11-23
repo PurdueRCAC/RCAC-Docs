@@ -845,6 +845,10 @@
     "Profilers",
     "Intel VTune"
   ],
+  "/workflows/": [
+    "Home",
+    "Workflow Automation"
+  ],
   "/workshops/": [
     "Home",
     "RCAC Workshops"

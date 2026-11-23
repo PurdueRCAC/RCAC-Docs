@@ -1,92 +1,174 @@
 ---
 slug: workflow-automation
-title: "Workflow Automation: choosing a tool, and a tiered HyperShell user guide"
+title: 'Workflow Automation: choosing a tool, and a tiered HyperShell user guide'
 kind: feature
 appetite: big
 status: in_progress
 branch: feature/workflow-automation
 base: main
-current_phase: P1
-last_updated: "2026-11-22"
+current_phase: P2
+last_updated: '2026-11-22'
 phases:
-  - id: P1
-    name: "Scaffold: section nav anchor and the landing page"
-    status: pending
-    satisfies: [R1, R2, R5, R13, R14]
-    depends_on: []
-    parallel: false
-    hammerable: false
-    hill: uphill
-    verify: ".venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py && grep -q 'workflows/index.md' mkdocs.yml"
-  - id: P2
-    name: "Baseline tools: job arrays, GNU Make, GNU Parallel"
-    status: pending
-    satisfies: [R1, R3, R13, R14, R15]
-    depends_on: [P1]
-    parallel: false
-    hammerable: false
-    hill: uphill
-    verify: ".venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py && grep -q 'workflows/job_arrays.md' mkdocs.yml && grep -q 'workflows/gnu_make.md' mkdocs.yml && grep -q 'workflows/gnu_parallel.md' mkdocs.yml && grep -rqF 'same on every cluster' site/workflows/job_arrays/ && grep -rqF 'FILENAME: array.sub' site/workflows/job_arrays/ && grep -q '^P2: PASS' spec/workflow-automation/VALIDATION.md"
-  - id: P3
-    name: "Workflow managers: Snakemake, Nextflow, Pegasus, Parsl"
-    status: pending
-    satisfies: [R1, R4, R13, R14, R15]
-    depends_on: [P2]
-    parallel: false
-    hammerable: false
-    hill: uphill
-    verify: ".venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py && grep -q 'workflows/snakemake.md' mkdocs.yml && grep -q 'workflows/nextflow.md' mkdocs.yml && grep -q 'workflows/pegasus.md' mkdocs.yml && grep -q 'workflows/parsl.md' mkdocs.yml && grep -q '^P3: PASS' spec/workflow-automation/VALIDATION.md"
-  - id: P4
-    name: "HyperShell guide landing page and Tier 1 (one job script)"
-    status: pending
-    satisfies: [R1, R6, R7, R12, R13, R14, R15]
-    depends_on: [P3]
-    parallel: false
-    hammerable: false
-    hill: uphill
-    verify: ".venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py && grep -q 'workflows/hypershell/index.md' mkdocs.yml && grep -q 'workflows/hypershell/single_job.md' mkdocs.yml && grep -rqF 'same on every cluster' site/workflows/hypershell/single_job/ && grep -rqF 'FILENAME: frames.sub' site/workflows/hypershell/single_job/ && grep -q '^P4: PASS' spec/workflow-automation/VALIDATION.md"
-  - id: P5
-    name: "GPU multiplexing and Tier 2 (extreme scale)"
-    status: pending
-    satisfies: [R6, R8, R11, R12, R13, R14, R15]
-    depends_on: [P4]
-    parallel: false
-    hammerable: false
-    hill: uphill
-    verify: ".venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py && grep -q 'workflows/hypershell/gpu_multiplexing.md' mkdocs.yml && grep -q 'workflows/hypershell/extreme_scale.md' mkdocs.yml && grep -rqF 'FILENAME: gpu_sweep.sub' site/workflows/hypershell/gpu_multiplexing/ && grep -rqF 'FILENAME: ensemble.sub' site/workflows/hypershell/extreme_scale/ && grep -q '^P5: PASS' spec/workflow-automation/VALIDATION.md"
-  - id: P6
-    name: "Tier 3: a pipeline on one cluster (database, config, phases, zones, groups)"
-    status: pending
-    satisfies: [R6, R9, R12, R13, R14, R15]
-    depends_on: [P5]
-    parallel: false
-    hammerable: false
-    hill: uphill
-    verify: ".venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py && grep -q 'workflows/hypershell/pipelines.md' mkdocs.yml && grep -rqF 'FILENAME: schedule-clients.sh' site/workflows/hypershell/pipelines/ && grep -q '^P6: PASS' spec/workflow-automation/VALIDATION.md"
-  - id: P7
-    name: "Tier 4: persistent service on Geddes and relay autoscaling across clusters"
-    status: pending
-    satisfies: [R6, R10, R11, R12, R13, R14, R15]
-    depends_on: [P6]
-    parallel: false
-    hammerable: false
-    hill: uphill
-    verify: ".venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py && grep -q 'workflows/hypershell/geddes_service.md' mkdocs.yml && grep -q 'workflows/hypershell/autoscaling.md' mkdocs.yml && grep -rqF 'FILENAME: run-relay.sh' site/workflows/hypershell/autoscaling/ && grep -q '^P7: PASS' spec/workflow-automation/VALIDATION.md"
-  - id: P8
-    name: "Integration: hub completeness, cross-links, conventions and accessibility sweep"
-    status: pending
-    satisfies: [R1, R12, R13, R14, R15]
-    depends_on: [P7]
-    parallel: false
-    hammerable: false
-    hill: uphill
-    verify: ".venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py && grep -q 'workflows/' docs/lifesciences/guides/nextflow.md && grep -q 'workflows/' docs/lifesciences/guides/nextflow-gautschi.md && grep -q 'workflows/hypershell/' docs/workshops/hpc_exchange/week4/workload-management.md && ! grep -rqE 'hs task|hsx? [^|]*-k( |$)' docs/workflows docs/snippets/workflows && test $(grep -c '^P[2-7]: PASS' spec/workflow-automation/VALIDATION.md) -ge 6"
+- id: P1
+  name: 'Scaffold: section nav anchor and the landing page'
+  status: done
+  satisfies:
+  - R1
+  - R2
+  - R5
+  - R13
+  - R14
+  depends_on: []
+  parallel: false
+  hammerable: false
+  hill: uphill
+  verify: .venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py
+    && grep -q 'workflows/index.md' mkdocs.yml
+- id: P2
+  name: 'Baseline tools: job arrays, GNU Make, GNU Parallel'
+  status: pending
+  satisfies:
+  - R1
+  - R3
+  - R13
+  - R14
+  - R15
+  depends_on:
+  - P1
+  parallel: false
+  hammerable: false
+  hill: uphill
+  verify: '.venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py
+    && grep -q ''workflows/job_arrays.md'' mkdocs.yml && grep -q ''workflows/gnu_make.md''
+    mkdocs.yml && grep -q ''workflows/gnu_parallel.md'' mkdocs.yml && grep -rqF ''same
+    on every cluster'' site/workflows/job_arrays/ && grep -rqF ''FILENAME: array.sub''
+    site/workflows/job_arrays/ && grep -q ''^P2: PASS'' spec/workflow-automation/VALIDATION.md'
+- id: P3
+  name: 'Workflow managers: Snakemake, Nextflow, Pegasus, Parsl'
+  status: pending
+  satisfies:
+  - R1
+  - R4
+  - R13
+  - R14
+  - R15
+  depends_on:
+  - P2
+  parallel: false
+  hammerable: false
+  hill: uphill
+  verify: '.venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py
+    && grep -q ''workflows/snakemake.md'' mkdocs.yml && grep -q ''workflows/nextflow.md''
+    mkdocs.yml && grep -q ''workflows/pegasus.md'' mkdocs.yml && grep -q ''workflows/parsl.md''
+    mkdocs.yml && grep -q ''^P3: PASS'' spec/workflow-automation/VALIDATION.md'
+- id: P4
+  name: HyperShell guide landing page and Tier 1 (one job script)
+  status: pending
+  satisfies:
+  - R1
+  - R6
+  - R7
+  - R12
+  - R13
+  - R14
+  - R15
+  depends_on:
+  - P3
+  parallel: false
+  hammerable: false
+  hill: uphill
+  verify: '.venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py
+    && grep -q ''workflows/hypershell/index.md'' mkdocs.yml && grep -q ''workflows/hypershell/single_job.md''
+    mkdocs.yml && grep -rqF ''same on every cluster'' site/workflows/hypershell/single_job/
+    && grep -rqF ''FILENAME: frames.sub'' site/workflows/hypershell/single_job/ &&
+    grep -q ''^P4: PASS'' spec/workflow-automation/VALIDATION.md'
+- id: P5
+  name: GPU multiplexing and Tier 2 (extreme scale)
+  status: pending
+  satisfies:
+  - R6
+  - R8
+  - R11
+  - R12
+  - R13
+  - R14
+  - R15
+  depends_on:
+  - P4
+  parallel: false
+  hammerable: false
+  hill: uphill
+  verify: '.venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py
+    && grep -q ''workflows/hypershell/gpu_multiplexing.md'' mkdocs.yml && grep -q
+    ''workflows/hypershell/extreme_scale.md'' mkdocs.yml && grep -rqF ''FILENAME:
+    gpu_sweep.sub'' site/workflows/hypershell/gpu_multiplexing/ && grep -rqF ''FILENAME:
+    ensemble.sub'' site/workflows/hypershell/extreme_scale/ && grep -q ''^P5: PASS''
+    spec/workflow-automation/VALIDATION.md'
+- id: P6
+  name: 'Tier 3: a pipeline on one cluster (database, config, phases, zones, groups)'
+  status: pending
+  satisfies:
+  - R6
+  - R9
+  - R12
+  - R13
+  - R14
+  - R15
+  depends_on:
+  - P5
+  parallel: false
+  hammerable: false
+  hill: uphill
+  verify: '.venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py
+    && grep -q ''workflows/hypershell/pipelines.md'' mkdocs.yml && grep -rqF ''FILENAME:
+    schedule-clients.sh'' site/workflows/hypershell/pipelines/ && grep -q ''^P6: PASS''
+    spec/workflow-automation/VALIDATION.md'
+- id: P7
+  name: 'Tier 4: persistent service on Geddes and relay autoscaling across clusters'
+  status: pending
+  satisfies:
+  - R6
+  - R10
+  - R11
+  - R12
+  - R13
+  - R14
+  - R15
+  depends_on:
+  - P6
+  parallel: false
+  hammerable: false
+  hill: uphill
+  verify: '.venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py
+    && grep -q ''workflows/hypershell/geddes_service.md'' mkdocs.yml && grep -q ''workflows/hypershell/autoscaling.md''
+    mkdocs.yml && grep -rqF ''FILENAME: run-relay.sh'' site/workflows/hypershell/autoscaling/
+    && grep -q ''^P7: PASS'' spec/workflow-automation/VALIDATION.md'
+- id: P8
+  name: 'Integration: hub completeness, cross-links, conventions and accessibility
+    sweep'
+  status: pending
+  satisfies:
+  - R1
+  - R12
+  - R13
+  - R14
+  - R15
+  depends_on:
+  - P7
+  parallel: false
+  hammerable: false
+  hill: uphill
+  verify: '.venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py
+    && grep -q ''workflows/'' docs/lifesciences/guides/nextflow.md && grep -q ''workflows/''
+    docs/lifesciences/guides/nextflow-gautschi.md && grep -q ''workflows/hypershell/''
+    docs/workshops/hpc_exchange/week4/workload-management.md && ! grep -rqE ''hs task|hsx?
+    [^|]*-k( |$)'' docs/workflows docs/snippets/workflows && test $(grep -c ''^P[2-7]:
+    PASS'' spec/workflow-automation/VALIDATION.md) -ge 6'
 review:
-  last_reviewed_commit: ""
+  last_reviewed_commit: ''
   verdict: none
-  blocked_reason: ""
+  blocked_reason: ''
 ---
-
 # TECH.md — Workflow Automation: choosing a tool, and a tiered HyperShell user guide
 
 The **context engine and finite-state machine** for authoring this job. The YAML frontmatter
@@ -167,19 +249,19 @@ P1 and P8 carry no scripts and close in one run.
 **Goal:** the `Workflow Automation` section exists in nav with a complete landing page that
 carries the landscape argument; later phases add cards for their pages.
 
-- [ ] Create `docs/workflows/index.md` (hub archetype; front-matter per PLAN §2; mirror the
+- [x] Create `docs/workflows/index.md` (hub archetype; front-matter per PLAN §2; mirror the
   Agentic AI hub and `docs/lifesciences/index.md`).
-- [ ] Write: the job-per-task anti-pattern; the four dimensions; the placement table (header row;
+- [x] Write: the job-per-task anti-pattern; the four dimensions; the placement table (header row;
   all 11 tools; research 03 §2.10); the case for intentional simplicity in flat work; the HyperShell
   recommendation alongside each tool's honest "where it wins" line (research 03, Recommendations);
   a short "Which tool?" list; *Other tools you may meet* (HTCondor, Dask, Ray paragraphs); a
   closing link to `../software/workflow_catalog.md`. Availability wording per research 03: no
   version pins on this page.
-- [ ] Grid cards: only for pages that exist (none yet besides the hub). Card stubs for later pages
+- [x] Grid cards: only for pages that exist (none yet besides the hub). Card stubs for later pages
   are added by their phases. Tool names in the placement table stay plain text until their pages exist.
-- [ ] Insert the `- Workflow Automation:` block with only `workflows/index.md` under RCAC Resources
+- [x] Insert the `- Workflow Automation:` block with only `workflows/index.md` under RCAC Resources
   after Profilers (PLAN §2); regenerate breadcrumbs.
-- [ ] `.venv/bin/mkdocs serve` and eyeball the table and prose.
+- [x] `.venv/bin/mkdocs serve` and eyeball the table and prose. (Checked in the built `site/workflows/index.html`: one H1, H2/H3 order, table header row and 11 rows, links resolved.)
 - **Verify:** `.venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py && grep -q 'workflows/index.md' mkdocs.yml`
 - **Touches:** `docs/workflows/index.md`, `mkdocs.yml`, `docs/assets/data/breadcrumbs.json` (generated).
 
