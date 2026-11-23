@@ -84,7 +84,7 @@ attributes line instead of duplicating. A fix that would weaken a `hammerable:fa
   spaces on render; avoid tab-significant content, or use a tab-free form (`.RECIPEPREFIX` for Make).
 - **Confidence:** high · **Effort:** small
 
-## F5 — P3 `verify:` has no include sentinel although the phase publishes snippet files · seen again (P5)
+## F5 — P3 `verify:` has no include sentinel although the phase publishes snippet files · seen again (P5, P6)
 `origin=docs-draft:P3 severity=medium category=instruction status=open target=spec/workflow-automation/TECH.md`
 - **What happened:** P3's pages publish three files through `--8<--` includes (a Snakefile and two
   Parsl files). A mistyped include renders an empty block and `--strict` stays silent (invariants §8),
@@ -123,4 +123,20 @@ attributes line instead of duplicating. A fix that would weaken a `hammerable:fa
 - **Recommended fix:** in docs-plan, phrase a validation-conditional block as either "draft it, and the
   close run removes it if the check fails" (so it is validated with the rest) or "a follow-up phase
   adds it", never "only if validation passes".
+- **Confidence:** medium · **Effort:** small
+
+## F8 — a validation row asks for behaviour the build under test does not have
+`origin=docs-draft:P6 severity=low category=instruction status=open target=.agents/skills/docs-plan/SKILL.md`
+- **What happened:** PLAN §6 V6 lists "reached-group refusal" as a check, and PLAN §5 Q1 names only
+  `hs server --initdb` and underscore-key env vars as the a8 gaps. Research 02 marks the reached-group
+  refusal [dev] (HyperShell #118, first in 2.9.0a9), so the a8 `develop` module accepts the late
+  submission and V6 cannot pass that check. The drafter confirmed it on a workstation (a8 accepts, a9
+  refuses with exit 2) and made the on-cluster check optional with 2.9.0a9. The same TECH step also
+  asks for "`TASK_SLOT`, not `{slot}`, under `hs submit`", which applies only to a GPU zone, and
+  tier 3's design (PLAN §2) has none.
+- **Skill cause (not mine):** docs-plan writes validation rows from the feature list without checking
+  each feature's version mark against the build the publish rule names.
+- **Recommended fix:** in docs-plan, when research carries version marks, cross-check every
+  validation-row feature against the build under test and list the misses in the risk that names
+  that build.
 - **Confidence:** medium · **Effort:** small

@@ -927,6 +927,304 @@ P5: PENDING — docs/snippets/workflows/gpu_sweep/{header-anvil,header-gautschi,
 
 ## P6 — Tier 3 (V6)
 
+Validation request for the P6 draft (the commit that adds this section), covering docs/workflows/hypershell/pipelines.md, docs/snippets/workflows/panel/{config.toml,panel.sh,submit-phases.sh,schedule-clients.sh,header-anvil.sh,header-gautschi.sh,header-negishi.sh,header-scholar.sh,body.sh}; result: pending.
+
+### Validation request (written by the draft run, 2026-11-23)
+
+**Build under test.** Gautschi's `hypershell/develop` module (2.9.0a8 today). Record its exact
+`hs --version` in the PASS line. Tier 3 avoids every 2.9.0a8 known issue it could meet: it runs
+`hs initdb` as its own step (never `hs server --initdb`), keeps the key's `auth_eval` in the
+configuration file (never `HYPERSHELL_SERVER_AUTH_EVAL`, an underscore key that a8 cannot read from
+the environment), sets no configuration key from the environment at all, passes no `-k`, puts no `#`
+inside a task command, uses only integer groups, and gives `-T 600` in plain seconds. It does not
+need the `hyper-shell` executable. **One page statement a8 cannot validate:** the refusal of a
+submission below the reached group (`Task group 0 is below the reached group 1 of the database
+(nothing submitted)`, exit status 2). It landed after a8 (HyperShell #118, in 2.9.0a9); a8 accepts
+such a submission. The draft checked it on a workstation (below). Optional C9 checks it on Gautschi
+with 2.9.0a9 from PyPI, if the job budget allows.
+
+**Envelope.** One HyperShell server on a Gautschi login node, run for this validation only and
+stopped at the end (C11). Files only under `$RCAC_SCRATCH/workflow-automation/p6/`. Client jobs:
+`-A "$ACCT" -p cpu -q standby`, 1 node × 32 cores × 15 minutes each (the page asks for 1 node; the
+envelope allows 2), at most 4 client jobs over the whole run and at most 2 queued at once. The run
+below needs 2 to 4 client jobs (J1 to J3, plus J1′ if J1 ends before C6), and holds at most one job
+per zone at a time (`MAX_JOBS=1`), so never more than 2 at once. C0's probe is a 2-minute
+single-core job, not a client job. `$ACCT` is the validation account, kept out of the repository.
+Anvil, Negishi and Scholar get login-node checks and `sbatch --test-only` only.
+
+**The login node.** The page runs the server on `login00.gautschi.rcac.purdue.edu`; the choice of
+node is yours. Pick one, record `hostname -f`, and run every step of C on that node: the server, the
+helper, `hs submit` and every `hs list` (the page's rule: everything that opens the database runs
+on the server's host). If your shell does not stay on one node between commands, prefix each step
+with `ssh <node>`, and record that you did. Background processes must outlive the command that
+starts them (the page uses `nohup … &` and a PID file); if your tool ends them when a command
+returns, start them with `setsid nohup …` instead, and record it.
+
+**Assembling a tab.** As in P4: the header file, one empty line, then the shared body. This
+reproduces the rendered tab byte for byte (checked against the built `site/` for all four tabs and
+the four other published files):
+
+```bash
+{ cat header-<cluster>.sh; echo; cat body.sh; } > client.sub
+```
+
+The helper submits `client.sub` itself, so the envelope's settings go into the Gautschi run copy's
+header, together with the module line. Change these lines and nothing else, and record that you did
+(`<snippets>` is `docs/snippets/workflows`):
+
+```bash
+{ sed -e 's|^module load hypershell$|module load hypershell/develop|' \
+      -e "s|^#SBATCH --account=myallocation$|#SBATCH --account=$ACCT|" \
+      -e 's|^#SBATCH --qos=normal$|#SBATCH --qos=standby|' \
+      -e 's|^#SBATCH --cpus-per-task=192$|#SBATCH --cpus-per-task=32|' \
+      -e 's|^#SBATCH --time=04:00:00$|#SBATCH --time=00:15:00|' \
+      <snippets>/panel/header-gautschi.sh; echo; cat <snippets>/panel/body.sh; } > client.sub
+grep -c '^#SBATCH' client.sub     # 8
+```
+
+The body sizes the client from `$SLURM_CPUS_PER_TASK`, so the behaviour under test is the same at 32
+cores. Every helper run in C sets `MAX_JOBS=1 HIGHMEM_PARTITION=cpu`: one job per zone, and the
+`highmem` zone's jobs go to `cpu` as a stand-in (the envelope has no `highmem` jobs; B checks the
+`highmem` partition with `--test-only`). `panel.sh`, `submit-phases.sh` and `schedule-clients.sh`
+are used as published.
+
+**Draft-run checks (workstation, not a cluster).** The whole of C ran on macOS twice, with
+HyperShell 2.9.0a8 from PyPI and with 2.9.0a9 built from its tag, using stand-in `sbatch` and
+`squeue` scripts (each "job" ran `client.sub` in the background with 8 cores), `panel.sh` with its
+sleeps cut to 1 second, and `HYPERSHELL_SERVER_HOST=127.0.0.1` in the environment because the
+workstation's host name does not resolve. Both versions gave the same results: `hs submit` loaded
+48 + 48 + 24 + 1 tasks and refused the repeated batch 1 (`pass --repeat to submit it again, or
+--update to add only new tasks`, exit 2); the server logged `Task group 0 waiting on zone cpu: 96
+tasks, no client serving it`; the first helper pass submitted one `cpu` job and a second pass none;
+with `aligned/L050.txt` read-only, 95 alignments succeeded, `align L050` failed with exit status 1,
+the server logged `Failed task group 0 (at least 1 tasks exceeding allowed retries, …)` and did not
+start group 1, and the helper printed `Group 0 has failed tasks: revert or cancel them with hs
+update` and submitted nothing; after `chmod 644` and `hs update --failed --revert` the still-running
+`cpu` client ran it, the server logged `Completed task group 0 - starting task group 1`, the next
+pass submitted one `highmem` job, the idle `cpu` client ran the merge when group 2 started, `hs wait`
+on the merge task returned, `panel-calls.txt` held 2,304 lines with 96 per region, and `SIGUSR1`
+stopped the server, after which both client "jobs" ended. Separately, with a `highmem` task of
+group 1 running, `hs submit --group 0` was refused on 2.9.0a9 with the message above (exit 2) and
+accepted on 2.9.0a8; with no group-1 task sent to a client yet, both accepted it (the reached group
+counts only groups with a task sent to a client). A server started on a port already in use logged
+`Cannot listen on 0.0.0.0:<port> ([Errno 48] Address already in use)` and exited with status 5. The
+cluster run is what counts.
+
+#### A. Login-node checks (no job)
+
+| # | Cluster(s) | Command | PASS if |
+|---|---|---|---|
+| A1 | Anvil, Negishi, Scholar | `module load hypershell && hs --version` | loads with no prerequisite; record the version (2.7.0 expected, as in P4 A1) |
+| A2 | Gautschi, with `hypershell/develop` | `hs --version`; `hs submit --help \| grep -E -- '--group\|--zone'`; `hs client --help \| grep -E -- '--zone\|--capture\|--timeout'`; `hs list --help \| grep -E -- '--group\|--order-by\|--limit\|--all\|--cancelled'`; `hs server --help \| grep -- '--forever'`; `hs update --help \| grep -E -- '--revert\|--cancel\|--no-confirm'`; `hs initdb --help \| grep -- '--yes'` | `HyperShell v2.9.0a8 …` or later, and every option named appears |
+| A3 | Anvil, Gautschi, Negishi, Scholar | `sinfo -s -p highmem` | a `highmem` row on Anvil, Gautschi and Negishi; none on Scholar (the page says Scholar has no high-memory partition) |
+| A4 | Gautschi | `hostname -f`; `getent hosts login00.gautschi.rcac.purdue.edu`; from a login node other than login00, `ssh login00.gautschi.rcac.purdue.edu hostname` (optional) | record each: the node C will use, that login00 resolves, and whether the page's `ssh` step works from another login node |
+| A5 | Gautschi | `command -v openssl seq nohup`; `seq -f 'L%03g' 1 3 \| tr '\n' ' '` | all three found; prints `L001 L002 L003` |
+| A6 | Gautschi | `squeue --noheader --user="$USER" --name=panel-cpu --format=%i; echo "rc=$?"` | `rc=0` with no error (the helper's count of client jobs) |
+
+#### B. `sbatch --test-only`, every tab
+
+On each cluster's login node, assemble the tab as published and run the helper's own `sbatch` lines
+with `--test-only` and your account: for the `cpu` zone,
+`sbatch --test-only -A <your account> --job-name=panel-cpu client.sub cpu`, and for the `highmem`
+zone, `sbatch --test-only -A <your account> --job-name=panel-highmem --partition=highmem client.sub highmem`
+(on Scholar, without `-A`, and only the `cpu` line: the page sends Scholar's `highmem` clients to
+`cpu`). PASS if sbatch prints `Job <n> to start at … in partition <p>` and no error. If a `normal`
+QOS is refused for account reasons only (P4 saw `AssocGrpGRES` on Gautschi `cpu`), record that and
+repeat the `cpu` line with `-q standby`; `highmem` takes only `normal` on Gautschi and Negishi, so a
+refusal there for account reasons only is recorded, not a FAIL. A syntax, partition or core-count
+error is a FAIL. Mark a cluster N/A if you have no account there.
+
+| Cluster | Zone | Partition | Shape |
+|---|---|---|---|
+| Anvil | `cpu` | `wholenode` (no QOS line) | 1 node × 1 task × 128 CPUs, 4 h |
+| Anvil | `highmem` | `highmem` | 1 node × 1 task × 128 CPUs, 4 h |
+| Gautschi | `cpu` | `cpu`, `normal` | 1 node × 1 task × 192 CPUs, 4 h |
+| Gautschi | `highmem` | `highmem`, `normal` | 1 node × 1 task × 192 CPUs, 4 h (more than 48 cores, as the partition requires) |
+| Negishi | `cpu` | `cpu`, `normal` | 1 node × 1 task × 128 CPUs, 4 h |
+| Negishi | `highmem` | `highmem`, `normal` | 1 node × 1 task × 128 CPUs, 4 h (more than 64 cores) |
+| Scholar | `cpu` | `cpu`, `normal` | 1 node × 1 task × 64 CPUs, 4 h (the `normal` maximum) |
+
+#### C. Gautschi run (server on a login node)
+
+Set up on the chosen login node, in `$RCAC_SCRATCH/workflow-automation/p6/panel/`, following the
+page's *Set up the campaign* with the develop module:
+
+```bash
+module load hypershell/develop
+mkdir -p $RCAC_SCRATCH/workflow-automation/p6/panel/hypershell
+cd $RCAC_SCRATCH/workflow-automation/p6/panel
+export HYPERSHELL_SITE="$PWD/hypershell"
+export HYPERSHELL_CONFIG_FILE="$HYPERSHELL_SITE/config.toml"
+cp <snippets>/panel/panel.sh <snippets>/panel/submit-phases.sh <snippets>/panel/schedule-clients.sh .
+seq -f 'L%03g' 1 48 > batch-1.txt
+seq -f 'L%03g' 49 96 > batch-2.txt
+(umask 077; openssl rand -hex 32 > hypershell/auth.key)
+cp <snippets>/panel/config.toml hypershell/config.toml
+```
+
+Then assemble `client.sub` as above. If the chosen node is not login00, set `server.host` to its full
+name (and record it): `sed -i "s|^host = .*|host = \"$(hostname -f)\"|" hypershell/config.toml`.
+`HYPERSHELL_CONFIG_FILE` keeps your own `~/.hypershell/config.toml` out of every step: it is
+neither read nor changed. Every `hs` command below runs in this directory with the two variables
+set. Record each job's `sacct -j <id> -X --format=JobID,JobName,Partition,State,ExitCode,Elapsed,NodeList`.
+
+**C0. Network probe first (PLAN §5 Q5).** Before starting HyperShell, check that a compute node can
+reach the login node's port. On the login node:
+
+```bash
+timeout 300 python3 -c 'import socket; s = socket.socket(); s.bind(("0.0.0.0", 50101)); s.listen(); c, a = s.accept(); print("connection from", a)' > probe.txt 2>&1 &
+sbatch -A "$ACCT" -p cpu -q standby -n 1 -c 1 -t 00:02:00 -o probe-%j.out \
+    --wrap "timeout 10 bash -c 'exec 3<>/dev/tcp/$(hostname -f)/50101' && echo OPEN || echo CLOSED"
+```
+
+PASS if `probe-<id>.out` says `OPEN` and `probe.txt` says `connection from ('<address>', …)`
+(record the address). If the bind fails with `Address already in use`, choose another port, use it
+here and in `server.port`, and record it. **If the probe says `CLOSED`, stop C here and escalate**:
+the design keeps the server on a login node, so a blocked port needs RCAC network help (PLAN §5 Q5),
+not a redesign.
+
+**C1. Configuration, database and server.**
+
+1. `hs config get server.host` prints the chosen node; `hs config get server.port` prints `50101`
+   (or C0's port); `hs config get database.file` prints `…/p6/panel/hypershell/lib/main.db`.
+   `ls -l hypershell/auth.key` shows `-rw-------`.
+2. `hs initdb` (add `--yes` if your shell has no terminal: without one, `hs initdb` refuses to run
+   with `Non-interactive prompt cannot confirm (see --yes)`; record which) logs
+   `SQLite database initialized automatically`; `hypershell/lib/main.db` exists.
+3. Start the server as the page says: `nohup hs server --forever > hypershell/server.log 2>&1 &` then
+   `echo $! > hypershell/server.pid`. Within a few seconds `hypershell/server.log` shows
+   `Generated self-signed TLS certificate (…/hypershell/lib/tls/server.crt)`, `Certificate
+   fingerprint: SHA256:…`, `Scheduler will run forever`, `Empty database - waiting for initial
+   tasks` and `Server listening on 0.0.0.0:50101`.
+4. `ps -o args= -p "$(cat hypershell/server.pid)"` prints `… hs server --forever` and nothing that
+   looks like a key (R12).
+
+**C2. Helper with nothing to do.** `MAX_JOBS=1 HIGHMEM_PARTITION=cpu sh schedule-clients.sh` prints
+`No tasks waiting`, exits 0 and submits nothing.
+
+**C3. Submit the phases, with one planted failure.**
+
+1. `sh submit-phases.sh align batch-1.txt` logs `Submitted 48 tasks`; `head -1 tasks/align-batch-1.txt`
+   prints `sh panel.sh align L001`.
+2. The same command again is refused: `… was already submitted as source … pass --repeat to submit
+   it again, or --update to add only new tasks`, exit status 2 (`echo $?`).
+3. Plant the failure: `mkdir -p aligned; touch aligned/L050.txt; chmod 444 aligned/L050.txt`.
+4. `sh submit-phases.sh align batch-2.txt` (48), `sh submit-phases.sh genotype` (24),
+   `sh submit-phases.sh merge` (1), each logging `Submitted <n> tasks`.
+5. `hs list group zone --remaining --all | sort | uniq -c` prints three lines: `96 0 cpu`,
+   `24 1 highmem`, `1 2 cpu` (a tab between group and zone). `hypershell/server.log` shows
+   `Task group 0 waiting on zone cpu: 96 tasks, no client serving it`.
+
+**C4. First helper passes.** `MAX_JOBS=1 HIGHMEM_PARTITION=cpu sh schedule-clients.sh` prints
+`Submitted batch job <J1>` and `Group 0, zone cpu: 96 tasks waiting, 0 client jobs, 1 submitted`.
+Run it again at once: `Group 0, zone cpu: 96 tasks waiting, 1 client jobs, 0 submitted`, and no new
+job. `squeue -j <J1> -o '%j %P %q %C %l'` prints `panel-cpu cpu standby 32 15:00`.
+
+**C5. Group 0 runs; the failure holds group 1.**
+
+1. Once J1 runs, `slurm-<J1>.out` starts with `HyperShell v2.9.0a8`, then `Running task (…)` lines,
+   and no connection or TLS error. (If J1 runs for several minutes with no `Running task` line,
+   record the output: the client cannot reach the server.)
+2. When `hs list --group 0 --remaining --count` reaches 0 (about 2 to 3 minutes at 32 cores):
+   `hs list --group 0 --succeeded --count` 95; `hs list id args exit_status --failed` prints one
+   line, `sh panel.sh align L050` with exit status 1; `hs info <its id> --stderr` ends
+   `aligned/L050.txt: Permission denied`.
+3. `hypershell/server.log` shows `Failed task group 0 (at least 1 tasks exceeding allowed retries,
+   example: <id>)` and no `starting task group 1`; `hs list --group 1 --completed --count` 0.
+4. A helper pass prints `Group 0 has failed tasks: revert or cancel them with hs update` and
+   submits nothing.
+
+**C6. Re-run the failure.** `chmod 644 aligned/L050.txt`, then `hs update --failed --revert`: it asks
+`Update affects 1 tasks, continue? yes/[no]:`; answer `yes` (with no terminal, add `--no-confirm`;
+record which); it logs `Updated 1 tasks`. If J1 is still running, it runs the task within about
+30 seconds (the held server polls the database at most every 30 seconds);
+if J1 has ended, a helper pass submits J1′ for it (record which). Then `hs list --group 0
+--succeeded --count` 96, `aligned/L050.txt` holds 24 lines, and the server log shows `Completed task
+group 0 - starting task group 1`.
+
+**C7. Group 1, zone highmem.** A helper pass prints `Submitted batch job <J2>` and
+`Group 1, zone highmem: 24 tasks waiting, 0 client jobs, 1 submitted`; `squeue -j <J2> -o '%j %P'`
+prints `panel-highmem cpu` (the stand-in partition). When `hs list --group 1 --remaining --count`
+is 0:
+
+1. `hs list --group 1 --succeeded --count` 24; `ls regions | wc -l` 24; `wc -l < regions/region_01.txt`
+   96, which shows that genotyping started only after every line, L050 included, was aligned.
+2. Only J2's client ran group 1, and J2 ran nothing else:
+   `grep -o 'Running task ([0-9a-f-]*)' slurm-<J2>.out | tr -d '()' | awk '{print $3}' | sort > j2.txt`;
+   `hs list id --group 1 --all | sort > g1.txt`; `cmp j2.txt g1.txt && echo same` prints `same`.
+
+**C8. Group 2 and the end of the pipeline.** The server log shows `Completed task group 1 -
+starting task group 2`. If a `cpu` client is still running (J1 or J1′, within its 10 idle minutes),
+it runs the merge; otherwise a helper pass prints `Group 2, zone cpu: 1 tasks waiting, 0 client
+jobs, 1 submitted` for J3 (record which). Then:
+
+1. `hs wait "$(hs list id --group 2 --limit 1)"` returns, logging `Task completed (…)`.
+2. `wc -l < panel-calls.txt` 2304; `hs info <merge id> --stdout | head -2` prints
+   `region 1 96 lines` and `region 2 96 lines`.
+3. `hs list --succeeded --count` 121; `hs list --failed --count` 0; `hs list --remaining --count` 0.
+4. A helper pass prints `No tasks waiting`.
+5. Each client job ends on its own within about 10 minutes of its last task (`-T 600`), or at its
+   15-minute walltime, whichever is first: record each job's `State` and `Elapsed`.
+
+**C9 (optional, only if C used at most 3 client jobs). The reached-group refusal on 2.9.0a9.** In a
+fresh directory `$RCAC_SCRATCH/workflow-automation/p6/reached/`, install 2.9.0a9 in user space
+(`module load uv; uv tool install 'hypershell==2.9.0a9' --python 3.13`; record `hs --version` and
+how its `hs` gets on `PATH`, in your shell and in a batch job). Set the two variables there, make a
+fresh `hypershell/` with a key and the config (`server.host` as in C, and another port if 50101 is
+still in use), and start a server with that build as in C1. Then
+`printf 'sleep 300\n' > slow.txt; printf 'echo late\n' > late.txt` and
+`hs submit --group 1 --zone highmem slow.txt`. Submit one `highmem` client job from that directory
+(a copy of C's `client.sub` whose module line is replaced by whatever puts the 2.9.0a9 `hs` on
+`PATH`; `sbatch --job-name=panel-highmem client.sub highmem`). While its task runs
+(`hs list --group 1 --remaining --count` 1, and the job's log shows `Running task`):
+`hs submit --group 0 --zone cpu late.txt` is refused with `Task group 0 is below the reached group 1
+of the database (nothing submitted)`, exit status 2, and `hs list --count` stays 1. Then `scancel`
+the job and stop that server with `SIGUSR1`.
+
+**C10. The helper loop.** With nothing waiting, start the page's loop:
+`nohup sh -c 'while true; do sh schedule-clients.sh; sleep 300; done' > hypershell/scheduler.log 2>&1 &`
+then `echo $! > hypershell/scheduler.pid`. Within a few seconds `hypershell/scheduler.log` holds
+`No tasks waiting`. `kill $(cat hypershell/scheduler.pid)`; then `kill -0 $(cat
+hypershell/scheduler.pid)` fails (the loop has ended). No job was submitted. (The loop runs with the
+helper's defaults, but with no work waiting it submits nothing.)
+
+**C11. Stop and restart the server.**
+
+1. `kill -s USR1 $(cat hypershell/server.pid)`. Within about 30 seconds `hypershell/server.log` shows
+   `Signal interrupt (SIGUSR1)` and `kill -0 $(cat hypershell/server.pid)` fails. Any client job
+   still running ends within a minute (record its `State`).
+2. Restart as the page says (`nohup hs server --forever …` and the PID file). The log shows `All
+   previous tasks completed (121) - waiting for new tasks` and `Server listening on 0.0.0.0:50101`;
+   `hs list --count` 121.
+3. Stop it again with `SIGUSR1`, as in 1. Nothing of this campaign is left running on the login
+   node: `ps -u "$USER" -o pid,args | grep -E '[h]s server|[s]chedule-clients'` prints nothing.
+
+#### D. Not covered by this envelope (record, do not run)
+
+- **Anvil, Negishi and Scholar runs, and `highmem` jobs.** Checked by A and B only; record "batch:
+  not run" as a residual risk. As in P4, the tabs run `module load` in a non-login batch shell.
+- **The reached-group refusal on 2.9.0a8.** Not in a8 (see *Build under test*). Without C9, the
+  page's statement rests on the workstation run with 2.9.0a9 and on HyperShell's documentation.
+- **A long campaign.** No run lasts days, crosses a login-node reboot, or survives the user logging
+  out; C11 shows that a stopped server restarts on the same database. Whether `nohup` keeps the
+  server through a logout is not tested (HyperShell also handles `SIGHUP` itself, for log rotation,
+  without stopping).
+- **The released module.** As in P4, the merge hold re-runs the tier 1 checks on the default 2.9.0
+  module; it does not re-run P6.
+
+Close-run items expected whatever the outcome:
+- **F1** If C0 needed another port, or the login node's full host name differs from the form the
+  page uses, adjust the page's port sentence or host-name sentence to match.
+- **F2** Check the page's quoted log lines (server start, waiting on zone, failed group, helper
+  messages) against C's output, and the *Make the key* and *Start the server* steps against what
+  the validator had to change (for example `setsid`).
+
+#### Results
+
+*(validator)*
+
+P6: PENDING — docs/snippets/workflows/panel/{config.toml,panel.sh,submit-phases.sh,schedule-clients.sh,header-anvil.sh,header-gautschi.sh,header-negishi.sh,header-scholar.sh,body.sh} · A1–A6, B 7 lines, C0–C8, C10–C11 (C9 optional)
+
 ## P7 — Tier 4 (V7, including the manual Rancher walk-through)
 
 ## Network confirmations

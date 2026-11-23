@@ -907,6 +907,12 @@
     "HyperShell User Guide",
     "Tier 2: Extreme Scale"
   ],
+  "/workflows/hypershell/pipelines/": [
+    "Home",
+    "Workflow Automation",
+    "HyperShell User Guide",
+    "Tier 3: A Pipeline on One Cluster"
+  ],
   "/workshops/": [
     "Home",
     "RCAC Workshops"

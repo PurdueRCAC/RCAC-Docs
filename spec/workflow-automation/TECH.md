@@ -106,7 +106,7 @@ phases:
     spec/workflow-automation/VALIDATION.md'
 - id: P6
   name: 'Tier 3: a pipeline on one cluster (database, config, phases, zones, groups)'
-  status: pending
+  status: in_progress
   satisfies:
   - R6
   - R9
@@ -118,7 +118,7 @@ phases:
   - P5
   parallel: false
   hammerable: false
-  hill: uphill
+  hill: crest
   verify: '.venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py
     && grep -q ''workflows/hypershell/pipelines.md'' mkdocs.yml && grep -rqF ''FILENAME:
     schedule-clients.sh'' site/workflows/hypershell/pipelines/ && grep -q ''^P6: PASS''
@@ -403,14 +403,33 @@ complete, validated tier 1 script.
 phases on a login node, and a helper that schedules client jobs; groups and zones explained where
 introduced.
 
-- [ ] `pipelines.md`: research 04 tier 3 scenario. `docs/snippets/workflows/panel/`: `config.toml`
+- [x] `pipelines.md`: research 04 tier 3 scenario. `docs/snippets/workflows/panel/`: `config.toml`
   (database, server, `server.auth` via `_eval` or `HYPERSHELL_SERVER_AUTH`), `submit-phases.sh`,
   `schedule-clients.sh` (opens `# FILENAME: schedule-clients.sh`), per-cluster `client-<cluster>.sh`
   headers as tabs. The server runs on a login node, presented as the design choice of one coordination host (GOAL non-goal: no restating of RCAC login-node guidance). Groups: what, when, the reached-group
   rule. Zones: what, when, matching client jobs to partitions. `TASK_SLOT`, not `{slot}`, under
   `hs submit`. Minimum version 2.9.0 (zones), groups 2.8.0.
-- [ ] Nav line; guide-landing card; breadcrumbs.
-- [ ] Draft run ends per *Validating phases*; `P6: PENDING`.
+  (Drafted: the campaign directory holds `hypershell/` with `config.toml`, `auth.key`, the SQLite
+  database at `hypershell/lib/main.db` and the logs; every process sets `HYPERSHELL_SITE` and
+  `HYPERSHELL_CONFIG_FILE="$HYPERSHELL_SITE/config.toml"`, so no other configuration is read. Config:
+  `database.provider = "sqlite"`, `server.bind = "0.0.0.0"`, `server.host =
+  "login00.gautschi.rcac.purdue.edu"`, `server.port = 50101`, `server.auth_eval = 'cat
+  "$HYPERSHELL_SITE/auth.key"'` (key file made with `openssl rand -hex 32` under `umask 077`). `hs initdb`
+  as its own step; `nohup hs server --forever` with a PID file; stop with `SIGUSR1`. Phases: align
+  (group 0, zone `cpu`, one task file per batch), genotype (group 1, zone `highmem`), merge (group 2,
+  zone `cpu`); stand-in `panel.sh` (96 lines, 24 regions). The job script follows the established
+  `header-<cluster>.sh` + `body.sh` layout (amended from PLAN's `client-<cluster>.sh`), `# FILENAME:
+  client.sub`, one whole node, `hs client --zone "$1" --capture -N cores -T 600`; tabs Anvil, Gautschi,
+  Negishi, Scholar. The helper finds the active group with `hs list`, counts its unfinished tasks per
+  zone with `hs list zone … | sort | uniq -c` (`hs list` has no zone filter), counts jobs with
+  `squeue --name=panel-<zone>`, tops up to `MAX_JOBS` (2) and never more jobs than tasks, holds while a
+  lower group has an uncancelled failure, and moves `highmem` jobs with `HIGHMEM_PARTITION`
+  (Scholar: `cpu`). No GPU zone here, so no `TASK_SLOT` text is needed; the GPU page already says it.)
+- [x] Nav line; guide-landing card; breadcrumbs. (Also: the guide landing's tier map links the page.)
+- [x] Draft run ends per *Validating phases*; `P6: PENDING`. (P6 drafted while P5 awaits validation,
+  by foreman decision; `current_phase` stays P5.)
+- [ ] Close run, after `P6: PASS` in `VALIDATION.md`: apply any fixes validation required, run the
+  full `verify:`, mark P6 `done`.
 - **Verify:** see frontmatter.
 - **Touches:** `pipelines.md`, `docs/snippets/workflows/panel/*`, `docs/workflows/hypershell/index.md`,
   `mkdocs.yml`, breadcrumbs, `VALIDATION.md`.
