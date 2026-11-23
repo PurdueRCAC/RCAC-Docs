@@ -98,9 +98,9 @@ The table places each tool you are likely to meet on those four questions.
 
 | Tool | Defines or executes | How work is described | What coordinates and remembers it | Flat or graph |
 |---|---|---|---|---|
-| Slurm job arrays | Executes (the scheduler runs each task as a job) | A job script and an index range | The Slurm scheduler; accounting records and your output files | Flat; whole arrays can depend on each other |
-| GNU Make | Both, on one node | Rule-file DSL (a Makefile) | Single process; file timestamps | Graph of files |
-| GNU Parallel | Executes | Shell command, with input templating | Single process; an optional job log file | Flat |
+| [Slurm job arrays](job_arrays.md) | Executes (the scheduler runs each task as a job) | A job script and an index range | The Slurm scheduler; accounting records and your output files | Flat; whole arrays can depend on each other |
+| [GNU Make](gnu_make.md) | Both, on one node | Rule-file DSL (a Makefile) | Single process; file timestamps | Graph of files |
+| [GNU Parallel](gnu_parallel.md) | Executes | Shell command, with input templating | Single process; an optional job log file | Flat |
 | HyperShell | Executes | Shell command, with input templating | Server with workers; a SQL database of every task | Flat, with ordered task groups |
 | Snakemake | Defines; submits through executors | Rule-file DSL (a Python-based Snakefile) | DAG engine (one driver process); files plus its own state directory | Graph of files |
 | Nextflow | Defines; submits through executors | Pipeline DSL (Groovy-based) | DAG engine (a dataflow driver on the JVM); a work directory and resume cache | Dataflow graph |
@@ -219,6 +219,38 @@ your work.
   exactly the failures. Use HyperShell, with task groups if the work runs in ordered phases.
 
 Because most many-task work is flat, that last line is where most readers land.
+
+## Tool pages in this section
+
+Each page says what the tool is, the work it fits, where it wins, and where HyperShell takes over.
+
+<div class="grid cards" markdown>
+
+-   :material-format-list-numbered:{ .lg .middle } __Slurm Job Arrays__
+
+    ---
+
+    The baseline: many copies of one job script from a single `sbatch`, each with its own index.
+
+    [:octicons-arrow-right-24: Slurm Job Arrays](job_arrays.md)
+
+-   :material-hammer-wrench:{ .lg .middle } __GNU Make__
+
+    ---
+
+    File-driven, incremental rebuilds of a small pipeline on one node.
+
+    [:octicons-arrow-right-24: GNU Make](gnu_make.md)
+
+-   :material-call-split:{ .lg .middle } __GNU Parallel__
+
+    ---
+
+    Zero-setup parallelism for a list of shell commands inside one single-node job.
+
+    [:octicons-arrow-right-24: GNU Parallel](gnu_parallel.md)
+
+</div>
 
 ## Other tools you may meet
 

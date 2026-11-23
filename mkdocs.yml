@@ -293,6 +293,9 @@ nav:
       - Intel VTune: profilers/vtune.md
     - Workflow Automation:
       - workflows/index.md
+      - Slurm Job Arrays: workflows/job_arrays.md
+      - GNU Make: workflows/gnu_make.md
+      - GNU Parallel: workflows/gnu_parallel.md
     - RCAC Workshops:
       - workshops/index.md
       - HPC Exchange:

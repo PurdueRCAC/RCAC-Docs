@@ -26,7 +26,7 @@ phases:
     && grep -q 'workflows/index.md' mkdocs.yml
 - id: P2
   name: 'Baseline tools: job arrays, GNU Make, GNU Parallel'
-  status: pending
+  status: in_progress
   satisfies:
   - R1
   - R3
@@ -37,7 +37,7 @@ phases:
   - P1
   parallel: false
   hammerable: false
-  hill: uphill
+  hill: crest
   verify: '.venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py
     && grep -q ''workflows/job_arrays.md'' mkdocs.yml && grep -q ''workflows/gnu_make.md''
     mkdocs.yml && grep -q ''workflows/gnu_parallel.md'' mkdocs.yml && grep -rqF ''same
@@ -270,20 +270,27 @@ carries the landscape argument; later phases add cards for their pages.
 **Goal:** three tool pages, each stating what the tool is, the work it fits, where it wins over
 HyperShell, and where it stops serving and HyperShell takes over.
 
-- [ ] `docs/workflows/job_arrays.md` with a tabbed worked array script from
+- [x] `docs/workflows/job_arrays.md` with a tabbed worked array script from
   `docs/snippets/workflows/job_arrays/{header-<cluster>.sh, body.sh}` (header `# FILENAME: array.sub`;
   body first line `# --- same on every cluster ---`; `--array` with `%N`). Check-your-limits
   commands without numbers. Link `../lifesciences/guides/running-bioinformatics.md#array-jobs` and
-  each cluster's queues page.
-- [ ] `docs/workflows/gnu_make.md`: one small in-job `make -j` example (a Makefile shown inline
-  only if free of `{`-hazards, else a snippet).
-- [ ] `docs/workflows/gnu_parallel.md`: one in-job example. Keep GNU Parallel's `{#}` and similar
+  each cluster's queues page. (Tabs: Anvil `shared`, Gautschi, Negishi, Scholar; no Gilbreth tab,
+  GPU-only. Also links the HPC Exchange array section and Gautschi's Job Dependencies page.)
+- [x] `docs/workflows/gnu_make.md`: one small in-job `make -j` example (a Makefile shown inline
+  only if free of `{`-hazards, else a snippet). (Makefile is a snippet: Python-Markdown expands
+  tabs to spaces, so it uses `.RECIPEPREFIX = >`; tabbed `make.sub` for the same four clusters.)
+- [x] `docs/workflows/gnu_parallel.md`: one in-job example. Keep GNU Parallel's `{#}` and similar
   replacement strings in a snippet file (Jinja hazard). Note no Scholar module. Link
-  `../software/apps_md/parallel.md`.
-- [ ] Each page ends with "When to move to HyperShell" linking `hypershell/index.md`, added in P4.
+  `../software/apps_md/parallel.md`. (Tabs: Anvil, Gautschi, Negishi; `--joblog` +
+  `--resume-failed` in the body; no `{#}` used.)
+- [x] Each page ends with "When to move to HyperShell" linking `hypershell/index.md`, added in P4.
   Until then, link the section hub and leave a TODO-free sentence that P4 turns into a link.
-- [ ] Nav lines + hub cards; breadcrumbs.
-- [ ] Draft run ends per Conventions → *Validating phases*. `VALIDATION.md`: `P2: PENDING`, files to run.
+- [x] Nav lines + hub cards; breadcrumbs. (Hub: a "Tool pages in this section" card grid; the
+  three tool names in the placement table now link their pages.)
+- [x] Draft run ends per Conventions → *Validating phases*. `VALIDATION.md`: `P2: PENDING`, files to run,
+  and the full validation request (login-node, `--test-only` and Gautschi run checks).
+- [ ] Close run, after `P2: PASS` in `VALIDATION.md`: apply any fixes validation required, run the
+  full `verify:`, mark P2 `done`.
 - **Verify:** see frontmatter (build + nav ×3 + sentinels + `P2: PASS`).
 - **Touches:** the three pages, `docs/snippets/workflows/job_arrays/*`, any Make/Parallel snippet
   files, `docs/workflows/index.md`, `mkdocs.yml`, breadcrumbs, `VALIDATION.md` (status line only).

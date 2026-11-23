@@ -849,6 +849,21 @@
     "Home",
     "Workflow Automation"
   ],
+  "/workflows/job_arrays/": [
+    "Home",
+    "Workflow Automation",
+    "Slurm Job Arrays"
+  ],
+  "/workflows/gnu_make/": [
+    "Home",
+    "Workflow Automation",
+    "GNU Make"
+  ],
+  "/workflows/gnu_parallel/": [
+    "Home",
+    "Workflow Automation",
+    "GNU Parallel"
+  ],
   "/workshops/": [
     "Home",
     "RCAC Workshops"

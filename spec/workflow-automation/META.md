@@ -69,3 +69,17 @@ attributes line instead of duplicating. A fix that would weaken a `hammerable:fa
   `docs-plan` emit the frontmatter through `set_phase.py`'s own dumper so the first draft run is not a
   restyle.
 - **Confidence:** high · **Effort:** small
+
+## F4 — "byte-exact" snippet includes expand tabs
+`origin=docs-draft:P2 severity=medium category=instructions status=open target=.agents/factory/style-guide.md`
+- **What happened:** the style guide's "Publishing a file verbatim" pattern (a `--8<--` include
+  inside a fenced block) is presented as byte-exact. It is not for tabs: Python-Markdown's
+  whitespace normalizer expands every tab to spaces after the snippet is spliced in, so a Makefile
+  published this way renders with spaces in its recipes and fails with "missing separator" when
+  copied. Checked with the repo's own extensions; the P2 Makefile works around it with
+  `.RECIPEPREFIX = >`.
+- **Skill cause (not mine):** the guide promises byte-exact output and TECH flagged only `{`-hazards
+  for the Makefile, so nothing warned that tab-significant files (Makefiles, TSV, Go) lose their tabs.
+- **Recommended fix:** add one line to the style guide's verbatim-file pattern: tabs are expanded to
+  spaces on render; avoid tab-significant content, or use a tab-free form (`.RECIPEPREFIX` for Make).
+- **Confidence:** high · **Effort:** small
