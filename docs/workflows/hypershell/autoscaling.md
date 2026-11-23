@@ -32,9 +32,8 @@ for Negishi.
 ## Minimum version
 
 HyperShell 2.9.0, for the relay, zones, and autoscaling across relay sites. Task groups date from
-2.8.0. The module on each cluster must have the same version as the server's image on Geddes, and
-must provide the `hyper-shell` command, which the relay uses to start each client. Check with
-`hs --version` and `command -v hyper-shell`; see [HyperShell versions](index.md#hypershell-versions).
+2.8.0. The module on each cluster must have the same version as the server's image on Geddes;
+check with `hs --version`, and see [HyperShell versions](index.md#hypershell-versions).
 
 ## How the work reaches the clusters
 
@@ -150,9 +149,7 @@ Start the relay once, on `login00`, with the module loaded:
 bash run-relay.sh
 ```
 
-The relay starts each client as `hyper-shell client`, so the module must provide that command as well
-as `hs`. If `command -v hyper-shell` prints nothing, the relay cannot start clients; ask RCAC
-support about the module. Run only one relay per cluster: before starting it again, check that the
+Run only one relay per cluster: before starting it again, check that the
 last one has stopped (see [Keep the relays running](#keep-the-relays-running)).
 
 The relay connects to the server and waits for a plan. Its log, `hypershell/relay.log`, shows each

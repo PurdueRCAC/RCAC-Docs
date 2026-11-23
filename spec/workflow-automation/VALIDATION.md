@@ -45,8 +45,9 @@ and Anvil is 2.9.0, and the tier 1 checks have been re-run on that module:
 - `P7-release: PASS — <date>, Geddes + Gautschi + Negishi, default module <version>, image <tag>`
   *(written by the validator)*: the whole P7 request (A–K under the P7 heading), run once on the
   released module and the matching published image, with a human doing the Rancher steps (C). P7
-  validation was deferred here by decision at the P7 draft: it needs a module with the `hyper-shell`
-  command and the post-2.9.0a8 fixes. Until this line is written, P7 has no `P7: PASS` line.
+  validation was deferred here by decision at the P7 draft: it needs a release whose relay starts
+  its clients with `hs` rather than the deprecated `hyper-shell` (HyperShell seed
+  `relay-client-exe-deprecated-name`, ruling 2026-11-23), and the post-2.9.0a8 fixes. Until this line is written, P7 has no `P7: PASS` line.
   P8's simplification pass changed no tier 4 script; a separate P8-time fix names the upstream
   image `timescale/timescaledb:2.32.1-pg18` and mounts the volume at `/var/lib/postgresql`, and
   the P7 request (C2, D1 and the new D1a) is updated to match.
@@ -1371,8 +1372,9 @@ P7: PENDING — held for the 2.9.0 release by decision: the whole request below 
 
 ### Validation request (written by the draft run, 2026-11-23)
 
-**Why it is held.** Tier 4 needs a module with the `hyper-shell` command (the relay starts every
-client as `hyper-shell client`; Gautschi's `hypershell/develop` has only `hs` and `hsx` today), the
+**Why it is held.** Tier 4 needs a relay that starts its clients with `hs` (in 2.9.0a9 the relay
+starts every client as the deprecated `hyper-shell client`, which RCAC modules do not put on `PATH`;
+HyperShell seed `relay-client-exe-deprecated-name`, ruling 2026-11-23), the
 post-2.9.0a8 fixes, and a published image whose version matches the module. So the request runs once,
 on the released 2.9.0 module on Gautschi and Negishi and the `ghcr.io/hypershell/hypershell:2.9.0`
 image, with a human doing the Rancher steps (C). It is recorded under the merge hold as
@@ -1388,8 +1390,9 @@ reports a pre-release, stop: the request is for the release.
 - `--initdb` in the server container's arguments does not initialize the database on a8 (fixed in
   2.9.0a9, HyperShell #105). With an empty TimescaleDB the server cannot load tasks; the a8 workaround
   is `hs initdb` from `login00` with `database.toml`.
-- The relay cannot start clients from Gautschi's `hypershell/develop` module, which has no
-  `hyper-shell` command (module packaging, not a code version).
+- The relay cannot start clients from Gautschi's `hypershell/develop` module: the relay launches
+  the deprecated `hyper-shell` by name, and RCAC modules put only `hs` and `hsx` on `PATH` (a
+  HyperShell fix, seed `relay-client-exe-deprecated-name`, not module packaging).
 - a8 reads no environment variable for a key whose own name holds an underscore (fixed in 2.9.0a9,
   #113), nor the `_ENV`/`_EVAL` environment forms. The pages set none from the environment: the pod's
   variables (`HYPERSHELL_SERVER_AUTH`, `…_SERVER_BIND`, `…_SERVER_TLS_CERT`, `…_SERVER_TLS_KEY`,
@@ -1457,7 +1460,7 @@ workstation's name does not resolve. The cluster and Geddes run is what counts.
 
 | # | Where | Command | PASS if |
 |---|---|---|---|
-| A1 | `login00` of Gautschi and Negishi | `module load hypershell && hs --version`; `command -v hs hsx hyper-shell` | `HyperShell v2.9.0 …` (record it) on both, and all three commands found. **If `hyper-shell` is missing, stop**: the relay cannot start clients (report to the module maintainers) |
+| A1 | `login00` of Gautschi and Negishi | `module load hypershell && hs --version`; `command -v hs hsx` | `HyperShell v2.9.0 …` (record it) on both, and both commands found. `hyper-shell` is deprecated and need not be on `PATH`; G checks that the relay starts its clients with `hs` |
 | A2 | Gautschi `login00`, module loaded | `hs relay --help \| grep -E -- '--launcher\|--zone\|--advertise'`; `hs server --help \| grep -- '--autoscaling'`; `hs submit --help \| grep -E -- '--group\|--zone'` | every option appears |
 | A3 | Gautschi `login00`, module loaded | the Python of the module's `hs` imports the PostgreSQL and UUIDv7 extras: `$(head -1 $(command -v hs) \| cut -c3-) -c 'import psycopg, uuid_utils; print("ok")'` (or the module's documented way) | prints `ok`. Without them, `hs submit`/`hs list` with `provider = "timescale"` stop with `Missing optional dependency "uuid-utils"` |
 | A4 | both `login00` | `hostname -s`; `hostname -f` | `login00` and the full name the pages use; record both |
@@ -1592,7 +1595,8 @@ stop, and report (PLAN §5 Q6).
    and `hs list --count` stays 49.
 4. Within about two minutes, `squeue … --name=survey-cpu` shows one job in `cpu` (account, QOS and
    walltime as the run copy), and a second within another minute or two. `relay.log` shows
-   `srun` launches only for zone `cpu`. Record the job IDs and `sacct -j <id> -X
+   `srun` launches only for zone `cpu`, each running the module's `hs client` (not `hyper-shell`;
+   a launch of `hyper-shell` is a FAIL, the relay fix is missing). Record the job IDs and `sacct -j <id> -X
    --format=JobID,JobName,Partition,QOS,AllocCPUS,State,Elapsed,NodeList`.
 5. `hs list --group 202611230 --remaining --count` reaches 0; then a `survey-gpu` job starts in `ai`
    with 1 GPU and 14 CPUs (record `sacct … AllocTRES`). No `gpu` job ran before that.
