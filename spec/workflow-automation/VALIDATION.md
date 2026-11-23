@@ -157,7 +157,46 @@ run" as a residual risk, to clear in a later envelope or at review.
 
 #### Results
 
-*(validator)*
+Validated 2026-11-22 by the foreman on the clusters' login nodes and Gautschi batch, against the
+snippet files of `9849de64`, assembled as above. HyperShell: not used.
+
+- **A1** PASS. `module load parallel` loads with no prerequisite: Anvil 20200822, Gautschi 20241022,
+  Gilbreth 20241022, Negishi 20220522.
+- **A2** PASS. Scholar has no `parallel` module.
+- **A3** PASS. System `/usr/bin/make` with no module loaded: Anvil 4.2.1, Gautschi 4.3, Negishi 4.2.1,
+  Scholar 4.3 (all at least 3.82).
+- **A4** PASS. `--resume`, `--resume-failed`, `--retry-failed`, `--retries n` present in the man page
+  on Anvil and Gautschi.
+- **A5** PASS. No `htcondor` or `condor` module and no `condor_submit`/`condor_q` on Anvil, Gautschi,
+  Gilbreth, Negishi or Scholar. The P1 landing-page claim stands.
+- **A6** PASS (recorded, not published). MaxArraySize: Anvil 1001, Gautschi 20001, Negishi 1001,
+  Scholar 1001.
+- **B** PASS, 11/11. `sbatch --test-only` prints "Job … to start at … in partition …" for every tab:
+  Anvil array/make/parallel (`shared`); Gautschi, Negishi array/make/parallel (`cpu`); Scholar
+  array/make (`cpu`, no `-A`). On Anvil, one allocation was refused with `AssocGrpCPUMinutesLimit`
+  (an exhausted allocation, not a script fault); another allocation passed.
+- **C1** PASS. `ArrayTaskThrottle=5` on the held job; `squeue -r` showed one line per task; 19 ×
+  `COMPLETED 0:0` and `_5 FAILED 1:0`; `sample_07.count` = `7 data/sample_07.txt`; 20 output files;
+  first line `Array task 7 of job <id>: data/sample_07.txt`. Rerun `--array=5`: `_5 COMPLETED 0:0`,
+  `5 data/sample_05.txt`. `scancel <id>_2` on the held `--array=1-3` removed task 2
+  (`ArrayTaskId=1,3`). Note: a task cancelled before it starts leaves **no** `sacct` row (the request
+  expected `CANCELLED`); the page's `scancel` instruction is correct, and its "its own accounting
+  record" bullet needs a clause for tasks cancelled before they start (close run).
+- **C2** PASS. J4 `FAILED 2:0`, 19 counts, no `sample_05.count` or `summary.txt`, "Target
+  'summary.txt' not remade because of errors", no "missing separator". J5 `COMPLETED`, exactly two
+  recipes, 20 lines with `5 data/sample_05.txt`. J6 "'summary.txt' is up to date". J7 exactly two
+  recipes, 21 lines.
+- **C3** PASS. J8 `FAILED 1:0`, 22 log lines, one non-zero row (the `sample_21` command),
+  `sample_07.count` = `7 data/sample_07.txt`, no citation notice in the output. J9 `COMPLETED`, 23
+  lines, `21 data/sample_21.txt`, `sample_07.count` mtime unchanged (succeeded tasks skipped). J10
+  `COMPLETED`, log still 23 lines.
+- **Envelope deviation.** The make and parallel scripts (16 cores) sat at "Priority" with no start
+  estimate on a full `cpu` partition, so J6–J10 ran with `-c 4` on the command line. Both bodies size
+  their work from `$SLURM_CPUS_PER_TASK`, so the behaviour under test is unchanged. J4 and J5 ran at
+  16 cores; the first 16-core J6 and J8 were cancelled while pending.
+- **D** Anvil, Negishi, Scholar batch: not run (residual risk, as above).
+
+P2: PASS — 2026-11-22 · Gautschi standby (a staff allocation), A–C as above · HyperShell: not used · close run adds the `scancel` accounting clause
 
 ## P3 — Workflow managers (V3)
 

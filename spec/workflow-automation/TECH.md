@@ -6,7 +6,7 @@ appetite: big
 status: in_progress
 branch: feature/workflow-automation
 base: main
-current_phase: P2
+current_phase: P3
 last_updated: '2026-11-22'
 phases:
 - id: P1
@@ -26,7 +26,7 @@ phases:
     && grep -q 'workflows/index.md' mkdocs.yml
 - id: P2
   name: 'Baseline tools: job arrays, GNU Make, GNU Parallel'
-  status: in_progress
+  status: done
   satisfies:
   - R1
   - R3
@@ -37,7 +37,7 @@ phases:
   - P1
   parallel: false
   hammerable: false
-  hill: crest
+  hill: downhill
   verify: '.venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py
     && grep -q ''workflows/job_arrays.md'' mkdocs.yml && grep -q ''workflows/gnu_make.md''
     mkdocs.yml && grep -q ''workflows/gnu_parallel.md'' mkdocs.yml && grep -rqF ''same
@@ -289,8 +289,9 @@ HyperShell, and where it stops serving and HyperShell takes over.
   three tool names in the placement table now link their pages.)
 - [x] Draft run ends per Conventions → *Validating phases*. `VALIDATION.md`: `P2: PENDING`, files to run,
   and the full validation request (login-node, `--test-only` and Gautschi run checks).
-- [ ] Close run, after `P2: PASS` in `VALIDATION.md`: apply any fixes validation required, run the
-  full `verify:`, mark P2 `done`.
+- [x] Close run, after `P2: PASS` in `VALIDATION.md`: apply any fixes validation required, run the
+  full `verify:`, mark P2 `done`. (Fix: `job_arrays.md` notes that a task cancelled before it
+  starts leaves no accounting record, per validation C1.)
 - **Verify:** see frontmatter (build + nav ×3 + sentinels + `P2: PASS`).
 - **Touches:** the three pages, `docs/snippets/workflows/job_arrays/*`, any Make/Parallel snippet
   files, `docs/workflows/index.md`, `mkdocs.yml`, breadcrumbs, `VALIDATION.md` (status line only).

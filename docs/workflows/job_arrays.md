@@ -179,7 +179,8 @@ for the dependency types Slurm offers.
 
 - **Nothing to install or learn beyond Slurm.** Every RCAC user already has them.
 - **Each task is a scheduler job**, with its own resources, its own output file, its own
-  accounting record and its own `scancel`.
+  accounting record and its own `scancel`. A task cancelled before it starts is simply removed
+  from the array and leaves no accounting record.
 - **The right size for tens to a few hundred uniform tasks**, each long enough that queue wait
   and job start-up are small next to its run time.
 
