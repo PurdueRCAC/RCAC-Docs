@@ -330,7 +330,60 @@ residual risk, to clear in a later envelope or at review:
 
 #### Results
 
-*(validator)*
+Validated 2026-11-22 by the foreman on the five clusters' login nodes (no Slurm jobs), against
+`36896d7f`. HyperShell: not used. Envelope note: the conda environment (B2) was created with
+`conda create -p` under `$RCAC_SCRATCH/workflow-automation/p3/envs/` and the Parsl venv (B3) under
+the same directory, not in the home directory; `CONDA_ENVS_DIRS` could not be used because the
+conda module already sets `CONDA_ENVS_PATH` (`MultipleKeysError`). The page's install commands are
+otherwise unchanged.
+
+- **A1 Anvil nextflow** FAIL (claim). `nextflow/22.10.1` loads with no prerequisite and prints
+  `version 22.10.1`. `nextflow/21.10.0` "exists but cannot be loaded as requested": it is a
+  `biocontainers` module. → close-run fix C2.
+- **A2 Gautschi nextflow** FAIL (claim). 25.10.04 and 26.04.2 load and print `version 25.10.4`,
+  `version 26.04.2`. `nextflow/24.04.3` loads but does not run: `UnsupportedClassVersionError`
+  (built for Java 11, class file 55; the system Java is 1.8.0_492). A module defect, reported
+  separately. → close-run fix C3.
+- **A3 Negishi nextflow** PASS. 22.10.1, 23.04.1, 25.10.4, 26.04.2 each load and print their version.
+- **A4** PASS with record. Gilbreth: no nextflow module. Scholar: `module spider nextflow` finds it
+  only behind `biocontainers/default`.
+- **A5 Anvil snakemake** FAIL (claim). `snakemake/6.8.0` is a `biocontainers` module (a Singularity
+  image run through a shell function). `module load snakemake` alone fails; `module load
+  biocontainers snakemake` on one line also leaves it unloaded; `module load biocontainers` then
+  `module load snakemake` (two commands) loads it, and `snakemake --version` prints 6.8.0.
+  → close-run fix C1.
+- **A6** PASS with record. Gilbreth: none. Gautschi, Negishi (`snakemake/6.8.0`) and Scholar: only
+  behind `biocontainers`. No Snakemake module loads without a prerequisite on any cluster.
+- **A7** PASS. No Pegasus WMS module and no `pegasus-plan`/`pegasus-version` on any of the five;
+  Gautschi and Negishi list only `cadence/pegasus/*`.
+- **A8** PASS. No `parsl` module on any of the five.
+- **A9** PASS. `conda` module: Anvil 25.1.1, Gautschi 26.1.0, Gilbreth 25.3.1, Negishi 25.3.1, Scholar 25.3.1.
+- **A10** PASS. `uv` module: Anvil 0.13.9, Gautschi 0.13.6, Gilbreth 0.13.6, Negishi 0.13.6, Scholar 0.12.8.
+- **B1** PASS (with the `biocontainers` prerequisite). Dry run: count 20, summary 1, all 1, total 22;
+  run exits 0, 20 lines, `5 data/sample_05.txt`, 20 results; rerun "Nothing to be done."; adding
+  `sample_21` runs count 1, summary 1, all 1 (total 3), 21 lines.
+- **B2** PASS. The page's conda install solves; Snakemake 9.27.2. B1.1–B1.4 repeat identically. The
+  executor dry run with the page's options exits 0; with outputs current it reports nothing to do,
+  and with `--forceall` it prints the table (total 23) and "This was a dry-run"; `squeue` shows no job.
+- **B3** PASS. Parsl 2026.11.16. Config check prints `SlurmProvider myallocation cpu normal 1 2
+  01:00:00 True`. Thread-pool run exits 0, 20 lines, `5 data/sample_05.txt`, 20 results, `runinfo/`.
+  Planted failure exits 1 with `parsl.dataflow.errors.DependencyError`, and no `summary.txt`.
+- **C** PASS. All 15 external URLs return 200 (two through a redirect; the RCAC news page checked
+  from a cluster login node, title "Scientific workflow management system, Pegasus, available on Anvil").
+- **D** not run, as listed (residual risks).
+
+Close-run fixes required before P3 closes:
+- **C1** `snakemake.md`: on Anvil, Snakemake 6.8.0 is a `biocontainers` module, loaded with
+  `module load biocontainers` and then `module load snakemake` as two commands. Say that Gautschi,
+  Negishi and Scholar also offer Snakemake 6.8.0 only through `biocontainers`, Gilbreth none; 6.8.0
+  predates the Slurm executor plugin, so the conda route stays the recommendation for current
+  Snakemake.
+- **C2** `nextflow.md`: Anvil 21.10.0 is behind `biocontainers`; 22.10.1 loads directly. Scholar's
+  Nextflow is only behind `biocontainers`.
+- **C3** `nextflow.md`: drop 24.04.3 from Gautschi's list (it does not run with the system Java);
+  list 25.10.04 and 26.04.2.
+
+P3: PASS — 2026-11-22 · login nodes of all five clusters, no jobs · HyperShell: not used · conditional on close-run fixes C1–C3, re-checked by the foreman at the gate
 
 ## P4 — Guide landing page and Tier 1 (V4)
 

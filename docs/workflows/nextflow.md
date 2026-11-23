@@ -35,19 +35,23 @@ RCAC's Life Sciences guides cover Nextflow in depth, and this page does not repe
 - [Nextflow and nf-core on Negishi](../lifesciences/guides/nextflow.md) installs Nextflow and the
   nf-core tools yourself and writes a Slurm configuration for Negishi from scratch.
 
-Nextflow is a module on three clusters. Name the version you want when you load it, for example
-`module load nextflow/25.10.04`, so that a pipeline always runs on the version you tested it with:
+Nextflow is a module on Anvil, Gautschi and Negishi, and on Scholar through the BioContainers
+collection. Name the version you want when you load it, for example
+`module load nextflow/25.10.04`, so that a pipeline always runs on the version you tested it with.
+A version listed as "through BioContainers" loads only after `module load biocontainers`:
 
 | Cluster | `nextflow` module versions |
 |---|---|
-| Anvil | 21.10.0, 22.10.1 |
-| Gautschi | 24.04.3, 25.10.04, 26.04.2 |
+| Anvil | 22.10.1; 21.10.0 through BioContainers |
+| Gautschi | 25.10.04, 26.04.2 |
 | Negishi | 22.10.1, 23.04.1, 25.10.04, 26.04.2 |
+| Scholar | through BioContainers only; run `module spider nextflow` for the version |
 
-Gilbreth and Scholar have no Nextflow module. There, install Nextflow yourself as the
+Gilbreth has no Nextflow module. There, or wherever the module versions are older than your
+pipeline needs, install Nextflow yourself as the
 [Negishi guide shows](../lifesciences/guides/nextflow.md#installing-nextflow); it needs Java 17 or
-newer. Each nf-core pipeline states the oldest Nextflow version it supports. Anvil's modules are
-older than most current pipelines need, so on Anvil you may need your own installation too. See
+newer. Each nf-core pipeline states the oldest Nextflow version it supports, and Anvil's modules
+are older than most current pipelines need. See
 the [Nextflow catalog page](../software/apps_md/nextflow.md), or run `module spider nextflow`, for
 the current list.
 

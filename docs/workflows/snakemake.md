@@ -23,9 +23,17 @@ The project's documentation is at [snakemake.readthedocs.io](https://snakemake.r
 
 ## Getting Snakemake
 
-On Anvil, `module load snakemake` loads Snakemake 6.8.0. RCAC's software catalog lists no
-Snakemake module on the other clusters; run `module spider snakemake` to check the cluster you
-use.
+Anvil, Gautschi, Negishi and Scholar offer Snakemake 6.8.0 as a module in the BioContainers
+collection, which runs Snakemake from a container. Load the collection, then Snakemake, as two
+separate commands; naming both in one `module load` command does not load Snakemake:
+
+```bash
+module load biocontainers
+module load snakemake
+snakemake --version
+```
+
+Gilbreth has no Snakemake module.
 
 Snakemake 6.8.0 predates the executor plugins that Snakemake 8 introduced, including the Slurm
 executor described below. For a current release, install Snakemake in your own environment with

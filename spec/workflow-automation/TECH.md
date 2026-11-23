@@ -6,7 +6,7 @@ appetite: big
 status: in_progress
 branch: feature/workflow-automation
 base: main
-current_phase: P3
+current_phase: P4
 last_updated: '2026-11-22'
 phases:
 - id: P1
@@ -45,7 +45,7 @@ phases:
     site/workflows/job_arrays/ && grep -q ''^P2: PASS'' spec/workflow-automation/VALIDATION.md'
 - id: P3
   name: 'Workflow managers: Snakemake, Nextflow, Pegasus, Parsl'
-  status: in_progress
+  status: done
   satisfies:
   - R1
   - R4
@@ -56,7 +56,7 @@ phases:
   - P2
   parallel: false
   hammerable: false
-  hill: crest
+  hill: downhill
   verify: '.venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py
     && grep -q ''workflows/snakemake.md'' mkdocs.yml && grep -q ''workflows/nextflow.md''
     mkdocs.yml && grep -q ''workflows/pegasus.md'' mkdocs.yml && grep -q ''workflows/parsl.md''
@@ -320,8 +320,10 @@ genuinely wins, with availability statements that match verified facts.
 - [x] Nav lines + hub cards; breadcrumbs. (Placement-table names for the four tools now link.)
 - [x] Draft run ends per *Validating phases*; `P3: PENDING` lists every availability statement and
   command to confirm.
-- [ ] Close run, after `P3: PASS` in `VALIDATION.md`: apply any fixes validation required, run the
-  full `verify:`, mark P3 `done`.
+- [x] Close run, after `P3: PASS` in `VALIDATION.md`: apply any fixes validation required, run the
+  full `verify:`, mark P3 `done`. (Fixes C1–C3: Snakemake 6.8.0 is a BioContainers module on Anvil,
+  Gautschi, Negishi and Scholar, loaded in two commands, none on Gilbreth; Anvil Nextflow 21.10.0
+  and Scholar's Nextflow are behind BioContainers; Gautschi's 24.04.3 dropped.)
 - **Verify:** see frontmatter.
 - **Touches:** four pages, `docs/workflows/index.md`, `mkdocs.yml`, breadcrumbs, `VALIDATION.md`.
 
