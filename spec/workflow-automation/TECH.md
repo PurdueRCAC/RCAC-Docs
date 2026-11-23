@@ -6,7 +6,7 @@ appetite: big
 status: in_progress
 branch: feature/workflow-automation
 base: main
-current_phase: P4
+current_phase: P5
 last_updated: '2026-11-22'
 phases:
 - id: P1
@@ -63,7 +63,7 @@ phases:
     mkdocs.yml && grep -q ''^P3: PASS'' spec/workflow-automation/VALIDATION.md'
 - id: P4
   name: HyperShell guide landing page and Tier 1 (one job script)
-  status: in_progress
+  status: done
   satisfies:
   - R1
   - R6
@@ -76,7 +76,7 @@ phases:
   - P3
   parallel: false
   hammerable: false
-  hill: crest
+  hill: downhill
   verify: '.venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py
     && grep -q ''workflows/hypershell/index.md'' mkdocs.yml && grep -q ''workflows/hypershell/single_job.md''
     mkdocs.yml && grep -rqF ''same on every cluster'' site/workflows/hypershell/single_job/
@@ -351,16 +351,17 @@ complete, validated tier 1 script.
   as a tip with its `--failed` caveat. Adds *Adding tasks later* (`--update --restart`). Stand-in
   renderer is POSIX `sh` + `awk`, no Python. V4 checks the SQLite path, one client per node, and
   whether a cancelled task can land as a negative exit status.)
-- [ ] If V4's config-across-versions check (PLAN §5 Q13) confirms the crash, add one line to the
+- [x] If V4's config-across-versions check (PLAN §5 Q13) confirms the crash, add one line to the
   version admonition cautioning against one HyperShell config across module versions from both
-  sides of 2.9.0 (close run).
+  sides of 2.9.0 (close run). (Confirmed by V4 A4; F1 added the sentence.)
 - [x] Turn the P2 pages' "move to HyperShell" sentences into links to `hypershell/index.md`.
   (Amended: the four P3 pages carry the same sentence, so all seven tool pages now link the guide.)
 - [x] Nav: `HyperShell User Guide:` subsection with index + tier 1; hub card for the guide;
   breadcrumbs. (Hub: guide card, placement-table link, one sentence in *RCAC recommends HyperShell*.)
 - [x] Draft run ends per *Validating phases*; `P4: PENDING`.
-- [ ] Close run, after `P4: PASS` in `VALIDATION.md`: apply any fixes validation required, run the
-  full `verify:`, mark P4 `done`.
+- [x] Close run, after `P4: PASS` in `VALIDATION.md`: apply any fixes validation required, run the
+  full `verify:`, mark P4 `done`. (F1: config caution in the version admonition. F2: *Adding tasks
+  later* says the error names `--update --restart`.)
 - **Verify:** see frontmatter.
 - **Touches:** `docs/workflows/hypershell/{index,single_job}.md`, `docs/snippets/workflows/frames/*`,
   `docs/workflows/{index,job_arrays,gnu_make,gnu_parallel,snakemake,nextflow,pegasus,parsl}.md`,

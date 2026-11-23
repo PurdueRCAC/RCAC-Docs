@@ -227,7 +227,8 @@ resubmitted job runs those tasks and nothing else.
 ## Adding tasks later
 
 HyperShell remembers the task file it was given. If you change `frames.txt`, the next job stops at
-once with an error saying the file changed, rather than guessing which tasks are new. To add
+once with an error that says the file changed and names `--update --restart`, rather than guessing
+which tasks are new. To add
 frames, append their commands to `frames.txt` and change `--restart` to `--update --restart` in
 the job script. HyperShell then submits only the new lines, and runs them along with any work that
 is left. The script keeps working with `--update --restart` when the file does not change.

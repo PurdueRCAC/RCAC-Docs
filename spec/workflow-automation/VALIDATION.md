@@ -200,7 +200,7 @@ P2: PASS — 2026-11-22 · Gautschi standby (a staff allocation), A–C as above
 
 ## P3 — Workflow managers (V3)
 
-P3: PENDING — docs/workflows/{snakemake,nextflow,pegasus,parsl}.md, docs/snippets/workflows/{snakemake/Snakefile, parsl/config.py, parsl/count.py} (draft `[feature] Draft workflow-automation P3`)
+Validation request for draft `36896d7f`, covering docs/workflows/{snakemake,nextflow,pegasus,parsl}.md, docs/snippets/workflows/{snakemake/Snakefile, parsl/config.py, parsl/count.py}; result: PASS, see Results below.
 
 ### Validation request (written by the draft run, 2026-11-22)
 
@@ -387,7 +387,7 @@ P3: PASS — 2026-11-22 · login nodes of all five clusters, no jobs · HyperShe
 
 ## P4 — Guide landing page and Tier 1 (V4)
 
-P4: PENDING — docs/workflows/hypershell/{index,single_job}.md, docs/snippets/workflows/frames/{header-anvil,header-gautschi,header-negishi,header-scholar,body,render-frame}.sh (draft `[feature] Draft workflow-automation P4`)
+Validation request for draft `136a0f10`, covering docs/workflows/hypershell/{index,single_job}.md, docs/snippets/workflows/frames/{header-anvil,header-gautschi,header-negishi,header-scholar,body,render-frame}.sh; result: PASS, see Results below.
 
 ### Validation request (written by the draft run, 2026-11-22)
 
@@ -598,6 +598,68 @@ then `sbatch -A "$ACCT" -q standby frames.sub` → J5.
   Anvil (`P4-release: PASS`).
 - **The `-r` tip.** Described from HyperShell's documentation and checked on a workstation with
   2.9.0a8 (`hs list --failed` lists the retried first attempts), not run here.
+
+#### Results
+
+Validated 2026-11-22 by the foreman against `136a0f10`. Build under test: Gautschi
+`hypershell/develop`, `HyperShell v2.9.0a8 (CPython 3.14.6)`. The Gautschi run script is the
+published Gautschi tab with only its module line changed to `module load hypershell/develop`.
+
+- **A1** PASS. `module load hypershell` loads with no prerequisite and prints `HyperShell v2.7.0
+  (CPython 3.13.3)` on Anvil, Gautschi, Negishi and Scholar (below 2.9.0, as expected until the
+  merge hold clears).
+- **A2** PASS with record. `hypershell/develop` prints `HyperShell v2.9.0a8 (CPython 3.14.6)`. Its
+  `bin/` holds only `hs` and `hsx`: **no `hyper-shell` executable** (the 2.7.0 module has one). P7's
+  relay clients start as `hyper-shell client`, so the develop module needs that entry point before
+  P7 can validate (risk carried to P7).
+- **A3** PASS. `hsx --help`: `--capture --launcher --restart --update`; `hs list --help`: `--count
+  --failed --fields --remaining --succeeded`; `hs update --help`: `--failed --no-confirm --revert`.
+- **A4** CONFIRMED. Under 2.7.0 (cmdkit 2.7.7) with `HYPERSHELL_CONFIG_FILE`: `auth` and `empty`
+  print the version; `auth-eval` ends `AttributeError: 'auth' has more than one variant`. Under
+  develop all three print the version. → close-run item F1.
+- **B** PASS, 4/4. `sbatch --test-only` prints a start time for Anvil (`wholenode`, 256 CPUs on 2
+  nodes), Negishi (`cpu`, 256), Scholar (`cpu`, 128 on `scholar-b`) and Gautschi (`cpu`, 384). On
+  Gautschi the validation account's `normal` QOS was refused with `AssocGrpGRES` (an account limit,
+  not a script fault); `-q standby` passed.
+- **Envelope deviation (C).** Two whole Gautschi nodes on standby showed a start estimate six days
+  out, so C1–C3 and C6 ran with `-N 1 -c 32`, C4 with `-N 2 -c 16` and C5 with `-N 2 -c 32` on the
+  command line. The body sizes clients and executors from `$SLURM_CPUS_PER_TASK`, so the behaviour
+  under test is unchanged.
+- **C1** PASS. Cancelled at 390 files on disk (4:18, node a139), `CANCELLED`. Log: `Found 1200 tasks
+  in …/frames.txt`, `Submitting all 1200 tasks … as a new source (--restart)`, `Running task` lines.
+  `hypershell/` holds `lib` and `log`; `lib/main.db` exists. Total 1200; completed 390; remaining
+  810; P1 = 0. `--failed` lists only frames 5, 17, 333, each exit status 1; no negative exit status.
+- **C2** PASS. J2 `COMPLETED 0:0` (8:39, a139). Log: `1200 tasks already present; submitting 0 new
+  tasks`, `Found 810 unfinished tasks`, `Reverted 36 previously interrupted tasks`. Total 1200,
+  succeeded 1197, failed 3, remaining 0; 1200 `.pgm`; 810 newer than the marker (= R1 − P1).
+  `hs info <frame 5> --stderr` ends `frames/frame_0005.pgm: Permission denied`; `hs info` prints the
+  record (`group: 0`, `zone: default`); `hs list --fields` includes `exit_status`.
+- **C3** PASS. J3 `COMPLETED` in 0:05; log `All previous tasks completed (1,200) - stopping` (the
+  count prints with a thousands separator); total still 1200.
+- **C4** PASS. `hs update --failed --revert` asked `Update affects 3 tasks, continue? yes/[no]:` and
+  logged `Updated 3 tasks`; remaining 3. J4 (`-N 2`) `COMPLETED` in 0:32 on a[139,258]; `Found 3
+  unfinished tasks`; exactly frames 5, 17, 333 newer than marker2; succeeded 1200, failed 0. The
+  database carried across four jobs and onto a second node.
+- **C5** PASS. Fresh run, `-N 2 -c 32`: step `.0` (`hs`) shows `Nodes=2 CPUs=64 Tasks=2` (one client
+  per node with the full per-node CPU count; 384 at the published `-c 192`). `hs list --succeeded
+  --count` answered cleanly mid-run. J5 `COMPLETED` in 6:38 at 64 executors; succeeded 1200;
+  `client_host` 602 a139 + 598 a258.
+- **C6** PASS. Appended `sh render-frame.sh 1201`: J6 stopped in 0:04, `FAILED 2:0`, `CRITICAL …
+  differs from its prior submission (content changed); pass --update --restart to submit only the
+  new tasks`, no task ran. With `--update --restart`: J7 `COMPLETED` in 0:16, `1200 tasks already
+  present; submitting 1 new tasks`; `frame_1201.pgm` exists; total and succeeded 1201. → close-run
+  item F2.
+- **D** Not run: Anvil/Negishi/Scholar batch, walltime expiry (C1's `scancel` stands in), the
+  released module (merge hold, `P4-release: PASS`), the `-r` tip.
+
+Close-run items:
+- **F1** Add the one-line caution to the version admonition: a configuration that uses `auth_eval`
+  (or `auth_env`), written for 2.9.0, makes the older 2.7.0 module fail at start with `'auth' has
+  more than one variant`; keep those keys out of a configuration an older module reads.
+- **F2** Check that "Adding tasks later" says the plain `--restart` job stops with an error (the job
+  fails, exit code 2) and names `--update --restart`, as observed.
+
+P4: PASS — 2026-11-22 · Gautschi standby, hypershell/develop 2.9.0a8 · A1–A3, B 4/4, C1–C6 (reduced cores, as noted) · A4 confirmed · close-run items F1–F2
 
 ## P5 — GPU multiplexing and Tier 2 (V5)
 

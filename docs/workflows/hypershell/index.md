@@ -39,7 +39,10 @@ which tasks failed.
 
     The default module version can differ from one cluster to another. Each page in this guide
     states the minimum version its features need; if your cluster's default is older, run
-    `module spider hypershell` to see the versions installed there.
+    `module spider hypershell` to see the versions installed there. If an older module, such as
+    2.7.0, will read your HyperShell configuration file, leave `server.auth_eval` and
+    `server.auth_env` out of it: 2.7.0 stops at start with `'auth' has more than one variant`
+    when it finds either.
 
 ## The tiers
 
