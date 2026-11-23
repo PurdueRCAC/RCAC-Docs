@@ -172,8 +172,7 @@ One Deployment runs one pod with two containers: TimescaleDB first, then the Hyp
     * Set **Name** to `hypershell`
     * Set up the first container, the database
         + Set **Container Name** to `timescaledb`
-        + Set **Container Image** to the TimescaleDB image, through the Geddes Docker Hub cache:
-          `geddes-registry.rcac.purdue.edu/docker-hub-cache/timescale/timescaledb:2.32.1-pg17`
+        + Set **Container Image** to the TimescaleDB image, `timescale/timescaledb:2.32.1-pg18`
         + Under the **Environment Variables** section, select **Add Variable**, set its **Type**
           to **Secret key**, its **Variable Name** to `POSTGRES_PASSWORD`, its **Secret** to
           `hypershell-db` and its **Key** to `password`
@@ -186,7 +185,8 @@ One Deployment runs one pod with two containers: TimescaleDB first, then the Hyp
         + Select **Single-Node Read/Write**
         + Set **Storage Class** to `geddes-performance-singlenode`, the class for databases, and
           **Capacity** to `20` GiB
-        + Set **Mount Point** to the database's data directory, `/var/lib/postgresql/data`
+        + Set **Mount Point** to `/var/lib/postgresql`, the directory that holds the database's
+          files
         + Set **Sub Path** to `data`
     * Set the database's CPU limits
         + Select the **Resources** tab on the left within the current form
@@ -275,12 +275,11 @@ the Secrets each time it starts. Geddes storage is replicated but not backed up;
 
 | Container | Image | Notes |
 |---|---|---|
-| `timescaledb` | `timescale/timescaledb:2.32.1-pg17`, pulled through `geddes-registry.rcac.purdue.edu/docker-hub-cache/` | TimescaleDB's own image, which takes the official PostgreSQL image's variables, such as `POSTGRES_PASSWORD` and `POSTGRES_DB`. Use a tag without `-oss`: HyperShell uses features of the full TimescaleDB. The tag names its PostgreSQL version, 17, whose data directory is the mount point above. |
+| `timescaledb` | `timescale/timescaledb:2.32.1-pg18` | TimescaleDB's own image, which takes the official PostgreSQL image's variables, such as `POSTGRES_PASSWORD` and `POSTGRES_DB`. Use a tag without `-oss`: HyperShell uses features of the full TimescaleDB. The tag names its PostgreSQL version, 18; PostgreSQL 18 or later is recommended. From version 18 the image keeps the database's files under `/var/lib/postgresql`, the mount point above. |
 | `server` | `ghcr.io/hypershell/hypershell:2.9.0` | HyperShell's image, published on the GitHub Container Registry for each release. There is no `latest` tag: name the version that matches `hs --version` of the module on the clusters. |
 
-The Docker Hub cache is the [Geddes registry's way around Docker Hub's pull limits](../../userguides/geddes/registry.md#using-the-geddes-registry-docker-hub-cache);
-it serves Docker Hub images only. HyperShell's image is not on Docker Hub, so Geddes pulls it from
-`ghcr.io` directly. If your Geddes project cannot reach `ghcr.io`, copy the image into a project of
+Geddes pulls the TimescaleDB image from Docker Hub and HyperShell's image from `ghcr.io`, the
+GitHub Container Registry. If your Geddes project cannot reach `ghcr.io`, copy the image into a project of
 your own in the Geddes registry, as the [registry guide](../../userguides/geddes/registry.md)
 describes, and name that copy instead.
 
@@ -394,14 +393,14 @@ scope of this guide.
     ```yaml
     containers:
       - name: timescaledb
-        image: geddes-registry.rcac.purdue.edu/docker-hub-cache/timescale/timescaledb:2.32.1-pg17
+        image: timescale/timescaledb:2.32.1-pg18
         env:
           - name: POSTGRES_PASSWORD
             valueFrom: {secretKeyRef: {name: hypershell-db, key: password}}
           - name: POSTGRES_DB
             value: hypershell
         volumeMounts:
-          - {name: hypershell-db, mountPath: /var/lib/postgresql/data, subPath: data}
+          - {name: hypershell-db, mountPath: /var/lib/postgresql, subPath: data}
       - name: server
         image: ghcr.io/hypershell/hypershell:2.9.0
         args: ["--autoscaling=dynamic", "--initdb"]

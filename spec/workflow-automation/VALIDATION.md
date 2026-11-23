@@ -47,7 +47,9 @@ and Anvil is 2.9.0, and the tier 1 checks have been re-run on that module:
   released module and the matching published image, with a human doing the Rancher steps (C). P7
   validation was deferred here by decision at the P7 draft: it needs a module with the `hyper-shell`
   command and the post-2.9.0a8 fixes. Until this line is written, P7 has no `P7: PASS` line.
-  P8 changed no tier 4 file; the P7 request runs as written.
+  P8's simplification pass changed no tier 4 script; a separate P8-time fix names the upstream
+  image `timescale/timescaledb:2.32.1-pg18` and mounts the volume at `/var/lib/postgresql`, and
+  the P7 request (C2, D1 and the new D1a) is updated to match.
 - `P8: PASS` *(written by the validator)*: the P8 re-validation R1–R3 (job array, tier 1, GPU) after
   the simplification pass, before P8 closes.
 
@@ -1499,14 +1501,14 @@ stop, and report (PLAN §5 Q6).
    Scheduling, Resources, Scaling and Upgrade Policy, Security Context, Storage). Record the actual
    tab names and where they sit (pod-level vs container-level).
 2. Namespace `<ns>`, Name `hypershell`, **Container Name** `timescaledb`, **Container Image**
-   `geddes-registry.rcac.purdue.edu/docker-hub-cache/timescale/timescaledb:2.32.1-pg17`.
+   `timescale/timescaledb:2.32.1-pg18` (the upstream name, with no registry prefix).
 3. **Environment Variables** > **Add Variable**: record the **Type** choices offered. Choose the one
    for a key of a Secret (the page says **Secret key**; record the real label), Variable Name
    `POSTGRES_PASSWORD`, Secret `hypershell-db`, Key `password`. Then a plain variable
    `POSTGRES_DB = hypershell` (record the plain type's label; the page says Key/Value).
 4. **Storage** > **Add Volume** > **Create Persistent Volume Claim**: Name `hypershell-db`,
    **Single-Node Read/Write**, Storage Class `geddes-performance-singlenode` (record the classes
-   offered), Capacity `20`, Mount Point `/var/lib/postgresql/data`, Sub Path `data`. Record whether
+   offered), Capacity `20`, Mount Point `/var/lib/postgresql`, Sub Path `data`. Record whether
    the mount point and sub path are set here or on the container.
 5. **Resources**: CPU Reservation `2000`, CPU Limit `2000`. Record the units the fields show.
 
@@ -1534,7 +1536,15 @@ stop, and report (PLAN §5 Q6).
 #### D. The pod's logs and the server container
 
 1. **View Logs**, container `timescaledb`: ends with `database system is ready to accept
-   connections`. Record any `timescaledb-tune` lines.
+   connections`, with no error about `/var/lib/postgresql/data (unused mount/volume)`. Record any
+   `timescaledb-tune` lines.
+1a. **The image and the PostgreSQL version (added at P8).** The pod pulls
+   `timescale/timescaledb:2.32.1-pg18` with no registry prefix: the pod's events show
+   `Pulling image "timescale/timescaledb:2.32.1-pg18"` (or `kubectl -n <ns> get pod <pod> -o
+   jsonpath='{.spec.containers[0].image}'` prints exactly that), and the pull succeeds. **Execute
+   Shell** in `timescaledb`: `psql -U postgres -d hypershell -c 'SELECT version();'` reports
+   `PostgreSQL 18.…`, and `cat /var/lib/postgresql/18/docker/PG_VERSION` prints `18` (the files
+   are on the volume mounted at `/var/lib/postgresql`). Record the version line.
 2. **View Logs**, container `server`: shows, in order, `Scheduler will run forever`, `Empty database
    - waiting for initial tasks`, `Server listening on 0.0.0.0:50001` and `Autoscale start (policy:
    dynamic, distribution: spread)`, and no `PermissionError` or `Could not create directory`. Record
@@ -1895,10 +1905,12 @@ client "jobs". The cluster run is what counts.
 
 ### P7-release
 
-No tier 4 file changed in P8. `run-relay.sh` keeps its one `nohup hs relay … &` and `$!`, which it
+The simplification pass changed no tier 4 script. `run-relay.sh` keeps its one `nohup hs relay … &` and `$!`, which it
 explains in its comments (the relay must outlive the login session), and `submit-night.sh` keeps
-its `&&` chain, which it explains (a refused phase stops the later ones). The P7 request runs as
-written.
+its `&&` chain, which it explains (a refused phase stops the later ones). A separate fix made at
+P8 time changes the Geddes page's database image to the upstream
+`timescale/timescaledb:2.32.1-pg18`, with the volume mounted at `/var/lib/postgresql`; the P7
+request's C2 and D1 now say so, and D1a checks the pulled image and `SELECT version();`.
 
 #### Results
 

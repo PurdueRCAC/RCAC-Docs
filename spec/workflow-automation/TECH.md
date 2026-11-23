@@ -574,6 +574,16 @@ waits until all of these hold, each recorded in VALIDATION.md:
    released module and the matching published image, which also writes `P7: PASS`.
 6. `P8: PASS`: re-validation R1–R3 of the simplified scripts (job array, tier 1, GPU).
 
+**Tier 4 image (foreman fix, its own commit).** `geddes_service.md` names the upstream image
+`timescale/timescaledb:2.32.1-pg18` (was the Geddes Docker Hub cache path to `…:2.32.1-pg17`),
+says PostgreSQL 18 or later is recommended, and drops the sentence about the cache. The mount point
+moves from `/var/lib/postgresql/data` to `/var/lib/postgresql` (sub path `data` kept): from 18 the
+upstream PostgreSQL image, which TimescaleDB's image is built on, sets `PGDATA` to
+`/var/lib/postgresql/18/docker`, declares `VOLUME /var/lib/postgresql`, and its entrypoint refuses
+to start when `/var/lib/postgresql/data` is a mount with no database in it (docker-library/postgres
+`18/alpine3.24/Dockerfile` and `docker-entrypoint.sh`, read 2026-11-23). The P7 request (C2, D1,
+new D1a) matches.
+
 **Follow-ups outside this job's scope (record only; no page change in this cycle).**
 
 - `docs/userguides/scholar/overview.md` lists H-MIG and I-MIG node types with A30 GPUs split into
@@ -582,6 +592,10 @@ waits until all of these hold, each recorded in VALIDATION.md:
   `docs/userguides/gautschi/run_jobs/{gaussian_example,mpi_jobs}.md`,
   `docs/userguides/gilbreth/run_jobs/gaussian_example.md` and
   `docs/userguides/hammer/run_jobs/slurm/submit_script.md`.
+- The existing Geddes database example, `docs/userguides/geddes/examples/database.md`, writes the
+  Docker Hub cache path explicitly (`geddes-registry.rcac.purdue.edu/docker-hub-cache/postgis/…`);
+  it may want the same simplification as tier 4, which now names the upstream image directly
+  (`timescale/timescaledb:2.32.1-pg18`).
 - Gautschi example pages use `--partition=a10`: `docs/userguides/gautschi/run_jobs/{openmp_jobs,
   gaussian_example,gpu_jobs,mpi_jobs}.md` (see *Conventions* above).
 
