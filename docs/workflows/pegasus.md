@@ -31,7 +31,7 @@ Pegasus records every job's outcome in a database you can query for monitoring a
 
 ## Pegasus at RCAC
 
-Pegasus is not installed as a module on any RCAC community cluster, and no HTCondor module or
+Pegasus is not installed as a module on any RCAC cluster, and no HTCondor module or
 command is available on the clusters' login nodes. Pegasus reaches RCAC users through Anvil, by two
 hosted routes, both reached with ACCESS credentials:
 
@@ -57,8 +57,8 @@ and the [HTCondor Annex setup](https://access-ci.atlassian.net/wiki/spaces/ACCES
 and its [Pegasus Workflows page](https://access-ci.atlassian.net/wiki/spaces/ACCESSdocumentation/pages/564887553/Pegasus+Workflows)
 lists the hosted Pegasus environments, including Anvil's.
 
-**Gautschi, Gilbreth, Negishi and Scholar.** There is no verified route to Pegasus from Purdue's
-community clusters. Neither hosted route sends work to them, and they have no Pegasus or HTCondor
+**Gautschi, Gilbreth, Negishi and Scholar.** There is no verified route to Pegasus from these
+clusters. Neither hosted route sends work to them, and they have no Pegasus or HTCondor
 module. If your work needs Pegasus, plan to run it on Anvil through ACCESS.
 
 ## Where Pegasus wins

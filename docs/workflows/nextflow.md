@@ -45,7 +45,7 @@ A version listed as "through BioContainers" loads only after `module load biocon
 | Anvil | 22.10.1; 21.10.0 through BioContainers |
 | Gautschi | 25.10.04, 26.04.2 |
 | Negishi | 22.10.1, 23.04.1, 25.10.04, 26.04.2 |
-| Scholar | through BioContainers only; run `module spider nextflow` for the version |
+| Scholar | 21.10.0 through BioContainers |
 
 Gilbreth has no Nextflow module. There, or wherever the module versions are older than your
 pipeline needs, install Nextflow yourself as the

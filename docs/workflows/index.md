@@ -160,8 +160,8 @@ have written anyway. Clients join and leave, so the work spreads over as many no
 it. The database lets you ask which tasks failed and re-run exactly those, and pick up after a job
 reaches its walltime without redoing finished work.
 
-RCAC builds HyperShell, Purdue is the primary site of its development, and RCAC's community
-clusters provide it as a module (`module load hypershell`). Its documentation is at
+RCAC builds HyperShell, Purdue is the primary site of its development, and RCAC's clusters provide
+it as a module (`module load hypershell`). Its documentation is at
 [hypershell.readthedocs.io](https://hypershell.readthedocs.io).
 
 ### What HyperShell does not do

@@ -21,6 +21,8 @@ configuring both for SLURM and Apptainer/Singularity on **Negishi**, and launchi
 your first pipeline. The same steps work on Bell, Gautschi, and Gilbreth with
 minor edits to partition names and resource ceilings.
 
+See also [Workflow Automation](../../workflows/index.md), which compares Nextflow with the other workflow tools on RCAC clusters and says when each one fits.
+
 ## Quick start
 
 If you have used Nextflow before and just want the commands:

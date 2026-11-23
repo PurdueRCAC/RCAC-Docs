@@ -146,7 +146,7 @@ phases:
 - id: P8
   name: 'Integration: hub completeness, cross-links, conventions and accessibility
     sweep'
-  status: pending
+  status: in_progress
   satisfies:
   - R1
   - R12
@@ -157,7 +157,7 @@ phases:
   - P7
   parallel: false
   hammerable: false
-  hill: uphill
+  hill: crest
   verify: '.venv/bin/mkdocs build --strict 2>&1 | .venv/bin/python .agents/factory/bin/strict_check.py
     && grep -q ''workflows/'' docs/lifesciences/guides/nextflow.md && grep -q ''workflows/''
     docs/lifesciences/guides/nextflow-gautschi.md && grep -q ''workflows/hypershell/''
@@ -509,25 +509,81 @@ the relay-based autoscaling script on login00 of Gautschi and Negishi, zones and
 **Goal:** the section is complete, cross-linked from its neighbours, and passes the convention and
 accessibility sweeps.
 
-- [ ] Hub: a card for every tool page and the guide (R1); guide landing: a card per tier page and
-  the GPU page; the placement table's tool names link their pages.
-- [ ] One-sentence "See also" in `docs/lifesciences/guides/nextflow.md` (after line 22) and
+(Drafted while P7 awaits its release-held validation, by foreman decision; `current_phase` stays P7.
+P8 also carries the plain-shell simplification pass of the style guide's *Example scripts* rule,
+committed separately, which touches scripts and so needs `P8: PASS` in VALIDATION.md before close.)
+
+- [x] Hub: a card for every tool page and the guide (R1); guide landing: a card per tier page and
+  the GPU page; the placement table's tool names link their pages. (Already complete: seven tool
+  cards and the guide card on the hub; six cards on the guide landing; HTCondor, Dask and Ray stay
+  plain text, having no pages.)
+- [x] One-sentence "See also" in `docs/lifesciences/guides/nextflow.md` (after line 22) and
   `docs/lifesciences/guides/nextflow-gautschi.md` (after line 55) to `../../workflows/index.md`; one
   sentence appended at `docs/workshops/hpc_exchange/week4/workload-management.md` line 195 linking
-  `../../../workflows/hypershell/index.md`. No other edits to those pages.
-- [ ] R12 sweep (`hs task`, `-k`), Jinja grep, anchor-log grep, back-links at page ends.
-- [ ] Accessibility sweep (R14): one H1, heading order, table header rows, descriptive link text,
-  alt text on any image.
+  `../../../workflows/hypershell/index.md`. No other edits to those pages. (Amended: in
+  `nextflow-gautschi.md` line 55 opens a `!!! note`, so the sentence follows the note, before
+  `## Reading a Nextflow pipeline`.)
+- [x] R12 sweep (`hs task`, `-k`), Jinja grep, anchor-log grep, back-links at page ends. (All clean;
+  no anchor INFO line names `workflows/`; every page but the hub ends with its back-link.)
+- [x] Accessibility sweep (R14): one H1, heading order, table header rows, descriptive link text,
+  alt text on any image. (Fifteen pages: one H1 each, no skipped level, every table with a header
+  row, no "here"-style links, no images.)
 - [ ] Confirm `VALIDATION.md` shows PASS for P2–P7; if a P8 edit touches a script, re-validate it.
-- [ ] Regenerate breadcrumbs; `.venv/bin/mkdocs serve` walk-through of the whole section.
-- [ ] Record the merge hold (PLAN §5 Q1, publish rule) in `VALIDATION.md` and carry it into the PR
+  (P2–P6 PASS; P7 held for the release by decision. The simplification pass changed scripts:
+  re-validation R1–R3 and the amended P6-release steps are under VALIDATION.md's *P8 — re-validation
+  after simplification*; `P8: PENDING`.)
+- [x] Regenerate breadcrumbs; `.venv/bin/mkdocs serve` walk-through of the whole section. (No nav
+  change; the generator leaves `breadcrumbs.json` unchanged. Walk-through done on the built `site/`:
+  every snippet file and every header+body tab renders byte for byte, 50 of 50 blocks.)
+- [x] Record the merge hold (PLAN §5 Q1, publish rule) in `VALIDATION.md` and carry it into the PR
   body at `docs-publish`. The draft PR may open at any time. The merge waits until 2.9.0 is tagged,
   the default module on Gautschi and Anvil is 2.9.0, and V4's tier 1 checks have passed on that
-  module.
+  module. (Recorded; see *Merge-hold summary for the PR body* below.)
 - [ ] On done: `--top-status in_review`.
 - **Verify:** see frontmatter.
 - **Touches:** `docs/workflows/**`, the three cross-link pages, `mkdocs.yml` (only if nav fixes),
   breadcrumbs.
+
+### P8 notes
+
+**Foreman nits applied.** `docs/workflows/index.md`: "RCAC's clusters provide it as a module" (was
+"community clusters"; Anvil is not one); no other community-cluster claim on the hub includes
+Anvil. `pegasus.md`: "not installed as a module on any RCAC cluster" (P3 A7 checked all five,
+Anvil included) and "no verified route to Pegasus from these clusters" for the Gautschi, Gilbreth,
+Negishi and Scholar paragraph (Scholar is a teaching cluster, not a community cluster).
+`nextflow.md`: Scholar's row reads `21.10.0 through BioContainers` (confirmed on Scholar
+2026-11-22).
+
+**Simplification pass (commit "Simplify workflow-automation example scripts").** Every example
+script and command block was rewritten to the style guide's *Example scripts* rule. Tier 3 changed
+shape: `panel.sh` became `align.sh`, `genotype.sh` and `merge.sh`; `submit-phases.sh` became one
+`hs submit` per phase on the page (`--template` for the per-line phases); `schedule-clients.sh`
+handles one zone per run (`ZONE PARTITION`, one job per run); the loop is `keep-scheduling.sh`.
+Every behaviour change is listed in VALIDATION.md under *P8 — re-validation after simplification*.
+
+**Merge-hold summary for the PR body (`docs-publish`).** The draft PR may open at any time. Merge
+waits until all of these hold, each recorded in VALIDATION.md:
+
+1. HyperShell 2.9.0 is tagged, and the default `hypershell` module on Gautschi and Anvil is 2.9.0.
+2. `P4-release: PASS`: tier 1's checks (P4 C1–C4) re-run on that default module, Gautschi and Anvil.
+3. Module packaging fixed with the 2.9.0 deploy: Anvil's GPU module tree offers `hypershell`, and
+   Gilbreth's `hypershell` loads without `module load external`.
+4. `P6-release: PASS`: tier 3's server path on the released module (C0 port probe, then C1–C8 and
+   C11, in the forms amended by P8), with the F1–F2 wording checks.
+5. `P7-release: PASS`: the whole tier 4 request (A–K, with a human doing the Rancher steps) on the
+   released module and the matching published image, which also writes `P7: PASS`.
+6. `P8: PASS`: re-validation R1–R3 of the simplified scripts (job array, tier 1, GPU).
+
+**Follow-ups outside this job's scope (record only; no page change in this cycle).**
+
+- `docs/userguides/scholar/overview.md` lists H-MIG and I-MIG node types with A30 GPUs split into
+  MIG slices, but Slurm on Scholar shows `gpu:nvidia_a30:2` and no MIG GRES (P5 A5).
+- Older example pages use `-A standby` (an account, where `standby` is a QOS): for example
+  `docs/userguides/gautschi/run_jobs/{gaussian_example,mpi_jobs}.md`,
+  `docs/userguides/gilbreth/run_jobs/gaussian_example.md` and
+  `docs/userguides/hammer/run_jobs/slurm/submit_script.md`.
+- Gautschi example pages use `--partition=a10`: `docs/userguides/gautschi/run_jobs/{openmp_jobs,
+  gaussian_example,gpu_jobs,mpi_jobs}.md` (see *Conventions* above).
 
 ---
 
