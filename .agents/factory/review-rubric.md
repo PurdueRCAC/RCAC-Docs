@@ -30,6 +30,9 @@ cannot (technical accuracy, prose accessibility) it is surfaced for a human, not
 3. **GOAL-requirement gaps** — an `R#` with no implementing change, or implemented wrong.
 4. **Invariant violations** (`invariants.md`) — auto-CRITICAL.
 5. **Scope creep** — changes that map to no `R#` (report; don't necessarily block).
+6. **Example complexity** (MEDIUM) — a script uses a construct the style guide's *Example
+   scripts* rule lists without a one-sentence explanation, or carries defensive code that
+   buries the lesson.
 
 **Do NOT report:** style nitpicks the style guide doesn't mandate, speculative
 "you could also add…", rephrasing for taste, or theme-level a11y (that lives on `dev`).

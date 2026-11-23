@@ -130,6 +130,19 @@ the built `site/` for a known token) after adding one.
 ` ```python title="test.py" `, line highlight ` ```py hl_lines="2 3" `, `linenums="1"`,
 inline `` `#!python range()` ``. Job scripts conventionally open with `# FILENAME: myjob.sub`.
 
+**Example scripts are for scientists, not shell programmers.** A reader copies an example to
+learn one idea; every unfamiliar construct pulls attention from it. In job scripts, helper
+scripts and command examples:
+- Write plain, linear commands, one per line, each with a short comment. Put tunable values in a
+  plain variable at the top (`TASKS_PER_GPU=4`), not computed ones.
+- Avoid parameter-expansion operators (`${VAR:-default}`, `${VAR:?msg}`, `${VAR%…}`), the `:`
+  no-op, `$(( ))` where a literal will do, brace groups `{ …; }`, subshell tricks such as
+  `( umask 077; … )`, `while read` pipelines, background loops with `&`/`kill`, `case` dispatch,
+  compound tests, `set -e`, `exec`, here-docs, and multi-stage `sed`/`awk`/`tr` pipelines.
+- If the lesson truly needs one of these, use it once and explain it in one sentence under the
+  block. Defensive checks and edge cases go in prose, not code.
+- A script that must loop or branch stays short (about 30 lines) and reads top to bottom.
+
 **Grid cards** (Material) — the landing-page layout:
 ```markdown
 <div class="grid cards" markdown>
