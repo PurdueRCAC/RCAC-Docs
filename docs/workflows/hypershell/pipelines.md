@@ -55,10 +55,10 @@ last line is aligned, and the merge cannot start until the last region is done. 
 groups express. The genotype step needs more memory per core than a standard node gives, so it
 runs on high-memory nodes. That is what the zones express.
 
-In real work, each task would run an aligner or a variant caller for minutes to hours. Here a short
-shell script, `panel.sh`, stands in for all three steps. It waits a few seconds, as if working,
-and writes small text files, so you can run the whole example on any cluster without special
-software. This example has 96 lines in two batches of 48 and a genome cut into 24 regions; a real
+In real work, each task would run an aligner or a variant caller for minutes to hours. Here three
+short shell scripts, `align.sh`, `genotype.sh` and `merge.sh`, stand in for the three steps. Each
+waits a few seconds, as if working, and writes small text files, so you can run the whole example
+on any cluster without special software. This example has 96 lines in two batches of 48 and a genome cut into 24 regions; a real
 panel has several hundred lines.
 
 ## How the pieces fit
@@ -67,8 +67,8 @@ panel has several hundred lines.
 |---|---|---|
 | Campaign directory | Scratch | Holds the scripts, the inputs and outputs, and `hypershell/`: the configuration, the key, the database and the logs |
 | Server | One login node, for the life of the campaign | Holds the queue, hands tasks to clients, and records every result in the database |
-| `submit-phases.sh` | The same login node, when a phase is ready | Writes a phase's tasks into the database with `hs submit`, with its group and zone |
-| `schedule-clients.sh` | The same login node, in a loop | Submits client jobs for each zone that has work waiting |
+| `hs submit` | The same login node, when a phase is ready | Writes a phase's tasks into the database, with its group and zone |
+| `schedule-clients.sh` | The same login node, in a loop | Submits client jobs for a zone that has work waiting |
 | Client jobs | Compute nodes, in batch jobs | Connect to the server over the network and run the tasks of their zone |
 
 Everything that reads or writes the database runs on one host: the server, `hs submit`, and the
@@ -156,10 +156,18 @@ The scripts on this page set the same two variables themselves, from the directo
 them from the campaign directory. When you log in again later, repeat the `cd` and the two `export`
 lines before running any `hs` command.
 
-Save the stand-in for the three steps as `panel.sh`:
+Save the stand-ins for the three steps as `align.sh`, `genotype.sh` and `merge.sh`:
 
-```bash title="panel.sh"
---8<-- "docs/snippets/workflows/panel/panel.sh"
+```bash title="align.sh"
+--8<-- "docs/snippets/workflows/panel/align.sh"
+```
+
+```bash title="genotype.sh"
+--8<-- "docs/snippets/workflows/panel/genotype.sh"
+```
+
+```bash title="merge.sh"
+--8<-- "docs/snippets/workflows/panel/merge.sh"
 ```
 
 Then write the two batches of line names that the sequencing center would send, `L001` to `L048`
@@ -173,10 +181,12 @@ seq -f 'L%03g' 49 96 > batch-2.txt
 ### Make the key
 
 In this tier you run the server yourself, so you supply the key that clients prove themselves with.
-Make a random key in a file that only you can read:
+Make an empty key file that only you can read, then write a random key into it:
 
 ```bash
-(umask 077; openssl rand -hex 32 > hypershell/auth.key)
+touch hypershell/auth.key
+chmod 600 hypershell/auth.key
+openssl rand -hex 32 > hypershell/auth.key
 ```
 
 The configuration file below reads the key from this file each time HyperShell starts. The key is
@@ -235,7 +245,8 @@ nohup hs server --forever > hypershell/server.log 2>&1 &
 echo $! > hypershell/server.pid
 ```
 
-With `--forever`, the server never stops on its own when it runs out of tasks: it waits for the
+`nohup` and the `&` at the end run the server in the background, with its messages in
+`hypershell/server.log`, and `$!` is the process ID of the command just started. With `--forever`, the server never stops on its own when it runs out of tasks: it waits for the
 next phase. Check its log, `hypershell/server.log`. The first time the server starts, the log
 records the certificate it made, then `Server listening on 0.0.0.0:50101`. If it ends instead with
 `Cannot listen on 0.0.0.0:50101` and `Address already in use`, another program has that port:
@@ -244,30 +255,31 @@ CPU: it spends nearly all its time waiting for clients and for new tasks.
 
 ## Submit the phases
 
-`submit-phases.sh` writes one phase's tasks into the database, each with its group and zone. Save it
-in the campaign directory:
-
-```bash title="submit-phases.sh"
---8<-- "docs/snippets/workflows/panel/submit-phases.sh"
-```
-
 `hs submit` writes tasks straight into the database; it does not need the server or the key. Each
-phase becomes a task file under `tasks/`, so you can see exactly what was submitted, and `hs submit`
-refuses to submit the same task file twice. When the first batch of lines arrives, submit its
-alignments:
+phase is one `hs submit` command, with the phase's group and zone. When the first batch of lines
+arrives, submit its alignments:
 
 ```bash
-sh submit-phases.sh align batch-1.txt
+hs submit --group 0 --zone cpu --template 'sh align.sh {}' batch-1.txt
 ```
+
+`--template 'sh align.sh {}'` makes one task from each line of `batch-1.txt`, with the line in
+place of `{}`: `sh align.sh L001`, `sh align.sh L002`, and so on. `hs submit` refuses to submit the
+same file twice, so running the command again by mistake does no harm.
 
 When the second batch arrives, submit it the same way. Then, with every line in, submit the last
-two phases. The server holds them until their turn:
+two phases: one genotyping task per region of the genome, `01` to `24`, and the one merge task. The
+server holds them until their turn:
 
 ```bash
-sh submit-phases.sh align batch-2.txt
-sh submit-phases.sh genotype
-sh submit-phases.sh merge
+hs submit --group 0 --zone cpu --template 'sh align.sh {}' batch-2.txt
+seq -w 1 24 > regions.txt
+hs submit --group 1 --zone highmem --template 'sh genotype.sh {}' regions.txt
+hs submit --group 2 --zone cpu sh merge.sh
 ```
+
+The last command submits a single task, the command that follows the options. To see what was
+submitted, list each task's group, zone and command with `hs list group zone args`.
 
 The tasks wait in the database until a client of their zone connects. The server's log says so:
 `Task group 0 waiting on zone cpu: 96 tasks, no client serving it`.
@@ -310,8 +322,8 @@ of the script is the same on every cluster.
 
 The header asks for one whole node, in the partition for the `cpu` zone. Replace `myallocation`
 with your own account; see [the tier 1 job script](single_job.md#the-job-script) for notes on each
-cluster's partitions. You do not submit this script yourself: `schedule-clients.sh` does, and for
-the `highmem` zone it moves the job to the high-memory partition.
+cluster's partitions. You do not submit this script yourself: `schedule-clients.sh` does, with the
+zone on the command line and the partition for that zone's jobs.
 
 | Option | What it does |
 |---|---|
@@ -325,47 +337,59 @@ variables the script sets.
 
 ### The helper script
 
-`schedule-clients.sh` looks at the work waiting in the current group, zone by zone, and submits
-client jobs to match: up to two jobs for a zone that has work, never more jobs than tasks, and none
+`schedule-clients.sh` looks at the work waiting in the current group for one zone and submits a
+client job to match: up to two jobs for a zone that has work, never more jobs than tasks, and none
 for a zone with nothing to do. Save it in the campaign directory:
 
 ```bash title="schedule-clients.sh"
 --8<-- "docs/snippets/workflows/panel/schedule-clients.sh"
 ```
 
-It finds the current group with `hs list`, counts that group's unfinished tasks in each zone, and
-counts the client jobs you already have for each zone with `squeue`, by their job names,
-`panel-cpu` and `panel-highmem`. It submits nothing while a lower group holds a failed task,
-because the server will not start the current group until that is settled. Two settings at the top
-can be changed from the command line:
+It finds the current group with `hs list`, counts that group's unfinished tasks in the zone, and
+counts the client jobs you already have for the zone with `squeue`, by their job name,
+`panel-cpu` or `panel-highmem`. It submits nothing while a lower group holds a failed task,
+because the server will not start the current group until that is settled. Each run submits at
+most one job, so a zone reaches `MAX_JOBS` over several runs rather than all at once. To keep more
+client jobs per zone, change `MAX_JOBS=2` at the top of the script.
 
-- **`MAX_JOBS`**, the most client jobs to keep for one zone, 2 unless you set it:
-  `MAX_JOBS=4 sh schedule-clients.sh`.
-- **`HIGHMEM_PARTITION`**, the partition for `highmem` clients, `highmem` unless you set it.
-  Anvil, Gautschi and Negishi each have a `highmem` partition. On Gautschi and Negishi it accepts
-  only the `normal` QOS, which their `client.sub` already names, and only jobs that use a large
-  share of a node's cores (more than 48 of 192 on Gautschi, more than 64 of 128 on Negishi); a whole
-  node qualifies. On Anvil, `highmem` jobs are charged at four times the rate of `wholenode` jobs.
-  Scholar has no high-memory partition: there, run the helper with `HIGHMEM_PARTITION=cpu`.
-
-Run it once to see what it does:
+The script takes two words on its command line: the zone, and the partition for that zone's client
+jobs. On Gautschi and Negishi:
 
 ```bash
-sh schedule-clients.sh
+sh schedule-clients.sh cpu cpu
 ```
 
 ```text
+Group 0, zone cpu: 96 tasks waiting, 0 client jobs
 Submitted batch job 4205133
-Submitted batch job 4205134
-Group 0, zone cpu: 96 tasks waiting, 0 client jobs, 2 submitted
 ```
 
-Then leave it running in a loop on the login node, once every five minutes, so that each phase gets
-its clients as soon as its turn comes:
+The partitions differ by cluster:
+
+- **`cpu` zone:** the partition in your `client.sub`: `cpu` on Gautschi, Negishi and Scholar, and
+  `wholenode` on Anvil.
+- **`highmem` zone:** `highmem` on Anvil, Gautschi and Negishi. On Gautschi and Negishi it accepts
+  only the `normal` QOS, which their `client.sub` already names, and only jobs that use a large
+  share of a node's cores (more than 48 of 192 on Gautschi, more than 64 of 128 on Negishi); a whole
+  node qualifies. On Anvil, `highmem` jobs are charged at four times the rate of `wholenode` jobs.
+  Scholar has no high-memory partition: there, give `cpu` for the `highmem` zone as well.
+
+The script does not check that the server is running. If it is not, the client jobs it submits find
+no server to connect to and end; start the server first. Tasks in a zone you do not name on its
+command line get no client jobs.
+
+Then leave the helper running in a loop on the login node, for both zones, once every five
+minutes, so that each phase gets its clients as soon as its turn comes. Save the loop as
+`keep-scheduling.sh`, with the partitions for your cluster:
+
+```bash title="keep-scheduling.sh"
+--8<-- "docs/snippets/workflows/panel/keep-scheduling.sh"
+```
+
+Start it in the background, as you started the server:
 
 ```bash
-nohup sh -c 'while true; do sh schedule-clients.sh; sleep 300; done' \
-    > hypershell/scheduler.log 2>&1 &
+nohup sh keep-scheduling.sh > hypershell/scheduler.log 2>&1 &
 echo $! > hypershell/scheduler.pid
 ```
 
@@ -381,22 +405,24 @@ hs list --group 1 --remaining --count
 hs list --failed --count
 ```
 
-To see each phase at a glance, list the group and zone of every unfinished task and count them:
+To see each phase at a glance, list the group and zone of every unfinished task, and let `sort`
+and `uniq -c` count the lines that are the same:
 
 ```bash
 hs list group zone --remaining --all | sort | uniq -c
 ```
 
-The merge is one task, the last of the campaign. To wait until it has run, give its ID to
-`hs wait`, which returns when the task has finished:
+The merge is one task, the last of the campaign. To wait until it has run, print its ID, then give
+the ID to `hs wait`, which returns when the task has finished:
 
 ```bash
-hs wait "$(hs list id --group 2 --limit 1)"
+hs list id --group 2
+hs wait <id>
 ```
 
 When it has run, `panel-calls.txt` holds every call: 24 regions × 96 lines, 2,304 lines. The merge
-task's output counts the lines per region; print it with `hs info <id> --stdout`, using the merge
-task's ID.
+task's output counts the lines in each region's file, 96 each, and the total; print it with
+`hs info <id> --stdout`, using the merge task's ID.
 
 ## When a task fails
 

@@ -100,6 +100,9 @@ lines differ by cluster; the rest of the script is the same on every cluster.
     --8<-- "docs/snippets/workflows/job_arrays/body.sh"
     ```
 
+`sed -n "${SLURM_ARRAY_TASK_ID}p" inputs.txt` prints only the line of `inputs.txt` whose number is
+the task's index, which is how each task finds its own input.
+
 Replace `myallocation` with your own account: `slist` lists your accounts on Gautschi and
 Negishi, and `mybalance` lists your allocations on Anvil. On Scholar the account is always
 `scholar`. On Gautschi and Negishi you can use `--qos=standby` instead of `--qos=normal` to run on

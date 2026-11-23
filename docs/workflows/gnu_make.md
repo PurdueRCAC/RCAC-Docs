@@ -57,7 +57,8 @@ Reading the Makefile from the bottom up:
 - `summary.txt` depends on every `.count` file, and its recipe concatenates them (`$^` is the list
   of all prerequisites). As the first rule in the file, it is what Make builds by default.
 - `INPUTS` and `COUNTS` are computed from the files present in `data/`, so adding a sample needs no
-  change to the Makefile.
+  change to the Makefile. `sort` puts the inputs in order, so `summary.txt` lists the samples in
+  order too.
 - `.DELETE_ON_ERROR` removes a target whose recipe fails. Without it, a failed `wc` would leave an
   empty but up-to-date `.count` file behind, and the next run would skip it.
 - `.RECIPEPREFIX = >` lets recipe lines start with `>`. Make normally requires a tab there, and a

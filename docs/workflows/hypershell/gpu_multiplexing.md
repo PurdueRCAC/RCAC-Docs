@@ -47,8 +47,8 @@ The pattern on this page:
 - One client runs *n* × *k* executors, where *k* is the number of tasks you want on each GPU at
   once.
 - A wrapper script, `gpu-pick.sh`, runs each task with `CUDA_VISIBLE_DEVICES` narrowed to one of
-  the job's GPUs, chosen by its slot. Slot *s* gets GPU number *s* mod *n*, so each GPU always has
-  *k* executors.
+  the job's GPUs, chosen by its slot. Slot *s* gets GPU number *s* mod *n* (counting from 0), so
+  each GPU always has *k* executors.
 
 HyperShell itself does not know about GPUs. It does not set `CUDA_VISIBLE_DEVICES`, and it does not
 track GPU memory: its `-c` and `-m` options describe CPU cores and host memory only. The number of
@@ -98,10 +98,15 @@ Save the wrapper as `gpu-pick.sh` in the same directory:
 --8<-- "docs/snippets/workflows/gpu_sweep/gpu-pick.sh"
 ```
 
-Then write the task file, one training run per line, `./emulator 1` to `./emulator 64`:
+`$(( TASK_SLOT % GPUS + 1 ))` is shell arithmetic: the remainder of the slot divided by the number
+of GPUs, plus one, because `cut -f` counts list positions from 1. The wrapper needs HyperShell
+2.9.0 or later, which sets `TASK_SLOT`; with an older version every task lands on the first GPU.
+
+Then write the task file, one training run per line, `./emulator 1` to `./emulator 64`. `seq -f`
+writes one line per number, with the number in place of `%g`:
 
 ```bash
-printf './emulator %d\n' $(seq 1 64) > sweep.txt
+seq -f './emulator %g' 1 64 > sweep.txt
 ```
 
 ## The job script
@@ -159,14 +164,19 @@ cores. Replace `myallocation` with your own account. The GPU partitions differ b
 Negishi's GPUs are AMD, not NVIDIA, so this page, which relies on `CUDA_VISIBLE_DEVICES` and
 `nvidia-smi`, has no Negishi tab.
 
-The body does what tier 1's does, with three additions:
+The body does what tier 1's does, with four additions:
 
+- **`GPUS` and `TASKS_PER_GPU`** are the two numbers you set: the GPUs the job asks for, which must
+  match `--gpus-per-node`, and *k*, the tasks to run on each GPU at once. `export` passes `GPUS` on
+  to `gpu-pick.sh`.
 - **`echo` and `nvidia-smi --query-gpu=…`** write the job's GPUs into the job's output file: the
   list Slurm gave the job, then a table with each GPU's index, PCI bus address, model, memory and
   compute mode.
-- **The sampling loop** records, every 10 seconds, which processes are running on each GPU and how
-  much GPU memory each one holds, in `gpu-use-<jobid>.txt`. It is how you see the sharing happen,
-  and how you check memory before raising *k*.
+- **`nvidia-smi --query-compute-apps=… --loop=10`** records, every 10 seconds, which processes are
+  running on each GPU and how much GPU memory each one holds, one line per process with the time,
+  in `gpu-use-<jobid>.txt`. It is how you see the sharing happen, and how you check memory before
+  raising *k*. The `&` at the end of the command runs it in the background beside the tasks, and
+  Slurm stops it when the job ends.
 - **`hsx sweep.txt …`** runs the task file with these options:
 
 | Option | What it does |
@@ -175,10 +185,9 @@ The body does what tier 1's does, with three additions:
 | `--restart` | As in tier 1: a resubmitted job runs only what is left. |
 | `--capture` | As in tier 1: keep each task's output and errors for `hs info`. |
 | `-t 'sh gpu-pick.sh {}'` | A *template*: run each line of the task file through `gpu-pick.sh`. HyperShell replaces `{}` with the line. |
-| `-N "$(( gpus * tasks_per_gpu ))"` | The number of executors: the number of GPUs times the number of tasks to run on each at once. |
+| `-N $(( GPUS * TASKS_PER_GPU ))` | The number of executors: the number of GPUs times the number of tasks to run on each at once, 8 here. `$(( … ))` is shell arithmetic. |
 
-The number of tasks on each GPU comes from the `TASKS_PER_GPU` environment variable, and is 4 when
-it is not set. There is no `--launcher` option: with one node, `hsx` runs its one client itself, on
+There is no `--launcher` option: with one node, `hsx` runs its one client itself, on
 the job's node, where Slurm has set `CUDA_VISIBLE_DEVICES`.
 
 ## Run it
@@ -218,11 +227,16 @@ per GPU:
 mkdir ../sweep-k2
 cp emulator gpu-pick.sh sweep.txt gpu_sweep.sub ../sweep-k2/
 cd ../sweep-k2
-sbatch --export=ALL,TASKS_PER_GPU=2 gpu_sweep.sub
 ```
 
-`--export=ALL,TASKS_PER_GPU=2` passes your environment to the job as usual, with `TASKS_PER_GPU`
-set to 2. When each job has finished, compare how long it ran:
+In the copy of `gpu_sweep.sub`, change the line `TASKS_PER_GPU=4` to `TASKS_PER_GPU=2` with a text
+editor, then submit it:
+
+```bash
+sbatch gpu_sweep.sub
+```
+
+When each job has finished, compare how long it ran:
 
 ```bash
 sacct -j <jobid> -X --format=JobID,Elapsed,State
@@ -273,13 +287,15 @@ To run your own sweep, replace the lines of `sweep.txt` with your own commands, 
 command that runs on one GPU and uses whatever that GPU is, without naming a device itself. If your
 commands need software such as a Python environment, load or activate it in the job script, after
 the `module` lines. Then measure how many tasks each GPU can take, as above, and set
-`TASKS_PER_GPU`, or the number in the script, to match.
+`TASKS_PER_GPU` to match.
 
 To use more GPUs, raise `--gpus-per-node` and the cores with it, within the partition's limits; on
-Gautschi, keep 14 cores per GPU. The body counts the GPUs it is given, so nothing else changes.
+Gautschi, keep 14 cores per GPU. Set `GPUS` in the body to the same number. If `GPUS` is smaller
+than the job's GPUs, some GPUs sit idle; if it is larger, some tasks get no GPU and fail.
 
-`gpu-pick.sh` reads `TASK_SLOT` from its environment, so it works the same way when tasks reach
-clients by other routes, as they do in the later tiers. There, use `gpu-pick.sh` (or `TASK_SLOT`)
+`gpu-pick.sh` reads `TASK_SLOT` and `GPUS` from its environment, so it works the same way when
+tasks reach clients by other routes, as they do in the later tiers, as long as the client's job
+script exports `GPUS`. There, use `gpu-pick.sh` (or `TASK_SLOT`)
 rather than HyperShell's `{slot}` template field, which is not available when tasks are submitted
 with `hs submit`.
 

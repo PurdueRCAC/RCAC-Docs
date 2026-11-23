@@ -75,6 +75,8 @@ Write the task file, one member per line, `sh member.sh 1` to `sh member.sh 1000
 seq 1000000 | sed 's/^/sh member.sh /' > members.txt
 ```
 
+`seq` counts from 1 to 1,000,000, and `sed` puts `sh member.sh ` in front of each number.
+
 ### Load the tasks once
 
 In tier 1, each job reads the task file and checks it against the database. That check is quick,

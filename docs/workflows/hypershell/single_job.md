@@ -43,7 +43,7 @@ A lab is making an animation of a simulation for a talk: 1,200 frames, 50 second
 24 frames a second. Each frame is rendered on its own, by one command, and no frame depends on
 another. In real work each command would run a renderer, such as Blender or POV-Ray, on the scene
 file for one frame and write one image, and might take several minutes. Here a short shell script,
-`render-frame.sh`, stands in for the renderer. It waits 10 to 29 seconds, as if it were rendering,
+`render-frame.sh`, stands in for the renderer. It waits 20 seconds, as if it were rendering,
 then writes a small greyscale image of a moving gradient, so you can run the whole example on any
 cluster without special software.
 
@@ -55,11 +55,15 @@ renderer in that directory as `render-frame.sh`:
 --8<-- "docs/snippets/workflows/frames/render-frame.sh"
 ```
 
+The `awk` program at the end only draws the image; you do not need to follow it to use the
+example.
+
 Then make the task file. HyperShell's task file is plain text with one command per line, so this
-writes the 1,200 render commands, `sh render-frame.sh 1` to `sh render-frame.sh 1200`:
+writes the 1,200 render commands, `sh render-frame.sh 1` to `sh render-frame.sh 1200`. `seq -f`
+writes one line per number, with the number in place of `%g`:
 
 ```bash
-printf 'sh render-frame.sh %d\n' $(seq 1 1200) > frames.txt
+seq -f 'sh render-frame.sh %g' 1 1200 > frames.txt
 ```
 
 Your own task file is the list of commands you would otherwise type one at a time, written by
@@ -129,7 +133,8 @@ The `hsx` options are these:
 
 To use one node, change `--nodes=2` to `--nodes=1`; to use more, raise it. Nothing else changes.
 If each of your commands uses several cores, as many renderers do, divide the executors to match:
-for example, `-N $(( SLURM_CPUS_PER_TASK / 4 ))` for commands that use four cores each.
+for example, for commands that use four cores each on Gautschi's 192-core nodes, replace
+`-N "${SLURM_CPUS_PER_TASK}"` with `-N 48`.
 
 ## Run it
 

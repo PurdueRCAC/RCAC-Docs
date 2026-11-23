@@ -37,12 +37,19 @@ and Anvil is 2.9.0, and the tier 1 checks have been re-run on that module:
   and B only (C deferred here by decision). The P6 request's own close-run checks, F1 (the page's
   port and login-node host-name wording) and F2 (the page's quoted log lines and the *Make the key*
   and *Start the server* steps), depend on C and are carried to this check; the page stays as
-  drafted until then.
+  drafted until then. **Amended by P8:** tier 3's scripts were simplified, so this check runs the
+  C steps in the forms listed under *P8 — re-validation after simplification* → *P6-release as
+  amended* (stand-ins `align.sh`/`genotype.sh`/`merge.sh`, phases as `hs submit` commands,
+  `schedule-clients.sh ZONE PARTITION` with one job per run, `keep-scheduling.sh`), and F2 also
+  checks the page's new helper output line.
 - `P7-release: PASS — <date>, Geddes + Gautschi + Negishi, default module <version>, image <tag>`
   *(written by the validator)*: the whole P7 request (A–K under the P7 heading), run once on the
   released module and the matching published image, with a human doing the Rancher steps (C). P7
   validation was deferred here by decision at the P7 draft: it needs a module with the `hyper-shell`
   command and the post-2.9.0a8 fixes. Until this line is written, P7 has no `P7: PASS` line.
+  P8 changed no tier 4 file; the P7 request runs as written.
+- `P8: PASS` *(written by the validator)*: the P8 re-validation R1–R3 (job array, tier 1, GPU) after
+  the simplification pass, before P8 closes.
 
 ## P2 — Baseline tools (V2)
 
@@ -1663,6 +1670,239 @@ Close-run items expected whatever the outcome:
 #### Results
 
 *(validator: on the released module and image; then write the merge hold's `P7-release: PASS` line)*
+
+## P8 — re-validation after simplification
+
+The P8 run rewrote the section's example scripts to the style guide's *Example scripts* rule (plain
+commands, no advanced shell constructs). This section lists, for each changed script, what changed
+and how to re-check it. It adds items only: the P2–P7 requests and results above stand as written.
+
+P8: PENDING — re-validation R1–R3 below (Gautschi), then `P8: PASS` (validator)
+
+**Build under test.** As in P4 and P5: Gautschi's `hypershell/develop` module; record its exact
+`hs --version`. For R2 and R3, change the published `module load hypershell` line to
+`module load hypershell/develop` and nothing else, as in P4 and P5, and record that you did.
+
+**Envelope.** R1 and R2: Gautschi `-A "$ACCT" -p cpu -q standby`, at most 2 nodes × 15 minutes per
+job. R3: Gautschi `-A "$ACCT" -p ai -q burst`, 1 node, 2 GPUs, at most 15 minutes. One job each, at
+most 2 queued at once. Files only under `$RCAC_SCRATCH/workflow-automation/p8/`. `$ACCT` is the
+validation account, kept out of the repository. `<snippets>` is `docs/snippets/workflows` at the P8
+commit.
+
+**Assembling a tab.** Unchanged from P2–P6: the header file, one empty line, then the shared body
+(`{ cat header-<cluster>.sh; echo; cat body.sh; } > <name>.sub`). At the P8 commit this reproduces
+every rendered tab byte for byte, and every other published snippet file renders byte for byte (50
+of 50 blocks checked against the built `site/`, locally).
+
+**Local checks already made (workstation, not a cluster).** Every script, and every assembled tab,
+passes `bash -n` (or `sh -n`; the `#!/bin/sh` files also `dash -n`). With HyperShell 2.9.0a9 from
+PyPI and stand-ins: the job array body before and after gives identical `results/` and output for
+tasks 1–20; `render-frame.sh 42` writes a byte-identical image (only the wait changed); the new
+generators `seq -f 'sh render-frame.sh %g' 1 1200` and `seq -f './emulator %g' 1 64` match the old
+`printf` lines byte for byte (BSD `seq`; R2 and R3 repeat this with GNU `seq`); the GPU body and
+`gpu-pick.sh`, old and new, with a stub `nvidia-smi` and `CUDA_VISIBLE_DEVICES=0,1`, give the same
+slot-to-GPU map (slots 0, 2, 4, 6 on GPU 0; 1, 3, 5, 7 on GPU 1), and the new wrapper picks `2,3`
+and MIG-style lists by position and passes on the task's exit status. Tier 3's new form ran end to
+end (below, *P6-release as amended*).
+
+### Scripts whose behaviour is unchanged (no cluster run)
+
+Only comments, or a page sentence, changed; each passes the syntax check and renders byte for byte:
+`sample-data.sh`; every `header-*.sh`; `frames/body.sh`; `gnu_make/{Makefile,body.sh}`;
+`gnu_parallel/body.sh`; `ensemble/{body.sh,member.sh}` (the tier 2 generator
+`seq 1000000 | sed 's/^/sh member.sh /'` is kept, since `seq -f '%g'` prints `1e+06` for one
+million, and the page now explains it; `member.sh` keeps `exec`, which the page's *Bound each task*
+teaches); `panel/config.toml`; every `survey/*` file (tier 4: checked against the rule, unchanged).
+
+### R1. Job array body (P2), behaviour unchanged, command changed
+
+Change: `wc -w "${INPUT}" > "results/$(basename "${INPUT}" .txt).count"` is now two commands,
+`NAME=$(basename "${INPUT}" .txt)` and `wc -w "${INPUT}" > "results/${NAME}.count"`.
+
+In `$RCAC_SCRATCH/workflow-automation/p8/array/`:
+
+```bash
+sh <snippets>/sample-data.sh
+{ cat <snippets>/job_arrays/header-gautschi.sh; echo; cat <snippets>/job_arrays/body.sh; } > array.sub
+sbatch -A "$ACCT" -q standby array.sub
+```
+
+PASS if: `sacct -j <id> -X --format=JobID,State,ExitCode` lists 20 array tasks, each `COMPLETED
+0:0`; `ls results | wc -l` 20; `cat results/sample_05.count` prints `5 data/sample_05.txt`;
+`cat array-<id>_7.out` prints `Array task 7 of job <id>: data/sample_07.txt`.
+
+### R2. Tier 1 (P4): `render-frame.sh` and the task-file command
+
+Changes: `render-frame.sh` waits a fixed 20 seconds (was `sleep $(( 10 + frame % 20 ))`, 10 to 29
+seconds); the image it writes is unchanged. The page's generator is
+`seq -f 'sh render-frame.sh %g' 1 1200 > frames.txt` (was a `printf … $(seq 1 1200)` line).
+`frames/body.sh` is unchanged.
+
+In `$RCAC_SCRATCH/workflow-automation/p8/frames/`:
+
+```bash
+cp <snippets>/frames/render-frame.sh .
+seq -f 'sh render-frame.sh %g' 1 1200 > frames.txt
+printf 'sh render-frame.sh %d\n' $(seq 1 1200) | cmp - frames.txt && echo same
+{ sed 's|^module load hypershell$|module load hypershell/develop|' <snippets>/frames/header-gautschi.sh; echo; cat <snippets>/frames/body.sh; } > frames.sub
+mkdir -p frames; touch frames/frame_0005.pgm; chmod 444 frames/frame_0005.pgm
+sbatch -A "$ACCT" -q standby -N 2 -c 32 frames.sub
+```
+
+PASS if: `cmp` prints `same`; the job is `COMPLETED` within 15 minutes (about 7 minutes expected:
+19 rounds of 20 seconds on 64 executors); with `module load hypershell/develop; export
+HYPERSHELL_SITE="$PWD/hypershell"` on the login node, `hs list --succeeded --count` 1199,
+`hs list args exit_status --failed` one line, `sh render-frame.sh 5` with exit status 1;
+`ls frames/*.pgm | wc -l` 1200; `hs list duration --succeeded --all | sort -n | sed -n '1p;$p'`
+prints two values of about 20 seconds (the fixed wait), not 10 and 29.
+
+### R3. GPU multiplexing (P5): `gpu_sweep/body.sh`, `gpu-pick.sh` and the task-file command
+
+Changes, all in one job:
+
+- The body sets `export GPUS=2` and `TASKS_PER_GPU=4` as plain values (was: GPUs counted from
+  `CUDA_VISIBLE_DEVICES` with `printf | tr | wc`, and `TASKS_PER_GPU` read from the environment with
+  a default of 4), and runs `hsx … -N $(( GPUS * TASKS_PER_GPU ))`.
+- The 10-second sampler is one `nvidia-smi --query-compute-apps=timestamp,gpu_bus_id,pid,used_memory
+  --format=csv,noheader --loop=10 … &` line, left for Slurm to stop when the job ends (was a
+  `while sleep 10` loop writing a `date` line before each sample, stopped with `kill`). Each line of
+  `gpu-use-<jobid>.txt` now starts with its own timestamp.
+- The body no longer stops when the job has no GPUs (`${CUDA_VISIBLE_DEVICES:?…}` removed).
+- `gpu-pick.sh` takes the list position `$(( TASK_SLOT % GPUS + 1 ))` with `cut -d, -f`, using
+  `GPUS` from the job script (was: counted the list itself, with `tr` and `wc`); it no longer stops
+  when `TASK_SLOT` or `CUDA_VISIBLE_DEVICES` is unset; it runs the task as `"$@"` (was `exec "$@"`).
+- The page's generator is `seq -f './emulator %g' 1 64 > sweep.txt`, and the page's k = 2 recipe
+  edits `TASKS_PER_GPU=4` in a copy of the script instead of `sbatch --export=…,TASKS_PER_GPU=2`
+  (the measured table on the page is kept; the k = 1 and 2 runs are not repeated).
+
+In `$RCAC_SCRATCH/workflow-automation/p8/gpu/`, with `emulator` built as in P5 A3 (or copied from
+P5's directory):
+
+```bash
+cp <snippets>/gpu_sweep/gpu-pick.sh .
+seq -f './emulator %g' 1 64 > sweep.txt
+printf './emulator %d\n' $(seq 1 64) | cmp - sweep.txt && echo same
+{ sed 's|^module load hypershell$|module load hypershell/develop|' <snippets>/gpu_sweep/header-gautschi.sh; echo; cat <snippets>/gpu_sweep/body.sh; } > gpu_sweep.sub
+sbatch -A "$ACCT" -q burst gpu_sweep.sub
+```
+
+PASS if:
+
+1. `cmp` prints `same`. The job is `COMPLETED 0:0` with `Elapsed` close to P5 C1's 1:01 (a few
+   minutes at most), not its 15-minute walltime: the background `nvidia-smi` does not hold the job
+   open, and Slurm ends it with the job.
+2. `slurm-<id>.out` shows the version line, `GPUs in this job: 0,1`, and the two-row GPU table.
+3. `ls results | wc -l` 64; `hs list --succeeded --count` 64; `hs list --failed --count` 0.
+4. `awk '{print $2, $3}' results/member_*.txt | sort -u` prints eight lines: slots 0, 2, 4, 6 with
+   one `gpu=` bus address and slots 1, 3, 5, 7 with the other, each address matching a
+   `pci.bus_id` in the table.
+5. `head -2 gpu-use-<id>.txt` shows lines of the form `<timestamp>, <bus id>, <pid>, <n> MiB`
+   (record one). If instead it holds an error such as `"timestamp" is not a valid field to query`,
+   that is a FAIL: the close run drops `timestamp,` from the query and the page's "with the time".
+6. The busiest sample shows four processes on one GPU:
+   `awk -F', ' '{n[substr($1, 1, 19) " " $2]++} END {for (k in n) if (n[k] > m) m = n[k]; print m}' gpu-use-<id>.txt`
+   prints 4 (rows of one sample share the second in their timestamp).
+
+### P6-release as amended (tier 3; run at the merge hold, not now)
+
+Tier 3 was restructured, so the merge hold's `P6-release` check runs the P6 request's C steps in
+these forms. Everything not named here is as written under P6.
+
+What changed, and every behaviour change:
+
+- **The stand-in** `panel.sh` (one script, `case` on its first word) is now three scripts,
+  `align.sh LINE`, `genotype.sh REGION` and `merge.sh`. Waits are fixed (30, 15 and 5 seconds; were
+  20–39, 10–19 and 5); every call is `1` (was a seeded random 0, 1 or 2); region files are named by
+  a two-digit region from the task (`regions/region_07.txt`, as before) and filled with `grep -h`;
+  `merge.sh` prints `wc -l regions/region_*.txt` (one `<n> regions/region_NN.txt` line per region,
+  then `<total> total`) and writes `cat regions/region_*.txt > panel-calls.txt`. It no longer fails
+  when a region file is missing, so a cancelled genotype task leaves its region out of the merge
+  without an error. The `regions` subcommand is gone.
+- **`submit-phases.sh` is gone.** Each phase is one `hs submit` on the page:
+  `hs submit --group 0 --zone cpu --template 'sh align.sh {}' batch-1.txt` (and `batch-2.txt`);
+  `seq -w 1 24 > regions.txt` then `hs submit --group 1 --zone highmem --template 'sh genotype.sh {}' regions.txt`;
+  `hs submit --group 2 --zone cpu sh merge.sh`. No `tasks/` directory is written, and nothing stops
+  a phase whose input file is missing (was `set -e`).
+- **`schedule-clients.sh`** handles one zone per run, `sh schedule-clients.sh ZONE PARTITION`, and
+  always passes `--partition` (was: every zone in one run through a `while read` loop and `case`).
+  `MAX_JOBS=2` is a plain value at the top (was `${MAX_JOBS:-2}` from the environment);
+  `HIGHMEM_PARTITION` is gone (the partition is the second word). It submits **at most one job per
+  run** (was up to `MAX_JOBS` at once), so a zone reaches `MAX_JOBS` over successive passes. Its
+  report line is printed before it submits and has no "submitted" count:
+  `Group 0, zone cpu: 96 tasks waiting, 0 client jobs`. It no longer checks that the server runs
+  (`kill -0` on the PID file, removed); it says nothing about tasks in a zone you do not name; with
+  no task left anywhere it prints `No tasks waiting` even if a failure is unsettled (was the failure
+  message). The failed-group check is one `hs list … --where 'exit_status != -1' "group < N"` (was
+  a compound test); the job count is `squeue --noheader --user --name | wc -l` (was with
+  `--format=%i`).
+- **The loop** is a file, `keep-scheduling.sh` (a `while true` loop running the helper for `cpu`
+  and `highmem`, then `sleep 300`), started with `nohup sh keep-scheduling.sh > hypershell/scheduler.log 2>&1 &`
+  (was `nohup sh -c 'while true; …'`).
+- **`client.sub`'s body** reads the zone as `zone=$1` (was `${1:?usage…}`): submitted without a zone,
+  a client now starts with an empty zone, finds no task, and ends after 10 idle minutes.
+- **The key** is made with `touch`, `chmod 600`, then `openssl rand -hex 32 >` (was
+  `(umask 077; …)`).
+- **`hs wait`** is two steps on the page: `hs list id --group 2`, then `hs wait <id>`.
+
+The amended steps (C0, C1, C9 and C11 as written, except as noted):
+
+- **Set-up.** Copy `align.sh genotype.sh merge.sh schedule-clients.sh keep-scheduling.sh` (not
+  `panel.sh` or `submit-phases.sh`); make the key with the page's three commands. In the run copy of
+  `schedule-clients.sh` change `MAX_JOBS=2` to `MAX_JOBS=1`, and in the run copy of
+  `keep-scheduling.sh` change `sh schedule-clients.sh highmem highmem` to
+  `sh schedule-clients.sh highmem cpu` (the `cpu` stand-in partition); record both edits. A *helper
+  pass* below means `sh schedule-clients.sh cpu cpu` then `sh schedule-clients.sh highmem cpu`.
+- **C1.4** `ls -l hypershell/auth.key` shows `-rw-------`.
+- **C2.** A helper pass prints `No tasks waiting` twice and submits nothing.
+- **C3.** 1: `hs submit --group 0 --zone cpu --template 'sh align.sh {}' batch-1.txt` logs
+  `Submitted 48 tasks`; `hs list args --group 0 --all | sort | head -1` prints `sh align.sh L001`.
+  2: the same command again is refused as written (exit status 2). 3: as written. 4: the batch-2,
+  genotype and merge commands above log 48, 24 and 1. 5: as written (`96 0 cpu`, `24 1 highmem`,
+  `1 2 cpu`).
+- **C4.** `sh schedule-clients.sh cpu cpu` prints `Group 0, zone cpu: 96 tasks waiting, 0 client
+  jobs` and `Submitted batch job <J1>`; run again at once, it prints `… 1 client jobs` and submits
+  nothing. `sh schedule-clients.sh highmem cpu` prints `Group 0, zone highmem: 0 tasks waiting, 0
+  client jobs` and submits nothing. `squeue -j <J1> -o '%j %P %q %C %l'` as written.
+- **C5.** 2: the failed line is `sh align.sh L050` with exit status 1. 4: a helper pass prints
+  `Group 0 has failed tasks: revert or cancel them with hs update` for each zone and submits nothing.
+- **C6.** As written; `aligned/L050.txt` holds 24 lines (`01 L050 1` first).
+- **C7.** `sh schedule-clients.sh highmem cpu` prints `Group 1, zone highmem: 24 tasks waiting, 0
+  client jobs` and `Submitted batch job <J2>`; `squeue -j <J2> -o '%j %P'` prints `panel-highmem cpu`.
+  1: `ls regions | wc -l` 24 and `wc -l < regions/region_01.txt` 96. 2: as written.
+- **C8.** If no `cpu` client is left, `sh schedule-clients.sh cpu cpu` prints `Group 2, zone cpu: 1
+  tasks waiting, 0 client jobs` and submits J3. 1: `hs list id --group 2` prints one ID, and
+  `hs wait <id>` returns. 2: `wc -l < panel-calls.txt` 2304; `hs info <merge id> --stdout` prints
+  24 lines `96 regions/region_NN.txt` and a last line `2304 total`. 3–5 as written.
+- **C10.** `nohup sh keep-scheduling.sh > hypershell/scheduler.log 2>&1 &` then
+  `echo $! > hypershell/scheduler.pid`; within a few seconds the log holds `No tasks waiting` twice;
+  then as written.
+- **C11.3** `ps -u "$USER" -o pid,args | grep -E '[h]s server|[k]eep-scheduling|[s]chedule-clients'`
+  prints nothing.
+- **B** is not repeated: the `cpu` zone's `sbatch` line now also carries `--partition=<the header's
+  own partition>`, which changes nothing that B checked.
+
+The drafter ran the amended C1–C8 and C11 (without C0, C9 and C10's `nohup`, which the workstation
+sandbox refuses) on a workstation with HyperShell 2.9.0a9, stand-in `sbatch`/`squeue` (each "job"
+ran `client.sub` in the background with 4 cores) and the stand-ins' waits cut to 1 second: the
+repeated batch was refused (exit 2); the first two `cpu` passes submitted one job each and the third
+none at `MAX_JOBS=2`; 95 alignments succeeded and `sh align.sh L050` failed with exit status 1; the
+server logged `Failed task group 0 …` and held group 1; the helper printed the failed-group message;
+after the revert the running client re-ran it (24 lines), the server logged `Completed task group 0
+- starting task group 1`, one `highmem` job ran the 24 regions (96 lines each), the idle `cpu`
+client ran the merge, `panel-calls.txt` held 2,304 lines, the merge output ended `2304 total`,
+the counts were 121 succeeded, 0 failed, 0 remaining, and `SIGUSR1` stopped the server and all three
+client "jobs". The cluster run is what counts.
+
+### P7-release
+
+No tier 4 file changed in P8. `run-relay.sh` keeps its one `nohup hs relay … &` and `$!`, which it
+explains in its comments (the relay must outlive the login session), and `submit-night.sh` keeps
+its `&&` chain, which it explains (a refused phase stops the later ones). The P7 request runs as
+written.
+
+#### Results
+
+*(validator: R1–R3; then `P8: PASS — <date>, Gautschi, HyperShell <version>`)*
 
 ## Network confirmations
 

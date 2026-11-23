@@ -94,6 +94,9 @@ run time, exit status (`Exitval`, the seventh column) and command. To list the t
 awk -F '\t' 'NR > 1 && $7 != 0' parallel.log
 ```
 
+`awk` splits each line at its tabs, skips the header line (`NR > 1`), and prints each line whose
+seventh column is not 0.
+
 The job log also makes a run resumable on one node. GNU Parallel offers three options that read it
 when you run the same command again:
 
