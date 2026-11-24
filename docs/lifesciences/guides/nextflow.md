@@ -18,7 +18,7 @@ genomics, transcriptomics, epigenomics, and more, including `rnaseq`, `sarek`,
 
 This guide walks you through installing Nextflow, installing the `nf-core` tools,
 configuring both for SLURM and Apptainer/Singularity on **Negishi**, and launching
-your first pipeline. The same steps work on Bell, Gautschi, and Gilbreth with
+your first pipeline. The same steps work on Gautschi and Gilbreth with
 minor edits to partition names and resource ceilings.
 
 ## Quick start
@@ -207,26 +207,20 @@ params {
     config_profile_description = 'RCAC Negishi (Purdue University)'
     config_profile_contact     = 'your.email@purdue.edu'              // REQUIRED
     config_profile_url         = 'https://www.rcac.purdue.edu/compute/negishi'
-
-    // Ceilings nf-core pipelines clamp resource requests against.
-    // cpu partition: 128 cores / 257 GB per node.
-    max_cpus   = 128
-    max_memory = '250.GB'
-    max_time   = '14.d'
 }
 
 // Container runtime. apptainer/singularity are on PATH on Negishi; no module load needed.
 singularity {
     enabled    = true
     autoMounts = true
-    cacheDir   = "${System.getenv('RCAC_SCRATCH')}/.singularity_cache"
+    cacheDir   = "${env('RCAC_SCRATCH')}/.singularity_cache"
 }
 
 // SLURM scheduler settings.
 executor {
     name            = 'slurm'
     queueSize       = 100          // max concurrent SLURM jobs from this run
-    submitRateLimit = '10 sec'     // throttle submissions to be kind to the scheduler
+    submitRateLimit = '60/1min'    // at most 60 job submissions per minute
     pollInterval    = '30 sec'
 }
 
@@ -236,6 +230,9 @@ process {
     queue          = 'cpu'
     clusterOptions = '-A YOUR_ACCOUNT'   // REQUIRED: run `slist` to see your accounts
     scratch        = true                // stage task work on node-local $TMPDIR
+
+    // Ceiling nf-core pipelines clamp every request against, including retries.
+    resourceLimits = [ cpus: 128, memory: 240000.MB, time: 14.d ]   // cpu partition: 128 cores; Slurm rejects --mem above ~245 GB (245000 MB), 14-day walltime
 
     // Retry once on common transient failures, then stop.
     errorStrategy = { task.exitStatus in [104,134,137,139,140,143,247] ? 'retry' : 'finish' }
@@ -268,18 +265,66 @@ process {
     // Sends the job to the highmem partition (1 TB nodes, 1-day walltime cap).
     withLabel:process_high_memory {
         queue  = 'highmem'
-        cpus   = 32
+        cpus   = 128   // highmem requires at least 64 cores; cores are allocated in proportion to memory
         memory = 900.GB
         time   = 1.d
+        resourceLimits = [ cpus: 128, memory: 900.GB, time: 24.h ]   // highmem partition: 128 cores, 1 TB, 24-hour walltime
     }
 }
 
 // Run reports for post-hoc resource audit. Remove if you do not want them.
-timeline { enabled = true; file = "${params.outdir}/pipeline_info/timeline.html" }
-report   { enabled = true; file = "${params.outdir}/pipeline_info/report.html"   }
-trace    { enabled = true; file = "${params.outdir}/pipeline_info/trace.txt"     }
-dag      { enabled = true; file = "${params.outdir}/pipeline_info/dag.html"      }
+// overwrite = true lets a rerun into the same --outdir replace these files.
+timeline {
+    enabled   = true
+    overwrite = true
+    file      = "${params.outdir}/pipeline_info/timeline.html"
+}
+report {
+    enabled   = true
+    overwrite = true
+    file      = "${params.outdir}/pipeline_info/report.html"
+}
+trace {
+    enabled   = true
+    overwrite = true
+    file      = "${params.outdir}/pipeline_info/trace.txt"
+}
+dag {
+    enabled   = true
+    overwrite = true
+    file      = "${params.outdir}/pipeline_info/dag.html"
+}
 ```
+
+!!! note "Memory requests decide how many cores you are charged for"
+    On Negishi, a job's memory request determines how many cores Slurm
+    allocates to it, and you are charged for the allocated cores. On the `cpu`
+    partition this works out to about 2 GB per core, so a task that asks for
+    6 cores and 36 GB holds about 18 cores. Keep memory requests close to what
+    a task actually needs. The `highmem` partition requires at least 64 cores
+    per job.
+
+!!! note "Resource limits replace `max_cpus`, `max_memory`, and `max_time`"
+    nf-core pipelines built on nf-core/tools 3.0 or later ignore the old
+    `max_cpus`, `max_memory`, and `max_time` parameters. They read
+    `resourceLimits` instead, and clamp any request above it (including the
+    larger requests made on retry) down to the limit. Because `resourceLimits`
+    is a process setting, the config above sets it per partition: the default
+    matches the `cpu` nodes (128 cores, 240000 MB, 14 days), and the
+    `process_high_memory` label carries its own limit for the `highmem` nodes
+    (128 cores, 900 GB, 24 hours). Pipeline releases older than that template
+    still read `--max_cpus`, `--max_memory`, and `--max_time`; pass them on the
+    command line if you run one.
+
+!!! note "Nextflow 26 strict syntax"
+    Starting with Nextflow 26.04, the [strict syntax](https://docs.seqera.io/nextflow/strict-syntax)
+    parser is on by default. Negishi's default `nextflow` module is already
+    26.04.2, so this is the parser you get today. Config files may contain only assignments, blocks,
+    and includes, and variables and `if` statements belong inside closures.
+    The config above reads environment variables with `env('VAR')`, the form the
+    Nextflow documentation recommends. If an older pipeline or personal config fails to parse, run
+    `export NXF_SYNTAX_PARSER=v1` before `nextflow run` as a temporary fallback,
+    and update the config when you can.
 
 !!! note
     The `process_high_memory` label routes jobs to the `highmem` partition
@@ -419,16 +464,20 @@ Open `multiqc_report.html` in a browser to confirm the run produced real output.
     `nextflow run` from inside an `sbatch` script (as shown in the run_demo.sh
     example above) or from an `sinteractive` session on a compute node.
 
-??? note "How do I use a different cluster (Bell, Gautschi, Gilbreth)? [click to expand]"
+??? note "How do I use a different cluster (Gautschi, Gilbreth)? [click to expand]"
 
     Copy `my_negishi.config` to `my_<cluster>.config` and edit:
 
     - `config_profile_description` / `config_profile_url`: cluster name and URL.
-    - `max_cpus`, `max_memory`, `max_time`: match the target cluster's largest
-      compute node and walltime limits.
+    - `process.resourceLimits`: the default limit; match the cores, memory, and
+      walltime of the target cluster's default partition. On Negishi this is
+      128 cores, 240000 MB, and 14 days. Use the largest memory request Slurm
+      accepts on that partition, which is lower than the nominal node memory.
     - `process.queue`: default partition on that cluster.
-    - `process.withLabel:process_high_memory { queue = ... }`: the cluster's
-      high-memory partition name (if any).
+    - `process.withLabel:process_high_memory { queue = ...; cpus = ...; resourceLimits = ... }`:
+      the cluster's high-memory partition name (if any), any minimum core count
+      it enforces, and its own limit matching that partition's cores, memory,
+      and walltime. On Negishi this limit is 128 cores, 900 GB, and 24 hours.
 
     Everything else (SLURM executor, Apptainer, retry logic, label tiers) transfers
     unchanged.

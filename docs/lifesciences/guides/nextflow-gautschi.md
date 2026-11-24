@@ -323,7 +323,7 @@ The `purdue_gautschi` profile is an institutional configuration maintained in th
 
 1. **SLURM integration.** The executor is set to `slurm`, the default queue is `cpu`, and the `--cluster_account` parameter is wired to SLURM's `-A` flag.
 2. **Container runtime.** Apptainer (aliased as `singularity` on Gautschi) is enabled with `autoMounts = true`.
-3. **Resource ceilings.** `max_cpus`, `max_memory`, and `max_time` are set to match the Gautschi CPU node specs (192 cores, 384 GB, 14 days), and the iGenomes mirror at `/depot/itap/datasets/igenomes` is configured so pipelines that use reference genomes do not re-download them.
+3. **Resource ceilings.** `process.resourceLimits` caps every task at the largest Gautschi node (192 cores, 1.5 TB, 14 days). Tasks that request more than 384 GB of memory are sent to the `highmem` partition automatically, and the iGenomes mirror at `/depot/itap/datasets/igenomes` is configured so pipelines that use reference genomes do not re-download them.
 
 You can layer your own config on top of the profile with `-c my_custom.config`. Settings in your file override the profile where they overlap. This is how the workshop overlay in the companion repository caps per-task resources to avoid monopolizing shared nodes.
 
